@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
+    <title>孤筝の温暖小家</title>
     <link>https://guzhengsvt.github.io/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <description>Recent content on 孤筝の温暖小家</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 15 Mar 2023 11:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jun 2022 20:12:52 +0800</lastBuildDate>
     <atom:link href="https://guzhengsvt.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Hello World</title>
-      <link>https://guzhengsvt.github.io/post/hello/</link>
-      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
-      <guid>https://guzhengsvt.github.io/post/hello/</guid>
-      <description>&lt;p&gt;💘 博麗 霊夢 💘&lt;/p&gt;</description>
-    </item>
     <item>
       <title>关于</title>
       <link>https://guzhengsvt.github.io/about/</link>
