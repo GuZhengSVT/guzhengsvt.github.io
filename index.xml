@@ -363,12 +363,17 @@
  Maybe You?
  &lt;/div>
  &lt;div class="friend-desc">
- 
+ test
  &lt;/div>
  &lt;/div>
  &lt;/div>
  
-&lt;/div></description></item><item><title>关于我</title><link>https://guzhengsvt.github.io/about/</link><pubDate>Mon, 14 Apr 2025 20:30:52 +0800</pubDate><guid>https://guzhengsvt.github.io/about/</guid><description>&lt;h2 id="定义">
+&lt;/div></description></item><item><title>Hello World</title><link>https://guzhengsvt.github.io/post/hello/</link><pubDate>Sun, 13 Apr 2025 11:00:00 -0700</pubDate><guid>https://guzhengsvt.github.io/post/hello/</guid><description>&lt;h1 id="20250413">
+&lt;a class="header-anchor" href="#20250413">&lt;/a>
+2025.04.13
+&lt;/h1>&lt;p>捣鼓两天终于搭好了Hugo博客，主题是&lt;a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu&lt;/a>。&lt;/p>
+&lt;p>对于原来的&lt;a href="https://guzhengsvt.top/">Typecho博客&lt;/a>响应速度不满意，我计划再次迁移博客。（尽管Typecho已经很轻量了，垃圾的云服务器及带宽严重限制了访问和文章加载速度。）&lt;/p>
+&lt;p>放弃动态后，能考虑静态无非Hexo、Hugo、Jekyll等。选择Hugo，无非是因为它的口号 &lt;em>&lt;strong>The world’s fastest framework for building websites&lt;/strong>&lt;/em> 。&lt;/p></description></item><item><title/><link>https://guzhengsvt.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://guzhengsvt.github.io/about/</guid><description>&lt;h2 id="定义">
 &lt;a class="header-anchor" href="#%e5%ae%9a%e4%b9%89">&lt;/a>
 定义
 &lt;/h2>&lt;ol>
@@ -400,25 +405,4 @@
 &lt;h3 id="业余无线电-ham">
 &lt;a class="header-anchor" href="#%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-ham">&lt;/a>
 业余无线电 HAM
-&lt;/h3>&lt;p>已取得 A 证，电台证书和呼号审批中（西安无委 NTM 能不能快点）&lt;/p></description></item><item><title>Hello World</title><link>https://guzhengsvt.github.io/post/hello/</link><pubDate>Sun, 13 Apr 2025 11:00:00 -0700</pubDate><guid>https://guzhengsvt.github.io/post/hello/</guid><description>&lt;p>测试一下新博客。
-markdown&lt;/p>
-&lt;h2 id="二级标题">
-&lt;a class="header-anchor" href="#%e4%ba%8c%e7%ba%a7%e6%a0%87%e9%a2%98">&lt;/a>
-二级标题
-&lt;/h2>&lt;h3 id="三级标题">
-&lt;a class="header-anchor" href="#%e4%b8%89%e7%ba%a7%e6%a0%87%e9%a2%98">&lt;/a>
-三级标题
-&lt;/h3>&lt;ol>
-&lt;li>分条&lt;/li>
-&lt;li>分条&lt;/li>
-&lt;/ol>
-&lt;ul>
-&lt;li>分条&lt;/li>
-&lt;/ul>
-&lt;p>&lt;del>删除线&lt;/del>&lt;/p>
-&lt;p>&lt;strong>加粗&lt;/strong>&lt;/p>
-&lt;p>&lt;em>斜体&lt;/em>&lt;/p>
-&lt;p>$\frac{1}{2}$&lt;/p>
-&lt;p>$$
-\frac{520}{1314}
-$$&lt;/p></description></item></channel></rss>
+&lt;/h3>&lt;p>已取得 A 证，电台证书和呼号审批中（西安无委 NTM 能不能快点）&lt;/p></description></item></channel></rss>
