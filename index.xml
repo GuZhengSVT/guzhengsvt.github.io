@@ -1,30 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://guzhengsvt.github.io/</link><description>Recent content on 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sun, 13 Apr 2025 11:00:00 -0700</lastBuildDate><atom:link href="https://guzhengsvt.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello World</title><link>https://guzhengsvt.github.io/post/hello/</link><pubDate>Sun, 13 Apr 2025 11:00:00 -0700</pubDate><guid>https://guzhengsvt.github.io/post/hello/</guid><description>&lt;p>测试一下新博客。
-markdown&lt;/p>
-&lt;h2 id="二级标题">
-&lt;a class="header-anchor" href="#%e4%ba%8c%e7%ba%a7%e6%a0%87%e9%a2%98">&lt;/a>
-二级标题
-&lt;/h2>&lt;h3 id="三级标题">
-&lt;a class="header-anchor" href="#%e4%b8%89%e7%ba%a7%e6%a0%87%e9%a2%98">&lt;/a>
-三级标题
-&lt;/h3>&lt;ol>
-&lt;li>分条&lt;/li>
-&lt;li>分条&lt;/li>
-&lt;/ol>
-&lt;ul>
-&lt;li>分条&lt;/li>
-&lt;/ul>
-&lt;p>&lt;del>删除线&lt;/del>&lt;/p>
-&lt;p>&lt;strong>加粗&lt;/strong>&lt;/p>
-&lt;p>&lt;em>斜体&lt;/em>&lt;/p>
-&lt;p>$\frac{1}{2}$&lt;/p>
-&lt;p>$$
-\frac{520}{1314}
-$$&lt;/p></description></item><item><title>关于</title><link>https://guzhengsvt.github.io/about/</link><pubDate>Thu, 09 Jun 2022 20:12:52 +0800</pubDate><guid>https://guzhengsvt.github.io/about/</guid><description/></item><item><title>友情链接</title><link>https://guzhengsvt.github.io/friend/</link><pubDate>Thu, 09 Jun 2022 20:12:52 +0800</pubDate><guid>https://guzhengsvt.github.io/friend/</guid><description>&lt;h2 id="本站信息">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://guzhengsvt.github.io/</link><description>Recent content on 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Mon, 14 Apr 2025 20:39:52 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>友情链接</title><link>https://guzhengsvt.github.io/friend/</link><pubDate>Mon, 14 Apr 2025 20:39:52 +0800</pubDate><guid>https://guzhengsvt.github.io/friend/</guid><description>&lt;h2 id="本站信息">
 &lt;a class="header-anchor" href="#%e6%9c%ac%e7%ab%99%e4%bf%a1%e6%81%af">&lt;/a>
 本站信息
 &lt;/h2>&lt;ul>
-&lt;li>站名： 拔剑Sketon&lt;/li>
-&lt;li>站长： 拔剑Sketon&lt;/li>
+&lt;li>站名： 孤筝の温暖小家&lt;/li>
+&lt;li>站长： 孤筝&lt;/li>
+&lt;li>网址（下面三个都是我的博客URL，任选）：
+&lt;ul>
+&lt;li>Typecho：https://guzhengsvt.top/&lt;/li>
+&lt;li>Typecho备用转发：https://guzhengsvt.cn/&lt;/li>
+&lt;li>Hugo：https://guzhengsvt.github.io/&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>描述：
+&lt;ul>
+&lt;li>中文：互联网自留地，欢迎串门。&lt;/li>
+&lt;li>English: Life is too long to end at a grave.&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;h2 id="申请方法">
 &lt;a class="header-anchor" href="#%e7%94%b3%e8%af%b7%e6%96%b9%e6%b3%95">&lt;/a>
@@ -47,47 +39,386 @@ $$&lt;/p></description></item><item><title>关于</title><link>https://guzhengsv
 &lt;div class="friend-wrap" data-aos="zoom-in">
  
  &lt;div class="friend-item-wrap">
- &lt;a href="https://d-sketon.github.io/" rel="noopener external nofollow noreferrer" target="_blank">&lt;/a>
+ &lt;a href="https://mxts.jiujiuer.xyz/" rel="noopener external nofollow noreferrer" target="_blank">&lt;/a>
  &lt;div class="friend-icon-wrap">
  &lt;div class="friend-icon">
  &lt;img
- data-src="https://d-sketon.github.io/avatar/avatar.webp"
+ data-src="https://mxts.jiujiuer.xyz/img/avatar.jpg"
  data-sizes="auto"
- alt="D-Sketon"
+ alt="神社的储物间"
  class="lazyload"
  />
  &lt;/div>
  &lt;/div>
  &lt;div class="friend-info-wrap">
  &lt;div class="friend-name">
- D-Sketon
+ 神社的储物间
  &lt;/div>
  &lt;div class="friend-desc">
- Hexo 建站
+ 西电学长，东方の佬！
  &lt;/div>
  &lt;/div>
  &lt;/div>
  
  &lt;div class="friend-item-wrap">
- &lt;a href="https://d-sketon.github.io/astro-theme-reimu/" rel="noopener external nofollow noreferrer" target="_blank">&lt;/a>
+ &lt;a href="https://www.lemonpig.cn/" rel="noopener external nofollow noreferrer" target="_blank">&lt;/a>
  &lt;div class="friend-icon-wrap">
  &lt;div class="friend-icon">
  &lt;img
- data-src="https://d-sketon.github.io/avatar/avatar.webp"
+ data-src="http://guzhengsvt.top/usr/uploads/photo1/lemonpig_avatar.jpg"
  data-sizes="auto"
- alt="D-Sketon"
+ alt="柠檬猪"
  class="lazyload"
  />
  &lt;/div>
  &lt;/div>
  &lt;div class="friend-info-wrap">
  &lt;div class="friend-name">
- D-Sketon
+ 柠檬猪
  &lt;/div>
  &lt;div class="friend-desc">
- Astro 建站
+ Ciallo～(∠・ω&amp;lt; )⌒☆
  &lt;/div>
  &lt;/div>
  &lt;/div>
  
-&lt;/div></description></item></channel></rss>
+ &lt;div class="friend-item-wrap">
+ &lt;a href="https://ray.al/" rel="noopener external nofollow noreferrer" target="_blank">&lt;/a>
+ &lt;div class="friend-icon-wrap">
+ &lt;div class="friend-icon">
+ &lt;img
+ data-src="https://www.raay.xyz/wp-content/uploads/2021/10/20211026_235800.png"
+ data-sizes="auto"
+ alt="Ri的手账本"
+ class="lazyload"
+ />
+ &lt;/div>
+ &lt;/div>
+ &lt;div class="friend-info-wrap">
+ &lt;div class="friend-name">
+ Ri的手账本
+ &lt;/div>
+ &lt;div class="friend-desc">
+ 一个鸽子的手账本，没事瞎写随缘更新。
+ &lt;/div>
+ &lt;/div>
+ &lt;/div>
+ 
+ &lt;div class="friend-item-wrap">
+ &lt;a href="https://www.superbart.top/" rel="noopener external nofollow noreferrer" target="_blank">&lt;/a>
+ &lt;div class="friend-icon-wrap">
+ &lt;div class="friend-icon">
+ &lt;img
+ data-src="https://www.superbart.top/img/avatar_hu310545342c28118c5af321addc96aeb1_17637_300x0_resize_box_3.png"
+ data-sizes="auto"
+ alt="SuperBart/BenderBlog"
+ class="lazyload"
+ />
+ &lt;/div>
+ &lt;/div>
+ &lt;div class="friend-info-wrap">
+ &lt;div class="friend-name">
+ SuperBart/BenderBlog
+ &lt;/div>
+ &lt;div class="friend-desc">
+ XDYou开发者，西电21级巨佬。
+ &lt;/div>
+ &lt;/div>
+ &lt;/div>
+ 
+ &lt;div class="friend-item-wrap">
+ &lt;a href="https://simoxdcs.github.io" rel="noopener external nofollow noreferrer" target="_blank">&lt;/a>
+ &lt;div class="friend-icon-wrap">
+ &lt;div class="friend-icon">
+ &lt;img
+ data-src="https://cdn.jsdelivr.net/gh/simoxdcs/cdn@1.2/img/1.png"
+ data-sizes="auto"
+ alt="Moming の zhan"
+ class="lazyload"
+ />
+ &lt;/div>
+ &lt;/div>
+ &lt;div class="friend-info-wrap">
+ &lt;div class="friend-name">
+ Moming の zhan
+ &lt;/div>
+ &lt;div class="friend-desc">
+ 欲买桂花同载酒，终不似，少年游。
+ &lt;/div>
+ &lt;/div>
+ &lt;/div>
+ 
+ &lt;div class="friend-item-wrap">
+ &lt;a href="https://blog.frankli.site/" rel="noopener external nofollow noreferrer" target="_blank">&lt;/a>
+ &lt;div class="friend-icon-wrap">
+ &lt;div class="friend-icon">
+ &lt;img
+ data-src="https://avatars.githubusercontent.com/u/20221896?v=4"
+ data-sizes="auto"
+ alt="Frank"
+ class="lazyload"
+ />
+ &lt;/div>
+ &lt;/div>
+ &lt;div class="friend-info-wrap">
+ &lt;div class="friend-name">
+ Frank
+ &lt;/div>
+ &lt;div class="friend-desc">
+ XDSEC2020年负责人，CTF大佬
+ &lt;/div>
+ &lt;/div>
+ &lt;/div>
+ 
+ &lt;div class="friend-item-wrap">
+ &lt;a href="https://mercer5.github.io/" rel="noopener external nofollow noreferrer" target="_blank">&lt;/a>
+ &lt;div class="friend-icon-wrap">
+ &lt;div class="friend-icon">
+ &lt;img
+ data-src="https://mercer5.github.io/images/touxiang.jpg"
+ data-sizes="auto"
+ alt="mercer"
+ class="lazyload"
+ />
+ &lt;/div>
+ &lt;/div>
+ &lt;div class="friend-info-wrap">
+ &lt;div class="friend-name">
+ mercer
+ &lt;/div>
+ &lt;div class="friend-desc">
+ 西电学长，Hexo
+ &lt;/div>
+ &lt;/div>
+ &lt;/div>
+ 
+ &lt;div class="friend-item-wrap">
+ &lt;a href="https://panqiincs.me/" rel="noopener external nofollow noreferrer" target="_blank">&lt;/a>
+ &lt;div class="friend-icon-wrap">
+ &lt;div class="friend-icon">
+ &lt;img
+ data-src="https://panqiincs.me/images/avatar.jpg"
+ data-sizes="auto"
+ alt="辛未羊的网络日志"
+ class="lazyload"
+ />
+ &lt;/div>
+ &lt;/div>
+ &lt;div class="friend-info-wrap">
+ &lt;div class="friend-name">
+ 辛未羊的网络日志
+ &lt;/div>
+ &lt;div class="friend-desc">
+ 记录生活和学习的清静之地
+ &lt;/div>
+ &lt;/div>
+ &lt;/div>
+ 
+ &lt;div class="friend-item-wrap">
+ &lt;a href="https://www.illlights.com/" rel="noopener external nofollow noreferrer" target="_blank">&lt;/a>
+ &lt;div class="friend-icon-wrap">
+ &lt;div class="friend-icon">
+ &lt;img
+ data-src="https://i.imgtg.com/2022/11/12/tndMN.png"
+ data-sizes="auto"
+ alt="喑光絮语"
+ class="lazyload"
+ />
+ &lt;/div>
+ &lt;/div>
+ &lt;div class="friend-info-wrap">
+ &lt;div class="friend-name">
+ 喑光絮语
+ &lt;/div>
+ &lt;div class="friend-desc">
+ 西电微电子の佬illlights，galgame糕手，文武双全。
+ &lt;/div>
+ &lt;/div>
+ &lt;/div>
+ 
+ &lt;div class="friend-item-wrap">
+ &lt;a href="https://blog.lsy223622.com/" rel="noopener external nofollow noreferrer" target="_blank">&lt;/a>
+ &lt;div class="friend-icon-wrap">
+ &lt;div class="friend-icon">
+ &lt;img
+ data-src="https://cravatar.cn/avatar/7aba6993da55fc5023f11022e4b552c7?s=288"
+ data-sizes="auto"
+ alt="木生懒得写博客"
+ class="lazyload"
+ />
+ &lt;/div>
+ &lt;/div>
+ &lt;div class="friend-info-wrap">
+ &lt;div class="friend-name">
+ 木生懒得写博客
+ &lt;/div>
+ &lt;div class="friend-desc">
+ 西电学长，Typecho
+ &lt;/div>
+ &lt;/div>
+ &lt;/div>
+ 
+ &lt;div class="friend-item-wrap">
+ &lt;a href="https://litao2001.github.io/" rel="noopener external nofollow noreferrer" target="_blank">&lt;/a>
+ &lt;div class="friend-icon-wrap">
+ &lt;div class="friend-icon">
+ &lt;img
+ data-src="https://guzhengsvt.top/usr/uploads/2024/10/3661974967.jpeg"
+ data-sizes="auto"
+ alt="Hobbit Lee&amp;#39;s Hole"
+ class="lazyload"
+ />
+ &lt;/div>
+ &lt;/div>
+ &lt;div class="friend-info-wrap">
+ &lt;div class="friend-name">
+ Hobbit Lee&amp;#39;s Hole
+ &lt;/div>
+ &lt;div class="friend-desc">
+ 钱班19级天文方向学长
+ &lt;/div>
+ &lt;/div>
+ &lt;/div>
+ 
+ &lt;div class="friend-item-wrap">
+ &lt;a href="https://www.aurora.love/" rel="noopener external nofollow noreferrer" target="_blank">&lt;/a>
+ &lt;div class="friend-icon-wrap">
+ &lt;div class="friend-icon">
+ &lt;img
+ data-src="https://s2.loli.net/2022/04/15/YfcRmK6stJrIBg5.jpg"
+ data-sizes="auto"
+ alt="Aurora"
+ class="lazyload"
+ />
+ &lt;/div>
+ &lt;/div>
+ &lt;div class="friend-info-wrap">
+ &lt;div class="friend-name">
+ Aurora
+ &lt;/div>
+ &lt;div class="friend-desc">
+ 摄影领域大神（~~又一个玩gal的~~）
+ &lt;/div>
+ &lt;/div>
+ &lt;/div>
+ 
+ &lt;div class="friend-item-wrap">
+ &lt;a href="https://2heng.xin/" rel="noopener external nofollow noreferrer" target="_blank">&lt;/a>
+ &lt;div class="friend-icon-wrap">
+ &lt;div class="friend-icon">
+ &lt;img
+ data-src="https://view.moezx.cc/images/2018/03/27/avatar.jpg"
+ data-sizes="auto"
+ alt="Mashiro"
+ class="lazyload"
+ />
+ &lt;/div>
+ &lt;/div>
+ &lt;div class="friend-info-wrap">
+ &lt;div class="friend-name">
+ Mashiro
+ &lt;/div>
+ &lt;div class="friend-desc">
+ 樱花庄的白猫
+ &lt;/div>
+ &lt;/div>
+ &lt;/div>
+ 
+ &lt;div class="friend-item-wrap">
+ &lt;a href="https://www.uk01.cn/" rel="noopener external nofollow noreferrer" target="_blank">&lt;/a>
+ &lt;div class="friend-icon-wrap">
+ &lt;div class="friend-icon">
+ &lt;img
+ data-src="https://www.uk01.cn/wp-content/uploads/2024/11/20241130143908977371.webp"
+ data-sizes="auto"
+ alt="星空博客"
+ class="lazyload"
+ />
+ &lt;/div>
+ &lt;/div>
+ &lt;div class="friend-info-wrap">
+ &lt;div class="friend-name">
+ 星空博客
+ &lt;/div>
+ &lt;div class="friend-desc">
+ 专注网络技术发展打造共同学习平台，为各大网友排忧解难。主要分享wordpress代码教程，提供网站模板源码，交流前端技术。
+ &lt;/div>
+ &lt;/div>
+ &lt;/div>
+ 
+ &lt;div class="friend-item-wrap">
+ &lt;a href="" rel="noopener external nofollow noreferrer" target="_blank">&lt;/a>
+ &lt;div class="friend-icon-wrap">
+ &lt;div class="friend-icon">
+ &lt;img
+ data-src=""
+ data-sizes="auto"
+ alt="Maybe You?"
+ class="lazyload"
+ />
+ &lt;/div>
+ &lt;/div>
+ &lt;div class="friend-info-wrap">
+ &lt;div class="friend-name">
+ Maybe You?
+ &lt;/div>
+ &lt;div class="friend-desc">
+ 
+ &lt;/div>
+ &lt;/div>
+ &lt;/div>
+ 
+&lt;/div></description></item><item><title>关于我</title><link>https://guzhengsvt.github.io/about/</link><pubDate>Mon, 14 Apr 2025 20:30:52 +0800</pubDate><guid>https://guzhengsvt.github.io/about/</guid><description>&lt;h2 id="定义">
+&lt;a class="header-anchor" href="#%e5%ae%9a%e4%b9%89">&lt;/a>
+定义
+&lt;/h2>&lt;ol>
+&lt;li>无产者，坚定的共产主义者，立志为真正的共产主义事业奋斗终生。&lt;/li>
+&lt;li>热爱航空航天事业并计划从事相关工作。&lt;/li>
+&lt;li>2022 级&lt;del>西安电子科技大学&lt;/del>北雷村男子职业技术学院钱学森空间科学实验班学生。&lt;/li>
+&lt;li>大三，21 岁，奔三了，平平无奇小镇做题家，伪二次元。&lt;/li>
+&lt;/ol>
+&lt;h2 id="爱好">
+&lt;a class="header-anchor" href="#%e7%88%b1%e5%a5%bd">&lt;/a>
+爱好
+&lt;/h2>&lt;h3 id="音乐">
+&lt;a class="header-anchor" href="#%e9%9f%b3%e4%b9%90">&lt;/a>
+音乐
+&lt;/h3>&lt;ol>
+&lt;li>纯音乐：钢琴独奏，小提琴独奏，电影、galgame、番剧、游戏中的纯音乐，电音，古典，歌曲伴奏等。&lt;/li>
+&lt;li>民谣：favorite &lt;strong>《我记得》&lt;/strong> 赵雷&lt;/li>
+&lt;li>英语：favorite &lt;em>&lt;strong>Take Me Hand&lt;/strong>&lt;/em> 塞西尔·科贝尔（Cécile Corbel）&lt;/li>
+&lt;li>古风：favorite &lt;strong>《故梦》&lt;/strong> 双笙&lt;/li>
+&lt;li>流行：唯一不变的是永远在变。&lt;/li>
+&lt;/ol>
+&lt;h3 id="体育完全不擅长">
+&lt;a class="header-anchor" href="#%e4%bd%93%e8%82%b2%e5%ae%8c%e5%85%a8%e4%b8%8d%e6%93%85%e9%95%bf">&lt;/a>
+体育（完全不擅长）
+&lt;/h3>&lt;ol>
+&lt;li>羽毛球&lt;/li>
+&lt;li>骑行&lt;/li>
+&lt;/ol>
+&lt;h3 id="业余无线电-ham">
+&lt;a class="header-anchor" href="#%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-ham">&lt;/a>
+业余无线电 HAM
+&lt;/h3>&lt;p>已取得 A 证，电台证书和呼号审批中（西安无委 NTM 能不能快点）&lt;/p></description></item><item><title>Hello World</title><link>https://guzhengsvt.github.io/post/hello/</link><pubDate>Sun, 13 Apr 2025 11:00:00 -0700</pubDate><guid>https://guzhengsvt.github.io/post/hello/</guid><description>&lt;p>测试一下新博客。
+markdown&lt;/p>
+&lt;h2 id="二级标题">
+&lt;a class="header-anchor" href="#%e4%ba%8c%e7%ba%a7%e6%a0%87%e9%a2%98">&lt;/a>
+二级标题
+&lt;/h2>&lt;h3 id="三级标题">
+&lt;a class="header-anchor" href="#%e4%b8%89%e7%ba%a7%e6%a0%87%e9%a2%98">&lt;/a>
+三级标题
+&lt;/h3>&lt;ol>
+&lt;li>分条&lt;/li>
+&lt;li>分条&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>分条&lt;/li>
+&lt;/ul>
+&lt;p>&lt;del>删除线&lt;/del>&lt;/p>
+&lt;p>&lt;strong>加粗&lt;/strong>&lt;/p>
+&lt;p>&lt;em>斜体&lt;/em>&lt;/p>
+&lt;p>$\frac{1}{2}$&lt;/p>
+&lt;p>$$
+\frac{520}{1314}
+$$&lt;/p></description></item></channel></rss>
