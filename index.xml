@@ -1,4 +1,401 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://guzhengsvt.github.io/</link><description>Recent content on 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Mon, 14 Apr 2025 20:39:52 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>友情链接</title><link>https://guzhengsvt.github.io/friend/</link><pubDate>Mon, 14 Apr 2025 20:39:52 +0800</pubDate><guid>https://guzhengsvt.github.io/friend/</guid><description>&lt;h2 id="本站信息">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://guzhengsvt.github.io/</link><description>Recent content on 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Tue, 15 Apr 2025 19:48:41 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>最近写的诗</title><link>https://guzhengsvt.github.io/post/%E8%AF%97%E6%AD%8C/%E6%9C%80%E8%BF%91%E5%86%99%E7%9A%84%E8%AF%97/</link><pubDate>Tue, 15 Apr 2025 19:48:41 +0800</pubDate><guid>https://guzhengsvt.github.io/post/%E8%AF%97%E6%AD%8C/%E6%9C%80%E8%BF%91%E5%86%99%E7%9A%84%E8%AF%97/</guid><description/></item><item><title>博客常用资料</title><link>https://guzhengsvt.github.io/post/%E5%85%B6%E4%BB%96%E7%AC%94%E8%AE%B0/%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link><pubDate>Tue, 15 Apr 2025 16:42:35 +0800</pubDate><guid>https://guzhengsvt.github.io/post/%E5%85%B6%E4%BB%96%E7%AC%94%E8%AE%B0/%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid><description>&lt;h1 id="hugo-常用命令">
+&lt;a class="header-anchor" href="#hugo-%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4">&lt;/a>
+Hugo 常用命令
+&lt;/h1>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>命令&lt;/th>
+ &lt;th>作用&lt;/th>
+ &lt;th>说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>hugo version&lt;/code>&lt;/td>
+ &lt;td>查看版本&lt;/td>
+ &lt;td>显示当前 Hugo 安装版本&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>hugo new site &amp;lt;项目名&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>创建新站点&lt;/td>
+ &lt;td>会生成 Hugo 的目录结构&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>hugo new post/&amp;lt;文件名.md&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>创建新文章&lt;/td>
+ &lt;td>会在 &lt;code>content/post/&lt;/code> 下生成文章并附带默认 Front Matter&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>hugo server&lt;/code>&lt;/td>
+ &lt;td>启动本地服务&lt;/td>
+ &lt;td>启动本地预览，默认地址 &lt;code>http://localhost:1313&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>hugo server -D&lt;/code>&lt;/td>
+ &lt;td>启动并显示草稿&lt;/td>
+ &lt;td>&lt;code>-D&lt;/code> 参数显示 &lt;code>draft: true&lt;/code> 的文章&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>hugo&lt;/code>&lt;/td>
+ &lt;td>构建网站&lt;/td>
+ &lt;td>将 Markdown 内容生成静态文件到 &lt;code>public/&lt;/code> 目录&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>hugo -D &amp;lt;输出目录&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>构建包含草稿&lt;/td>
+ &lt;td>用于发布前的全站构建（含草稿）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>hugo --minify&lt;/code>&lt;/td>
+ &lt;td>压缩构建文件&lt;/td>
+ &lt;td>构建时压缩 HTML/CSS/JS，减小体积&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>hugo config&lt;/code>&lt;/td>
+ &lt;td>查看配置信息&lt;/td>
+ &lt;td>显示当前站点的配置信息&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>hugo list drafts&lt;/code>&lt;/td>
+ &lt;td>列出草稿&lt;/td>
+ &lt;td>查看所有设置了 &lt;code>draft: true&lt;/code> 的文章&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>hugo list future&lt;/code>&lt;/td>
+ &lt;td>列出未来发布的文章&lt;/td>
+ &lt;td>&lt;code>date&lt;/code> 设置在当前时间之后的文章&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>hugo list expired&lt;/code>&lt;/td>
+ &lt;td>列出过期文章&lt;/td>
+ &lt;td>&lt;code>expiryDate&lt;/code> 已过期的文章&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>hugo --gc&lt;/code>&lt;/td>
+ &lt;td>垃圾回收&lt;/td>
+ &lt;td>清理过时资源，如缩略图缓存&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h1 id="reimu-主题-icon_font">
+&lt;a class="header-anchor" href="#reimu-%e4%b8%bb%e9%a2%98-icon_font">&lt;/a>
+reimu 主题 icon_font
+&lt;/h1>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>图标类名&lt;/th>
+ &lt;th>十六进制编号&lt;/th>
+ &lt;th>中文含义&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>.tag-wrap&lt;/code> / &lt;code>.article-tag-list-link&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e622&lt;/code>&lt;/td>
+ &lt;td>标签&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.category-wrap&lt;/code> / &lt;code>.article-category-link&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e604&lt;/code>&lt;/td>
+ &lt;td>分类&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.article-date-link&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e606&lt;/code>&lt;/td>
+ &lt;td>日期&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.article-comment-link&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e608&lt;/code>&lt;/td>
+ &lt;td>评论&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-copyright&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e60a&lt;/code>&lt;/td>
+ &lt;td>版权&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-brush&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e618&lt;/code>&lt;/td>
+ &lt;td>画笔 / 美化&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-coffee&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e607&lt;/code>&lt;/td>
+ &lt;td>咖啡&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-eye&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e60f&lt;/code>&lt;/td>
+ &lt;td>观看 / 浏览&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-user&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e628&lt;/code>&lt;/td>
+ &lt;td>用户&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>#main-nav-toggle&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e62f&lt;/code>&lt;/td>
+ &lt;td>导航菜单切换&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>#nav-rss-link&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e61f&lt;/code>&lt;/td>
+ &lt;td>RSS订阅&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>#nav-search-btn&lt;/code> / &lt;code>.reimu-search-input-icon&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e631&lt;/code>&lt;/td>
+ &lt;td>搜索按钮&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>#nav-sun-btn&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e621&lt;/code>&lt;/td>
+ &lt;td>太阳图标（亮色主题）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>#nav-moon-btn&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e617&lt;/code>&lt;/td>
+ &lt;td>月亮图标（暗色主题）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>#nav-circle-half-stroke-btn&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e641&lt;/code>&lt;/td>
+ &lt;td>半圆（主题切换）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-copy&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e60c&lt;/code>&lt;/td>
+ &lt;td>复制&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-chevron-down&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e609&lt;/code>&lt;/td>
+ &lt;td>下箭头&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-check&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e636&lt;/code>&lt;/td>
+ &lt;td>勾 / 确认&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-times&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e637&lt;/code>&lt;/td>
+ &lt;td>叉 / 关闭&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-calendar&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e605&lt;/code>&lt;/td>
+ &lt;td>日历&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-pencil&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e61b&lt;/code>&lt;/td>
+ &lt;td>铅笔 / 编辑&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-clock&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e613&lt;/code>&lt;/td>
+ &lt;td>时钟&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.post-sticky&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e627&lt;/code>&lt;/td>
+ &lt;td>置顶&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.reimu-popup .popup-btn-close&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e626&lt;/code>&lt;/td>
+ &lt;td>弹窗关闭&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.ais-pagination--item__previous&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e601&lt;/code>&lt;/td>
+ &lt;td>上一页&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.ais-pagination--item__next&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e630&lt;/code>&lt;/td>
+ &lt;td>下一页&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-github&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e619&lt;/code>&lt;/td>
+ &lt;td>GitHub图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-google&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e611&lt;/code>&lt;/td>
+ &lt;td>Google图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-facebook&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e60e&lt;/code>&lt;/td>
+ &lt;td>Facebook图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-twitter&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e62a&lt;/code>&lt;/td>
+ &lt;td>Twitter图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-instagram&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e615&lt;/code>&lt;/td>
+ &lt;td>Instagram图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-linkedin&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e614&lt;/code>&lt;/td>
+ &lt;td>LinkedIn图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-pinterest&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e61a&lt;/code>&lt;/td>
+ &lt;td>Pinterest图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-youtube&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e62d&lt;/code>&lt;/td>
+ &lt;td>YouTube图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-vimeo&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e629&lt;/code>&lt;/td>
+ &lt;td>Vimeo图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-flickr&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e612&lt;/code>&lt;/td>
+ &lt;td>Flickr图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-dribbble&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e610&lt;/code>&lt;/td>
+ &lt;td>Dribbble图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-behance&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e602&lt;/code>&lt;/td>
+ &lt;td>Behance图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-bilibili&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e603&lt;/code>&lt;/td>
+ &lt;td>哔哩哔哩图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-weibo&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e62c&lt;/code>&lt;/td>
+ &lt;td>微博图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-zhihu&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e62e&lt;/code>&lt;/td>
+ &lt;td>知乎图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-reddit&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e61c&lt;/code>&lt;/td>
+ &lt;td>Reddit图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-tumblr&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e625&lt;/code>&lt;/td>
+ &lt;td>Tumblr图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-medium&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e616&lt;/code>&lt;/td>
+ &lt;td>Medium图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-deviantart&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e60b&lt;/code>&lt;/td>
+ &lt;td>DeviantArt图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-stackoverflow&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e620&lt;/code>&lt;/td>
+ &lt;td>StackOverflow图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-keybase&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e61e&lt;/code>&lt;/td>
+ &lt;td>Keybase图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-telegram&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e623&lt;/code>&lt;/td>
+ &lt;td>Telegram图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-discord&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e60d&lt;/code>&lt;/td>
+ &lt;td>Discord图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-steam&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e624&lt;/code>&lt;/td>
+ &lt;td>Steam图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-email&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e63c&lt;/code>&lt;/td>
+ &lt;td>邮件&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.sidebar-toc-btn&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e633&lt;/code>&lt;/td>
+ &lt;td>目录按钮&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.sidebar-common-btn&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e632&lt;/code>&lt;/td>
+ &lt;td>侧边通用按钮&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.sidebar-top .arrow-up&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e634&lt;/code>&lt;/td>
+ &lt;td>向上箭头&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-link&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e639&lt;/code>&lt;/td>
+ &lt;td>链接&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-globe&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e638&lt;/code>&lt;/td>
+ &lt;td>地球 / 多语言&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-creative-commons&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e63a&lt;/code>&lt;/td>
+ &lt;td>创用CC授权&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-taichi&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e62b&lt;/code>&lt;/td>
+ &lt;td>太极（暗黑模式）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-weixin&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e640&lt;/code>&lt;/td>
+ &lt;td>微信图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-qq&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e63e&lt;/code>&lt;/td>
+ &lt;td>QQ图标&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>.icon-image&lt;/code>&lt;/td>
+ &lt;td>&lt;code>\e63f&lt;/code>&lt;/td>
+ &lt;td>图片图标&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>友情链接</title><link>https://guzhengsvt.github.io/friend/</link><pubDate>Mon, 14 Apr 2025 20:39:52 +0800</pubDate><guid>https://guzhengsvt.github.io/friend/</guid><description>&lt;h2 id="本站信息">
 &lt;a class="header-anchor" href="#%e6%9c%ac%e7%ab%99%e4%bf%a1%e6%81%af">&lt;/a>
 本站信息
 &lt;/h2>&lt;ul>
@@ -24,19 +421,41 @@
 &lt;/h2>&lt;ul>
 &lt;li>添加本站后，在本页留言，格式如下&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yml" data-lang="yml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">```yml&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>- &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#75715e">#您的名字&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">url&lt;/span>: &lt;span style="color:#75715e">#您的网址&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">desc&lt;/span>: &lt;span style="color:#75715e">#简短描述&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">image&lt;/span>: &lt;span style="color:#75715e">#一张图片&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">```&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="小伙伴们">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="line">&lt;span class="cl">&lt;span class="l">```yml&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#您的名字&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">url&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#您的网址&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">desc&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#简短描述&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#一张图片&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="l">```&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="小伙伴们">
 &lt;a class="header-anchor" href="#%e5%b0%8f%e4%bc%99%e4%bc%b4%e4%bb%ac">&lt;/a>
 小伙伴们
 &lt;/h2>
 
 
 &lt;div class="friend-wrap" data-aos="zoom-in">
+ 
+ &lt;div class="friend-item-wrap">
+ &lt;a href="https://sutdown.github.io" rel="noopener external nofollow noreferrer" target="_blank">&lt;/a>
+ &lt;div class="friend-icon-wrap">
+ &lt;div class="friend-icon">
+ &lt;img
+ data-src="https://github.com/Sutdown.png"
+ data-sizes="auto"
+ alt="江舟"
+ class="lazyload"
+ />
+ &lt;/div>
+ &lt;/div>
+ &lt;div class="friend-info-wrap">
+ &lt;div class="friend-name">
+ 江舟
+ &lt;/div>
+ &lt;div class="friend-desc">
+ 计科の佬，官方认证夜猫子。
+ &lt;/div>
+ &lt;/div>
+ &lt;/div>
  
  &lt;div class="friend-item-wrap">
  &lt;a href="https://mxts.jiujiuer.xyz/" rel="noopener external nofollow noreferrer" target="_blank">&lt;/a>
@@ -363,17 +782,43 @@
  Maybe You?
  &lt;/div>
  &lt;div class="friend-desc">
- test
+ 欢迎添加友链：）
  &lt;/div>
  &lt;/div>
  &lt;/div>
  
-&lt;/div></description></item><item><title>Hello World</title><link>https://guzhengsvt.github.io/post/hello/</link><pubDate>Sun, 13 Apr 2025 11:00:00 -0700</pubDate><guid>https://guzhengsvt.github.io/post/hello/</guid><description>&lt;h1 id="20250413">
+&lt;/div></description></item><item><title>Hello World</title><link>https://guzhengsvt.github.io/post/%E7%A2%8E%E7%A2%8E%E5%BF%B5/hello/</link><pubDate>Sun, 13 Apr 2025 11:00:00 +0800</pubDate><guid>https://guzhengsvt.github.io/post/%E7%A2%8E%E7%A2%8E%E5%BF%B5/hello/</guid><description>&lt;h1 id="20250413">
 &lt;a class="header-anchor" href="#20250413">&lt;/a>
 2025.04.13
 &lt;/h1>&lt;p>捣鼓两天终于搭好了Hugo博客，主题是&lt;a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu&lt;/a>。&lt;/p>
 &lt;p>对于原来的&lt;a href="https://guzhengsvt.top/">Typecho博客&lt;/a>响应速度不满意，我计划再次迁移博客。（尽管Typecho已经很轻量了，垃圾的云服务器及带宽严重限制了访问和文章加载速度。）&lt;/p>
-&lt;p>放弃动态后，能考虑静态无非Hexo、Hugo、Jekyll等。选择Hugo，无非是因为它的口号 &lt;em>&lt;strong>The world’s fastest framework for building websites&lt;/strong>&lt;/em> 。&lt;/p></description></item><item><title/><link>https://guzhengsvt.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://guzhengsvt.github.io/about/</guid><description>&lt;h2 id="定义">
+&lt;p>放弃动态后，能考虑静态无非Hexo、Hugo、Jekyll等。选择Hugo，无非是因为它的口号 &lt;em>&lt;strong>The world’s fastest framework for building websites&lt;/strong>&lt;/em> 。&lt;/p></description></item><item><title>大魔王糖心千尺飞机杯评测</title><link>https://guzhengsvt.github.io/post/%E8%AF%84%E8%AE%BA/%E5%A4%A7%E9%AD%94%E7%8E%8B%E7%B3%96%E5%BF%83%E5%8D%83%E5%B0%BA%E9%A3%9E%E6%9C%BA%E6%9D%AF%E8%AF%84%E6%B5%8B/</link><pubDate>Tue, 21 Nov 2023 18:05:18 +0800</pubDate><guid>https://guzhengsvt.github.io/post/%E8%AF%84%E8%AE%BA/%E5%A4%A7%E9%AD%94%E7%8E%8B%E7%B3%96%E5%BF%83%E5%8D%83%E5%B0%BA%E9%A3%9E%E6%9C%BA%E6%9D%AF%E8%AF%84%E6%B5%8B/</guid><description>&lt;h2 id="前言">
+&lt;a class="header-anchor" href="#%e5%89%8d%e8%a8%80">&lt;/a>
+前言
+&lt;/h2>&lt;p>单身久了难免有些寂寞，虽然既不想找对象又不能嫖，但是不能苦了兄弟。兄弟陪我20年了是时候给他找个温暖的家。
+购物车放了好久的EXE家的奶瓶三代plus，最近再看评价感觉质量一般，润滑液有漏的风险。
+思来想去，其隐蔽的外形在我眼尖的舍友面前也很难隐藏起她飞机杯的身份，遂放弃。
+继续在tb和狗东找合适的产品，看上了业界鼎鼎大名的大魔王家的这款糖心千尺。主要是她以&lt;strong>芳文社百合番《URARA迷路贴》的千矢&lt;/strong>作为外在形象很可爱。&lt;/p></description></item><item><title>落木千山外</title><link>https://guzhengsvt.github.io/post/%E8%AF%97%E6%AD%8C/%E8%90%BD%E6%9C%A8%E5%8D%83%E5%B1%B1%E5%A4%96/</link><pubDate>Wed, 28 Sep 2022 17:26:44 +0800</pubDate><guid>https://guzhengsvt.github.io/post/%E8%AF%97%E6%AD%8C/%E8%90%BD%E6%9C%A8%E5%8D%83%E5%B1%B1%E5%A4%96/</guid><description>&lt;blockquote>
+&lt;p>“落木千山天远大，澄江一道月分明。”
+——黄庭坚《登快阁》&lt;/p>&lt;/blockquote>
+&lt;p>我输了比赛，按住作痛的手，踽踽独行于路边。
+秋天的落晖染黄秋天的树叶，秋天的风吹落秋天的思念。
+淡黄的银杏叶似细雨绵绵，褐黄的梧桐叶泄在字里行间。
+这片杏黄的雪迷了我的眼，
+一时分不清哪片是梧桐落红，哪片是银杏飘丹，
+还要点缀些青年的熙攘和情人的眼泪。
+就让北国的落木埋葬归离人的孤寂。
+南风呵，
+你可许我们同一场南国的雪。&lt;/p></description></item><item><title>短诗精选</title><link>https://guzhengsvt.github.io/post/%E8%AF%97%E6%AD%8C/%E7%9F%AD%E8%AF%97%E7%B2%BE%E9%80%89/</link><pubDate>Fri, 16 Sep 2022 22:20:41 +0800</pubDate><guid>https://guzhengsvt.github.io/post/%E8%AF%97%E6%AD%8C/%E7%9F%AD%E8%AF%97%E7%B2%BE%E9%80%89/</guid><description>&lt;p>你站在桥上看风景，看风景的人在楼上看你。明月装饰了你的窗子，你装饰了别人的梦。&lt;/p>
+&lt;p>——《断章》卞之琳&lt;/p>
+&lt;p>我多么希望，有一个门口。早晨，阳光照在草上，我们站着，扶着自己的门扇。门很低，但太阳是明亮的。草在结它的种子，风在摇它的叶子，我们站着，不说话，就十分美好。&lt;/p></description></item><item><title>Blog建成总结(Hexo+Github版）</title><link>https://guzhengsvt.github.io/post/%E7%A2%8E%E7%A2%8E%E5%BF%B5/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo+github%E7%89%88/</link><pubDate>Sat, 10 Sep 2022 09:30:52 +0800</pubDate><guid>https://guzhengsvt.github.io/post/%E7%A2%8E%E7%A2%8E%E5%BF%B5/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo+github%E7%89%88/</guid><description>&lt;p>&lt;strong>早期建站记录，已失效，仅作纪念&lt;/strong>&lt;/p>
+&lt;p>&lt;a href="https://guzhengsvt.github.io">https://guzhengsvt.github.io&lt;/a>&lt;/p>
+&lt;p>基于GitHub+Hexo搭建的个人博客，目前已完成主要功能的施工。&lt;/p>
+&lt;p>经过两天的高强度爆肝，我终于实现了两年来的梦想——做一个属于自己的个人网站（博客）。在这个人云亦云、万马齐喑的喧闹时代，这也算是一片互联网自留地吧。&lt;/p></description></item><item><title>《红楼梦》诗词精选</title><link>https://guzhengsvt.github.io/post/%E8%AF%97%E6%AD%8C/%E7%BA%A2%E6%A5%BC%E6%A2%A6%E8%AF%97%E8%AF%8D%E7%B2%BE%E9%80%89/</link><pubDate>Fri, 09 Sep 2022 17:29:44 +0800</pubDate><guid>https://guzhengsvt.github.io/post/%E8%AF%97%E6%AD%8C/%E7%BA%A2%E6%A5%BC%E6%A2%A6%E8%AF%97%E8%AF%8D%E7%B2%BE%E9%80%89/</guid><description>&lt;p>《引子》
+开辟鸿蒙,谁为情种?都只为风月情浓.
+趁着这奈何天,伤怀日,寂寥时,试遣愚衷.
+因此上演出这怀金悼玉的&amp;laquo;红楼梦&amp;raquo;.&lt;/p></description></item><item><title>予我遗憾亦赠我惊喜，予我万千风景</title><link>https://guzhengsvt.github.io/post/%E7%A2%8E%E7%A2%8E%E5%BF%B5/%E4%BA%88%E6%88%91%E9%81%97%E6%86%BE%E4%BA%A6%E8%B5%A0%E6%88%91%E6%83%8A%E5%96%9C%E4%BA%88%E6%88%91%E4%B8%87%E5%8D%83%E9%A3%8E%E6%99%AF/</link><pubDate>Fri, 09 Sep 2022 13:14:00 +0800</pubDate><guid>https://guzhengsvt.github.io/post/%E7%A2%8E%E7%A2%8E%E5%BF%B5/%E4%BA%88%E6%88%91%E9%81%97%E6%86%BE%E4%BA%A6%E8%B5%A0%E6%88%91%E6%83%8A%E5%96%9C%E4%BA%88%E6%88%91%E4%B8%87%E5%8D%83%E9%A3%8E%E6%99%AF/</guid><description>&lt;p>于我，志愿表填完提交，2022.7.2下午5：00之后，我的高中生涯才算正式结束。&lt;/p>
+&lt;p>三年前选择了武中，现在回看，亦不后悔。也许多年后再回首，那条人迹罕至的小路更加诱人，但谁知道选择的对错呢？那时的我是多么坚定呐。尽管理由已经消逝如烟，我仍尊重那个青涩的少年。&lt;/p></description></item><item><title>2022.7.14新生</title><link>https://guzhengsvt.github.io/post/%E7%A2%8E%E7%A2%8E%E5%BF%B5/2022/</link><pubDate>Thu, 14 Jul 2022 13:14:52 +0800</pubDate><guid>https://guzhengsvt.github.io/post/%E7%A2%8E%E7%A2%8E%E5%BF%B5/2022/</guid><description>&lt;p>这一天，我真正意义上地迎来了新生。&lt;/p></description></item><item><title/><link>https://guzhengsvt.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://guzhengsvt.github.io/about/</guid><description>&lt;h2 id="定义">
 &lt;a class="header-anchor" href="#%e5%ae%9a%e4%b9%89">&lt;/a>
 定义
 &lt;/h2>&lt;ol>
