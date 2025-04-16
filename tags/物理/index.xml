@@ -1,34 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>物理 on 为什么要演奏春日影！</title><link>https://guzhengsvt.github.io/tags/%E7%89%A9%E7%90%86/</link><description>Recent content in 物理 on 为什么要演奏春日影！</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Mon, 02 Sep 2024 22:13:45 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/tags/%E7%89%A9%E7%90%86/index.xml" rel="self" type="application/rss+xml"/><item><title>空气动力学基础</title><link>https://guzhengsvt.github.io/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link><pubDate>Wed, 16 Apr 2025 16:18:45 +0800</pubDate><guid>https://guzhengsvt.github.io/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid><description>&lt;h1 id="流体静力学基础">
-&lt;a class="header-anchor" href="#%e6%b5%81%e4%bd%93%e9%9d%99%e5%8a%9b%e5%ad%a6%e5%9f%ba%e7%a1%80">&lt;/a>
-流体静力学基础
-&lt;/h1>&lt;h2 id="气体性质">
-&lt;a class="header-anchor" href="#%e6%b0%94%e4%bd%93%e6%80%a7%e8%b4%a8">&lt;/a>
-气体性质
-&lt;/h2>&lt;h3 id="压缩性">
-&lt;a class="header-anchor" href="#%e5%8e%8b%e7%bc%a9%e6%80%a7">&lt;/a>
-压缩性
-&lt;/h3>&lt;h4 id="体积弹性模数">
-&lt;a class="header-anchor" href="#%e4%bd%93%e7%a7%af%e5%bc%b9%e6%80%a7%e6%a8%a1%e6%95%b0">&lt;/a>
-体积弹性模数
-&lt;/h4>&lt;p>定义：产生单位相对体积变化所需压强增高&lt;/p>
-$$
-E=-\frac{dp}{dV/V}
-$$&lt;p>对于一定质量气体，体积与密度成反比例关系，即&lt;/p>
-$$
-\frac{d \rho}{\rho}=-\frac{dV}{V}
-$$&lt;p>回代得&lt;/p></description></item><item><title>热力学与统计物理</title><link>https://guzhengsvt.github.io/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</link><pubDate>Wed, 16 Apr 2025 15:52:59 +0800</pubDate><guid>https://guzhengsvt.github.io/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</guid><description>&lt;h1 id="物理量">
-&lt;a class="header-anchor" href="#%e7%89%a9%e7%90%86%e9%87%8f">&lt;/a>
-物理量
-&lt;/h1>&lt;h2 id="内能-u">
-&lt;a class="header-anchor" href="#%e5%86%85%e8%83%bd-u">&lt;/a>
-内能 U
-&lt;/h2>$$
-\Delta U=Q+W
-$$&lt;p>
-Q为系统吸热，W为系统对外做功&lt;/p>
-&lt;h2 id="熵-s">
-&lt;a class="header-anchor" href="#%e7%86%b5-s">&lt;/a>
-熵 S
-&lt;/h2>&lt;p>熵是一种测量在动力学方面&lt;strong>不能做功&lt;/strong>的能量总数，也就是当总体的熵增加，其做功能力也下降，熵的量度正是能量退化的指标。
-==可逆过程==中
-&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>物理 on 为什么要演奏春日影！</title>
+    <link>http://localhost:1313/tags/%E7%89%A9%E7%90%86/</link>
+    <description>Recent content in 物理 on 为什么要演奏春日影！</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 02 Sep 2024 22:13:45 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E7%89%A9%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>空气动力学基础</title>
+      <link>http://localhost:1313/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Wed, 16 Apr 2025 16:18:45 +0800</pubDate>
+      <guid>http://localhost:1313/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid>
+      <description>&lt;h1 id=&#34;流体静力学基础&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#%e6%b5%81%e4%bd%93%e9%9d%99%e5%8a%9b%e5%ad%a6%e5%9f%ba%e7%a1%80&#34;&gt;&lt;/a&gt;&#xA;流体静力学基础&#xA;&lt;/h1&gt;&lt;h2 id=&#34;气体性质&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#%e6%b0%94%e4%bd%93%e6%80%a7%e8%b4%a8&#34;&gt;&lt;/a&gt;&#xA;气体性质&#xA;&lt;/h2&gt;&lt;h3 id=&#34;压缩性&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#%e5%8e%8b%e7%bc%a9%e6%80%a7&#34;&gt;&lt;/a&gt;&#xA;压缩性&#xA;&lt;/h3&gt;&lt;h4 id=&#34;体积弹性模数&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#%e4%bd%93%e7%a7%af%e5%bc%b9%e6%80%a7%e6%a8%a1%e6%95%b0&#34;&gt;&lt;/a&gt;&#xA;体积弹性模数&#xA;&lt;/h4&gt;&lt;p&gt;定义：产生单位相对体积变化所需压强增高&lt;/p&gt;&#xA;$$&#xA;E=-\frac{dp}{dV/V}&#xA;$$&lt;p&gt;对于一定质量气体，体积与密度成反比例关系，即&lt;/p&gt;&#xA;$$&#xA;\frac{d \rho}{\rho}=-\frac{dV}{V}&#xA;$$&lt;p&gt;回代得&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>热力学与统计物理</title>
+      <link>http://localhost:1313/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</link>
+      <pubDate>Wed, 16 Apr 2025 15:52:59 +0800</pubDate>
+      <guid>http://localhost:1313/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</guid>
+      <description>&lt;h1 id=&#34;物理量&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#%e7%89%a9%e7%90%86%e9%87%8f&#34;&gt;&lt;/a&gt;&#xA;物理量&#xA;&lt;/h1&gt;&lt;h2 id=&#34;内能-u&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#%e5%86%85%e8%83%bd-u&#34;&gt;&lt;/a&gt;&#xA;内能 U&#xA;&lt;/h2&gt;$$&#xA;\Delta U=Q+W&#xA;$$&lt;p&gt;&#xA;Q为系统吸热，W为系统对外做功&lt;/p&gt;&#xA;&lt;h2 id=&#34;熵-s&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#%e7%86%b5-s&#34;&gt;&lt;/a&gt;&#xA;熵 S&#xA;&lt;/h2&gt;&lt;p&gt;熵是一种测量在动力学方面&lt;strong&gt;不能做功&lt;/strong&gt;的能量总数，也就是当总体的熵增加，其做功能力也下降，熵的量度正是能量退化的指标。&#xA;==可逆过程==中&#xA;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
