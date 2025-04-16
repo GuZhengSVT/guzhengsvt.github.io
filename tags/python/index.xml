@@ -1,47 +1,104 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Python on 为什么要演奏春日影！</title>
-    <link>http://localhost:1313/tags/python/</link>
-    <description>Recent content in Python on 为什么要演奏春日影！</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Thu, 15 Feb 2024 11:44:33 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>MicroPython函数库</title>
-      <link>http://localhost:1313/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link>
-      <pubDate>Wed, 16 Apr 2025 15:34:33 +0800</pubDate>
-      <guid>http://localhost:1313/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid>
-      <description>&lt;h1 id=&#34;machine-与硬件相关功能&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#machine-%e4%b8%8e%e7%a1%ac%e4%bb%b6%e7%9b%b8%e5%85%b3%e5%8a%9f%e8%83%bd&#34;&gt;&lt;/a&gt;&#xA;machine-与硬件相关功能&#xA;&lt;/h1&gt;&lt;h2 id=&#34;pin类&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#pin%e7%b1%bb&#34;&gt;&lt;/a&gt;&#xA;Pin类&#xA;&lt;/h2&gt;&lt;h3 id=&#34;machinepinidmodenonepullnonevalue&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#machinepinidmodenonepullnonevalue&#34;&gt;&lt;/a&gt;&#xA;&lt;code&gt;machine.Pin(id,mode=None,pull=None,value)&lt;/code&gt;&#xA;&lt;/h3&gt;&lt;p&gt;Pin对象构造函数&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;id：GPIO编号，对于Pico为0-29&lt;/li&gt;&#xA;&lt;li&gt;mode：模式，可选&lt;code&gt;None，Pin.IN(0),Pin.OUT(1),Pin.OPEN_DRAIN(2)&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;pull：使用内部上下拉电阻，仅在输入模式下有效，可选&lt;code&gt;None,Pin.PULL_UP(1),Pin.DOWN(2)&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;value：输出或开漏模式下端口值，0为低电位，1为高电位&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;pininitmodenonepullnone&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#pininitmodenonepullnone&#34;&gt;&lt;/a&gt;&#xA;&lt;code&gt;Pin.init(mode=None,pull=None)&lt;/code&gt;&#xA;&lt;/h3&gt;&lt;p&gt;重新初始化GPIO口&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Python基础数据结构</title>
-      <link>http://localhost:1313/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
-      <pubDate>Sun, 27 Aug 2023 21:40:39 +0800</pubDate>
-      <guid>http://localhost:1313/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;elem是单词element（元素）的缩写&lt;/strong&gt;，在程序定义中代表某一不确定的类型，也就是抽象的数据类型。&lt;/p&gt;&#xA;&lt;h1 id=&#34;list&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#list&#34;&gt;&lt;/a&gt;&#xA;list&#xA;&lt;/h1&gt;&lt;h2 id=&#34;定义&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#%e5%ae%9a%e4%b9%89&#34;&gt;&lt;/a&gt;&#xA;定义&#xA;&lt;/h2&gt;&lt;p&gt;由一系列元素按顺序进行排列而成的容器&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Python其他笔记</title>
-      <link>http://localhost:1313/post/code/python%E5%85%B6%E4%BB%96%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Tue, 27 Jun 2023 00:57:42 +0800</pubDate>
-      <guid>http://localhost:1313/post/code/python%E5%85%B6%E4%BB%96%E7%AC%94%E8%AE%B0/</guid>
-      <description>&lt;h1 id=&#34;注释&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#%e6%b3%a8%e9%87%8a&#34;&gt;&lt;/a&gt;&#xA;注释&#xA;&lt;/h1&gt;&lt;ul&gt;&#xA;&lt;li&gt;单行注释&#xA;$\#$内容&lt;/li&gt;&#xA;&lt;li&gt;多行注释&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&amp;#39;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;你好这里绿色的部分是注释&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;这里也是&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;这里就不算注释了&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#单行注释&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#39;&amp;#39;&amp;#39;这里不是注释&amp;#39;&amp;#39;&amp;#39;你看会print出来吗？&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&amp;#39;你好&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;终端&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;：&lt;/span&gt;&lt;span class=&#34;ne&#34;&gt;SyntaxError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;invalid&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;syntax&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&amp;#39;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;这样写会报错，看来代码中间插入注释会影响运行&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;多行字符串可以用&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;字符串&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&amp;#39;来定义，注释被解释为赋值操作，所以上面的报错指向末尾的1&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;编码格式&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#%e7%bc%96%e7%a0%81%e6%a0%bc%e5%bc%8f&#34;&gt;&lt;/a&gt;&#xA;编码格式&#xA;&lt;/h1&gt;&lt;ul&gt;&#xA;&lt;li&gt;在Python 2.x中，源文件默认编码格式为ASCII。如果内容中含有汉字，不指定编码格式的话，便不能正确的读取和输出。可以将下面的代码放到源文件的开头，来指定编码格式为UTF-8。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -*- coding: UTF-8 -*-&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在Python 3.x中，源文件默认编码格式为UTF-8。故在使用Python 3.x时，通常不需要指定编码格式。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Python基础函数</title>
-      <link>http://localhost:1313/post/code/python%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/</link>
-      <pubDate>Tue, 27 Jun 2023 00:55:01 +0800</pubDate>
-      <guid>http://localhost:1313/post/code/python%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/</guid>
-      <description>&lt;h2 id=&#34;函数传参&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#%e5%87%bd%e6%95%b0%e4%bc%a0%e5%8f%82&#34;&gt;&lt;/a&gt;&#xA;函数传参&#xA;&lt;/h2&gt;&lt;p&gt;python中，函数传递参数本质上是一种赋值操作&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;&#xA;&lt;li&gt;首先有两个变量arr和a，有两个对象1和2&lt;/li&gt;&#xA;&lt;li&gt;a绑定2，func(a)将a绑定的对象2贴上arr标签&lt;/li&gt;&#xA;&lt;li&gt;这时，对象1尚未创建，2贴上a标签和arr标签&lt;/li&gt;&#xA;&lt;li&gt;$arr=1$操作将2上arr标签撕下，创建对象1并贴上arr标签&lt;/li&gt;&#xA;&lt;li&gt;输出结果&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;输入输出&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#%e8%be%93%e5%85%a5%e8%be%93%e5%87%ba&#34;&gt;&lt;/a&gt;&#xA;输入输出&#xA;&lt;/h2&gt;&lt;h3 id=&#34;print函数&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#print%e5%87%bd%e6%95%b0&#34;&gt;&lt;/a&gt;&#xA;print()函数&#xA;&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;字符串&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;字符串&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;str1&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;str2&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;str3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;str3&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#空格取代逗号&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;**&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#会先计算数值再输出&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#优先执行sum()函数&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;==原型==&lt;/strong&gt;&#xA;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Python数据类型及运算符</title>
-      <link>http://localhost:1313/post/code/python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/</link>
-      <pubDate>Tue, 27 Jun 2023 00:49:20 +0800</pubDate>
-      <guid>http://localhost:1313/post/code/python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/</guid>
-      <description>&lt;h2 id=&#34;常量与变量&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#%e5%b8%b8%e9%87%8f%e4%b8%8e%e5%8f%98%e9%87%8f&#34;&gt;&lt;/a&gt;&#xA;常量与变量&#xA;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;变量不需要声明类型&lt;/li&gt;&#xA;&lt;li&gt;python用$=$给变量赋值，用$==$比较两个值是否相等，相等返回True，不等返回False。&lt;/li&gt;&#xA;&lt;li&gt;变量使用前必须赋值（不同于C），变量只有赋值后才会被创建。&#xA;&lt;ul&gt;&#xA;&lt;li&gt;变量未定义异常&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;age&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Traceback&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;most&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;recent&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;call&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;File&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;lt;stdin&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;line&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;module&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;ne&#34;&gt;NameError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;age&amp;#39;&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;defined&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;常量——不变的变量&#xA;&lt;strong&gt;python没有任何机制保证变量不会改变对象，被改变时没有报错，没有C的const，所以使用时需要万分小心&lt;/strong&gt;&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on 为什么要演奏春日影！</title><link>https://guzhengsvt.github.io/tags/python/</link><description>Recent content in Python on 为什么要演奏春日影！</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 15 Feb 2024 11:44:33 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>MicroPython函数库</title><link>https://guzhengsvt.github.io/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link><pubDate>Wed, 16 Apr 2025 15:34:33 +0800</pubDate><guid>https://guzhengsvt.github.io/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid><description>&lt;h1 id="machine-与硬件相关功能">
+&lt;a class="header-anchor" href="#machine-%e4%b8%8e%e7%a1%ac%e4%bb%b6%e7%9b%b8%e5%85%b3%e5%8a%9f%e8%83%bd">&lt;/a>
+machine-与硬件相关功能
+&lt;/h1>&lt;h2 id="pin类">
+&lt;a class="header-anchor" href="#pin%e7%b1%bb">&lt;/a>
+Pin类
+&lt;/h2>&lt;h3 id="machinepinidmodenonepullnonevalue">
+&lt;a class="header-anchor" href="#machinepinidmodenonepullnonevalue">&lt;/a>
+&lt;code>machine.Pin(id,mode=None,pull=None,value)&lt;/code>
+&lt;/h3>&lt;p>Pin对象构造函数&lt;/p>
+&lt;ul>
+&lt;li>id：GPIO编号，对于Pico为0-29&lt;/li>
+&lt;li>mode：模式，可选&lt;code>None，Pin.IN(0),Pin.OUT(1),Pin.OPEN_DRAIN(2)&lt;/code>&lt;/li>
+&lt;li>pull：使用内部上下拉电阻，仅在输入模式下有效，可选&lt;code>None,Pin.PULL_UP(1),Pin.DOWN(2)&lt;/code>&lt;/li>
+&lt;li>value：输出或开漏模式下端口值，0为低电位，1为高电位&lt;/li>
+&lt;/ul>
+&lt;h3 id="pininitmodenonepullnone">
+&lt;a class="header-anchor" href="#pininitmodenonepullnone">&lt;/a>
+&lt;code>Pin.init(mode=None,pull=None)&lt;/code>
+&lt;/h3>&lt;p>重新初始化GPIO口&lt;/p></description></item><item><title>Python基础数据结构</title><link>https://guzhengsvt.github.io/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link><pubDate>Sun, 27 Aug 2023 21:40:39 +0800</pubDate><guid>https://guzhengsvt.github.io/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid><description>&lt;p>&lt;strong>elem是单词element（元素）的缩写&lt;/strong>，在程序定义中代表某一不确定的类型，也就是抽象的数据类型。&lt;/p>
+&lt;h1 id="list">
+&lt;a class="header-anchor" href="#list">&lt;/a>
+list
+&lt;/h1>&lt;h2 id="定义">
+&lt;a class="header-anchor" href="#%e5%ae%9a%e4%b9%89">&lt;/a>
+定义
+&lt;/h2>&lt;p>由一系列元素按顺序进行排列而成的容器&lt;/p></description></item><item><title>Python其他笔记</title><link>https://guzhengsvt.github.io/post/code/python%E5%85%B6%E4%BB%96%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 27 Jun 2023 00:57:42 +0800</pubDate><guid>https://guzhengsvt.github.io/post/code/python%E5%85%B6%E4%BB%96%E7%AC%94%E8%AE%B0/</guid><description>&lt;h1 id="注释">
+&lt;a class="header-anchor" href="#%e6%b3%a8%e9%87%8a">&lt;/a>
+注释
+&lt;/h1>&lt;ul>
+&lt;li>单行注释
+$\#$内容&lt;/li>
+&lt;li>多行注释&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="s1">&amp;#39;&amp;#39;&amp;#39;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">你好这里绿色的部分是注释
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">这里也是
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">&amp;#39;&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">这里就不算注释了&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#单行注释&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&amp;#39;&amp;#39;&amp;#39;这里不是注释&amp;#39;&amp;#39;&amp;#39;你看会print出来吗？&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">a&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;&amp;#39;&amp;#39;你好&amp;#39;&amp;#39;&amp;#39;&lt;/span>&lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">终端&lt;/span>&lt;span class="err">：&lt;/span>&lt;span class="ne">SyntaxError&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">invalid&lt;/span> &lt;span class="n">syntax&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">&amp;#39;&amp;#39;&amp;#39;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">这样写会报错，看来代码中间插入注释会影响运行
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">多行字符串可以用&amp;#39;&amp;#39;&amp;#39;&lt;/span>&lt;span class="n">字符串&lt;/span>&lt;span class="s1">&amp;#39;&amp;#39;&amp;#39;来定义，注释被解释为赋值操作，所以上面的报错指向末尾的1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">&amp;#39;&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="编码格式">
+&lt;a class="header-anchor" href="#%e7%bc%96%e7%a0%81%e6%a0%bc%e5%bc%8f">&lt;/a>
+编码格式
+&lt;/h1>&lt;ul>
+&lt;li>在Python 2.x中，源文件默认编码格式为ASCII。如果内容中含有汉字，不指定编码格式的话，便不能正确的读取和输出。可以将下面的代码放到源文件的开头，来指定编码格式为UTF-8。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -*- coding: UTF-8 -*-&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>在Python 3.x中，源文件默认编码格式为UTF-8。故在使用Python 3.x时，通常不需要指定编码格式。&lt;/p></description></item><item><title>Python基础函数</title><link>https://guzhengsvt.github.io/post/code/python%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/</link><pubDate>Tue, 27 Jun 2023 00:55:01 +0800</pubDate><guid>https://guzhengsvt.github.io/post/code/python%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/</guid><description>&lt;h2 id="函数传参">
+&lt;a class="header-anchor" href="#%e5%87%bd%e6%95%b0%e4%bc%a0%e5%8f%82">&lt;/a>
+函数传参
+&lt;/h2>&lt;p>python中，函数传递参数本质上是一种赋值操作&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">func&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">arr&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">arr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">arr&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">a&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">func&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
+&lt;li>首先有两个变量arr和a，有两个对象1和2&lt;/li>
+&lt;li>a绑定2，func(a)将a绑定的对象2贴上arr标签&lt;/li>
+&lt;li>这时，对象1尚未创建，2贴上a标签和arr标签&lt;/li>
+&lt;li>$arr=1$操作将2上arr标签撕下，创建对象1并贴上arr标签&lt;/li>
+&lt;li>输出结果&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">2&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="输入输出">
+&lt;a class="header-anchor" href="#%e8%be%93%e5%85%a5%e8%be%93%e5%87%ba">&lt;/a>
+输入输出
+&lt;/h2>&lt;h3 id="print函数">
+&lt;a class="header-anchor" href="#print%e5%87%bd%e6%95%b0">&lt;/a>
+print()函数
+&lt;/h3>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span>&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;字符串&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">字符串&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span>&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;str1&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;str2&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;str3&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">str1&lt;/span> &lt;span class="n">str2&lt;/span> &lt;span class="n">str3&lt;/span>&lt;span class="c1">#空格取代逗号&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="o">**&lt;/span>&lt;span class="n">c&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="c1">#会先计算数值再输出&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">sum&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">c&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="c1">#优先执行sum()函数&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>==原型==&lt;/strong>
+&lt;/p></description></item><item><title>Python数据类型及运算符</title><link>https://guzhengsvt.github.io/post/code/python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/</link><pubDate>Tue, 27 Jun 2023 00:49:20 +0800</pubDate><guid>https://guzhengsvt.github.io/post/code/python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/</guid><description>&lt;h2 id="常量与变量">
+&lt;a class="header-anchor" href="#%e5%b8%b8%e9%87%8f%e4%b8%8e%e5%8f%98%e9%87%8f">&lt;/a>
+常量与变量
+&lt;/h2>&lt;ul>
+&lt;li>变量不需要声明类型&lt;/li>
+&lt;li>python用$=$给变量赋值，用$==$比较两个值是否相等，相等返回True，不等返回False。&lt;/li>
+&lt;li>变量使用前必须赋值（不同于C），变量只有赋值后才会被创建。
+&lt;ul>
+&lt;li>变量未定义异常&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">age&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Traceback&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">most&lt;/span> &lt;span class="n">recent&lt;/span> &lt;span class="n">call&lt;/span> &lt;span class="n">last&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">File&lt;/span> &lt;span class="s2">&amp;#34;&amp;lt;stdin&amp;gt;&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">line&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">module&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="ne">NameError&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">name&lt;/span> &lt;span class="s1">&amp;#39;age&amp;#39;&lt;/span> &lt;span class="ow">is&lt;/span> &lt;span class="ow">not&lt;/span> &lt;span class="n">defined&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>常量——不变的变量
+&lt;strong>python没有任何机制保证变量不会改变对象，被改变时没有报错，没有C的const，所以使用时需要万分小心&lt;/strong>&lt;/p></description></item></channel></rss>
