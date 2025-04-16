@@ -144,245 +144,255 @@ body [data-aos="zoom-in"] {
   transition-property: all !important;
 }
 
-@font-face {
-  font-family: "iconfont";
-  src: url("//at.alicdn.com/t/c/font_4552607_0khxww3tj3q9.woff2") format("woff2");
-  font-display: swap;
+:root {
+  --font-icon: "Font Awesome 6 Free", "Font Awesome 6 Brands", "Font Awesome 5 Free", "Font Awesome 5 Brands", "FontAwesome";
 }
 
 .tag-wrap .archives-tag-list-link:before {
-  font-family: "iconfont";
-  content: "\e622";
+  font-family: var(--font-icon);
+  content: "\f02b";
 }
 
 .category-wrap .archives-category-list-link:before {
-  font-family: "iconfont";
-  content: "\e604";
+  font-family: var(--font-icon);
+  content: "\f02e";
 }
 
 .article-date-link:before {
-  font-family: "iconfont";
-  content: "\e606";
+  font-family: var(--font-icon);
+  content: "\f017";
 }
 
 .article-category-link:before {
-  font-family: "iconfont";
-  content: "\e604";
+  font-family: var(--font-icon);
+  content: "\f02e";
 }
 
 .article-tag-list-link:before {
-  font-family: "iconfont";
-  content: "\e622";
+  font-family: var(--font-icon);
+  content: "\f02b";
 }
 
 .article-comment-link:before {
-  font-family: "iconfont";
-  content: "\e608";
+  font-family: var(--font-icon);
+  content: "\f075";
 }
 
 .icon-copyright:before {
-  font-family: "iconfont";
-  content: "\e60a";
+  font-family: var(--font-icon);
+  content: "\f1f9";
 }
 
 .icon-brush:before {
-  font-family: "iconfont";
-  content: "\e618";
+  font-family: var(--font-icon);
+  content: "\f1fc";
 }
 
 .icon-coffee:before {
-  font-family: "iconfont";
-  content: "\e607";
+  font-family: var(--font-icon);
+  content: "\f0f4";
 }
 
 .icon-eye:before {
-  font-family: "iconfont";
-  content: "\e60f";
+  font-family: var(--font-icon);
+  content: "\f06e";
 }
 
 .icon-user:before {
-  font-family: "iconfont";
-  content: "\e628";
+  font-family: var(--font-icon);
+  content: "\f007";
 }
 
 #main-nav-toggle:before {
-  font-family: "iconfont";
-  content: "\e62f";
+  font-family: var(--font-icon);
+  content: "\f0c9";
 }
 
 #nav-rss-link:before {
-  font-family: "iconfont";
-  content: "\e61f";
+  font-family: var(--font-icon);
+  content: "\f09e";
 }
 
 #nav-search-btn:before {
-  font-family: "iconfont";
-  content: "\e631";
+  font-family: var(--font-icon);
+  content: "\f002";
 }
 
 #nav-sun-btn:before {
-  font-family: "iconfont";
-  content: "\e621";
+  font-family: var(--font-icon);
+  content: "\f185";
 }
 
 #nav-moon-btn:before {
-  font-family: "iconfont";
-  content: "\e617";
+  font-family: var(--font-icon);
+  content: "\f186";
 }
 
 #nav-circle-half-stroke-btn:before {
-  font-family: "iconfont";
-  content: "\e641";
+  font-family: var(--font-icon);
+  content: "\f042";
 }
 
 .icon-copy:before {
-  font-family: "iconfont";
-  content: "\e60c";
+  font-family: var(--font-icon);
+  content: "\f0c5";
 }
 
 .icon-chevron-down:before {
-  font-family: "iconfont";
-  content: "\e609";
+  font-family: var(--font-icon);
+  content: "\f078";
 }
 
 .icon-check:before {
-  font-family: "iconfont";
-  content: "\e636";
+  font-family: var(--font-icon);
+  content: "\f00c";
 }
 
 .icon-times:before {
-  font-family: "iconfont";
-  content: "\e637";
+  font-family: var(--font-icon);
+  content: "\f00d";
 }
 
 .icon-calendar:before {
-  font-family: "iconfont";
-  content: "\e605";
+  font-family: var(--font-icon);
+  content: "\f073";
 }
 
 .icon-pencil:before {
-  font-family: "iconfont";
-  content: "\e61b";
+  font-family: var(--font-icon);
+  content: "\f5ad";
 }
 
 .icon-clock:before {
-  font-family: "iconfont";
-  content: "\e613";
+  font-family: var(--font-icon);
+  content: "\f252";
 }
 
 .post-sticky:before {
-  font-family: "iconfont";
-  content: "\e627";
+  font-family: var(--font-icon);
+  content: "\f164";
 }
 
 .reimu-popup .popup-btn-close:before {
-  font-family: "iconfont";
-  content: "\e626";
+  font-family: var(--font-icon);
+  content: "\f057";
 }
 
 .reimu-search-input-icon:before {
-  font-family: "iconfont";
-  content: "\e631";
+  font-family: var(--font-icon);
+  content: "\f002";
 }
 
 .ais-pagination--item__previous a:before {
-  font-family: "iconfont";
-  content: "\e601";
+  font-family: var(--font-icon);
+  content: "\f104";
 }
 
 .ais-pagination--item__next a:before {
-  font-family: "iconfont";
-  content: "\e630";
+  font-family: var(--font-icon);
+  content: "\f105";
 }
 
 .icon-github:before {
-  content: "\e619";
+  content: "\f09b";
 }
 
 .icon-facebook:before {
-  content: "\e60e";
+  content: "\f09a";
 }
 
 .icon-twitter:before {
-  content: "\e62a";
+  content: "\e61b";
 }
 
 .icon-linkedin:before {
-  content: "\e614";
+  content: "\f08c";
 }
 
 .icon-bilibili:before {
-  content: "\e603";
+  content: "\e3d9";
 }
 
 .icon-weibo:before {
-  content: "\e62c";
+  content: "\f18a";
 }
 
 .icon-zhihu:before {
-  content: "\e62e";
+  content: "\f63f";
 }
 
 .icon-reddit:before {
-  content: "\e61c";
+  content: "\f1a1";
+}
+
+.icon-telegram:before {
+  content: "\f2c6";
+}
+
+.icon-discord:before {
+  content: "\f392";
+}
+
+.icon-steam:before {
+  content: "\f1b6";
 }
 
 .icon-email:before {
-  content: "\e63c";
+  content: "\f0e0";
 }
 
 .sidebar-btn-wrapper .sidebar-toc-btn:before {
-  font-family: "iconfont";
-  content: "\e633";
+  font-family: var(--font-icon);
+  content: "\f0e8";
 }
 
 .sidebar-btn-wrapper .sidebar-common-btn:before {
-  font-family: "iconfont";
-  content: "\e632";
+  font-family: var(--font-icon);
+  content: "\e3af";
 }
 
 .sidebar-top .arrow-up:before {
-  font-family: "iconfont";
-  content: "\e634";
+  font-family: var(--font-icon);
+  content: "\f062";
 }
 
 .icon-link:before {
-  font-family: "iconfont";
-  content: "\e639";
+  font-family: var(--font-icon);
+  content: "\f0c1";
 }
 
 .icon-globe:before {
-  font-family: "iconfont";
-  content: "\e638";
+  font-family: var(--font-icon);
+  content: "\f0ac";
 }
 
 .icon-creative-commons:before {
-  font-family: "iconfont";
-  content: "\e63a";
+  font-family: var(--font-icon);
+  content: "\f25e";
 }
 
 .icon-taichi:before {
-  font-family: "iconfont";
-  content: "\e62b";
+  font-family: var(--font-icon);
+  content: "\f6ad";
 }
 
 .icon-weixin:before {
-  font-family: "iconfont";
-  content: "\e640";
+  font-family: var(--font-icon);
+  content: "\f1d7";
 }
 
 .icon-qq:before {
-  font-family: "iconfont";
-  content: "\e63e";
+  font-family: var(--font-icon);
+  content: "\f1d6";
 }
 
 .icon-image:before {
-  font-family: "iconfont";
-  content: "\e63f";
+  font-family: var(--font-icon);
+  content: "\f03e";
 }
 
 .icon {
-  font-family: "iconfont";
+  font-family: var(--font-icon);
 }
 
 html, body, div, span, applet, object, iframe,
@@ -1665,7 +1675,7 @@ a, .main-nav-icon, .popup-btn-close, button {
 .article-entry h4:before,
 .article-entry h5:before,
 .article-entry h6:before {
-  font-family: "iconfont";
+  font-family: var(--font-icon);
   font-weight: normal;
 }
 
@@ -1675,7 +1685,7 @@ a, .main-nav-icon, .popup-btn-close, button {
 .article-entry h4 a,
 .article-entry h5 a,
 .article-entry h6 a {
-  font-family: "iconfont";
+  font-family: var(--font-icon);
   opacity: 0.5;
   margin-right: 5px;
   transition: 0.3s;
@@ -1718,8 +1728,8 @@ h6 a,
 :has(code),
 a.article-gallery-item
 )::after, .article-entry .code-figcaption-bottom.has-link a::after {
-  font-family: "iconfont";
-  content: "\e639";
+  font-family: var(--font-icon);
+  content: "\f0c1";
   font-size: 0.5em;
   margin: 0 0.5em;
   vertical-align: bottom;
@@ -1735,8 +1745,8 @@ h5 a,
 h6 a,
 .code-figcaption-bottom a
 ) code::after {
-  font-family: "iconfont";
-  content: "\e639";
+  font-family: var(--font-icon);
+  content: "\f0c1";
   font-size: 0.5em;
   margin: 0 0.5em;
   vertical-align: bottom;
@@ -3055,7 +3065,7 @@ mjx-container::-webkit-scrollbar {
   align-items: center;
   width: 36px;
   height: 25px;
-  font: 20px "iconfont";
+  font: 20px var(--font-icon);
   transition: transform 0.2s;
   will-change: transform;
 }
@@ -3077,6 +3087,10 @@ mjx-container::-webkit-scrollbar {
   color: #bc88ff;
 }
 
+.icon-facebook {
+  color: #3b5998;
+}
+
 .icon-twitter {
   color: #191717;
 }
@@ -3091,6 +3105,22 @@ mjx-container::-webkit-scrollbar {
 
 .icon-zhihu {
   color: #0084ff;
+}
+
+.icon-telegram {
+  color: #0088cc;
+}
+
+.icon-discord {
+  color: #7289da;
+}
+
+.icon-steam {
+  color: #171a21;
+}
+
+[data-theme="dark"] .icon-steam {
+  color: #bc88ff;
 }
 
 .sidebar-menu {
@@ -3360,7 +3390,7 @@ mjx-container::-webkit-scrollbar {
   height: 50px;
   background-color: var(--color-wrap);
   border-radius: 50%;
-  font-family: "iconfont";
+  font-family: var(--font-icon);
   box-shadow: 0 0 10px 4px var(--color-hover-shadow);
   z-index: 999;
 }

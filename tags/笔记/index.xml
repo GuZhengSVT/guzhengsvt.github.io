@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>笔记 on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/tags/%E7%AC%94%E8%AE%B0/</link><description>Recent content in 笔记 on 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Tue, 15 Apr 2025 16:42:35 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/tags/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>博客常用资料</title><link>https://guzhengsvt.github.io/post/%E5%85%B6%E4%BB%96%E7%AC%94%E8%AE%B0/%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link><pubDate>Tue, 15 Apr 2025 16:42:35 +0800</pubDate><guid>https://guzhengsvt.github.io/post/%E5%85%B6%E4%BB%96%E7%AC%94%E8%AE%B0/%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid><description>&lt;h1 id="hugo-常用命令">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>笔记 on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/tags/%E7%AC%94%E8%AE%B0/</link><description>Recent content in 笔记 on 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 16 Apr 2025 15:09:33 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/tags/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>博客常用资料</title><link>https://guzhengsvt.github.io/post/othernotes/%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link><pubDate>Tue, 15 Apr 2025 16:42:35 +0800</pubDate><guid>https://guzhengsvt.github.io/post/othernotes/%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid><description>&lt;h1 id="hugo-常用命令">
 &lt;a class="header-anchor" href="#hugo-%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4">&lt;/a>
 Hugo 常用命令
 &lt;/h1>&lt;table>
@@ -395,4 +395,213 @@ reimu 主题 icon_font
  &lt;td>图片图标&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item></channel></rss>
+&lt;/table></description></item><item><title>概率论与数理统计</title><link>https://guzhengsvt.github.io/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><pubDate>Wed, 16 Apr 2025 16:07:05 +0800</pubDate><guid>https://guzhengsvt.github.io/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid><description>&lt;h2 id="前言">
+&lt;a class="header-anchor" href="#%e5%89%8d%e8%a8%80">&lt;/a>
+前言
+&lt;/h2>&lt;h3 id="第一版前言">
+&lt;a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e7%89%88%e5%89%8d%e8%a8%80">&lt;/a>
+第一版前言
+&lt;/h3>&lt;p>[[2024-09-14]] 今天补考终于结束了，听说正考直接放原卷，这几天刷了三套网上得来的“西电原卷”（21 年和两套 23 年）。上午刷的 21 年题，下午 $\frac{1}{4}$ 是一个字不改的原题，我都看笑了。
+戴浩当年说尽力给钱班找最好的老师，现在看来数统院没人了？讲课不行可以说是重心不在教学、天赋不在教书；出套卷子直接搬旧题，还是近几年的，题也没审错漏百出，给我气笑了。
+自己出的卷子毫无含金量，自己也不做做看。这是态度问题。
+你电期末考试放水挺好的，但不要总是拿老本糊弄人。对学生大谈创新，对自己能混就行。这不是做学术的态度，更不是教书应有的态度。&lt;/p></description></item><item><title>Windows美化历程</title><link>https://guzhengsvt.github.io/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link><pubDate>Wed, 16 Apr 2025 16:34:17 +0800</pubDate><guid>https://guzhengsvt.github.io/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid><description>&lt;h2 id="前言">
+&lt;a class="header-anchor" href="#%e5%89%8d%e8%a8%80">&lt;/a>
+前言
+&lt;/h2>&lt;p>俗话说的好，&lt;strong>美化的尽头是默认&lt;/strong>。&lt;/p></description></item><item><title>数字信号处理</title><link>https://guzhengsvt.github.io/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link><pubDate>Wed, 16 Apr 2025 16:30:15 +0800</pubDate><guid>https://guzhengsvt.github.io/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid><description>&lt;h1 id="数字信号处理基本概念">
+&lt;a class="header-anchor" href="#%e6%95%b0%e5%ad%97%e4%bf%a1%e5%8f%b7%e5%a4%84%e7%90%86%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5">&lt;/a>
+数字信号处理基本概念
+&lt;/h1>&lt;h2 id="信号分类">
+&lt;a class="header-anchor" href="#%e4%bf%a1%e5%8f%b7%e5%88%86%e7%b1%bb">&lt;/a>
+信号分类
+&lt;/h2>&lt;ol>
+&lt;li>连续信号：即模拟信号，时域连续信号。&lt;/li>
+&lt;li>时域离散信号：幅度取值连续，时间取值离散。&lt;/li>
+&lt;li>幅度离散信号：幅度取值离散，时间取值连续。&lt;/li>
+&lt;li>数字信号：幅度和时间都取离散值。&lt;/li>
+&lt;/ol>
+&lt;h3 id="区别">
+&lt;a class="header-anchor" href="#%e5%8c%ba%e5%88%ab">&lt;/a>
+区别
+&lt;/h3>&lt;p>时域离散信号和数字信号之间的差别，仅在于数字信号存在量化误差。&lt;/p></description></item><item><title>空气动力学基础</title><link>https://guzhengsvt.github.io/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link><pubDate>Wed, 16 Apr 2025 16:18:45 +0800</pubDate><guid>https://guzhengsvt.github.io/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid><description>&lt;h1 id="流体静力学基础">
+&lt;a class="header-anchor" href="#%e6%b5%81%e4%bd%93%e9%9d%99%e5%8a%9b%e5%ad%a6%e5%9f%ba%e7%a1%80">&lt;/a>
+流体静力学基础
+&lt;/h1>&lt;h2 id="气体性质">
+&lt;a class="header-anchor" href="#%e6%b0%94%e4%bd%93%e6%80%a7%e8%b4%a8">&lt;/a>
+气体性质
+&lt;/h2>&lt;h3 id="压缩性">
+&lt;a class="header-anchor" href="#%e5%8e%8b%e7%bc%a9%e6%80%a7">&lt;/a>
+压缩性
+&lt;/h3>&lt;h4 id="体积弹性模数">
+&lt;a class="header-anchor" href="#%e4%bd%93%e7%a7%af%e5%bc%b9%e6%80%a7%e6%a8%a1%e6%95%b0">&lt;/a>
+体积弹性模数
+&lt;/h4>&lt;p>定义：产生单位相对体积变化所需压强增高&lt;/p>
+$$
+E=-\frac{dp}{dV/V}
+$$&lt;p>对于一定质量气体，体积与密度成反比例关系，即&lt;/p>
+$$
+\frac{d \rho}{\rho}=-\frac{dV}{V}
+$$&lt;p>回代得&lt;/p></description></item><item><title>自动拨号上网与任务计划程序</title><link>https://guzhengsvt.github.io/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</link><pubDate>Wed, 16 Apr 2025 16:03:52 +0800</pubDate><guid>https://guzhengsvt.github.io/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</guid><description>&lt;h2 id="破事氵">
+&lt;a class="header-anchor" href="#%e7%a0%b4%e4%ba%8b%e6%b0%b5">&lt;/a>
+破事氵
+&lt;/h2>&lt;p>台式电脑通过网线连校园网要拨号上网，&lt;strong>幽默&lt;/strong>腾子几百年没更新的TIM登录时没网会报错弹窗。
+&lt;img src="http://guzhengsvt.test.upcdn.net/2024/06/2343467847.png" alt="TIM报错">
+于是每次开机我都得手动打开设置里的拨号上网，设置的TIM开机自启动会先行一步报错，显得开机自启动这个功能很&lt;strong>幽默&lt;/strong>。
+于是写个bat自动联网，任务管理器里设置开机自启动。但它启动和TIM是同一个优先级，往往来不及连上网络TIM就自动登录然后报错弹窗了。
+在计划程序库里把自动联网程序设置为开机启动，TIM登录后延时15s启动。
+&lt;img src="http://guzhengsvt.test.upcdn.net/2024/06/2593746197.png" alt="延迟TIM启动">&lt;/p></description></item><item><title>热力学与统计物理</title><link>https://guzhengsvt.github.io/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</link><pubDate>Wed, 16 Apr 2025 15:52:59 +0800</pubDate><guid>https://guzhengsvt.github.io/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</guid><description>&lt;h1 id="物理量">
+&lt;a class="header-anchor" href="#%e7%89%a9%e7%90%86%e9%87%8f">&lt;/a>
+物理量
+&lt;/h1>&lt;h2 id="内能-u">
+&lt;a class="header-anchor" href="#%e5%86%85%e8%83%bd-u">&lt;/a>
+内能 U
+&lt;/h2>$$
+\Delta U=Q+W
+$$&lt;p>
+Q为系统吸热，W为系统对外做功&lt;/p>
+&lt;h2 id="熵-s">
+&lt;a class="header-anchor" href="#%e7%86%b5-s">&lt;/a>
+熵 S
+&lt;/h2>&lt;p>熵是一种测量在动力学方面&lt;strong>不能做功&lt;/strong>的能量总数，也就是当总体的熵增加，其做功能力也下降，熵的量度正是能量退化的指标。
+==可逆过程==中
+&lt;/p></description></item><item><title>实数建立读书报告</title><link>https://guzhengsvt.github.io/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</link><pubDate>Wed, 16 Apr 2025 15:25:17 +0800</pubDate><guid>https://guzhengsvt.github.io/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</guid><description>&lt;h1 id="real-number-foundation-book-report">
+&lt;a class="header-anchor" href="#real-number-foundation-book-report">&lt;/a>
+Real Number Foundation Book Report
+&lt;/h1>&lt;p>借着这次数学分析大作业的机会写写实数建立。&lt;/p>
+&lt;p>实数的建立是数学基础理论的一部分，涉及到许多数学分支，包括数学逻辑、集合论、代数结构等。数学家们通过对这些基本概念和性质的严密推导，构建了实数系统，为数学的发展提供了坚实的基础。这个过程在数学史上经历了漫长的发展，由许多数学家共同贡献。&lt;/p></description></item><item><title>留数定理与洛朗级数、高阶导数公式和柯西积分公式之间的关系或联系</title><link>https://guzhengsvt.github.io/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link><pubDate>Wed, 16 Apr 2025 15:09:33 +0800</pubDate><guid>https://guzhengsvt.github.io/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid><description>&lt;h3 id="1-留数定理residue-theorem">
+&lt;a class="header-anchor" href="#1-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86residue-theorem">&lt;/a>
+1. 留数定理（Residue Theorem）：
+&lt;/h3>&lt;p>留数定理是复变函数理论中的一个关键结果，它建立在留数的概念之上。留数定理的核心思想是，如果在一个包含孤立奇点的闭曲线内，函数在这个曲线上处处解析，那么曲线内的整体积分等于函数在奇点处的留数之和。&lt;/p></description></item><item><title>复变函数</title><link>https://guzhengsvt.github.io/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link><pubDate>Fri, 17 Nov 2023 19:42:47 +0800</pubDate><guid>https://guzhengsvt.github.io/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid><description>&lt;h1 id="复数">
+&lt;a class="header-anchor" href="#%e5%a4%8d%e6%95%b0">&lt;/a>
+复数
+&lt;/h1>&lt;ol>
+&lt;li>复数的表达形式：$$z = r\cdot e^{i\theta} = r(cos\theta +i\cdot sin\theta)$$&lt;/li>
+&lt;li>几种初等函数
+&lt;ol>
+&lt;li>指数函数：$e^z = e^x(cosy+isiny)$
+&lt;ol>
+&lt;li>$e^z只是expz的缩写，并没有幂的含义$&lt;/li>
+&lt;li>$|e^z| = e^x,Arg(e^z) = y+2k\pi$&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>对数函数：$Lnz =ln|r|+iArgz$
+&lt;ol>
+&lt;li>函数在除去原点和负实轴的$z$平面内解析，且$(Lnz)' = \frac{1}{z}$&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>三角函数
+&lt;ol>
+&lt;li>$cosz = \frac{e^{iz}+e^{-iz}}{2},sinz = \frac{e^{iz}-e^{-iz}}{2i}$&lt;/li>
+&lt;li>$chz = \frac{e^z+e^{-z}}{2},shz = \frac{e^z-e^{-z}}{2}$&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;h1 id="解析函数">
+&lt;a class="header-anchor" href="#%e8%a7%a3%e6%9e%90%e5%87%bd%e6%95%b0">&lt;/a>
+解析函数
+&lt;/h1>&lt;ol>
+&lt;li>可导的定义：$$\lim_{\Delta z \to 0} \frac{f(z_0+\Delta z)-f(z_0)}{\Delta z} 极限存在，就称f(z)在z_0可导$$&lt;/li>
+&lt;li>解析的定义：$$函数f(z)在z_0及z_0的邻域内处处可导，就称f(z)在z_0处解析$$
+推论：解析函数的和、差、积、商也是解析函数，解析函数的复合也是解析函数。&lt;/li>
+&lt;li>可导、解析的充要条件：$u(x),v(x)可微$，并且满足&lt;strong>柯西-黎曼方程&lt;/strong>$$\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y} ,\frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x} $$若有一个不满足，则既不可导也不解析。
+推论：$f'(z) = \frac{\partial u}{\partial x}+i\frac{\partial v}{\partial x}=\frac{1}{i}\frac{\partial u}{\partial y}+\frac{\partial v}{\partial y}$&lt;/li>
+&lt;/ol>
+&lt;h1 id="复变函数的积分">
+&lt;a class="header-anchor" href="#%e5%a4%8d%e5%8f%98%e5%87%bd%e6%95%b0%e7%9a%84%e7%a7%af%e5%88%86">&lt;/a>
+复变函数的积分
+&lt;/h1>&lt;p>&lt;strong>重要公式&lt;/strong>
+&lt;/p></description></item><item><title>Python基础数据结构</title><link>https://guzhengsvt.github.io/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link><pubDate>Sun, 27 Aug 2023 21:40:39 +0800</pubDate><guid>https://guzhengsvt.github.io/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid><description>&lt;p>&lt;strong>elem是单词element（元素）的缩写&lt;/strong>，在程序定义中代表某一不确定的类型，也就是抽象的数据类型。&lt;/p>
+&lt;h1 id="list">
+&lt;a class="header-anchor" href="#list">&lt;/a>
+list
+&lt;/h1>&lt;h2 id="定义">
+&lt;a class="header-anchor" href="#%e5%ae%9a%e4%b9%89">&lt;/a>
+定义
+&lt;/h2>&lt;p>由一系列元素按顺序进行排列而成的容器&lt;/p></description></item><item><title>Python其他笔记</title><link>https://guzhengsvt.github.io/post/code/python%E5%85%B6%E4%BB%96%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 27 Jun 2023 00:57:42 +0800</pubDate><guid>https://guzhengsvt.github.io/post/code/python%E5%85%B6%E4%BB%96%E7%AC%94%E8%AE%B0/</guid><description>&lt;h1 id="注释">
+&lt;a class="header-anchor" href="#%e6%b3%a8%e9%87%8a">&lt;/a>
+注释
+&lt;/h1>&lt;ul>
+&lt;li>单行注释
+$\#$内容&lt;/li>
+&lt;li>多行注释&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="s1">&amp;#39;&amp;#39;&amp;#39;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">你好这里绿色的部分是注释
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">这里也是
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">&amp;#39;&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">这里就不算注释了&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#单行注释&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&amp;#39;&amp;#39;&amp;#39;这里不是注释&amp;#39;&amp;#39;&amp;#39;你看会print出来吗？&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">a&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;&amp;#39;&amp;#39;你好&amp;#39;&amp;#39;&amp;#39;&lt;/span>&lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">终端&lt;/span>&lt;span class="err">：&lt;/span>&lt;span class="ne">SyntaxError&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">invalid&lt;/span> &lt;span class="n">syntax&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">&amp;#39;&amp;#39;&amp;#39;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">这样写会报错，看来代码中间插入注释会影响运行
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">多行字符串可以用&amp;#39;&amp;#39;&amp;#39;&lt;/span>&lt;span class="n">字符串&lt;/span>&lt;span class="s1">&amp;#39;&amp;#39;&amp;#39;来定义，注释被解释为赋值操作，所以上面的报错指向末尾的1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">&amp;#39;&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="编码格式">
+&lt;a class="header-anchor" href="#%e7%bc%96%e7%a0%81%e6%a0%bc%e5%bc%8f">&lt;/a>
+编码格式
+&lt;/h1>&lt;ul>
+&lt;li>在Python 2.x中，源文件默认编码格式为ASCII。如果内容中含有汉字，不指定编码格式的话，便不能正确的读取和输出。可以将下面的代码放到源文件的开头，来指定编码格式为UTF-8。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -*- coding: UTF-8 -*-&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>在Python 3.x中，源文件默认编码格式为UTF-8。故在使用Python 3.x时，通常不需要指定编码格式。&lt;/p></description></item><item><title>Python基础函数</title><link>https://guzhengsvt.github.io/post/code/python%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/</link><pubDate>Tue, 27 Jun 2023 00:55:01 +0800</pubDate><guid>https://guzhengsvt.github.io/post/code/python%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/</guid><description>&lt;h2 id="函数传参">
+&lt;a class="header-anchor" href="#%e5%87%bd%e6%95%b0%e4%bc%a0%e5%8f%82">&lt;/a>
+函数传参
+&lt;/h2>&lt;p>python中，函数传递参数本质上是一种赋值操作&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">func&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">arr&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">arr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">arr&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">a&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">func&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
+&lt;li>首先有两个变量arr和a，有两个对象1和2&lt;/li>
+&lt;li>a绑定2，func(a)将a绑定的对象2贴上arr标签&lt;/li>
+&lt;li>这时，对象1尚未创建，2贴上a标签和arr标签&lt;/li>
+&lt;li>$arr=1$操作将2上arr标签撕下，创建对象1并贴上arr标签&lt;/li>
+&lt;li>输出结果&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">2&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="输入输出">
+&lt;a class="header-anchor" href="#%e8%be%93%e5%85%a5%e8%be%93%e5%87%ba">&lt;/a>
+输入输出
+&lt;/h2>&lt;h3 id="print函数">
+&lt;a class="header-anchor" href="#print%e5%87%bd%e6%95%b0">&lt;/a>
+print()函数
+&lt;/h3>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span>&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;字符串&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">字符串&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span>&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;str1&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;str2&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;str3&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">str1&lt;/span> &lt;span class="n">str2&lt;/span> &lt;span class="n">str3&lt;/span>&lt;span class="c1">#空格取代逗号&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="o">**&lt;/span>&lt;span class="n">c&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="c1">#会先计算数值再输出&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">sum&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">c&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="c1">#优先执行sum()函数&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>==原型==&lt;/strong>
+&lt;/p></description></item><item><title>Python数据类型及运算符</title><link>https://guzhengsvt.github.io/post/code/python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/</link><pubDate>Tue, 27 Jun 2023 00:49:20 +0800</pubDate><guid>https://guzhengsvt.github.io/post/code/python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/</guid><description>&lt;h2 id="常量与变量">
+&lt;a class="header-anchor" href="#%e5%b8%b8%e9%87%8f%e4%b8%8e%e5%8f%98%e9%87%8f">&lt;/a>
+常量与变量
+&lt;/h2>&lt;ul>
+&lt;li>变量不需要声明类型&lt;/li>
+&lt;li>python用$=$给变量赋值，用$==$比较两个值是否相等，相等返回True，不等返回False。&lt;/li>
+&lt;li>变量使用前必须赋值（不同于C），变量只有赋值后才会被创建。
+&lt;ul>
+&lt;li>变量未定义异常&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">age&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Traceback&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">most&lt;/span> &lt;span class="n">recent&lt;/span> &lt;span class="n">call&lt;/span> &lt;span class="n">last&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">File&lt;/span> &lt;span class="s2">&amp;#34;&amp;lt;stdin&amp;gt;&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">line&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">module&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="ne">NameError&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">name&lt;/span> &lt;span class="s1">&amp;#39;age&amp;#39;&lt;/span> &lt;span class="ow">is&lt;/span> &lt;span class="ow">not&lt;/span> &lt;span class="n">defined&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>常量——不变的变量
+&lt;strong>python没有任何机制保证变量不会改变对象，被改变时没有报错，没有C的const，所以使用时需要万分小心&lt;/strong>&lt;/p></description></item><item><title>Obsidian基础</title><link>https://guzhengsvt.github.io/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</link><pubDate>Tue, 27 Jun 2023 00:41:26 +0800</pubDate><guid>https://guzhengsvt.github.io/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</guid><description>&lt;p>&lt;a href="https://publish.obsidian.md/help-zh/%E7%94%B1%E6%AD%A4%E5%BC%80%E5%A7%8B">Obsidian 中文帮助&lt;/a>&lt;/p>
+&lt;h1 id="界面">
+&lt;a class="header-anchor" href="#%e7%95%8c%e9%9d%a2">&lt;/a>
+界面
+&lt;/h1>&lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/428519519">想一小时上手obsidian？这一篇就够了。【玩转Obsidian的保姆级教程】 - 知乎 (zhihu.com)&lt;/a>
+创建库文件夹——库文件夹下创建笔记分类文件夹——细分笔记
+obsidian help
+笔记最上一栏——竖三点更多——拆分笔记查看
+&lt;a href="https://zhuanlan.zhihu.com/p/409409946">Wyatt：打造自己的工作台【玩转Obsidian的保姆级教程】216 赞同 · 7 评论文章&lt;img src="https://pic1.zhimg.com/v2-2323eabf712e3ebaae40c322ec18dde0_180x120.jpg" alt="">&lt;/a>
+左上角查看大纲&lt;/p></description></item></channel></rss>

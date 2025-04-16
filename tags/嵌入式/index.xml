@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>嵌入式 on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/</link><description>Recent content in 嵌入式 on 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 15 Feb 2024 11:44:33 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/index.xml" rel="self" type="application/rss+xml"/><item><title>MicroPython函数库</title><link>https://guzhengsvt.github.io/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link><pubDate>Wed, 16 Apr 2025 15:34:33 +0800</pubDate><guid>https://guzhengsvt.github.io/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid><description>&lt;h1 id="machine-与硬件相关功能">
+&lt;a class="header-anchor" href="#machine-%e4%b8%8e%e7%a1%ac%e4%bb%b6%e7%9b%b8%e5%85%b3%e5%8a%9f%e8%83%bd">&lt;/a>
+machine-与硬件相关功能
+&lt;/h1>&lt;h2 id="pin类">
+&lt;a class="header-anchor" href="#pin%e7%b1%bb">&lt;/a>
+Pin类
+&lt;/h2>&lt;h3 id="machinepinidmodenonepullnonevalue">
+&lt;a class="header-anchor" href="#machinepinidmodenonepullnonevalue">&lt;/a>
+&lt;code>machine.Pin(id,mode=None,pull=None,value)&lt;/code>
+&lt;/h3>&lt;p>Pin对象构造函数&lt;/p>
+&lt;ul>
+&lt;li>id：GPIO编号，对于Pico为0-29&lt;/li>
+&lt;li>mode：模式，可选&lt;code>None，Pin.IN(0),Pin.OUT(1),Pin.OPEN_DRAIN(2)&lt;/code>&lt;/li>
+&lt;li>pull：使用内部上下拉电阻，仅在输入模式下有效，可选&lt;code>None,Pin.PULL_UP(1),Pin.DOWN(2)&lt;/code>&lt;/li>
+&lt;li>value：输出或开漏模式下端口值，0为低电位，1为高电位&lt;/li>
+&lt;/ul>
+&lt;h3 id="pininitmodenonepullnone">
+&lt;a class="header-anchor" href="#pininitmodenonepullnone">&lt;/a>
+&lt;code>Pin.init(mode=None,pull=None)&lt;/code>
+&lt;/h3>&lt;p>重新初始化GPIO口&lt;/p></description></item></channel></rss>
