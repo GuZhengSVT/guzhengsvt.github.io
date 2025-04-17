@@ -395,7 +395,123 @@ reimu 主题 icon_font
  &lt;td>图片图标&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item><item><title>关于我</title><link>https://guzhengsvt.github.io/about/</link><pubDate>Mon, 14 Apr 2025 20:39:52 +0800</pubDate><guid>https://guzhengsvt.github.io/about/</guid><description>&lt;h2 id="定义">
+&lt;/table></description></item><item><title>Hello World</title><link>https://guzhengsvt.github.io/post/thoughts/hello-world/</link><pubDate>Sun, 13 Apr 2025 11:00:00 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/hello-world/</guid><description>&lt;h1 id="20250413">
+&lt;a class="header-anchor" href="#20250413">&lt;/a>
+2025.04.13
+&lt;/h1>&lt;p>捣鼓两天终于搭好了Hugo博客，主题是&lt;a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu&lt;/a>。&lt;/p>
+&lt;p>对于原来的&lt;a href="https://guzhengsvt.top/">Typecho博客&lt;/a>响应速度不满意，我计划再次迁移博客。（尽管Typecho已经很轻量了，垃圾的云服务器及带宽严重限制了访问和文章加载速度。）&lt;/p>
+&lt;p>放弃动态后，能考虑静态无非Hexo、Hugo、Jekyll等。选择Hugo，无非是因为它的口号 &lt;em>&lt;strong>The world’s fastest framework for building websites&lt;/strong>&lt;/em> 。&lt;/p></description></item><item><title>大三上总结</title><link>https://guzhengsvt.github.io/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link><pubDate>Wed, 16 Apr 2025 17:19:04 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid><description>&lt;h2 id="关于期末考试">
+&lt;a class="header-anchor" href="#%e5%85%b3%e4%ba%8e%e6%9c%9f%e6%9c%ab%e8%80%83%e8%af%95">&lt;/a>
+关于期末考试
+&lt;/h2>&lt;p>于学生，一个学期最重要的似乎莫过于成绩了。秉持着临阵磨枪的&lt;del>优良传统&lt;/del>，期末半个月几乎每日狂学（当然偶有偷懒的时候&lt;del>怎么十六周还做实验啊我操&lt;/del>）。好歹是没有挂科，虽然分数不高但也满意（一天学完空气动力学70+什么实力我不说）。
+于是又要“下定决心”说“下学期我一定好好学”这样唬人的假话了hhh
+不过确实该学了，不然如何博士毕业呢？&lt;/p></description></item><item><title>东方红</title><link>https://guzhengsvt.github.io/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</link><pubDate>Wed, 16 Apr 2025 17:15:35 +0800</pubDate><guid>https://guzhengsvt.github.io/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</guid><description>&lt;h3 id="东方红">
+&lt;a class="header-anchor" href="#%e4%b8%9c%e6%96%b9%e7%ba%a2">&lt;/a>
+东方红
+&lt;/h3>&lt;p>&lt;strong>中流击水声远空，但闻江水夜夜隆。&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>人皆旭日岂年少，万里河山万里红。&lt;/strong>&lt;/p>
+&lt;p>2024.12.26&lt;br>
+于西安&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/12/1795319606.jpeg" alt="IMG_0434.jpeg">&lt;/p></description></item><item><title>因为春天来过</title><link>https://guzhengsvt.github.io/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</link><pubDate>Wed, 16 Apr 2025 16:52:40 +0800</pubDate><guid>https://guzhengsvt.github.io/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</guid><description>&lt;h3 id="谨以此诗献给我生命中那颗polaris">
+&lt;a class="header-anchor" href="#%e8%b0%a8%e4%bb%a5%e6%ad%a4%e8%af%97%e7%8c%ae%e7%bb%99%e6%88%91%e7%94%9f%e5%91%bd%e4%b8%ad%e9%82%a3%e9%a2%97polaris">&lt;/a>
+——谨以此诗，献给我生命中那颗Polaris
+&lt;/h3></description></item><item><title>晋南行五首</title><link>https://guzhengsvt.github.io/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</link><pubDate>Wed, 16 Apr 2025 16:44:32 +0800</pubDate><guid>https://guzhengsvt.github.io/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</guid><description>&lt;h2 id="序">
+&lt;a class="header-anchor" href="#%e5%ba%8f">&lt;/a>
+序
+&lt;/h2>&lt;p>　　国庆随《黑神话·悟空》游山西，历晋南晋城、临汾、运城三市，作诗词五首，简记之。
+　　&lt;/p></description></item><item><title>中秋，给家人打个电话吧</title><link>https://guzhengsvt.github.io/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</link><pubDate>Wed, 16 Apr 2025 16:41:40 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</guid><description>&lt;blockquote>
+&lt;p>“妈妈这个世界真的会有女孩喜欢我吗？”&lt;br>
+“当然啦第一次见你我也才20多岁。”&lt;/p>&lt;/blockquote></description></item><item><title>概率论与数理统计</title><link>https://guzhengsvt.github.io/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><pubDate>Wed, 16 Apr 2025 16:07:05 +0800</pubDate><guid>https://guzhengsvt.github.io/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid><description>&lt;h2 id="前言">
+&lt;a class="header-anchor" href="#%e5%89%8d%e8%a8%80">&lt;/a>
+前言
+&lt;/h2>&lt;h3 id="第一版前言">
+&lt;a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e7%89%88%e5%89%8d%e8%a8%80">&lt;/a>
+第一版前言
+&lt;/h3>&lt;p>[[2024-09-14]] 今天补考终于结束了，听说正考直接放原卷，这几天刷了三套网上得来的“西电原卷”（21 年和两套 23 年）。上午刷的 21 年题，下午 $\frac{1}{4}$ 是一个字不改的原题，我都看笑了。
+戴浩当年说尽力给钱班找最好的老师，现在看来数统院没人了？讲课不行可以说是重心不在教学、天赋不在教书；出套卷子直接搬旧题，还是近几年的，题也没审错漏百出，给我气笑了。
+自己出的卷子毫无含金量，自己也不做做看。这是态度问题。
+你电期末考试放水挺好的，但不要总是拿老本糊弄人。对学生大谈创新，对自己能混就行。这不是做学术的态度，更不是教书应有的态度。&lt;/p></description></item><item><title>凭栏静听潇潇雨，故国人民有所思。</title><link>https://guzhengsvt.github.io/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</link><pubDate>Wed, 16 Apr 2025 16:39:04 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</guid><description>&lt;p>“我有一个梦，也许有一天，灿烂的阳光能照进黑暗森林。”&lt;/p></description></item><item><title>Windows美化历程</title><link>https://guzhengsvt.github.io/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link><pubDate>Wed, 16 Apr 2025 16:34:17 +0800</pubDate><guid>https://guzhengsvt.github.io/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid><description>&lt;h2 id="前言">
+&lt;a class="header-anchor" href="#%e5%89%8d%e8%a8%80">&lt;/a>
+前言
+&lt;/h2>&lt;p>俗话说的好，&lt;strong>美化的尽头是默认&lt;/strong>。&lt;/p></description></item><item><title>数字信号处理</title><link>https://guzhengsvt.github.io/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link><pubDate>Wed, 16 Apr 2025 16:30:15 +0800</pubDate><guid>https://guzhengsvt.github.io/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid><description>&lt;h1 id="数字信号处理基本概念">
+&lt;a class="header-anchor" href="#%e6%95%b0%e5%ad%97%e4%bf%a1%e5%8f%b7%e5%a4%84%e7%90%86%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5">&lt;/a>
+数字信号处理基本概念
+&lt;/h1>&lt;h2 id="信号分类">
+&lt;a class="header-anchor" href="#%e4%bf%a1%e5%8f%b7%e5%88%86%e7%b1%bb">&lt;/a>
+信号分类
+&lt;/h2>&lt;ol>
+&lt;li>连续信号：即模拟信号，时域连续信号。&lt;/li>
+&lt;li>时域离散信号：幅度取值连续，时间取值离散。&lt;/li>
+&lt;li>幅度离散信号：幅度取值离散，时间取值连续。&lt;/li>
+&lt;li>数字信号：幅度和时间都取离散值。&lt;/li>
+&lt;/ol>
+&lt;h3 id="区别">
+&lt;a class="header-anchor" href="#%e5%8c%ba%e5%88%ab">&lt;/a>
+区别
+&lt;/h3>&lt;p>时域离散信号和数字信号之间的差别，仅在于数字信号存在量化误差。&lt;/p></description></item><item><title>空气动力学基础</title><link>https://guzhengsvt.github.io/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link><pubDate>Wed, 16 Apr 2025 16:18:45 +0800</pubDate><guid>https://guzhengsvt.github.io/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid><description>&lt;h1 id="流体静力学基础">
+&lt;a class="header-anchor" href="#%e6%b5%81%e4%bd%93%e9%9d%99%e5%8a%9b%e5%ad%a6%e5%9f%ba%e7%a1%80">&lt;/a>
+流体静力学基础
+&lt;/h1>&lt;h2 id="气体性质">
+&lt;a class="header-anchor" href="#%e6%b0%94%e4%bd%93%e6%80%a7%e8%b4%a8">&lt;/a>
+气体性质
+&lt;/h2>&lt;h3 id="压缩性">
+&lt;a class="header-anchor" href="#%e5%8e%8b%e7%bc%a9%e6%80%a7">&lt;/a>
+压缩性
+&lt;/h3>&lt;h4 id="体积弹性模数">
+&lt;a class="header-anchor" href="#%e4%bd%93%e7%a7%af%e5%bc%b9%e6%80%a7%e6%a8%a1%e6%95%b0">&lt;/a>
+体积弹性模数
+&lt;/h4>&lt;p>定义：产生单位相对体积变化所需压强增高&lt;/p>
+$$
+E=-\frac{dp}{dV/V}
+$$&lt;p>对于一定质量气体，体积与密度成反比例关系，即&lt;/p>
+$$
+\frac{d \rho}{\rho}=-\frac{dV}{V}
+$$&lt;p>回代得&lt;/p></description></item><item><title>《黑神话：悟空》游玩体验（无透）</title><link>https://guzhengsvt.github.io/post/game/%E9%BB%91%E7%A5%9E%E8%AF%9D%E6%82%9F%E7%A9%BA%E6%B8%B8%E7%8E%A9%E4%BD%93%E9%AA%8C%E6%97%A0%E9%80%8F/</link><pubDate>Wed, 16 Apr 2025 16:16:15 +0800</pubDate><guid>https://guzhengsvt.github.io/post/game/%E9%BB%91%E7%A5%9E%E8%AF%9D%E6%82%9F%E7%A9%BA%E6%B8%B8%E7%8E%A9%E4%BD%93%E9%AA%8C%E6%97%A0%E9%80%8F/</guid><description>&lt;p>&lt;strong>《悟空》&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>不见灵山两鬓冬，云海低悬雾九重。&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>锁住心猿拴意马，打破顽空始悟空。&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>三清道化元神固，一藏经传紧箍松。&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>莫问前路几春夏，灵山已在汝心中。&lt;/strong>&lt;/p></description></item><item><title>日寄其一</title><link>https://guzhengsvt.github.io/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</link><pubDate>Wed, 16 Apr 2025 16:12:00 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</guid><description>&lt;p>上次更新是一个月前，倒不是多忙（虽然确实有忙的时候）。只是身不由己，世事难料，无心码字。&lt;/p>
+&lt;h2 id="路千里朔风吹客衣">
+&lt;a class="header-anchor" href="#%e8%b7%af%e5%8d%83%e9%87%8c%e6%9c%94%e9%a3%8e%e5%90%b9%e5%ae%a2%e8%a1%a3">&lt;/a>
+路千里，朔风吹客衣
+&lt;/h2>&lt;p>考完期末不久就赶到同济医院照顾我妈，一如小学五年级她赶来照顾我一样。&lt;/p></description></item><item><title>大二下学期总结</title><link>https://guzhengsvt.github.io/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</link><pubDate>Wed, 16 Apr 2025 16:09:14 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</guid><description>&lt;p>&lt;strong>前情提要：&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>概率论上午考记成下午了，一觉睡到十一点，醒来美滋滋点一份宫保鸡丁饭。&lt;br>
+淡淡地死了……&lt;/p>&lt;/blockquote>
+&lt;p>大约的确是结束了吧，大二也好保研也好。故事的结局往往以意外结尾，似乎只有意料之外才能令演员和观众都印象深刻。
+来钱班一年，确实经历了更多的考验，每次赶早八看到室友在睡觉，晚上下实验看到室友打游戏，我恨得牙痒痒。
+值得吗？
+我毫无悔意。
+尽管对学弟的说辞总是实打实的劝退，本人并不后悔来钱班。为了更接近航空航天，我果断从机电院润到钱班，填申请表的那一刻，就预料到了课多事多学习卷，分少钱少保研难。知乎上一届的劝退贴没把我劝住，一如我劝不住23级的学弟一样。
+在远离市中心的长安校区，白天千米厚的纯棉白云和夜晚无数滴星总是比“竞赛”、“保研”这些字眼更加迷人。不用为学分和保研焦虑后，人倒是舒爽不少。
+倒也没什么可难受的，与在一穷二白的新中国建立起航空工业相比，考研连挫折都算不上。无非是道路曲折些，走便是了。
+好在本学期的课程我大部分都已掌握，概率论未考尚无根底，疏漏之处交由实践去弥补。学问到手，不算白活半年。&lt;/p></description></item><item><title>自动拨号上网与任务计划程序</title><link>https://guzhengsvt.github.io/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</link><pubDate>Wed, 16 Apr 2025 16:03:52 +0800</pubDate><guid>https://guzhengsvt.github.io/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</guid><description>&lt;h2 id="破事氵">
+&lt;a class="header-anchor" href="#%e7%a0%b4%e4%ba%8b%e6%b0%b5">&lt;/a>
+破事氵
+&lt;/h2>&lt;p>台式电脑通过网线连校园网要拨号上网，&lt;strong>幽默&lt;/strong>腾子几百年没更新的TIM登录时没网会报错弹窗。
+&lt;img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2343467847.png" alt="TIM报错">
+于是每次开机我都得手动打开设置里的拨号上网，设置的TIM开机自启动会先行一步报错，显得开机自启动这个功能很&lt;strong>幽默&lt;/strong>。
+于是写个bat自动联网，任务管理器里设置开机自启动。但它启动和TIM是同一个优先级，往往来不及连上网络TIM就自动登录然后报错弹窗了。
+在计划程序库里把自动联网程序设置为开机启动，TIM登录后延时15s启动。
+&lt;img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2593746197.png" alt="延迟TIM启动">&lt;/p></description></item><item><title>热力学与统计物理</title><link>https://guzhengsvt.github.io/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</link><pubDate>Wed, 16 Apr 2025 15:52:59 +0800</pubDate><guid>https://guzhengsvt.github.io/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</guid><description>&lt;h1 id="物理量">
+&lt;a class="header-anchor" href="#%e7%89%a9%e7%90%86%e9%87%8f">&lt;/a>
+物理量
+&lt;/h1>&lt;h2 id="内能-u">
+&lt;a class="header-anchor" href="#%e5%86%85%e8%83%bd-u">&lt;/a>
+内能 U
+&lt;/h2>$$
+\Delta U=Q+W
+$$&lt;p>
+Q为系统吸热，W为系统对外做功&lt;/p>
+&lt;h2 id="熵-s">
+&lt;a class="header-anchor" href="#%e7%86%b5-s">&lt;/a>
+熵 S
+&lt;/h2>&lt;p>熵是一种测量在动力学方面&lt;strong>不能做功&lt;/strong>的能量总数，也就是当总体的熵增加，其做功能力也下降，熵的量度正是能量退化的指标。
+==可逆过程==中
+&lt;/p></description></item><item><title>浪子回头</title><link>https://guzhengsvt.github.io/post/thoughts/%E6%B5%AA%E5%AD%90%E5%9B%9E%E5%A4%B4/</link><pubDate>Wed, 16 Apr 2025 15:47:50 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E6%B5%AA%E5%AD%90%E5%9B%9E%E5%A4%B4/</guid><description>&lt;p>近日西安气温越发高了，五月末便已来到36℃，~~等到十二月有多热我都不敢想。~~因为七月的电赛省赛和可能的暑期社会实践，考虑暑假留校，希望不要和冬天一样集中住宿（夏天不需要集中供暖节省成本应该不会吧）。以往都是考完就回家，想来内陆城市盛夏会比千湖之省热很多。&lt;/p></description></item><item><title>生活小记</title><link>https://guzhengsvt.github.io/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</link><pubDate>Wed, 16 Apr 2025 15:40:51 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</guid><description>&lt;h3 id="活着">
+&lt;a class="header-anchor" href="#%e6%b4%bb%e7%9d%80">&lt;/a>
+活着
+&lt;/h3></description></item><item><title>新装电脑</title><link>https://guzhengsvt.github.io/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</link><pubDate>Wed, 16 Apr 2025 15:37:10 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</guid><description>&lt;p>今年生日给自己新配了一台台式电脑&lt;/p></description></item><item><title>关于我</title><link>https://guzhengsvt.github.io/about/</link><pubDate>Sun, 14 Apr 2024 20:39:52 +0800</pubDate><guid>https://guzhengsvt.github.io/about/</guid><description>&lt;h2 id="定义">
 &lt;a class="header-anchor" href="#%e5%ae%9a%e4%b9%89">&lt;/a>
 定义
 &lt;/h2>&lt;ol>
@@ -427,7 +543,7 @@ reimu 主题 icon_font
 &lt;h3 id="业余无线电-ham">
 &lt;a class="header-anchor" href="#%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-ham">&lt;/a>
 业余无线电 HAM
-&lt;/h3>&lt;p>已取得 A 证，电台证书和呼号审批中（西安无委 NTM 能不能快点）&lt;/p></description></item><item><title>友情链接</title><link>https://guzhengsvt.github.io/friend/</link><pubDate>Mon, 14 Apr 2025 20:39:52 +0800</pubDate><guid>https://guzhengsvt.github.io/friend/</guid><description>&lt;h2 id="本站信息">
+&lt;/h3>&lt;p>已取得 A 证，电台证书和呼号审批中（西安无委 NTM 能不能快点）&lt;/p></description></item><item><title>友情链接</title><link>https://guzhengsvt.github.io/friend/</link><pubDate>Sun, 14 Apr 2024 20:39:52 +0800</pubDate><guid>https://guzhengsvt.github.io/friend/</guid><description>&lt;h2 id="本站信息">
 &lt;a class="header-anchor" href="#%e6%9c%ac%e7%ab%99%e4%bf%a1%e6%81%af">&lt;/a>
 本站信息
 &lt;/h2>&lt;ul>
@@ -818,123 +934,7 @@ reimu 主题 icon_font
  &lt;/div>
  &lt;/div>
  
-&lt;/div></description></item><item><title>Hello World</title><link>https://guzhengsvt.github.io/post/thoughts/hello-world/</link><pubDate>Sun, 13 Apr 2025 11:00:00 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/hello-world/</guid><description>&lt;h1 id="20250413">
-&lt;a class="header-anchor" href="#20250413">&lt;/a>
-2025.04.13
-&lt;/h1>&lt;p>捣鼓两天终于搭好了Hugo博客，主题是&lt;a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu&lt;/a>。&lt;/p>
-&lt;p>对于原来的&lt;a href="https://guzhengsvt.top/">Typecho博客&lt;/a>响应速度不满意，我计划再次迁移博客。（尽管Typecho已经很轻量了，垃圾的云服务器及带宽严重限制了访问和文章加载速度。）&lt;/p>
-&lt;p>放弃动态后，能考虑静态无非Hexo、Hugo、Jekyll等。选择Hugo，无非是因为它的口号 &lt;em>&lt;strong>The world’s fastest framework for building websites&lt;/strong>&lt;/em> 。&lt;/p></description></item><item><title>大三上总结</title><link>https://guzhengsvt.github.io/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link><pubDate>Wed, 16 Apr 2025 17:19:04 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid><description>&lt;h2 id="关于期末考试">
-&lt;a class="header-anchor" href="#%e5%85%b3%e4%ba%8e%e6%9c%9f%e6%9c%ab%e8%80%83%e8%af%95">&lt;/a>
-关于期末考试
-&lt;/h2>&lt;p>于学生，一个学期最重要的似乎莫过于成绩了。秉持着临阵磨枪的&lt;del>优良传统&lt;/del>，期末半个月几乎每日狂学（当然偶有偷懒的时候&lt;del>怎么十六周还做实验啊我操&lt;/del>）。好歹是没有挂科，虽然分数不高但也满意（一天学完空气动力学70+什么实力我不说）。
-于是又要“下定决心”说“下学期我一定好好学”这样唬人的假话了hhh
-不过确实该学了，不然如何博士毕业呢？&lt;/p></description></item><item><title>东方红</title><link>https://guzhengsvt.github.io/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</link><pubDate>Wed, 16 Apr 2025 17:15:35 +0800</pubDate><guid>https://guzhengsvt.github.io/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</guid><description>&lt;h3 id="东方红">
-&lt;a class="header-anchor" href="#%e4%b8%9c%e6%96%b9%e7%ba%a2">&lt;/a>
-东方红
-&lt;/h3>&lt;p>&lt;strong>中流击水声远空，但闻江水夜夜隆。&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>人皆旭日岂年少，万里河山万里红。&lt;/strong>&lt;/p>
-&lt;p>2024.12.26&lt;br>
-于西安&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/12/1795319606.jpeg" alt="IMG_0434.jpeg">&lt;/p></description></item><item><title>因为春天来过</title><link>https://guzhengsvt.github.io/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</link><pubDate>Wed, 16 Apr 2025 16:52:40 +0800</pubDate><guid>https://guzhengsvt.github.io/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</guid><description>&lt;h3 id="谨以此诗献给我生命中那颗polaris">
-&lt;a class="header-anchor" href="#%e8%b0%a8%e4%bb%a5%e6%ad%a4%e8%af%97%e7%8c%ae%e7%bb%99%e6%88%91%e7%94%9f%e5%91%bd%e4%b8%ad%e9%82%a3%e9%a2%97polaris">&lt;/a>
-——谨以此诗，献给我生命中那颗Polaris
-&lt;/h3></description></item><item><title>晋南行五首</title><link>https://guzhengsvt.github.io/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</link><pubDate>Wed, 16 Apr 2025 16:44:32 +0800</pubDate><guid>https://guzhengsvt.github.io/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</guid><description>&lt;h2 id="序">
-&lt;a class="header-anchor" href="#%e5%ba%8f">&lt;/a>
-序
-&lt;/h2>&lt;p>　　国庆随《黑神话·悟空》游山西，历晋南晋城、临汾、运城三市，作诗词五首，简记之。
-　　&lt;/p></description></item><item><title>中秋，给家人打个电话吧</title><link>https://guzhengsvt.github.io/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</link><pubDate>Wed, 16 Apr 2025 16:41:40 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</guid><description>&lt;blockquote>
-&lt;p>“妈妈这个世界真的会有女孩喜欢我吗？”&lt;br>
-“当然啦第一次见你我也才20多岁。”&lt;/p>&lt;/blockquote></description></item><item><title>概率论与数理统计</title><link>https://guzhengsvt.github.io/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><pubDate>Wed, 16 Apr 2025 16:07:05 +0800</pubDate><guid>https://guzhengsvt.github.io/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid><description>&lt;h2 id="前言">
-&lt;a class="header-anchor" href="#%e5%89%8d%e8%a8%80">&lt;/a>
-前言
-&lt;/h2>&lt;h3 id="第一版前言">
-&lt;a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e7%89%88%e5%89%8d%e8%a8%80">&lt;/a>
-第一版前言
-&lt;/h3>&lt;p>[[2024-09-14]] 今天补考终于结束了，听说正考直接放原卷，这几天刷了三套网上得来的“西电原卷”（21 年和两套 23 年）。上午刷的 21 年题，下午 $\frac{1}{4}$ 是一个字不改的原题，我都看笑了。
-戴浩当年说尽力给钱班找最好的老师，现在看来数统院没人了？讲课不行可以说是重心不在教学、天赋不在教书；出套卷子直接搬旧题，还是近几年的，题也没审错漏百出，给我气笑了。
-自己出的卷子毫无含金量，自己也不做做看。这是态度问题。
-你电期末考试放水挺好的，但不要总是拿老本糊弄人。对学生大谈创新，对自己能混就行。这不是做学术的态度，更不是教书应有的态度。&lt;/p></description></item><item><title>凭栏静听潇潇雨，故国人民有所思。</title><link>https://guzhengsvt.github.io/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</link><pubDate>Wed, 16 Apr 2025 16:39:04 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</guid><description>&lt;p>“我有一个梦，也许有一天，灿烂的阳光能照进黑暗森林。”&lt;/p></description></item><item><title>Windows美化历程</title><link>https://guzhengsvt.github.io/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link><pubDate>Wed, 16 Apr 2025 16:34:17 +0800</pubDate><guid>https://guzhengsvt.github.io/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid><description>&lt;h2 id="前言">
-&lt;a class="header-anchor" href="#%e5%89%8d%e8%a8%80">&lt;/a>
-前言
-&lt;/h2>&lt;p>俗话说的好，&lt;strong>美化的尽头是默认&lt;/strong>。&lt;/p></description></item><item><title>数字信号处理</title><link>https://guzhengsvt.github.io/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link><pubDate>Wed, 16 Apr 2025 16:30:15 +0800</pubDate><guid>https://guzhengsvt.github.io/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid><description>&lt;h1 id="数字信号处理基本概念">
-&lt;a class="header-anchor" href="#%e6%95%b0%e5%ad%97%e4%bf%a1%e5%8f%b7%e5%a4%84%e7%90%86%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5">&lt;/a>
-数字信号处理基本概念
-&lt;/h1>&lt;h2 id="信号分类">
-&lt;a class="header-anchor" href="#%e4%bf%a1%e5%8f%b7%e5%88%86%e7%b1%bb">&lt;/a>
-信号分类
-&lt;/h2>&lt;ol>
-&lt;li>连续信号：即模拟信号，时域连续信号。&lt;/li>
-&lt;li>时域离散信号：幅度取值连续，时间取值离散。&lt;/li>
-&lt;li>幅度离散信号：幅度取值离散，时间取值连续。&lt;/li>
-&lt;li>数字信号：幅度和时间都取离散值。&lt;/li>
-&lt;/ol>
-&lt;h3 id="区别">
-&lt;a class="header-anchor" href="#%e5%8c%ba%e5%88%ab">&lt;/a>
-区别
-&lt;/h3>&lt;p>时域离散信号和数字信号之间的差别，仅在于数字信号存在量化误差。&lt;/p></description></item><item><title>空气动力学基础</title><link>https://guzhengsvt.github.io/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link><pubDate>Wed, 16 Apr 2025 16:18:45 +0800</pubDate><guid>https://guzhengsvt.github.io/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid><description>&lt;h1 id="流体静力学基础">
-&lt;a class="header-anchor" href="#%e6%b5%81%e4%bd%93%e9%9d%99%e5%8a%9b%e5%ad%a6%e5%9f%ba%e7%a1%80">&lt;/a>
-流体静力学基础
-&lt;/h1>&lt;h2 id="气体性质">
-&lt;a class="header-anchor" href="#%e6%b0%94%e4%bd%93%e6%80%a7%e8%b4%a8">&lt;/a>
-气体性质
-&lt;/h2>&lt;h3 id="压缩性">
-&lt;a class="header-anchor" href="#%e5%8e%8b%e7%bc%a9%e6%80%a7">&lt;/a>
-压缩性
-&lt;/h3>&lt;h4 id="体积弹性模数">
-&lt;a class="header-anchor" href="#%e4%bd%93%e7%a7%af%e5%bc%b9%e6%80%a7%e6%a8%a1%e6%95%b0">&lt;/a>
-体积弹性模数
-&lt;/h4>&lt;p>定义：产生单位相对体积变化所需压强增高&lt;/p>
-$$
-E=-\frac{dp}{dV/V}
-$$&lt;p>对于一定质量气体，体积与密度成反比例关系，即&lt;/p>
-$$
-\frac{d \rho}{\rho}=-\frac{dV}{V}
-$$&lt;p>回代得&lt;/p></description></item><item><title>《黑神话：悟空》游玩体验（无透）</title><link>https://guzhengsvt.github.io/post/game/%E9%BB%91%E7%A5%9E%E8%AF%9D%E6%82%9F%E7%A9%BA%E6%B8%B8%E7%8E%A9%E4%BD%93%E9%AA%8C%E6%97%A0%E9%80%8F/</link><pubDate>Wed, 16 Apr 2025 16:16:15 +0800</pubDate><guid>https://guzhengsvt.github.io/post/game/%E9%BB%91%E7%A5%9E%E8%AF%9D%E6%82%9F%E7%A9%BA%E6%B8%B8%E7%8E%A9%E4%BD%93%E9%AA%8C%E6%97%A0%E9%80%8F/</guid><description>&lt;p>&lt;strong>《悟空》&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>不见灵山两鬓冬，云海低悬雾九重。&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>锁住心猿拴意马，打破顽空始悟空。&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>三清道化元神固，一藏经传紧箍松。&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>莫问前路几春夏，灵山已在汝心中。&lt;/strong>&lt;/p></description></item><item><title>日寄其一</title><link>https://guzhengsvt.github.io/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</link><pubDate>Wed, 16 Apr 2025 16:12:00 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</guid><description>&lt;p>上次更新是一个月前，倒不是多忙（虽然确实有忙的时候）。只是身不由己，世事难料，无心码字。&lt;/p>
-&lt;h2 id="路千里朔风吹客衣">
-&lt;a class="header-anchor" href="#%e8%b7%af%e5%8d%83%e9%87%8c%e6%9c%94%e9%a3%8e%e5%90%b9%e5%ae%a2%e8%a1%a3">&lt;/a>
-路千里，朔风吹客衣
-&lt;/h2>&lt;p>考完期末不久就赶到同济医院照顾我妈，一如小学五年级她赶来照顾我一样。&lt;/p></description></item><item><title>大二下学期总结</title><link>https://guzhengsvt.github.io/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</link><pubDate>Wed, 16 Apr 2025 16:09:14 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</guid><description>&lt;p>&lt;strong>前情提要：&lt;/strong>&lt;/p>
-&lt;blockquote>
-&lt;p>概率论上午考记成下午了，一觉睡到十一点，醒来美滋滋点一份宫保鸡丁饭。&lt;br>
-淡淡地死了……&lt;/p>&lt;/blockquote>
-&lt;p>大约的确是结束了吧，大二也好保研也好。故事的结局往往以意外结尾，似乎只有意料之外才能令演员和观众都印象深刻。
-来钱班一年，确实经历了更多的考验，每次赶早八看到室友在睡觉，晚上下实验看到室友打游戏，我恨得牙痒痒。
-值得吗？
-我毫无悔意。
-尽管对学弟的说辞总是实打实的劝退，本人并不后悔来钱班。为了更接近航空航天，我果断从机电院润到钱班，填申请表的那一刻，就预料到了课多事多学习卷，分少钱少保研难。知乎上一届的劝退贴没把我劝住，一如我劝不住23级的学弟一样。
-在远离市中心的长安校区，白天千米厚的纯棉白云和夜晚无数滴星总是比“竞赛”、“保研”这些字眼更加迷人。不用为学分和保研焦虑后，人倒是舒爽不少。
-倒也没什么可难受的，与在一穷二白的新中国建立起航空工业相比，考研连挫折都算不上。无非是道路曲折些，走便是了。
-好在本学期的课程我大部分都已掌握，概率论未考尚无根底，疏漏之处交由实践去弥补。学问到手，不算白活半年。&lt;/p></description></item><item><title>自动拨号上网与任务计划程序</title><link>https://guzhengsvt.github.io/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</link><pubDate>Wed, 16 Apr 2025 16:03:52 +0800</pubDate><guid>https://guzhengsvt.github.io/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</guid><description>&lt;h2 id="破事氵">
-&lt;a class="header-anchor" href="#%e7%a0%b4%e4%ba%8b%e6%b0%b5">&lt;/a>
-破事氵
-&lt;/h2>&lt;p>台式电脑通过网线连校园网要拨号上网，&lt;strong>幽默&lt;/strong>腾子几百年没更新的TIM登录时没网会报错弹窗。
-&lt;img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2343467847.png" alt="TIM报错">
-于是每次开机我都得手动打开设置里的拨号上网，设置的TIM开机自启动会先行一步报错，显得开机自启动这个功能很&lt;strong>幽默&lt;/strong>。
-于是写个bat自动联网，任务管理器里设置开机自启动。但它启动和TIM是同一个优先级，往往来不及连上网络TIM就自动登录然后报错弹窗了。
-在计划程序库里把自动联网程序设置为开机启动，TIM登录后延时15s启动。
-&lt;img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2593746197.png" alt="延迟TIM启动">&lt;/p></description></item><item><title>热力学与统计物理</title><link>https://guzhengsvt.github.io/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</link><pubDate>Wed, 16 Apr 2025 15:52:59 +0800</pubDate><guid>https://guzhengsvt.github.io/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</guid><description>&lt;h1 id="物理量">
-&lt;a class="header-anchor" href="#%e7%89%a9%e7%90%86%e9%87%8f">&lt;/a>
-物理量
-&lt;/h1>&lt;h2 id="内能-u">
-&lt;a class="header-anchor" href="#%e5%86%85%e8%83%bd-u">&lt;/a>
-内能 U
-&lt;/h2>$$
-\Delta U=Q+W
-$$&lt;p>
-Q为系统吸热，W为系统对外做功&lt;/p>
-&lt;h2 id="熵-s">
-&lt;a class="header-anchor" href="#%e7%86%b5-s">&lt;/a>
-熵 S
-&lt;/h2>&lt;p>熵是一种测量在动力学方面&lt;strong>不能做功&lt;/strong>的能量总数，也就是当总体的熵增加，其做功能力也下降，熵的量度正是能量退化的指标。
-==可逆过程==中
-&lt;/p></description></item><item><title>浪子回头</title><link>https://guzhengsvt.github.io/post/thoughts/%E6%B5%AA%E5%AD%90%E5%9B%9E%E5%A4%B4/</link><pubDate>Wed, 16 Apr 2025 15:47:50 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E6%B5%AA%E5%AD%90%E5%9B%9E%E5%A4%B4/</guid><description>&lt;p>近日西安气温越发高了，五月末便已来到36℃，~~等到十二月有多热我都不敢想。~~因为七月的电赛省赛和可能的暑期社会实践，考虑暑假留校，希望不要和冬天一样集中住宿（夏天不需要集中供暖节省成本应该不会吧）。以往都是考完就回家，想来内陆城市盛夏会比千湖之省热很多。&lt;/p></description></item><item><title>生活小记</title><link>https://guzhengsvt.github.io/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</link><pubDate>Wed, 16 Apr 2025 15:40:51 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</guid><description>&lt;h3 id="活着">
-&lt;a class="header-anchor" href="#%e6%b4%bb%e7%9d%80">&lt;/a>
-活着
-&lt;/h3></description></item><item><title>新装电脑</title><link>https://guzhengsvt.github.io/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</link><pubDate>Wed, 16 Apr 2025 15:37:10 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</guid><description>&lt;p>今年生日给自己新配了一台台式电脑&lt;/p></description></item><item><title>MicroPython函数库</title><link>https://guzhengsvt.github.io/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link><pubDate>Wed, 16 Apr 2025 15:34:33 +0800</pubDate><guid>https://guzhengsvt.github.io/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid><description>&lt;h1 id="machine-与硬件相关功能">
+&lt;/div></description></item><item><title>MicroPython函数库</title><link>https://guzhengsvt.github.io/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link><pubDate>Wed, 16 Apr 2025 15:34:33 +0800</pubDate><guid>https://guzhengsvt.github.io/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid><description>&lt;h1 id="machine-与硬件相关功能">
 &lt;a class="header-anchor" href="#machine-%e4%b8%8e%e7%a1%ac%e4%bb%b6%e7%9b%b8%e5%85%b3%e5%8a%9f%e8%83%bd">&lt;/a>
 machine-与硬件相关功能
 &lt;/h1>&lt;h2 id="pin类">
@@ -1282,5 +1282,8 @@ obsidian help
 &lt;p>开辟鸿蒙,谁为情种?都只为风月情浓.&lt;/p>
 &lt;p>趁着这奈何天,伤怀日,寂寥时,试遣愚衷.&lt;/p>
 &lt;p>因此上演出这怀金悼玉的&amp;laquo;红楼梦&amp;raquo;.&lt;/p>
-\[终身误\]&lt;p>都道是金玉良姻, 俺只念木石前盟.&lt;/p></description></item><item><title>朱冰倩我月亮你</title><link>https://guzhengsvt.github.io/post/thoughts/%E6%9C%B1%E5%86%B0%E5%80%A9%E6%88%91%E6%9C%88%E4%BA%AE%E4%BD%A0/</link><pubDate>Wed, 16 Apr 2025 14:09:21 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E6%9C%B1%E5%86%B0%E5%80%A9%E6%88%91%E6%9C%88%E4%BA%AE%E4%BD%A0/</guid><description/></item><item><title>予我遗憾亦赠我惊喜，予我万千风景</title><link>https://guzhengsvt.github.io/post/thoughts/%E4%BA%88%E6%88%91%E9%81%97%E6%86%BE%E4%BA%A6%E8%B5%A0%E6%88%91%E6%83%8A%E5%96%9C%E4%BA%88%E6%88%91%E4%B8%87%E5%8D%83%E9%A3%8E%E6%99%AF/</link><pubDate>Fri, 09 Sep 2022 13:14:00 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E4%BA%88%E6%88%91%E9%81%97%E6%86%BE%E4%BA%A6%E8%B5%A0%E6%88%91%E6%83%8A%E5%96%9C%E4%BA%88%E6%88%91%E4%B8%87%E5%8D%83%E9%A3%8E%E6%99%AF/</guid><description>&lt;p>于我，志愿表填完提交，2022.7.2下午5：00之后，我的高中生涯才算正式结束。&lt;/p>
+\[终身误\]&lt;p>都道是金玉良姻, 俺只念木石前盟.&lt;/p></description></item><item><title>朱冰倩我月亮你</title><link>https://guzhengsvt.github.io/post/thoughts/%E6%9C%B1%E5%86%B0%E5%80%A9%E6%88%91%E6%9C%88%E4%BA%AE%E4%BD%A0/</link><pubDate>Wed, 16 Apr 2025 14:09:21 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E6%9C%B1%E5%86%B0%E5%80%A9%E6%88%91%E6%9C%88%E4%BA%AE%E4%BD%A0/</guid><description>&lt;p>我想和你相恋最凡俗人间&lt;/p>
+&lt;p>邀来春花与秋月烹成炊烟&lt;/p>
+&lt;p>皓月映长川 相思在长安&lt;/p>
+&lt;p>纵然是如画江山 有你才圆满&lt;/p></description></item><item><title>予我遗憾亦赠我惊喜，予我万千风景</title><link>https://guzhengsvt.github.io/post/thoughts/%E4%BA%88%E6%88%91%E9%81%97%E6%86%BE%E4%BA%A6%E8%B5%A0%E6%88%91%E6%83%8A%E5%96%9C%E4%BA%88%E6%88%91%E4%B8%87%E5%8D%83%E9%A3%8E%E6%99%AF/</link><pubDate>Fri, 09 Sep 2022 13:14:00 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/%E4%BA%88%E6%88%91%E9%81%97%E6%86%BE%E4%BA%A6%E8%B5%A0%E6%88%91%E6%83%8A%E5%96%9C%E4%BA%88%E6%88%91%E4%B8%87%E5%8D%83%E9%A3%8E%E6%99%AF/</guid><description>&lt;p>于我，志愿表填完提交，2022.7.2下午5：00之后，我的高中生涯才算正式结束。&lt;/p>
 &lt;p>三年前选择了武中，现在回看，亦不后悔。也许多年后再回首，那条人迹罕至的小路更加诱人，但谁知道选择的对错呢？那时的我是多么坚定呐。尽管理由已经消逝如烟，我仍尊重那个青涩的少年。&lt;/p></description></item><item><title>2022.7.14新生</title><link>https://guzhengsvt.github.io/post/thoughts/2022/</link><pubDate>Thu, 14 Jul 2022 13:14:52 +0800</pubDate><guid>https://guzhengsvt.github.io/post/thoughts/2022/</guid><description>&lt;p>这一天，我真正意义上地迎来了新生。&lt;/p></description></item></channel></rss>
