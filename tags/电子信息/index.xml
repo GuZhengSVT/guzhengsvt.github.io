@@ -1,16 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>电子信息 on 为什么要演奏春日影！</title><link>https://guzhengsvt.github.io/tags/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF/</link><description>Recent content in 电子信息 on 为什么要演奏春日影！</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 04 Sep 2024 23:44:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/tags/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF/index.xml" rel="self" type="application/rss+xml"/><item><title>数字信号处理</title><link>https://guzhengsvt.github.io/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link><pubDate>Wed, 16 Apr 2025 16:30:15 +0800</pubDate><guid>https://guzhengsvt.github.io/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid><description>&lt;h1 id="数字信号处理基本概念">
-&lt;a class="header-anchor" href="#%e6%95%b0%e5%ad%97%e4%bf%a1%e5%8f%b7%e5%a4%84%e7%90%86%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5">&lt;/a>
-数字信号处理基本概念
-&lt;/h1>&lt;h2 id="信号分类">
-&lt;a class="header-anchor" href="#%e4%bf%a1%e5%8f%b7%e5%88%86%e7%b1%bb">&lt;/a>
-信号分类
-&lt;/h2>&lt;ol>
-&lt;li>连续信号：即模拟信号，时域连续信号。&lt;/li>
-&lt;li>时域离散信号：幅度取值连续，时间取值离散。&lt;/li>
-&lt;li>幅度离散信号：幅度取值离散，时间取值连续。&lt;/li>
-&lt;li>数字信号：幅度和时间都取离散值。&lt;/li>
-&lt;/ol>
-&lt;h3 id="区别">
-&lt;a class="header-anchor" href="#%e5%8c%ba%e5%88%ab">&lt;/a>
-区别
-&lt;/h3>&lt;p>时域离散信号和数字信号之间的差别，仅在于数字信号存在量化误差。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>电子信息 on 为什么要演奏春日影！</title>
+    <link>http://localhost:1313/tags/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF/</link>
+    <description>Recent content in 电子信息 on 为什么要演奏春日影！</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 04 Sep 2024 23:44:15 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数字信号处理</title>
+      <link>http://localhost:1313/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link>
+      <pubDate>Wed, 16 Apr 2025 16:30:15 +0800</pubDate>
+      <guid>http://localhost:1313/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid>
+      <description>&lt;h1 id=&#34;数字信号处理基本概念&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#%e6%95%b0%e5%ad%97%e4%bf%a1%e5%8f%b7%e5%a4%84%e7%90%86%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5&#34;&gt;&lt;/a&gt;&#xA;数字信号处理基本概念&#xA;&lt;/h1&gt;&lt;h2 id=&#34;信号分类&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#%e4%bf%a1%e5%8f%b7%e5%88%86%e7%b1%bb&#34;&gt;&lt;/a&gt;&#xA;信号分类&#xA;&lt;/h2&gt;&lt;ol&gt;&#xA;&lt;li&gt;连续信号：即模拟信号，时域连续信号。&lt;/li&gt;&#xA;&lt;li&gt;时域离散信号：幅度取值连续，时间取值离散。&lt;/li&gt;&#xA;&lt;li&gt;幅度离散信号：幅度取值离散，时间取值连续。&lt;/li&gt;&#xA;&lt;li&gt;数字信号：幅度和时间都取离散值。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;区别&#34;&gt;&#xA;&lt;a class=&#34;header-anchor&#34; href=&#34;#%e5%8c%ba%e5%88%ab&#34;&gt;&lt;/a&gt;&#xA;区别&#xA;&lt;/h3&gt;&lt;p&gt;时域离散信号和数字信号之间的差别，仅在于数字信号存在量化误差。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

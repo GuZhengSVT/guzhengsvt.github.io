@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数学 on 为什么要演奏春日影！</title><link>https://guzhengsvt.github.io/zh-cn/tags/%E6%95%B0%E5%AD%A6/</link><description>Recent content in 数学 on 为什么要演奏春日影！</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 16 Apr 2025 15:09:33 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/tags/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml"/><item><title>概率论与数理统计</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><pubDate>Wed, 16 Apr 2025 16:07:05 +0800</pubDate><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid><description>&lt;h2 id="前言">
+&lt;a class="header-anchor" href="#%e5%89%8d%e8%a8%80">&lt;/a>
+前言
+&lt;/h2>&lt;h3 id="第一版前言">
+&lt;a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e7%89%88%e5%89%8d%e8%a8%80">&lt;/a>
+第一版前言
+&lt;/h3>&lt;p>[[2024-09-14]] 今天补考终于结束了，听说正考直接放原卷，这几天刷了三套网上得来的“西电原卷”（21 年和两套 23 年）。上午刷的 21 年题，下午 $\frac{1}{4}$ 是一个字不改的原题，我都看笑了。
+戴浩当年说尽力给钱班找最好的老师，现在看来数统院没人了？讲课不行可以说是重心不在教学、天赋不在教书；出套卷子直接搬旧题，还是近几年的，题也没审错漏百出，给我气笑了。
+自己出的卷子毫无含金量，自己也不做做看。这是态度问题。
+你电期末考试放水挺好的，但不要总是拿老本糊弄人。对学生大谈创新，对自己能混就行。这不是做学术的态度，更不是教书应有的态度。&lt;/p></description></item><item><title>实数建立读书报告</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</link><pubDate>Wed, 16 Apr 2025 15:25:17 +0800</pubDate><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</guid><description>&lt;h1 id="real-number-foundation-book-report">
+&lt;a class="header-anchor" href="#real-number-foundation-book-report">&lt;/a>
+Real Number Foundation Book Report
+&lt;/h1>&lt;p>借着这次数学分析大作业的机会写写实数建立。&lt;/p>
+&lt;p>实数的建立是数学基础理论的一部分，涉及到许多数学分支，包括数学逻辑、集合论、代数结构等。数学家们通过对这些基本概念和性质的严密推导，构建了实数系统，为数学的发展提供了坚实的基础。这个过程在数学史上经历了漫长的发展，由许多数学家共同贡献。&lt;/p></description></item><item><title>留数定理与洛朗级数、高阶导数公式和柯西积分公式之间的关系或联系</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link><pubDate>Wed, 16 Apr 2025 15:09:33 +0800</pubDate><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid><description>&lt;h3 id="1-留数定理residue-theorem">
+&lt;a class="header-anchor" href="#1-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86residue-theorem">&lt;/a>
+1. 留数定理（Residue Theorem）：
+&lt;/h3>&lt;p>留数定理是复变函数理论中的一个关键结果，它建立在留数的概念之上。留数定理的核心思想是，如果在一个包含孤立奇点的闭曲线内，函数在这个曲线上处处解析，那么曲线内的整体积分等于函数在奇点处的留数之和。&lt;/p></description></item><item><title>复变函数</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link><pubDate>Fri, 17 Nov 2023 19:42:47 +0800</pubDate><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid><description>&lt;h1 id="复数">
+&lt;a class="header-anchor" href="#%e5%a4%8d%e6%95%b0">&lt;/a>
+复数
+&lt;/h1>&lt;ol>
+&lt;li>复数的表达形式：$$z = r\cdot e^{i\theta} = r(cos\theta +i\cdot sin\theta)$$&lt;/li>
+&lt;li>几种初等函数
+&lt;ol>
+&lt;li>指数函数：$e^z = e^x(cosy+isiny)$
+&lt;ol>
+&lt;li>$e^z只是expz的缩写，并没有幂的含义$&lt;/li>
+&lt;li>$|e^z| = e^x,Arg(e^z) = y+2k\pi$&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>对数函数：$Lnz =ln|r|+iArgz$
+&lt;ol>
+&lt;li>函数在除去原点和负实轴的$z$平面内解析，且$(Lnz)' = \frac{1}{z}$&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>三角函数
+&lt;ol>
+&lt;li>$cosz = \frac{e^{iz}+e^{-iz}}{2},sinz = \frac{e^{iz}-e^{-iz}}{2i}$&lt;/li>
+&lt;li>$chz = \frac{e^z+e^{-z}}{2},shz = \frac{e^z-e^{-z}}{2}$&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;h1 id="解析函数">
+&lt;a class="header-anchor" href="#%e8%a7%a3%e6%9e%90%e5%87%bd%e6%95%b0">&lt;/a>
+解析函数
+&lt;/h1>&lt;ol>
+&lt;li>可导的定义：$$\lim_{\Delta z \to 0} \frac{f(z_0+\Delta z)-f(z_0)}{\Delta z} 极限存在，就称f(z)在z_0可导$$&lt;/li>
+&lt;li>解析的定义：$$函数f(z)在z_0及z_0的邻域内处处可导，就称f(z)在z_0处解析$$
+推论：解析函数的和、差、积、商也是解析函数，解析函数的复合也是解析函数。&lt;/li>
+&lt;li>可导、解析的充要条件：$u(x),v(x)可微$，并且满足&lt;strong>柯西-黎曼方程&lt;/strong>$$\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y} ,\frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x} $$若有一个不满足，则既不可导也不解析。
+推论：$f'(z) = \frac{\partial u}{\partial x}+i\frac{\partial v}{\partial x}=\frac{1}{i}\frac{\partial u}{\partial y}+\frac{\partial v}{\partial y}$&lt;/li>
+&lt;/ol>
+&lt;h1 id="复变函数的积分">
+&lt;a class="header-anchor" href="#%e5%a4%8d%e5%8f%98%e5%87%bd%e6%95%b0%e7%9a%84%e7%a7%af%e5%88%86">&lt;/a>
+复变函数的积分
+&lt;/h1>&lt;p>&lt;strong>重要公式&lt;/strong>
+&lt;/p></description></item></channel></rss>
