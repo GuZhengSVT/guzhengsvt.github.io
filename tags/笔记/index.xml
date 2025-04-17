@@ -444,11 +444,11 @@ $$&lt;p>回代得&lt;/p></description></item><item><title>自动拨号上网与�
 &lt;a class="header-anchor" href="#%e7%a0%b4%e4%ba%8b%e6%b0%b5">&lt;/a>
 破事氵
 &lt;/h2>&lt;p>台式电脑通过网线连校园网要拨号上网，&lt;strong>幽默&lt;/strong>腾子几百年没更新的TIM登录时没网会报错弹窗。
-&lt;img src="http://guzhengsvt.test.upcdn.net/2024/06/2343467847.png" alt="TIM报错">
+&lt;img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2343467847.png" alt="TIM报错">
 于是每次开机我都得手动打开设置里的拨号上网，设置的TIM开机自启动会先行一步报错，显得开机自启动这个功能很&lt;strong>幽默&lt;/strong>。
 于是写个bat自动联网，任务管理器里设置开机自启动。但它启动和TIM是同一个优先级，往往来不及连上网络TIM就自动登录然后报错弹窗了。
 在计划程序库里把自动联网程序设置为开机启动，TIM登录后延时15s启动。
-&lt;img src="http://guzhengsvt.test.upcdn.net/2024/06/2593746197.png" alt="延迟TIM启动">&lt;/p></description></item><item><title>热力学与统计物理</title><link>https://guzhengsvt.github.io/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</link><pubDate>Wed, 16 Apr 2025 15:52:59 +0800</pubDate><guid>https://guzhengsvt.github.io/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</guid><description>&lt;h1 id="物理量">
+&lt;img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2593746197.png" alt="延迟TIM启动">&lt;/p></description></item><item><title>热力学与统计物理</title><link>https://guzhengsvt.github.io/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</link><pubDate>Wed, 16 Apr 2025 15:52:59 +0800</pubDate><guid>https://guzhengsvt.github.io/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</guid><description>&lt;h1 id="物理量">
 &lt;a class="header-anchor" href="#%e7%89%a9%e7%90%86%e9%87%8f">&lt;/a>
 物理量
 &lt;/h1>&lt;h2 id="内能-u">
