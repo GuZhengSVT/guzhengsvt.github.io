@@ -3532,6 +3532,158 @@ mjx-container::-webkit-scrollbar {
   opacity: 1;
 }
 
+.notification-wrapper {
+  position: fixed;
+  z-index: 1000;
+  top: 20px;
+  right: 20px;
+  background: var(--color-header-background);
+  box-shadow: 0 0 10px var(--color-hover-shadow);
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-left: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: .5s;
+  color: var(--grey-7);
+}
+
+.notification-wrapper.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.notification-wrapper h1 {
+  padding: 10px 0;
+}
+
+.notification-wrapper p {
+  padding: 10px 0;
+}
+
+.notification-wrapper .notification-btn {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.notification-wrapper button {
+  background: var(--red-2);
+  border-radius: 5px;
+  color: #fff;
+  padding: 5px 10px;
+  font-family: "Mulish", "Noto Serif SC", "Mulish", "Noto Serif SC", "-apple-system", "PingFang SC", "Microsoft YaHei", "sans-serif";
+  border: none;
+  transition: .3s;
+}
+
+.notification-wrapper button:hover {
+  background: var(--red-1);
+}
+
+.notification-wrapper button:active {
+  background: var(--red-0);
+}
+
+.aplayer {
+  margin: 0 0 40px !important;
+  border-radius: 10px !important;
+  background: var(--color-wrap) !important;
+  transition: all 0.3s;
+  font-family: "Mulish", "Noto Serif SC", "Mulish", "Noto Serif SC", "-apple-system", "PingFang SC", "Microsoft YaHei", "sans-serif" !important;
+}
+
+.aplayer button:hover path,
+.aplayer .aplayer-icon:hover path {
+  fill: var(--color-link) !important;
+}
+
+.aplayer.aplayer-fixed {
+  margin: 0 !important;
+}
+
+.aplayer.aplayer-fixed .aplayer-body {
+  background: var(--color-wrap) !important;
+  transition: all 0.3s;
+}
+
+.aplayer.aplayer-fixed .aplayer-info {
+  transition: all 0.3s;
+  border-top: 1px solid var(--color-h2-border) !important;
+}
+
+.aplayer.aplayer-fixed .aplayer-list {
+  border: 1px solid var(--color-h2-border) !important;
+  transition: all 0.3s;
+}
+
+.aplayer.aplayer-withlist .aplayer-info {
+  transition: all 0.3s;
+  border-bottom: 1px solid var(--color-h2-border) !important;
+}
+
+.aplayer-title,
+.aplayer-list-title,
+.aplayer-music {
+  color: var(--color-link) !important;
+}
+
+.aplayer .aplayer-list ol li {
+  transition: all 0.3s;
+  border-top: 1px solid var(--color-h2-border) !important;
+  cursor: var(--cursor-pointer) !important;
+}
+
+.aplayer .aplayer-list ol li:hover {
+  background: var(--color-hover-shadow) !important;
+}
+
+.aplayer .aplayer-list ol li.aplayer-list-light {
+  background: var(--color-hover-shadow) !important;
+}
+
+.aplayer-lrc::before {
+  background: none !important;
+}
+
+.aplayer-lrc::after {
+  background: none !important;
+}
+
+.aplayer .aplayer-lrc .aplayer-lrc-contents,
+.aplayer .aplayer-info .aplayer-music {
+  cursor: var(--cursor-default) !important;
+}
+
+.aplayer .aplayer-pic,
+body .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap,
+.aplayer .aplayer-list-cur,
+.aplayer .aplayer-list-index,
+.aplayer .aplayer-list-author,
+body .aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap,
+.aplayer .aplayer-icon {
+  cursor: var(--cursor-pointer) !important;
+}
+
+#live2d-plugin {
+  right: 0 !important;
+  left: auto !important;
+}
+
+#live2d-tool {
+  right: auto !important;
+  left: -10px !important;
+}
+
+#live2d-toggle {
+  z-index: 1;
+}
+
+#live2d-plugin {
+  z-index: 98 !important;
+}
+
 .share-wrapper {
   display: flex;
   justify-content: center;
