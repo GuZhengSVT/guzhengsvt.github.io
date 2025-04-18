@@ -1,9 +1,173 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>复变函数 on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/zh-cn/tags/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><lastBuildDate>Wed, 20 Dec 2023 08:54:33 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/tags/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>留数定理与洛朗级数、高阶导数公式和柯西积分公式之间的关系或联系</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link><pubDate>Wed, 20 Dec 2023 08:54:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid><description><![CDATA[<h1>留数定理与洛朗级数、高阶导数公式和柯西积分公式之间的关系或联系</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>复变函数 on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/zh-cn/tags/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>&lt;div style="flex-direction:column;align-items: center;">&lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/">&lt;img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />&lt;/a>
+All website licensed under &lt;a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0&lt;/a>&lt;/div></copyright><lastBuildDate>Wed, 20 Dec 2023 08:54:33 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/tags/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>留数定理与洛朗级数、高阶导数公式和柯西积分公式之间的关系或联系</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link><pubDate>Wed, 20 Dec 2023 08:54:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid><description><![CDATA[<h1>留数定理与洛朗级数、高阶导数公式和柯西积分公式之间的关系或联系</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h3 id="1-留数定理residue-theorem">
 <a class="header-anchor" href="#1-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86residue-theorem"></a>
 1. 留数定理（Residue Theorem）：
 </h3><p>留数定理是复变函数理论中的一个关键结果，它建立在留数的概念之上。留数定理的核心思想是，如果在一个包含孤立奇点的闭曲线内，函数在这个曲线上处处解析，那么曲线内的整体积分等于函数在奇点处的留数之和。</p>
-        <hr><p>本文 2023-12-20 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-20</p><p>%!s(<nil>)</p>]]></description><category>Math</category></item><item><title>复变函数</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link><pubDate>Fri, 17 Nov 2023 19:42:47 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid><description><![CDATA[<h1>复变函数</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<h3 id="2-洛朗级数laurent-series">
+<a class="header-anchor" href="#2-%e6%b4%9b%e6%9c%97%e7%ba%a7%e6%95%b0laurent-series"></a>
+2. 洛朗级数（Laurent Series）：
+</h3><p>洛朗级数是一种复变函数的展开形式，可以表示为无穷级数的形式，包括正次幂和负次幂。具体而言，一个复函数在一个环形区域内的洛朗级数表示如下：
+</p>
+$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<p>其中，$c_n$是系数，而$z_0$是展开点。</p>
+<h3 id="3-高阶导数公式">
+<a class="header-anchor" href="#3-%e9%ab%98%e9%98%b6%e5%af%bc%e6%95%b0%e5%85%ac%e5%bc%8f"></a>
+3. 高阶导数公式：
+</h3><p>复变函数的高阶导数公式和实变函数有些相似，但在复平面上的运算需要注意。如果一个函数在某点解析，那么它在该点处的高阶导数可以通过对幂级数逐项求导得到。</p>
+<h3 id="4-柯西积分公式cauchys-integral-formula">
+<a class="header-anchor" href="#4-%e6%9f%af%e8%a5%bf%e7%a7%af%e5%88%86%e5%85%ac%e5%bc%8fcauchys-integral-formula"></a>
+4. 柯西积分公式（Cauchy&rsquo;s Integral Formula）：
+</h3><p>柯西积分公式是复分析中的一个基本结果，它建立了解析函数和其在围道上的积分之间的关系。具体而言，如果函数$f(z)$在一个简单闭合曲线内解析，那么对于这个曲线内的任意点$z_0$，有：</p>
+$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$<p>其中，$C$是包围$z_0$的简单闭合曲线。</p>
+<h3 id="关系和联系">
+<a class="header-anchor" href="#%e5%85%b3%e7%b3%bb%e5%92%8c%e8%81%94%e7%b3%bb"></a>
+关系和联系：
+</h3><ol>
+<li>
+<p><strong>留数定理与洛朗级数：</strong> 留数定理可以用来计算闭合曲线内函数的积分，而洛朗级数展开可以帮助我们理解函数在奇点附近的性质，从而求得留数。</p>
+</li>
+<li>
+<p><strong>留数定理与高阶导数公式：</strong> 留数定理可以通过对函数在奇点处的洛朗级数展开，然后逐项求导，来计算高阶导数。</p>
+</li>
+<li>
+<p><strong>留数定理与柯西积分公式：</strong> 柯西积分公式可以用来计算函数在围道上的积分，而留数定理是柯西积分公式的一种特例，其中围道内只有有限个孤立奇点。</p>
+</li>
+</ol>
+<h3 id="1-留数定理的洛朗级数证明">
+<a class="header-anchor" href="#1-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86%e7%9a%84%e6%b4%9b%e6%9c%97%e7%ba%a7%e6%95%b0%e8%af%81%e6%98%8e"></a>
+1. 留数定理的洛朗级数证明：
+</h3><h4 id="留数定理">
+<a class="header-anchor" href="#%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86"></a>
+留数定理：
+</h4><p>留数定理的表述为：</p>
+<p>如果$f(z)$在包含孤立奇点$z_0$的闭曲线内处处解析，那么曲线内的整体积分等于函数在奇点处的留数之和。</p>
+<h4 id="洛朗级数展开">
+<a class="header-anchor" href="#%e6%b4%9b%e6%9c%97%e7%ba%a7%e6%95%b0%e5%b1%95%e5%bc%80"></a>
+洛朗级数展开：
+</h4>$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<p>其中，$c_n$是留数。</p>
+<h4 id="证明步骤">
+<a class="header-anchor" href="#%e8%af%81%e6%98%8e%e6%ad%a5%e9%aa%a4"></a>
+证明步骤：
+</h4><ol>
+<li>
+<p><strong>洛朗级数的求解：</strong>
+通过复变函数的洛朗级数展开，我们有
+</p>
+$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<p>其中，$c_n$是由留数计算得到的系数。</p>
+</li>
+<li>
+<p><strong>积分的计算：</strong>
+对洛朗级数进行积分：
+</p>
+$$\oint_C f(z) \, dz = \oint_C \left( \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n \right) \, dz$$</li>
+<li>
+<p><strong>积分与求和次序交换：</strong>
+由于积分与求和次序可以交换，我们得到：
+</p>
+$$\oint_C f(z) \, dz = \sum_{n=-\infty}^{\infty} \oint_C c_n (z - z_0)^n \, dz$$</li>
+<li>
+<p><strong>留数定理的应用：</strong>
+对于$n \neq -1$，由于$c_n$不含$z^{-1}$，积分结果为零。只有$n = -1$项会贡献非零积分。
+</p>
+$$\oint_C f(z) \, dz = 2\pi i \cdot c_{-1}$$</li>
+<li>
+<p><strong>结论：</strong>
+最终得到留数定理的结论：
+</p>
+$$\oint_C f(z) \, dz = 2\pi i \cdot c_{-1}$$</li>
+</ol>
+<h3 id="2-留数定理到高阶导数公式的证明">
+<a class="header-anchor" href="#2-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86%e5%88%b0%e9%ab%98%e9%98%b6%e5%af%bc%e6%95%b0%e5%85%ac%e5%bc%8f%e7%9a%84%e8%af%81%e6%98%8e"></a>
+2. 留数定理到高阶导数公式的证明：
+</h3><h4 id="留数定理-1">
+<a class="header-anchor" href="#%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86-1"></a>
+留数定理：
+</h4><p>留数定理的表述为：</p>
+<p>如果$f(z)$在包含孤立奇点$z_0$的闭曲线内处处解析，那么曲线内的整体积分等于函数在奇点处的留数之和。</p>
+<h4 id="高阶导数公式">
+<a class="header-anchor" href="#%e9%ab%98%e9%98%b6%e5%af%bc%e6%95%b0%e5%85%ac%e5%bc%8f"></a>
+高阶导数公式：
+</h4><p>复变函数的高阶导数公式如下：</p>
+<p>如果$f(z)$在某点$z_0$处解析，那么它在该点的$n$阶导数可以表示为：
+</p>
+$$f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} \, dz$$<p>其中，$C$是包围$z_0$的简单闭合曲线。</p>
+<h4 id="证明步骤-1">
+<a class="header-anchor" href="#%e8%af%81%e6%98%8e%e6%ad%a5%e9%aa%a4-1"></a>
+证明步骤：
+</h4><ol>
+<li>
+<p><strong>留数定理的应用：</strong>
+根据留数定理，我们知道
+</p>
+$$\oint_C f(z) \, dz = 2\pi i \cdot \text{Res}(f, z_0)$$</li>
+<li>
+<p><strong>洛朗级数的求解：</strong>
+类似于前面的讨论，我们可以将$f(z)$在$z_0$处展开为洛朗级数：
+</p>
+$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$</li>
+<li>
+<p><strong>高阶导数的计算：</strong>
+利用洛朗级数，我们可以计算$f^{(n)}(z_0)$：
+</p>
+$$f^{(n)}(z_0) = \sum_{n=-\infty}^{\infty} n(n-1)\ldots(n-k+1) \cdot c_n \cdot (z - z_0)^{n-k}$$</li>
+<li>
+<p><strong>留数的提取：</strong>
+我们可以观察到只有$n = -k$时才会贡献非零项，因此
+</p>
+$$f^{(n)}(z_0) = n! \cdot c_{-n}$$</li>
+<li>
+<p><strong>结论：</strong>
+将$c_{-n}$代入留数定理的表达式，得到高阶导数公式的形式：
+</p>
+$$f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} \, dz$$</li>
+</ol>
+<h3 id="3-留数定理da柯西积分公式的证明">
+<a class="header-anchor" href="#3-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86da%e6%9f%af%e8%a5%bf%e7%a7%af%e5%88%86%e5%85%ac%e5%bc%8f%e7%9a%84%e8%af%81%e6%98%8e"></a>
+3. 留数定理da柯西积分公式的证明：
+</h3><h4 id="留数定理-2">
+<a class="header-anchor" href="#%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86-2"></a>
+留数定理：
+</h4><p>留数定理的表述为：</p>
+<p>如果$f(z)$在包含孤立奇点$z_0$的闭曲线内处处解析，那么曲线内的整体积分等于函数在奇点处的留数之和。</p>
+<h4 id="柯西积分公式">
+<a class="header-anchor" href="#%e6%9f%af%e8%a5%bf%e7%a7%af%e5%88%86%e5%85%ac%e5%bc%8f"></a>
+柯西积分公式：
+</h4><p>柯西积分公式表述为：
+</p>
+$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$<p>其中，$C$是包围$z_0$的简单闭合曲线。</p>
+<h4 id="证明步骤-2">
+<a class="header-anchor" href="#%e8%af%81%e6%98%8e%e6%ad%a5%e9%aa%a4-2"></a>
+证明步骤：
+</h4><ol>
+<li>
+<p><strong>留数定理的应用：</strong>
+根据留数定理，我们知道
+</p>
+$$\oint_C f(z) \, dz = 2\pi i \cdot \text{Res}(f, z_0)$$</li>
+<li>
+<p><strong>洛朗级数的求解：</strong>
+类似于前面的讨论，我们可以将$f(z)$在$z_0$处展开为洛朗级数：
+</p>
+$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$</li>
+<li>
+<p><strong>柯西积分公式的形式：</strong>
+考虑柯西积分公式的形式：
+</p>
+$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
+<li>
+<p><strong>留数的提取：</strong>
+我们可以观察到$c_{-1}$对应着$1/(z - z_0)$，因此：
+</p>
+$$f(z_0) = c_{-1}$$</li>
+<li>
+<p><strong>结论：</strong>
+将$c_{-1}$代入柯西积分公式的表达式，得到柯西积分公式：
+</p>
+$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
+</ol>
+
+        <hr><p>本文 2023-12-20 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-20</p><p><div style="flex-direction:column;align-items: center;"><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+ All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></div></p>]]></description><category>Math</category></item><item><title>复变函数</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link><pubDate>Fri, 17 Nov 2023 19:42:47 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid><description><![CDATA[<h1>复变函数</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="复数">
 <a class="header-anchor" href="#%e5%a4%8d%e6%95%b0"></a>
 复数
@@ -46,4 +210,90 @@
 复变函数的积分
 </h1><p><strong>重要公式</strong>
 </p>
-        <hr><p>本文 2023-11-17 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-11-17</p><p>%!s(<nil>)</p>]]></description><category>Math</category></item></channel></rss>
+$$\oint_{|z-z_0|=r}\frac{1}{(z-z_0)^n}dz=\begin{cases}
+2\pi i ,n =1\\
+\text 0,\quad n\neq 1
+\end{cases} $$<ol>
+<li>柯西-古萨基本定理
+在<strong>解析，单连通</strong>的区域内的任意闭合曲线积分值为0，即$$\oint_{C}^{}f{(z)}dz = 0$$</li>
+<li>复合闭路定理——柯西积分定理向<strong>多连通</strong>推广
+C为解析、多连通区域内的简单闭曲线，$C_1,C_2 \cdots C_n$为C内同向的简单闭曲线，$$\oint_{C}^{}f{(z)}dz = \sum_{k=1}^{n} \oint_{C_k}f(z)dz $$</li>
+<li>柯西积分公式——将曲线C内部任意一点的值用它边界的值来表示</li>
+<li>$f(z)$在区域D内解析，C为D内一条正向简单闭曲线$$2\pi i\cdot f(z_0) = \oint_{c} \frac{f(z)}{z-z_0}dx$$</li>
+<li>柯西积分公式的高阶推广——用函数的高阶导数来求积分
+$$f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}dz$$</li>
+</ol>
+<h1 id="级数">
+<a class="header-anchor" href="#%e7%ba%a7%e6%95%b0"></a>
+级数
+</h1><h2 id="幂级数">
+<a class="header-anchor" href="#%e5%b9%82%e7%ba%a7%e6%95%b0"></a>
+幂级数
+</h2><ol>
+<li>解析函数的两个性质
+<ol>
+<li>解析函数具有任意阶导数</li>
+<li>解析函数都一定可以用幂级数来表示</li>
+</ol>
+</li>
+<li>泰勒展开$f(z) = \sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}z^n$</li>
+<li>求泰勒展开的方法[[高等数学#函数展开为幂级数]]</li>
+</ol>
+<h2 id="洛朗级数">
+<a class="header-anchor" href="#%e6%b4%9b%e6%9c%97%e7%ba%a7%e6%95%b0"></a>
+洛朗级数
+</h2><ol>
+<li>双边幂级数
+<ol>
+<li>收敛域是圆环域$R_1<|z-z_0|<R_2$</li>
+</ol>
+</li>
+<li>洛朗展开:$$f(z) = \sum_{n=-\infty}^{\infty}c_n(z-z_0)^n,c_n=\frac{1}{2\pi i}\cdot \oint_{C}\frac{f(z)}{(z-z_0)^{n+1}}dz$$
+推论：当$n$取$-1$时，$c_{-1}\cdot 2\pi i=\oint_Cf(z)dz$</li>
+<li>求洛朗展开的方法
+<ol>
+<li>用定义来算出来$c_n$(几乎不用)</li>
+<li>运用代数运算、代换等方法，使得洛朗级数变为泰勒级数的<strong>形式和收敛域</strong></li>
+</ol>
+</li>
+</ol>
+<h1 id="留数">
+<a class="header-anchor" href="#%e7%95%99%e6%95%b0"></a>
+留数
+</h1><h2 id="孤立奇点">
+<a class="header-anchor" href="#%e5%ad%a4%e7%ab%8b%e5%a5%87%e7%82%b9"></a>
+孤立奇点
+</h2><ol>
+<li>定义：$f(z)$在$z_0$处不解析，但在$z_0$的某一去心邻域内处处解析</li>
+<li>孤立奇点的分类（根据洛朗级数的负幂项）
+<ol>
+<li>可去奇点：不含有负幂项 ，因此当$z\to z_0$时$f(z)$的极限为有限数</li>
+<li>极点：含有有限个负幂项（若有m个负幂项，则称$z_0$为$f(z)$的m级极点），当$z\to z_0$时$f(z)$的极限为$\infty$.</li>
+<li>本性奇点：含有无限个负幂项，$f(z)$的极限不存在</li>
+</ol>
+</li>
+<li>极点和零点的关系
+<ol>
+<li>零点的定义：不恒等于零的解析函数$f(z)$,如果能表示成$f(z) = (z-z_0)^m\varphi(z)$,$则称z_0为f(z)的m级零点$.
+充要条件是：$f^{(n)}(z_0) = 0,(n<m)\quad f^{(m)}\ne 0$</li>
+<li>如果$z_0为f(z)的m级零点$，$则称z_0为\frac{1}{f(z)}的m级极点$.</li>
+</ol>
+</li>
+</ol>
+<h2 id="留数-1">
+<a class="header-anchor" href="#%e7%95%99%e6%95%b0-1"></a>
+留数
+</h2><ol>
+<li>定义：$$Res[f(z),z_0]=c_{-1} = \frac{1}{2\pi i}\oint_C f(z)d_z$$</li>
+<li>留数的计算法则
+<ol>
+<li>如果$z_0为f(z)的一级极点$$$Res[f(z),z_0]=\lim_{z\to z_0}(z-z_0)f(z)$$</li>
+<li>如果$z_0为f(z)的m级极点$$$Res[f(z),z_0]=\frac{1}{(m-1)!}\lim_{z\to z_0}\frac{d^{m-1}}{dz^{m-1}}(z-z_0)^mf(z)$$</li>
+<li>如果$f(z)=\frac{P(z)}{Q(z)},且P(z_0)\ne0,Q(z_0) =0,Q'(z_0)\ne0$$$Res[f(z),z_0]=\frac{P(z_0)}{Q'(z_0)}$$</li>
+<li>$$Res[f(z),\infty]=-Res[f(\frac{1}{z})\cdot\frac{1}{z^2},0]$$</li>
+</ol>
+</li>
+</ol>
+
+        <hr><p>本文 2023-11-17 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-11-17</p><p><div style="flex-direction:column;align-items: center;"><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+ All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></div></p>]]></description><category>Math</category></item></channel></rss>

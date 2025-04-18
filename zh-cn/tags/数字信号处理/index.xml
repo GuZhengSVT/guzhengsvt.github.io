@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数字信号处理 on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/zh-cn/tags/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><lastBuildDate>Wed, 04 Sep 2024 23:44:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/tags/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml"/><item><title>数字信号处理</title><link>https://guzhengsvt.github.io/zh-cn/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link><pubDate>Wed, 04 Sep 2024 23:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid><description><![CDATA[<h1>数字信号处理</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数字信号处理 on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/zh-cn/tags/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>&lt;div style="flex-direction:column;align-items: center;">&lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/">&lt;img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />&lt;/a>
+All website licensed under &lt;a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0&lt;/a>&lt;/div></copyright><lastBuildDate>Wed, 04 Sep 2024 23:44:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/tags/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml"/><item><title>数字信号处理</title><link>https://guzhengsvt.github.io/zh-cn/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link><pubDate>Wed, 04 Sep 2024 23:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid><description><![CDATA[<h1>数字信号处理</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="数字信号处理基本概念">
 <a class="header-anchor" href="#%e6%95%b0%e5%ad%97%e4%bf%a1%e5%8f%b7%e5%a4%84%e7%90%86%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5"></a>
 数字信号处理基本概念
@@ -15,4 +16,269 @@
 <a class="header-anchor" href="#%e5%8c%ba%e5%88%ab"></a>
 区别
 </h3><p>时域离散信号和数字信号之间的差别，仅在于数字信号存在量化误差。</p>
-        <hr><p>本文 2024-09-04 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-04</p><p>%!s(<nil>)</p>]]></description><category>Physics</category></item></channel></rss>
+<h2 id="数字信号处理实现方法">
+<a class="header-anchor" href="#%e6%95%b0%e5%ad%97%e4%bf%a1%e5%8f%b7%e5%a4%84%e7%90%86%e5%ae%9e%e7%8e%b0%e6%96%b9%e6%b3%95"></a>
+数字信号处理实现方法
+</h2><p>数字信号处理的主要对象是<strong>数字信号</strong>，且是采用<strong>数值运算</strong>的方法达到处理目的的。</p>
+<h3 id="软件实现">
+<a class="header-anchor" href="#%e8%bd%af%e4%bb%b6%e5%ae%9e%e7%8e%b0"></a>
+软件实现
+</h3><p>按原理和算法，编写程序在通用计算机实现。</p>
+<ul>
+<li>优点：灵活</li>
+<li>缺点：运算速度慢，难以达到实时处理效果。</li>
+<li>适合算法研究和仿真。</li>
+</ul>
+<h3 id="硬件实现">
+<a class="header-anchor" href="#%e7%a1%ac%e4%bb%b6%e5%ae%9e%e7%8e%b0"></a>
+硬件实现
+</h3><p>按照具体的要求和算法，设计硬件结构图，用乘法器、加法器、延时器、控制器、存储器以及输人输出接口等基本部件实现。</p>
+<ul>
+<li>优点：运算速度快，可实时处理</li>
+<li>缺点：不灵活</li>
+</ul>
+<p>硬件实现指的是选用合适的 DSP 芯片，配有适合芯片语言及任务要求的软件，实现某种信号处理功能的一种方法。</p>
+<h3 id="专用芯片">
+<a class="header-anchor" href="#%e4%b8%93%e7%94%a8%e8%8a%af%e7%89%87"></a>
+专用芯片
+</h3><p>采用专用的 <strong>数字信号处理芯片（DSP 芯片）</strong> 是目前发展最快、应用最广的一种方法。因为 DSP 芯片比通用单片机有更为突出的优点，它结合了数字信号处理的特点，<strong>内部配有乘法器和累加器</strong>，结构上采用了流水线工作方式以及并行结构、多总线，且配有适合数字信号处理的指令，是一类可实现高速运算的微处理器。</p>
+<p>对于更高速的实时系统，DSP 的速度也不满足要求时，应采用可编程超大规模器件（FPGA）或开发专用芯片来实现。</p>
+<h2 id="数字信号处理特点">
+<a class="header-anchor" href="#%e6%95%b0%e5%ad%97%e4%bf%a1%e5%8f%b7%e5%a4%84%e7%90%86%e7%89%b9%e7%82%b9"></a>
+数字信号处理特点
+</h2><p>相比于模拟信号处理，数字信号处理具有以下特点：</p>
+<ol>
+<li>灵活性</li>
+<li>高精度和高稳定性</li>
+<li>便于大规模集成</li>
+<li>可以实现模拟系统无法实现的诸多功能，如储存、复杂变换和运算。</li>
+</ol>
+<h2 id="信号维度">
+<a class="header-anchor" href="#%e4%bf%a1%e5%8f%b7%e7%bb%b4%e5%ba%a6"></a>
+信号维度
+</h2><p>信号通常是一个自变量或几个自变量的函数。
+如果仅有一个自变量，则称为一维信号；如果有两个以上的自变量，则称为多维信号。</p>
+<h1 id="时域离散信号与系统">
+<a class="header-anchor" href="#%e6%97%b6%e5%9f%9f%e7%a6%bb%e6%95%a3%e4%bf%a1%e5%8f%b7%e4%b8%8e%e7%b3%bb%e7%bb%9f"></a>
+时域离散信号与系统
+</h1><h2 id="时域离散信号">
+<a class="header-anchor" href="#%e6%97%b6%e5%9f%9f%e7%a6%bb%e6%95%a3%e4%bf%a1%e5%8f%b7"></a>
+时域离散信号
+</h2><p>实际中遇到的信号一般是模拟信号，对它进行<strong>等间隔采样</strong>便可以得到时域离散信号。</p>
+<p>模拟信号 $x_a(t)$ ，离散时间点 $t_n$ 。
+均匀采样（等间隔采样）时，采样间隔 $T$ ，$t_n=nT$
+</p>
+$$
+x(n)=x_a(t)|_{t=nT}=x_a(nT),- \infty<n<\infty
+$$<p>
+$x(n)$ 称为时域离散信号，$n$ 取整数，得到序列
+</p>
+$$
+x(n)=\{\cdots ,x_a(-2T),x_a(-T),x_a(0),x_a(T),x_a(2T),\cdots \}
+$$<p>
+时域离散信号也称序列。</p>
+<h3 id="序列表示方法">
+<a class="header-anchor" href="#%e5%ba%8f%e5%88%97%e8%a1%a8%e7%a4%ba%e6%96%b9%e6%b3%95"></a>
+序列表示方法
+</h3><h4 id="集合符号">
+<a class="header-anchor" href="#%e9%9b%86%e5%90%88%e7%ac%a6%e5%8f%b7"></a>
+集合符号
+</h4><p>数的集合用集合符号 $\{\cdot \}$ 表示，时域离散信号可表示为有序的数的集合。
+集合中有下划线的元素表示 $n=0$ 时刻的采样值。</p>
+<h4 id="公式表示">
+<a class="header-anchor" href="#%e5%85%ac%e5%bc%8f%e8%a1%a8%e7%a4%ba"></a>
+公式表示
+</h4><p>Example:</p>
+$$
+x(n)=a^{|n|},0<a<1,-\infty<n<\infty
+$$<h4 id="图形表示">
+<a class="header-anchor" href="#%e5%9b%be%e5%bd%a2%e8%a1%a8%e7%a4%ba"></a>
+图形表示
+</h4><p>横坐标为 $n$ ，纵坐标为 $x$ 的值，竖线顶端加黑点。</p>
+<h3 id="常用典型序列">
+<a class="header-anchor" href="#%e5%b8%b8%e7%94%a8%e5%85%b8%e5%9e%8b%e5%ba%8f%e5%88%97"></a>
+常用典型序列
+</h3><h4 id="单位脉冲序列">
+<a class="header-anchor" href="#%e5%8d%95%e4%bd%8d%e8%84%89%e5%86%b2%e5%ba%8f%e5%88%97"></a>
+单位脉冲序列 $\delta(n)$
+</h4>$$
+\delta(n)=
+\begin{cases}
+1 & n=0\\
+0 & n \ne 0\\
+\end{cases}
+$$<p>
+也称单位采样序列，不同于单位冲激信号 $\delta(t)$ 。</p>
+<h4 id="单位阶跃序列">
+<a class="header-anchor" href="#%e5%8d%95%e4%bd%8d%e9%98%b6%e8%b7%83%e5%ba%8f%e5%88%97"></a>
+单位阶跃序列 $u(n)$
+</h4>$$
+u(n)=
+\begin{cases}
+1 & n \ge 0\\
+0 & n < 0\\
+\end{cases}
+$$$$
+\delta(n)=u(n)-u(n-1)
+$$<p>
+</p>
+$$
+u(n)=\sum^{\infty}_{k=0}\delta(n-k)
+$$<h4 id="矩形序列">
+<a class="header-anchor" href="#%e7%9f%a9%e5%bd%a2%e5%ba%8f%e5%88%97"></a>
+矩形序列 $R_N(n)$
+</h4>$$
+R_N(n)=
+\begin{cases}
+1 & 0 \le n \le N-1\\
+0 & Others
+\end{cases}
+$$<p>
+$N$ 称为矩形序列长度，矩形序列可用单位阶跃序列表示。
+</p>
+$$
+R_N(n)=u(n)-u(n-N)
+$$<h4 id="实指数序列">
+<a class="header-anchor" href="#%e5%ae%9e%e6%8c%87%e6%95%b0%e5%ba%8f%e5%88%97"></a>
+实指数序列
+</h4>$$
+x(n)=a^n u(n),a 为实数
+$$<ul>
+<li>$|a|<1$ 时称 $x(n)$ 为收敛序列</li>
+<li>$|a|>1$ 时称 $x(n)$ 为发散序列</li>
+</ul>
+<h4 id="正弦序列">
+<a class="header-anchor" href="#%e6%ad%a3%e5%bc%a6%e5%ba%8f%e5%88%97"></a>
+正弦序列
+</h4>$$
+x(n)=\sin (\omega n)
+$$<p>
+$\omega$ 称为正弦序列的<strong>数字域频率（数字频率）</strong>，单位为弧度 $rad$ ，表示序列变化速率（相邻两个序列值之间相位变化的弧度数）。</p>
+<p><strong>模拟角频率 $\varOmega$</strong>，若正弦序列由模拟信号 $x_a(t)=\sin (\varOmega t)$ 采样得到
+</p>
+$$
+x(n)=x_a(t)|_{t=nT}=\sin (\varOmega nT)=\sin (\omega n)
+$$<p>
+则得到数字频率与模拟角频率的关系
+</p>
+$$
+\omega=\varOmega T
+$$<p>
+采样频率 $F_s=\frac{1}{T}$ ，因此
+</p>
+$$
+\omega=\frac{\varOmega}{F_s}
+$$<p>
+<em>数字域频率是模拟角频率对采样频率的归一化频率。</em></p>
+<h4 id="复指数序列">
+<a class="header-anchor" href="#%e5%a4%8d%e6%8c%87%e6%95%b0%e5%ba%8f%e5%88%97"></a>
+复指数序列
+</h4>$$
+x(n)=e^{(\sigma+j \omega_0)n}=\cos(\omega_0 n)+j \sin(\omega_0 n)
+$$<p>
+因为 $n$ 取整数，所以正弦序列和复指数序列都以 $2 \pi$ 为周期。</p>
+<h4 id="周期序列">
+<a class="header-anchor" href="#%e5%91%a8%e6%9c%9f%e5%ba%8f%e5%88%97"></a>
+周期序列
+</h4><p>如果对所有 $n$ 存在一个<strong>最小的正整数</strong> $N$，使下面等式成立：
+</p>
+$$
+x(n)=x(n+N),-\infty<n<\infty
+$$<p>
+则称序列 $x(n)$ 为周期性序列，周期为 $N$ 。</p>
+<h3 id="序列运算">
+<a class="header-anchor" href="#%e5%ba%8f%e5%88%97%e8%bf%90%e7%ae%97"></a>
+序列运算
+</h3><p>Easy</p>
+<h4 id="加法和乘法">
+<a class="header-anchor" href="#%e5%8a%a0%e6%b3%95%e5%92%8c%e4%b9%98%e6%b3%95"></a>
+加法和乘法
+</h4><h4 id="位移翻转尺度变换">
+<a class="header-anchor" href="#%e4%bd%8d%e7%a7%bb%e7%bf%bb%e8%bd%ac%e5%b0%ba%e5%ba%a6%e5%8f%98%e6%8d%a2"></a>
+位移、翻转、尺度变换
+</h4><h2 id="离散时域系统">
+<a class="header-anchor" href="#%e7%a6%bb%e6%95%a3%e6%97%b6%e5%9f%9f%e7%b3%bb%e7%bb%9f"></a>
+离散时域系统
+</h2><p>系统输入为 $x(n)$ ，输出为 $y(n)$ ，运算关系用 $T[\cdot]$ 表示。
+</p>
+$$
+y(n)=T[x(n)]
+$$<h3 id="线性系统">
+<a class="header-anchor" href="#%e7%ba%bf%e6%80%a7%e7%b3%bb%e7%bb%9f"></a>
+线性系统
+</h3><p>系统的输入、输出之间满足线性叠加原理的系统称为线性系统。</p>
+<h4 id="可加性">
+<a class="header-anchor" href="#%e5%8f%af%e5%8a%a0%e6%80%a7"></a>
+可加性
+</h4>$$
+y_1(n)=T[x_1(n)],y_2(n)=T[x_2(n)]
+$$<p>
+</p>
+$$
+T[x_1(n)+x_2(n)]=y_1(n)+y_2(n)
+$$<h4 id="齐次性比例性">
+<a class="header-anchor" href="#%e9%bd%90%e6%ac%a1%e6%80%a7%e6%af%94%e4%be%8b%e6%80%a7"></a>
+齐次性（比例性）
+</h4>$$
+T[a \times x(n)]=a \times y(n)
+$$<h3 id="时不变系统">
+<a class="header-anchor" href="#%e6%97%b6%e4%b8%8d%e5%8f%98%e7%b3%bb%e7%bb%9f"></a>
+时不变系统
+</h3><p>如果系统对输入信号的运算关系 $T[\cdot]$ 在整个运算过程中不随时间变化，或者说系统对于输人信号的响应与信号加于系统的时间无关，则这种系统称为时不变系统。
+</p>
+$$
+y(n)=T[x(n)]
+$$<p>
+</p>
+$$
+y(n-n_0)=T[x(n-n_0)]
+$$<h3 id="线性时不变系统特点">
+<a class="header-anchor" href="#%e7%ba%bf%e6%80%a7%e6%97%b6%e4%b8%8d%e5%8f%98%e7%b3%bb%e7%bb%9f%e7%89%b9%e7%82%b9"></a>
+线性时不变系统特点
+</h3><p>完全响应=零输入响应+零状态响应</p>
+<h4 id="单位脉冲响应">
+<a class="header-anchor" href="#%e5%8d%95%e4%bd%8d%e8%84%89%e5%86%b2%e5%93%8d%e5%ba%94"></a>
+单位脉冲响应
+</h4><p>初始状态为 0（无零输入响应）
+</p>
+$$
+h(n)=T[\delta(n)]
+$$<p>
+</p>
+$$
+x(n)=\sum^{\infty}_{m=-\infty}x(m)\delta(n-m)
+$$<p>
+</p>
+$$
+\begin{align}
+y(n)
+&=T[x(n)]\\
+&=T[\sum^{\infty}_{m=-\infty}x(m)\delta(n-m)]\\
+&=\sum^{\infty}_{m=-\infty}x(m)T[\delta(n-m)]\\
+&=\sum^{\infty}_{m=-\infty}x(m)h(n-m)\\
+&=x(n)*h(n)
+\end{align}
+$$<p>
+卷积相关知识见《信号与系统》</p>
+<h3 id="系统因果性">
+<a class="header-anchor" href="#%e7%b3%bb%e7%bb%9f%e5%9b%a0%e6%9e%9c%e6%80%a7"></a>
+系统因果性
+</h3><p>定义：如果系统 $n$ 时刻的输出只取决于 $n$ 时刻以及 $n$ 时刻以前的输入序列，而和 $n$ 时刻以后的输入序列无关，则称该系统具有因果性质，或称该系统为因果系统。</p>
+<p>==充要条件==：系统单位脉冲响应满足下式
+</p>
+$$
+h(n)=0 \quad n<0
+$$<h3 id="系统稳定性">
+<a class="header-anchor" href="#%e7%b3%bb%e7%bb%9f%e7%a8%b3%e5%ae%9a%e6%80%a7"></a>
+系统稳定性
+</h3><p>定义：如果对有界输入，系统产生的输出也是<strong>有界</strong>的，则称该系统具有稳定性，或称该系统为稳定系统。
+==充要条件==：系统的单位脉冲响应绝对可和。
+</p>
+$$
+\sum^{\infty}_{m=-\infty}|h(n)|<\infty
+$$<h3 id="线性常系数差分方程">
+<a class="header-anchor" href="#%e7%ba%bf%e6%80%a7%e5%b8%b8%e7%b3%bb%e6%95%b0%e5%b7%ae%e5%88%86%e6%96%b9%e7%a8%8b"></a>
+线性常系数差分方程
+</h3>
+        <hr><p>本文 2024-09-04 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-04</p><p><div style="flex-direction:column;align-items: center;"><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+ All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></div></p>]]></description><category>Physics</category></item></channel></rss>

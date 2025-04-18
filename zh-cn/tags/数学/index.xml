@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数学 on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/zh-cn/tags/%E6%95%B0%E5%AD%A6/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><lastBuildDate>Tue, 10 Sep 2024 01:14:05 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/tags/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml"/><item><title>概率论与数理统计</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><pubDate>Tue, 10 Sep 2024 01:14:05 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid><description><![CDATA[<h1>概率论与数理统计</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数学 on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/zh-cn/tags/%E6%95%B0%E5%AD%A6/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>&lt;div style="flex-direction:column;align-items: center;">&lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/">&lt;img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />&lt;/a>
+All website licensed under &lt;a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0&lt;/a>&lt;/div></copyright><lastBuildDate>Tue, 10 Sep 2024 01:14:05 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/tags/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml"/><item><title>概率论与数理统计</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><pubDate>Tue, 10 Sep 2024 01:14:05 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid><description><![CDATA[<h1>概率论与数理统计</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="前言">
 <a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
 前言
@@ -9,18 +10,1171 @@
 戴浩当年说尽力给钱班找最好的老师，现在看来数统院没人了？讲课不行可以说是重心不在教学、天赋不在教书；出套卷子直接搬旧题，还是近几年的，题也没审错漏百出，给我气笑了。
 自己出的卷子毫无含金量，自己也不做做看。这是态度问题。
 你电期末考试放水挺好的，但不要总是拿老本糊弄人。对学生大谈创新，对自己能混就行。这不是做学术的态度，更不是教书应有的态度。</p>
-        <hr><p>本文 2024-09-10 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-10</p><p>%!s(<nil>)</p>]]></description><category>Math</category></item><item><title>实数建立读书报告</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</link><pubDate>Wed, 27 Dec 2023 21:40:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</guid><description><![CDATA[<h1>实数建立读书报告</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<p>概率论就此告一段落，这两天反复看笔记刷题订正不少错误，也明晰了这门课的知识结构。虽然内容仍然偏少，但作为期末复习的材料大抵足够，这版就作为终版吧（大概）。
+中秋继续整理电动力学和数字信号处理。</p>
+<h3 id="第二版前言">
+<a class="header-anchor" href="#%e7%ac%ac%e4%ba%8c%e7%89%88%e5%89%8d%e8%a8%80"></a>
+第二版前言
+</h3><blockquote>
+<p>Nothing is final!!!
+——钱学森</p></blockquote>
+<p>补充了分布函数左右连续问题，看来这门课离 final 还有很远……</p>
+<h2 id="事件运算转逻辑运算">
+<a class="header-anchor" href="#%e4%ba%8b%e4%bb%b6%e8%bf%90%e7%ae%97%e8%bd%ac%e9%80%bb%e8%be%91%e8%bf%90%e7%ae%97"></a>
+事件运算转逻辑运算
+</h2><ul>
+<li>$A \cup B=A+B$</li>
+<li>$A \cap B=A \cdot B$</li>
+<li>$A-B=A \bar{B}$
+$A$ 事件发生 $B$ 事件不发生，由韦恩图易证。
+可以将 $-B$ 理解为 $\cdot (-B)$ ，$-B$ 即为 $\bar{B}$</li>
+<li>若 $A \subset B$ ，$A \cup B=B,A \cap B=A$</li>
+</ul>
+<p>事件运算转逻辑运算后，大部分法则共通。
+运用数电中学到的逻辑函数运算与化简，可将复杂事件运算化简。
+Tips：卡诺图</p>
+<h2 id="四大事件概率公式">
+<a class="header-anchor" href="#%e5%9b%9b%e5%a4%a7%e4%ba%8b%e4%bb%b6%e6%a6%82%e7%8e%87%e5%85%ac%e5%bc%8f"></a>
+四大事件概率公式
+</h2>$$
+\begin{cases}
+P(A+B)=P(A)+P(B)-P(AB)\\
+P(A-B)=P(A)-P(AB)=P(A \bar{B})\\
+P(AB)=P(B) \cdot P(A|B)=P(A) \cdot P(B|A)\\
+P(A|B)=\frac{P(AB)}{P(B)}\\
+\end{cases}
+$$<h3 id="推论">
+<a class="header-anchor" href="#%e6%8e%a8%e8%ae%ba"></a>
+推论
+</h3><p>$P(A+B+C)$ ，将 $A+B$ 看成一个事件，运用上面的加法公式，两次拆分得到：
+</p>
+$$
+P(A+B+C)=P(A)+P(B)+P(C)-P(AB)-P(AC)-P(BC)+P(ABC)
+$$<p>
+更多和事件概率可依此递推得到。</p>
+<p>对立事件：$A$ 不发生的概率，韦恩图一目了然。
+</p>
+$$
+P(\bar{A})=P(1 \cdot \bar{A})=P(1-A)=P(1)-P(1 \cdot A)=1-P(A)
+$$<h2 id="非负性与规范性">
+<a class="header-anchor" href="#%e9%9d%9e%e8%b4%9f%e6%80%a7%e4%b8%8e%e8%a7%84%e8%8c%83%e6%80%a7"></a>
+非负性与规范性
+</h2><p>非负性：对于任意事件 $A$ ，$0 \le P(A) \le 1$ 。
+规范性：对于总事件 $\Omega$ ，$P(\Omega)=1$ 。</p>
+<h2 id="相互独立">
+<a class="header-anchor" href="#%e7%9b%b8%e4%ba%92%e7%8b%ac%e7%ab%8b"></a>
+相互独立
+</h2>$$
+\begin{cases}
+P(AB)=P(A) \cdot P(B)\\
+P(A|B)=P(A)
+\end{cases}
+$$<p>
+独立必相互独立。</p>
+<h2 id="古典概型">
+<a class="header-anchor" href="#%e5%8f%a4%e5%85%b8%e6%a6%82%e5%9e%8b"></a>
+古典概型
+</h2><blockquote>
+<p>各基本事件发生概率相等。</p></blockquote>
+<p>Eg. 抛硬币，掷骰子……
+</p>
+$$
+P(A)=\frac{A包含基本事件数}{\Omega 中基本事件数}
+$$<p>
+古典条件概率公式
+</p>
+$$
+P(B|A)=\frac{P(AB)}{P(A)}=\frac{同时在A,B中的基本事件数}{A包含基本事件数}
+$$<h2 id="伯努利概型二项分布">
+<a class="header-anchor" href="#%e4%bc%af%e5%8a%aa%e5%88%a9%e6%a6%82%e5%9e%8b%e4%ba%8c%e9%a1%b9%e5%88%86%e5%b8%83"></a>
+伯努利概型（二项分布）
+</h2><blockquote>
+<p>$n$ 次独立实验，每次实验只有 $A,\bar{A}$ 两种结果。</p></blockquote>
+<p>$X \sim B(n,p)$
+</p>
+$$
+P_n(k)=C_n^kp^k(1-p)^{n-k}
+$$<p>
+其中，$p=P(A),1-p=P(\bar{A})$</p>
+<h2 id="几何概型">
+<a class="header-anchor" href="#%e5%87%a0%e4%bd%95%e6%a6%82%e5%9e%8b"></a>
+几何概型
+</h2><p>事件 <em>所占线/面/体积</em> 部分与整个 <em>线/面/体</em> 的 <em>长度/面积/体积</em> 比值。
+当事件所占空间维度低于总事件空间 $\Omega$ 维度时，该事件概率恒为 0 。
+==Warning==：事件概率为 0 不代表一定不发生。
+Eg：随机选中圆内某点，选中任意点概率为 0，但都可能发生。</p>
+<h2 id="均匀分布">
+<a class="header-anchor" href="#%e5%9d%87%e5%8c%80%e5%88%86%e5%b8%83"></a>
+均匀分布
+</h2><p>$x \sim U(a,b)$
+近似为几何分布中的线性分布，各点处概率密度：
+</p>
+$$
+f(x)=
+\begin{cases}
+0,x \le a\\
+\frac{1}{b-a},a < x \le b\\
+0,x>b\\
+\end{cases}
+$$<p>分布函数：
+</p>
+$$
+F(x)=
+\begin{cases}
+0,x \le a\\
+\frac{x-a}{b-a},a<x \le b\\
+1,x>b\\
+\end{cases}
+$$<h2 id="指数分布">
+<a class="header-anchor" href="#%e6%8c%87%e6%95%b0%e5%88%86%e5%b8%83"></a>
+指数分布
+</h2><p>$x \sim E(\lambda)$</p>
+<h3 id="概率密度">
+<a class="header-anchor" href="#%e6%a6%82%e7%8e%87%e5%af%86%e5%ba%a6"></a>
+概率密度
+</h3>$$
+f(x)=
+\begin{cases}
+\lambda e^{-\lambda x},x>0\\
+0,x \le 0\\
+\end{cases}
+$$<h3 id="分布函数">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e5%87%bd%e6%95%b0"></a>
+分布函数
+</h3>$$
+F(x)=
+\begin{cases}
+1-e^{-\lambda x},x \ge 0\\
+0,x<0\\
+\end{cases}
+$$<h2 id="泊松分布">
+<a class="header-anchor" href="#%e6%b3%8a%e6%9d%be%e5%88%86%e5%b8%83"></a>
+泊松分布
+</h2><p>$X \sim \pi(\lambda)$
+</p>
+$$
+P(X=k)=\frac{e^{-\lambda}\lambda^k}{k!}
+$$<h2 id="正态分布">
+<a class="header-anchor" href="#%e6%ad%a3%e6%80%81%e5%88%86%e5%b8%83"></a>
+正态分布
+</h2><p>$x \sim N(\mu,\sigma^2)$</p>
+<h3 id="概率密度-1">
+<a class="header-anchor" href="#%e6%a6%82%e7%8e%87%e5%af%86%e5%ba%a6-1"></a>
+概率密度
+</h3>$$
+f(x)=\frac{1}{\sqrt{2 \pi} \sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}},x \in R,\sigma>0
+$$<h3 id="分布函数-1">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e5%87%bd%e6%95%b0-1"></a>
+分布函数
+</h3>$$
+F(x)=\int^{x}_{-\infty}f(t)dt
+$$<p>
+显然，$F(\mu)=\frac{1}{2}$ ，即 $P(x \le \mu)=P(x>\mu)=\frac{1}{2}$ 。</p>
+<h3 id="标准正态分布">
+<a class="header-anchor" href="#%e6%a0%87%e5%87%86%e6%ad%a3%e6%80%81%e5%88%86%e5%b8%83"></a>
+标准正态分布
+</h3><p>当 $\mu=0,\sigma=1$ 时，此分布为标准正态分布。
+</p>
+$$
+\varphi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
+$$<p>
+</p>
+$$
+\varPhi(x)=\int^{x}_{-\infty}\varphi(t)dt
+$$<h3 id="推论-1">
+<a class="header-anchor" href="#%e6%8e%a8%e8%ae%ba-1"></a>
+推论
+</h3>$$
+\varPhi(-x)=1-\varPhi(x)
+$$<p>
+</p>
+$$
+F(x)=\varPhi(\frac{x-\mu}{\sigma})
+$$<p>
+正态分布标准化：
+</p>
+$$
+X \sim N(\mu,\sigma^2),Z=\frac{X-\mu}{\sigma}\sim N(0,1)
+$$<h2 id="全概率公式">
+<a class="header-anchor" href="#%e5%85%a8%e6%a6%82%e7%8e%87%e5%85%ac%e5%bc%8f"></a>
+全概率公式
+</h2><h3 id="完备事件组">
+<a class="header-anchor" href="#%e5%ae%8c%e5%a4%87%e4%ba%8b%e4%bb%b6%e7%bb%84"></a>
+完备事件组
+</h3>$$
+\begin{cases}
+B_1 \cup B_2 \cup B_3 \cup \cdots \cup B_n=\Omega\\
+B_i \cap B_j=\varnothing,i \ne j,1 \le i \le n,1 \le j \le n\\
+\end{cases}
+$$<p>
+称 $B_1,B_2,B_3,\cdots B_n$ 构成 $\Omega$ 的一个完备事件组。</p>
+<h3 id="全概率公式-1">
+<a class="header-anchor" href="#%e5%85%a8%e6%a6%82%e7%8e%87%e5%85%ac%e5%bc%8f-1"></a>
+全概率公式
+</h3>$$
+\begin{align}
+P(A)
+&=P(AB_1 \cup AB_2 \cup \cdots \cup AB_n)\\
+&=P(AB_1)+P(AB_2)+\cdots +P(AB_n)\\
+&=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+\cdots +P(B_n)P(A|B_n)\\
+\end{align}
+$$<h3 id="贝叶斯公式">
+<a class="header-anchor" href="#%e8%b4%9d%e5%8f%b6%e6%96%af%e5%85%ac%e5%bc%8f"></a>
+贝叶斯公式
+</h3>$$
+P(B_1|A)=\frac{P(AB_1)}{P(A)}=\frac{P(B_1)P(A|B_1)}{P(A)}
+$$<h2 id="一维离散型随机变量">
+<a class="header-anchor" href="#%e4%b8%80%e7%bb%b4%e7%a6%bb%e6%95%a3%e5%9e%8b%e9%9a%8f%e6%9c%ba%e5%8f%98%e9%87%8f"></a>
+一维离散型随机变量
+</h2><h3 id="分布律">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e5%be%8b"></a>
+分布律
+</h3>$$
+P(X=x_i)=p_i=\frac{X=x_i情况数}{总情况数},i=1,2,\cdots 
+$$<h3 id="分布函数-2">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e5%87%bd%e6%95%b0-2"></a>
+分布函数
+</h3>$$
+F(x)=\sum_{x_i<x}p_i,x \in R
+$$<h2 id="一维连续型随机变量">
+<a class="header-anchor" href="#%e4%b8%80%e7%bb%b4%e8%bf%9e%e7%bb%ad%e5%9e%8b%e9%9a%8f%e6%9c%ba%e5%8f%98%e9%87%8f"></a>
+一维连续型随机变量
+</h2><h3 id="概率密度-2">
+<a class="header-anchor" href="#%e6%a6%82%e7%8e%87%e5%af%86%e5%ba%a6-2"></a>
+概率密度
+</h3>$$
+f(x)=F'(x)
+$$<h3 id="分布函数-3">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e5%87%bd%e6%95%b0-3"></a>
+分布函数
+</h3>$$
+F(x)=\int_{-\infty}^xf(t)dt
+$$<h3 id="区间概率">
+<a class="header-anchor" href="#%e5%8c%ba%e9%97%b4%e6%a6%82%e7%8e%87"></a>
+区间概率
+</h3>$$
+P(a<x \le b)=\int_a^bf(x)dx=F(b)-F(a)
+$$<p>$\because$ $P(x=a)=0,a \in R$
+$\therefore$ 区间两边等号随意取</p>
+<h3 id="规范性">
+<a class="header-anchor" href="#%e8%a7%84%e8%8c%83%e6%80%a7"></a>
+规范性
+</h3>$$
+F(\infty)=\int^{\infty}_{-\infty}f(x)dx=1
+$$$$
+F(-\infty)=0
+$$<h2 id="二维离散型随机变量">
+<a class="header-anchor" href="#%e4%ba%8c%e7%bb%b4%e7%a6%bb%e6%95%a3%e5%9e%8b%e9%9a%8f%e6%9c%ba%e5%8f%98%e9%87%8f"></a>
+二维离散型随机变量
+</h2><h3 id="联合分布律">
+<a class="header-anchor" href="#%e8%81%94%e5%90%88%e5%88%86%e5%b8%83%e5%be%8b"></a>
+联合分布律
+</h3><p>$P(X=x_i,Y=y_j)$
+将 X，Y 可能取值列二维表，填入对应概率。</p>
+<h3 id="边缘分布律">
+<a class="header-anchor" href="#%e8%be%b9%e7%bc%98%e5%88%86%e5%b8%83%e5%be%8b"></a>
+边缘分布律
+</h3><p>$P(X=x_i),P(Y=y_j)$
+将联合分布律的行/列相加，得到 $f_Y(x),f_X(y)$</p>
+<h3 id="条件分布">
+<a class="header-anchor" href="#%e6%9d%a1%e4%bb%b6%e5%88%86%e5%b8%83"></a>
+条件分布
+</h3><p>$P(X=x_i|Y=y_j),P(Y=y_i|X=x_j)$
+联合分布率每行/列除以该行/列对应的边缘分布律。
+即每行/列的联合分布率化为<strong>成比例项</strong>，各项和为 1。</p>
+<h3 id="两变量独立性">
+<a class="header-anchor" href="#%e4%b8%a4%e5%8f%98%e9%87%8f%e7%8b%ac%e7%ab%8b%e6%80%a7"></a>
+两变量独立性
+</h3><p>==此处的独立性指的是线性无关，不代表完全独立无关。==
+将联合分布表写成矩阵 $\vec{A}$ ，当 $\det \vec{A}=0$ 时 X 与 Y 独立。
+Or：联合分布表各行/列成比例时 X 与 Y 独立。
+Or：联合分布率 $\ne$ 边缘分布率乘积，即 $P(X=x_i,Y=y_j)\ne P(X=x_i)P(Y=y_j)$ 时，X 与 Y 不相互独立。</p>
+<h2 id="二位连续性随机变量">
+<a class="header-anchor" href="#%e4%ba%8c%e4%bd%8d%e8%bf%9e%e7%bb%ad%e6%80%a7%e9%9a%8f%e6%9c%ba%e5%8f%98%e9%87%8f"></a>
+二位连续性随机变量
+</h2><h3 id="联合密度函数">
+<a class="header-anchor" href="#%e8%81%94%e5%90%88%e5%af%86%e5%ba%a6%e5%87%bd%e6%95%b0"></a>
+联合密度函数
+</h3>$$
+f(x,y)
+$$<h3 id="规范性-1">
+<a class="header-anchor" href="#%e8%a7%84%e8%8c%83%e6%80%a7-1"></a>
+规范性
+</h3>$$
+\int^{\infty}_{-\infty}\int^{\infty}_{-\infty}f(x,y)dxdy=1
+$$<h3 id="边缘密度函数">
+<a class="header-anchor" href="#%e8%be%b9%e7%bc%98%e5%af%86%e5%ba%a6%e5%87%bd%e6%95%b0"></a>
+边缘密度函数
+</h3>$$
+f_X(x)=\int^{\infty}_{-\infty}f(x,y)dy
+$$<p>
+</p>
+$$
+f_Y(y)=\int^{\infty}_{-\infty}f(x,y)dx
+$$<h3 id="条件密度">
+<a class="header-anchor" href="#%e6%9d%a1%e4%bb%b6%e5%af%86%e5%ba%a6"></a>
+条件密度
+</h3>$$
+f_{Y|X}(y|x)=\frac{f(x,y)}{f_X(x)}
+$$<h3 id="独立性">
+<a class="header-anchor" href="#%e7%8b%ac%e7%ab%8b%e6%80%a7"></a>
+独立性
+</h3>$$
+f(x,y)=f_X(x)f_Y(y)
+$$<p>
+满足以上条件时，X 与 Y 相互独立。</p>
+<h3 id="分布函数-4">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e5%87%bd%e6%95%b0-4"></a>
+分布函数
+</h3><p>设 $Z=X-Y$ ，
+</p>
+$$
+\begin{align}
+F_Z(z)
+&=P(Z<z)\\
+&=P(X-Y<z)\\
+&=P(X<Y+z)\\
+&=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
+\end{align}
+$$<p>
+即分布函数 $F_Z(z)=\iint_Df(x,y)dxdy$ 。由分布函数求导得概率密度函数 $f_Z(z)$ 。
+==Warning==：$F_Z(z)$ 满足规范性。</p>
+<h2 id="期望与方差">
+<a class="header-anchor" href="#%e6%9c%9f%e6%9c%9b%e4%b8%8e%e6%96%b9%e5%b7%ae"></a>
+期望与方差
+</h2><h3 id="关系式">
+<a class="header-anchor" href="#%e5%85%b3%e7%b3%bb%e5%bc%8f"></a>
+关系式
+</h3>$$
+DX=EX^2-(EX)^2
+$$<p>
+</p>
+$$
+D(cX)=c^2DX
+$$<p>
+</p>
+$$
+D(X+Y)=D(X)+D(Y)+2Cov(X,Y)
+$$<p>
+X 与 Y 相互独立时 $Cov(X,Y)=0$ 。</p>
+<h3 id="常见期望与方差">
+<a class="header-anchor" href="#%e5%b8%b8%e8%a7%81%e6%9c%9f%e6%9c%9b%e4%b8%8e%e6%96%b9%e5%b7%ae"></a>
+常见期望与方差
+</h3><h4 id="分布">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83"></a>
+$(0,1)$ 分布
+</h4>$$
+EX=p,DX=p(1-p)
+$$<h4 id="二项分布">
+<a class="header-anchor" href="#%e4%ba%8c%e9%a1%b9%e5%88%86%e5%b8%83"></a>
+$B(n,p)$ 二项分布
+</h4>$$
+EX=np,DX=np(1-p)
+$$<h4 id="均匀分布-1">
+<a class="header-anchor" href="#%e5%9d%87%e5%8c%80%e5%88%86%e5%b8%83-1"></a>
+$U(a,b)$ 均匀分布
+</h4>$$
+EX=\frac{a+b}{2},DX=\frac{(b-a)^2}{12}
+$$<h4 id="指数分布-1">
+<a class="header-anchor" href="#%e6%8c%87%e6%95%b0%e5%88%86%e5%b8%83-1"></a>
+$E(\lambda)$ 指数分布
+</h4>$$
+EX=\frac{1}{\lambda},DX=\frac{1}{\lambda^2}
+$$<h4 id="泊松分布-1">
+<a class="header-anchor" href="#%e6%b3%8a%e6%9d%be%e5%88%86%e5%b8%83-1"></a>
+$P(\lambda)$ 泊松分布
+</h4>$$
+EX=\lambda,DX=\lambda
+$$<h4 id="正态分布-1">
+<a class="header-anchor" href="#%e6%ad%a3%e6%80%81%e5%88%86%e5%b8%83-1"></a>
+$N(\mu,\sigma^2)$ 正态分布
+</h4>$$
+EX=\mu,DX=\sigma^2
+$$<h2 id="协方差与相关系数">
+<a class="header-anchor" href="#%e5%8d%8f%e6%96%b9%e5%b7%ae%e4%b8%8e%e7%9b%b8%e5%85%b3%e7%b3%bb%e6%95%b0"></a>
+协方差与相关系数
+</h2><h3 id="协方差">
+<a class="header-anchor" href="#%e5%8d%8f%e6%96%b9%e5%b7%ae"></a>
+协方差
+</h3>$$
+Cov(X,Y)=E(XY)-E(X)E(Y)
+$$<p>
+显然，$X=Y$ 时，$Cov(X,X)=DX$ 。
+</p>
+$$
+Cov(X+Y,Z)=Cov(X,Z)+Cov(Y,Z)
+$$<p>
+</p>
+$$
+Cov(X-Y,Z)=Cov(X,Z)+Cov(-Y,Z)=Cov(X,Z)-Cov(Y,Z)
+$$<h3 id="相关系数">
+<a class="header-anchor" href="#%e7%9b%b8%e5%85%b3%e7%b3%bb%e6%95%b0"></a>
+相关系数
+</h3>$$
+\rho_{XY}=\frac{Cov(X,Y)}{\sqrt{DX \cdot DY}}
+$$<p>
+$|\rho|$ 越大，相关性越强。
+$Y=X$ 时，$X$ 与 $X$ 相关性最强，得到 $\rho=1$ 。
+$Y=-X$ 时，$-X$ 与 $X$ 相关性最强，得到 $\rho=-1$ 。
+显然 $|\rho| \le 1$ 。
+$\rho=0$ 时 $X$ 与 $Y$ 不相关。
+==Warning==：不相关 $\nRightarrow$ 独立，独立 $\Rightarrow$ 不相关。</p>
+<h2 id="切比雪夫不等式估计概率">
+<a class="header-anchor" href="#%e5%88%87%e6%af%94%e9%9b%aa%e5%a4%ab%e4%b8%8d%e7%ad%89%e5%bc%8f%e4%bc%b0%e8%ae%a1%e6%a6%82%e7%8e%87"></a>
+切比雪夫不等式估计概率
+</h2>$$
+P(|X-EX|\ge \varepsilon)\le \frac{DX}{\varepsilon^2}
+$$<h2 id="中心极限定理">
+<a class="header-anchor" href="#%e4%b8%ad%e5%bf%83%e6%9e%81%e9%99%90%e5%ae%9a%e7%90%86"></a>
+中心极限定理
+</h2><p>大量独立变量同分布，可近似为正态分布。
+若 $x_1,x_2,\cdots,x_n$ 独立且同分布，则
+</p>
+$$
+\sum_{i=1}^nx_i \sim N(\sum^{n}_{i=1}E(x_i),\sum^{n}_{i=1}D(x_i))
+$$<h2 id="三大分布">
+<a class="header-anchor" href="#%e4%b8%89%e5%a4%a7%e5%88%86%e5%b8%83"></a>
+三大分布
+</h2><h3 id="卡方分布">
+<a class="header-anchor" href="#%e5%8d%a1%e6%96%b9%e5%88%86%e5%b8%83"></a>
+$\chi^2$ （卡方）分布
+</h3>$$
+X=x_1^2+x_2^2+\cdots +x_n^2 \sim \chi^2(n),x_i \sim N(0,1)且相互独立
+$$<p>
+上 $\alpha$ 分位点 $\chi^2_\alpha(n)$
+密度函数在第一象限</p>
+<h3 id="分布-1">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83-1"></a>
+$t$ 分布
+</h3>$$
+X=\frac{x_1}{\sqrt{x_2/n}}\sim t(n),x_1 \sim N(0,1),x_2 \sim \chi^2(n),x_1与x_2相互独立
+$$<p>
+上 $\alpha$ 分位点 $t_\alpha(n)$
+密度函数形似正态分布，左右对称</p>
+<h3 id="分布-2">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83-2"></a>
+$F$ 分布
+</h3>$$
+X=\frac{x_1/n_1}{x_2/n_2} \sim F(n_1,n_2),x_1 \sim \chi^2(n_1),x_2 \sim \chi^2(n_2),x_1与x_2相互独立
+$$<p>
+上 $\alpha$ 分位点 $F_\alpha(n_1,n_2)$
+密度函数在第一象限</p>
+<h2 id="估计法">
+<a class="header-anchor" href="#%e4%bc%b0%e8%ae%a1%e6%b3%95"></a>
+估计法
+</h2><p>简单随机样本相互独立且同分布时，估计未知参数。</p>
+<h3 id="矩估计法">
+<a class="header-anchor" href="#%e7%9f%a9%e4%bc%b0%e8%ae%a1%e6%b3%95"></a>
+矩估计法
+</h3><p>样本量较大时，将样本近似为平均分布，样本均值替代总体均值（总体矩=样本矩）。</p>
+<ol>
+<li>根据所给分布律/密度函数求出期望 $EX$ （一阶总体矩）</li>
+<li>根据所给样本求样本均值 $\bar{X}$ （一阶样本矩）</li>
+<li>令 $EX=\bar{X}$ 解出 $\theta_0$ 即为 $\hat{\theta}$</li>
+</ol>
+<h3 id="最大似然估计法">
+<a class="header-anchor" href="#%e6%9c%80%e5%a4%a7%e4%bc%bc%e7%84%b6%e4%bc%b0%e8%ae%a1%e6%b3%95"></a>
+最大似然估计法
+</h3><p>估计值使得样本发生概率最大。
+样本似然函数：
+</p>
+$$
+L(x_1,x_2,\cdots,x_n;\theta)=
+\begin{cases}
+P(X=x_1)P(X=x_2)\cdots P(X=x_n),离散型\\
+f(x_1;\theta)f(x_2;\theta)\cdots f(x_n;\theta),连续型\\
+\end{cases}
+$$<p>
+求 $L$ 最大值，即求导得其驻点。因连乘求导繁琐，先将其化为对数形式后对未知参数 $\theta$ 求导。
+</p>
+$$
+(\ln L)'=
+\begin{cases}
+(\ln P_1+\ln P_2+\cdots +\ln P_n)',离散型\\
+[\ln f(x_1;\theta)+\ln f(x_2;\theta)+\cdots +\ln f(x_n;\theta)]',连续型\\
+\end{cases}
+=0
+$$<p>
+解出驻点 $\theta_0$ ，即为估计值 $\hat{\theta}$ 。</p>
+<h2 id="无偏性与有效性">
+<a class="header-anchor" href="#%e6%97%a0%e5%81%8f%e6%80%a7%e4%b8%8e%e6%9c%89%e6%95%88%e6%80%a7"></a>
+无偏性与有效性
+</h2><p>若 $E(\hat{\theta})=\theta$ ，则称 $\hat{\theta}$ 为 $\theta$ 的无偏估计。
+若 $\hat{\theta_1},\hat{\theta_2}$ 均为无偏估计，且 $D(\hat{\theta_1})<\hat{\theta_2}$ ，则称 $\hat{\theta_1}$ 比 $\hat{\theta_2}$ 更有效。</p>
+<h2 id="区间估计">
+<a class="header-anchor" href="#%e5%8c%ba%e9%97%b4%e4%bc%b0%e8%ae%a1"></a>
+区间估计
+</h2><p>$X \sim N(\mu,\sigma^2)$ ，通常将给定的 $\bar{X}=\mu,S=\sigma$ 。
+置信度：$1-\alpha$ ，通常 $\alpha=5\%$ 。</p>
+<h3 id="求--置信区间">
+<a class="header-anchor" href="#%e6%b1%82--%e7%bd%ae%e4%bf%a1%e5%8c%ba%e9%97%b4"></a>
+求 $\mu$ 置信区间
+</h3><h4 id="已知">
+<a class="header-anchor" href="#%e5%b7%b2%e7%9f%a5"></a>
+$\sigma^2$ 已知
+</h4><p>枢轴量（标准化）：
+</p>
+$$
+\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\sim N(0,1)
+$$<p>
+</p>
+$$
+\mu \in (\bar{x}-\frac{\sigma}{\sqrt{n}}\mu_{\frac{\alpha}{2}},\bar{x}+\frac{\sigma}{\sqrt{n}}\mu_{\frac{\alpha}{2}})
+$$<h4 id="未知">
+<a class="header-anchor" href="#%e6%9c%aa%e7%9f%a5"></a>
+$\sigma^2$ 未知
+</h4><p>枢轴量：
+</p>
+$$
+\frac{\bar{X}-\mu}{S/\sqrt{n}}\sim t(n-1)
+$$<p>
+</p>
+$$
+\mu \in (\bar{x}-\frac{S}{\sqrt{n}}t_{\frac{\alpha}{2}}(n-1),\bar{x}+\frac{S}{\sqrt{n}}t_{\frac{\alpha}{2}}(n-1))
+$$<h3 id="求--置信区间-1">
+<a class="header-anchor" href="#%e6%b1%82--%e7%bd%ae%e4%bf%a1%e5%8c%ba%e9%97%b4-1"></a>
+求 $\sigma^2$ 置信区间
+</h3><p>通常 $\mu$ 未知。
+枢轴量：
+</p>
+$$
+\frac{(n-1)S^2}{\sigma^2}\sim \chi^2(n-1)
+$$<p>
+</p>
+$$
+\sigma^2 \in (\frac{(n-1)S^2}{\chi^2_{\frac{\alpha}{2}}(n-1)},\frac{(n-1)S^2}{\chi^2_{1-\frac{\alpha}{2}}(n-1)})
+$$<h2 id="假设检验">
+<a class="header-anchor" href="#%e5%81%87%e8%ae%be%e6%a3%80%e9%aa%8c"></a>
+假设检验
+</h2><p>一般取 $\alpha=5\%$</p>
+<h3 id="检验">
+<a class="header-anchor" href="#%e6%a3%80%e9%aa%8c"></a>
+$\mu$ 检验
+</h3><ol>
+<li>提出假设 $H_0:\mu=\mu_0,H_1:\mu \ne \mu_0$</li>
+<li>选择检验统计量（枢轴量）
+<ul>
+<li>$\sigma^2$ 已知，选择 $\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\sim N(0,1)$ ，为 U 检验</li>
+<li>$\sigma^2$ 未知，选择 $\frac{\bar{X}-\mu}{S/\sqrt{n}}\sim t(n-1)$ ，为 T 检验</li>
+</ul>
+</li>
+<li>根据选择的枢轴量求得拒绝域
+$W=(-\infty,-\mu_{\frac{\alpha}{2}})\cup (\mu_{\frac{\alpha}{2}},\infty)$
+$W=(-\infty,-t_{\frac{\alpha}{2}}(n-1))\cup (t_{\frac{\alpha}{2}}(n-1),\infty)$</li>
+<li>若根据 $\bar{X}$ 计算所得枢轴量在 $W$ 内，假设 $H_0$ 不成立。</li>
+</ol>
+<h3 id="检验-1">
+<a class="header-anchor" href="#%e6%a3%80%e9%aa%8c-1"></a>
+$\sigma^2$ 检验
+</h3>$$
+S=\sqrt{S^2}=\sqrt{\frac{1}{n-1}\sum^{n}_{i=1}(x_i-\bar{X})}
+$$<ol>
+<li>提出假设 $H_0:\sigma^2=\sigma_0^2,H_1:\sigma^2 \ne \sigma_0^2$</li>
+<li>选择检验统计量
+$\frac{(n-1)S^2}{\sigma^2}\sim \chi^2(n-1)$ ，为$\chi^2$ 检验</li>
+<li>求得拒绝域
+$W=(0,\chi^2_{1-\frac{\alpha}{2}}(n-1)) \cup (\chi^2_{\frac{\alpha}{2}}(n-1),\infty)$</li>
+<li>若根据 $S$ 计算所得枢轴量在 $W$ 内，假设 $H_0$ 不成立。</li>
+</ol>
+<h2 id="补充">
+<a class="header-anchor" href="#%e8%a1%a5%e5%85%85"></a>
+补充
+</h2><h3 id="分布函数-5">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e5%87%bd%e6%95%b0-5"></a>
+分布函数
+</h3><p>对于连续型随机变量，分布函数连续。
+对于离散型随机变量，由于不同教材对分布函数定义不同，有左连续或右连续情况。</p>
+<h4 id="左连续">
+<a class="header-anchor" href="#%e5%b7%a6%e8%bf%9e%e7%bb%ad"></a>
+左连续
+</h4>$$
+F(x)=P(X<x)
+$$<p>
+在此定义下
+</p>
+$$
+F(x)=F(x^-)=F(x-0)=P(X<x)
+$$<p>
+</p>
+$$
+F(x^+)=F(x+0)=P(X<x)+P(X=x)
+$$<p>
+当 $P(X=x)\ne 0$ 时，显然 $F(x^+)>F(x)=F(x^-)$ ，此时分布函数左连续而右不连续。</p>
+<h4 id="右连续">
+<a class="header-anchor" href="#%e5%8f%b3%e8%bf%9e%e7%bb%ad"></a>
+右连续
+</h4>$$
+F(x)=P(X \le x)
+$$<p>
+在此定义下
+</p>
+$$
+F(x)=F(x^+)=F(x+0)=P(X \le x)
+$$<p>
+</p>
+$$
+F(x^-)=F(x-0)=P(X \le x)-P(X=x)
+$$<p>
+当 $P(X=x)\ne 0$ 时，显然 $F(x^+)=F(x)>F(x^-)$ ，此时分布函数右连续而左不连续。</p>
+<h4 id="抛硬币举例">
+<a class="header-anchor" href="#%e6%8a%9b%e7%a1%ac%e5%b8%81%e4%b8%be%e4%be%8b"></a>
+抛硬币举例
+</h4><p>抛一次硬币，正面计 1，反面计 0 。
+X 是一维离散型随机变量
+</p>
+$$
+\begin{cases}
+P(x=0)=0.5\\
+P(x=1)=0.5\\
+P(x=others)=0\\
+\end{cases}
+$$<p>
+由此得
+</p>
+$$
+\begin{cases}
+P(x<0)=0\\
+P(0 \le x < 1)=0.5\\
+P(x \ge 1)=1\\
+\end{cases}
+$$<p>
+当设分布函数为 $F(x)=P(X<x)$ 时，
+</p>
+$$
+F(x)=
+\begin{cases}
+0, & x \le 0\\
+0.5, & 0 < x \le 1\\
+1, & x>1\\
+\end{cases}
+$$<p>
+$F(0^-)=F(0)=0$，$F(0^+)=0.5$，$x=0$ 是间断点，左连续而右不连续。</p>
+
+        <hr><p>本文 2024-09-10 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-10</p><p><div style="flex-direction:column;align-items: center;"><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+ All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></div></p>]]></description><category>Math</category></item><item><title>实数建立读书报告</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</link><pubDate>Wed, 27 Dec 2023 21:40:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</guid><description><![CDATA[<h1>实数建立读书报告</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="real-number-foundation-book-report">
 <a class="header-anchor" href="#real-number-foundation-book-report"></a>
 Real Number Foundation Book Report
 </h1><p>借着这次数学分析大作业的机会写写实数建立。</p>
 <p>实数的建立是数学基础理论的一部分，涉及到许多数学分支，包括数学逻辑、集合论、代数结构等。数学家们通过对这些基本概念和性质的严密推导，构建了实数系统，为数学的发展提供了坚实的基础。这个过程在数学史上经历了漫长的发展，由许多数学家共同贡献。</p>
-        <hr><p>本文 2023-12-27 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-27</p><p>%!s(<nil>)</p>]]></description><category>Math</category></item><item><title>留数定理与洛朗级数、高阶导数公式和柯西积分公式之间的关系或联系</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link><pubDate>Wed, 20 Dec 2023 08:54:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid><description><![CDATA[<h1>留数定理与洛朗级数、高阶导数公式和柯西积分公式之间的关系或联系</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<h2 id="1-书籍信息">
+<a class="header-anchor" href="#1-%e4%b9%a6%e7%b1%8d%e4%bf%a1%e6%81%af"></a>
+1. 书籍信息
+</h2><h3 id="11-mathematical-analysis">
+<a class="header-anchor" href="#11-mathematical-analysis"></a>
+1.1 Mathematical Analysis
+</h3><ul>
+<li><strong>作者：</strong> Tom A. Apostol</li>
+<li><strong>出版年：</strong> 1973</li>
+<li><strong>简介：</strong>《数学分析》是Tom M. Apostol的经典之作，系统介绍了数学分析的基础知识，包括实数系统、极限、连续性等。作者以清晰的逻辑和深刻的洞察力，帮助读者建立对实数的深刻理解。</li>
+</ul>
+<h3 id="12-实分析与泛函分析real-analysis-and-functional-analysis">
+<a class="header-anchor" href="#12-%e5%ae%9e%e5%88%86%e6%9e%90%e4%b8%8e%e6%b3%9b%e5%87%bd%e5%88%86%e6%9e%90real-analysis-and-functional-analysis"></a>
+1.2 实分析与泛函分析(Real analysis and functional analysis)
+</h3><ul>
+<li><strong>作者：</strong> 匡继昌</li>
+<li><strong>出版年：</strong> 2002</li>
+<li><strong>简介：</strong>《实分析与泛函分析》是一本由匡继昌教授编写的高等数学教材，主要介绍了实分析和泛函分析的基本本概念、理论和方法。本书的特点是用集合和映射将传统的实变函数论、测度论和泛函分析三门课课融合为一门新的现代分析基础教程。</li>
+</ul>
+<h3 id="13-实分析与复分析real-and-complex-analysis">
+<a class="header-anchor" href="#13-%e5%ae%9e%e5%88%86%e6%9e%90%e4%b8%8e%e5%a4%8d%e5%88%86%e6%9e%90real-and-complex-analysis"></a>
+1.3 实分析与复分析(Real and Complex Analysis)
+</h3><ul>
+<li><strong>作者：</strong> Walter Rudin</li>
+<li><strong>出版年：</strong> 2006</li>
+<li><strong>简介：</strong> 本书是分析领域内的一部经典著作。全书体例优美，实用性很强，列举的实例简明精彩。无论实分析部分还是复分析部分，基本上对所有给出的命题都进行了论证。</li>
+</ul>
+<h3 id="14-real-analysis">
+<a class="header-anchor" href="#14-real-analysis"></a>
+1.4 Real Analysis
+</h3><ul>
+<li><strong>作者：</strong> Halsey Royden, Patrick Fitzpatrick</li>
+<li><strong>出版年：</strong> 2010</li>
+<li><strong>简介：</strong> 这本书已经成为数学分析学科的经典之一，为数学学生提供了深刻的理论基础。在第五版中，作者进行了重要的更新，包括对测度论、积分论以及度量、拓扑、希尔伯特和巴拿赫空间等现代分析学者应了解的主题的全面涵盖。</li>
+</ul>
+<h2 id="2-实数系统">
+<a class="header-anchor" href="#2-%e5%ae%9e%e6%95%b0%e7%b3%bb%e7%bb%9f"></a>
+2. 实数系统
+</h2><p>实数系统是数学分析的基石，Apostol在他的书中详细介绍了实数的<strong>定义</strong>和<strong>性质</strong>。实数具有<strong>完备性</strong>和<strong>稠密性</strong>等重要特征，构成了数学分析的基础。</p>
+<p><strong>实数的建立</strong>涉及数学的基本概念和系统的构建。实数系统是对实际数量的完整描述，<strong>包括整数、有理数和无理数</strong>。</p>
+<h3 id="21-有理数的引入">
+<a class="header-anchor" href="#21-%e6%9c%89%e7%90%86%e6%95%b0%e7%9a%84%e5%bc%95%e5%85%a5"></a>
+2.1 有理数的引入
+</h3><ol>
+<li>
+<p><strong>自然数的引入：</strong> 实数系统的起点是自然数，即1, 2, 3, 4, &hellip;。这些数用于计数和排序。</p>
+</li>
+<li>
+<p><strong>整数的引入：</strong> 为了解决减法问题，引入了零和负整数。这样，整数系统包括正整数、零和负整数。</p>
+</li>
+<li>
+<p><strong>有理数的引入：</strong> 尽管整数解决了减法的问题，但在除法运算方面还存在限制。例如，尝试计算 $\frac{1}{3}$ 或 $\frac{2}{7}$ 时，我们发现这样的数并不在整数集合中。因此，引入有理数的概念，使得任意两个整数的比例也属于一个新的数集。有理数系统是对整数系统的扩展，使得任何两个有理数之间都存在一个有理数，目的是弥补整数集合中存在的一些不足。</p>
+</li>
+<li>
+<p><strong>有理数的性质：</strong> 有理数具有一些重要的性质，包括加法、减法、乘法和除法的封闭性。这意味着任意两个有理数的和、差、积和商仍然是有理数。这些性质使得有理数成为一个完备的数系。</p>
+</li>
+</ol>
+<h3 id="22-无理数的引入">
+<a class="header-anchor" href="#22-%e6%97%a0%e7%90%86%e6%95%b0%e7%9a%84%e5%bc%95%e5%85%a5"></a>
+2.2 无理数的引入
+</h3><ol>
+<li>
+<p><strong>有理数的局限性：</strong> 虽然有理数可以表示绝大多数的数值，但有一些数，例如平方根的值（如$\sqrt{2}$无法被表示为两个整数的比值。尝试表示这些数时，我们发现无法找到整数 $a$ 和 $b$ 使得 $\frac{a}{b} = \sqrt{2}$。</p>
+</li>
+<li>
+<p><strong>无理数的定义：</strong> 为了弥补有理数无法表示的缺陷，引入了无理数的概念。无理数是<strong>不能表示为两个整数之比的数</strong>，或者说，无理数是不是有理数的数。</p>
+</li>
+<li>
+<p><strong>超越无理数：</strong> 超越无理数是不能成为任何代数方程的根的无理数。例如，$e$ 和 $\pi$ 都是超越无理数。这些数无法通过有限次代数运算得到。</p>
+</li>
+</ol>
+<h3 id="23-实数完备性证明">
+<a class="header-anchor" href="#23-%e5%ae%9e%e6%95%b0%e5%ae%8c%e5%a4%87%e6%80%a7%e8%af%81%e6%98%8e"></a>
+2.3 实数完备性证明
+</h3><p>实数系统是一个完备的系统，即实数轴上的任何无限序列都有一个极限。这一性质使得实数系统在数学分析中具有强大的工具，特别是在处理极限、连续性和收敛性等方面。
+证明方法</p>
+<h4 id="确界原理">
+<a class="header-anchor" href="#%e7%a1%ae%e7%95%8c%e5%8e%9f%e7%90%86"></a>
+确界原理
+</h4><h5 id="上确界的定义">
+<a class="header-anchor" href="#%e4%b8%8a%e7%a1%ae%e7%95%8c%e7%9a%84%e5%ae%9a%e4%b9%89"></a>
+上确界的定义：
+</h5><h6 id="上确界的存在">
+<a class="header-anchor" href="#%e4%b8%8a%e7%a1%ae%e7%95%8c%e7%9a%84%e5%ad%98%e5%9c%a8"></a>
+上确界的存在：
+</h6><p>对于实数集合 $S$，如果存在一个实数 $M$，使得 $M$ 是 $S$ 的上界，而且对于任意小于 $M$ 的实数 $m$，存在 $S$ 中的元素 $s$，使得 $m < s$，则称 $M$ 是 $S$ 的上确界。</p>
+<h6 id="例子">
+<a class="header-anchor" href="#%e4%be%8b%e5%ad%90"></a>
+例子：
+</h6><p>考虑集合 $S = \{ x \in \mathbb{R} \mid 0 < x < 1 \}$，即 $S$ 包含所有在开区间 $(0, 1)$ 中的实数。这个集合的上确界是1。</p>
+<h5 id="实数的完备性">
+<a class="header-anchor" href="#%e5%ae%9e%e6%95%b0%e7%9a%84%e5%ae%8c%e5%a4%87%e6%80%a7"></a>
+实数的完备性：
+</h5><h6 id="单调有界序列的极限">
+<a class="header-anchor" href="#%e5%8d%95%e8%b0%83%e6%9c%89%e7%95%8c%e5%ba%8f%e5%88%97%e7%9a%84%e6%9e%81%e9%99%90"></a>
+单调有界序列的极限：
+</h6><p>实数系统中的单调有界序列必有极限。设 $\{ a_n \}$ 是一个单调递增有界序列，则存在实数 $L$，使得 $\lim_{n \to \infty} a_n = L$。</p>
+<h6 id="上确界存在性">
+<a class="header-anchor" href="#%e4%b8%8a%e7%a1%ae%e7%95%8c%e5%ad%98%e5%9c%a8%e6%80%a7"></a>
+上确界存在性：
+</h6><p>任何非空有上界的实数集合必有上确界。对于任何实数集合 $S$，如果 $S$ 非空且有上界，则 $S$ 有上确界。</p>
+<h6 id="完备性的证明思路">
+<a class="header-anchor" href="#%e5%ae%8c%e5%a4%87%e6%80%a7%e7%9a%84%e8%af%81%e6%98%8e%e6%80%9d%e8%b7%af"></a>
+完备性的证明思路：
+</h6><p>实数的完备性可以通过证明上确界存在性来体现。具体而言，可以通过考虑所有有上界的实数集合的上确界，证明存在一个实数集合的上确界是实数轴上的一个数。</p>
+<h5 id="证明">
+<a class="header-anchor" href="#%e8%af%81%e6%98%8e"></a>
+证明：
+</h5><h6 id="假设--是一个非空有上界的实数集合">
+<a class="header-anchor" href="#%e5%81%87%e8%ae%be--%e6%98%af%e4%b8%80%e4%b8%aa%e9%9d%9e%e7%a9%ba%e6%9c%89%e4%b8%8a%e7%95%8c%e7%9a%84%e5%ae%9e%e6%95%b0%e9%9b%86%e5%90%88"></a>
+假设 $S$ 是一个非空有上界的实数集合：
+</h6><h6 id="构造集合-">
+<a class="header-anchor" href="#%e6%9e%84%e9%80%a0%e9%9b%86%e5%90%88-"></a>
+构造集合 $M$：
+</h6><p>考虑所有 $S$ 的上界组成的集合 $M$，即 $M = \{ M' \mid M' \text{是} S \text{的上界} \}$。</p>
+<h6 id="证明--的上确界存在">
+<a class="header-anchor" href="#%e8%af%81%e6%98%8e--%e7%9a%84%e4%b8%8a%e7%a1%ae%e7%95%8c%e5%ad%98%e5%9c%a8"></a>
+证明 $M$ 的上确界存在：
+</h6><ul>
+<li>$M$ 非空：因为 $S$ 有上界。</li>
+<li>$M$ 有下界：下界为 $\min(S)$。</li>
+<li>由实数轴的确界性质，$M$ 有上确界。</li>
+</ul>
+<h6 id="证明--的上确界即为--的上确界">
+<a class="header-anchor" href="#%e8%af%81%e6%98%8e--%e7%9a%84%e4%b8%8a%e7%a1%ae%e7%95%8c%e5%8d%b3%e4%b8%ba--%e7%9a%84%e4%b8%8a%e7%a1%ae%e7%95%8c"></a>
+证明 $M$ 的上确界即为 $S$ 的上确界：
+</h6><p>设 $L$ 是 $M$ 的上确界，由 $M$ 的定义，对于任何小于 $L$ 的实数 $m$，存在 $M' \in M$ 使得 $m < M'$。由 $M'$ 是 $S$ 的上界，可知 $m$ 也是 $S$ 的上界。</p>
+<h6 id="结论">
+<a class="header-anchor" href="#%e7%bb%93%e8%ae%ba"></a>
+结论：
+</h6><p>因此，对于任何非空有上界的实数集合 $S$，$S$ 必有上确界，从而证明了实数的完备性。</p>
+<h4 id="单调有界定理">
+<a class="header-anchor" href="#%e5%8d%95%e8%b0%83%e6%9c%89%e7%95%8c%e5%ae%9a%e7%90%86"></a>
+单调有界定理
+</h4><p>一个单调递增（或递减）且有界的实数序列必有极限。
+假设有一个单调递增有上界的实数序列 $\{a_n\}$，下证它必有极限。</p>
+<h5 id="证明-1">
+<a class="header-anchor" href="#%e8%af%81%e6%98%8e-1"></a>
+证明：
+</h5><ol>
+<li><strong>单调有界定理的前提条件：</strong> 序列 $\{a_n\}$ 是单调递增的，即对于所有的 $n$，有 $a_n \leq a_{n+1}$；同时，序列有上界，存在一个实数 $M$，对于所有的 $n$，都有 $a_n \leq M$。</li>
+<li><strong>存在上确界：</strong> 由于序列有上界，根据实数的确界性质，存在上确界 $L = \sup\{a_n\}$。即 $L$ 是集合 $\{a_n\}$ 的上确界。</li>
+<li><strong>证明 $L$ 是序列的极限：</strong>
+<ul>
+<li>对于任意小的正实数 $\varepsilon > 0$，由上确界的定义，存在某个序列元素 $a_N$，使得 $L - \varepsilon < a_N \leq L$。</li>
+<li>由序列的单调性，对于所有 $n \geq N$，有 $L - \varepsilon < a_N \leq a_n \leq L$。</li>
+<li>因此，$L - \varepsilon < a_n < L + \varepsilon$ 对于所有 $n \geq N$ 都成立。</li>
+<li>由极限的定义，$\lim_{n \to \infty} a_n = L$。
+通过单调有界定理，我们证明了任何单调递增有上界（或单调递减有下界）的实数序列都有极限。这一结论是实数完备性的关键，确保了实数轴上的任何非空有上界的数集都有上确界，从而实数轴是完备的。</li>
+</ul>
+</li>
+</ol>
+<h4 id="区间套定理">
+<a class="header-anchor" href="#%e5%8c%ba%e9%97%b4%e5%a5%97%e5%ae%9a%e7%90%86"></a>
+区间套定理
+</h4><p>如果对于每一个正整数 $n$，都存在实数区间 $[a_n, b_n]$，使得这些区间满足：</p>
+<ol>
+<li>$[a_{n+1}, b_{n+1}] \subseteq [a_n, b_n]$（每个区间都包含在前一个区间内）。</li>
+<li>那么，存在一个实数 $x$，属于所有的区间，即 $x \in [a_n, b_n]$ 对于所有正整数 $n$ 都成立。</li>
+</ol>
+<h5 id="证明-2">
+<a class="header-anchor" href="#%e8%af%81%e6%98%8e-2"></a>
+证明：
+</h5><ol>
+<li><strong>构造区间套：</strong>
+<ul>
+<li>对于每个正整数 $n$，给定区间 $[a_n, b_n]$。</li>
+<li>由条件1，这些区间构成了一个区间套，即 $[a_{n+1}, b_{n+1}]\subseteq [a_n, b_n]$。</li>
+</ul>
+</li>
+<li><strong>使用实数的确界性质：</strong>
+<ul>
+<li>由于每个区间都是闭区间，根据实数的确界性质，存在实数 $x$，它同时是每个区间的上确界。</li>
+<li>设 $x = \lim_{n \to \infty} a_n$，即 $x$ 是每个区间左端点构成的序列的极限。</li>
+</ul>
+</li>
+<li><strong>证明 $x$ 在每个区间中：</strong>
+<ul>
+<li>由区间套的定义，对于每个正整数 $n$，有 $x \in [a_n, b_n]$。</li>
+<li>因此，$x$ 同时属于每个区间。</li>
+</ul>
+</li>
+<li><strong>结论：</strong>
+<ul>
+<li>综上，存在实数 $x$，它属于所有给定的区间。这证明了区间套定理。</li>
+</ul>
+</li>
+</ol>
+<p>通过区间套定理，我们得知如果对于每一个正整数 \(n\)，都存在实数区间 $[a_n, b_n]$ 满足给定条件，那么实数轴上存在一个实数 $x$，它同时属于所有的区间。这一结论是实数轴完备性的关键，确保了实数轴上的任何非空区间套都有一个共同的交点，从而实数轴是完备的。</p>
+<h4 id="有限覆盖定理">
+<a class="header-anchor" href="#%e6%9c%89%e9%99%90%e8%a6%86%e7%9b%96%e5%ae%9a%e7%90%86"></a>
+有限覆盖定理
+</h4><p>有限覆盖定理（Finite Covering Property）是实数完备性的一部分，也被称为海涅-博雷尔定理（Heine-Borel Theorem）。该定理陈述了实数轴上有界闭区间的重要性质。具体来说，定理表明任何有界闭区间的任何开区间的开集覆盖，都可以通过这些开区间中的有限个来覆盖整个闭区间。
+正式陈述如下：</p>
+<p><strong>有限覆盖定理：</strong> 如果 $[a, b]$ 是实数轴上的一个有界闭区间，且 $\{G_n\}$ 是一组开区间，满足 $[a, b] \subseteq \bigcup_{n=1}^{\infty} G_n$（闭区间完全包含在所有开区间的并集中），那么存在一个自然数 $N$，使得 $[a, b] \subseteq \bigcup_{n=1}^{N} G_n$。</p>
+<p>有限覆盖定理指出，任何有界闭区间都可以通过该区间上的有限个开区间来覆盖。</p>
+<h4 id="聚点定理">
+<a class="header-anchor" href="#%e8%81%9a%e7%82%b9%e5%ae%9a%e7%90%86"></a>
+聚点定理
+</h4><p>每个实数上无穷且有界的子集S都有至少一个聚点。这意味着S中的元素趋近于某个实数。
+聚点定理也称 Bolzano-Weierstrass 定理。该定理讨论了有界序列的性质，特别是它确保有界序列至少有一个收敛的子序列。</p>
+<p><strong>聚点定理的陈述：</strong> 如果实数序列有界，即存在实数 $M$ 和 $N$，使得对于序列中的每个元素 $a_n$，都有 $N \leq a_n \leq M$，那么该序列至少有一个收敛的子序列。</p>
+<p>简言之，如果实数序列有界，那么必定存在一个子序列，它在某个实数上收敛。</p>
+<h4 id="柯西收敛准则">
+<a class="header-anchor" href="#%e6%9f%af%e8%a5%bf%e6%94%b6%e6%95%9b%e5%87%86%e5%88%99"></a>
+柯西收敛准则
+</h4><p>柯西收敛准则（Cauchy Convergence Criterion）是实数序列收敛性的一个重要准则。该准则基于柯西列的概念，指出如果一个实数序列是柯西列，那么它是收敛的。</p>
+<p><strong>柯西收敛准则的陈述：</strong> 一个实数序列是收敛的充分必要条件是它是柯西列。
+<strong>柯西列的定义：</strong> 对于任意给定的正实数 $\varepsilon$，存在一个正整数 $N$，对于所有的 $n, m \geq N$，都有 $|a_n - a_m| < \varepsilon$。</p>
+<p>简而言之，柯西列是指序列中的元素随着序号的增加而趋于无穷接近，任何两项之间的差异趋于零。</p>
+<p>柯西收敛准则的重要性在于它提供了一种用序列内元素之间的差异来判断序列收敛性的方法。当一个序列满足柯西收敛准则时，我们可以断定该序列是收敛的，即存在一个<strong>实数极限</strong>。
+需要注意的是，柯西收敛准则<strong>对于实数序列成立</strong>，但在更一般的度量空间（metric space）中，柯西收敛准则仅是收敛的<strong>充分</strong>条件，不一定是必要条件。
+<strong>在实数轴上，柯西收敛准则是完备性的一个表现。</strong></p>
+<h3 id="24-实数的代数结构">
+<a class="header-anchor" href="#24-%e5%ae%9e%e6%95%b0%e7%9a%84%e4%bb%a3%e6%95%b0%e7%bb%93%e6%9e%84"></a>
+2.4 实数的代数结构
+</h3><p>实数系统具有一组运算规则，如加法和乘法，它们满足一系列代数结构性质。实数的代数结构对于进行各种数学操作和推导是至关重要的。</p>
+<ol>
+<li><strong>加法结构：</strong> 实数集合上定义了加法运算，即任意两个实数 $a$ 和 $b$ 相加得到另一个实数 $a + b$。加法运算满足以下性质：
+<ul>
+<li><strong>交换性：</strong> 对于任意实数 $a$ 和 $b$，有 $a + b = b + a$。</li>
+<li><strong>结合性：</strong> 对于任意实数 $a$、$b$ 和 $c$，有 $(a + b) + c = a + (b + c)$。</li>
+<li><strong>存在零元素：</strong> 存在一个实数 0，对于任意实数 $a$，有 $a + 0 = a$。</li>
+<li><strong>存在相反元素：</strong> 对于任意实数 $a$，存在一个实数 $-a$，使得 $a + (-a) = 0$。</li>
+</ul>
+</li>
+<li><strong>乘法结构：</strong> 实数集合上定义了乘法运算，即任意两个实数 $a$ 和 $b$ 相乘得到另一个实数 $a \cdot b$。乘法运算满足以下性质：
+<ul>
+<li><strong>交换性：</strong> 对于任意实数 $a$ 和 $b$，有 $a \cdot b = b \cdot a$。</li>
+<li><strong>结合性：</strong> 对于任意实数 $a$、$b$ 和 $c$，有 $(a \cdot b) \cdot c = a \cdot (b \cdot c)$。</li>
+<li><strong>存在单位元素：</strong> 存在一个实数 1，对于任意实数 $a$，有 $a \cdot 1 = a$。</li>
+<li><strong>存在倒数：</strong> 对于任意非零实数 $a$，存在一个实数 $\frac{1}{a}$，使得 $a \cdot \frac{1}{a} = 1$。</li>
+</ul>
+</li>
+<li><strong>分配律：</strong> 乘法对加法的分配律是实数代数结构中一个重要的性质，即对于任意实数 $a$、$b$ 和 $c$，有 $a \cdot (b + c) = a \cdot b + a \cdot c$ 和 $(a + b) \cdot c = a \cdot c + b \cdot c$。</li>
+<li><strong>序关系：</strong> 实数集合上定义了大小关系，通常用符号 $<$ 表示。大小关系满足以下性质：
+<ul>
+<li><strong>反对称性：</strong> 对于任意实数 $a$ 和 $b$，如果 $a < b$，则不可能有 $b < a$。</li>
+<li><strong>传递性：</strong> 对于任意实数 $a$、$b$ 和 $c$，如果 $a < b$ 且 $b < c$，则必有 $a < c$。</li>
+</ul>
+</li>
+</ol>
+<p>这些代数结构性质使得实数成为一个有序域（Ordered Field），并为实数上的数学分析提供了强大的代数工具。这些结构性质对于解方程、处理不等式、进行数学推导和建立数学理论都具有重要意义。</p>
+<h2 id="3-极限和连续性">
+<a class="header-anchor" href="#3-%e6%9e%81%e9%99%90%e5%92%8c%e8%bf%9e%e7%bb%ad%e6%80%a7"></a>
+3. 极限和连续性
+</h2><p>极限和连续性是数学分析中的核心概念。通过引入极限的概念，深入浅出地阐述函数的连续性。</p>
+<h3 id="31-实数的极限">
+<a class="header-anchor" href="#31-%e5%ae%9e%e6%95%b0%e7%9a%84%e6%9e%81%e9%99%90"></a>
+3.1 实数的极限：
+</h3><h4 id="311-定义">
+<a class="header-anchor" href="#311-%e5%ae%9a%e4%b9%89"></a>
+3.1.1 定义：
+</h4><p>给定一个实数序列（或实数函数）$\{a_n\}$，当n趋近于无穷大时，如果存在一个实数L，对于任意小的正实数ε，都存在一个正整数N，使得当n&gt;N时，序列中的每一项都与L的距离小于ε，那么我们说这个序列的极限为L，写作 $\lim_{n \to \infty} a_n = L$ 。</p>
+<h4 id="312-直观理解">
+<a class="header-anchor" href="#312-%e7%9b%b4%e8%a7%82%e7%90%86%e8%a7%a3"></a>
+3.1.2 直观理解：
+</h4><p>极限可以理解为序列中的值随着项数的增加逐渐趋近于某个确定的值。例如，考虑序列$a_n = \frac{1}{n}$，当n趋近于无穷大时，$\lim_{n \to \infty} \frac{1}{n} = 0$，表示随着n的增加，分数$\frac{1}{n}$的值逐渐趋近于零。</p>
+<h4 id="313-性质">
+<a class="header-anchor" href="#313-%e6%80%a7%e8%b4%a8"></a>
+3.1.3 性质：
+</h4><ul>
+<li>极限是唯一的：如果一个序列有极限，那么它的极限是唯一的。</li>
+<li>有界序列的极限：有界且单调递增（或递减）的序列一定有极限。</li>
+</ul>
+<h3 id="32-实数的连续性">
+<a class="header-anchor" href="#32-%e5%ae%9e%e6%95%b0%e7%9a%84%e8%bf%9e%e7%bb%ad%e6%80%a7"></a>
+3.2 实数的连续性：
+</h3><h4 id="321-连续函数的定义">
+<a class="header-anchor" href="#321-%e8%bf%9e%e7%bb%ad%e5%87%bd%e6%95%b0%e7%9a%84%e5%ae%9a%e4%b9%89"></a>
+3.2.1 连续函数的定义：
+</h4><p>一个实函数 f(x) 在某一点 \(x=a\) 处连续，意味着：</p>
+<ul>
+<li>$f(a)$ 存在。</li>
+<li>$\lim_{{x \to a^+}} f(x)$ 存在。</li>
+<li>$\lim_{{x \to a^-}} f(x)$ 存在。</li>
+<li>$\lim_{{x \to a^+}} f(x) = \lim_{{x \to a^-}} f(x) = f(a)$</li>
+</ul>
+<h4 id="322-直观理解">
+<a class="header-anchor" href="#322-%e7%9b%b4%e8%a7%82%e7%90%86%e8%a7%a3"></a>
+3.2.2 直观理解：
+</h4><p>函数在某一点连续表示图形上没有跳跃、断裂或间断，即曲线没有突变。一个典型的例子是连续函数 $f(x) = x^2$，在整个实数轴上都是连续的。</p>
+<h4 id="323-连续函数的性质">
+<a class="header-anchor" href="#323-%e8%bf%9e%e7%bb%ad%e5%87%bd%e6%95%b0%e7%9a%84%e6%80%a7%e8%b4%a8"></a>
+3.2.3 连续函数的性质：
+</h4><ul>
+<li>连续函数的和、差、积仍然是连续函数。</li>
+<li>除非分母为零，否则商函数也是连续的。</li>
+<li>复合函数连续性：如果 g(x) 在点 $x=a$ 连续，而 f(x) 在点 $x=g(a)$ 处连续，那么复合函数 $f(g(x))$ 在点 $x=a$ 处也连续。</li>
+</ul>
+<h3 id="33-重要定理">
+<a class="header-anchor" href="#33-%e9%87%8d%e8%a6%81%e5%ae%9a%e7%90%86"></a>
+3.3 重要定理：
+</h3><h4 id="331-介值定理">
+<a class="header-anchor" href="#331-%e4%bb%8b%e5%80%bc%e5%ae%9a%e7%90%86"></a>
+3.3.1 介值定理：
+</h4><p>如果一个函数 f(x) 在闭区间 [a, b] 上连续，且 $f(a) \neq f(b)$，那么对于介于 f(a) 和 f(b) 之间的任何值 c，存在某个点 $x_0$ 在 (a, b) 之间，使得 $f(x_0) = c$。</p>
+<h4 id="332-极值定理">
+<a class="header-anchor" href="#332-%e6%9e%81%e5%80%bc%e5%ae%9a%e7%90%86"></a>
+3.3.2 极值定理：
+</h4><p>如果一个函数 f(x) 在闭区间 [a, b] 上连续，那么 f(x) 在该区间上至少有一个最大值和一个最小值。</p>
+<p>这些概念和定理构成了实数的极限和连续性理论的基础，为理解数学分析中更高级的概念和定理奠定了基础。</p>
+<h2 id="4-对比不同">
+<a class="header-anchor" href="#4-%e5%af%b9%e6%af%94%e4%b8%8d%e5%90%8c"></a>
+4. 对比不同
+</h2><h3 id="41-mathematical-analysis">
+<a class="header-anchor" href="#41-mathematical-analysis"></a>
+4.1 <strong>Mathematical Analysis</strong>：
+</h3><ul>
+<li>这本书涵盖了实分析的基本概念，如实数的构造、连续性、极限、导数和积分。</li>
+<li>它详细介绍实数的定义和性质，以及实数集合的基本性质。</li>
+<li>本书强调一些数学逻辑和集合论的基础知识，以便更好地理解实数的建立过程。
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/330423610.png" alt="Mathematical Analysis-1.png"></li>
+</ul>
+<h3 id="42-实分析与泛函分析">
+<a class="header-anchor" href="#42-%e5%ae%9e%e5%88%86%e6%9e%90%e4%b8%8e%e6%b3%9b%e5%87%bd%e5%88%86%e6%9e%90"></a>
+4.2 <strong>《实分析与泛函分析》</strong>：
+</h3><ul>
+<li>它包括更复杂的实数建立方法，例如戴德金分割或基于某些拓扑性质的构造。</li>
+<li>此外，它涵盖了泛函分析的一些基本概念。</li>
+<li>作者更详细地讨论实数的性质，以及实数集合的测度和积分理论。
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/1611562658.png" alt="实分析与泛函分析-1.png"></li>
+</ul>
+<h3 id="43--real-and-complex-analysis">
+<a class="header-anchor" href="#43--real-and-complex-analysis"></a>
+4.3  <strong>Real and Complex Analysis</strong>：
+</h3><ul>
+<li>这本书是最全面的，涵盖了实分析和复分析的许多方面。</li>
+<li>它详细介绍了测度论。</li>
+<li>它还涵盖了复分析的一些基本概念，如复数的性质、全纯函数和调和函数。</li>
+<li>强调实数和复数之间的关系，以及它们在数学中的重要性。
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/3544421365.png" alt="实分析与复分析-1.png"></li>
+</ul>
+<h3 id="44-real-analysis">
+<a class="header-anchor" href="#44-real-analysis"></a>
+4.4 Real Analysis
+</h3><ul>
+<li><em><strong>Real Analysis</strong></em>这本书突出实数系统的建立，包括对有理数和无理数的构建以及实数的完备性。</li>
+<li>在深入研究极限和连续性方面，着重讨论数列和函数的极限概念，以及导数和积分的基本概念。级数的收敛性、发散性以及求和方法也得到详细考察。</li>
+<li>引入了度量空间，辅助理解实数系统和函数空间。
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/2948448354.png" alt="Real Analysis-1.png"></li>
+</ul>
+<h2 id="7-个人体会">
+<a class="header-anchor" href="#7-%e4%b8%aa%e4%ba%ba%e4%bd%93%e4%bc%9a"></a>
+7. 个人体会
+</h2><p>通过研读实数建立的相关书籍，我的数学观念得到了显著的拓展。更加深入了解了实数的构建过程，包括从有理数到无理数的引入，以及确界原理等方法的阐释证明。这使我对实数的概念有了更为清晰和深刻的认识，意识到实数的引入是为了弥补有理数的不足，使数学体系更为完备。</p>
+<p>在深入学习极限和连续性的过程中，我深感这是一种深邃而富有美感的思想。极限的引入不仅为理解数列和函数的趋势提供了有效的工具，也是实数系统中的核心思想之一。连续性的概念则使得实数轴上函数变化的渐进平滑，这种连续性贯穿于整个数学分析。</p>
+
+        <hr><p>本文 2023-12-27 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-27</p><p><div style="flex-direction:column;align-items: center;"><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+ All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></div></p>]]></description><category>Math</category></item><item><title>留数定理与洛朗级数、高阶导数公式和柯西积分公式之间的关系或联系</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link><pubDate>Wed, 20 Dec 2023 08:54:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid><description><![CDATA[<h1>留数定理与洛朗级数、高阶导数公式和柯西积分公式之间的关系或联系</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h3 id="1-留数定理residue-theorem">
 <a class="header-anchor" href="#1-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86residue-theorem"></a>
 1. 留数定理（Residue Theorem）：
 </h3><p>留数定理是复变函数理论中的一个关键结果，它建立在留数的概念之上。留数定理的核心思想是，如果在一个包含孤立奇点的闭曲线内，函数在这个曲线上处处解析，那么曲线内的整体积分等于函数在奇点处的留数之和。</p>
-        <hr><p>本文 2023-12-20 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-20</p><p>%!s(<nil>)</p>]]></description><category>Math</category></item><item><title>复变函数</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link><pubDate>Fri, 17 Nov 2023 19:42:47 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid><description><![CDATA[<h1>复变函数</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<h3 id="2-洛朗级数laurent-series">
+<a class="header-anchor" href="#2-%e6%b4%9b%e6%9c%97%e7%ba%a7%e6%95%b0laurent-series"></a>
+2. 洛朗级数（Laurent Series）：
+</h3><p>洛朗级数是一种复变函数的展开形式，可以表示为无穷级数的形式，包括正次幂和负次幂。具体而言，一个复函数在一个环形区域内的洛朗级数表示如下：
+</p>
+$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<p>其中，$c_n$是系数，而$z_0$是展开点。</p>
+<h3 id="3-高阶导数公式">
+<a class="header-anchor" href="#3-%e9%ab%98%e9%98%b6%e5%af%bc%e6%95%b0%e5%85%ac%e5%bc%8f"></a>
+3. 高阶导数公式：
+</h3><p>复变函数的高阶导数公式和实变函数有些相似，但在复平面上的运算需要注意。如果一个函数在某点解析，那么它在该点处的高阶导数可以通过对幂级数逐项求导得到。</p>
+<h3 id="4-柯西积分公式cauchys-integral-formula">
+<a class="header-anchor" href="#4-%e6%9f%af%e8%a5%bf%e7%a7%af%e5%88%86%e5%85%ac%e5%bc%8fcauchys-integral-formula"></a>
+4. 柯西积分公式（Cauchy&rsquo;s Integral Formula）：
+</h3><p>柯西积分公式是复分析中的一个基本结果，它建立了解析函数和其在围道上的积分之间的关系。具体而言，如果函数$f(z)$在一个简单闭合曲线内解析，那么对于这个曲线内的任意点$z_0$，有：</p>
+$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$<p>其中，$C$是包围$z_0$的简单闭合曲线。</p>
+<h3 id="关系和联系">
+<a class="header-anchor" href="#%e5%85%b3%e7%b3%bb%e5%92%8c%e8%81%94%e7%b3%bb"></a>
+关系和联系：
+</h3><ol>
+<li>
+<p><strong>留数定理与洛朗级数：</strong> 留数定理可以用来计算闭合曲线内函数的积分，而洛朗级数展开可以帮助我们理解函数在奇点附近的性质，从而求得留数。</p>
+</li>
+<li>
+<p><strong>留数定理与高阶导数公式：</strong> 留数定理可以通过对函数在奇点处的洛朗级数展开，然后逐项求导，来计算高阶导数。</p>
+</li>
+<li>
+<p><strong>留数定理与柯西积分公式：</strong> 柯西积分公式可以用来计算函数在围道上的积分，而留数定理是柯西积分公式的一种特例，其中围道内只有有限个孤立奇点。</p>
+</li>
+</ol>
+<h3 id="1-留数定理的洛朗级数证明">
+<a class="header-anchor" href="#1-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86%e7%9a%84%e6%b4%9b%e6%9c%97%e7%ba%a7%e6%95%b0%e8%af%81%e6%98%8e"></a>
+1. 留数定理的洛朗级数证明：
+</h3><h4 id="留数定理">
+<a class="header-anchor" href="#%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86"></a>
+留数定理：
+</h4><p>留数定理的表述为：</p>
+<p>如果$f(z)$在包含孤立奇点$z_0$的闭曲线内处处解析，那么曲线内的整体积分等于函数在奇点处的留数之和。</p>
+<h4 id="洛朗级数展开">
+<a class="header-anchor" href="#%e6%b4%9b%e6%9c%97%e7%ba%a7%e6%95%b0%e5%b1%95%e5%bc%80"></a>
+洛朗级数展开：
+</h4>$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<p>其中，$c_n$是留数。</p>
+<h4 id="证明步骤">
+<a class="header-anchor" href="#%e8%af%81%e6%98%8e%e6%ad%a5%e9%aa%a4"></a>
+证明步骤：
+</h4><ol>
+<li>
+<p><strong>洛朗级数的求解：</strong>
+通过复变函数的洛朗级数展开，我们有
+</p>
+$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<p>其中，$c_n$是由留数计算得到的系数。</p>
+</li>
+<li>
+<p><strong>积分的计算：</strong>
+对洛朗级数进行积分：
+</p>
+$$\oint_C f(z) \, dz = \oint_C \left( \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n \right) \, dz$$</li>
+<li>
+<p><strong>积分与求和次序交换：</strong>
+由于积分与求和次序可以交换，我们得到：
+</p>
+$$\oint_C f(z) \, dz = \sum_{n=-\infty}^{\infty} \oint_C c_n (z - z_0)^n \, dz$$</li>
+<li>
+<p><strong>留数定理的应用：</strong>
+对于$n \neq -1$，由于$c_n$不含$z^{-1}$，积分结果为零。只有$n = -1$项会贡献非零积分。
+</p>
+$$\oint_C f(z) \, dz = 2\pi i \cdot c_{-1}$$</li>
+<li>
+<p><strong>结论：</strong>
+最终得到留数定理的结论：
+</p>
+$$\oint_C f(z) \, dz = 2\pi i \cdot c_{-1}$$</li>
+</ol>
+<h3 id="2-留数定理到高阶导数公式的证明">
+<a class="header-anchor" href="#2-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86%e5%88%b0%e9%ab%98%e9%98%b6%e5%af%bc%e6%95%b0%e5%85%ac%e5%bc%8f%e7%9a%84%e8%af%81%e6%98%8e"></a>
+2. 留数定理到高阶导数公式的证明：
+</h3><h4 id="留数定理-1">
+<a class="header-anchor" href="#%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86-1"></a>
+留数定理：
+</h4><p>留数定理的表述为：</p>
+<p>如果$f(z)$在包含孤立奇点$z_0$的闭曲线内处处解析，那么曲线内的整体积分等于函数在奇点处的留数之和。</p>
+<h4 id="高阶导数公式">
+<a class="header-anchor" href="#%e9%ab%98%e9%98%b6%e5%af%bc%e6%95%b0%e5%85%ac%e5%bc%8f"></a>
+高阶导数公式：
+</h4><p>复变函数的高阶导数公式如下：</p>
+<p>如果$f(z)$在某点$z_0$处解析，那么它在该点的$n$阶导数可以表示为：
+</p>
+$$f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} \, dz$$<p>其中，$C$是包围$z_0$的简单闭合曲线。</p>
+<h4 id="证明步骤-1">
+<a class="header-anchor" href="#%e8%af%81%e6%98%8e%e6%ad%a5%e9%aa%a4-1"></a>
+证明步骤：
+</h4><ol>
+<li>
+<p><strong>留数定理的应用：</strong>
+根据留数定理，我们知道
+</p>
+$$\oint_C f(z) \, dz = 2\pi i \cdot \text{Res}(f, z_0)$$</li>
+<li>
+<p><strong>洛朗级数的求解：</strong>
+类似于前面的讨论，我们可以将$f(z)$在$z_0$处展开为洛朗级数：
+</p>
+$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$</li>
+<li>
+<p><strong>高阶导数的计算：</strong>
+利用洛朗级数，我们可以计算$f^{(n)}(z_0)$：
+</p>
+$$f^{(n)}(z_0) = \sum_{n=-\infty}^{\infty} n(n-1)\ldots(n-k+1) \cdot c_n \cdot (z - z_0)^{n-k}$$</li>
+<li>
+<p><strong>留数的提取：</strong>
+我们可以观察到只有$n = -k$时才会贡献非零项，因此
+</p>
+$$f^{(n)}(z_0) = n! \cdot c_{-n}$$</li>
+<li>
+<p><strong>结论：</strong>
+将$c_{-n}$代入留数定理的表达式，得到高阶导数公式的形式：
+</p>
+$$f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} \, dz$$</li>
+</ol>
+<h3 id="3-留数定理da柯西积分公式的证明">
+<a class="header-anchor" href="#3-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86da%e6%9f%af%e8%a5%bf%e7%a7%af%e5%88%86%e5%85%ac%e5%bc%8f%e7%9a%84%e8%af%81%e6%98%8e"></a>
+3. 留数定理da柯西积分公式的证明：
+</h3><h4 id="留数定理-2">
+<a class="header-anchor" href="#%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86-2"></a>
+留数定理：
+</h4><p>留数定理的表述为：</p>
+<p>如果$f(z)$在包含孤立奇点$z_0$的闭曲线内处处解析，那么曲线内的整体积分等于函数在奇点处的留数之和。</p>
+<h4 id="柯西积分公式">
+<a class="header-anchor" href="#%e6%9f%af%e8%a5%bf%e7%a7%af%e5%88%86%e5%85%ac%e5%bc%8f"></a>
+柯西积分公式：
+</h4><p>柯西积分公式表述为：
+</p>
+$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$<p>其中，$C$是包围$z_0$的简单闭合曲线。</p>
+<h4 id="证明步骤-2">
+<a class="header-anchor" href="#%e8%af%81%e6%98%8e%e6%ad%a5%e9%aa%a4-2"></a>
+证明步骤：
+</h4><ol>
+<li>
+<p><strong>留数定理的应用：</strong>
+根据留数定理，我们知道
+</p>
+$$\oint_C f(z) \, dz = 2\pi i \cdot \text{Res}(f, z_0)$$</li>
+<li>
+<p><strong>洛朗级数的求解：</strong>
+类似于前面的讨论，我们可以将$f(z)$在$z_0$处展开为洛朗级数：
+</p>
+$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$</li>
+<li>
+<p><strong>柯西积分公式的形式：</strong>
+考虑柯西积分公式的形式：
+</p>
+$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
+<li>
+<p><strong>留数的提取：</strong>
+我们可以观察到$c_{-1}$对应着$1/(z - z_0)$，因此：
+</p>
+$$f(z_0) = c_{-1}$$</li>
+<li>
+<p><strong>结论：</strong>
+将$c_{-1}$代入柯西积分公式的表达式，得到柯西积分公式：
+</p>
+$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
+</ol>
+
+        <hr><p>本文 2023-12-20 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-20</p><p><div style="flex-direction:column;align-items: center;"><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+ All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></div></p>]]></description><category>Math</category></item><item><title>复变函数</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link><pubDate>Fri, 17 Nov 2023 19:42:47 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid><description><![CDATA[<h1>复变函数</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="复数">
 <a class="header-anchor" href="#%e5%a4%8d%e6%95%b0"></a>
 复数
@@ -63,4 +1217,90 @@ Real Number Foundation Book Report
 复变函数的积分
 </h1><p><strong>重要公式</strong>
 </p>
-        <hr><p>本文 2023-11-17 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-11-17</p><p>%!s(<nil>)</p>]]></description><category>Math</category></item></channel></rss>
+$$\oint_{|z-z_0|=r}\frac{1}{(z-z_0)^n}dz=\begin{cases}
+2\pi i ,n =1\\
+\text 0,\quad n\neq 1
+\end{cases} $$<ol>
+<li>柯西-古萨基本定理
+在<strong>解析，单连通</strong>的区域内的任意闭合曲线积分值为0，即$$\oint_{C}^{}f{(z)}dz = 0$$</li>
+<li>复合闭路定理——柯西积分定理向<strong>多连通</strong>推广
+C为解析、多连通区域内的简单闭曲线，$C_1,C_2 \cdots C_n$为C内同向的简单闭曲线，$$\oint_{C}^{}f{(z)}dz = \sum_{k=1}^{n} \oint_{C_k}f(z)dz $$</li>
+<li>柯西积分公式——将曲线C内部任意一点的值用它边界的值来表示</li>
+<li>$f(z)$在区域D内解析，C为D内一条正向简单闭曲线$$2\pi i\cdot f(z_0) = \oint_{c} \frac{f(z)}{z-z_0}dx$$</li>
+<li>柯西积分公式的高阶推广——用函数的高阶导数来求积分
+$$f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}dz$$</li>
+</ol>
+<h1 id="级数">
+<a class="header-anchor" href="#%e7%ba%a7%e6%95%b0"></a>
+级数
+</h1><h2 id="幂级数">
+<a class="header-anchor" href="#%e5%b9%82%e7%ba%a7%e6%95%b0"></a>
+幂级数
+</h2><ol>
+<li>解析函数的两个性质
+<ol>
+<li>解析函数具有任意阶导数</li>
+<li>解析函数都一定可以用幂级数来表示</li>
+</ol>
+</li>
+<li>泰勒展开$f(z) = \sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}z^n$</li>
+<li>求泰勒展开的方法[[高等数学#函数展开为幂级数]]</li>
+</ol>
+<h2 id="洛朗级数">
+<a class="header-anchor" href="#%e6%b4%9b%e6%9c%97%e7%ba%a7%e6%95%b0"></a>
+洛朗级数
+</h2><ol>
+<li>双边幂级数
+<ol>
+<li>收敛域是圆环域$R_1<|z-z_0|<R_2$</li>
+</ol>
+</li>
+<li>洛朗展开:$$f(z) = \sum_{n=-\infty}^{\infty}c_n(z-z_0)^n,c_n=\frac{1}{2\pi i}\cdot \oint_{C}\frac{f(z)}{(z-z_0)^{n+1}}dz$$
+推论：当$n$取$-1$时，$c_{-1}\cdot 2\pi i=\oint_Cf(z)dz$</li>
+<li>求洛朗展开的方法
+<ol>
+<li>用定义来算出来$c_n$(几乎不用)</li>
+<li>运用代数运算、代换等方法，使得洛朗级数变为泰勒级数的<strong>形式和收敛域</strong></li>
+</ol>
+</li>
+</ol>
+<h1 id="留数">
+<a class="header-anchor" href="#%e7%95%99%e6%95%b0"></a>
+留数
+</h1><h2 id="孤立奇点">
+<a class="header-anchor" href="#%e5%ad%a4%e7%ab%8b%e5%a5%87%e7%82%b9"></a>
+孤立奇点
+</h2><ol>
+<li>定义：$f(z)$在$z_0$处不解析，但在$z_0$的某一去心邻域内处处解析</li>
+<li>孤立奇点的分类（根据洛朗级数的负幂项）
+<ol>
+<li>可去奇点：不含有负幂项 ，因此当$z\to z_0$时$f(z)$的极限为有限数</li>
+<li>极点：含有有限个负幂项（若有m个负幂项，则称$z_0$为$f(z)$的m级极点），当$z\to z_0$时$f(z)$的极限为$\infty$.</li>
+<li>本性奇点：含有无限个负幂项，$f(z)$的极限不存在</li>
+</ol>
+</li>
+<li>极点和零点的关系
+<ol>
+<li>零点的定义：不恒等于零的解析函数$f(z)$,如果能表示成$f(z) = (z-z_0)^m\varphi(z)$,$则称z_0为f(z)的m级零点$.
+充要条件是：$f^{(n)}(z_0) = 0,(n<m)\quad f^{(m)}\ne 0$</li>
+<li>如果$z_0为f(z)的m级零点$，$则称z_0为\frac{1}{f(z)}的m级极点$.</li>
+</ol>
+</li>
+</ol>
+<h2 id="留数-1">
+<a class="header-anchor" href="#%e7%95%99%e6%95%b0-1"></a>
+留数
+</h2><ol>
+<li>定义：$$Res[f(z),z_0]=c_{-1} = \frac{1}{2\pi i}\oint_C f(z)d_z$$</li>
+<li>留数的计算法则
+<ol>
+<li>如果$z_0为f(z)的一级极点$$$Res[f(z),z_0]=\lim_{z\to z_0}(z-z_0)f(z)$$</li>
+<li>如果$z_0为f(z)的m级极点$$$Res[f(z),z_0]=\frac{1}{(m-1)!}\lim_{z\to z_0}\frac{d^{m-1}}{dz^{m-1}}(z-z_0)^mf(z)$$</li>
+<li>如果$f(z)=\frac{P(z)}{Q(z)},且P(z_0)\ne0,Q(z_0) =0,Q'(z_0)\ne0$$$Res[f(z),z_0]=\frac{P(z_0)}{Q'(z_0)}$$</li>
+<li>$$Res[f(z),\infty]=-Res[f(\frac{1}{z})\cdot\frac{1}{z^2},0]$$</li>
+</ol>
+</li>
+</ol>
+
+        <hr><p>本文 2023-11-17 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-11-17</p><p><div style="flex-direction:column;align-items: center;"><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+ All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></div></p>]]></description><category>Math</category></item></channel></rss>

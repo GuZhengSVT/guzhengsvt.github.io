@@ -1,12 +1,95 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Web on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/zh-cn/tags/web/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><lastBuildDate>Sun, 13 Apr 2025 11:00:00 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/tags/web/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello World</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/hello-world/</link><pubDate>Sun, 13 Apr 2025 11:00:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/hello-world/</guid><description><![CDATA[<h1>Hello World</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Web on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/zh-cn/tags/web/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>&lt;div style="flex-direction:column;align-items: center;">&lt;a rel="license" href="http://creativecommons.org/licenses/by/4.0/">&lt;img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />&lt;/a>
+All website licensed under &lt;a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0&lt;/a>&lt;/div></copyright><lastBuildDate>Sun, 13 Apr 2025 11:00:00 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/tags/web/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello World</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/hello-world/</link><pubDate>Sun, 13 Apr 2025 11:00:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/hello-world/</guid><description><![CDATA[<h1>Hello World</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="20250413">
 <a class="header-anchor" href="#20250413"></a>
 2025.04.13
 </h1><p>捣鼓两天终于搭好了Hugo博客，主题是<a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu</a>。</p>
 <p>对于原来的<a href="https://guzhengsvt.top/">Typecho博客</a>响应速度不满意，我计划再次迁移博客。（尽管Typecho已经很轻量了，垃圾的云服务器及带宽严重限制了访问和文章加载速度。）</p>
 <p>放弃动态后，能考虑静态无非Hexo、Hugo、Jekyll等。选择Hugo，无非是因为它的口号 <em><strong>The world’s fastest framework for building websites</strong></em> 。</p>
-        <hr><p>本文 2025-04-13 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>%!s(<nil>)</p>]]></description><category>Thoughts</category></item><item><title>新增域名</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E6%96%B0%E5%A2%9E%E5%9F%9F%E5%90%8D/</link><pubDate>Sat, 25 Nov 2023 18:59:05 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E6%96%B0%E5%A2%9E%E5%9F%9F%E5%90%8D/</guid><description><![CDATA[<h1>新增域名</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<p>这段时间慢慢把老博客的内容搬到这里来。找了些Typecho to Hugo的方法，大多年久失修不能用了（Typecho和PHP太老了，这也是我转向的原因）。还得用笨办法，一点点把文章导出，再编辑导入Hugo。</p>
+<p>评论和说说也得想办法复刻，Hugo得外挂评论系统。</p>
+<p>然后为了加快图片访问速度，得整个图床，再把之前文章的图片链接替换。</p>
+<p>为了不对老博客产生不可逆影响，Hugo目前放在GitHub Pages托管。而GitHub在国内访问不稳定，等搬完内容完全搭建好了再copy到自己云虚拟主机。</p>
+<p>怎么这么多事啊woc</p>
+<h1 id="test">
+<a class="header-anchor" href="#test"></a>
+Test
+</h1><p>测试一下新博客。</p>
+<p>markdown</p>
+<h2 id="二级标题">
+<a class="header-anchor" href="#%e4%ba%8c%e7%ba%a7%e6%a0%87%e9%a2%98"></a>
+二级标题
+</h2><h3 id="三级标题">
+<a class="header-anchor" href="#%e4%b8%89%e7%ba%a7%e6%a0%87%e9%a2%98"></a>
+三级标题
+</h3><h4 id="四级标题">
+<a class="header-anchor" href="#%e5%9b%9b%e7%ba%a7%e6%a0%87%e9%a2%98"></a>
+四级标题
+</h4><h5 id="五级标题">
+<a class="header-anchor" href="#%e4%ba%94%e7%ba%a7%e6%a0%87%e9%a2%98"></a>
+五级标题
+</h5><h6 id="六级标题">
+<a class="header-anchor" href="#%e5%85%ad%e7%ba%a7%e6%a0%87%e9%a2%98"></a>
+六级标题
+</h6><ol>
+<li>
+<p>分条</p>
+</li>
+<li>
+<p>分条</p>
+</li>
+</ol>
+<ul>
+<li>分条</li>
+</ul>
+<p><del>删除线</del></p>
+<p><strong>加粗</strong></p>
+<p><em>斜体</em></p>
+<p>KaTex test</p>
+<p>$\frac{1}{2}$</p>
+$$
+\frac{520}{1314}
+$$<p>code test</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;hello world&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>icon: <!-- raw HTML omitted --><!-- raw HTML omitted --> 一杯咖啡</p>
+
+        <hr><p>本文 2025-04-13 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p><div style="flex-direction:column;align-items: center;"><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+ All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></div></p>]]></description><category>Thoughts</category></item><item><title>新增域名</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E6%96%B0%E5%A2%9E%E5%9F%9F%E5%90%8D/</link><pubDate>Sat, 25 Nov 2023 18:59:05 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E6%96%B0%E5%A2%9E%E5%9F%9F%E5%90%8D/</guid><description><![CDATA[<h1>新增域名</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <p>在阿里云买了新域名guzhengsvt.cn</p>
-        <hr><p>本文 2023-11-25 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-11-25</p><p>%!s(<nil>)</p>]]></description><category>Thoughts</category></item><item><title>Blog建成总结(Hexo+Github版）</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo+github%E7%89%88/</link><pubDate>Sat, 10 Sep 2022 09:30:52 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo+github%E7%89%88/</guid><description><![CDATA[<h1>Blog建成总结(Hexo+Github版）</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<p>（用券首年29￥，续费每年39￥）。
+本来是想用来临时开发微信小程序用的，没用上，只好解析到自己博客了。</p>
+<p>因为多域名SSL证书太贵了，借由<a href="https://www.mfpad.com/">米发</a>域名重定向服务将guzhengsvt.cn域名重定向到guzhengsvt.top。</p>
+<p>手头有阿里云签的top SSL证书，24年8月到期；结果今年11月14日阿里云改了免费SSL证书政策，一次最多申请3个月的单域名SSL证书，新买的cn域名证书还得常常续时长（虽然目前也用不上就是了）。</p>
+<p>复习了一遍域名解析和SSL证书申请及配置步骤，还得感谢<a href="https://www.vpsor.cn/">硅云</a>SSL证书配置之方便。
+<del>本来也想夸夸阿里云SSL证书申请服务的但是emmm</del></p>
+        <hr><p>本文 2023-11-25 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-11-25</p><p><div style="flex-direction:column;align-items: center;"><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+ All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></div></p>]]></description><category>Thoughts</category></item><item><title>Blog建成总结(Hexo+Github版）</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo+github%E7%89%88/</link><pubDate>Sat, 10 Sep 2022 09:30:52 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo+github%E7%89%88/</guid><description><![CDATA[<h1>Blog建成总结(Hexo+Github版）</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <p><strong>早期建站记录，已失效，仅作纪念</strong></p>
-        <hr><p>本文 2022-09-10 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2022-09-10</p><p>%!s(<nil>)</p>]]></description><category>Thoughts</category></item></channel></rss>
+<p><a href="https://guzhengsvt.github.io">https://guzhengsvt.github.io</a></p>
+<p>基于GitHub+Hexo搭建的个人博客，目前已完成主要功能的施工。</p>
+<p>经过两天的高强度爆肝，我终于实现了两年来的梦想——做一个属于自己的个人网站（博客）。在这个人云亦云、万马齐喑的喧闹时代，这也算是一片互联网自留地吧。</p>
+<p>做Blog的企划，是两年前网络冲浪找资源时因发现许多大佬做的精美博客萌生的。前期基本是在黑暗里摸索，啥也不会，英语也poor，没钱买域名和服务器。高三因为学业，暂停了一年，我在阿里云买的域名都过期了。</p>
+<p>感谢一路上帮助过我的人/平台/公司/社群。</p>
+<p>以下是致谢名单（排名不分先后）：</p>
+<p>特别感谢中科大大佬帮我找出多终端情况下只有Git Bush能稳定控制运行的问题；</p>
+<p>感谢GitHub提供的开源平台；</p>
+<p>感谢GitHub和三丰云提供的免费服务器；</p>
+<p>感谢Fuukei Sakurairo和NexT提供的主题支持；</p>
+<p>感谢mukes提供的Git安装教程（https://blog.csdn.net/mukes）；</p>
+<p>感谢何欣提供的Hexo环境搭建教程（https://www.simon96.online/）；</p>
+<p>感谢蜗牛非牛提供的Next主题美化方法（https://blog.csdn.net/qq_34003239?type=blog）；</p>
+<p>感谢siriyang提供的Git学习笔记（https://blog.siriyang.cn/）；</p>
+<p>感谢ookamiAntD提供的基于Hexo+Github+Coding搭建个人博客的基础教程（https://yangbingdong.com/）；</p>
+<p>感谢reuixiy提供的Hexo + NexT + GitHub Pages超深度优化教程（https://io-oi.me/）。</p>
+<p>有些参考资料已无法找到作者，或者作者的博客因各种原因关闭，无法一一列出，万分抱歉。</p>
+<p>欢迎大家收藏和宣传我的blog，以后会不定期更新包括但不限于以下内容：</p>
+<p>Blog的功能完善</p>
+<p>个人的一点碎碎念/发病</p>
+<p>各种正经的不正经的学习资料</p>
+<p>技术向攻略</p>
+<p>以前写的诗歌和文章</p>
+<p>最后，祝大家中秋节快乐，祝老师们和即将成为老师的同学们教师节快乐。</p>
+<p>以上</p>
+<p>2022年9月10日星期六</p>
+        <hr><p>本文 2022-09-10 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2022-09-10</p><p><div style="flex-direction:column;align-items: center;"><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+ All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></div></p>]]></description><category>Thoughts</category></item></channel></rss>
