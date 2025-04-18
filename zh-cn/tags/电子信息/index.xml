@@ -1,16 +1,49 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>电子信息 on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/zh-cn/tags/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF/</link><description>Recent content in 电子信息 on 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 04 Sep 2024 23:44:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/tags/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF/index.xml" rel="self" type="application/rss+xml"/><item><title>数字信号处理</title><link>https://guzhengsvt.github.io/zh-cn/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link><pubDate>Wed, 04 Sep 2024 23:44:15 +0800</pubDate><guid>https://guzhengsvt.github.io/zh-cn/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid><description>&lt;h1 id="数字信号处理基本概念">
-&lt;a class="header-anchor" href="#%e6%95%b0%e5%ad%97%e4%bf%a1%e5%8f%b7%e5%a4%84%e7%90%86%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5">&lt;/a>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>电子信息 on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.github.io/zh-cn/tags/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <lastBuildDate>Wed, 04 Sep 2024 23:44:15 +0800</lastBuildDate>
+    
+    <atom:link href="https://guzhengsvt.github.io/zh-cn/tags/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>数字信号处理</title>
+      <link>https://guzhengsvt.github.io/zh-cn/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link>
+      <pubDate>Wed, 04 Sep 2024 23:44:15 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.github.io/zh-cn/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid>
+      <description><![CDATA[<h1>数字信号处理</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="数字信号处理基本概念">
+<a class="header-anchor" href="#%e6%95%b0%e5%ad%97%e4%bf%a1%e5%8f%b7%e5%a4%84%e7%90%86%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5"></a>
 数字信号处理基本概念
-&lt;/h1>&lt;h2 id="信号分类">
-&lt;a class="header-anchor" href="#%e4%bf%a1%e5%8f%b7%e5%88%86%e7%b1%bb">&lt;/a>
+</h1><h2 id="信号分类">
+<a class="header-anchor" href="#%e4%bf%a1%e5%8f%b7%e5%88%86%e7%b1%bb"></a>
 信号分类
-&lt;/h2>&lt;ol>
-&lt;li>连续信号：即模拟信号，时域连续信号。&lt;/li>
-&lt;li>时域离散信号：幅度取值连续，时间取值离散。&lt;/li>
-&lt;li>幅度离散信号：幅度取值离散，时间取值连续。&lt;/li>
-&lt;li>数字信号：幅度和时间都取离散值。&lt;/li>
-&lt;/ol>
-&lt;h3 id="区别">
-&lt;a class="header-anchor" href="#%e5%8c%ba%e5%88%ab">&lt;/a>
+</h2><ol>
+<li>连续信号：即模拟信号，时域连续信号。</li>
+<li>时域离散信号：幅度取值连续，时间取值离散。</li>
+<li>幅度离散信号：幅度取值离散，时间取值连续。</li>
+<li>数字信号：幅度和时间都取离散值。</li>
+</ol>
+<h3 id="区别">
+<a class="header-anchor" href="#%e5%8c%ba%e5%88%ab"></a>
 区别
-&lt;/h3>&lt;p>时域离散信号和数字信号之间的差别，仅在于数字信号存在量化误差。&lt;/p></description></item></channel></rss>
+</h3><p>时域离散信号和数字信号之间的差别，仅在于数字信号存在量化误差。</p>
+        <hr><p>本文 2024-09-04 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-04</p><p>%!s(<nil>)</p>]]>
+      </description>
+        <category>Physics</category>
+      
+    </item>
+    
+  </channel>
+</rss>

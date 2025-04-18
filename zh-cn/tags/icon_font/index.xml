@@ -1,398 +1,431 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Icon_font on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/zh-cn/tags/icon_font/</link><description>Recent content in Icon_font on 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Tue, 15 Apr 2025 16:42:35 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/tags/icon_font/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo博客常用资料</title><link>https://guzhengsvt.github.io/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link><pubDate>Tue, 15 Apr 2025 16:42:35 +0800</pubDate><guid>https://guzhengsvt.github.io/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid><description>&lt;h1 id="hugo-常用命令">
-&lt;a class="header-anchor" href="#hugo-%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4">&lt;/a>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>Icon_font on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.github.io/zh-cn/tags/icon_font/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <lastBuildDate>Tue, 15 Apr 2025 16:42:35 +0800</lastBuildDate>
+    
+    <atom:link href="https://guzhengsvt.github.io/zh-cn/tags/icon_font/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Hugo博客常用资料</title>
+      <link>https://guzhengsvt.github.io/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link>
+      <pubDate>Tue, 15 Apr 2025 16:42:35 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.github.io/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid>
+      <description><![CDATA[<h1>Hugo博客常用资料</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="hugo-常用命令">
+<a class="header-anchor" href="#hugo-%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4"></a>
 Hugo 常用命令
-&lt;/h1>&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>命令&lt;/th>
- &lt;th>作用&lt;/th>
- &lt;th>说明&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>&lt;code>hugo version&lt;/code>&lt;/td>
- &lt;td>查看版本&lt;/td>
- &lt;td>显示当前 Hugo 安装版本&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>hugo new site &amp;lt;项目名&amp;gt;&lt;/code>&lt;/td>
- &lt;td>创建新站点&lt;/td>
- &lt;td>会生成 Hugo 的目录结构&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>hugo new post/&amp;lt;文件名.md&amp;gt;&lt;/code>&lt;/td>
- &lt;td>创建新文章&lt;/td>
- &lt;td>会在 &lt;code>content/post/&lt;/code> 下生成文章并附带默认 Front Matter&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>hugo server&lt;/code>&lt;/td>
- &lt;td>启动本地服务&lt;/td>
- &lt;td>启动本地预览，默认地址 &lt;code>http://localhost:1313&lt;/code>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>hugo server -D&lt;/code>&lt;/td>
- &lt;td>启动并显示草稿&lt;/td>
- &lt;td>&lt;code>-D&lt;/code> 参数显示 &lt;code>draft: true&lt;/code> 的文章&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>hugo&lt;/code>&lt;/td>
- &lt;td>构建网站&lt;/td>
- &lt;td>将 Markdown 内容生成静态文件到 &lt;code>public/&lt;/code> 目录&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>hugo -D &amp;lt;输出目录&amp;gt;&lt;/code>&lt;/td>
- &lt;td>构建包含草稿&lt;/td>
- &lt;td>用于发布前的全站构建（含草稿）&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>hugo --minify&lt;/code>&lt;/td>
- &lt;td>压缩构建文件&lt;/td>
- &lt;td>构建时压缩 HTML/CSS/JS，减小体积&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>hugo config&lt;/code>&lt;/td>
- &lt;td>查看配置信息&lt;/td>
- &lt;td>显示当前站点的配置信息&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>hugo list drafts&lt;/code>&lt;/td>
- &lt;td>列出草稿&lt;/td>
- &lt;td>查看所有设置了 &lt;code>draft: true&lt;/code> 的文章&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>hugo list future&lt;/code>&lt;/td>
- &lt;td>列出未来发布的文章&lt;/td>
- &lt;td>&lt;code>date&lt;/code> 设置在当前时间之后的文章&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>hugo list expired&lt;/code>&lt;/td>
- &lt;td>列出过期文章&lt;/td>
- &lt;td>&lt;code>expiryDate&lt;/code> 已过期的文章&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>hugo --gc&lt;/code>&lt;/td>
- &lt;td>垃圾回收&lt;/td>
- &lt;td>清理过时资源，如缩略图缓存&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h1 id="reimu-主题-icon_font">
-&lt;a class="header-anchor" href="#reimu-%e4%b8%bb%e9%a2%98-icon_font">&lt;/a>
+</h1><table>
+  <thead>
+      <tr>
+          <th>命令</th>
+          <th>作用</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>hugo version</code></td>
+          <td>查看版本</td>
+          <td>显示当前 Hugo 安装版本</td>
+      </tr>
+      <tr>
+          <td><code>hugo new site &lt;项目名&gt;</code></td>
+          <td>创建新站点</td>
+          <td>会生成 Hugo 的目录结构</td>
+      </tr>
+      <tr>
+          <td><code>hugo new post/&lt;文件名.md&gt;</code></td>
+          <td>创建新文章</td>
+          <td>会在 <code>content/post/</code> 下生成文章并附带默认 Front Matter</td>
+      </tr>
+      <tr>
+          <td><code>hugo server</code></td>
+          <td>启动本地服务</td>
+          <td>启动本地预览，默认地址 <code>http://localhost:1313</code></td>
+      </tr>
+      <tr>
+          <td><code>hugo server -D</code></td>
+          <td>启动并显示草稿</td>
+          <td><code>-D</code> 参数显示 <code>draft: true</code> 的文章</td>
+      </tr>
+      <tr>
+          <td><code>hugo</code></td>
+          <td>构建网站</td>
+          <td>将 Markdown 内容生成静态文件到 <code>public/</code> 目录</td>
+      </tr>
+      <tr>
+          <td><code>hugo -D &lt;输出目录&gt;</code></td>
+          <td>构建包含草稿</td>
+          <td>用于发布前的全站构建（含草稿）</td>
+      </tr>
+      <tr>
+          <td><code>hugo --minify</code></td>
+          <td>压缩构建文件</td>
+          <td>构建时压缩 HTML/CSS/JS，减小体积</td>
+      </tr>
+      <tr>
+          <td><code>hugo config</code></td>
+          <td>查看配置信息</td>
+          <td>显示当前站点的配置信息</td>
+      </tr>
+      <tr>
+          <td><code>hugo list drafts</code></td>
+          <td>列出草稿</td>
+          <td>查看所有设置了 <code>draft: true</code> 的文章</td>
+      </tr>
+      <tr>
+          <td><code>hugo list future</code></td>
+          <td>列出未来发布的文章</td>
+          <td><code>date</code> 设置在当前时间之后的文章</td>
+      </tr>
+      <tr>
+          <td><code>hugo list expired</code></td>
+          <td>列出过期文章</td>
+          <td><code>expiryDate</code> 已过期的文章</td>
+      </tr>
+      <tr>
+          <td><code>hugo --gc</code></td>
+          <td>垃圾回收</td>
+          <td>清理过时资源，如缩略图缓存</td>
+      </tr>
+  </tbody>
+</table>
+<h1 id="reimu-主题-icon_font">
+<a class="header-anchor" href="#reimu-%e4%b8%bb%e9%a2%98-icon_font"></a>
 reimu 主题 icon_font
-&lt;/h1>&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>图标类名&lt;/th>
- &lt;th>十六进制编号&lt;/th>
- &lt;th>中文含义&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>&lt;code>.tag-wrap&lt;/code> / &lt;code>.article-tag-list-link&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e622&lt;/code>&lt;/td>
- &lt;td>标签&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.category-wrap&lt;/code> / &lt;code>.article-category-link&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e604&lt;/code>&lt;/td>
- &lt;td>分类&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.article-date-link&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e606&lt;/code>&lt;/td>
- &lt;td>日期&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.article-comment-link&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e608&lt;/code>&lt;/td>
- &lt;td>评论&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-copyright&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e60a&lt;/code>&lt;/td>
- &lt;td>版权&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-brush&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e618&lt;/code>&lt;/td>
- &lt;td>画笔 / 美化&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-coffee&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e607&lt;/code>&lt;/td>
- &lt;td>咖啡&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-eye&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e60f&lt;/code>&lt;/td>
- &lt;td>观看 / 浏览&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-user&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e628&lt;/code>&lt;/td>
- &lt;td>用户&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>#main-nav-toggle&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e62f&lt;/code>&lt;/td>
- &lt;td>导航菜单切换&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>#nav-rss-link&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e61f&lt;/code>&lt;/td>
- &lt;td>RSS订阅&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>#nav-search-btn&lt;/code> / &lt;code>.reimu-search-input-icon&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e631&lt;/code>&lt;/td>
- &lt;td>搜索按钮&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>#nav-sun-btn&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e621&lt;/code>&lt;/td>
- &lt;td>太阳图标（亮色主题）&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>#nav-moon-btn&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e617&lt;/code>&lt;/td>
- &lt;td>月亮图标（暗色主题）&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>#nav-circle-half-stroke-btn&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e641&lt;/code>&lt;/td>
- &lt;td>半圆（主题切换）&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-copy&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e60c&lt;/code>&lt;/td>
- &lt;td>复制&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-chevron-down&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e609&lt;/code>&lt;/td>
- &lt;td>下箭头&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-check&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e636&lt;/code>&lt;/td>
- &lt;td>勾 / 确认&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-times&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e637&lt;/code>&lt;/td>
- &lt;td>叉 / 关闭&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-calendar&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e605&lt;/code>&lt;/td>
- &lt;td>日历&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-pencil&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e61b&lt;/code>&lt;/td>
- &lt;td>铅笔 / 编辑&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-clock&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e613&lt;/code>&lt;/td>
- &lt;td>时钟&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.post-sticky&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e627&lt;/code>&lt;/td>
- &lt;td>置顶&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.reimu-popup .popup-btn-close&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e626&lt;/code>&lt;/td>
- &lt;td>弹窗关闭&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.ais-pagination--item__previous&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e601&lt;/code>&lt;/td>
- &lt;td>上一页&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.ais-pagination--item__next&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e630&lt;/code>&lt;/td>
- &lt;td>下一页&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-github&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e619&lt;/code>&lt;/td>
- &lt;td>GitHub图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-google&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e611&lt;/code>&lt;/td>
- &lt;td>Google图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-facebook&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e60e&lt;/code>&lt;/td>
- &lt;td>Facebook图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-twitter&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e62a&lt;/code>&lt;/td>
- &lt;td>Twitter图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-instagram&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e615&lt;/code>&lt;/td>
- &lt;td>Instagram图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-linkedin&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e614&lt;/code>&lt;/td>
- &lt;td>LinkedIn图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-pinterest&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e61a&lt;/code>&lt;/td>
- &lt;td>Pinterest图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-youtube&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e62d&lt;/code>&lt;/td>
- &lt;td>YouTube图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-vimeo&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e629&lt;/code>&lt;/td>
- &lt;td>Vimeo图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-flickr&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e612&lt;/code>&lt;/td>
- &lt;td>Flickr图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-dribbble&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e610&lt;/code>&lt;/td>
- &lt;td>Dribbble图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-behance&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e602&lt;/code>&lt;/td>
- &lt;td>Behance图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-bilibili&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e603&lt;/code>&lt;/td>
- &lt;td>哔哩哔哩图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-weibo&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e62c&lt;/code>&lt;/td>
- &lt;td>微博图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-zhihu&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e62e&lt;/code>&lt;/td>
- &lt;td>知乎图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-reddit&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e61c&lt;/code>&lt;/td>
- &lt;td>Reddit图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-tumblr&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e625&lt;/code>&lt;/td>
- &lt;td>Tumblr图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-medium&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e616&lt;/code>&lt;/td>
- &lt;td>Medium图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-deviantart&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e60b&lt;/code>&lt;/td>
- &lt;td>DeviantArt图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-stackoverflow&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e620&lt;/code>&lt;/td>
- &lt;td>StackOverflow图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-keybase&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e61e&lt;/code>&lt;/td>
- &lt;td>Keybase图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-telegram&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e623&lt;/code>&lt;/td>
- &lt;td>Telegram图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-discord&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e60d&lt;/code>&lt;/td>
- &lt;td>Discord图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-steam&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e624&lt;/code>&lt;/td>
- &lt;td>Steam图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-email&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e63c&lt;/code>&lt;/td>
- &lt;td>邮件&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.sidebar-toc-btn&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e633&lt;/code>&lt;/td>
- &lt;td>目录按钮&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.sidebar-common-btn&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e632&lt;/code>&lt;/td>
- &lt;td>侧边通用按钮&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.sidebar-top .arrow-up&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e634&lt;/code>&lt;/td>
- &lt;td>向上箭头&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-link&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e639&lt;/code>&lt;/td>
- &lt;td>链接&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-globe&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e638&lt;/code>&lt;/td>
- &lt;td>地球 / 多语言&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-creative-commons&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e63a&lt;/code>&lt;/td>
- &lt;td>创用CC授权&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-taichi&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e62b&lt;/code>&lt;/td>
- &lt;td>太极（暗黑模式）&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-weixin&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e640&lt;/code>&lt;/td>
- &lt;td>微信图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-qq&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e63e&lt;/code>&lt;/td>
- &lt;td>QQ图标&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>.icon-image&lt;/code>&lt;/td>
- &lt;td>&lt;code>\e63f&lt;/code>&lt;/td>
- &lt;td>图片图标&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table></description></item></channel></rss>
+</h1><table>
+  <thead>
+      <tr>
+          <th>图标类名</th>
+          <th>十六进制编号</th>
+          <th>中文含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>.tag-wrap</code> / <code>.article-tag-list-link</code></td>
+          <td><code>\e622</code></td>
+          <td>标签</td>
+      </tr>
+      <tr>
+          <td><code>.category-wrap</code> / <code>.article-category-link</code></td>
+          <td><code>\e604</code></td>
+          <td>分类</td>
+      </tr>
+      <tr>
+          <td><code>.article-date-link</code></td>
+          <td><code>\e606</code></td>
+          <td>日期</td>
+      </tr>
+      <tr>
+          <td><code>.article-comment-link</code></td>
+          <td><code>\e608</code></td>
+          <td>评论</td>
+      </tr>
+      <tr>
+          <td><code>.icon-copyright</code></td>
+          <td><code>\e60a</code></td>
+          <td>版权</td>
+      </tr>
+      <tr>
+          <td><code>.icon-brush</code></td>
+          <td><code>\e618</code></td>
+          <td>画笔 / 美化</td>
+      </tr>
+      <tr>
+          <td><code>.icon-coffee</code></td>
+          <td><code>\e607</code></td>
+          <td>咖啡</td>
+      </tr>
+      <tr>
+          <td><code>.icon-eye</code></td>
+          <td><code>\e60f</code></td>
+          <td>观看 / 浏览</td>
+      </tr>
+      <tr>
+          <td><code>.icon-user</code></td>
+          <td><code>\e628</code></td>
+          <td>用户</td>
+      </tr>
+      <tr>
+          <td><code>#main-nav-toggle</code></td>
+          <td><code>\e62f</code></td>
+          <td>导航菜单切换</td>
+      </tr>
+      <tr>
+          <td><code>#nav-rss-link</code></td>
+          <td><code>\e61f</code></td>
+          <td>RSS订阅</td>
+      </tr>
+      <tr>
+          <td><code>#nav-search-btn</code> / <code>.reimu-search-input-icon</code></td>
+          <td><code>\e631</code></td>
+          <td>搜索按钮</td>
+      </tr>
+      <tr>
+          <td><code>#nav-sun-btn</code></td>
+          <td><code>\e621</code></td>
+          <td>太阳图标（亮色主题）</td>
+      </tr>
+      <tr>
+          <td><code>#nav-moon-btn</code></td>
+          <td><code>\e617</code></td>
+          <td>月亮图标（暗色主题）</td>
+      </tr>
+      <tr>
+          <td><code>#nav-circle-half-stroke-btn</code></td>
+          <td><code>\e641</code></td>
+          <td>半圆（主题切换）</td>
+      </tr>
+      <tr>
+          <td><code>.icon-copy</code></td>
+          <td><code>\e60c</code></td>
+          <td>复制</td>
+      </tr>
+      <tr>
+          <td><code>.icon-chevron-down</code></td>
+          <td><code>\e609</code></td>
+          <td>下箭头</td>
+      </tr>
+      <tr>
+          <td><code>.icon-check</code></td>
+          <td><code>\e636</code></td>
+          <td>勾 / 确认</td>
+      </tr>
+      <tr>
+          <td><code>.icon-times</code></td>
+          <td><code>\e637</code></td>
+          <td>叉 / 关闭</td>
+      </tr>
+      <tr>
+          <td><code>.icon-calendar</code></td>
+          <td><code>\e605</code></td>
+          <td>日历</td>
+      </tr>
+      <tr>
+          <td><code>.icon-pencil</code></td>
+          <td><code>\e61b</code></td>
+          <td>铅笔 / 编辑</td>
+      </tr>
+      <tr>
+          <td><code>.icon-clock</code></td>
+          <td><code>\e613</code></td>
+          <td>时钟</td>
+      </tr>
+      <tr>
+          <td><code>.post-sticky</code></td>
+          <td><code>\e627</code></td>
+          <td>置顶</td>
+      </tr>
+      <tr>
+          <td><code>.reimu-popup .popup-btn-close</code></td>
+          <td><code>\e626</code></td>
+          <td>弹窗关闭</td>
+      </tr>
+      <tr>
+          <td><code>.ais-pagination--item__previous</code></td>
+          <td><code>\e601</code></td>
+          <td>上一页</td>
+      </tr>
+      <tr>
+          <td><code>.ais-pagination--item__next</code></td>
+          <td><code>\e630</code></td>
+          <td>下一页</td>
+      </tr>
+      <tr>
+          <td><code>.icon-github</code></td>
+          <td><code>\e619</code></td>
+          <td>GitHub图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-google</code></td>
+          <td><code>\e611</code></td>
+          <td>Google图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-facebook</code></td>
+          <td><code>\e60e</code></td>
+          <td>Facebook图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-twitter</code></td>
+          <td><code>\e62a</code></td>
+          <td>Twitter图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-instagram</code></td>
+          <td><code>\e615</code></td>
+          <td>Instagram图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-linkedin</code></td>
+          <td><code>\e614</code></td>
+          <td>LinkedIn图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-pinterest</code></td>
+          <td><code>\e61a</code></td>
+          <td>Pinterest图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-youtube</code></td>
+          <td><code>\e62d</code></td>
+          <td>YouTube图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-vimeo</code></td>
+          <td><code>\e629</code></td>
+          <td>Vimeo图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-flickr</code></td>
+          <td><code>\e612</code></td>
+          <td>Flickr图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-dribbble</code></td>
+          <td><code>\e610</code></td>
+          <td>Dribbble图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-behance</code></td>
+          <td><code>\e602</code></td>
+          <td>Behance图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-bilibili</code></td>
+          <td><code>\e603</code></td>
+          <td>哔哩哔哩图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-weibo</code></td>
+          <td><code>\e62c</code></td>
+          <td>微博图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-zhihu</code></td>
+          <td><code>\e62e</code></td>
+          <td>知乎图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-reddit</code></td>
+          <td><code>\e61c</code></td>
+          <td>Reddit图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-tumblr</code></td>
+          <td><code>\e625</code></td>
+          <td>Tumblr图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-medium</code></td>
+          <td><code>\e616</code></td>
+          <td>Medium图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-deviantart</code></td>
+          <td><code>\e60b</code></td>
+          <td>DeviantArt图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-stackoverflow</code></td>
+          <td><code>\e620</code></td>
+          <td>StackOverflow图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-keybase</code></td>
+          <td><code>\e61e</code></td>
+          <td>Keybase图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-telegram</code></td>
+          <td><code>\e623</code></td>
+          <td>Telegram图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-discord</code></td>
+          <td><code>\e60d</code></td>
+          <td>Discord图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-steam</code></td>
+          <td><code>\e624</code></td>
+          <td>Steam图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-email</code></td>
+          <td><code>\e63c</code></td>
+          <td>邮件</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-toc-btn</code></td>
+          <td><code>\e633</code></td>
+          <td>目录按钮</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-common-btn</code></td>
+          <td><code>\e632</code></td>
+          <td>侧边通用按钮</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-top .arrow-up</code></td>
+          <td><code>\e634</code></td>
+          <td>向上箭头</td>
+      </tr>
+      <tr>
+          <td><code>.icon-link</code></td>
+          <td><code>\e639</code></td>
+          <td>链接</td>
+      </tr>
+      <tr>
+          <td><code>.icon-globe</code></td>
+          <td><code>\e638</code></td>
+          <td>地球 / 多语言</td>
+      </tr>
+      <tr>
+          <td><code>.icon-creative-commons</code></td>
+          <td><code>\e63a</code></td>
+          <td>创用CC授权</td>
+      </tr>
+      <tr>
+          <td><code>.icon-taichi</code></td>
+          <td><code>\e62b</code></td>
+          <td>太极（暗黑模式）</td>
+      </tr>
+      <tr>
+          <td><code>.icon-weixin</code></td>
+          <td><code>\e640</code></td>
+          <td>微信图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-qq</code></td>
+          <td><code>\e63e</code></td>
+          <td>QQ图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-image</code></td>
+          <td><code>\e63f</code></td>
+          <td>图片图标</td>
+      </tr>
+  </tbody>
+</table>
+        <hr><p>本文 2025-04-15 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>%!s(<nil>)</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+  </channel>
+</rss>

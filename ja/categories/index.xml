@@ -1,1 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/ja/categories/</link><description>Recent content in Categories on 孤筝の温暖小家</description><generator>Hugo</generator><language>ja</language><atom:link href="https://guzhengsvt.github.io/ja/categories/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>Categories on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.github.io/ja/categories/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <atom:link href="https://guzhengsvt.github.io/ja/categories/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+  </channel>
+</rss>
