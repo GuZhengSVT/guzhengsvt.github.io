@@ -1,39 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>Test on 孤筝の温暖小家</title>
-    <link>https://guzhengsvt.github.io/zh-cn/tags/test/</link>
-    <description>Recent content from 孤筝の温暖小家</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
-    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
-    
-    <lastBuildDate>Sun, 13 Apr 2025 11:00:00 +0800</lastBuildDate>
-    
-    <atom:link href="https://guzhengsvt.github.io/zh-cn/tags/test/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>Hello World</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/thoughts/hello-world/</link>
-      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/hello-world/</guid>
-      <description><![CDATA[<h1>Hello World</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Test on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/zh-cn/tags/test/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><lastBuildDate>Sun, 13 Apr 2025 11:00:00 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/tags/test/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello World</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/hello-world/</link><pubDate>Sun, 13 Apr 2025 11:00:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/hello-world/</guid><description><![CDATA[<h1>Hello World</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="20250413">
 <a class="header-anchor" href="#20250413"></a>
 2025.04.13
 </h1><p>捣鼓两天终于搭好了Hugo博客，主题是<a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu</a>。</p>
 <p>对于原来的<a href="https://guzhengsvt.top/">Typecho博客</a>响应速度不满意，我计划再次迁移博客。（尽管Typecho已经很轻量了，垃圾的云服务器及带宽严重限制了访问和文章加载速度。）</p>
 <p>放弃动态后，能考虑静态无非Hexo、Hugo、Jekyll等。选择Hugo，无非是因为它的口号 <em><strong>The world’s fastest framework for building websites</strong></em> 。</p>
-        <hr><p>本文 2025-04-13 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>%!s(<nil>)</p>]]>
-      </description>
-        <category>Thoughts</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+        <hr><p>本文 2025-04-13 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>%!s(<nil>)</p>]]></description><category>Thoughts</category></item></channel></rss>

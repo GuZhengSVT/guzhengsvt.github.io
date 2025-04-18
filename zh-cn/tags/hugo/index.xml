@@ -1,28 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>Hugo on 孤筝の温暖小家</title>
-    <link>https://guzhengsvt.github.io/zh-cn/tags/hugo/</link>
-    <description>Recent content from 孤筝の温暖小家</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
-    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
-    
-    <lastBuildDate>Tue, 15 Apr 2025 16:42:35 +0800</lastBuildDate>
-    
-    <atom:link href="https://guzhengsvt.github.io/zh-cn/tags/hugo/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>Hugo博客常用资料</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link>
-      <pubDate>Tue, 15 Apr 2025 16:42:35 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid>
-      <description><![CDATA[<h1>Hugo博客常用资料</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/zh-cn/tags/hugo/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><lastBuildDate>Tue, 15 Apr 2025 16:42:35 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo博客常用资料</title><link>https://guzhengsvt.github.io/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link><pubDate>Tue, 15 Apr 2025 16:42:35 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid><description><![CDATA[<h1>Hugo博客常用资料</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="hugo-常用命令">
 <a class="header-anchor" href="#hugo-%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4"></a>
 Hugo 常用命令
@@ -421,11 +397,4 @@ reimu 主题 icon_font
       </tr>
   </tbody>
 </table>
-        <hr><p>本文 2025-04-15 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>%!s(<nil>)</p>]]>
-      </description>
-        <category>OtherNotes</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+        <hr><p>本文 2025-04-15 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>%!s(<nil>)</p>]]></description><category>OtherNotes</category></item></channel></rss>

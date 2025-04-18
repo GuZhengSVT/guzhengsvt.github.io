@@ -1,28 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>OtherNotes on 孤筝の温暖小家</title>
-    <link>https://guzhengsvt.github.io/zh-cn/categories/othernotes/</link>
-    <description>Recent content from 孤筝の温暖小家</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
-    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
-    
-    <lastBuildDate>Tue, 15 Apr 2025 16:42:35 +0800</lastBuildDate>
-    
-    <atom:link href="https://guzhengsvt.github.io/zh-cn/categories/othernotes/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>Hugo博客常用资料</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link>
-      <pubDate>Tue, 15 Apr 2025 16:42:35 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid>
-      <description><![CDATA[<h1>Hugo博客常用资料</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OtherNotes on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/zh-cn/categories/othernotes/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><lastBuildDate>Tue, 15 Apr 2025 16:42:35 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/categories/othernotes/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo博客常用资料</title><link>https://guzhengsvt.github.io/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link><pubDate>Tue, 15 Apr 2025 16:42:35 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid><description><![CDATA[<h1>Hugo博客常用资料</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="hugo-常用命令">
 <a class="header-anchor" href="#hugo-%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4"></a>
 Hugo 常用命令
@@ -421,44 +397,12 @@ reimu 主题 icon_font
       </tr>
   </tbody>
 </table>
-        <hr><p>本文 2025-04-15 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>%!s(<nil>)</p>]]>
-      </description>
-        <category>OtherNotes</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>Windows美化历程</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link>
-      <pubDate>Sat, 07 Sep 2024 21:12:17 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid>
-      <description><![CDATA[<h1>Windows美化历程</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2025-04-15 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>%!s(<nil>)</p>]]></description><category>OtherNotes</category></item><item><title>Windows美化历程</title><link>https://guzhengsvt.github.io/zh-cn/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link><pubDate>Sat, 07 Sep 2024 21:12:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid><description><![CDATA[<h1>Windows美化历程</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="前言">
 <a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
 前言
 </h2><p>俗话说的好，<strong>美化的尽头是默认</strong>。</p>
-        <hr><p>本文 2024-09-07 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-07</p><p>%!s(<nil>)</p>]]>
-      </description>
-        <category>OtherNotes</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>自动拨号上网与任务计划程序</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</link>
-      <pubDate>Wed, 12 Jun 2024 19:34:52 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</guid>
-      <description><![CDATA[<h1>自动拨号上网与任务计划程序</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-09-07 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-07</p><p>%!s(<nil>)</p>]]></description><category>OtherNotes</category></item><item><title>自动拨号上网与任务计划程序</title><link>https://guzhengsvt.github.io/zh-cn/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</link><pubDate>Wed, 12 Jun 2024 19:34:52 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</guid><description><![CDATA[<h1>自动拨号上网与任务计划程序</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="破事氵">
 <a class="header-anchor" href="#%e7%a0%b4%e4%ba%8b%e6%b0%b5"></a>
 破事氵
@@ -468,23 +412,7 @@ reimu 主题 icon_font
 于是写个bat自动联网，任务管理器里设置开机自启动。但它启动和TIM是同一个优先级，往往来不及连上网络TIM就自动登录然后报错弹窗了。
 在计划程序库里把自动联网程序设置为开机启动，TIM登录后延时15s启动。
 <img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2593746197.png" alt="延迟TIM启动"></p>
-        <hr><p>本文 2024-06-12 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-06-12</p><p>%!s(<nil>)</p>]]>
-      </description>
-        <category>OtherNotes</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>Obsidian基础</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</link>
-      <pubDate>Tue, 27 Jun 2023 00:41:26 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</guid>
-      <description><![CDATA[<h1>Obsidian基础</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-06-12 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-06-12</p><p>%!s(<nil>)</p>]]></description><category>OtherNotes</category></item><item><title>Obsidian基础</title><link>https://guzhengsvt.github.io/zh-cn/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</link><pubDate>Tue, 27 Jun 2023 00:41:26 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</guid><description><![CDATA[<h1>Obsidian基础</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <p><a href="https://publish.obsidian.md/help-zh/%E7%94%B1%E6%AD%A4%E5%BC%80%E5%A7%8B">Obsidian 中文帮助</a></p>
 <h1 id="界面">
 <a class="header-anchor" href="#%e7%95%8c%e9%9d%a2"></a>
@@ -495,11 +423,4 @@ obsidian help
 笔记最上一栏——竖三点更多——拆分笔记查看
 <a href="https://zhuanlan.zhihu.com/p/409409946">Wyatt：打造自己的工作台【玩转Obsidian的保姆级教程】216 赞同 · 7 评论文章<img src="https://pic1.zhimg.com/v2-2323eabf712e3ebaae40c322ec18dde0_180x120.jpg" alt=""></a>
 左上角查看大纲</p>
-        <hr><p>本文 2023-06-27 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-06-27</p><p>%!s(<nil>)</p>]]>
-      </description>
-        <category>OtherNotes</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+        <hr><p>本文 2023-06-27 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-06-27</p><p>%!s(<nil>)</p>]]></description><category>OtherNotes</category></item></channel></rss>

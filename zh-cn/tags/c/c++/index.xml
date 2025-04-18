@@ -1,49 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>C/C&#43;&#43; on 孤筝の温暖小家</title>
-    <link>https://guzhengsvt.github.io/zh-cn/tags/c/c&#43;&#43;/</link>
-    <description>Recent content from 孤筝の温暖小家</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
-    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
-    
-    <lastBuildDate>Tue, 12 Dec 2023 15:00:26 +0800</lastBuildDate>
-    
-    <atom:link href="https://guzhengsvt.github.io/zh-cn/tags/c/c&#43;&#43;/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>数据结构实机实验报告8——关键路径</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A8%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84/</link>
-      <pubDate>Tue, 12 Dec 2023 15:00:26 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A8%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84/</guid>
-      <description><![CDATA[<h1>数据结构实机实验报告8——关键路径</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>C/C++ on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/zh-cn/tags/c/c++/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><lastBuildDate>Tue, 12 Dec 2023 15:00:26 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/tags/c/c++/index.xml" rel="self" type="application/rss+xml"/><item><title>数据结构实机实验报告8——关键路径</title><link>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A8%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84/</link><pubDate>Tue, 12 Dec 2023 15:00:26 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A8%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84/</guid><description><![CDATA[<h1>数据结构实机实验报告8——关键路径</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="a-问题分析">
 <a class="header-anchor" href="#a-%e9%97%ae%e9%a2%98%e5%88%86%e6%9e%90"></a>
 a. 问题分析
 </h2><p>在关键路径方法中，我们需要找到项目中的关键路径，即影响项目总持续时间的关键活动序列。为了解决这个问题，我们首先构建了一个表示项目活动的数据结构 <code>Activity</code>，并设计了一个 <code>Project</code> 类来处理项目的计算和输出。</p>
-        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>%!s(<nil>)</p>]]>
-      </description>
-        <category>Code</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>数据结构实机实验报告7——Kruskal算法与最小生成树问题，Dijkstra算法与带权图最短路径问题</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A7kruskal%E7%AE%97%E6%B3%95%E4%B8%8E%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98dijkstra%E7%AE%97%E6%B3%95%E4%B8%8E%E5%B8%A6%E6%9D%83%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</link>
-      <pubDate>Tue, 12 Dec 2023 14:58:44 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A7kruskal%E7%AE%97%E6%B3%95%E4%B8%8E%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98dijkstra%E7%AE%97%E6%B3%95%E4%B8%8E%E5%B8%A6%E6%9D%83%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</guid>
-      <description><![CDATA[<h1>数据结构实机实验报告7——Kruskal算法与最小生成树问题，Dijkstra算法与带权图最短路径问题</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>%!s(<nil>)</p>]]></description><category>Code</category></item><item><title>数据结构实机实验报告7——Kruskal算法与最小生成树问题，Dijkstra算法与带权图最短路径问题</title><link>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A7kruskal%E7%AE%97%E6%B3%95%E4%B8%8E%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98dijkstra%E7%AE%97%E6%B3%95%E4%B8%8E%E5%B8%A6%E6%9D%83%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</link><pubDate>Tue, 12 Dec 2023 14:58:44 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A7kruskal%E7%AE%97%E6%B3%95%E4%B8%8E%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98dijkstra%E7%AE%97%E6%B3%95%E4%B8%8E%E5%B8%A6%E6%9D%83%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</guid><description><![CDATA[<h1>数据结构实机实验报告7——Kruskal算法与最小生成树问题，Dijkstra算法与带权图最短路径问题</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="kruskal算法生成最小生成树">
 <a class="header-anchor" href="#kruskal%e7%ae%97%e6%b3%95%e7%94%9f%e6%88%90%e6%9c%80%e5%b0%8f%e7%94%9f%e6%88%90%e6%a0%91"></a>
 Kruskal算法生成最小生成树
@@ -51,23 +11,7 @@ Kruskal算法生成最小生成树
 <a class="header-anchor" href="#a-%e9%97%ae%e9%a2%98%e5%88%86%e6%9e%90"></a>
 a 问题分析
 </h2><p>我们需要使用 Kruskal 算法找到一个包含10个节点和20条边的图的最小生成树。Kruskal算法基于贪心思想，通过不断选择权重最小的边，并确保添加这条边不形成环路，来构建最小生成树。</p>
-        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>%!s(<nil>)</p>]]>
-      </description>
-        <category>Code</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>数据结构实机实验报告6——前序、后续将二叉树线索化，图的邻接矩阵和邻接表的存储数据结构实机实验报告6——前序、后续将二叉树线索化，图的邻接矩阵和邻接表的存储</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8/</link>
-      <pubDate>Tue, 12 Dec 2023 14:56:33 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8/</guid>
-      <description><![CDATA[<h1>数据结构实机实验报告6——前序、后续将二叉树线索化，图的邻接矩阵和邻接表的存储数据结构实机实验报告6——前序、后续将二叉树线索化，图的邻接矩阵和邻接表的存储</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>%!s(<nil>)</p>]]></description><category>Code</category></item><item><title>数据结构实机实验报告6——前序、后续将二叉树线索化，图的邻接矩阵和邻接表的存储数据结构实机实验报告6——前序、后续将二叉树线索化，图的邻接矩阵和邻接表的存储</title><link>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8/</link><pubDate>Tue, 12 Dec 2023 14:56:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8/</guid><description><![CDATA[<h1>数据结构实机实验报告6——前序、后续将二叉树线索化，图的邻接矩阵和邻接表的存储数据结构实机实验报告6——前序、后续将二叉树线索化，图的邻接矩阵和邻接表的存储</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="前序后续将二叉树线索化">
 <a class="header-anchor" href="#%e5%89%8d%e5%ba%8f%e5%90%8e%e7%bb%ad%e5%b0%86%e4%ba%8c%e5%8f%89%e6%a0%91%e7%ba%bf%e7%b4%a2%e5%8c%96"></a>
 前序、后续将二叉树线索化
@@ -75,23 +19,7 @@ a 问题分析
 <a class="header-anchor" href="#a-%e9%97%ae%e9%a2%98%e5%88%86%e6%9e%90"></a>
 a. 问题分析
 </h2><p>我们需要实现一个二叉树的前序线索化。线索化是一种将二叉链表中的空指针域改为指向该节点在某种遍历次序下的前驱节点或后继节点的方法。这样，我们就可以通过前序、中序或后序中的任何一个节点来开始，而不仅仅是从根节点开始。</p>
-        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>%!s(<nil>)</p>]]>
-      </description>
-        <category>Code</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>数据结构实机实验报告5——哈夫曼树的编码和译码，排序二叉树的构建和节点删除</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A5%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E7%9A%84%E7%BC%96%E7%A0%81%E5%92%8C%E8%AF%91%E7%A0%81%E6%8E%92%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%92%8C%E8%8A%82%E7%82%B9%E5%88%A0%E9%99%A4/</link>
-      <pubDate>Tue, 12 Dec 2023 14:54:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A5%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E7%9A%84%E7%BC%96%E7%A0%81%E5%92%8C%E8%AF%91%E7%A0%81%E6%8E%92%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%92%8C%E8%8A%82%E7%82%B9%E5%88%A0%E9%99%A4/</guid>
-      <description><![CDATA[<h1>数据结构实机实验报告5——哈夫曼树的编码和译码，排序二叉树的构建和节点删除</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>%!s(<nil>)</p>]]></description><category>Code</category></item><item><title>数据结构实机实验报告5——哈夫曼树的编码和译码，排序二叉树的构建和节点删除</title><link>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A5%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E7%9A%84%E7%BC%96%E7%A0%81%E5%92%8C%E8%AF%91%E7%A0%81%E6%8E%92%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%92%8C%E8%8A%82%E7%82%B9%E5%88%A0%E9%99%A4/</link><pubDate>Tue, 12 Dec 2023 14:54:04 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A5%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E7%9A%84%E7%BC%96%E7%A0%81%E5%92%8C%E8%AF%91%E7%A0%81%E6%8E%92%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%92%8C%E8%8A%82%E7%82%B9%E5%88%A0%E9%99%A4/</guid><description><![CDATA[<h1>数据结构实机实验报告5——哈夫曼树的编码和译码，排序二叉树的构建和节点删除</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="实现哈夫曼树的编码和译码">
 <a class="header-anchor" href="#%e5%ae%9e%e7%8e%b0%e5%93%88%e5%a4%ab%e6%9b%bc%e6%a0%91%e7%9a%84%e7%bc%96%e7%a0%81%e5%92%8c%e8%af%91%e7%a0%81"></a>
 实现哈夫曼树的编码和译码
@@ -123,23 +51,7 @@ b. 算法设计
 </ul>
 <p><strong>输入：</strong> 字符频率的映射 <code>frequencies</code>。
 <strong>输出：</strong> 哈夫曼树的根节点 <code>root</code>。</p>
-        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>%!s(<nil>)</p>]]>
-      </description>
-        <category>Code</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>数据结构实机实验报告4——二叉树的构建（完全二叉树BFS结果）、存储（顺序存储与链式存储）、遍历（BFS与DFS）</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/</link>
-      <pubDate>Tue, 12 Dec 2023 14:43:54 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/</guid>
-      <description><![CDATA[<h1>数据结构实机实验报告4——二叉树的构建（完全二叉树BFS结果）、存储（顺序存储与链式存储）、遍历（BFS与DFS）</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>%!s(<nil>)</p>]]></description><category>Code</category></item><item><title>数据结构实机实验报告4——二叉树的构建（完全二叉树BFS结果）、存储（顺序存储与链式存储）、遍历（BFS与DFS）</title><link>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/</link><pubDate>Tue, 12 Dec 2023 14:43:54 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/</guid><description><![CDATA[<h1>数据结构实机实验报告4——二叉树的构建（完全二叉树BFS结果）、存储（顺序存储与链式存储）、遍历（BFS与DFS）</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="1-根据输入创建二叉树顺序存储和链式存储">
 <a class="header-anchor" href="#1-%e6%a0%b9%e6%8d%ae%e8%be%93%e5%85%a5%e5%88%9b%e5%bb%ba%e4%ba%8c%e5%8f%89%e6%a0%91%e9%a1%ba%e5%ba%8f%e5%ad%98%e5%82%a8%e5%92%8c%e9%93%be%e5%bc%8f%e5%ad%98%e5%82%a8"></a>
 1. 根据输入创建二叉树，顺序存储和链式存储
@@ -147,23 +59,7 @@ b. 算法设计
 <a class="header-anchor" href="#a-%e9%97%ae%e9%a2%98%e5%88%86%e6%9e%90"></a>
 a. 问题分析：
 </h2><p>在这个问题中，需要根据输入的字符序列创建一个二叉树，要求实现两种存储方式：顺序存储和链式存储。输入的字符序列中，字符 &lsquo;@&rsquo; 表示空节点。</p>
-        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>%!s(<nil>)</p>]]>
-      </description>
-        <category>Code</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>数据结构实机实验报告3——KMP算法用于字符串搜索</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A3kmp%E7%AE%97%E6%B3%95%E7%94%A8%E4%BA%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2/</link>
-      <pubDate>Tue, 12 Dec 2023 14:42:01 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A3kmp%E7%AE%97%E6%B3%95%E7%94%A8%E4%BA%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2/</guid>
-      <description><![CDATA[<h1>数据结构实机实验报告3——KMP算法用于字符串搜索</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>%!s(<nil>)</p>]]></description><category>Code</category></item><item><title>数据结构实机实验报告3——KMP算法用于字符串搜索</title><link>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A3kmp%E7%AE%97%E6%B3%95%E7%94%A8%E4%BA%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2/</link><pubDate>Tue, 12 Dec 2023 14:42:01 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A3kmp%E7%AE%97%E6%B3%95%E7%94%A8%E4%BA%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2/</guid><description><![CDATA[<h1>数据结构实机实验报告3——KMP算法用于字符串搜索</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="实验目的">
 <a class="header-anchor" href="#%e5%ae%9e%e9%aa%8c%e7%9b%ae%e7%9a%84"></a>
 <strong>实验目的：</strong>
@@ -183,44 +79,12 @@ a. 问题分析：
 <a class="header-anchor" href="#b-%e7%ae%97%e6%b3%95%e8%ae%be%e8%ae%a1"></a>
 <strong>b 算法设计：</strong>
 </h2><p>KMP算法的设计包括以下关键步骤：</p>
-        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>%!s(<nil>)</p>]]>
-      </description>
-        <category>Code</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>数据结构实机实验报告2——稀疏矩阵乘法</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A2%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</link>
-      <pubDate>Tue, 12 Dec 2023 14:38:24 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A2%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</guid>
-      <description><![CDATA[<h1>数据结构实机实验报告2——稀疏矩阵乘法</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>%!s(<nil>)</p>]]></description><category>Code</category></item><item><title>数据结构实机实验报告2——稀疏矩阵乘法</title><link>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A2%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</link><pubDate>Tue, 12 Dec 2023 14:38:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A2%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</guid><description><![CDATA[<h1>数据结构实机实验报告2——稀疏矩阵乘法</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="问题分析">
 <a class="header-anchor" href="#%e9%97%ae%e9%a2%98%e5%88%86%e6%9e%90"></a>
 问题分析
 </h1><p>本实验的主要目标是开发一个稀疏矩阵乘法算法，该算法能够将两个稀疏矩阵 A 和 B 相乘，然后输出结果矩阵 C。在这个算法中，稀疏矩阵使用三元组表示，并且用户可以多次输入不同的矩阵数据，计算它们的乘积。</p>
-        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>%!s(<nil>)</p>]]>
-      </description>
-        <category>Code</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>数据结构上机实验报告1——Fibonacci序列、划分子集问题</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1fibonacci%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86%E5%AD%90%E9%9B%86%E9%97%AE%E9%A2%98/</link>
-      <pubDate>Tue, 12 Dec 2023 14:31:17 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1fibonacci%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86%E5%AD%90%E9%9B%86%E9%97%AE%E9%A2%98/</guid>
-      <description><![CDATA[<h1>数据结构上机实验报告1——Fibonacci序列、划分子集问题</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>%!s(<nil>)</p>]]></description><category>Code</category></item><item><title>数据结构上机实验报告1——Fibonacci序列、划分子集问题</title><link>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1fibonacci%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86%E5%AD%90%E9%9B%86%E9%97%AE%E9%A2%98/</link><pubDate>Tue, 12 Dec 2023 14:31:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1fibonacci%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86%E5%AD%90%E9%9B%86%E9%97%AE%E9%A2%98/</guid><description><![CDATA[<h1>数据结构上机实验报告1——Fibonacci序列、划分子集问题</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="fibonacci序列">
 <a class="header-anchor" href="#fibonacci%e5%ba%8f%e5%88%97"></a>
 <strong>Fibonacci序列</strong>
@@ -228,11 +92,4 @@ a. 问题分析：
 <a class="header-anchor" href="#%e9%97%ae%e9%a2%98%e5%88%86%e6%9e%90"></a>
 <strong>问题分析</strong>
 </h2><p>要正确实现程序的递归调用和返回，必须解决参数的传递和返回地址问题。具体地说，进行调用时，每递归一次都要给所有参变量重新分配储存空间，并要把前一次调用的实参和本次调用后的返回地址保留。</p>
-        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>%!s(<nil>)</p>]]>
-      </description>
-        <category>Code</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>%!s(<nil>)</p>]]></description><category>Code</category></item></channel></rss>
