@@ -1,30 +1,183 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>原创 on 孤筝の温暖小家</title>
-    <link>https://guzhengsvt.github.io/zh-cn/tags/%E5%8E%9F%E5%88%9B/</link>
-    <description>Recent content from 孤筝の温暖小家</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
-    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
-    
-    <copyright>All website licensed under CC BY 4.0</copyright>
-    
-    <lastBuildDate>Tue, 28 Jan 2025 19:46:04 +0800</lastBuildDate>
-    
-    <atom:link href="https://guzhengsvt.github.io/zh-cn/tags/%E5%8E%9F%E5%88%9B/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>大三上总结</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Tue, 28 Jan 2025 19:46:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid>
-      <description><![CDATA[<h1>大三上总结</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>原创 on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/zh-cn/tags/%E5%8E%9F%E5%88%9B/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All website licensed under CC BY 4.0</copyright><lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/tags/%E5%8E%9F%E5%88%9B/index.xml" rel="self" type="application/rss+xml"/><item><title>Typecho评论导入Waline</title><link>https://guzhengsvt.github.io/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description><![CDATA[<h1>Typecho评论导入Waline</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p>前两天把博客文章从 Typecho 迁移到 Hugo，光是设置 Front Matter 参数和重新配置图片链接就费了很大功夫。<br>
+一个博客的价值，首先是文章，紧接着就是评论。评论证明博客在互联网和真实世界产生的影响，承载了人与人之间的交互关系。私心一点地说，五湖四海的评论是重要的回忆，是构成“我”的一部分。<br>
+所以，将原站评论 copy 到新站的对应文章下是很有必要的。</p>
+<h2 id="配置-waline">
+<a class="header-anchor" href="#%e9%85%8d%e7%bd%ae-waline"></a>
+配置 Waline
+</h2><p>相比于 Wordpress、Typecho 等动态博客，静态博客只能外挂评论系统，选择众多，各有优劣。在参考了<a href="https://cloud.tencent.com/developer/article/2196035">这篇文章</a>和查阅各个评论系统官网后，我最终选择<a href="https://waline.js.org">Waline</a>。<br>
+Waline 的<a href="https://waline.js.org/guide/get-started/">中文文档</a>内容翔实，设置<a href="https://leancloud.app">LeanCloud</a>数据库和<a href="https://vercel.com/">Vercel</a> 服务端后即可进入评论管理后台 <code>https://&lt;你的服务端域名&gt;/ui/</code> 。首次注册成为管理员，在这里可以管理评论和用户。</p>
+<h2 id="导出-typecho-评论">
+<a class="header-anchor" href="#%e5%af%bc%e5%87%ba-typecho-%e8%af%84%e8%ae%ba"></a>
+导出 Typecho 评论
+</h2><p>Typecho 太老了，用户少，不如 Hexo、Wordpress 等社区活跃，互联网上资料也很少。<br>
+笔者仅找到大佬<a href="https://imnerd.org">怡红院落</a>写的一个 Typecho 导出评论到 Valine 的插件 <a href="https://github.com/lizheming/typecho-export-valine">Export2Valine</a>（也是 Waline 文档中的）。<br>
+但上次更新是三年前，经测试已经失效，仅能导入第一条评论。查看导出的 jsonl 文件，显然评论数据都已经完全导出。</p>
+<p>先将该插件安装到 Typecho （注意更改插件文件夹名称为 &ldquo;Export2Valine&rdquo; ！）。</p>
+<p>参考<a href="https://www.imwxz.com/posts/74f52ab0.html">这一篇</a> Typecho 迁移到 Hexo 的文章，该插件年久失修，需要作一些更改。<br>
+找到插件文件夹下的 <code>Action.php</code> ，第 42 行开始改成如下代码（追踪父评论）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$arr</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;objectId&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;QQAvatar&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;comment&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;text&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;insertedAt&#34;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;__type&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;iso&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span>
+</span></span><span class="line"><span class="cl">  <span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;createdAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;updatedAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ip&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;ip&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;link&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;url&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;mail&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;mail&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;nick&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;author&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ua&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;agent&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;url&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;/</span><span class="si">{</span><span class="nv">$slug</span><span class="si">}</span><span class="s2">.html&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;pid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;rid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getRootId</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>其他部分不用修改。<br>
+接着在 Typecho 后台-控制台-评论导出，打开下载的 jsonl 文件，删除开头的 <code>#filetype:JSON-streaming {&quot;type&quot;:&quot;Class&quot;,&quot;class&quot;:&quot;Comment&quot;}\n\n</code> 。<br>
+保存后关闭文件，将文件拓展名改为 <code>.json</code> 。</p>
+<h2 id="修正-json-格式">
+<a class="header-anchor" href="#%e4%bf%ae%e6%ad%a3-json-%e6%a0%bc%e5%bc%8f"></a>
+修正 json 格式
+</h2><p>导出文件 <code>jsonl</code> 内中文都用转义，只有一行，看起来一团乱麻。<br>
+为转化成便于阅读、编辑与导入的 <code>json</code> 格式，我们先利用编辑器的<strong>查找与替换</strong>功能，将 <code>}\n{</code> 替换为</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span></code></pre></div><p>Xcode 的替换，换行符可以点击左侧小放大镜标选择插入。</p>
+<p>此时每行一个评论对象。</p>
+<p>同样，将各个评论对象内的字段结构分开，将 <code>&quot;,&quot;</code> 替换为</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;</span>
+</span></span></code></pre></div><p>此时，我们可以看出每个评论对象内包含多个数据，形似</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u6d4b\u8bd5\u4e00\u4e0b&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="err">**</span><span class="kc">null</span><span class="err">**</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;4&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u600e\u4e48ip\u4e0d\u5bf9&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="err">**</span><span class="kc">null</span><span class="err">**</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
+</span></span></code></pre></div><h3 id="公共字段说明">
+<a class="header-anchor" href="#%e5%85%ac%e5%85%b1%e5%ad%97%e6%ae%b5%e8%af%b4%e6%98%8e"></a>
+公共字段说明
+</h3><ol>
+<li><strong>objectId</strong>: 评论的唯一标识符（如 &ldquo;4&rdquo; 和 &ldquo;5&rdquo;）</li>
+<li><strong>QQAvatar</strong>: QQ头像链接（当前为空字符串）</li>
+<li><strong>comment</strong>: 评论内容（包含 Unicode 转义字符，如 <code>\u600e\u4e48</code> 表示&quot;怎么&quot;）</li>
+<li><strong>insertedAt/createdAt/updatedAt</strong>: 时间戳（ISO 8601 格式）</li>
+<li><strong>ip</strong>: 评论者的 IP 地址</li>
+<li><strong>link</strong>: 评论者提供的链接（可能为 null）</li>
+<li><strong>mail</strong>: 评论者的邮箱地址</li>
+<li><strong>nick</strong>: 评论者昵称</li>
+<li><strong>ua</strong>: 用户代理（显示浏览器/设备信息）</li>
+<li><strong>url</strong>: 被评论的页面路径</li>
+</ol>
+<h3 id="特殊字段">
+<a class="header-anchor" href="#%e7%89%b9%e6%ae%8a%e5%ad%97%e6%ae%b5"></a>
+特殊字段
+</h3><ol start="11">
+<li><strong>pid</strong>: 父评论 ID</li>
+<li><strong>rid</strong>: 根评论 ID</li>
+</ol>
+<p>注意到 <code>&quot;insertedAt&quot;:{&quot;__type&quot;:&quot;Date&quot;,&quot;iso&quot;:&quot;2023-06-27T09:38:15.000Z&quot;},</code> ，<code>&quot;__type&quot;:&quot;Date&quot;</code> 用于声明这是一个日期类型。<br>
+笔者使用的 LeanCloud 存储日期不需要特殊声明，可以删去</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span>
+</span></span></code></pre></div><p>即将</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;insertedAt&#34;</span><span class="err">:</span><span class="p">{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="err">&#34;</span>
+</span></span></code></pre></div><p>替换成</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;insertedAt&#34;</span><span class="err">:&#34;</span>
+</span></span></code></pre></div><p>将</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">.</span><span class="mi">000</span><span class="err">Z</span><span class="s2">&#34;},&#34;</span><span class="err">createdAt&#34;</span>
+</span></span></code></pre></div><p>替换成</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">.</span><span class="mi">000</span><span class="err">Z</span><span class="s2">&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;</span><span class="err">createdAt&#34;</span>
+</span></span></code></pre></div><p>如果 <code>&quot;link&quot;</code> 值为 <code>null</code> ，则 <code>&quot;link&quot;</code> 与 <code>&quot;mail&quot;</code> 间没有换行。json 对换行不敏感，所以可以不管。<br>
+此时在文件首尾用 <code>[ ]</code> 将内容包裹起来，保存文件。</p>
+<h2 id="修改评论属性">
+<a class="header-anchor" href="#%e4%bf%ae%e6%94%b9%e8%af%84%e8%ae%ba%e5%b1%9e%e6%80%a7"></a>
+修改评论属性
+</h2><p>此时可以直接导入 LeanCloud 了，但尚有内容可以修改。</p>
+<p><code>Export2Valine</code> 将评论关联文章的 url 设置为 <code>\/slug</code> ，比如 <code>&quot;url&quot;: &quot;\/Summary-of-the-First-Semester-of-Junior-Year.html&quot;</code> ，其中 <code>\/</code> 是转义 <code>/</code> 。</p>
+<p>想要把评论与新博客的文章联系起来，需要手动修改 url 为新博客的文章链接。</p>
+<p>以笔者该博客为例，Hugo 生成的网站根目录下有 <code>zh-cn,zh-tw,en,ja</code> 四个文件夹（开启了多语言），中文站的文章在 <code>/zh-cn/post/文章分类/</code> 下。<br>
+笔者在本地博客源文件就将文章按分类放入不同文件夹，比如 <code>/content/post/Thoughts/最近写的诗.md</code> 生成网页相对地址为 <code>zh-cn/post/thoughts/最近写的诗</code> 。</p>
+<p>如果你的新博客文章在根目录且名称未更改，那自然不用修改 url。<br>
+若都在 <code>/post/</code> 下，可以使用查找与替换将</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/</span>
+</span></span></code></pre></div><p>替换为</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/post\/</span>
+</span></span></code></pre></div><p>笔者是暂时替换为</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/post\/</span>
+</span></span></code></pre></div><p>同样，友链、说说之类的独立页面评论也应修改为新博客对应页面相对地址。
+比如友链页面</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/links.html</span>
+</span></span></code></pre></div><p>替换为</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/friend\/</span>
+</span></span></code></pre></div><p>将 post 和独立页面中可以大规模应用<em>查找替换</em>的 url 先替换，否则导入后难以大批量替换。</p>
+<p>使用查找与替换时，尽量多包裹共同内容，找“最大公约数”，避免错误修改。<br>
+<em><strong>注意转义 <code>\/</code> !!!</strong></em></p>
+<h2 id="导入-leancloud">
+<a class="header-anchor" href="#%e5%af%bc%e5%85%a5-leancloud"></a>
+导入 LeanCloud
+</h2><p>在 LeanCloud 控制台-数据存储-导入导出，选择修改好的 json 文件，<code>Class</code> 填写 <code>Comment</code> ，导入。</p>
+<p><em><strong>注意</strong></em>，如果你之前在博客 Waline 发过测试评论，或曾尝试过导入 <code>Comment</code>，Waline 会先创建 <code>Comment</code> <code>Class</code> ，再导入就无法成功导入数据（LeanCloud 会提示成功，但没有新数据导入）。</p>
+<p>只能先在控制台-结构化数据，选择 <code>Comment</code> 并删除该 <code>Class</code>，再次尝试导入。LeanCloud 页面可能不会及时刷新结果，<code>Ctrl+F5</code> 刷新缓存就有了。</p>
+<p>导入成功后，再针对每个评论 url 进行单独设置。<br>
+比如笔者的 post 需要一个个归类到 <code>&quot;url&quot;:&quot;\/zh-cn\/post\/文章分类\/</code> 下，此时善用 LeanCloud <strong>批量操作</strong>和<strong>按条件过滤</strong>功能。</p>
+<h2 id="后记">
+<a class="header-anchor" href="#%e5%90%8e%e8%ae%b0"></a>
+后记
+</h2><p>评论的整理并没有耽误笔者太长时间，120 条评论大部分是笔者自己在说说页面的自言自语，所以 url 可以批量修正。仅有的十几条他人评论分布在寥寥三五个文章中，通过 <code>post</code> 筛选修改起来很快。不知道是好事还是坏事呢（笑）</p>
+<p>自言自语也好，他人的留言也好，每一条于笔者都有着非同寻常的意义，隔一段时间回看就会有新的感受。<br>
+如最开始所言，这是笔者的成长轨迹，是笔者存活于世的证明，是“我”的一部分。</p>
+<p>而你，我亲爱的读者，是你赋予我价值。</p>
+<p>有空的话请多多评论吧～笔者真的会开心很久的说（如果评论善意的话）。</p>
+        <hr><p>本文 2025-04-19 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item><item><title>大三上总结</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link><pubDate>Tue, 28 Jan 2025 19:46:04 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid><description><![CDATA[<h1>大三上总结</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="关于期末考试">
 <a class="header-anchor" href="#%e5%85%b3%e4%ba%8e%e6%9c%9f%e6%9c%ab%e8%80%83%e8%af%95"></a>
 关于期末考试
@@ -77,23 +230,7 @@
 祝新年快乐，岁岁平安。
 2025.1.24</p>
 
-        <hr><p>本文 2025-01-28 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-01-28</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Thoughts</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>东方红</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</link>
-      <pubDate>Thu, 26 Dec 2024 00:16:35 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</guid>
-      <description><![CDATA[<h1>东方红</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2025-01-28 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-01-28</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Thoughts</category></item><item><title>东方红</title><link>https://guzhengsvt.github.io/zh-cn/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</link><pubDate>Thu, 26 Dec 2024 00:16:35 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</guid><description><![CDATA[<h1>东方红</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h3 id="东方红">
 <a class="header-anchor" href="#%e4%b8%9c%e6%96%b9%e7%ba%a2"></a>
 东方红
@@ -103,23 +240,7 @@
 于西安</p>
 <p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/12/1795319606.jpeg" alt="IMG_0434.jpeg"></p>
 
-        <hr><p>本文 2024-12-26 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-12-26</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Poetry</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>因为春天来过</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</link>
-      <pubDate>Wed, 13 Nov 2024 22:07:40 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</guid>
-      <description><![CDATA[<h1>因为春天来过</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-12-26 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-12-26</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Poetry</category></item><item><title>因为春天来过</title><link>https://guzhengsvt.github.io/zh-cn/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</link><pubDate>Wed, 13 Nov 2024 22:07:40 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</guid><description><![CDATA[<h1>因为春天来过</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h3 id="谨以此诗献给我生命中那颗polaris">
 <a class="header-anchor" href="#%e8%b0%a8%e4%bb%a5%e6%ad%a4%e8%af%97%e7%8c%ae%e7%bb%99%e6%88%91%e7%94%9f%e5%91%bd%e4%b8%ad%e9%82%a3%e9%a2%97polaris"></a>
 ——谨以此诗，献给我生命中那颗Polaris
@@ -149,23 +270,7 @@
 “你不害怕花种撑不过冬天吗？”树和鸟儿这样问田野，此刻的田野又变得光秃秃空无一物。<br>
 “没关系，我已经见过春天了。”<br>
 因为春天来过。</strong></p>
-        <hr><p>本文 2024-11-13 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-11-13</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Poetry</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>晋南行五首</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</link>
-      <pubDate>Tue, 08 Oct 2024 15:47:32 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</guid>
-      <description><![CDATA[<h1>晋南行五首</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-11-13 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-11-13</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Poetry</category></item><item><title>晋南行五首</title><link>https://guzhengsvt.github.io/zh-cn/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</link><pubDate>Tue, 08 Oct 2024 15:47:32 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</guid><description><![CDATA[<h1>晋南行五首</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="序">
 <a class="header-anchor" href="#%e5%ba%8f"></a>
 序
@@ -266,23 +371,7 @@
 临汾奇异，连客运站周围都黑的很，景点离城区远且没有公交专线，包车花费较大；公共厕所有特色，我骑青桔电动车打卡二十余，无一相同。<br>
 运城热闹，主路也好小路也罢，商铺小店小摊挤满了，听说还有南北两集市（运城包子好吃，小馆实诚）。<br>
 <img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/3704126306.jpg" alt="IMG_2091.JPG"></p>
-        <hr><p>本文 2024-10-08 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-10-08</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Poetry</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>中秋，给家人打个电话吧</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</link>
-      <pubDate>Sun, 15 Sep 2024 22:35:40 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</guid>
-      <description><![CDATA[<h1>中秋，给家人打个电话吧</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-10-08 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-10-08</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Poetry</category></item><item><title>中秋，给家人打个电话吧</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</link><pubDate>Sun, 15 Sep 2024 22:35:40 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</guid><description><![CDATA[<h1>中秋，给家人打个电话吧</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <blockquote>
 <p>“妈妈这个世界真的会有女孩喜欢我吗？”<br>
 “当然啦第一次见你我也才20多岁。”</p></blockquote>
@@ -295,23 +384,7 @@
 <p>人有悲欢离合，月有阴晴圆缺，此事古难全。<br>
 但愿人长久，千里共婵娟。</p></blockquote>
 <p>但愿人长久，但愿人长久，但愿人长久。</p>
-        <hr><p>本文 2024-09-15 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-15</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Thoughts</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>概率论与数理统计</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link>
-      <pubDate>Tue, 10 Sep 2024 01:14:05 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid>
-      <description><![CDATA[<h1>概率论与数理统计</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-09-15 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-15</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Thoughts</category></item><item><title>概率论与数理统计</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><pubDate>Tue, 10 Sep 2024 01:14:05 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid><description><![CDATA[<h1>概率论与数理统计</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="前言">
 <a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
 前言
@@ -962,23 +1035,7 @@ F(x)=
 $$<p>
 $F(0^-)=F(0)=0$，$F(0^+)=0.5$，$x=0$ 是间断点，左连续而右不连续。</p>
 
-        <hr><p>本文 2024-09-10 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-10</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Math</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>Windows美化历程</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link>
-      <pubDate>Sat, 07 Sep 2024 21:12:17 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid>
-      <description><![CDATA[<h1>Windows美化历程</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-09-10 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-10</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Math</category></item><item><title>Windows美化历程</title><link>https://guzhengsvt.github.io/zh-cn/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link><pubDate>Sat, 07 Sep 2024 21:12:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid><description><![CDATA[<h1>Windows美化历程</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="前言">
 <a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
 前言
@@ -1229,23 +1286,7 @@ Sapphire
 <li>蔚蓝档案千年光标，简约可爱，在用。
 GitHub项目地址：<a href="https://github.com/makipom/BlueArchive-Cursors">BlueArchive-Cursors</a></li>
 </ol>
-        <hr><p>本文 2024-09-07 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-07</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>OtherNotes</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>数字信号处理</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link>
-      <pubDate>Wed, 04 Sep 2024 23:44:15 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid>
-      <description><![CDATA[<h1>数字信号处理</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-09-07 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-07</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item><item><title>数字信号处理</title><link>https://guzhengsvt.github.io/zh-cn/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link><pubDate>Wed, 04 Sep 2024 23:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid><description><![CDATA[<h1>数字信号处理</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="数字信号处理基本概念">
 <a class="header-anchor" href="#%e6%95%b0%e5%ad%97%e4%bf%a1%e5%8f%b7%e5%a4%84%e7%90%86%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5"></a>
 数字信号处理基本概念
@@ -1526,23 +1567,7 @@ $$<h3 id="线性常系数差分方程">
 <a class="header-anchor" href="#%e7%ba%bf%e6%80%a7%e5%b8%b8%e7%b3%bb%e6%95%b0%e5%b7%ae%e5%88%86%e6%96%b9%e7%a8%8b"></a>
 线性常系数差分方程
 </h3>
-        <hr><p>本文 2024-09-04 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-04</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Physics</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>空气动力学基础</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link>
-      <pubDate>Mon, 02 Sep 2024 22:13:45 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid>
-      <description><![CDATA[<h1>空气动力学基础</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-09-04 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-04</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Physics</category></item><item><title>空气动力学基础</title><link>https://guzhengsvt.github.io/zh-cn/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link><pubDate>Mon, 02 Sep 2024 22:13:45 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid><description><![CDATA[<h1>空气动力学基础</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="流体静力学基础">
 <a class="header-anchor" href="#%e6%b5%81%e4%bd%93%e9%9d%99%e5%8a%9b%e5%ad%a6%e5%9f%ba%e7%a1%80"></a>
 流体静力学基础
@@ -2240,63 +2265,4 @@ $$<h2 id="气动中心与压力中心的区别">
 </h2><p>压力中心是力系合成到一个特殊点时，使得这个点的<strong>合力矩为0</strong>的点，<strong>压力中心在气动中心的后面</strong>；而气动中心是使得<strong>合力矩不变</strong>的点。</p>
 <p>压力中心的位置随着迎角的改变而改变，当迎角增大，升力增大，压力中心前移，这同时使得压力中心与气动中心的距离缩短，增大的升力与缩短力臂乘积刚好是不变的力矩，这也正是气动中心的定义所要求的。</p>
 
-        <hr><p>本文 2024-09-02 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-02</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Physics</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>《黑神话：悟空》游玩体验（无透）</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/game/%E9%BB%91%E7%A5%9E%E8%AF%9D%E6%82%9F%E7%A9%BA%E6%B8%B8%E7%8E%A9%E4%BD%93%E9%AA%8C%E6%97%A0%E9%80%8F/</link>
-      <pubDate>Tue, 20 Aug 2024 21:51:15 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/game/%E9%BB%91%E7%A5%9E%E8%AF%9D%E6%82%9F%E7%A9%BA%E6%B8%B8%E7%8E%A9%E4%BD%93%E9%AA%8C%E6%97%A0%E9%80%8F/</guid>
-      <description><![CDATA[<h1>《黑神话：悟空》游玩体验（无透）</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
-          <p><strong>《悟空》</strong></p>
-<p><strong>不见灵山两鬓冬，云海低悬雾九重。</strong></p>
-<p><strong>锁住心猿拴意马，打破顽空始悟空。</strong></p>
-<p><strong>三清道化元神固，一藏经传紧箍松。</strong></p>
-<p><strong>莫问前路几春夏，灵山已在汝心中。</strong></p>
-<p>（8.20凌晨睡不着写的烂诗，现在再看真的挺不错的）</p>
-<p>客观承认，黑神话：悟空还存在许多bug与优化问题，我一个朋友4060Ti游戏打不开被挡在门外多时。</p>
-<p>我目前没有碰到bug，偶有卡顿掉帧但很少（12400F+7700XT）</p>
-<h2 id="关于空气墙">
-<a class="header-anchor" href="#%e5%85%b3%e4%ba%8e%e7%a9%ba%e6%b0%94%e5%a2%99"></a>
-关于空气墙
-</h2><p>空气墙问题存在，属于游科开发经验不足或是做出了取舍。许多看似能过的路，走近却发现是空气墙。当然许多空气墙处已经放了断木、矮石挡着，但对于有跳跃的3D游戏这很难打消玩家探索的欲望。在大家都知道游戏里藏了许多东西的情况下，我喜欢到处乱窜寻找这些隐藏内容，空气墙经常挫伤我的探索热情——你不知道前面那条看似能通过的竹林是空气墙还是真有东西。</p>
-<p>事实上游戏是一个个箱庭式关卡，只不过路很多、有高低差、没有地图，偶有两条路是能通联通的。这不是开放世界，用空气墙而非其他路障阻隔两条路很容易误导新手。</p>
-<h2 id="关于引导">
-<a class="header-anchor" href="#%e5%85%b3%e4%ba%8e%e5%bc%95%e5%af%bc"></a>
-关于引导
-</h2><p>土地庙（复活/存档点）附近有明显光迹引导，主线必经的妖王也会在沿路放火盆引导。其实一开始土地就提示了沿火盆走，但这个提示很容易被忽略以至于迷路。</p>
-<p>缺乏地图的情况下确实很容易迷路，尤其是第一回山林中，到处是一样的植被，而许多洞口阴暗不明显，我打完广智转了半个小时才找到灵虚子。</p>
-<h2 id="关于地图">
-<a class="header-anchor" href="#%e5%85%b3%e4%ba%8e%e5%9c%b0%e5%9b%be"></a>
-关于地图
-</h2><p>有时候我想有地图会不会解决各种麻烦，可若是提前知道了地图样貌，对于这样的箱庭式设计来说，会不会少了很多惊喜（每条路的尽头都有头目/妖王/宝物等）。或许给一个空地图然后经过的地方绘制着色是个可行的方案，就算不放在左上角常驻也可以放在设置（或土地庙）里。</p>
-<h2 id="关于锁定">
-<a class="header-anchor" href="#%e5%85%b3%e4%ba%8e%e9%94%81%e5%ae%9a"></a>
-关于锁定
-</h2><p>我觉得现在的锁定已经做得很好了，可以优化的点是有些boss招式位移又快有大视角拉不过来。有些boss的技能脱锁后需要自己再次锁定，在每分每秒都分外危险的战斗中这种临时脱锁真是致命（比如虎先锋骗石化后会接个大拳脱锁，大拳好躲但重新锁定很费神，这段时间在视线外再接个斩刀就会掉大半血。）。</p>
-<p>我目前还卡在虎先锋，猴头下酒几十次（<strong>菜，就多练</strong>）。</p>
-<h2 id="评价">
-<a class="header-anchor" href="#%e8%af%84%e4%bb%b7"></a>
-评价
-</h2><p>这是一部<strong>有瑕之作</strong>，但仅就我已经体验过的内容它真的值得90+的分数，不算各种文化、情怀加成。</p>
-<p>我愿意给它<strong>100分</strong>，因为这是独属于中华民族的骄傲和浪漫。外国人一玩就明白了，玩不明白就去学。</p>
-<p>我相信，<strong>越是民族的，越是世界的。</strong></p>
-<p>相信游科已经给各位天命人和自己交出了一份满意的答卷——《黑神话：悟空》并不完美，但它称得上是中国第一部3A，也对得起这4年的期待。</p>
-<p>只管往前走吧，走上取经路，比抵达灵山更重要。</p>
-        <hr><p>本文 2024-08-20 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-08-20</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Game</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+        <hr><p>本文 2024-09-02 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-02</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Physics</category></item></channel></rss>

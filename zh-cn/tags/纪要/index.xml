@@ -1,30 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>纪要 on 孤筝の温暖小家</title>
-    <link>https://guzhengsvt.github.io/zh-cn/tags/%E7%BA%AA%E8%A6%81/</link>
-    <description>Recent content from 孤筝の温暖小家</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
-    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
-    
-    <copyright>All website licensed under CC BY 4.0</copyright>
-    
-    <lastBuildDate>Sun, 13 Apr 2025 11:00:00 +0800</lastBuildDate>
-    
-    <atom:link href="https://guzhengsvt.github.io/zh-cn/tags/%E7%BA%AA%E8%A6%81/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>Hello World</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/thoughts/hello-world/</link>
-      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/hello-world/</guid>
-      <description><![CDATA[<h1>Hello World</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>纪要 on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/zh-cn/tags/%E7%BA%AA%E8%A6%81/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All website licensed under CC BY 4.0</copyright><lastBuildDate>Sun, 13 Apr 2025 11:00:00 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/tags/%E7%BA%AA%E8%A6%81/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello World</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/hello-world/</link><pubDate>Sun, 13 Apr 2025 11:00:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/hello-world/</guid><description><![CDATA[<h1>Hello World</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="20250413">
 <a class="header-anchor" href="#20250413"></a>
 2025.04.13
@@ -78,23 +52,7 @@ $$<p>code test</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;hello world&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>icon: <!-- raw HTML omitted --><!-- raw HTML omitted --> 一杯咖啡</p>
 
-        <hr><p>本文 2025-04-13 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Thoughts</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>大三上总结</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Tue, 28 Jan 2025 19:46:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid>
-      <description><![CDATA[<h1>大三上总结</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2025-04-13 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Thoughts</category></item><item><title>大三上总结</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link><pubDate>Tue, 28 Jan 2025 19:46:04 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid><description><![CDATA[<h1>大三上总结</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="关于期末考试">
 <a class="header-anchor" href="#%e5%85%b3%e4%ba%8e%e6%9c%9f%e6%9c%ab%e8%80%83%e8%af%95"></a>
 关于期末考试
@@ -147,23 +105,7 @@ $$<p>code test</p>
 祝新年快乐，岁岁平安。
 2025.1.24</p>
 
-        <hr><p>本文 2025-01-28 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-01-28</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Thoughts</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>因为春天来过</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</link>
-      <pubDate>Wed, 13 Nov 2024 22:07:40 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</guid>
-      <description><![CDATA[<h1>因为春天来过</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2025-01-28 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-01-28</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Thoughts</category></item><item><title>因为春天来过</title><link>https://guzhengsvt.github.io/zh-cn/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</link><pubDate>Wed, 13 Nov 2024 22:07:40 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</guid><description><![CDATA[<h1>因为春天来过</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h3 id="谨以此诗献给我生命中那颗polaris">
 <a class="header-anchor" href="#%e8%b0%a8%e4%bb%a5%e6%ad%a4%e8%af%97%e7%8c%ae%e7%bb%99%e6%88%91%e7%94%9f%e5%91%bd%e4%b8%ad%e9%82%a3%e9%a2%97polaris"></a>
 ——谨以此诗，献给我生命中那颗Polaris
@@ -193,23 +135,7 @@ $$<p>code test</p>
 “你不害怕花种撑不过冬天吗？”树和鸟儿这样问田野，此刻的田野又变得光秃秃空无一物。<br>
 “没关系，我已经见过春天了。”<br>
 因为春天来过。</strong></p>
-        <hr><p>本文 2024-11-13 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-11-13</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Poetry</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>日寄其一</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</link>
-      <pubDate>Sun, 04 Aug 2024 00:02:00 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</guid>
-      <description><![CDATA[<h1>日寄其一</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-11-13 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-11-13</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Poetry</category></item><item><title>日寄其一</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</link><pubDate>Sun, 04 Aug 2024 00:02:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</guid><description><![CDATA[<h1>日寄其一</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <p>上次更新是一个月前，倒不是多忙（虽然确实有忙的时候）。只是身不由己，世事难料，无心码字。</p>
 <h2 id="路千里朔风吹客衣">
 <a class="header-anchor" href="#%e8%b7%af%e5%8d%83%e9%87%8c%e6%9c%94%e9%a3%8e%e5%90%b9%e5%ae%a2%e8%a1%a3"></a>
@@ -276,23 +202,7 @@ $$<p>code test</p>
 <p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/08/3364523607.png" alt="fuguang.png"></p>
 <p>晚安</p>
 
-        <hr><p>本文 2024-08-04 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-08-04</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Thoughts</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>大二下学期总结</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Thu, 27 Jun 2024 01:14:14 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</guid>
-      <description><![CDATA[<h1>大二下学期总结</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-08-04 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-08-04</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Thoughts</category></item><item><title>大二下学期总结</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</link><pubDate>Thu, 27 Jun 2024 01:14:14 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</guid><description><![CDATA[<h1>大二下学期总结</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <p><strong>前情提要：</strong></p>
 <blockquote>
 <p>概率论上午考记成下午了，一觉睡到十一点，醒来美滋滋点一份宫保鸡丁饭。<br>
@@ -312,23 +222,7 @@ $$<p>code test</p>
 <strong>踏平坎坷成大道，斗罢艰险又出发。</strong></p>
 <p>虽然总是怀疑是因为熬夜肝概率论笔记让我昏了头，但是以后笔记还是会发的。同届同学未必用得上，倒是可以遗泽后人，算是为知识传播和文化共产做一点贡献。</p>
 
-        <hr><p>本文 2024-06-27 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-06-27</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Thoughts</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>生活小记</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</link>
-      <pubDate>Mon, 06 May 2024 18:12:51 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</guid>
-      <description><![CDATA[<h1>生活小记</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-06-27 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-06-27</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Thoughts</category></item><item><title>生活小记</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</link><pubDate>Mon, 06 May 2024 18:12:51 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</guid><description><![CDATA[<h1>生活小记</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h3 id="活着">
 <a class="header-anchor" href="#%e6%b4%bb%e7%9d%80"></a>
 活着
@@ -387,23 +281,7 @@ People Change
 <p>是否人生是一盘味道一般的土豆片炒腊肉，<br>
 此中有真意，<br>
 欲辨已忘言。</p></blockquote>
-        <hr><p>本文 2024-05-06 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-05-06</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Thoughts</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>新装电脑</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</link>
-      <pubDate>Mon, 29 Apr 2024 16:30:10 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</guid>
-      <description><![CDATA[<h1>新装电脑</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-05-06 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-05-06</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Thoughts</category></item><item><title>新装电脑</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</link><pubDate>Mon, 29 Apr 2024 16:30:10 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</guid><description><![CDATA[<h1>新装电脑</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <p>今年生日给自己新配了一台台式电脑</p>
 <p>，原来那台4年前的9700KF+1660S性能不太够用了，1080P 60Hz的屏幕也难以让人满意。
 卖了旧主机旧显示器，加上小金库的钱勉强凑够了预算。</p>
@@ -451,23 +329,7 @@ People Change
 还是老老实实拿来打游戏吧（</li>
 </ol>
 <p>ps.樱瞳花嫁卡真好看嘿嘿嘿，真的有香味嘿嘿嘿</p>
-        <hr><p>本文 2024-04-29 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-04-29</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Thoughts</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>2023年总结</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Fri, 05 Jan 2024 17:00:44 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</guid>
-      <description><![CDATA[<h1>2023年总结</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-04-29 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-04-29</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Thoughts</category></item><item><title>2023年总结</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</link><pubDate>Fri, 05 Jan 2024 17:00:44 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</guid><description><![CDATA[<h1>2023年总结</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <p><strong>Tags:摆烂，庸碌，神游，逃避，独处，确定</strong></p>
 <p>学期已末，年关将近。
 上半年处于完完全全的摆烂状态，看steam战地游戏时长就知道每天打游戏。所以期末险些挂科成绩差也是意料之中。
@@ -491,23 +353,7 @@ People Change
 活着是件很难的事，好在我运气虽差却还能活着。
 偶尔也给自己一点无根的希望吧，都会好起来的。
 早安晚安，岁岁平安。</p>
-        <hr><p>本文 2024-01-05 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-01-05</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Thoughts</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>旅人与花儿</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/poetry/%E6%97%85%E4%BA%BA%E4%B8%8E%E8%8A%B1%E5%84%BF/</link>
-      <pubDate>Mon, 18 Dec 2023 20:13:15 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/poetry/%E6%97%85%E4%BA%BA%E4%B8%8E%E8%8A%B1%E5%84%BF/</guid>
-      <description><![CDATA[<h1>旅人与花儿</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-01-05 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-01-05</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Thoughts</category></item><item><title>旅人与花儿</title><link>https://guzhengsvt.github.io/zh-cn/post/poetry/%E6%97%85%E4%BA%BA%E4%B8%8E%E8%8A%B1%E5%84%BF/</link><pubDate>Mon, 18 Dec 2023 20:13:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/poetry/%E6%97%85%E4%BA%BA%E4%B8%8E%E8%8A%B1%E5%84%BF/</guid><description><![CDATA[<h1>旅人与花儿</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <p>一位可爱的旅人途经一片无人欣赏的风景，她带来这异域的暖风吹过干涸的田野，拂过树梢又在湖面荡漾出波光粼粼。</p>
 <p>果树们纷纷为这美人倾倒，急急忙忙开花又结果；林中的鸟儿四处寻觅为数不多的花枝，编成花环戴在她头上。</p>
 <p>旅人漫步于这落英缤纷，盛情难却，摘下几个鲜红的果实；又不好意思一味索取，便掏出口袋里所有鲜花的种子，播撒在所有龟裂的地皮。</p>
@@ -519,23 +365,7 @@ People Change
 <p><strong>但大家并不为此感到悲伤，</strong></p>
 <p><strong>因为春天来过。</strong></p>
 
-        <hr><p>本文 2023-12-18 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-18</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Poetry</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>独立与相互独立</title>
-      <link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E7%8B%AC%E7%AB%8B%E4%B8%8E%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B/</link>
-      <pubDate>Fri, 15 Dec 2023 00:21:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E7%8B%AC%E7%AB%8B%E4%B8%8E%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B/</guid>
-      <description><![CDATA[<h1>独立与相互独立</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2023-12-18 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-18</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Poetry</category></item><item><title>独立与相互独立</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E7%8B%AC%E7%AB%8B%E4%B8%8E%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B/</link><pubDate>Fri, 15 Dec 2023 00:21:04 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E7%8B%AC%E7%AB%8B%E4%B8%8E%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B/</guid><description><![CDATA[<h1>独立与相互独立</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="当我做了一件错事当时还并不觉得不可挽回">
 <a class="header-anchor" href="#%e5%bd%93%e6%88%91%e5%81%9a%e4%ba%86%e4%b8%80%e4%bb%b6%e9%94%99%e4%ba%8b%e5%bd%93%e6%97%b6%e8%bf%98%e5%b9%b6%e4%b8%8d%e8%a7%89%e5%be%97%e4%b8%8d%e5%8f%af%e6%8c%bd%e5%9b%9e"></a>
 当我做了一件错事，当时还并不觉得不可挽回。
@@ -558,11 +388,4 @@ People Change
 $$Pr(A∩B)=Pr(A)×Pr(B)$$<p>想必对方也已经能够笑着讲故事了吧。</p>
 <p><strong>只是，我偶尔也会好奇，另一条未经脚印污染的路，会有怎样的风景。</strong></p>
 
-        <hr><p>本文 2023-12-15 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-15</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Thoughts</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+        <hr><p>本文 2023-12-15 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-15</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Thoughts</category></item></channel></rss>
