@@ -3532,6 +3532,60 @@ mjx-container::-webkit-scrollbar {
   opacity: 1;
 }
 
+.notification-wrapper {
+  position: fixed;
+  z-index: 1000;
+  top: 20px;
+  right: 20px;
+  background: var(--color-header-background);
+  box-shadow: 0 0 10px var(--color-hover-shadow);
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-left: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: .5s;
+  color: var(--grey-7);
+}
+
+.notification-wrapper.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.notification-wrapper h1 {
+  padding: 10px 0;
+}
+
+.notification-wrapper p {
+  padding: 10px 0;
+}
+
+.notification-wrapper .notification-btn {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.notification-wrapper button {
+  background: var(--red-2);
+  border-radius: 5px;
+  color: #fff;
+  padding: 5px 10px;
+  font-family: "Mulish", "Noto Serif SC", "Mulish", "Noto Serif SC", "-apple-system", "PingFang SC", "Microsoft YaHei", "sans-serif";
+  border: none;
+  transition: .3s;
+}
+
+.notification-wrapper button:hover {
+  background: var(--red-1);
+}
+
+.notification-wrapper button:active {
+  background: var(--red-0);
+}
+
 .aplayer {
   margin: 0 0 40px !important;
   border-radius: 10px !important;
