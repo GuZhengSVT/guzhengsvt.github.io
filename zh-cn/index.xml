@@ -120,23 +120,7 @@ Waline 的<a href="https://waline.js.org/guide/get-started/">中文文档</a>内
 <li><strong>pid</strong>: 父评论 ID</li>
 <li><strong>rid</strong>: 根评论 ID</li>
 </ol>
-<p>注意到 <code>&quot;insertedAt&quot;:{&quot;__type&quot;:&quot;Date&quot;,&quot;iso&quot;:&quot;2023-06-27T09:38:15.000Z&quot;},</code> ，<code>&quot;__type&quot;:&quot;Date&quot;</code> 用于声明这是一个日期类型。<br>
-笔者使用的 LeanCloud 存储日期不需要特殊声明，可以删去</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span>
-</span></span></code></pre></div><p>即将</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;insertedAt&#34;</span><span class="err">:</span><span class="p">{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="err">&#34;</span>
-</span></span></code></pre></div><p>替换成</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;insertedAt&#34;</span><span class="err">:&#34;</span>
-</span></span></code></pre></div><p>将</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">.</span><span class="mi">000</span><span class="err">Z</span><span class="s2">&#34;},&#34;</span><span class="err">createdAt&#34;</span>
-</span></span></code></pre></div><p>替换成</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">.</span><span class="mi">000</span><span class="err">Z</span><span class="s2">&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;</span><span class="err">createdAt&#34;</span>
-</span></span></code></pre></div><p>如果 <code>&quot;link&quot;</code> 值为 <code>null</code> ，则 <code>&quot;link&quot;</code> 与 <code>&quot;mail&quot;</code> 间没有换行。json 对换行不敏感，所以可以不管。<br>
+<p>如果 <code>&quot;link&quot;</code> 值为 <code>null</code> ，则 <code>&quot;link&quot;</code> 与 <code>&quot;mail&quot;</code> 间没有换行。json 对换行不敏感，所以可以不管。<br>
 此时在文件首尾用 <code>[ ]</code> 将内容包裹起来，保存文件。</p>
 <h2 id="修改评论属性">
 <a class="header-anchor" href="#%e4%bf%ae%e6%94%b9%e8%af%84%e8%ae%ba%e5%b1%9e%e6%80%a7"></a>
