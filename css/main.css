@@ -233,6 +233,11 @@ body [data-aos="zoom-in"] {
   content: "\f042";
 }
 
+#nav-language-btn:before {
+  font-family: var(--font-icon);
+  content: "\f1ab";
+}
+
 .icon-copy:before {
   font-family: var(--font-icon);
   content: "\f0c5";
@@ -469,6 +474,7 @@ body {
   text-size-adjust: 100%;
   font-family: "Mulish", "Noto Serif SC", "Mulish", "Noto Serif SC", "-apple-system", "PingFang SC", "Microsoft YaHei", "sans-serif";
   transition: background 1s;
+  color: var(--color-default);
 }
 
 body ::selection {
@@ -484,7 +490,7 @@ a, .main-nav-icon, .popup-btn-close, button {
   cursor: var(--cursor-text) !important;
 }
 
-#main span, #main p, #main code, #main kbd, #main input, #main textarea {
+#main span:not(button span), #main p:not(button p), #main code, #main kbd, #main input, #main textarea {
   cursor: var(--cursor-text) !important;
 }
 
@@ -624,7 +630,6 @@ a, .main-nav-icon, .popup-btn-close, button {
   right: 0;
   display: flex;
   justify-content: center;
-  overflow: hidden;
   background: var(--color-header-background);
   box-shadow: 0 0 10px 3px var(--color-hover-shadow);
   transition: background 1s, top 0.3s;
@@ -831,7 +836,7 @@ a, .main-nav-icon, .popup-btn-close, button {
   }
 }
 
-#sub-nav {
+#sub-nav, #i18n-nav {
   display: flex;
   align-items: center;
 }
@@ -840,6 +845,61 @@ a, .main-nav-icon, .popup-btn-close, button {
 #nav-moon-btn:before,
 #nav-circle-half-stroke-btn:before {
   font-weight: 700;
+}
+
+#i18n-nav {
+  margin-left: 8px;
+}
+
+.custom-dropdown {
+  position: relative;
+}
+
+.select-selected {
+  padding: 14px;
+  color: var(--red-2);
+  cursor: var(--cursor-pointer);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.select-items {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border-radius: 5px;
+  background-color: var(--color-wrap);
+  margin-top: 5px;
+  display: none;
+  z-index: 1;
+  font-size: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 10px 3px var(--color-hover-shadow);
+}
+
+.select-items li {
+  list-style: none;
+  padding: 10px;
+  cursor: var(--cursor-pointer);
+  color: var(--red-2);
+  transition: 1s;
+}
+
+.select-items li:hover {
+  color: #fff;
+  background: var(--red-1);
+}
+
+.select-items.show {
+  display: block;
+}
+
+.select-items li.selected {
+  background: var(--red-1);
+  color: #fff;
 }
 
 #footer {
@@ -2598,36 +2658,522 @@ mjx-container::-webkit-scrollbar {
   background-color: var(--red-1);
 }
 
-.giscus-comment {
-  width: auto;
+.vcontent {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-.wl-emoji-popup {
-  max-width: calc(100vw - 90px) !important;
+[data-theme="dark"] .v[data-class="v"] .vcards .vcard .vcontent.expand::after,
+.dark .v[data-class="v"] .vcards .vcard .vcontent.expand::after,
+.theme__dark .v[data-class="v"] .vcards .vcard .vcontent.expand::after,
+.night .v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+  background: var(--color-wrap) !important;
 }
 
-.wl-count {
-  color: var(--color-default);
+[data-theme="dark"]
+.v[data-class="v"]
+.vcards
+.vcard
+.vcontent.expand::before,
+.dark .v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.theme__dark .v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.night .v[data-class="v"] .vcards .vcard .vcontent.expand::before {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--color-wrap) 10%, transparent), var(--color-wrap)) !important;
 }
 
-.wl-panel {
-  margin: .5em 0 !important;
+.v[data-class="v"] .vcards .vcard .vh .vmeta .vat {
+  color: var(--red-1) !important;
 }
 
-.gitalk-comment {
-  color: var(--color-default);
+.wl-content,
+.vcontent,
+.gt-header-preview.markdown-body,
+.gt-comment-content .gt-comment-body.markdown-body {
+  color: var(--color-default) !important;
 }
 
-.wl-header input {
-  font-size: revert !important;
+.wl-content h1,
+.vcontent h1,
+.gt-header-preview.markdown-body h1,
+.gt-comment-content .gt-comment-body.markdown-body h1 {
+  font-size: 2em;
 }
 
-.wl-action, .wl-sort li {
+.wl-content h2,
+.vcontent h2,
+.gt-header-preview.markdown-body h2,
+.gt-comment-content .gt-comment-body.markdown-body h2 {
+  font-size: 1.5em;
+  position: relative;
+}
+
+.wl-content h2:before,
+.vcontent h2:before,
+.gt-header-preview.markdown-body h2:before,
+.gt-comment-content .gt-comment-body.markdown-body h2:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  border-bottom: 1px solid var(--color-h2-border);
+  bottom: -15px;
+  box-sizing: unset;
+  transition: 1s;
+}
+
+.wl-content h2:after,
+.vcontent h2:after,
+.gt-header-preview.markdown-body h2:after,
+.gt-comment-content .gt-comment-body.markdown-body h2:after {
+  content: "";
+  position: absolute;
+  background: var(--color-h2-after);
+  width: 1em;
+  height: 7px;
+  bottom: -18px;
+  left: 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px var(--color-red-6-shadow);
+  transition: 0.3s;
+}
+
+.wl-content h2:hover:after,
+.vcontent h2:hover:after,
+.gt-header-preview.markdown-body h2:hover:after,
+.gt-comment-content .gt-comment-body.markdown-body h2:hover:after {
+  width: 3em;
+}
+
+.wl-content h3,
+.vcontent h3,
+.gt-header-preview.markdown-body h3,
+.gt-comment-content .gt-comment-body.markdown-body h3 {
+  font-size: 1.3em;
+}
+
+.wl-content h4,
+.vcontent h4,
+.gt-header-preview.markdown-body h4,
+.gt-comment-content .gt-comment-body.markdown-body h4 {
+  font-size: 1.2em;
+}
+
+.wl-content h5,
+.vcontent h5,
+.gt-header-preview.markdown-body h5,
+.gt-comment-content .gt-comment-body.markdown-body h5 {
+  font-size: 1em;
+}
+
+.wl-content h6,
+.vcontent h6,
+.gt-header-preview.markdown-body h6,
+.gt-comment-content .gt-comment-body.markdown-body h6 {
+  font-size: 1em;
+  color: var(--grey-9);
+}
+
+.wl-content hr,
+.vcontent hr,
+.gt-header-preview.markdown-body hr,
+.gt-comment-content .gt-comment-body.markdown-body hr {
+  margin: 10px 0;
+  opacity: 0.3;
+  height: 4px;
+  background-image: linear-gradient(to right, var(--red-0) 50%, transparent 0%);
+  background-size: 50px 4px;
+  background-repeat: repeat-x;
+  border: none;
+  filter: drop-shadow(0px 0px 2px var(--red-1));
+  transition: opacity 0.3s, color 0.3s;
+}
+
+.wl-content hr:hover,
+.vcontent hr:hover,
+.gt-header-preview.markdown-body hr:hover,
+.gt-comment-content .gt-comment-body.markdown-body hr:hover {
+  opacity: 0.5;
+}
+
+.wl-content strong,
+.vcontent strong,
+.gt-header-preview.markdown-body strong,
+.gt-comment-content .gt-comment-body.markdown-body strong {
+  font-weight: bold;
+}
+
+.wl-content em,
+.wl-content cite,
+.vcontent em,
+.vcontent cite,
+.gt-header-preview.markdown-body em,
+.gt-header-preview.markdown-body cite,
+.gt-comment-content .gt-comment-body.markdown-body em,
+.gt-comment-content .gt-comment-body.markdown-body cite {
+  font-style: italic;
+}
+
+.wl-content sup,
+.wl-content sub,
+.vcontent sup,
+.vcontent sub,
+.gt-header-preview.markdown-body sup,
+.gt-header-preview.markdown-body sub,
+.gt-comment-content .gt-comment-body.markdown-body sup,
+.gt-comment-content .gt-comment-body.markdown-body sub {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.wl-content sup,
+.vcontent sup,
+.gt-header-preview.markdown-body sup,
+.gt-comment-content .gt-comment-body.markdown-body sup {
+  top: -0.5em;
+}
+
+.wl-content sub,
+.vcontent sub,
+.gt-header-preview.markdown-body sub,
+.gt-comment-content .gt-comment-body.markdown-body sub {
+  bottom: -0.2em;
+}
+
+.wl-content small,
+.vcontent small,
+.gt-header-preview.markdown-body small,
+.gt-comment-content .gt-comment-body.markdown-body small {
+  font-size: 0.85em;
+}
+
+.wl-content acronym,
+.wl-content abbr,
+.vcontent acronym,
+.vcontent abbr,
+.gt-header-preview.markdown-body acronym,
+.gt-header-preview.markdown-body abbr,
+.gt-comment-content .gt-comment-body.markdown-body acronym,
+.gt-comment-content .gt-comment-body.markdown-body abbr {
+  text-decoration: none;
+  border-bottom: 1px dotted;
+}
+
+.wl-content ul,
+.wl-content ol,
+.wl-content dl,
+.vcontent ul,
+.vcontent ol,
+.vcontent dl,
+.gt-header-preview.markdown-body ul,
+.gt-header-preview.markdown-body ol,
+.gt-header-preview.markdown-body dl,
+.gt-comment-content .gt-comment-body.markdown-body ul,
+.gt-comment-content .gt-comment-body.markdown-body ol,
+.gt-comment-content .gt-comment-body.markdown-body dl {
+  margin: 0 20px;
+  line-height: 1.8em;
+}
+
+.wl-content ul ul,
+.wl-content ul ol,
+.wl-content ol ul,
+.wl-content ol ol,
+.vcontent ul ul,
+.vcontent ul ol,
+.vcontent ol ul,
+.vcontent ol ol,
+.gt-header-preview.markdown-body ul ul,
+.gt-header-preview.markdown-body ul ol,
+.gt-header-preview.markdown-body ol ul,
+.gt-header-preview.markdown-body ol ol,
+.gt-comment-content .gt-comment-body.markdown-body ul ul,
+.gt-comment-content .gt-comment-body.markdown-body ul ol,
+.gt-comment-content .gt-comment-body.markdown-body ol ul,
+.gt-comment-content .gt-comment-body.markdown-body ol ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.wl-content ul,
+.vcontent ul,
+.gt-header-preview.markdown-body ul,
+.gt-comment-content .gt-comment-body.markdown-body ul {
+  list-style: disc;
+}
+
+.wl-content ol,
+.vcontent ol,
+.gt-header-preview.markdown-body ol,
+.gt-comment-content .gt-comment-body.markdown-body ol {
+  list-style: decimal;
+}
+
+.wl-content dt,
+.vcontent dt,
+.gt-header-preview.markdown-body dt,
+.gt-comment-content .gt-comment-body.markdown-body dt {
+  font-weight: bold;
+}
+
+.wl-content p,
+.wl-content table,
+.vcontent p,
+.vcontent table,
+.gt-header-preview.markdown-body p,
+.gt-header-preview.markdown-body table,
+.gt-comment-content .gt-comment-body.markdown-body p,
+.gt-comment-content .gt-comment-body.markdown-body table {
+  line-height: 1.8em;
+  margin: 1.2em 0;
+}
+
+.wl-content h1,
+.wl-content h2,
+.wl-content h3,
+.wl-content h4,
+.wl-content h5,
+.wl-content h6,
+.vcontent h1,
+.vcontent h2,
+.vcontent h3,
+.vcontent h4,
+.vcontent h5,
+.vcontent h6,
+.gt-header-preview.markdown-body h1,
+.gt-header-preview.markdown-body h2,
+.gt-header-preview.markdown-body h3,
+.gt-header-preview.markdown-body h4,
+.gt-header-preview.markdown-body h5,
+.gt-header-preview.markdown-body h6,
+.gt-comment-content .gt-comment-body.markdown-body h1,
+.gt-comment-content .gt-comment-body.markdown-body h2,
+.gt-comment-content .gt-comment-body.markdown-body h3,
+.gt-comment-content .gt-comment-body.markdown-body h4,
+.gt-comment-content .gt-comment-body.markdown-body h5,
+.gt-comment-content .gt-comment-body.markdown-body h6 {
+  font-weight: bold;
+  line-height: 1.2em;
+  margin: 1.2em 0 0.8em;
+}
+
+.wl-content h2,
+.vcontent h2,
+.gt-header-preview.markdown-body h2,
+.gt-comment-content .gt-comment-body.markdown-body h2 {
+  margin-bottom: 40px;
+}
+
+.wl-content a,
+.vcontent a,
+.gt-header-preview.markdown-body a,
+.gt-comment-content .gt-comment-body.markdown-body a {
+  color: var(--color-link);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.wl-content a:hover,
+.vcontent a:hover,
+.gt-header-preview.markdown-body a:hover,
+.gt-comment-content .gt-comment-body.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.wl-content ul,
+.wl-content ol,
+.wl-content dl,
+.vcontent ul,
+.vcontent ol,
+.vcontent dl,
+.gt-header-preview.markdown-body ul,
+.gt-header-preview.markdown-body ol,
+.gt-header-preview.markdown-body dl,
+.gt-comment-content .gt-comment-body.markdown-body ul,
+.gt-comment-content .gt-comment-body.markdown-body ol,
+.gt-comment-content .gt-comment-body.markdown-body dl {
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+}
+
+.wl-content li:hover::marker,
+.vcontent li:hover::marker,
+.gt-header-preview.markdown-body li:hover::marker,
+.gt-comment-content .gt-comment-body.markdown-body li:hover::marker {
+  transition: color 0.2s;
+  color: var(--red-1);
+}
+
+.wl-content img,
+.wl-content video,
+.vcontent img,
+.vcontent video,
+.gt-header-preview.markdown-body img,
+.gt-header-preview.markdown-body video,
+.gt-comment-content .gt-comment-body.markdown-body img,
+.gt-comment-content .gt-comment-body.markdown-body video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+.wl-content table,
+.vcontent table,
+.gt-header-preview.markdown-body table,
+.gt-comment-content .gt-comment-body.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.wl-content th,
+.vcontent th,
+.gt-header-preview.markdown-body th,
+.gt-comment-content .gt-comment-body.markdown-body th {
+  font-weight: bold;
+  border-bottom: 3px solid var(--color-border);
+  padding-bottom: 0.5em;
+}
+
+.wl-content td,
+.vcontent td,
+.gt-header-preview.markdown-body td,
+.gt-comment-content .gt-comment-body.markdown-body td {
+  border-bottom: 1px solid var(--color-border);
+  padding: 10px 0;
+}
+
+.wl-content blockquote,
+.vcontent blockquote,
+.gt-header-preview.markdown-body blockquote,
+.gt-comment-content .gt-comment-body.markdown-body blockquote {
+  background: var(--red-5-5);
+  border-left: 6px var(--red-4) solid !important;
+  margin: 1.2em 0 !important;
+  border-radius: 10px;
+  transition: 0.3s;
+  padding: 1px 10px !important;
+  box-shadow: 0 0 5px 2px var(--color-meta-shadow);
+}
+
+.wl-content blockquote:hover,
+.vcontent blockquote:hover,
+.gt-header-preview.markdown-body blockquote:hover,
+.gt-comment-content .gt-comment-body.markdown-body blockquote:hover {
+  box-shadow: 0 0 6px 4px var(--color-meta-shadow);
+}
+
+.wl-content blockquote footer,
+.vcontent blockquote footer,
+.gt-header-preview.markdown-body blockquote footer,
+.gt-comment-content .gt-comment-body.markdown-body blockquote footer {
+  font-size: 14px;
+  margin: 1.8em 0;
+}
+
+.wl-content blockquote footer cite:before,
+.vcontent blockquote footer cite:before,
+.gt-header-preview.markdown-body blockquote footer cite:before,
+.gt-comment-content .gt-comment-body.markdown-body blockquote footer cite:before {
+  content: "—";
+  padding: 0 0.5em;
+}
+
+.wl-content details,
+.vcontent details,
+.gt-header-preview.markdown-body details,
+.gt-comment-content .gt-comment-body.markdown-body details {
+  margin: 1.8em 0px;
+  padding: 18px 12px;
+  border-radius: 10px;
+  background-color: var(--red-5-5);
+  box-shadow: 0 0 5px 2px var(--color-meta-shadow);
+  transition: 0.3s;
+}
+
+.wl-content details:hover,
+.vcontent details:hover,
+.gt-header-preview.markdown-body details:hover,
+.gt-comment-content .gt-comment-body.markdown-body details:hover {
+  box-shadow: 0 0 6px 4px var(--color-meta-shadow);
+}
+
+.wl-content summary,
+.vcontent summary,
+.gt-header-preview.markdown-body summary,
+.gt-comment-content .gt-comment-body.markdown-body summary {
+  font-size: 1.1em;
+  font-weight: bold;
   cursor: var(--cursor-pointer) !important;
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
-.wl-header label {
-  cursor: var(--cursor-default) !important;
+.wl-content summary:hover,
+.vcontent summary:hover,
+.gt-header-preview.markdown-body summary:hover,
+.gt-comment-content .gt-comment-body.markdown-body summary:hover {
+  background-color: var(--red-5);
+}
+
+.wl-content details[open] summary,
+.vcontent details[open] summary,
+.gt-header-preview.markdown-body details[open] summary,
+.gt-comment-content .gt-comment-body.markdown-body details[open] summary {
+  background-color: var(--red-5);
+}
+
+.wl-content details[open] summary:hover,
+.vcontent details[open] summary:hover,
+.gt-header-preview.markdown-body details[open] summary:hover,
+.gt-comment-content .gt-comment-body.markdown-body details[open] summary:hover {
+  background-color: var(--red-5);
+}
+
+.wl-content details p,
+.vcontent details p,
+.gt-header-preview.markdown-body details p,
+.gt-comment-content .gt-comment-body.markdown-body details p {
+  margin: 20px 0 0;
+  padding: 10px;
+  background-color: var(--color-footer-background);
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.wl-content hr,
+.vcontent hr,
+.gt-header-preview.markdown-body hr,
+.gt-comment-content .gt-comment-body.markdown-body hr {
+  border-style: none !important;
+  background-color: transparent !important;
+}
+
+.wl-content pre,
+.wl-content code,
+.vcontent pre,
+.vcontent code,
+.gt-header-preview.markdown-body pre,
+.gt-header-preview.markdown-body code,
+.gt-comment-content .gt-comment-body.markdown-body pre,
+.gt-comment-content .gt-comment-body.markdown-body code {
+  font-family: "Menlo", "Monaco", "Consolas", "monospace", "Menlo", "Monaco", "Consolas", "monospace", "Menlo", "Monaco", "Consolas", "monospace" !important;
+  font-size: 95% !important;
+  transition: 0.3s;
+  word-break: break-word;
+}
+
+.wl-content code:not(pre code),
+.vcontent code:not(pre code),
+.gt-header-preview.markdown-body code:not(pre code),
+.gt-comment-content .gt-comment-body.markdown-body code:not(pre code) {
+  background: var(--color-code-background) !important;
+  padding: 1px 5px !important;
+  border-radius: 5px !important;
+  color: var(--color-link) !important;
 }
 
 @media screen and (min-width: 960px) {
@@ -2646,6 +3192,11 @@ mjx-container::-webkit-scrollbar {
     background: var(--color-mobile-nav-background);
     z-index: 1001;
     transition: 0.3s;
+    overflow: auto;
+  }
+  #mobile-nav::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
   }
   .mobile-nav-on #mobile-nav {
     left: 0;

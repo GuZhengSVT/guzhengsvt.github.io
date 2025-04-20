@@ -1,30 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>复变函数 on 孤筝の温暖小家</title>
-    <link>http://localhost:1313/zh-cn/tags/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link>
-    <description>Recent content from 孤筝の温暖小家</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
-    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
-    
-    <copyright>All website licensed under CC BY 4.0</copyright>
-    
-    <lastBuildDate>Wed, 20 Dec 2023 08:54:33 +0800</lastBuildDate>
-    
-    <atom:link href="http://localhost:1313/zh-cn/tags/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>留数定理与洛朗级数、高阶导数公式和柯西积分公式之间的关系或联系</title>
-      <link>http://localhost:1313/zh-cn/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link>
-      <pubDate>Wed, 20 Dec 2023 08:54:33 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-cn/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid>
-      <description><![CDATA[<h1>留数定理与洛朗级数、高阶导数公式和柯西积分公式之间的关系或联系</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>复变函数 on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/zh-cn/tags/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All website licensed under CC BY 4.0</copyright><lastBuildDate>Wed, 20 Dec 2023 08:54:33 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/tags/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>留数定理与洛朗级数、高阶导数公式和柯西积分公式之间的关系或联系</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link><pubDate>Wed, 20 Dec 2023 08:54:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid><description><![CDATA[<h1>留数定理与洛朗级数、高阶导数公式和柯西积分公式之间的关系或联系</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h3 id="1-留数定理residue-theorem">
 <a class="header-anchor" href="#1-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86residue-theorem"></a>
 1. 留数定理（Residue Theorem）：
@@ -191,23 +165,7 @@ $$f(z_0) = c_{-1}$$</li>
 $$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
 </ol>
 
-        <hr><p>本文 2023-12-20 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-20</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Math</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>复变函数</title>
-      <link>http://localhost:1313/zh-cn/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link>
-      <pubDate>Fri, 17 Nov 2023 19:42:47 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-cn/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid>
-      <description><![CDATA[<h1>复变函数</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2023-12-20 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-12-20</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Math</category></item><item><title>复变函数</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link><pubDate>Fri, 17 Nov 2023 19:42:47 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid><description><![CDATA[<h1>复变函数</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="复数">
 <a class="header-anchor" href="#%e5%a4%8d%e6%95%b0"></a>
 复数
@@ -335,11 +293,4 @@ $$f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}dz$$</li>
 </li>
 </ol>
 
-        <hr><p>本文 2023-11-17 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-11-17</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>Math</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+        <hr><p>本文 2023-11-17 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2023-11-17</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Math</category></item></channel></rss>
