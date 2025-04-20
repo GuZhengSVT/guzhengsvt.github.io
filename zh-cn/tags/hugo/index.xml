@@ -1,30 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>Hugo on 孤筝の温暖小家</title>
-    <link>http://localhost:1313/zh-cn/tags/hugo/</link>
-    <description>Recent content from 孤筝の温暖小家</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
-    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
-    
-    <copyright>All website licensed under CC BY 4.0</copyright>
-    
-    <lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate>
-    
-    <atom:link href="http://localhost:1313/zh-cn/tags/hugo/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>Typecho评论导入Waline</title>
-      <link>http://localhost:1313/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
-      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
-      <description><![CDATA[<h1>Typecho评论导入Waline</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-cn/tags/hugo/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All website licensed under CC BY 4.0</copyright><lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-cn/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>Typecho评论导入Waline</title><link>https://guzhengsvt.cn/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description><![CDATA[<h1>Typecho评论导入Waline</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <p>前两天把博客文章从 Typecho 迁移到 Hugo，光是设置 Front Matter 参数和重新配置图片链接就费了很大功夫。<br>
 一个博客的价值，首先是文章，紧接着就是评论。评论证明博客在互联网和真实世界产生的影响，承载了人与人之间的交互关系。私心一点地说，五湖四海的评论是重要的回忆，是构成“我”的一部分。<br>
 所以，将原站评论 copy 到新站的对应文章下是很有必要的。</p>
@@ -187,23 +161,7 @@ Waline 的<a href="https://waline.js.org/guide/get-started/">中文文档</a>内
 如最开始所言，这是笔者的成长轨迹，是笔者存活于世的证明，是“我”的一部分。</p>
 <p>而你，我亲爱的读者，是你赋予我价值。</p>
 <p>有空的话请多多评论吧～笔者真的会开心很久的说（如果评论善意的话）。</p>
-        <hr><p>本文 2025-04-19 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>OtherNotes</category>
-      
-    </item>
-    
-    
-      
-    
-    
-    
-    <item>
-      <title>Hugo博客常用资料</title>
-      <link>http://localhost:1313/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link>
-      <pubDate>Tue, 15 Apr 2025 16:42:35 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid>
-      <description><![CDATA[<h1>Hugo博客常用资料</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2025-04-19 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item><item><title>Hugo博客常用资料</title><link>https://guzhengsvt.cn/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link><pubDate>Tue, 15 Apr 2025 16:42:35 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid><description><![CDATA[<h1>Hugo博客常用资料</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="hugo-常用命令">
 <a class="header-anchor" href="#hugo-%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4"></a>
 Hugo 常用命令
@@ -603,11 +561,4 @@ reimu 主题 icon_font
   </tbody>
 </table>
 
-        <hr><p>本文 2025-04-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>All website licensed under CC BY 4.0</p>]]>
-      </description>
-        <category>OtherNotes</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+        <hr><p>本文 2025-04-15 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item></channel></rss>
