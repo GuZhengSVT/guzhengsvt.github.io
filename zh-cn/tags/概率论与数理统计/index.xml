@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>概率论与数理统计 on 孤筝の温暖小家</title><link>https://guzhengsvt.github.io/zh-cn/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All website licensed under CC BY 4.0</copyright><lastBuildDate>Tue, 10 Sep 2024 01:14:05 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/index.xml" rel="self" type="application/rss+xml"/><item><title>概率论与数理统计</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><pubDate>Tue, 10 Sep 2024 01:14:05 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid><description><![CDATA[<h1>概率论与数理统计</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>概率论与数理统计 on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/zh-cn/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Tue, 10 Sep 2024 01:14:05 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/zh-cn/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>概率论与数理统计</title>
+      <link>http://localhost:1313/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link>
+      <pubDate>Tue, 10 Sep 2024 01:14:05 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid>
+      <description><![CDATA[<h1>概率论与数理统计</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="前言">
 <a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
 前言
@@ -649,4 +675,11 @@ F(x)=
 $$<p>
 $F(0^-)=F(0)=0$，$F(0^+)=0.5$，$x=0$ 是间断点，左连续而右不连续。</p>
 
-        <hr><p>本文 2024-09-10 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-10</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Math</category></item></channel></rss>
+        <hr><p>本文 2024-09-10 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-10</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Math</category>
+      
+    </item>
+    
+  </channel>
+</rss>
