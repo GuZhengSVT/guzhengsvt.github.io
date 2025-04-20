@@ -3666,14 +3666,6 @@ body .aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap,
   cursor: var(--cursor-pointer) !important;
 }
 
-#live2d-toggle {
-  z-index: 1;
-}
-
-#live2d-plugin {
-  z-index: 98 !important;
-}
-
 .share-wrapper {
   display: flex;
   justify-content: center;
