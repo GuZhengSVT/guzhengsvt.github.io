@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://guzhengsvt.github.io/zh-cn/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All website licensed under CC BY 4.0</copyright><lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate><atom:link href="https://guzhengsvt.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml"/><item><title>Typecho评论导入Waline</title><link>https://guzhengsvt.github.io/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description><![CDATA[<h1>Typecho评论导入Waline</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>孤筝の温暖小家</title>
+    <link>http://localhost:1313/zh-cn/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/zh-cn/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Typecho评论导入Waline</title>
+      <link>http://localhost:1313/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
+      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
+      <description><![CDATA[<h1>Typecho评论导入Waline</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <p>前两天把博客文章从 Typecho 迁移到 Hugo，光是设置 Front Matter 参数和重新配置图片链接就费了很大功夫。<br>
 一个博客的价值，首先是文章，紧接着就是评论。评论证明博客在互联网和真实世界产生的影响，承载了人与人之间的交互关系。私心一点地说，五湖四海的评论是重要的回忆，是构成“我”的一部分。<br>
 所以，将原站评论 copy 到新站的对应文章下是很有必要的。</p>
@@ -161,7 +187,23 @@ Waline 的<a href="https://waline.js.org/guide/get-started/">中文文档</a>内
 如最开始所言，这是笔者的成长轨迹，是笔者存活于世的证明，是“我”的一部分。</p>
 <p>而你，我亲爱的读者，是你赋予我价值。</p>
 <p>有空的话请多多评论吧～笔者真的会开心很久的说（如果评论善意的话）。</p>
-        <hr><p>本文 2025-04-19 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item><item><title>Hugo博客常用资料</title><link>https://guzhengsvt.github.io/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link><pubDate>Tue, 15 Apr 2025 16:42:35 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid><description><![CDATA[<h1>Hugo博客常用资料</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2025-04-19 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Hugo博客常用资料</title>
+      <link>http://localhost:1313/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link>
+      <pubDate>Tue, 15 Apr 2025 16:42:35 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid>
+      <description><![CDATA[<h1>Hugo博客常用资料</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="hugo-常用命令">
 <a class="header-anchor" href="#hugo-%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4"></a>
 Hugo 常用命令
@@ -561,7 +603,23 @@ reimu 主题 icon_font
   </tbody>
 </table>
 
-        <hr><p>本文 2025-04-15 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item><item><title>Hello World</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/hello-world/</link><pubDate>Sun, 13 Apr 2025 11:00:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/hello-world/</guid><description><![CDATA[<h1>Hello World</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2025-04-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Hello World</title>
+      <link>http://localhost:1313/zh-cn/post/thoughts/hello-world/</link>
+      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/thoughts/hello-world/</guid>
+      <description><![CDATA[<h1>Hello World</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="20250413">
 <a class="header-anchor" href="#20250413"></a>
 2025.04.13
@@ -615,7 +673,23 @@ $$<p>code test</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;hello world&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>icon: <!-- raw HTML omitted --><!-- raw HTML omitted --> 一杯咖啡</p>
 
-        <hr><p>本文 2025-04-13 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Thoughts</category></item><item><title>大三上总结</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link><pubDate>Tue, 28 Jan 2025 19:46:04 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid><description><![CDATA[<h1>大三上总结</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2025-04-13 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>大三上总结</title>
+      <link>http://localhost:1313/zh-cn/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Tue, 28 Jan 2025 19:46:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid>
+      <description><![CDATA[<h1>大三上总结</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="关于期末考试">
 <a class="header-anchor" href="#%e5%85%b3%e4%ba%8e%e6%9c%9f%e6%9c%ab%e8%80%83%e8%af%95"></a>
 关于期末考试
@@ -668,7 +742,23 @@ $$<p>code test</p>
 祝新年快乐，岁岁平安。
 2025.1.24</p>
 
-        <hr><p>本文 2025-01-28 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2025-01-28</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Thoughts</category></item><item><title>东方红</title><link>https://guzhengsvt.github.io/zh-cn/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</link><pubDate>Thu, 26 Dec 2024 00:16:35 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</guid><description><![CDATA[<h1>东方红</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2025-01-28 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-01-28</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>东方红</title>
+      <link>http://localhost:1313/zh-cn/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</link>
+      <pubDate>Thu, 26 Dec 2024 00:16:35 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</guid>
+      <description><![CDATA[<h1>东方红</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h3 id="东方红">
 <a class="header-anchor" href="#%e4%b8%9c%e6%96%b9%e7%ba%a2"></a>
 东方红
@@ -678,7 +768,23 @@ $$<p>code test</p>
 于西安</p>
 <p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/12/1795319606.jpeg" alt="IMG_0434.jpeg"></p>
 
-        <hr><p>本文 2024-12-26 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-12-26</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Poetry</category></item><item><title>因为春天来过</title><link>https://guzhengsvt.github.io/zh-cn/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</link><pubDate>Wed, 13 Nov 2024 22:07:40 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</guid><description><![CDATA[<h1>因为春天来过</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-12-26 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-12-26</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Poetry</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>因为春天来过</title>
+      <link>http://localhost:1313/zh-cn/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</link>
+      <pubDate>Wed, 13 Nov 2024 22:07:40 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</guid>
+      <description><![CDATA[<h1>因为春天来过</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h3 id="谨以此诗献给我生命中那颗polaris">
 <a class="header-anchor" href="#%e8%b0%a8%e4%bb%a5%e6%ad%a4%e8%af%97%e7%8c%ae%e7%bb%99%e6%88%91%e7%94%9f%e5%91%bd%e4%b8%ad%e9%82%a3%e9%a2%97polaris"></a>
 ——谨以此诗，献给我生命中那颗Polaris
@@ -708,7 +814,23 @@ $$<p>code test</p>
 “你不害怕花种撑不过冬天吗？”树和鸟儿这样问田野，此刻的田野又变得光秃秃空无一物。<br>
 “没关系，我已经见过春天了。”<br>
 因为春天来过。</strong></p>
-        <hr><p>本文 2024-11-13 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-11-13</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Poetry</category></item><item><title>晋南行五首</title><link>https://guzhengsvt.github.io/zh-cn/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</link><pubDate>Tue, 08 Oct 2024 15:47:32 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</guid><description><![CDATA[<h1>晋南行五首</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-11-13 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-11-13</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Poetry</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>晋南行五首</title>
+      <link>http://localhost:1313/zh-cn/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</link>
+      <pubDate>Tue, 08 Oct 2024 15:47:32 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</guid>
+      <description><![CDATA[<h1>晋南行五首</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="序">
 <a class="header-anchor" href="#%e5%ba%8f"></a>
 序
@@ -809,7 +931,23 @@ $$<p>code test</p>
 临汾奇异，连客运站周围都黑的很，景点离城区远且没有公交专线，包车花费较大；公共厕所有特色，我骑青桔电动车打卡二十余，无一相同。<br>
 运城热闹，主路也好小路也罢，商铺小店小摊挤满了，听说还有南北两集市（运城包子好吃，小馆实诚）。<br>
 <img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/3704126306.jpg" alt="IMG_2091.JPG"></p>
-        <hr><p>本文 2024-10-08 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-10-08</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Poetry</category></item><item><title>中秋，给家人打个电话吧</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</link><pubDate>Sun, 15 Sep 2024 22:35:40 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</guid><description><![CDATA[<h1>中秋，给家人打个电话吧</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-10-08 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-10-08</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Poetry</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>中秋，给家人打个电话吧</title>
+      <link>http://localhost:1313/zh-cn/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</link>
+      <pubDate>Sun, 15 Sep 2024 22:35:40 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</guid>
+      <description><![CDATA[<h1>中秋，给家人打个电话吧</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <blockquote>
 <p>“妈妈这个世界真的会有女孩喜欢我吗？”<br>
 “当然啦第一次见你我也才20多岁。”</p></blockquote>
@@ -822,7 +960,23 @@ $$<p>code test</p>
 <p>人有悲欢离合，月有阴晴圆缺，此事古难全。<br>
 但愿人长久，千里共婵娟。</p></blockquote>
 <p>但愿人长久，但愿人长久，但愿人长久。</p>
-        <hr><p>本文 2024-09-15 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-15</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Thoughts</category></item><item><title>概率论与数理统计</title><link>https://guzhengsvt.github.io/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><pubDate>Tue, 10 Sep 2024 01:14:05 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid><description><![CDATA[<h1>概率论与数理统计</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-09-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-15</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>概率论与数理统计</title>
+      <link>http://localhost:1313/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link>
+      <pubDate>Tue, 10 Sep 2024 01:14:05 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid>
+      <description><![CDATA[<h1>概率论与数理统计</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="前言">
 <a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
 前言
@@ -1473,11 +1627,34 @@ F(x)=
 $$<p>
 $F(0^-)=F(0)=0$，$F(0^+)=0.5$，$x=0$ 是间断点，左连续而右不连续。</p>
 
-        <hr><p>本文 2024-09-10 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-10</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Math</category></item><item><title>凭栏静听潇潇雨，故国人民有所思。</title><link>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</link><pubDate>Mon, 09 Sep 2024 17:54:04 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.github.io/zh-cn/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</guid><description><![CDATA[<h1>凭栏静听潇潇雨，故国人民有所思。</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-09-10 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-10</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Math</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>凭栏静听潇潇雨，故国人民有所思。</title>
+      <link>http://localhost:1313/zh-cn/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</link>
+      <pubDate>Mon, 09 Sep 2024 17:54:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</guid>
+      <description><![CDATA[<h1>凭栏静听潇潇雨，故国人民有所思。</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <p>“我有一个梦，也许有一天，灿烂的阳光能照进黑暗森林。”</p>
 <p>这时，这里的太阳却在落下去，现在只在远山露出顶端的一点，像山顶上镶嵌着的一块光灿灿的宝石。孩子已经跑远，同草地一起沐浴在金色的晚霞之中。</p>
 <p>太阳快落下去了，你们的孩子居然不害怕？</p>
 <p>“当然不害怕，她知道明天太阳还会升起来的。”</p>
 <p>晚安。
 <img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2683784600.jpg" alt="毛1.JPG"></p>
-        <hr><p>本文 2024-09-09 首发于 <a href='https://guzhengsvt.github.io/'>孤筝の温暖小家</a>，最后修改于 2024-09-09</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Thoughts</category></item></channel></rss>
+        <hr><p>本文 2024-09-09 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-09</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+  </channel>
+</rss>
