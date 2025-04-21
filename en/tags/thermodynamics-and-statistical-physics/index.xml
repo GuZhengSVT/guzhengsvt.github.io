@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Thermodynamics and Statistical Physics on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/en/tags/thermodynamics-and-statistical-physics/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All website licensed under CC BY 4.0</copyright><lastBuildDate>Thu, 06 Jun 2024 00:00:59 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/en/tags/thermodynamics-and-statistical-physics/index.xml" rel="self" type="application/rss+xml"/><item><title>Thermodynamics and Statistical Physics</title><link>https://guzhengsvt.cn/en/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</link><pubDate>Thu, 06 Jun 2024 00:00:59 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</guid><description><![CDATA[<h1>Thermodynamics and Statistical Physics</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="physical-quantities">
+<a class="header-anchor" href="#physical-quantities"></a>
+Physical Quantities
+</h1><h2 id="internal-energy">
+<a class="header-anchor" href="#internal-energy"></a>
+Internal Energy \( U \)
+</h2>\[
+\Delta U = Q + W
+\]<p>
+Here, \( Q \) is the heat absorbed by the system, and \( W \) is the work done by the system.</p>
+<h2 id="entropy">
+<a class="header-anchor" href="#entropy"></a>
+Entropy \( S \)
+</h2><p>Entropy is a measure of the total energy in a system that is <strong>unavailable for work</strong>. As the total entropy increases, the system&rsquo;s capacity to perform work decreases. Entropy serves as an indicator of energy degradation.</p>
+<p>For a <strong>reversible process</strong>:
+</p>
+\[
+\Delta S = \frac{Q}{T}
+\]<p>
+Here, \( Q \) is the heat absorbed by the system at a constant temperature \( T \) during the reversible process.</p>
+<h2 id="enthalpy">
+<a class="header-anchor" href="#enthalpy"></a>
+Enthalpy \( H \)
+</h2>\[
+H = U + pV
+\]<h2 id="helmholtz-free-energy">
+<a class="header-anchor" href="#helmholtz-free-energy"></a>
+Helmholtz Free Energy \( F \)
+</h2>\[
+F = U - TS
+\]<p>
+The internal energy minus the energy unavailable for work equals the available (free) energy.</p>
+<h2 id="gibbs-free-energy">
+<a class="header-anchor" href="#gibbs-free-energy"></a>
+Gibbs Free Energy \( G \)
+</h2>\[
+G = F + pV = U - TS + pV = H - TS
+\]<h2 id="chemical-potential">
+<a class="header-anchor" href="#chemical-potential"></a>
+Chemical Potential \( \mu \)
+</h2>\[
+\mu = \left( \frac{\partial G}{\partial n} \right)_{T,p} = G_m
+\]<p>
+Where:</p>
+<ul>
+<li>\( n \): Amount of substance (in moles)</li>
+<li>\( G_m \): Molar Gibbs free energy</li>
+</ul>
+<h1 id="equations">
+<a class="header-anchor" href="#equations"></a>
+Equations
+</h1><h2 id="state-function-total-differentials-reversible-processes">
+<a class="header-anchor" href="#state-function-total-differentials-reversible-processes"></a>
+State Function Total Differentials (Reversible Processes)
+</h2><h3 id="internal-energy-total-differential-fundamental-thermodynamic-relation">
+<a class="header-anchor" href="#internal-energy-total-differential-fundamental-thermodynamic-relation"></a>
+Internal Energy Total Differential (Fundamental Thermodynamic Relation)
+</h3>\[
+dU = dQ + dW = TdS - pdV
+\]<p>
+Thus, \( U = U(S, V) \):
+</p>
+\[
+\left( \frac{\partial U}{\partial S} \right)_V = T, \quad \left( \frac{\partial U}{\partial V} \right)_S = -p
+\]<p>
+Since the second partial derivatives of \( U \) are equal, we obtain the <strong>first Maxwell relation</strong>:
+</p>
+\[
+\left( \frac{\partial T}{\partial V} \right)_S = -\left( \frac{\partial p}{\partial S} \right)_V
+\]<h3 id="enthalpy-total-differential">
+<a class="header-anchor" href="#enthalpy-total-differential"></a>
+Enthalpy Total Differential
+</h3>\[
+dH = dU + d(pV) = TdS - pdV + pdV + Vdp = TdS + Vdp
+\]<h3 id="helmholtz-free-energy-total-differential">
+<a class="header-anchor" href="#helmholtz-free-energy-total-differential"></a>
+Helmholtz Free Energy Total Differential
+</h3>\[
+dF = -SdT - pdV
+\]<h3 id="gibbs-free-energy-total-differential">
+<a class="header-anchor" href="#gibbs-free-energy-total-differential"></a>
+Gibbs Free Energy Total Differential
+</h3>\[
+dG = -SdT + Vdp
+\]<h3 id="entropy-total-differential">
+<a class="header-anchor" href="#entropy-total-differential"></a>
+Entropy Total Differential
+</h3>\[
+dS = \frac{dU + pdV}{T}
+\]<h2 id="maxwell-relations">
+<a class="header-anchor" href="#maxwell-relations"></a>
+Maxwell Relations
+</h2><p>Maxwell Relations are crucial equations in thermodynamics that describe the relationships between state variables. The four Maxwell relations are:</p>
+<ol>
+<li>
+<p><strong>First Maxwell Relation</strong>:
+</p>
+\[
+\left( \frac{\partial T}{\partial V} \right)_S = -\left( \frac{\partial P}{\partial S} \right)_V
+\]</li>
+<li>
+<p><strong>Second Maxwell Relation</strong>:
+</p>
+\[
+\left( \frac{\partial T}{\partial P} \right)_S = \left( \frac{\partial V}{\partial S} \right)_P
+\]</li>
+<li>
+<p><strong>Third Maxwell Relation</strong>:
+</p>
+\[
+\left( \frac{\partial S}{\partial V} \right)_T = \left( \frac{\partial P}{\partial T} \right)_V
+\]</li>
+<li>
+<p><strong>Fourth Maxwell Relation</strong>:
+</p>
+\[
+\left( \frac{\partial S}{\partial P} \right)_T = -\left( \frac{\partial V}{\partial T} \right)_P
+\]</li>
+</ol>
+<p><strong>Corollary</strong>:
+</p>
+\[
+C_p - C_V = T \left( \frac{\partial p}{\partial T} \right)_V \left( \frac{\partial V}{\partial T} \right)_p
+\]<p>
+For an ideal gas \( pV = nRT \), substituting yields:
+</p>
+\[
+C_p - C_V = nR, \text{ a constant}
+\]<h2 id="equation-of-state">
+<a class="header-anchor" href="#equation-of-state"></a>
+Equation of State
+</h2><p>Definition: The functional relationship between temperature and state variables.
+</p>
+\[
+f(p, V, T) = 0
+\]<h3 id="ideal-gas-equation-of-state">
+<a class="header-anchor" href="#ideal-gas-equation-of-state"></a>
+Ideal Gas Equation of State
+</h3>\[
+pV = nRT = NkT
+\]<ul>
+<li>\( n \): Amount of substance (moles)</li>
+<li>\( R \): Universal gas constant</li>
+<li>\( N \): Total number of particles</li>
+<li>\( k \): Boltzmann constant</li>
+</ul>
+<h3 id="van-der-waals-equation">
+<a class="header-anchor" href="#van-der-waals-equation"></a>
+Van der Waals Equation
+</h3>\[
+\left( p + \frac{an^2}{V^2} \right)(V - nb) = nRT
+\]<ul>
+<li>\( a \) and \( b \): Constants</li>
+</ul>
+<h2 id="common-coefficients">
+<a class="header-anchor" href="#common-coefficients"></a>
+Common Coefficients
+</h2><h3 id="volume-expansion-coefficient">
+<a class="header-anchor" href="#volume-expansion-coefficient"></a>
+Volume Expansion Coefficient \( \alpha \)
+</h3>\[
+\alpha = \frac{1}{V} \left( \frac{\partial V}{\partial T} \right)_p = \frac{1}{T}, \text{ for an ideal gas}
+\]<h3 id="pressure-coefficient">
+<a class="header-anchor" href="#pressure-coefficient"></a>
+Pressure Coefficient \( \beta \)
+</h3>\[
+\beta = \frac{1}{p} \left( \frac{\partial p}{\partial T} \right)_V = \frac{1}{T}, \text{ for an ideal gas}
+\]<h3 id="isothermal-compressibility">
+<a class="header-anchor" href="#isothermal-compressibility"></a>
+Isothermal Compressibility \( \kappa_T \)
+</h3>\[
+\kappa_T = -\frac{1}{V} \left( \frac{\partial V}{\partial p} \right)_T = \frac{1}{p}, \text{ for an ideal gas}
+\]<h2 id="heat-capacity">
+<a class="header-anchor" href="#heat-capacity"></a>
+Heat Capacity \( C \)
+</h2>\[
+C = \lim_{\Delta T \to 0} \frac{\Delta Q}{\Delta T}
+\]<h3 id="constant-volume-heat-capacity">
+<a class="header-anchor" href="#constant-volume-heat-capacity"></a>
+Constant Volume Heat Capacity \( C_V \)
+</h3>\[
+C_V = \left( \frac{\partial U}{\partial T} \right)_V = T \left( \frac{\partial S}{\partial T} \right)_V
+\]<h3 id="constant-pressure-heat-capacity">
+<a class="header-anchor" href="#constant-pressure-heat-capacity"></a>
+Constant Pressure Heat Capacity \( C_p \)
+</h3>\[
+C_p = \left( \frac{\partial H}{\partial T} \right)_p = T \left( \frac{\partial S}{\partial T} \right)_p
+\]<h3 id="polytropic-heat-capacity">
+<a class="header-anchor" href="#polytropic-heat-capacity"></a>
+Polytropic Heat Capacity \( C_n \)
+</h3>\[
+C_n = T \left( \frac{\partial S}{\partial T} \right)_n
+\]<h2 id="ideal-gas-adiabatic-equation">
+<a class="header-anchor" href="#ideal-gas-adiabatic-equation"></a>
+Ideal Gas Adiabatic Equation
+</h2><p>\( \gamma \): [[#Adiabatic Coefficient]]
+\( C \): Constant
+</p>
+\[
+pV^\gamma = C_1
+\]<p>
+</p>
+\[
+TV^{\gamma-1} = C_2
+\]<p>
+</p>
+\[
+P^{1-\gamma} T^\gamma = C_3
+\]<h2 id="second-law-of-thermodynamics">
+<a class="header-anchor" href="#second-law-of-thermodynamics"></a>
+Second Law of Thermodynamics
+</h2>\[
+dS \ge \frac{dQ}{T}
+\]<ol>
+<li>Two adiabatic curves cannot intersect.</li>
+<li>\( T \): Temperature of the surroundings.</li>
+<li>For a reversible process, the surrounding temperature equals the system temperature \( T \).</li>
+</ol>
+<h2 id="reversible-heat-engine-efficiency">
+<a class="header-anchor" href="#reversible-heat-engine-efficiency"></a>
+Reversible Heat Engine Efficiency \( \eta \)
+</h2><p>[[#Carnot&rsquo;s Theorem]]
+</p>
+\[
+\eta = 1 - \frac{T_1}{T_2}
+\]<ul>
+<li>\( T_2 \): Temperature of the high-temperature reservoir</li>
+<li>\( T_1 \): Temperature of the low-temperature reservoir</li>
+<li>\( 0 < \eta < 1 \)</li>
+</ul>
+<h2 id="energy-equation-in-throttling-process">
+<a class="header-anchor" href="#energy-equation-in-throttling-process"></a>
+Energy Equation in Throttling Process
+</h2><p>For a throttling process, the energy balance equation is:
+</p>
+\[
+H_1 = H_2
+\]<p>
+Where \( H_1 \) and \( H_2 \) are the enthalpies before and after throttling, respectively.</p>
+<p><strong>Proof</strong>:
+The system is adiabatic, so \( \Delta U = W \).
+</p>
+\[
+U_2 - U_1 = p_1 V_1 - p_2 V_2
+\]<p>
+</p>
+\[
+U_2 + p_2 V_2 = U_1 + p_1 V_1
+\]<p>
+</p>
+\[
+H_2 = H_1
+\]<h2 id="joule-thomson-coefficient">
+<a class="header-anchor" href="#joule-thomson-coefficient"></a>
+Joule-Thomson Coefficient
+</h2><p>[[#Throttling Process]]
+</p>
+\[
+\mu = \left( \frac{\partial T}{\partial p} \right)_H = \frac{V}{C_p} (T \alpha - 1)
+\]<h2 id="fundamental-equation-for-open-systems-add-">
+<a class="header-anchor" href="#fundamental-equation-for-open-systems-add-"></a>
+Fundamental Equation for Open Systems (Add \( \mu dn \))
+</h2><h3 id="internal-energy-total-differential">
+<a class="header-anchor" href="#internal-energy-total-differential"></a>
+Internal Energy Total Differential
+</h3>\[
+dU = dQ + dW + \mu dn = TdS - pdV + \mu dn
+\]<h3 id="enthalpy-total-differential-1">
+<a class="header-anchor" href="#enthalpy-total-differential-1"></a>
+Enthalpy Total Differential
+</h3>\[
+dH = dU + d(pV) + \mu dn = TdS + Vdp + \mu dn
+\]<h3 id="helmholtz-free-energy-total-differential-1">
+<a class="header-anchor" href="#helmholtz-free-energy-total-differential-1"></a>
+Helmholtz Free Energy Total Differential
+</h3>\[
+dF = -SdT - pdV + \mu dn
+\]<h3 id="gibbs-free-energy-total-differential-1">
+<a class="header-anchor" href="#gibbs-free-energy-total-differential-1"></a>
+Gibbs Free Energy Total Differential
+</h3>\[
+dG = -SdT + Vdp + \mu dn
+\]<h3 id="grand-potential">
+<a class="header-anchor" href="#grand-potential"></a>
+Grand Potential
+</h3>\[
+J = -pV
+\]<h2 id="clapeyron-equation">
+<a class="header-anchor" href="#clapeyron-equation"></a>
+Clapeyron Equation
+</h2>\[
+\frac{dp}{dT} = \frac{S_m^\beta - S_m^\alpha}{V_m^\beta - V_m^\alpha} = \frac{L}{T(V_m^\beta - V_m^\alpha)} = \frac{s^\beta - s^\alpha}{v^\beta - v^\alpha}
+\]<p>
+Where:</p>
+<ul>
+<li>\( L = T(S_m^\beta - S_m^\alpha) \): Latent heat of phase transition.</li>
+<li>\( S_m \): Molar entropy.</li>
+<li>\( s \): Specific entropy (entropy per unit mass).</li>
+<li>\( v \): Specific volume (volume per unit mass).</li>
+</ul>
+<h2 id="ehrenfest-equation">
+<a class="header-anchor" href="#ehrenfest-equation"></a>
+Ehrenfest Equation
+</h2><p>For [[#Second-Order Phase Transitions]], the Clapeyron equation becomes indeterminate \( \frac{0}{0} \). Applying L&rsquo;Hôpital&rsquo;s rule by taking partial derivatives with respect to \( T \) or \( p \) yields the <strong>Ehrenfest equations</strong>:
+</p>
+\[
+\frac{dp}{dT} = \frac{\Delta c_p}{T v \Delta \alpha}
+\]<p>
+Alternatively, taking partial derivatives with respect to \( p \):
+</p>
+\[
+\frac{dp}{dT} = \frac{\Delta \alpha}{\Delta \kappa_T}
+\]<h3 id="first-order-phase-transition-equations">
+<a class="header-anchor" href="#first-order-phase-transition-equations"></a>
+First-Order Phase Transition Equations
+</h3><h4 id="formula">
+<a class="header-anchor" href="#formula"></a>
+Formula
+</h4><p>For a first-order phase transition at the critical temperature \( T_c \), the Gibbs free energy \( G \) is continuous, but its first derivatives with respect to temperature and pressure are discontinuous:</p>
+<ul>
+<li>\( \left( \frac{\partial G}{\partial T} \right)_P = -S \)</li>
+<li>\( \left( \frac{\partial G}{\partial P} \right)_T = V \)</li>
+</ul>
+<p>At \( T_c \), these first derivatives exhibit jumps:
+</p>
+\[
+\Delta S = S_2 - S_1 \neq 0
+\]<p>
+</p>
+\[
+\Delta V = V_2 - V_1 \neq 0
+\]<p>
+Here, \( S \) is entropy, \( V \) is volume, and subscripts 1 and 2 denote the phases before and after the transition.</p>
+<h4 id="proof">
+<a class="header-anchor" href="#proof"></a>
+Proof
+</h4><p>First-order phase transitions are characterized by <strong>discontinuities in the first derivatives of thermodynamic potentials</strong>. For entropy:</p>
+<ol>
+<li><strong>Continuity of Gibbs Free Energy</strong>:
+At \( T_c \), the Gibbs free energy \( G \) is continuous:
+\[
+   G_1 (T_c, P) = G_2 (T_c, P)
+   \]</li>
+<li><strong>Discontinuity of Entropy</strong>:
+Taking the partial derivative of \( G \) with respect to temperature gives the entropy:
+\[
+   S = -\left( \frac{\partial G}{\partial T} \right)_P
+   \]
+At \( T_c \), the jump in entropy is:
+\[
+   \Delta S = S_2 - S_1 = -\left( \frac{\partial G_2}{\partial T} \right)_P + \left( \frac{\partial G_1}{\partial T} \right)_P \neq 0
+   \]
+This shows the discontinuity in entropy at the phase transition point.</li>
+</ol>
+<h3 id="second-order-phase-transition-equations">
+<a class="header-anchor" href="#second-order-phase-transition-equations"></a>
+Second-Order Phase Transition Equations
+</h3><h4 id="formula-1">
+<a class="header-anchor" href="#formula-1"></a>
+Formula
+</h4><p>For a second-order phase transition at \( T_c \), the Gibbs free energy \( G \) and its first derivatives (entropy and volume) are continuous, but its second derivatives (heat capacity, compressibility, thermal expansion coefficient) are discontinuous:</p>
+<ul>
+<li>\( \left( \frac{\partial^2 G}{\partial T^2} \right)_P = \frac{\partial S}{\partial T} = \frac{C_P}{T} \)</li>
+<li>\( \left( \frac{\partial^2 G}{\partial P^2} \right)_T = \frac{\partial V}{\partial P} = -\kappa_T V \)</li>
+</ul>
+<p>At \( T_c \), these second derivatives exhibit jumps:
+</p>
+\[
+\Delta C_P = C_{P2} - C_{P1} \neq 0
+\]<p>
+</p>
+\[
+\Delta \kappa_T = \kappa_{T2} - \kappa_{T1} \neq 0
+\]<p>
+Here, \( C_P \) is the constant-pressure heat capacity, and \( \kappa_T \) is the isothermal compressibility.</p>
+<h4 id="proof-1">
+<a class="header-anchor" href="#proof-1"></a>
+Proof
+</h4><p>Second-order phase transitions are characterized by <strong>discontinuities in the second derivatives of thermodynamic potentials</strong>. For heat capacity:</p>
+<ol>
+<li><strong>Continuity of Entropy</strong>:
+At \( T_c \), the entropy \( S \) is continuous:
+\[
+   S_1 (T_c, P) = S_2 (T_c, P)
+   \]</li>
+<li><strong>Discontinuity of Heat Capacity</strong>:
+Taking the partial derivative of entropy with respect to temperature gives the heat capacity:
+\[
+   C_P = T \left( \frac{\partial S}{\partial T} \right)_P
+   \]
+At \( T_c \), the jump in heat capacity is:
+\[
+   \Delta C_P = C_{P2} - C_{P1} = T \left( \left( \frac{\partial S_2}{\partial T} \right)_P - \left( \frac{\partial S_1}{\partial T} \right)_P \right) \neq 0
+   \]
+This shows the discontinuity in heat capacity at the phase transition point.</li>
+</ol>
+<h2 id="gibbs-function-total-differential-for-multicomponent-systems">
+<a class="header-anchor" href="#gibbs-function-total-differential-for-multicomponent-systems"></a>
+Gibbs Function Total Differential for Multicomponent Systems
+</h2>\[
+dG = -SdT + Vdp + \sum_i \mu_i dn_i
+\]<h2 id="gibbs-phase-rule">
+<a class="header-anchor" href="#gibbs-phase-rule"></a>
+Gibbs Phase Rule
+</h2>\[
+f = k + 2 - \varphi
+\]<p>
+Where:</p>
+<ul>
+<li>\( f \): Degrees of freedom (number of independent intensive variables).</li>
+<li>\( k \): Number of components.</li>
+<li>\( \varphi \): Number of phases.</li>
+</ul>
+<h2 id="de-broglie-relations">
+<a class="header-anchor" href="#de-broglie-relations"></a>
+de Broglie Relations
+</h2><p>[[#de Broglie Waves]]
+</p>
+\[
+\begin{cases}
+\varepsilon = \hbar \omega \\
+\vec{p} = \hbar \vec{k}
+\end{cases}
+\]<h2 id="planck-constant">
+<a class="header-anchor" href="#planck-constant"></a>
+Planck Constant
+</h2>\[
+\begin{align}
+h &= 6.626069934(89) \times 10^{-34} \, \text{J} \cdot \text{s} \\
+&= 4.135667662(25) \times 10^{-15} \, \text{eV} \cdot \text{s}
+\end{align}
+\]<p>
+Reduced Planck constant (Dirac constant):
+</p>
+\[
+\hbar \equiv \frac{h}{2\pi} = 1.054571800(13) \times 10^{-34} \, \text{J} \cdot \text{s}
+\]<h2 id="uncertainty-principle">
+<a class="header-anchor" href="#uncertainty-principle"></a>
+Uncertainty Principle
+</h2>\[
+\Delta q \Delta p \ge h
+\]<p>
+<strong>Or</strong>
+</p>
+\[
+\Delta q \Delta p \ge \frac{\hbar}{2}
+\]<p>
+<strong>Generally</strong>, we take:
+</p>
+\[
+\Delta q \Delta p \approx h
+\]<h2 id="quantum-state-number-for-a-3d-free-particle">
+<a class="header-anchor" href="#quantum-state-number-for-a-3d-free-particle"></a>
+Quantum State Number for a 3D Free Particle
+</h2><p><strong>Temporarily ignoring quantum spin</strong>:</p>
+<blockquote>
+<p>When particles move in a macroscopic container, their momentum and energy values are <strong>quasi-continuous</strong>.</p></blockquote>
+<h3 id="cartesian-momentum-representation">
+<a class="header-anchor" href="#cartesian-momentum-representation"></a>
+Cartesian Momentum Representation
+</h3><p>Find the number of <strong>quantum states</strong> for a free particle within volume \( V = L^3 \), in the momentum range \( p_x \) to \( p_x + dp_x \), \( p_y \) to \( p_y + dp_y \), \( p_z \) to \( p_z + dp_z \).</p>
+<p><strong>Solution 1</strong>:
+From the relation between momentum and quantum numbers for a [[#3D Free Particle]], the number of possible \( p_x \) states is:
+</p>
+\[
+dn_x = \frac{L}{2\pi \hbar} dp_x
+\]<p>
+Similarly for the other directions:
+</p>
+\[
+dn_x dn_y dn_z = \frac{V}{h^3} dp_x dp_y dp_z
+\]<p><strong>Solution 2</strong>:
+From the definition of [[#Phase Cell]], the phase cell volume for a 3D free particle is \( \Delta q_1 \cdots \Delta q_r \Delta p_1 \cdots \Delta p_r \approx h^3 \). Here, the \( \mu \)-space volume is \( d\Omega = V dp_x dp_y dp_z \). The number of phase cells that fit into this volume gives the number of free particle quantum states:
+</p>
+\[
+dn_x dn_y dn_z = \frac{d\Omega}{h^3} = \frac{V dp_x dp_y dp_z}{h^3}
+\]<h3 id="spherical-momentum-representation">
+<a class="header-anchor" href="#spherical-momentum-representation"></a>
+Spherical Momentum Representation
+</h3>\[
+\displaylines{p_x = p \sin \theta \cos \varphi \\
+p_y = p \sin \theta \sin \varphi \\
+p_z = p \cos \theta}
+\]<p>
+</p>
+\[
+dp_x dp_y dp_z = p^2 \sin \theta \, dp \, d\theta \, d\varphi
+\]<p>
+Within volume \( V \), for momentum magnitude \( p \) to \( p + dp \), direction \( \theta \) to \( d\theta \), and \( \varphi \) to \( d\varphi \), the number of possible free particle states is:
+</p>
+\[
+\frac{V p^2 \sin \theta \, dp \, d\theta \, d\varphi}{h^3}
+\]<p>
+<em>There are three quantum numbers \( p, \theta, \varphi \), corresponding to three degrees of freedom.</em></p>
+<h3 id="energy-representation">
+<a class="header-anchor" href="#energy-representation"></a>
+Energy Representation
+</h3><p>Integrating over \( \theta \) and \( \varphi \) (\( 0 < \theta < \pi, 0 < \varphi < 2\pi \)) gives:
+</p>
+\[
+\frac{4\pi V p^2}{h^3} dp
+\]<p>
+Now, the momentum direction is arbitrary, and the degrees of freedom reduce to 1.</p>
+<p>Since \( \varepsilon = \frac{p^2}{2m} \), within volume \( V \), the number of possible quantum states for a free particle with energy \( \varepsilon \) to \( \varepsilon + d\varepsilon \) is:
+</p>
+\[
+D(\varepsilon) d\varepsilon = \frac{2\pi V}{h^3} (2m)^{3/2} \varepsilon^{1/2} d\varepsilon
+\]<p>
+Here, \( D(\varepsilon) \) is the <strong>density of states</strong>, representing the number of states per unit energy interval.</p>
+<h3 id="including-quantum-spin">
+<a class="header-anchor" href="#including-quantum-spin"></a>
+Including Quantum Spin
+</h3><p>[[#Spin Angular Momentum]]
+The total number of quantum states = the above momentum quantum states × the number of possible spin states.</p>
+<p><strong>Example</strong>: For a particle with spin quantum number \( \frac{1}{2} \), \( S_z = 2s + 1 = 2 \), so the above result should be multiplied by 2.</p>
+<h1 id="definitions-and-theorems">
+<a class="header-anchor" href="#definitions-and-theorems"></a>
+Definitions and Theorems
+</h1><h2 id="basic-definitions">
+<a class="header-anchor" href="#basic-definitions"></a>
+Basic Definitions
+</h2><h3 id="equilibrium-state">
+<a class="header-anchor" href="#equilibrium-state"></a>
+Equilibrium State
+</h3><p>An equilibrium state is characterized by:</p>
+<ol>
+<li>No <strong>macroscopic</strong> exchange of energy or</li>
+</ol>
+
+        <hr><p>本文 2024-06-06 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2024-06-06</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Physics</category></item></channel></rss>

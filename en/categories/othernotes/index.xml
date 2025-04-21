@@ -1,0 +1,1026 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OtherNotes on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/en/categories/othernotes/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All website licensed under CC BY 4.0</copyright><lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/en/categories/othernotes/index.xml" rel="self" type="application/rss+xml"/><item><title>Typecho Comments Import to Waline</title><link>https://guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description><![CDATA[<h1>Typecho Comments Import to Waline</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p>A couple of days ago, I migrated my blog posts from Typecho to Hugo. Just setting up the Front Matter parameters and reconfiguring image links took considerable effort.<br>
+The value of a blog lies first in its articles, followed closely by its comments. Comments are proof that the blog has made an impact in both the digital and real worlds, carrying the interactions between people. More personally, comments from all corners of the globe are precious memories and a part of what makes &ldquo;me&rdquo;.<br>
+Thus, it&rsquo;s essential to copy the original comments to the corresponding articles on the new site.</p>
+<h2 id="configuring-waline">
+<a class="header-anchor" href="#configuring-waline"></a>
+Configuring Waline
+</h2><p>Unlike dynamic blogs like WordPress or Typecho, static blogs can only rely on external comment systems. There are many options, each with its pros and cons. After referring to <a href="https://cloud.tencent.com/developer/article/2196035">this article</a> and checking the official websites of various comment systems, I ultimately chose <a href="https://waline.js.org">Waline</a>.<br>
+Waline&rsquo;s <a href="https://waline.js.org/guide/get-started/">Chinese documentation</a> is detailed and comprehensive. After setting up the <a href="https://leancloud.app">LeanCloud</a> database and <a href="https://vercel.com/">Vercel</a> server, you can access the comment management dashboard at <code>https://&lt;your-server-domain&gt;/ui/</code>. Register as an administrator for the first time, where you can manage comments and users.</p>
+<h2 id="exporting-typecho-comments">
+<a class="header-anchor" href="#exporting-typecho-comments"></a>
+Exporting Typecho Comments
+</h2><p>Typecho is quite old, with a smaller user base compared to more active communities like Hexo or WordPress. There&rsquo;s also very little documentation available online.<br>
+The only solution I found was a plugin called <a href="https://github.com/lizheming/typecho-export-valine">Export2Valine</a> (also mentioned in Waline&rsquo;s documentation) by <a href="https://imnerd.org">Yi Hong Yuan Luo</a>, which exports Typecho comments to Valine.<br>
+However, it hasn&rsquo;t been updated in three years, and testing showed it only imports the first comment. Looking at the exported <code>jsonl</code> file, it&rsquo;s clear that all comment data was fully exported.</p>
+<p>First, install the plugin in Typecho (make sure to rename the plugin folder to &ldquo;Export2Valine&rdquo;!).</p>
+<p>Referencing <a href="https://www.imwxz.com/posts/74f52ab0.html">this article</a> about migrating from Typecho to Hexo, the plugin is outdated and requires some modifications.<br>
+Locate <code>Action.php</code> in the plugin folder and modify lines 42 onwards as follows (to track parent comments):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$arr</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;objectId&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;QQAvatar&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;comment&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;text&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;insertedAt&#34;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;__type&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;iso&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span>
+</span></span><span class="line"><span class="cl">  <span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;createdAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;updatedAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ip&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;ip&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;link&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;url&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;mail&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;mail&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;nick&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;author&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ua&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;agent&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;url&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;/</span><span class="si">{</span><span class="nv">$slug</span><span class="si">}</span><span class="s2">.html&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;pid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;rid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getRootId</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>No other changes are needed.<br>
+Next, go to Typecho&rsquo;s admin panel → Console → Export Comments. Open the downloaded <code>jsonl</code> file and delete the header line:<br>
+<code>#filetype:JSON-streaming {&quot;type&quot;:&quot;Class&quot;,&quot;class&quot;:&quot;Comment&quot;}\n\n</code>.<br>
+Save the file, close it, and change the file extension to <code>.json</code>.</p>
+<h2 id="fixing-the-json-format">
+<a class="header-anchor" href="#fixing-the-json-format"></a>
+Fixing the JSON Format
+</h2><p>The exported <code>jsonl</code> file contains escaped Chinese characters and is a single line, making it hard to read.<br>
+To convert it into a more readable, editable, and importable <code>json</code> format, use your editor&rsquo;s <strong>Find and Replace</strong> feature to replace <code>}\n{</code> with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span></code></pre></div><p>In Xcode, you can insert line breaks by clicking the small magnifying glass icon on the left.</p>
+<p>Now, each line represents one comment object.</p>
+<p>Similarly, to separate the fields within each comment object, replace <code>&quot;,&quot;</code> with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;</span>
+</span></span></code></pre></div><p>Now, each comment object contains multiple data fields, structured like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u6d4b\u8bd5\u4e00\u4e0b&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;4&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u600e\u4e48ip\u4e0d\u5bf9&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
+</span></span></code></pre></div><h3 id="common-field-descriptions">
+<a class="header-anchor" href="#common-field-descriptions"></a>
+Common Field Descriptions
+</h3><ol>
+<li><strong>objectId</strong>: Unique identifier for the comment (e.g., &ldquo;4&rdquo; or &ldquo;5&rdquo;)</li>
+<li><strong>QQAvatar</strong>: QQ avatar link (currently empty)</li>
+<li><strong>comment</strong>: Comment content (contains Unicode escape sequences, e.g., <code>\u600e\u4e48</code> means &ldquo;how&rdquo;)</li>
+<li><strong>insertedAt/createdAt/updatedAt</strong>: Timestamp (ISO 8601 format)</li>
+<li><strong>ip</strong>: Commenter&rsquo;s IP address</li>
+<li><strong>link</strong>: Link provided by the commenter (may be <code>null</code>)</li>
+<li><strong>mail</strong>: Commenter&rsquo;s email address</li>
+<li><strong>nick</strong>: Commenter&rsquo;s nickname</li>
+<li><strong>ua</strong>: User agent (browser/device info)</li>
+<li><strong>url</strong>: Relative path of the commented post</li>
+</ol>
+<h3 id="special-fields">
+<a class="header-anchor" href="#special-fields"></a>
+Special Fields
+</h3><ol start="11">
+<li><strong>pid</strong>: Parent comment ID</li>
+<li><strong>rid</strong>: Root comment ID</li>
+</ol>
+<p>If <code>&quot;link&quot;</code> is <code>null</code>, there&rsquo;s no line break between <code>&quot;link&quot;</code> and <code>&quot;mail&quot;</code>. JSON is insensitive to line breaks, so this can be ignored.<br>
+Now, wrap the entire content in <code>[ ]</code> at the beginning and end of the file, then save it.</p>
+<h2 id="modifying-comment-attributes">
+<a class="header-anchor" href="#modifying-comment-attributes"></a>
+Modifying Comment Attributes
+</h2><p>The file can now be imported into LeanCloud, but some adjustments are still needed.</p>
+<p><code>Export2Valine</code> sets the URL for comment associations as <code>\/slug</code>, e.g., <code>&quot;url&quot;: &quot;\/Summary-of-the-First-Semester-of-Junior-Year.html&quot;</code>, where <code>\/</code> is an escaped <code>/</code>.</p>
+<p>To link comments to the new blog&rsquo;s posts, manually update the <code>url</code> to match the new blog&rsquo;s post links.</p>
+<p>For example, my Hugo-generated site has folders like <code>zh-cn</code>, <code>zh-tw</code>, <code>en</code>, and <code>ja</code> (due to multi-language support). Chinese posts are under <code>/zh-cn/post/category/</code>.<br>
+In my local blog source files, posts are organized into folders by category, e.g., <code>/content/post/Thoughts/最近写的诗.md</code> generates a relative URL like <code>zh-cn/post/thoughts/最近写的诗</code>.</p>
+<p>If your new blog&rsquo;s posts are in the root directory with unchanged names, no URL modifications are needed.<br>
+If they&rsquo;re all under <code>/post/</code>, use Find and Replace to change:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/</span>
+</span></span></code></pre></div><p>to:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/post\/</span>
+</span></span></code></pre></div><p>For my case, I temporarily replaced it with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/post\/</span>
+</span></span></code></pre></div><p>Similarly, comments on standalone pages like &ldquo;Friends&rdquo; or &ldquo;Thoughts&rdquo; should be updated to their new relative URLs.<br>
+For example, the Friends page:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/links.html</span>
+</span></span></code></pre></div><p>should be replaced with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/friend\/</span>
+</span></span></code></pre></div><p>First, apply bulk replacements for <code>post</code> and standalone pages where possible. Otherwise, it&rsquo;ll be tedious to modify them after import.</p>
+<p>When using Find and Replace, try to target the largest common segments to avoid accidental changes.<br>
+<em><strong>Remember to escape <code>\/</code>!!!</strong></em></p>
+<h2 id="importing-to-leancloud">
+<a class="header-anchor" href="#importing-to-leancloud"></a>
+Importing to LeanCloud
+</h2><p>In LeanCloud&rsquo;s console → Data Storage → Import &amp; Export, select the modified JSON file, set <code>Class</code> to <code>Comment</code>, and import.</p>
+<p><em><strong>Note</strong></em>: If you&rsquo;ve previously tested Waline comments or attempted to import <code>Comment</code>, Waline may have already created the <code>Comment</code> class. Subsequent imports will fail silently (LeanCloud may claim success, but no new data appears).</p>
+<p>To fix this, go to the console → Structured Data, delete the <code>Comment</code> class, and try importing again. The LeanCloud page may not refresh immediately—use <code>Ctrl+F5</code> to force a cache refresh.</p>
+<p>After a successful import, manually adjust the <code>url</code> for each comment.<br>
+For example, my posts need to be categorized under <code>&quot;url&quot;:&quot;\/zh-cn\/post\/category\/</code>. Use LeanCloud&rsquo;s <strong>batch operations</strong> and <strong>filtering</strong> features to streamline this process.</p>
+<h2 id="afterword">
+<a class="header-anchor" href="#afterword"></a>
+Afterword
+</h2><p>Organizing comments didn&rsquo;t take too long—120 comments, mostly my own musings on the &ldquo;Thoughts&rdquo; page, allowed for bulk URL fixes. The handful of reader comments were scattered across just a few posts, making them easy to update via filtering. Whether that&rsquo;s a good or bad thing, I’m not sure (laughs).</p>
+<p>Whether they&rsquo;re my soliloquies or others&rsquo; remarks, each comment holds unique significance. Revisiting them periodically brings new reflections.<br>
+As I said at the beginning, they&rsquo;re traces of my growth, proof of my existence, and part of &ldquo;me&rdquo;.</p>
+<p>And you, dear reader, are the one who gives me value.</p>
+<p>If you have time, please leave a comment—it’ll genuinely make my day (as long as it’s kind, of course).</p>
+        <hr><p>本文 2025-04-19 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item><item><title>Common Hugo Blog Resources</title><link>https://guzhengsvt.cn/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link><pubDate>Tue, 15 Apr 2025 16:42:35 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid><description><![CDATA[<h1>Common Hugo Blog Resources</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="hugo-common-commands">
+<a class="header-anchor" href="#hugo-common-commands"></a>
+Hugo Common Commands
+</h1><table>
+  <thead>
+      <tr>
+          <th>Command</th>
+          <th>Function</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>hugo version</code></td>
+          <td>Check version</td>
+          <td>Displays the currently installed Hugo version</td>
+      </tr>
+      <tr>
+          <td><code>hugo new site &lt;project_name&gt;</code></td>
+          <td>Create new site</td>
+          <td>Generates Hugo&rsquo;s directory structure</td>
+      </tr>
+      <tr>
+          <td><code>hugo new post/&lt;filename.md&gt;</code></td>
+          <td>Create new post</td>
+          <td>Generates an article under <code>content/post/</code> with default Front Matter</td>
+      </tr>
+      <tr>
+          <td><code>hugo server</code></td>
+          <td>Start local server</td>
+          <td>Launches local preview at <code>http://localhost:1313</code> by default</td>
+      </tr>
+      <tr>
+          <td><code>hugo server -D</code></td>
+          <td>Start with drafts</td>
+          <td><code>-D</code> parameter shows articles marked <code>draft: true</code></td>
+      </tr>
+      <tr>
+          <td><code>hugo</code></td>
+          <td>Build website</td>
+          <td>Generates static files from Markdown content to <code>public/</code> directory</td>
+      </tr>
+      <tr>
+          <td><code>hugo -D &lt;output_dir&gt;</code></td>
+          <td>Build including drafts</td>
+          <td>Full site build (including drafts) for pre-publishing</td>
+      </tr>
+      <tr>
+          <td><code>hugo --minify</code></td>
+          <td>Minify build files</td>
+          <td>Compresses HTML/CSS/JS during build to reduce size</td>
+      </tr>
+      <tr>
+          <td><code>hugo config</code></td>
+          <td>View configuration</td>
+          <td>Displays current site configuration</td>
+      </tr>
+      <tr>
+          <td><code>hugo list drafts</code></td>
+          <td>List drafts</td>
+          <td>Shows all articles marked <code>draft: true</code></td>
+      </tr>
+      <tr>
+          <td><code>hugo list future</code></td>
+          <td>List future posts</td>
+          <td>Articles with <code>date</code> set after current time</td>
+      </tr>
+      <tr>
+          <td><code>hugo list expired</code></td>
+          <td>List expired posts</td>
+          <td>Articles where <code>expiryDate</code> has passed</td>
+      </tr>
+      <tr>
+          <td><code>hugo --gc</code></td>
+          <td>Garbage collection</td>
+          <td>Cleans outdated resources like thumbnail caches</td>
+      </tr>
+  </tbody>
+</table>
+<h1 id="reimu-theme-icon_font">
+<a class="header-anchor" href="#reimu-theme-icon_font"></a>
+reimu Theme icon_font
+</h1><table>
+  <thead>
+      <tr>
+          <th>Icon Class</th>
+          <th>Hex Code</th>
+          <th>Chinese Meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>.tag-wrap</code> / <code>.article-tag-list-link</code></td>
+          <td><code>\e622</code></td>
+          <td>Tag</td>
+      </tr>
+      <tr>
+          <td><code>.category-wrap</code> / <code>.article-category-link</code></td>
+          <td><code>\e604</code></td>
+          <td>Category</td>
+      </tr>
+      <tr>
+          <td><code>.article-date-link</code></td>
+          <td><code>\e606</code></td>
+          <td>Date</td>
+      </tr>
+      <tr>
+          <td><code>.article-comment-link</code></td>
+          <td><code>\e608</code></td>
+          <td>Comment</td>
+      </tr>
+      <tr>
+          <td><code>.icon-copyright</code></td>
+          <td><code>\e60a</code></td>
+          <td>Copyright</td>
+      </tr>
+      <tr>
+          <td><code>.icon-brush</code></td>
+          <td><code>\e618</code></td>
+          <td>Brush / Beautify</td>
+      </tr>
+      <tr>
+          <td><code>.icon-coffee</code></td>
+          <td><code>\e607</code></td>
+          <td>Coffee</td>
+      </tr>
+      <tr>
+          <td><code>.icon-eye</code></td>
+          <td><code>\e60f</code></td>
+          <td>View / Browse</td>
+      </tr>
+      <tr>
+          <td><code>.icon-user</code></td>
+          <td><code>\e628</code></td>
+          <td>User</td>
+      </tr>
+      <tr>
+          <td><code>#main-nav-toggle</code></td>
+          <td><code>\e62f</code></td>
+          <td>Navigation menu toggle</td>
+      </tr>
+      <tr>
+          <td><code>#nav-rss-link</code></td>
+          <td><code>\e61f</code></td>
+          <td>RSS subscription</td>
+      </tr>
+      <tr>
+          <td><code>#nav-search-btn</code> / <code>.reimu-search-input-icon</code></td>
+          <td><code>\e631</code></td>
+          <td>Search button</td>
+      </tr>
+      <tr>
+          <td><code>#nav-sun-btn</code></td>
+          <td><code>\e621</code></td>
+          <td>Sun icon (light theme)</td>
+      </tr>
+      <tr>
+          <td><code>#nav-moon-btn</code></td>
+          <td><code>\e617</code></td>
+          <td>Moon icon (dark theme)</td>
+      </tr>
+      <tr>
+          <td><code>#nav-circle-half-stroke-btn</code></td>
+          <td><code>\e641</code></td>
+          <td>Half-circle (theme toggle)</td>
+      </tr>
+      <tr>
+          <td><code>.icon-copy</code></td>
+          <td><code>\e60c</code></td>
+          <td>Copy</td>
+      </tr>
+      <tr>
+          <td><code>.icon-chevron-down</code></td>
+          <td><code>\e609</code></td>
+          <td>Down arrow</td>
+      </tr>
+      <tr>
+          <td><code>.icon-check</code></td>
+          <td><code>\e636</code></td>
+          <td>Checkmark / Confirm</td>
+      </tr>
+      <tr>
+          <td><code>.icon-times</code></td>
+          <td><code>\e637</code></td>
+          <td>Cross / Close</td>
+      </tr>
+      <tr>
+          <td><code>.icon-calendar</code></td>
+          <td><code>\e605</code></td>
+          <td>Calendar</td>
+      </tr>
+      <tr>
+          <td><code>.icon-pencil</code></td>
+          <td><code>\e61b</code></td>
+          <td>Pencil / Edit</td>
+      </tr>
+      <tr>
+          <td><code>.icon-clock</code></td>
+          <td><code>\e613</code></td>
+          <td>Clock</td>
+      </tr>
+      <tr>
+          <td><code>.post-sticky</code></td>
+          <td><code>\e627</code></td>
+          <td>Pinned</td>
+      </tr>
+      <tr>
+          <td><code>.reimu-popup .popup-btn-close</code></td>
+          <td><code>\e626</code></td>
+          <td>Popup close</td>
+      </tr>
+      <tr>
+          <td><code>.ais-pagination--item__previous</code></td>
+          <td><code>\e601</code></td>
+          <td>Previous page</td>
+      </tr>
+      <tr>
+          <td><code>.ais-pagination--item__next</code></td>
+          <td><code>\e630</code></td>
+          <td>Next page</td>
+      </tr>
+      <tr>
+          <td><code>.icon-github</code></td>
+          <td><code>\e619</code></td>
+          <td>GitHub icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-google</code></td>
+          <td><code>\e611</code></td>
+          <td>Google icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-facebook</code></td>
+          <td><code>\e60e</code></td>
+          <td>Facebook icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-twitter</code></td>
+          <td><code>\e62a</code></td>
+          <td>Twitter icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-instagram</code></td>
+          <td><code>\e615</code></td>
+          <td>Instagram icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-linkedin</code></td>
+          <td><code>\e614</code></td>
+          <td>LinkedIn icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-pinterest</code></td>
+          <td><code>\e61a</code></td>
+          <td>Pinterest icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-youtube</code></td>
+          <td><code>\e62d</code></td>
+          <td>YouTube icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-vimeo</code></td>
+          <td><code>\e629</code></td>
+          <td>Vimeo icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-flickr</code></td>
+          <td><code>\e612</code></td>
+          <td>Flickr icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-dribbble</code></td>
+          <td><code>\e610</code></td>
+          <td>Dribbble icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-behance</code></td>
+          <td><code>\e602</code></td>
+          <td>Behance icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-bilibili</code></td>
+          <td><code>\e603</code></td>
+          <td>Bilibili icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-weibo</code></td>
+          <td><code>\e62c</code></td>
+          <td>Weibo icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-zhihu</code></td>
+          <td><code>\e62e</code></td>
+          <td>Zhihu icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-reddit</code></td>
+          <td><code>\e61c</code></td>
+          <td>Reddit icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-tumblr</code></td>
+          <td><code>\e625</code></td>
+          <td>Tumblr icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-medium</code></td>
+          <td><code>\e616</code></td>
+          <td>Medium icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-deviantart</code></td>
+          <td><code>\e60b</code></td>
+          <td>DeviantArt icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-stackoverflow</code></td>
+          <td><code>\e620</code></td>
+          <td>StackOverflow icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-keybase</code></td>
+          <td><code>\e61e</code></td>
+          <td>Keybase icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-telegram</code></td>
+          <td><code>\e623</code></td>
+          <td>Telegram icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-discord</code></td>
+          <td><code>\e60d</code></td>
+          <td>Discord icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-steam</code></td>
+          <td><code>\e624</code></td>
+          <td>Steam icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-email</code></td>
+          <td><code>\e63c</code></td>
+          <td>Email</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-toc-btn</code></td>
+          <td><code>\e633</code></td>
+          <td>Table of Contents button</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-common-btn</code></td>
+          <td><code>\e632</code></td>
+          <td>Sidebar common button</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-top .arrow-up</code></td>
+          <td><code>\e634</code></td>
+          <td>Up arrow</td>
+      </tr>
+      <tr>
+          <td><code>.icon-link</code></td>
+          <td><code>\e639</code></td>
+          <td>Link</td>
+      </tr>
+      <tr>
+          <td><code>.icon-globe</code></td>
+          <td><code>\e638</code></td>
+          <td>Globe / Multilingual</td>
+      </tr>
+      <tr>
+          <td><code>.icon-creative-commons</code></td>
+          <td><code>\e63a</code></td>
+          <td>Creative Commons license</td>
+      </tr>
+      <tr>
+          <td><code>.icon-taichi</code></td>
+          <td><code>\e62b</code></td>
+          <td>Taichi (dark mode)</td>
+      </tr>
+      <tr>
+          <td><code>.icon-weixin</code></td>
+          <td><code>\e640</code></td>
+          <td>WeChat icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-qq</code></td>
+          <td><code>\e63e</code></td>
+          <td>QQ icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-image</code></td>
+          <td><code>\e63f</code></td>
+          <td>Image icon</td>
+      </tr>
+  </tbody>
+</table>
+
+        <hr><p>本文 2025-04-15 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item><item><title>Windows Customization Journey</title><link>https://guzhengsvt.cn/en/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link><pubDate>Sat, 07 Sep 2024 21:12:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid><description><![CDATA[<h1>Windows Customization Journey</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="preface">
+<a class="header-anchor" href="#preface"></a>
+Preface
+</h2><p>As the saying goes, <strong>the pinnacle of customization is the default</strong>.</p>
+<p>While the default Windows setup can efficiently handle all tasks, it’s undeniably <em>ugly</em>.</p>
+<p>With a performance-overkill PC at hand, it’s entirely justified to pursue some aesthetic refinements and simplifications to satisfy my <del>high-end taste</del> (lol).</p>
+<p>Below, I’ll share the customization software/solutions I’m currently using or have tried.</p>
+<h2 id="current-desktop-setup">
+<a class="header-anchor" href="#current-desktop-setup"></a>
+Current Desktop Setup
+</h2><ul>
+<li><strong>TranslucentTB</strong>: Transparent/acrylic taskbar effects</li>
+<li><strong>Sapphire</strong>: Desktop icon interaction optimization</li>
+<li><strong>Wallpaper Engine</strong>: To minimize GPU and memory usage, I’ve chosen a 4K video of Noa’s memory lobby from <em>Blue Archive</em> as the wallpaper. The entire Wallpaper Engine process consumes about 100 MB of RAM.</li>
+<li><strong>Rainmeter</strong>: Only using an audio visualizer for aesthetics because Noa is already beautiful enough 😋.<br>
+Previously tried hardware monitoring widgets but found them useless except for inducing anxiety—so I ditched them.</li>
+<li><strong>QQ customization</strong>, <strong>NetEase Cloud Music customization</strong>, <strong>cursor customization</strong>, <strong>Obsidian themes and plugins</strong>, plus <strong>Edge browser’s iTab new tab page</strong> and various practical extensions. My current workflow is perfectly comfortable.</li>
+</ul>
+<p>Here are some screenshots:<br>
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/4189283242.png" alt="Desktop Showcase 1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/1078908045.png" alt="Desktop Showcase 2.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2569059367.png" alt="QQ Customization Showcase.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2176031375.png" alt="Edge Showcase.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/994680139.png" alt="Obsidian Showcase.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/130206377.png" alt="Task Manager Showcase.png"></p>
+<p>Under this workflow, the browser consumes the most memory, while Wallpaper Engine is the primary GPU load. From login to full autostart, it takes under 10 seconds, all within acceptable performance limits.</p>
+<p><strong>Specs:</strong></p>
+<ul>
+<li>12400 F</li>
+<li>7700 XT</li>
+<li>32G DDR4</li>
+<li>2K 180Hz HDR display</li>
+<li>Windows 11 Pro 23H2</li>
+</ul>
+<h2 id="qq-customization">
+<a class="header-anchor" href="#qq-customization"></a>
+QQ Customization
+</h2><p>==Highly recommended!==<br>
+QQ is something most Chinese people are forced to use yet despise—ads, pop-ups, unwanted entertainment pages, and a cluttered, dysfunctional interface.<br>
+The Windows client improved somewhat with QQ 9, but the annoying elements are creeping back. Old habits die hard.<br>
+To avoid enduring this daily torture, the great open-source-minded tinkerers of the Chinese internet have launched QQ overhaul projects. Today, I’ll introduce one such masterpiece: <strong>LiteLoaderQQNT</strong>.</p>
+<p>LiteLoader is a plugin platform for QQNT. After installation, you can download numerous plugins.<br>
+GitHub project: <a href="https://github.com/LiteLoaderQQNT/LiteLoaderQQNT">LiteLoaderQQNT: QQNT Plugin Loader: Lightweight · Minimalist · Open-Source · Furry</a></p>
+<p>Recommended plugins:</p>
+<ol>
+<li><a href="https://github.com/xinyihl/LiteLoaderQQNT-PluginInstaller/tree/main">PluginInstaller</a>: LiteLoaderQQNT plugin installer for easy updates and one-click install/restart. Install this first to simplify adding other plugins.</li>
+<li><a href="https://github.com/ltxhhz/LL-plugin-list-viewer/tree/main">LL-plugin-list-viewer</a>: Browse, install, and update LiteLoaderQQNT plugins. Lists most plugins with direct GitHub links. Installation is buggy—some plugins require manual setup, or QQ may fail to start. Best used as a plugin/theme viewer.</li>
+<li><a href="https://github.com/xiyuesaves/LiteLoaderQQNT-lite_tools/tree/v4">Lite Tools</a>: A multi-functional toolbox to avoid hunting for plugins. Key features:
+<ul>
+<li><strong>Chat interface美化</strong> (Telegram-style: avatars, timestamps, left-aligned messages)</li>
+<li>Remove badges, VIP tags, and other clutter.</li>
+<li>Right-click quick search for text/images, message-to-image conversion.</li>
+<li>Highlight options and special messages.</li>
+<li><strong>Mini-program links → URL cards</strong>, remember last position, quick &ldquo;+1&rdquo; (repeater).</li>
+<li><strong>Message preview</strong>: Generates Telegram-like preview cards from the first link in a message.</li>
+<li>Local emojis.</li>
+<li>Message suffixes.</li>
+<li><strong>Cache and highlight recalled messages</strong>.</li>
+<li><strong>Custom backgrounds</strong> with brightness, transparency, and blur effects.</li>
+<li><strong>Simplify sidebar</strong> (all features toggleable).</li>
+<li>Input box and message box toggles.</li>
+<li>…and more.</li>
+</ul>
+</li>
+<li><a href="https://github.com/xh321/LiteLoaderQQNT-QR-Decode/tree/master">QR Decode</a>: Decodes QR codes in QQNT chat images.</li>
+<li><a href="https://github.com/xh321/LiteLoaderQQNT-Directly-Jump/tree/master">Directly Jump</a>: Skips QQ’s link warning page.</li>
+<li><a href="https://github.com/MUKAPP/LiteLoaderQQNT-DeepL/tree/main">DeepL for QQNT</a>: Integrates DeepL translation.</li>
+<li><a href="https://github.com/d0j1a1701/LiteLoaderQQNT-Markdown/tree/v4">Markdown</a>: Adds Markdown support. Only renders for other QQNT users with this plugin, so mostly useless.</li>
+<li><a href="https://github.com/xh321/LiteLoaderQQNT-Kill-Update/tree/master">Kill-Update</a>: Blocks QQ update prompts (some plugins lag behind QQ updates).</li>
+<li><a href="https://github.com/mo-jinran/window-on-top/tree/v4">Window On Top</a>: Adds window pinning.</li>
+</ol>
+<p>Themes aren’t covered here—a decluttered QQNT is already decent-looking.<br>
+There are also AI plugins (e.g., ChatGPT), but I’m too lazy to set up APIs (<del>no money</del>).</p>
+<h2 id="netease-cloud-music-customization">
+<a class="header-anchor" href="#netease-cloud-music-customization"></a>
+NetEase Cloud Music Customization
+</h2><p>==Highly recommended!==<br>
+China’s music platforms love bloat: communities, short videos, VIP spam.<br>
+A music app needs just a few core features. While standalone players exist, they lack platform perks like song searches, comments, and collaborative listening. Sunk costs (playlists, artist follows, purchases) trap users in these ecosystems.</p>
+<p>Thankfully, NetEase Cloud Music has plugins. Here’s the loader: <strong>BetterNCM</strong></p>
+<ul>
+<li>Official site: <a href="https://microblock.cc/betterncm">MicroBlock | BetterNCM</a></li>
+<li>GitHub: <a href="https://github.com/MicroCBer/BetterNCM">GitHub - MicroCBer/BetterNCM</a></li>
+<li>Community guide: <a href="https://v2e2npdz15.feishu.cn/docx/UZkSd9d46o4fVOxaPNBcGXSenme">Feishu Doc</a></li>
+</ul>
+<p>BetterNCM lets you download/update themes and plugins in-app—no GitHub scavenger hunts.</p>
+<p><strong>Recommended themes:</strong></p>
+<ul>
+<li><strong>Materia You</strong>: Minimalist, solid-color backgrounds. Multiple color schemes.<br>
+<img src="https://guzhengsvt.top/usr/uploads/2024/09/1596889912.png" alt="Materia You.png"></li>
+</ul>
+<p><strong>Recommended plugins:</strong></p>
+<ol>
+<li>
+<p><strong>RoundCornerNCM</strong>: Rounded corners (Windows 11 only).</p>
+</li>
+<li>
+<p><strong>MikuPlugin</strong>: Toggles UI elements (e.g., hide videos/livestreams).<br>
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/439024086.png" alt="MikuPlugin.png"></p>
+</li>
+<li>
+<p><strong>Apple-Style Lyrics</strong>: Apple Music-like layout + lyric source switching.<br>
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/663279809.png" alt="Apple Lyrics.png"></p>
+</li>
+<li>
+<p><strong>What’s This Cover?</strong>: Adds thumbnails to song lists (may cause lag).<br>
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/1807448404.png" alt="Cover Plugin.png"></p>
+</li>
+<li>
+<p><strong>RuLyrics</strong>: Desktop lyrics (word-by-word, dual-line). Custom fonts/colors. Taskbar embedding (may conflict with TranslucentTB).<br>
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/285235071.png" alt="Desktop Lyrics.png"></p>
+</li>
+<li>
+<p>Explore more plugins—but check GitHub Issues for conflicts/dependencies.</p>
+</li>
+</ol>
+<h2 id="wallpaper-engine">
+<a class="header-anchor" href="#wallpaper-engine"></a>
+Wallpaper Engine
+</h2><p>==Essential!==<br>
+The legendary <em>Steam小红车</em>.</p>
+<p>Pros:</p>
+<ul>
+<li><strong>Vast library</strong>: Steam Workshop offers endless free wallpapers.</li>
+<li><strong>Diversity</strong>: Videos, GIFs, web pages, etc. Many include extras like music visualizers.</li>
+<li><strong>Easy discovery</strong>: Filter by resolution, type, age rating, etc.</li>
+<li><strong>User-friendly</strong>: Steam integration means no VPNs. Most wallpapers are plug-and-play.</li>
+<li><strong>Mobile sync</strong>: Android app mirrors PC wallpapers.</li>
+</ul>
+<p><strong>Warning</strong>: Complex web/4K wallpapers can hog GPU/VRAM. Tweak FPS/effects in settings.</p>
+<p>Only con: Costs 19 RMB on Steam—a fair price.</p>
+<p><a href="https://store.steampowered.com/app/431960/Wallpaper_Engine/">Steam Store Page</a></p>
+<h2 id="translucenttb">
+<a class="header-anchor" href="#translucenttb"></a>
+TranslucentTB
+</h2><p>==Highly recommended!==<br>
+Tiny tool for transparent/acrylic taskbars. Minimal resource usage.</p>
+<p>GitHub: <a href="https://github.com/TranslucentTB/TranslucentTB">TranslucentTB</a><br>
+Chinese localization: <a href="https://github.com/kasuganosoras/TranslucentTB-CN">TranslucentTB-CN</a></p>
+<h2 id="rainmeter">
+<a class="header-anchor" href="#rainmeter"></a>
+Rainmeter
+</h2><p>==Highly recommended!==<br>
+The OG desktop widget tool. Create or import <strong>skins</strong> for:</p>
+<ul>
+<li>Hardware monitors (CPU/GPU/RAM)</li>
+<li>Audio visualizers</li>
+<li>Media players</li>
+<li>Anime trackers</li>
+<li>Image galleries</li>
+<li>etc.</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>Too many widgets = lag</li>
+<li>Some skins are resource-heavy</li>
+<li>Requires tinkering</li>
+</ul>
+<p>Official site: <a href="https://www.rainmeter.net/">Rainmeter</a><br>
+Chinese site: <a href="https://rainmeter.cn/">Rainmeter.cn</a><br>
+GitHub: <a href="https://github.com/rainmeter/rainmeter">Rainmeter</a><br>
+Chinese forum: <a href="https://bbs.rainmeter.cn/">BBS</a></p>
+<h2 id="start11">
+<a class="header-anchor" href="#start11"></a>
+Start11
+</h2><p>Start menu/taskbar customizer:</p>
+<ul>
+<li>Revert to Win7/10 styles. Adjust colors, transparency, spacing, alignment.</li>
+<li><strong>Enhanced search</strong>: Integrates Edge tabs into results. Option to hide web content!</li>
+<li>Custom start button icons, menu backgrounds, taskbar textures.</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>Paid (35 RMB lifetime, 30-day trial).</li>
+<li>Felt sluggish for me.</li>
+<li>Conflicts with TranslucentTB.</li>
+</ul>
+<p>Official site: <a href="https://stardock-start11.com/">Start11</a><br>
+Chinese site: <a href="https://www.start11.cn/">Start11.cn</a><br>
+Steam (mixed reviews): <a href="https://store.steampowered.com/app/1694750/Start11_v2/">Start11 v2</a></p>
+<h2 id="maple-customization-toolbox">
+<a class="header-anchor" href="#maple-customization-toolbox"></a>
+Maple Customization Toolbox
+</h2><p>File Explorer/Start menu/window美化:<br>
+Features:</p>
+<ul>
+<li>Custom fonts, light/dark modes (experimental).</li>
+<li><strong>Background images</strong> for Explorer/Start Menu/Settings.</li>
+<li>Color schemes (title bars, headers, progress bars).</li>
+<li>Icon packs (desktop/Explorer).</li>
+<li><strong>Window effects</strong>: Transparency, blur, acrylic, Mica.</li>
+<li><strong>Title bar buttons</strong>: macOS-style, rounded tabs, scrollbars.</li>
+<li>Preset sharing.</li>
+<li>Plugins for extended functionality.</li>
+</ul>
+<p>Evaluation:</p>
+<ul>
+<li>Easy to use, moderate resource usage.</li>
+<li>Plugins/configs add replayability.</li>
+<li><strong>Incompatible with TranslucentTB</strong>.</li>
+<li>Explorer crashes, missing backgrounds, unthemed toolbars (may be fixed).</li>
+<li>Low-res backgrounds. Dark mode images can obscure text.</li>
+<li>Free but not fully open-source (account required).</li>
+</ul>
+<p>Download: <a href="https://winmoes.com/tools/12948.html">枫の主题社</a></p>
+<h2 id="sapphire">
+<a class="header-anchor" href="#sapphire"></a>
+Sapphire
+</h2><p>==Highly recommended!==<br>
+Desktop icon/layout overhaul. <strong>Revamps interaction</strong>:</p>
+<ul>
+<li>Adjust grid spacing.</li>
+<li><strong>Folders-as-grids</strong> (phone-style).</li>
+<li>Custom icon/grid size, rounding, transparency.</li>
+<li>Font changes.</li>
+<li><strong>Minimal mode</strong> (hide filenames).</li>
+<li>Animations.</li>
+<li><strong>Dock栏</strong> (Mac/phone-style, vertical/horizontal).</li>
+<li><strong>Folder previews</strong> (hover to peek, click to expand in-place).</li>
+<li><strong>Steam shortcut optimization</strong>.</li>
+<li><strong>Double-click to hide icons</strong> (per-item toggle).</li>
+<li>~100 MB RAM, negligible GPU.</li>
+<li>Custom wallpapers (partial Wallpaper Engine support).</li>
+<li>Multi-monitor.</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li><strong>Advanced folder preview crashes with many files</strong> (awaiting fixes).</li>
+<li>No layout saving (though crashes don’t reset it).</li>
+<li>Windows 11 only.</li>
+<li>Overrides desktop right-click (no customization yet).</li>
+</ul>
+<p>GitHub: <a href="https://github.com/hymnly133/Sapphire-EnhancedDesktop">Sapphire-EnhancedDesktop</a></p>
+<h2 id="cursor-customization">
+<a class="header-anchor" href="#cursor-customization"></a>
+Cursor Customization
+</h2><p>Many cursor packs are shared online. Pick your vibe. Installation is simple.</p>
+<p>Two recommendations (subtle yet unique):</p>
+<ol>
+<li><strong>Genshin Nahida cursor</strong>: <a href="https://www.bilibili.com/video/BV14P411c7ap/">Bilibili video</a></li>
+<li><strong>Blue Archive Millennium cursor</strong> (simple/cute, currently using):<br>
+GitHub: <a href="https://github.com/makipom/BlueArchive-Cursors">BlueArchive-Cursors</a></li>
+</ol>
+        <hr><p>本文 2024-09-07 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2024-09-07</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item><item><title>Automatic Dial-up Internet Connection and Task Scheduler</title><link>https://guzhengsvt.cn/en/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</link><pubDate>Wed, 12 Jun 2024 19:34:52 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</guid><description><![CDATA[<h1>Automatic Dial-up Internet Connection and Task Scheduler</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="annoying-network-shenanigans">
+<a class="header-anchor" href="#annoying-network-shenanigans"></a>
+Annoying Network Shenanigans
+</h2><p>My desktop connects to the campus network via Ethernet but requires dial-up to get online. <strong>Hilariously</strong>, Tencent’s ancient, never-updated TIM client throws an error popup if it tries to log in without an internet connection.<br>
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2343467847.png" alt="TIM Error"></p>
+<p>Every time I boot up, I have to manually enable dial-up in the settings. TIM’s auto-start feature kicks in first, triggering the error and making the auto-start function look <strong>comically</strong> useless.</p>
+<p>So, I wrote a batch script to auto-connect and set it to run at startup via Task Manager. But it launches at the same priority as TIM, often failing to establish the connection before TIM auto-logins and throws the error.</p>
+<p>The workaround? Using Task Scheduler to delay TIM’s launch by 15 seconds after the auto-connect script runs.<br>
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2593746197.png" alt="Delayed TIM Startup"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2438765248.png" alt="Reconnect Script"><br>
+<em>(For convenience, I placed the batch file in the Startup folder. The hidden, highest-priority Task Scheduler job kept failing because <strong>brilliant</strong> Huorong security blocked undetectable scheduled tasks. After several debugging attempts where the script only ran after login, I almost thought my settings were wrong.)</em><br>
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2362191046.png" alt="Hilarious Huorong"></p>
+<p>Now, my ¥68 fingerprint reader feels <strong>utterly pointless</strong>.<br>
+Wondering if any tech-savvy folks in my contacts have a better solution.</p>
+<p>I do have a wireless card, but it’s unreliable. The campus network often requires web authentication. My VPN auto-start clashes with this—I have to:</p>
+<ol>
+<li>Disable VPN → 2. Complete web auth → 3. Re-enable VPN → 4. Close TIM’s error → 5. Restart TIM.<br>
+Infuriating doesn’t even begin to cover it.</li>
+</ol>
+<hr>
+<h2 id="dial-up-script">
+<a class="header-anchor" href="#dial-up-script"></a>
+Dial-Up Script
+</h2><p>Create a text file (<code>.txt</code>), paste the following, <strong>save it</strong>, then rename with a desired title (e.g., <code>reconnect_internet</code>, preferably in English) and change the extension to <code>.bat</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bat" data-lang="bat"><span class="line"><span class="cl">rasdial <span class="s2">&#34;Your_Connection_Name&#34;</span> <span class="s2">&#34;Username&#34;</span> <span class="s2">&#34;Password&#34;</span>
+</span></span></code></pre></div><h2 id="auto-dial-on-boot--reconnect">
+<a class="header-anchor" href="#auto-dial-on-boot--reconnect"></a>
+Auto-Dial on Boot &amp; Reconnect
+</h2><ol>
+<li>Right-click Windows icon (Start) → <strong>Computer Management</strong> → <strong>Task Scheduler</strong> → <strong>Task Scheduler Library</strong>.</li>
+<li><strong>Create Task</strong> → Set name (e.g., &ldquo;Reconnect&rdquo;) →
+<ul>
+<li>Run whether user is logged on or not →</li>
+<li>Run with highest privileges (optional) →</li>
+<li><strong>DO NOT HIDE!</strong> →</li>
+<li>Configure for your OS (e.g., Windows 11 users select Windows 10).</li>
+</ul>
+</li>
+<li><strong>Triggers</strong> → New →
+<ul>
+<li>At startup (for auto-connect).</li>
+<li>New → On event →
+<ul>
+<li>Log: <strong>Application</strong> (scroll to second-last) →</li>
+<li>Source: <strong>RasClient</strong> → OK (for auto-reconnect).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Actions</strong> → New → Start program → Browse to select your <code>.bat</code> → OK.</li>
+</ol>
+<p>Confirm (requires entering your Microsoft account password, not PIN. If errors persist, check the &ldquo;General&rdquo; tab for correct user account matching.)</p>
+
+        <hr><p>本文 2024-06-12 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2024-06-12</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item><item><title>Obsidian Basics</title><link>https://guzhengsvt.cn/en/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</link><pubDate>Tue, 27 Jun 2023 00:41:26 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</guid><description><![CDATA[<h1>Obsidian Basics</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p><a href="https://publish.obsidian.md/help-zh/%E7%94%B1%E6%AD%A4%E5%BC%80%E5%A7%8B">Obsidian Chinese Help</a></p>
+<h1 id="interface">
+<a class="header-anchor" href="#interface"></a>
+Interface
+</h1><p><a href="https://zhuanlan.zhihu.com/p/428519519">Want to master Obsidian in one hour? This guide is all you need. [Complete Step-by-Step Obsidian Tutorial] - Zhihu</a><br>
+Create vault folder → Create note category folders within vault → Organize notes<br>
+Obsidian Help<br>
+Top bar of notes → Vertical three-dot menu → Split view<br>
+<a href="https://zhuanlan.zhihu.com/p/409409946">Wyatt: Building Your Workspace [Complete Step-by-Step Obsidian Tutorial] 216 upvotes · 7 comments<img src="https://pic1.zhimg.com/v2-2323eabf712e3ebaae40c322ec18dde0_180x120.jpg" alt=""></a><br>
+View outline in top-left corner</p>
+<h1 id="plugins-to-be-explored">
+<a class="header-anchor" href="#plugins-to-be-explored"></a>
+Plugins (To Be Explored)
+</h1><p><a href="https://zhuanlan.zhihu.com/p/403001135">Wyatt: How to Install Plugins? [Complete Step-by-Step Obsidian Tutorial] 264 upvotes · 63 comments<img src="https://pic2.zhimg.com/v2-51f1cdbc1b5891f62958cdb379dc5561_180x120.jpg" alt=""></a></p>
+<h1 id="text-formatting">
+<a class="header-anchor" href="#text-formatting"></a>
+Text Formatting
+</h1><p>Use <code># + space</code> for headings. More <code>#</code> = lower heading level.</p>
+<h3 id="emphasis">
+<a class="header-anchor" href="#emphasis"></a>
+Emphasis
+</h3><p><em>Italic</em><br>
+<em>Alternative italic syntax (English underscores)</em></p>
+<h3 id="bold">
+<a class="header-anchor" href="#bold"></a>
+Bold
+</h3><p><strong>Bold example (double asterisks)</strong><br>
+<strong>Or double underscores</strong></p>
+<h3 id="combined-usage">
+<a class="header-anchor" href="#combined-usage"></a>
+Combined Usage
+</h3><p><em>This is <strong>italic + bold</strong></em></p>
+<h3 id="strikethrough">
+<a class="header-anchor" href="#strikethrough"></a>
+Strikethrough
+</h3><p><del>Since we&rsquo;re pursuing excitement, let&rsquo;s go all the way</del></p>
+<h3 id="highlight">
+<a class="header-anchor" href="#highlight"></a>
+Highlight
+</h3><p>==Sparse shadows slant across clear shallow water; subtle fragrance wafts under moonlit dusk==</p>
+<h3 id="footnotes">
+<a class="header-anchor" href="#footnotes"></a>
+Footnotes
+</h3><p>Text<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>Text</p>
+<h3 id="comments">
+<a class="header-anchor" href="#comments"></a>
+Comments
+</h3><ul>
+<li>Inline comments<br>
+%%This is an inline comment%%</li>
+<li>Multi-line comments<br>
+%%<br>
+You are the mist of an April dawn<br>
+Twilight carries the softness of wind<br>
+Stars twinkle unintentionally<br>
+Fine rain dots the flowers<br>
+%%</li>
+</ul>
+<h1 id="lists">
+<a class="header-anchor" href="#lists"></a>
+Lists
+</h1><ul>
+<li>Unordered list
+<ul>
+<li>Hyphen + space</li>
+<li>Tab + hyphen + space to indent as sub-item</li>
+</ul>
+</li>
+<li>Ordered list
+<ol>
+<li>Number + period + space</li>
+<li>Similarly, tab + number + period + space for indentation</li>
+<li></li>
+</ol>
+</li>
+</ul>
+<h1 id="images">
+<a class="header-anchor" href="#images"></a>
+Images
+</h1><ul>
+<li>$$![Engelbart](image_URL)$$</li>
+<li>![[Pasted image 20230625203344.png]]</li>
+<li>Adjust width
+<ul>
+<li>$$![Engelbart|100](image_link)$$</li>
+<li>![[Pasted image 20230625203536.png]]</li>
+</ul>
+</li>
+</ul>
+<h1 id="external-links">
+<a class="header-anchor" href="#external-links"></a>
+External Links
+</h1><h3 id="linking-to-notesimages-in-vault">
+<a class="header-anchor" href="#linking-to-notesimages-in-vault"></a>
+Linking to notes/images in vault
+</h3><ul>
+<li>$http://obsidian.md - automatic!$
+<ul>
+<li><em>Web link (URL displayed as-is, $ for formatting only)</em></li>
+</ul>
+</li>
+<li>$[obsidian](http://obsidian.md)$
+<ul>
+<li><em>Web link (display text in brackets)</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="obsidian-url">
+<a class="header-anchor" href="#obsidian-url"></a>
+Obsidian URL
+</h3><p>Obsidian URIs typically follow this format:<br>
+</p>
+$$obsidian://action?param1=value&param2=value$$<p><br>
+Where <code>action</code> specifies the operation and <code>value</code> are parameters.<br>
+Example for opening a note:<br>
+</p>
+$$[Note name alias](obsidian://open?path=absolute_note_path)$$<p><br>
+<strong>Note: Use correct brackets/colons (Chinese/English)</strong><br>
+Example:<br>
+<a href="#ZgotmplZ">Open Calculus</a><br>
+Here, <code>path</code> requires absolute file path.</p>
+<ul>
+<li><em>Open vault (folder only, no specific file)</em><br>
+$$[name](obsidian://open?vault=vault_name/vault_ID)$$<br>
+<a href="#ZgotmplZ">Open Notes Folder</a></li>
+<li><em>Open Calculus under Math folder (<strong>.md</strong> extension optional)</em><br>
+<a href="#ZgotmplZ">Calculus</a></li>
+</ul>
+<h3 id="others">
+<a class="header-anchor" href="#others"></a>
+Others
+</h3><ul>
+<li>
+<p>Escape spaces in URLs as <code>%20</code></p>
+<ul>
+<li>The <code>%</code> in <code>%20</code> must be escaped as <code>\%</code></li>
+</ul>
+</li>
+<li>
+<p>Alternatively, wrap space-containing content with <code>&lt;&gt;</code></p>
+</li>
+<li>
+<p>Blockquote<br>
+</p>
+$$> Quoted content$$<p><br>
+</p>
+$$\ Source$$<p><br>
+Example:</p>
+</li>
+</ul>
+<blockquote>
+<p>Time is a one-way journey; both good and bad are scenery.<br>
+\ — &ldquo;Time Thief&rdquo; by Jin Wenqi</p></blockquote>
+<ul>
+<li>
+<p>Inline code<br>
+<code>#include&lt;stdc++.h&gt;</code></p>
+</li>
+<li>
+<p>Code block<br>
+<em>Obsidian recognizes content wrapped in six backticks as code blocks and formats them accordingly. Code blocks support syntax highlighting—declare the language on the first line (after opening backticks) for specific highlighting.</em></p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include&lt;stdc++.h&gt;  
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="n">b</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">b</span><span class="o">++</span><span class="p">){</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="o">+=</span><span class="n">b</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span></code></pre></div><p><a href="https://en.wikipedia.org/wiki/Percent-encoding">More encoding standards</a></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Corresponding footnote<br>
+Footnotes can span multiple lines using indentation&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        <hr><p>本文 2023-06-27 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2023-06-27</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item></channel></rss>

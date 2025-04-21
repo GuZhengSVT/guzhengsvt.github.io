@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/en/tags/hugo/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All website licensed under CC BY 4.0</copyright><lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/en/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>Typecho Comments Import to Waline</title><link>https://guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description><![CDATA[<h1>Typecho Comments Import to Waline</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p>A couple of days ago, I migrated my blog posts from Typecho to Hugo. Just setting up the Front Matter parameters and reconfiguring image links took considerable effort.<br>
+The value of a blog lies first in its articles, followed closely by its comments. Comments are proof that the blog has made an impact in both the digital and real worlds, carrying the interactions between people. More personally, comments from all corners of the globe are precious memories and a part of what makes &ldquo;me&rdquo;.<br>
+Thus, it&rsquo;s essential to copy the original comments to the corresponding articles on the new site.</p>
+<h2 id="configuring-waline">
+<a class="header-anchor" href="#configuring-waline"></a>
+Configuring Waline
+</h2><p>Unlike dynamic blogs like WordPress or Typecho, static blogs can only rely on external comment systems. There are many options, each with its pros and cons. After referring to <a href="https://cloud.tencent.com/developer/article/2196035">this article</a> and checking the official websites of various comment systems, I ultimately chose <a href="https://waline.js.org">Waline</a>.<br>
+Waline&rsquo;s <a href="https://waline.js.org/guide/get-started/">Chinese documentation</a> is detailed and comprehensive. After setting up the <a href="https://leancloud.app">LeanCloud</a> database and <a href="https://vercel.com/">Vercel</a> server, you can access the comment management dashboard at <code>https://&lt;your-server-domain&gt;/ui/</code>. Register as an administrator for the first time, where you can manage comments and users.</p>
+<h2 id="exporting-typecho-comments">
+<a class="header-anchor" href="#exporting-typecho-comments"></a>
+Exporting Typecho Comments
+</h2><p>Typecho is quite old, with a smaller user base compared to more active communities like Hexo or WordPress. There&rsquo;s also very little documentation available online.<br>
+The only solution I found was a plugin called <a href="https://github.com/lizheming/typecho-export-valine">Export2Valine</a> (also mentioned in Waline&rsquo;s documentation) by <a href="https://imnerd.org">Yi Hong Yuan Luo</a>, which exports Typecho comments to Valine.<br>
+However, it hasn&rsquo;t been updated in three years, and testing showed it only imports the first comment. Looking at the exported <code>jsonl</code> file, it&rsquo;s clear that all comment data was fully exported.</p>
+<p>First, install the plugin in Typecho (make sure to rename the plugin folder to &ldquo;Export2Valine&rdquo;!).</p>
+<p>Referencing <a href="https://www.imwxz.com/posts/74f52ab0.html">this article</a> about migrating from Typecho to Hexo, the plugin is outdated and requires some modifications.<br>
+Locate <code>Action.php</code> in the plugin folder and modify lines 42 onwards as follows (to track parent comments):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$arr</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;objectId&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;QQAvatar&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;comment&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;text&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;insertedAt&#34;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;__type&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;iso&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span>
+</span></span><span class="line"><span class="cl">  <span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;createdAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;updatedAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ip&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;ip&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;link&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;url&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;mail&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;mail&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;nick&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;author&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ua&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;agent&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;url&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;/</span><span class="si">{</span><span class="nv">$slug</span><span class="si">}</span><span class="s2">.html&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;pid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;rid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getRootId</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>No other changes are needed.<br>
+Next, go to Typecho&rsquo;s admin panel → Console → Export Comments. Open the downloaded <code>jsonl</code> file and delete the header line:<br>
+<code>#filetype:JSON-streaming {&quot;type&quot;:&quot;Class&quot;,&quot;class&quot;:&quot;Comment&quot;}\n\n</code>.<br>
+Save the file, close it, and change the file extension to <code>.json</code>.</p>
+<h2 id="fixing-the-json-format">
+<a class="header-anchor" href="#fixing-the-json-format"></a>
+Fixing the JSON Format
+</h2><p>The exported <code>jsonl</code> file contains escaped Chinese characters and is a single line, making it hard to read.<br>
+To convert it into a more readable, editable, and importable <code>json</code> format, use your editor&rsquo;s <strong>Find and Replace</strong> feature to replace <code>}\n{</code> with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span></code></pre></div><p>In Xcode, you can insert line breaks by clicking the small magnifying glass icon on the left.</p>
+<p>Now, each line represents one comment object.</p>
+<p>Similarly, to separate the fields within each comment object, replace <code>&quot;,&quot;</code> with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;</span>
+</span></span></code></pre></div><p>Now, each comment object contains multiple data fields, structured like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u6d4b\u8bd5\u4e00\u4e0b&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;4&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u600e\u4e48ip\u4e0d\u5bf9&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
+</span></span></code></pre></div><h3 id="common-field-descriptions">
+<a class="header-anchor" href="#common-field-descriptions"></a>
+Common Field Descriptions
+</h3><ol>
+<li><strong>objectId</strong>: Unique identifier for the comment (e.g., &ldquo;4&rdquo; or &ldquo;5&rdquo;)</li>
+<li><strong>QQAvatar</strong>: QQ avatar link (currently empty)</li>
+<li><strong>comment</strong>: Comment content (contains Unicode escape sequences, e.g., <code>\u600e\u4e48</code> means &ldquo;how&rdquo;)</li>
+<li><strong>insertedAt/createdAt/updatedAt</strong>: Timestamp (ISO 8601 format)</li>
+<li><strong>ip</strong>: Commenter&rsquo;s IP address</li>
+<li><strong>link</strong>: Link provided by the commenter (may be <code>null</code>)</li>
+<li><strong>mail</strong>: Commenter&rsquo;s email address</li>
+<li><strong>nick</strong>: Commenter&rsquo;s nickname</li>
+<li><strong>ua</strong>: User agent (browser/device info)</li>
+<li><strong>url</strong>: Relative path of the commented post</li>
+</ol>
+<h3 id="special-fields">
+<a class="header-anchor" href="#special-fields"></a>
+Special Fields
+</h3><ol start="11">
+<li><strong>pid</strong>: Parent comment ID</li>
+<li><strong>rid</strong>: Root comment ID</li>
+</ol>
+<p>If <code>&quot;link&quot;</code> is <code>null</code>, there&rsquo;s no line break between <code>&quot;link&quot;</code> and <code>&quot;mail&quot;</code>. JSON is insensitive to line breaks, so this can be ignored.<br>
+Now, wrap the entire content in <code>[ ]</code> at the beginning and end of the file, then save it.</p>
+<h2 id="modifying-comment-attributes">
+<a class="header-anchor" href="#modifying-comment-attributes"></a>
+Modifying Comment Attributes
+</h2><p>The file can now be imported into LeanCloud, but some adjustments are still needed.</p>
+<p><code>Export2Valine</code> sets the URL for comment associations as <code>\/slug</code>, e.g., <code>&quot;url&quot;: &quot;\/Summary-of-the-First-Semester-of-Junior-Year.html&quot;</code>, where <code>\/</code> is an escaped <code>/</code>.</p>
+<p>To link comments to the new blog&rsquo;s posts, manually update the <code>url</code> to match the new blog&rsquo;s post links.</p>
+<p>For example, my Hugo-generated site has folders like <code>zh-cn</code>, <code>zh-tw</code>, <code>en</code>, and <code>ja</code> (due to multi-language support). Chinese posts are under <code>/zh-cn/post/category/</code>.<br>
+In my local blog source files, posts are organized into folders by category, e.g., <code>/content/post/Thoughts/最近写的诗.md</code> generates a relative URL like <code>zh-cn/post/thoughts/最近写的诗</code>.</p>
+<p>If your new blog&rsquo;s posts are in the root directory with unchanged names, no URL modifications are needed.<br>
+If they&rsquo;re all under <code>/post/</code>, use Find and Replace to change:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/</span>
+</span></span></code></pre></div><p>to:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/post\/</span>
+</span></span></code></pre></div><p>For my case, I temporarily replaced it with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/post\/</span>
+</span></span></code></pre></div><p>Similarly, comments on standalone pages like &ldquo;Friends&rdquo; or &ldquo;Thoughts&rdquo; should be updated to their new relative URLs.<br>
+For example, the Friends page:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/links.html</span>
+</span></span></code></pre></div><p>should be replaced with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/friend\/</span>
+</span></span></code></pre></div><p>First, apply bulk replacements for <code>post</code> and standalone pages where possible. Otherwise, it&rsquo;ll be tedious to modify them after import.</p>
+<p>When using Find and Replace, try to target the largest common segments to avoid accidental changes.<br>
+<em><strong>Remember to escape <code>\/</code>!!!</strong></em></p>
+<h2 id="importing-to-leancloud">
+<a class="header-anchor" href="#importing-to-leancloud"></a>
+Importing to LeanCloud
+</h2><p>In LeanCloud&rsquo;s console → Data Storage → Import &amp; Export, select the modified JSON file, set <code>Class</code> to <code>Comment</code>, and import.</p>
+<p><em><strong>Note</strong></em>: If you&rsquo;ve previously tested Waline comments or attempted to import <code>Comment</code>, Waline may have already created the <code>Comment</code> class. Subsequent imports will fail silently (LeanCloud may claim success, but no new data appears).</p>
+<p>To fix this, go to the console → Structured Data, delete the <code>Comment</code> class, and try importing again. The LeanCloud page may not refresh immediately—use <code>Ctrl+F5</code> to force a cache refresh.</p>
+<p>After a successful import, manually adjust the <code>url</code> for each comment.<br>
+For example, my posts need to be categorized under <code>&quot;url&quot;:&quot;\/zh-cn\/post\/category\/</code>. Use LeanCloud&rsquo;s <strong>batch operations</strong> and <strong>filtering</strong> features to streamline this process.</p>
+<h2 id="afterword">
+<a class="header-anchor" href="#afterword"></a>
+Afterword
+</h2><p>Organizing comments didn&rsquo;t take too long—120 comments, mostly my own musings on the &ldquo;Thoughts&rdquo; page, allowed for bulk URL fixes. The handful of reader comments were scattered across just a few posts, making them easy to update via filtering. Whether that&rsquo;s a good or bad thing, I’m not sure (laughs).</p>
+<p>Whether they&rsquo;re my soliloquies or others&rsquo; remarks, each comment holds unique significance. Revisiting them periodically brings new reflections.<br>
+As I said at the beginning, they&rsquo;re traces of my growth, proof of my existence, and part of &ldquo;me&rdquo;.</p>
+<p>And you, dear reader, are the one who gives me value.</p>
+<p>If you have time, please leave a comment—it’ll genuinely make my day (as long as it’s kind, of course).</p>
+        <hr><p>本文 2025-04-19 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item><item><title>Common Hugo Blog Resources</title><link>https://guzhengsvt.cn/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link><pubDate>Tue, 15 Apr 2025 16:42:35 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid><description><![CDATA[<h1>Common Hugo Blog Resources</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="hugo-common-commands">
+<a class="header-anchor" href="#hugo-common-commands"></a>
+Hugo Common Commands
+</h1><table>
+  <thead>
+      <tr>
+          <th>Command</th>
+          <th>Function</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>hugo version</code></td>
+          <td>Check version</td>
+          <td>Displays the currently installed Hugo version</td>
+      </tr>
+      <tr>
+          <td><code>hugo new site &lt;project_name&gt;</code></td>
+          <td>Create new site</td>
+          <td>Generates Hugo&rsquo;s directory structure</td>
+      </tr>
+      <tr>
+          <td><code>hugo new post/&lt;filename.md&gt;</code></td>
+          <td>Create new post</td>
+          <td>Generates an article under <code>content/post/</code> with default Front Matter</td>
+      </tr>
+      <tr>
+          <td><code>hugo server</code></td>
+          <td>Start local server</td>
+          <td>Launches local preview at <code>http://localhost:1313</code> by default</td>
+      </tr>
+      <tr>
+          <td><code>hugo server -D</code></td>
+          <td>Start with drafts</td>
+          <td><code>-D</code> parameter shows articles marked <code>draft: true</code></td>
+      </tr>
+      <tr>
+          <td><code>hugo</code></td>
+          <td>Build website</td>
+          <td>Generates static files from Markdown content to <code>public/</code> directory</td>
+      </tr>
+      <tr>
+          <td><code>hugo -D &lt;output_dir&gt;</code></td>
+          <td>Build including drafts</td>
+          <td>Full site build (including drafts) for pre-publishing</td>
+      </tr>
+      <tr>
+          <td><code>hugo --minify</code></td>
+          <td>Minify build files</td>
+          <td>Compresses HTML/CSS/JS during build to reduce size</td>
+      </tr>
+      <tr>
+          <td><code>hugo config</code></td>
+          <td>View configuration</td>
+          <td>Displays current site configuration</td>
+      </tr>
+      <tr>
+          <td><code>hugo list drafts</code></td>
+          <td>List drafts</td>
+          <td>Shows all articles marked <code>draft: true</code></td>
+      </tr>
+      <tr>
+          <td><code>hugo list future</code></td>
+          <td>List future posts</td>
+          <td>Articles with <code>date</code> set after current time</td>
+      </tr>
+      <tr>
+          <td><code>hugo list expired</code></td>
+          <td>List expired posts</td>
+          <td>Articles where <code>expiryDate</code> has passed</td>
+      </tr>
+      <tr>
+          <td><code>hugo --gc</code></td>
+          <td>Garbage collection</td>
+          <td>Cleans outdated resources like thumbnail caches</td>
+      </tr>
+  </tbody>
+</table>
+<h1 id="reimu-theme-icon_font">
+<a class="header-anchor" href="#reimu-theme-icon_font"></a>
+reimu Theme icon_font
+</h1><table>
+  <thead>
+      <tr>
+          <th>Icon Class</th>
+          <th>Hex Code</th>
+          <th>Chinese Meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>.tag-wrap</code> / <code>.article-tag-list-link</code></td>
+          <td><code>\e622</code></td>
+          <td>Tag</td>
+      </tr>
+      <tr>
+          <td><code>.category-wrap</code> / <code>.article-category-link</code></td>
+          <td><code>\e604</code></td>
+          <td>Category</td>
+      </tr>
+      <tr>
+          <td><code>.article-date-link</code></td>
+          <td><code>\e606</code></td>
+          <td>Date</td>
+      </tr>
+      <tr>
+          <td><code>.article-comment-link</code></td>
+          <td><code>\e608</code></td>
+          <td>Comment</td>
+      </tr>
+      <tr>
+          <td><code>.icon-copyright</code></td>
+          <td><code>\e60a</code></td>
+          <td>Copyright</td>
+      </tr>
+      <tr>
+          <td><code>.icon-brush</code></td>
+          <td><code>\e618</code></td>
+          <td>Brush / Beautify</td>
+      </tr>
+      <tr>
+          <td><code>.icon-coffee</code></td>
+          <td><code>\e607</code></td>
+          <td>Coffee</td>
+      </tr>
+      <tr>
+          <td><code>.icon-eye</code></td>
+          <td><code>\e60f</code></td>
+          <td>View / Browse</td>
+      </tr>
+      <tr>
+          <td><code>.icon-user</code></td>
+          <td><code>\e628</code></td>
+          <td>User</td>
+      </tr>
+      <tr>
+          <td><code>#main-nav-toggle</code></td>
+          <td><code>\e62f</code></td>
+          <td>Navigation menu toggle</td>
+      </tr>
+      <tr>
+          <td><code>#nav-rss-link</code></td>
+          <td><code>\e61f</code></td>
+          <td>RSS subscription</td>
+      </tr>
+      <tr>
+          <td><code>#nav-search-btn</code> / <code>.reimu-search-input-icon</code></td>
+          <td><code>\e631</code></td>
+          <td>Search button</td>
+      </tr>
+      <tr>
+          <td><code>#nav-sun-btn</code></td>
+          <td><code>\e621</code></td>
+          <td>Sun icon (light theme)</td>
+      </tr>
+      <tr>
+          <td><code>#nav-moon-btn</code></td>
+          <td><code>\e617</code></td>
+          <td>Moon icon (dark theme)</td>
+      </tr>
+      <tr>
+          <td><code>#nav-circle-half-stroke-btn</code></td>
+          <td><code>\e641</code></td>
+          <td>Half-circle (theme toggle)</td>
+      </tr>
+      <tr>
+          <td><code>.icon-copy</code></td>
+          <td><code>\e60c</code></td>
+          <td>Copy</td>
+      </tr>
+      <tr>
+          <td><code>.icon-chevron-down</code></td>
+          <td><code>\e609</code></td>
+          <td>Down arrow</td>
+      </tr>
+      <tr>
+          <td><code>.icon-check</code></td>
+          <td><code>\e636</code></td>
+          <td>Checkmark / Confirm</td>
+      </tr>
+      <tr>
+          <td><code>.icon-times</code></td>
+          <td><code>\e637</code></td>
+          <td>Cross / Close</td>
+      </tr>
+      <tr>
+          <td><code>.icon-calendar</code></td>
+          <td><code>\e605</code></td>
+          <td>Calendar</td>
+      </tr>
+      <tr>
+          <td><code>.icon-pencil</code></td>
+          <td><code>\e61b</code></td>
+          <td>Pencil / Edit</td>
+      </tr>
+      <tr>
+          <td><code>.icon-clock</code></td>
+          <td><code>\e613</code></td>
+          <td>Clock</td>
+      </tr>
+      <tr>
+          <td><code>.post-sticky</code></td>
+          <td><code>\e627</code></td>
+          <td>Pinned</td>
+      </tr>
+      <tr>
+          <td><code>.reimu-popup .popup-btn-close</code></td>
+          <td><code>\e626</code></td>
+          <td>Popup close</td>
+      </tr>
+      <tr>
+          <td><code>.ais-pagination--item__previous</code></td>
+          <td><code>\e601</code></td>
+          <td>Previous page</td>
+      </tr>
+      <tr>
+          <td><code>.ais-pagination--item__next</code></td>
+          <td><code>\e630</code></td>
+          <td>Next page</td>
+      </tr>
+      <tr>
+          <td><code>.icon-github</code></td>
+          <td><code>\e619</code></td>
+          <td>GitHub icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-google</code></td>
+          <td><code>\e611</code></td>
+          <td>Google icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-facebook</code></td>
+          <td><code>\e60e</code></td>
+          <td>Facebook icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-twitter</code></td>
+          <td><code>\e62a</code></td>
+          <td>Twitter icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-instagram</code></td>
+          <td><code>\e615</code></td>
+          <td>Instagram icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-linkedin</code></td>
+          <td><code>\e614</code></td>
+          <td>LinkedIn icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-pinterest</code></td>
+          <td><code>\e61a</code></td>
+          <td>Pinterest icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-youtube</code></td>
+          <td><code>\e62d</code></td>
+          <td>YouTube icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-vimeo</code></td>
+          <td><code>\e629</code></td>
+          <td>Vimeo icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-flickr</code></td>
+          <td><code>\e612</code></td>
+          <td>Flickr icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-dribbble</code></td>
+          <td><code>\e610</code></td>
+          <td>Dribbble icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-behance</code></td>
+          <td><code>\e602</code></td>
+          <td>Behance icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-bilibili</code></td>
+          <td><code>\e603</code></td>
+          <td>Bilibili icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-weibo</code></td>
+          <td><code>\e62c</code></td>
+          <td>Weibo icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-zhihu</code></td>
+          <td><code>\e62e</code></td>
+          <td>Zhihu icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-reddit</code></td>
+          <td><code>\e61c</code></td>
+          <td>Reddit icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-tumblr</code></td>
+          <td><code>\e625</code></td>
+          <td>Tumblr icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-medium</code></td>
+          <td><code>\e616</code></td>
+          <td>Medium icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-deviantart</code></td>
+          <td><code>\e60b</code></td>
+          <td>DeviantArt icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-stackoverflow</code></td>
+          <td><code>\e620</code></td>
+          <td>StackOverflow icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-keybase</code></td>
+          <td><code>\e61e</code></td>
+          <td>Keybase icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-telegram</code></td>
+          <td><code>\e623</code></td>
+          <td>Telegram icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-discord</code></td>
+          <td><code>\e60d</code></td>
+          <td>Discord icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-steam</code></td>
+          <td><code>\e624</code></td>
+          <td>Steam icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-email</code></td>
+          <td><code>\e63c</code></td>
+          <td>Email</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-toc-btn</code></td>
+          <td><code>\e633</code></td>
+          <td>Table of Contents button</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-common-btn</code></td>
+          <td><code>\e632</code></td>
+          <td>Sidebar common button</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-top .arrow-up</code></td>
+          <td><code>\e634</code></td>
+          <td>Up arrow</td>
+      </tr>
+      <tr>
+          <td><code>.icon-link</code></td>
+          <td><code>\e639</code></td>
+          <td>Link</td>
+      </tr>
+      <tr>
+          <td><code>.icon-globe</code></td>
+          <td><code>\e638</code></td>
+          <td>Globe / Multilingual</td>
+      </tr>
+      <tr>
+          <td><code>.icon-creative-commons</code></td>
+          <td><code>\e63a</code></td>
+          <td>Creative Commons license</td>
+      </tr>
+      <tr>
+          <td><code>.icon-taichi</code></td>
+          <td><code>\e62b</code></td>
+          <td>Taichi (dark mode)</td>
+      </tr>
+      <tr>
+          <td><code>.icon-weixin</code></td>
+          <td><code>\e640</code></td>
+          <td>WeChat icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-qq</code></td>
+          <td><code>\e63e</code></td>
+          <td>QQ icon</td>
+      </tr>
+      <tr>
+          <td><code>.icon-image</code></td>
+          <td><code>\e63f</code></td>
+          <td>Image icon</td>
+      </tr>
+  </tbody>
+</table>
+
+        <hr><p>本文 2025-04-15 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item></channel></rss>
