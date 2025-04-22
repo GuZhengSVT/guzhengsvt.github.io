@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>その他のノート on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/ja/categories/%E3%81%9D%E3%81%AE%E4%BB%96%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%88/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Tue, 27 Jun 2023 00:41:26 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/ja/categories/%E3%81%9D%E3%81%AE%E4%BB%96%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%88/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Obsidian基礎</title>
+      <link>http://localhost:1313/ja/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Tue, 27 Jun 2023 00:41:26 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</guid>
+      <description><![CDATA[<h1>Obsidian基礎</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="インターフェース">
+<a class="header-anchor" href="#%e3%82%a4%e3%83%b3%e3%82%bf%e3%83%bc%e3%83%95%e3%82%a7%e3%83%bc%e3%82%b9"></a>
+インターフェース
+</h1><p><a href="https://zhuanlan.zhihu.com/p/428519519">1時間でObsidianをマスターしたい？この記事で十分です。【Obsidian完全ガイド】 - 知乎 (zhihu.com)</a>
+ライブラリフォルダの作成——ライブラリフォルダ内にノート分類フォルダを作成——ノートの細分化
+obsidian help
+ノート最上部のバー——縦三点の「その他」——ノートの分割表示
+<a href="https://zhuanlan.zhihu.com/p/409409946">Wyatt：ワークベンチの構築【Obsidian完全ガイド】216 いいね · 7 コメント記事<img src="https://pic1.zhimg.com/v2-2323eabf712e3ebaae40c322ec18dde0_180x120.jpg" alt=""></a>
+左上でアウトラインを表示</p>
+<h1 id="プラグイン準備中">
+<a class="header-anchor" href="#%e3%83%97%e3%83%a9%e3%82%b0%e3%82%a4%e3%83%b3%e6%ba%96%e5%82%99%e4%b8%ad"></a>
+プラグイン（準備中）
+</h1><p><a href="https://zhuanlan.zhihu.com/p/403001135">Wyatt：プラグインのインストール方法？【Obsidian完全ガイド】264 いいね · 63 コメント記事<img src="https://pic2.zhimg.com/v2-51f1cdbc1b5891f62958cdb379dc5561_180x120.jpg" alt=""></a></p>
+<h1 id="フォーマット">
+<a class="header-anchor" href="#%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%83%e3%83%88"></a>
+フォーマット
+</h1><p>#＋スペースで見出しを階層化、#が多いほど下位レベル</p>
+<h3 id="強調">
+<a class="header-anchor" href="#%e5%bc%b7%e8%aa%bf"></a>
+強調
+</h3><p><em>これは斜体</em>
+<em>斜体の別の書き方、英語のアンダースコア</em></p>
+<h3 id="太字">
+<a class="header-anchor" href="#%e5%a4%aa%e5%ad%97"></a>
+太字
+</h3><p><strong>太字の例、二つのアスタリスク</strong>
+<strong>または二つのアンダースコア</strong></p>
+<h3 id="組み合わせ">
+<a class="header-anchor" href="#%e7%b5%84%e3%81%bf%e5%90%88%e3%82%8f%e3%81%9b"></a>
+組み合わせ
+</h3><p><em>これは<strong>斜体＋太字</strong></em></p>
+<h3 id="打ち消し線">
+<a class="header-anchor" href="#%e6%89%93%e3%81%a1%e6%b6%88%e3%81%97%e7%b7%9a"></a>
+打ち消し線
+</h3><p><del>刺激を求めるなら、とことん貫き通しましょう</del></p>
+<h3 id="ハイライト">
+<a class="header-anchor" href="#%e3%83%8f%e3%82%a4%e3%83%a9%e3%82%a4%e3%83%88"></a>
+ハイライト
+</h3><p>==疎影横斜みず清く浅く、暗香浮動月黄昏==</p>
+<h3 id="脚注">
+<a class="header-anchor" href="#%e8%84%9a%e6%b3%a8"></a>
+脚注
+</h3><p>テキスト<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>テキスト</p>
+<h3 id="コメント">
+<a class="header-anchor" href="#%e3%82%b3%e3%83%a1%e3%83%b3%e3%83%88"></a>
+コメント
+</h3><ul>
+<li>インラインコメント
+%%ここはインラインコメント%%</li>
+<li>複数行コメント
+%%
+あなたは四月の早天の雲煙
+黄昏は風の柔らかさを吹く
+星は意図せずに瞬き
+細雨は花の前に降り注ぐ
+%%</li>
+</ul>
+<h1 id="リスト">
+<a class="header-anchor" href="#%e3%83%aa%e3%82%b9%e3%83%88"></a>
+リスト
+</h1><ul>
+<li>順不同リスト
+<ul>
+<li>ハイフン＋スペース</li>
+<li>tab＋ハイフン＋スペースで前の行のサブリスト要素にする</li>
+</ul>
+</li>
+<li>順序付きリスト
+<ol>
+<li>数字＋ピリオド＋スペース</li>
+<li>同様にtab＋数字＋ピリオド＋スペースで行をインデント</li>
+<li></li>
+</ol>
+</li>
+</ul>
+<h1 id="画像">
+<a class="header-anchor" href="#%e7%94%bb%e5%83%8f"></a>
+画像
+</h1><ul>
+<li>$$![Engelbart](画像URL)$$</li>
+<li>![[Pasted image 20230625203344.png]]</li>
+<li>幅の調整
+<ul>
+<li>$$![Engelbart|100](画像リンク)$$</li>
+<li>![[Pasted image 20230625203536.png]]</li>
+</ul>
+</li>
+</ul>
+<h1 id="外部リンク">
+<a class="header-anchor" href="#%e5%a4%96%e9%83%a8%e3%83%aa%e3%83%b3%e3%82%af"></a>
+外部リンク
+</h1><h3 id="ライブラリ内のノート画像へのリンク">
+<a class="header-anchor" href="#%e3%83%a9%e3%82%a4%e3%83%96%e3%83%a9%e3%83%aa%e5%86%85%e3%81%ae%e3%83%8e%e3%83%bc%e3%83%88%e7%94%bb%e5%83%8f%e3%81%b8%e3%81%ae%e3%83%aa%e3%83%b3%e3%82%af"></a>
+ライブラリ内のノート/画像へのリンク
+</h3><ul>
+<li>$http://obsidian.md - automatic!$
+<ul>
+<li><em>ウェブリンクを指し、URLで表示、$はレイアウトのため</em></li>
+</ul>
+</li>
+<li>$[obsidian](http://obsidian.md)$
+<ul>
+<li><em>ウェブリンクを指し、角括弧内の内容で表示</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="obsidian-url">
+<a class="header-anchor" href="#obsidian-url"></a>
+Obsidian URL
+</h3><p>Obsidian URIは通常以下の形式：
+</p>
+$$obsidian://action?param1=value&param2=value$$<p>
+actionは実行する操作、valueはパラメータ
+例：ノートを開く：
+</p>
+$$[注釈付きノート名、任意の識別子](obsidian://open?path=ノートの絶対パス)$$<p>
+<strong>角括弧、コロンの言語に注意</strong>
+例：
+<a href="#ZgotmplZ">高等数学を開く</a>
+pathにはファイルの絶対パスを指定</p>
+<ul>
+<li><em>特定のライブラリを開く、具体的なファイルを開かずフォルダのみ表示</em>
+$$[name](obsidian://open?vault=ライブラリフォルダ名/ライブラリID)$$
+<a href="#ZgotmplZ">笔记フォルダを開く</a></li>
+<li><em>Mathフォルダ内の高等数学を開く、<strong>.md</strong>拡張子は省略可能</em>
+<a href="#ZgotmplZ">高等数学</a></li>
+</ul>
+<h3 id="その他">
+<a class="header-anchor" href="#%e3%81%9d%e3%81%ae%e4%bb%96"></a>
+その他
+</h3><ul>
+<li>
+<p>URLにスペースがある場合、$\%20$にエスケープ</p>
+<ul>
+<li>上記%20の%はエスケープが必要、%</li>
+</ul>
+</li>
+<li>
+<p>または&lt;&gt;でスペースを含む内容を囲む</p>
+</li>
+<li>
+<p>引用
+</p>
+$$> 引用内容$$<p>
+</p>
+$$\ 引用元$$<p>
+例</p>
+</li>
+</ul>
+<blockquote>
+<p>時間は一方通行の旅、良いも悪いも全て風景。
+\ ——『歳月神偷』金玟岐</p></blockquote>
+<ul>
+<li>
+<p>インラインコード
+<code>include&lt;stdc++.h&gt;</code></p>
+</li>
+<li>
+<p>コードブロック
+<em>Obsidianは6つのバッククォートで囲まれた内容をコードブロックとして認識し、コード形式で表示。コードブロックはシンタックスハイライトをサポート、最初の行（開始バッククォートの後）で言語を宣言して特定のシンタックスハイライトを使用可能。</em></p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include&lt;stdc++.h&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="n">b</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">b</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="o">+=</span><span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cont</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><a href="https://en.wikipedia.org/wiki/Percent-encoding">さらに詳しいエンコーディング規約</a></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>ここに対応する注釈
+脚注は複数行可能、インデントを使用&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        <hr><p>本文 2023-06-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-06-27</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>その他のノート</category>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>コード on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/ja/categories/%E3%82%B3%E3%83%BC%E3%83%89/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Tue, 12 Dec 2023 14:43:54 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/ja/categories/%E3%82%B3%E3%83%BC%E3%83%89/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>データ構造実機実験レポート4——二分木の構築（完全二分木BFS結果）、保存（順序保存とリンク保存）、走査（BFSとDFS）</title>
+      <link>http://localhost:1313/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/</link>
+      <pubDate>Tue, 12 Dec 2023 14:43:54 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/</guid>
+      <description><![CDATA[<h1>データ構造実機実験レポート4——二分木の構築（完全二分木BFS結果）、保存（順序保存とリンク保存）、走査（BFSとDFS）</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="a-問題分析">
+<a class="header-anchor" href="#a-%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90"></a>
+a. 問題分析：
+</h2><p>この問題では、入力された文字シーケンスに基づいて二分木を作成し、2つの異なる保存方式を実装する必要があります：順序保存とリンク保存です。入力された文字シーケンスにおいて、文字 &lsquo;@&rsquo; は空のノードを表します。</p>
+<h2 id="b-アルゴリズム設計">
+<a class="header-anchor" href="#b-%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88"></a>
+b. アルゴリズム設計：
+</h2><h2 id="順次記憶方式">
+<a class="header-anchor" href="#%e9%a0%86%e6%ac%a1%e8%a8%98%e6%86%b6%e6%96%b9%e5%bc%8f"></a>
+順次記憶方式：
+</h2><ol>
+<li>順次記憶の二分木を表現するために配列を初期化します。</li>
+<li>入力文字列を順番に走査し、文字を配列に順次記憶します。</li>
+<li>配列のインデックスを使用してノードの位置を表現できます。親ノードのインデックスを <code>i</code> と仮定すると、左子ノードのインデックスは <code>2*i + 1</code>、右子ノードのインデックスは <code>2*i + 2</code> となります。</li>
+<li>&lsquo;@&rsquo; 文字で表される空ノードはスキップし、実際のデータのみを記憶します。</li>
+</ol>
+<h2 id="連鎖記憶方式">
+<a class="header-anchor" href="#%e9%80%a3%e9%8e%96%e8%a8%98%e6%86%b6%e6%96%b9%e5%bc%8f"></a>
+連鎖記憶方式：
+</h2><ol>
+<li>二分木のノードを表すために <code>TreeNode</code> 構造体を作成し、データ、左部分木ポインタ、右部分木ポインタを含めます。</li>
+<li>二分木の構築を補助するためにキューデータ構造を使用します。ルートノードを初期化し、それをキューに入れます。</li>
+<li>入力文字シーケンスを走査し、毎回キューからノードを取り出し、そのノードに対して左子ノードと右子ノードを作成し、それらをキューに入れます。</li>
+</ol>
+<h2 id="c-データ構造設計">
+<a class="header-anchor" href="#c-%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88"></a>
+c. データ構造設計：
+</h2><h2 id="順次記憶方式-1">
+<a class="header-anchor" href="#%e9%a0%86%e6%ac%a1%e8%a8%98%e6%86%b6%e6%96%b9%e5%bc%8f-1"></a>
+順次記憶方式：
+</h2><ul>
+<li><code>struct TreeNode</code> は二分木のノードを表すために使用されます。</li>
+<li>配列は二分木ノードを順次記憶するために使用されます。</li>
+</ul>
+<h2 id="連鎖記憶方式-1">
+<a class="header-anchor" href="#%e9%80%a3%e9%8e%96%e8%a8%98%e6%86%b6%e6%96%b9%e5%bc%8f-1"></a>
+連鎖記憶方式：
+</h2><ul>
+<li><code>struct TreeNode</code> は二分木のノードを表すために使用され、データ、左サブツリーへのポインタ、右サブツリーへのポインタを含みます。</li>
+<li>キュー（待ち行列）データ構造は、二分木の構築を補助するために使用されます。</li>
+</ul>
+<h2 id="d-デバッグプロセス">
+<a class="header-anchor" href="#d-%e3%83%87%e3%83%90%e3%83%83%e3%82%b0%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9"></a>
+d. デバッグプロセス：
+</h2><ul>
+<li>プログラムを実行し、入力例に従って文字を入力して二分木を構築します。</li>
+<li>入力文字の順序が正しいことを確認し、空ノードは &lsquo;@&rsquo; で表します。</li>
+<li>リンク方式の保存では &lsquo;#&rsquo; で入力完了を表します</li>
+<li>作成された二分木の順序保存とリンク保存が正しいことを検証します。</li>
+</ul>
+<h2 id="e-出力結果">
+<a class="header-anchor" href="#e-%e5%87%ba%e5%8a%9b%e7%b5%90%e6%9e%9c"></a>
+e. 出力結果：
+</h2><ul>
+<li>出力結果には、順序記憶された二分木ノードデータと連鎖記憶された二分木の走査結果が含まれます。</li>
+</ul>
+<h1 id="2-深さ優先走査アルゴリズムの実装">
+<a class="header-anchor" href="#2-%e6%b7%b1%e3%81%95%e5%84%aa%e5%85%88%e8%b5%b0%e6%9f%bb%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e3%81%ae%e5%ae%9f%e8%a3%85"></a>
+2. 深さ優先走査アルゴリズムの実装
+</h1><h2 id="a-問題分析-1">
+<a class="header-anchor" href="#a-%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90-1"></a>
+a. 問題分析：
+</h2><p>この問題では、深さ優先探索アルゴリズム（前順走査、中順走査、後順走査）を実装する必要があります。順序記憶方式の二分木に対して、対応する走査アルゴリズムを実装する必要があります。</p>
+<h2 id="b-アルゴリズム設計-1">
+<a class="header-anchor" href="#b-%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88-1"></a>
+b. アルゴリズム設計：
+</h2><h2 id="前順走査">
+<a class="header-anchor" href="#%e5%89%8d%e9%a0%86%e8%b5%b0%e6%9f%bb"></a>
+前順走査：
+</h2><ul>
+<li>根ノードを訪問し、その後左部分木と右部分木を再帰的に走査します。</li>
+</ul>
+<h2 id="中順走査">
+<a class="header-anchor" href="#%e4%b8%ad%e9%a0%86%e8%b5%b0%e6%9f%bb"></a>
+中順走査：
+</h2><ul>
+<li>まず左部分木を再帰的に走査し、次に根ノードにアクセスし、最後に右部分木を再帰的に走査します。</li>
+</ul>
+<h2 id="後順走査ポストオーダー">
+<a class="header-anchor" href="#%e5%be%8c%e9%a0%86%e8%b5%b0%e6%9f%bb%e3%83%9d%e3%82%b9%e3%83%88%e3%82%aa%e3%83%bc%e3%83%80%e3%83%bc"></a>
+後順走査（ポストオーダー）：
+</h2><ul>
+<li>まず左部分木と右部分木を再帰的に走査し、その後で根ノードにアクセスします。</li>
+</ul>
+<h2 id="c-データ構造設計-1">
+<a class="header-anchor" href="#c-%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88-1"></a>
+c. データ構造設計：
+</h2><ul>
+<li>再帰アルゴリズム。</li>
+</ul>
+<h1 id="3-幅優先探索アルゴリズムの実装">
+<a class="header-anchor" href="#3-%e5%b9%85%e5%84%aa%e5%85%88%e6%8e%a2%e7%b4%a2%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e3%81%ae%e5%ae%9f%e8%a3%85"></a>
+3. 幅優先探索アルゴリズムの実装
+</h1><h2 id="a-問題分析-2">
+<a class="header-anchor" href="#a-%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90-2"></a>
+a. 問題分析：
+</h2><p>この問題では、幅優先探索アルゴリズム（レベル順探索）を実装する必要があります。リンク方式で保存された二分木に対して、対応する探索アルゴリズムを実装します。</p>
+<h2 id="b-アルゴリズム設計-2">
+<a class="header-anchor" href="#b-%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88-2"></a>
+b. アルゴリズム設計：
+</h2><ul>
+<li>キュー（待ち行列）データ構造を使用し、ルートノードから開始して、ノードを層ごとにキューに追加し、順番にキュー内のノードにアクセスします。</li>
+</ul>
+<h2 id="c-データータ構造設計">
+<a class="header-anchor" href="#c-%e3%83%87%e3%83%bc%e3%82%bf%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88"></a>
+c. データータ構造設計：
+</h2><ul>
+<li>キュー（待ち行列）データ構造。</li>
+</ul>
+<p>申し訳ありませんが、あなたの要求を理解しました。以下に具体的なサンプル <code>abc@@@d@ef@</code> と <code>abc@@@d@ef@#</code> を使用してデバッグプロセスと出力結果を詳細に説明し、提供されたコードと共に解説します。</p>
+<h1 id="サンプル">
+<a class="header-anchor" href="#%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab"></a>
+サンプル
+</h1><p><code>abc@@@d@ef@</code>，<code>abc@@@d@ef@#</code></p>
+<h2 id="デバッグプロセス">
+<a class="header-anchor" href="#%e3%83%87%e3%83%90%e3%83%83%e3%82%b0%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9"></a>
+デバッグプロセス：
+</h2><ol>
+<li>順次記憶方式の使用：
+<ul>
+<li>順番に文字 &lsquo;a&rsquo;、&lsquo;b&rsquo;、&lsquo;c&rsquo;、&rsquo;@&rsquo;、&rsquo;@&rsquo;、&rsquo;@&rsquo;、&rsquo;d&rsquo;、&rsquo;@&rsquo;、&rsquo;e&rsquo;、&lsquo;f&rsquo; を読み込む。</li>
+<li>順次記憶のバイナリツリーを構築し、配列要素は以下の通り： <code>['a', 'b', 'c', '@', '@', '@', 'd', '@', 'e', 'f']</code>。</li>
+</ul>
+</li>
+<li>連鎖記憶方式の使用：
+<ul>
+<li>ルートノード &lsquo;a&rsquo; を作成し、キューに入れる。</li>
+<li>文字 &lsquo;b&rsquo; を読み込み、&lsquo;a&rsquo; の左子ノード &lsquo;b&rsquo; を作成し、キューに入れる。</li>
+<li>文字 &lsquo;c&rsquo; を読み込み、&lsquo;a&rsquo; の右子ノード &lsquo;c&rsquo; を作成し、キューに入れる。</li>
+<li>文字 &lsquo;@&rsquo; を読み込み、左子ノードが空であることを示す。</li>
+<li>文字 &lsquo;@&rsquo; を読み込み、右子ノードが空であることを示す。</li>
+<li>文字 &rsquo;d&rsquo; を読み込み、&lsquo;b&rsquo; の左子ノード &rsquo;d&rsquo; を作成し、キューに入れる。</li>
+<li>文字 &lsquo;@&rsquo; を読み込み、右子ノードが空であることを示す。</li>
+<li>文字 &rsquo;e&rsquo; を読み込み、&lsquo;c&rsquo; の左子ノード &rsquo;e&rsquo; を作成し、キューに入れる。</li>
+<li>文字 &lsquo;f&rsquo; を読み込み、&lsquo;c&rsquo; の右子ノード &lsquo;f&rsquo; を作成し、キューに入れる。</li>
+</ul>
+</li>
+</ol>
+<h2 id="出力結果">
+<a class="header-anchor" href="#%e5%87%ba%e5%8a%9b%e7%b5%90%e6%9e%9c"></a>
+出力結果：
+</h2><ol>
+<li>順次記憶方式：
+<ul>
+<li>先行順走査結果： <code>a b d c e f</code></li>
+<li>中間順走査結果： <code>d b a e c f</code></li>
+<li>後行順走査結果： <code>d b e f c a</code></li>
+</ul>
+</li>
+<li>連鎖記憶方式：
+<ul>
+<li>前順走査結果： <code>a b d c e f</code></li>
+<li>中順走査結果： <code>b d a e c f</code></li>
+<li>後順走査結果： <code>d b e f c a</code></li>
+<li>幅優先探索（レベル走査）結果： <code>a b c d e f</code></li>
+</ul>
+</li>
+</ol>
+<h1 id="ソースコード">
+<a class="header-anchor" href="#%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89"></a>
+ソースコード
+</h1><h2 id="順次記憶">
+<a class="header-anchor" href="#%e9%a0%86%e6%ac%a1%e8%a8%98%e6%86%b6"></a>
+順次記憶
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define MAX_NODES 1000  </span><span class="c1">// 最大ノード数
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 二分木ノード構造を定義
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">struct</span> <span class="nc">TreeNode</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 新しい二分木ノードを作成
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">createNode</span><span class="p">(</span><span class="kt">char</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">newNode</span> <span class="o">=</span> <span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">TreeNode</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">newNode</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">newNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 順次記憶の文字二分木構造
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">struct</span> <span class="nc">SequentialTree</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">nodes</span><span class="p">[</span><span class="n">MAX_NODES</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">size</span><span class="p">;</span> <span class="c1">// ノード数を記録
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 順次記憶の文字二分木を初期化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">initSequentialTree</span><span class="p">(</span><span class="n">SequentialTree</span><span class="o">*</span> <span class="n">tree</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX_NODES</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 順次記憶の文字二分木にノードを挿入
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">insertNode</span><span class="p">(</span><span class="n">SequentialTree</span><span class="o">*</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">char</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">&lt;</span> <span class="n">MAX_NODES</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">newNode</span> <span class="o">=</span> <span class="n">createNode</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="n">newNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;この二分木は満杯で、ノードを挿入できません</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// ルートノードを取得
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">getRoot</span><span class="p">(</span><span class="n">SequentialTree</span><span class="o">*</span> <span class="n">tree</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 左子ノードを取得
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">getLeftChild</span><span class="p">(</span><span class="n">SequentialTree</span><span class="o">*</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">parentIndex</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">leftChildIndex</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">parentIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">leftChildIndex</span> <span class="o">&lt;</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">)</span> <span class="p">{</span><span class="c1">//存在するか確認
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">leftChildIndex</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 右子ノードを取得
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">getRightChild</span><span class="p">(</span><span class="n">SequentialTree</span><span class="o">*</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">parentIndex</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">rightChildIndex</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">parentIndex</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">rightChildIndex</span> <span class="o">&lt;</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">rightChildIndex</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 先行順走査
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">preorderTraversal</span><span class="p">(</span><span class="k">struct</span> <span class="nc">SequentialTree</span><span class="o">*</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">||</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">==</span> <span class="sc">&#39;@&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%c &#34;</span><span class="p">,</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span> <span class="c1">// ルートノードにアクセス
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">preorderTraversal</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// 左部分木を走査
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">preorderTraversal</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// 右部分木を走査
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 中間順走査
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">inorderTraversal</span><span class="p">(</span><span class="k">struct</span> <span class="nc">SequentialTree</span><span class="o">*</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">||</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">==</span> <span class="sc">&#39;@&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inorderTraversal</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// 左部分木を走査
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%c &#34;</span><span class="p">,</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span> <span class="c1">// ルートノードにアクセス
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">inorderTraversal</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// 右部分木を走査
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 後行順走査
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">postorderTraversal</span><span class="p">(</span><span class="k">struct</span> <span class="nc">SequentialTree</span><span class="o">*</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">||</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">==</span> <span class="sc">&#39;@&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">postorderTraversal</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// 左部分木を走査
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">postorderTraversal</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// 右部分木を走査
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%c &#34;</span><span class="p">,</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span> <span class="c1">// ルートノードにアクセス
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SequentialTree</span><span class="o">*</span> <span class="n">tree</span><span class="o">=</span><span class="p">(</span><span class="n">SequentialTree</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">SequentialTree</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">initSequentialTree</span><span class="p">(</span><span class="n">tree</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">data</span><span class="o">=</span><span class="sc">&#39;a&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">data</span><span class="o">==</span><span class="sc">&#39;#&#39;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">insertNode</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span><span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;先行順走査結果:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">preorderTraversal</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;中間順走査結果:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inorderTraversal</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;後行順走査結果:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">postorderTraversal</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;レベル順走査結果:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span><span class="o">!=</span><span class="sc">&#39;@&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="連鎖記憶域">
+<a class="header-anchor" href="#%e9%80%a3%e9%8e%96%e8%a8%98%e6%86%b6%e5%9f%9f"></a>
+連鎖記憶域
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 二分木ノード構造
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">struct</span> <span class="nc">TreeNode</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="p">(</span><span class="kt">char</span> <span class="n">val</span><span class="p">)</span> <span class="o">:</span> <span class="n">data</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="n">left</span><span class="p">(</span><span class="k">nullptr</span><span class="p">),</span> <span class="n">right</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 連鎖記憶域の二分木を作成
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">createBinaryTree</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">input</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">nodeQueue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">input</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nodeQueue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">input</span><span class="p">.</span><span class="n">length</span><span class="p">();</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">current</span> <span class="o">=</span> <span class="n">nodeQueue</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">nodeQueue</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">input</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">&#39;@&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">current</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">input</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nodeQueue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">input</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">input</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">&#39;@&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">current</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">input</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nodeQueue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 先行順走査
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">preorderTraversal</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">preorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">preorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 中間順走査
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">inorderTraversal</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">inorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">inorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 後行順走査
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">postorderTraversal</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">postorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">postorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 幅優先探索（レベル順走査）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">breadthFirstTraversal</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">nodeQueue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nodeQueue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">nodeQueue</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">current</span> <span class="o">=</span> <span class="n">nodeQueue</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">nodeQueue</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nodeQueue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nodeQueue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="n">input</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">input</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span> <span class="o">=</span> <span class="n">createBinaryTree</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;先行順走査結果: &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">preorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;中間順走査結果: &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;後行順走査結果: &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">postorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;幅優先探索（レベル順走査）結果: &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">breadthFirstTraversal</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+        <hr><p>本文 2023-12-12 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>コード</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>データ構造実機実験レポート2——疎行列乗算</title>
+      <link>http://localhost:1313/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A2%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</link>
+      <pubDate>Tue, 12 Dec 2023 14:38:24 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A2%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</guid>
+      <description><![CDATA[<h1>データ構造実機実験レポート2——疎行列乗算</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="問題分析">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90"></a>
+問題分析
+</h1><p>本実験の主な目標は、2つの疎行列AとBを乗算し、結果行列Cを出力する疎行列乗算アルゴリズムを開発することです。このアルゴリズムでは、疎行列は3項組で表現され、ユーザーは異なる行列データを複数回入力し、それらの積を計算できます。</p>
+<h1 id="アルゴリズム設計">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88"></a>
+アルゴリズム設計
+</h1><p>疎行列乗算アルゴリズムの設計は以下の通りです：</p>
+<ul>
+<li>行列を表現するために<code>struct</code>構造体を使用し、行列の行数、列数、疎行列要素の数、およびノード情報を格納する配列を含みます。</li>
+<li>入力関数<code>input</code>は行列の3項組表現を取得し、入力の合法性をチェックしてからメモリ内の構造体に格納します。</li>
+<li>出力関数<code>output</code>は疎行列を標準的な行列形式で表示し、ユーザーが確認できるようにします。</li>
+<li>行列乗算関数<code>multiplier</code>は2つの入力行列AとBを受け取り、それらの積を計算して結果を行列Cに格納します。</li>
+</ul>
+<h1 id="データ構造設計">
+<a class="header-anchor" href="#%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88"></a>
+データ構造設計
+</h1><ul>
+<li><code>matrix</code>構造体には、行数<code>m</code>、列数<code>n</code>、疎行列要素の数<code>L</code>、およびノード情報を格納する<code>Ma</code>配列が含まれます。</li>
+<li><code>node</code>構造体は疎行列の各非ゼロ要素を表し、行インデックス<code>i</code>、列インデックス<code>j</code>、および要素の値<code>data</code>を含みます。</li>
+</ul>
+<h1 id="デバッグ過程">
+<a class="header-anchor" href="#%e3%83%87%e3%83%90%e3%83%83%e3%82%b0%e9%81%8e%e7%a8%8b"></a>
+デバッグ過程
+</h1><ul>
+<li>コードには、入力が合法かどうかのチェック、メモリ割り当てが成功したかどうかのチェック、行列乗算が合法かどうかのチェックなど、いくつかのエラー処理メカニズムがあります。</li>
+<li>疎行列データを入力する際、ユーザーはエラーメッセージを受け取り、行列のサイズに合致するデータを再入力するよう求められます。</li>
+<li>疎行列乗算アルゴリズムでは、行列の列と行が一致するかどうかがチェックされ、乗算可能かどうかが確認されます。</li>
+</ul>
+<h1 id="出力結果">
+<a class="header-anchor" href="#%e5%87%ba%e5%8a%9b%e7%b5%90%e6%9e%9c"></a>
+出力結果
+</h1><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/1074652966.png" alt="Pasted image 20231020161652.png">
+Matlab検証結果：
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/4226980695.png" alt="Pasted image 20231020161908.png">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/2855363853.png" alt="Pasted image 20231020161929.png"></p>
+<p>ユーザーは2つの行列AとBを入力でき、プログラムはそれらの積を計算して結果行列Cを出力します。ユーザーは疎行列乗算計算を続けるか、プログラムを終了するかを選択できます。プログラムはユーザーが終了を選択するまで実行され続けます。</p>
+<h1 id="まとめ">
+<a class="header-anchor" href="#%e3%81%be%e3%81%a8%e3%82%81"></a>
+まとめ
+</h1><p>全体として、この実験は疎行列の乗算操作を成功裏に実装し、入力行列データが有効であることを保証するためのユーザーフレンドリーなインターフェースとエラー処理メカニズムを提供しました。そして、2つの疎行列の積を正しく計算し、結果を標準的な行列形式で出力しました。</p>
+<h1 id="ソースコード">
+<a class="header-anchor" href="#%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89"></a>
+ソースコード
+</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define MAX 1000
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">node</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">matrix</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">m</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">L</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">node</span><span class="o">*</span> <span class="n">Ma</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">input</span><span class="p">(</span><span class="n">matrix</span><span class="o">*</span> <span class="n">A</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">L</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">m</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="o">&gt;&gt;</span><span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">m</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">||</span><span class="n">m</span><span class="o">&gt;=</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">m</span><span class="o">||</span><span class="n">n</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">||</span><span class="n">n</span><span class="o">&gt;=</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">n</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;入力エラー,行/列が行列サイズを超えています!&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">node</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">i</span><span class="p">]){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;メモリ割り当て失敗!&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">A</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">i</span><span class="o">=</span><span class="n">m</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">A</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">j</span><span class="o">=</span><span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">A</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">output</span><span class="p">(</span><span class="n">matrix</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span><span class="n">string</span> <span class="n">name</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;行列&#34;</span><span class="o">&lt;&lt;</span><span class="n">name</span><span class="o">&lt;&lt;</span><span class="s">&#34;は:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">nums</span><span class="p">[</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">m</span><span class="p">][</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">n</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">memset</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">nums</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">L</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">nums</span><span class="p">[</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">i</span><span class="p">][</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">m</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">n</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="sc">&#39;\t&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">multiplier</span><span class="p">(</span><span class="n">matrix</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span><span class="n">matrix</span><span class="o">*</span> <span class="n">B</span><span class="p">,</span><span class="n">matrix</span><span class="o">*</span> <span class="n">C</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="n">C</span><span class="o">-&gt;</span><span class="n">m</span><span class="o">=</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">m</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">C</span><span class="o">-&gt;</span><span class="n">n</span><span class="o">=</span><span class="n">B</span><span class="o">-&gt;</span><span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">C</span><span class="o">-&gt;</span><span class="n">L</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">sert</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">L</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">B</span><span class="o">-&gt;</span><span class="n">L</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">j</span><span class="o">==</span><span class="n">B</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">i</span><span class="p">){</span><span class="c1">//Aの列番号==Bの行番号
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">x</span><span class="o">=</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">y</span><span class="o">=</span><span class="n">B</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">z</span><span class="o">=</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span><span class="o">*</span><span class="n">B</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">sert</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">k</span><span class="o">&lt;</span><span class="n">C</span><span class="o">-&gt;</span><span class="n">L</span><span class="p">;</span><span class="n">k</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="n">C</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">i</span><span class="o">&amp;&amp;</span><span class="n">y</span><span class="o">==</span><span class="n">C</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">j</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">C</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span><span class="o">+=</span><span class="n">z</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">sert</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">sert</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">C</span><span class="o">-&gt;</span><span class="n">L</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">C</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">C</span><span class="o">-&gt;</span><span class="n">L</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">node</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">C</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">C</span><span class="o">-&gt;</span><span class="n">L</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">i</span><span class="o">=</span><span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">C</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">C</span><span class="o">-&gt;</span><span class="n">L</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">j</span><span class="o">=</span><span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">C</span><span class="o">-&gt;</span><span class="n">Ma</span><span class="p">[</span><span class="n">C</span><span class="o">-&gt;</span><span class="n">L</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span><span class="o">=</span><span class="n">z</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl"><span class="nl">start</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">matrix</span><span class="o">*</span> <span class="n">A</span><span class="o">=</span><span class="p">(</span><span class="n">matrix</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">matrix</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">matrix</span><span class="o">*</span> <span class="n">B</span><span class="o">=</span><span class="p">(</span><span class="n">matrix</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">matrix</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">matrix</span><span class="o">*</span> <span class="n">C</span><span class="o">=</span><span class="p">(</span><span class="n">matrix</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">matrix</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;行列Aの3項組の長さ、行数、列数を入力してください:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">L</span><span class="o">&gt;&gt;</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">m</span><span class="o">&gt;&gt;</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;行列Aを入力してください:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">input</span><span class="p">(</span><span class="n">A</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;エラーが発生しました、再入力してください!&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">goto</span> <span class="n">start</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">output</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="s">&#34;A&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;行列Bの3項組の長さ、行数、列数を入力してください:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">B</span><span class="o">-&gt;</span><span class="n">L</span><span class="o">&gt;&gt;</span><span class="n">B</span><span class="o">-&gt;</span><span class="n">m</span><span class="o">&gt;&gt;</span><span class="n">B</span><span class="o">-&gt;</span><span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;行列Bを入力してください:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">input</span><span class="p">(</span><span class="n">B</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;エラーが発生しました、再入力してください!&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">goto</span> <span class="n">start</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">output</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="s">&#34;B&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">multiplier</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">output</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="s">&#34;C&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;疎行列乗算計算を続けますか(y/n):&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">choice</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nl">choise</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">choice</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">choice</span><span class="o">==</span><span class="sc">&#39;y&#39;</span><span class="o">||</span><span class="n">choice</span><span class="o">==</span><span class="sc">&#39;Y&#39;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">goto</span> <span class="n">start</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">choice</span><span class="o">==</span><span class="sc">&#39;n&#39;</span><span class="o">||</span><span class="n">choice</span><span class="o">==</span><span class="sc">&#39;N&#39;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;入力エラー、再入力してください:&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">goto</span> <span class="n">choise</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+        <hr><p>本文 2023-12-12 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>コード</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>データ構造実習レポート1——フィボナッチ数列、部分集合分割問題</title>
+      <link>http://localhost:1313/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1fibonacci%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86%E5%AD%90%E9%9B%86%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Tue, 12 Dec 2023 14:31:17 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1fibonacci%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86%E5%AD%90%E9%9B%86%E9%97%AE%E9%A2%98/</guid>
+      <description><![CDATA[<h1>データ構造実習レポート1——フィボナッチ数列、部分集合分割問題</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="フィボナッチ数列">
+<a class="header-anchor" href="#%e3%83%95%e3%82%a3%e3%83%9c%e3%83%8a%e3%83%83%e3%83%81%e6%95%b0%e5%88%97"></a>
+<strong>フィボナッチ数列</strong>
+</h1><h2 id="問題分析">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90"></a>
+<strong>問題分析</strong>
+</h2><p>プログラムの再帰呼び出しと戻りを正しく実装するには、パラメータの受け渡しと戻りアドレスの問題を解決する必要がある。具体的には、呼び出しを行う際に、再帰が発生するたびにすべてのパラメータ変数に対して新しい記憶領域を割り当て、前回の呼び出し時の実引数と今回の呼び出し後の戻りアドレスを保持しなければならない。</p>
+<h2 id="アルゴリズム設計">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88"></a>
+<strong>アルゴリズム設計</strong>
+</h2><p>アルゴリズムの説明は以下の通りです：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">Fib</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">fib</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="n">fib</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="n">fib</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="n">fib</span><span class="o">=</span><span class="n">Fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">fib</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="データ構造設計">
+<a class="header-anchor" href="#%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88"></a>
+<strong>データ構造設計</strong>
+</h2><p>スタックを使用して記憶領域を割り当ておよび管理します。システムは、呼び出しプロセスを実行するたびに「作業記録」を作成し、呼び出し前のプロセス内のすべてのパラメータ変数の値と呼び出し後の戻りアドレスを保存します。この作業記録をスタックに保存することで、戻り時にスタックの最上部から正しい情報を見つけることができます。</p>
+<h2 id="デバッグプロセス">
+<a class="header-anchor" href="#%e3%83%87%e3%83%90%e3%83%83%e3%82%b0%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9"></a>
+<strong>デバッグプロセス</strong>
+</h2><p>関数が呼び出されるたびに、渡されたパラメータを出力することで、スタックの呼び出しプロセスをより直感的に確認できます。
+最初のFib（2）の再帰呼び出しを例にとると、プログラムはまずFib（5）、Fib（4）…Fib（1）をスタックに保存し、n==1のときに値を前のアドレスに返します。同様にn==0のときの値も返すため、Fib（2）の値が得られ、さらにFib（2）の上位であるFib（3）に戻ります。</p>
+<h2 id="出力結果">
+<a class="header-anchor" href="#%e5%87%ba%e5%8a%9b%e7%b5%90%e6%9e%9c"></a>
+<strong>出力結果</strong>
+</h2><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/3648031837.png" alt="Pasted image 20231020121850.png"></p>
+<h2 id="ソースコード">
+<a class="header-anchor" href="#%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89"></a>
+ソースコード
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">Fibonacci</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">fib</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fib</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fib</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="mi">2</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fib</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fib</span><span class="o">=</span><span class="n">Fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">fib</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;请输入n:&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nl">start</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;第n个Fibonacci数为&#34;</span><span class="o">&lt;&lt;</span><span class="n">Fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;是否继续计算(y/n):&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">choice</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nl">choice</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">choice</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">choice</span><span class="o">==</span><span class="sc">&#39;y&#39;</span><span class="o">||</span><span class="n">choice</span><span class="o">==</span><span class="sc">&#39;Y&#39;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">goto</span> <span class="n">start</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">choice</span><span class="o">==</span><span class="sc">&#39;n&#39;</span><span class="o">||</span><span class="n">choice</span><span class="o">==</span><span class="sc">&#39;N&#39;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;输入错误,请重新输入:&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">goto</span> <span class="n">choice</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h1 id="部分集合分割問題">
+<a class="header-anchor" href="#%e9%83%a8%e5%88%86%e9%9b%86%e5%90%88%e5%88%86%e5%89%b2%e5%95%8f%e9%a1%8c"></a>
+<strong>部分集合分割問題</strong>
+</h1><h2 id="問題分析-1">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90-1"></a>
+<strong>問題分析</strong>
+</h2><p>問題は、集合を互いに交わらない部分集合に分割し、どの部分集合の要素間にも衝突がなく、分割される部分集合の数が少ないようにすることを要求しています。この種の問題は、スケジュール調整などでよく使用されます。</p>
+<h2 id="アルゴリズム設計-1">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88-1"></a>
+<strong>アルゴリズム設計</strong>
+</h2><p>衝突関係はまず二次元配列で表現され、衝突関係がある場合は1を、ない場合は0を割り当てます。循環フィルタリング法によって分割を行います。つまり、最初の要素から始めて、要素1を単独で取り出し、他の要素が取り出したすべての要素と衝突関係があるかどうかを一つずつ判断します。衝突がなければその要素を取り出し、一つのグループに分類します。このように一周循環させると、互いに衝突関係のない要素が一つのグループに分類されます。この操作を繰り返すことで、分割要件を満たすことができます。</p>
+<h2 id="データ構造設計-1">
+<a class="header-anchor" href="#%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88-1"></a>
+<strong>データ構造設計</strong>
+</h2><p>循環キューを使用してデータを格納し、毎回一周ループしてデータを繰り返し処理し、新しい記憶領域を割り当てる必要はありません。</p>
+<h2 id="デバッグ過程">
+<a class="header-anchor" href="#%e3%83%87%e3%83%90%e3%83%83%e3%82%b0%e9%81%8e%e7%a8%8b"></a>
+<strong>デバッグ過程</strong>
+</h2><h2 id="出力結果-1">
+<a class="header-anchor" href="#%e5%87%ba%e5%8a%9b%e7%b5%90%e6%9e%9c-1"></a>
+<strong>出力結果</strong>
+</h2><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/3486074357.png" alt="Pasted image 20231020123220.png"></p>
+<h2 id="ソースコード-1">
+<a class="header-anchor" href="#%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89-1"></a>
+ソースコード
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">newr</span><span class="p">[</span><span class="mi">9</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">DivideIntoGroup</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="kt">int</span> <span class="n">R</span><span class="p">[][</span><span class="mi">9</span><span class="p">],</span><span class="kt">int</span> <span class="n">cp</span><span class="p">[],</span><span class="kt">int</span> <span class="n">result</span><span class="p">[])</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">front</span><span class="p">,</span><span class="n">rear</span><span class="p">,</span><span class="n">group</span><span class="p">,</span><span class="n">pre</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">front</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rear</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">newr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">group</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pre</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">front</span><span class="o">=</span><span class="p">(</span><span class="n">front</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">I</span><span class="o">=</span><span class="n">cp</span><span class="p">[</span><span class="n">front</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">I</span><span class="o">&lt;</span><span class="n">pre</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">result</span><span class="p">[</span><span class="n">I</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">group</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">newr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">R</span><span class="p">[</span><span class="n">I</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">newr</span><span class="p">[</span><span class="n">I</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">rear</span><span class="o">=</span><span class="p">(</span><span class="n">rear</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">cp</span><span class="p">[</span><span class="n">rear</span><span class="p">]</span><span class="o">=</span><span class="n">I</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">result</span><span class="p">[</span><span class="n">I</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">group</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">newr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+=</span><span class="n">R</span><span class="p">[</span><span class="n">I</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">=</span><span class="n">I</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="n">rear</span><span class="o">!=</span><span class="n">front</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">result</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span><span class="n">cp</span><span class="p">[</span><span class="mi">9</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">R</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="mi">9</span><span class="p">]</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DivideIntoGroup</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">cp</span><span class="p">,</span><span class="n">result</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">9</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="s">&#34; &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">9</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&#34; &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+        <hr><p>本文 2023-12-12 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>コード</category>
+      
+    </item>
+    
+  </channel>
+</rss>

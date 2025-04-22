@@ -1,0 +1,3702 @@
+<!doctype html>
+<html
+  lang="zh-tw" 
+  
+    data-theme-mode="auto"
+  
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/>
+
+
+
+
+
+
+
+  
+
+<title>
+  空氣動力學基礎 | 孤筝
+</title>
+<meta
+  name="description"
+  content="来都来了，随便坐坐。有些封面是随机图片api，所以可能抽风或包含R18：）"
+/>
+
+
+
+
+  
+<script src="https://www.googletagmanager.com/gtag/js?id=true"></script>
+<script data-pjax>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+
+  gtag('config', 'true');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  window.siteConfig = JSON.parse("{\"anchor_icon\":null,\"base\":\"http://localhost:1313/\",\"clipboard\":{\"copyright\":{\"content\":\"本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！\",\"count\":50,\"enable\":false},\"fail\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"success\":\"复制成功(*^▽^*)\"},\"code_block\":{\"expand\":true},\"i18n_languages\":[{\"Lang\":\"zh-cn\",\"LanguageName\":\"简体中文\",\"LanguageCode\":\"\",\"Title\":\"\",\"LanguageDirection\":\"\",\"Weight\":1,\"Disabled\":false},{\"Lang\":\"en\",\"LanguageName\":\"English\",\"LanguageCode\":\"\",\"Title\":\"\",\"LanguageDirection\":\"\",\"Weight\":2,\"Disabled\":false},{\"Lang\":\"zh-tw\",\"LanguageName\":\"繁體中文\",\"LanguageCode\":\"\",\"Title\":\"\",\"LanguageDirection\":\"\",\"Weight\":3,\"Disabled\":false},{\"Lang\":\"ja\",\"LanguageName\":\"日本語\",\"LanguageCode\":\"\",\"Title\":\"\",\"LanguageDirection\":\"\",\"Weight\":4,\"Disabled\":false}],\"icon_font\":false,\"outdate\":{\"daysago\":180,\"enable\":true,\"message\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\"}}");
+  
+  window.siteConfig.swPath = '\/sw.js';
+  
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/regular.min.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/solid.min.css" />
+
+
+  
+
+
+  <link
+    rel="preload"
+    as="style"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/brands.min.css"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+
+  <link
+    rel="preload"
+    as="style"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/v5-font-face.min.css"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+
+  <link
+    rel="preload"
+    as="style"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/v4-font-face.min.css"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+
+
+
+
+
+  
+
+
+
+
+
+
+ <link rel="stylesheet" href="/css/loader.css" />
+
+
+
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="空氣動力學基礎 | 孤筝" />
+  <meta
+    property="og:description"
+    content="来都来了，随便坐坐。有些封面是随机图片api，所以可能抽风或包含R18：）"
+  />
+  <meta property="og:url" content="http://localhost:1313/zh-tw/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/" />
+  <meta
+    property="og:site_name"
+    content="孤筝の温暖小家"
+  />
+  <meta
+    property="og:image"
+    content="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/60017701.png"
+  />
+  <meta property="article:author" content="孤筝" />
+  <meta property="article:published_time" content="2024-09-02T22:13:45&#43;08:00" />
+  <meta property="article:modified_time" content="2024-09-02T22:13:45&#43;08:00" />
+  
+    <meta property="article:tag" content="原創筆記物理空氣動力學" />
+  
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/60017701.png" />
+  
+  
+  
+  
+  
+
+
+
+
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+
+
+
+ <link rel="stylesheet" href="/css/main.css" />
+
+
+
+
+
+  <link
+    rel="preload"
+    as="style"
+    href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+
+
+
+
+
+
+  <link
+    rel="preload"
+    as="style"
+    href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+
+
+
+
+  
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@waline/client@2.15.8/dist/waline.css" />
+
+
+
+
+
+
+
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"
+    
+    
+    
+    
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"
+  ></script>
+
+
+
+
+
+  
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@reimujs/aos@0.1.0/dist/aos.css" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" />
+
+
+
+
+    
+  </head>
+  <body>
+    
+    
+  <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi ">
+        
+          <img src="/images/saki-cry.GIF" alt="loading" />
+        
+      </div>
+      <div class="loading-word">“为什么要演奏《春日影》！”</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var startLoading = () => {
+      time = Date.now();
+      document.getElementById('loader').classList.remove("loading");
+    }
+    var endLoading = () => {
+      if (!time) {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader').classList.add("loading");
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    document.getElementById('loader').addEventListener('click', endLoading);
+  </script>
+
+
+<div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+</div>
+<div id="lang-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+本文章沒有找到對應的語言版本
+</div>
+
+
+  <div class="notification-wrapper">
+    <h1>發現新版本</h1>
+    <p>網站好像有新內容，是否更新？</p>
+    <div class="notification-btn">
+      <button id="notification-update-btn">更新</button>
+      <button id="notification-close-btn">取消</button>
+    </div>
+  </div>
+
+
+    <div id="container">
+      <div id="wrap">
+        
+<div id="header-nav">
+  <nav id="main-nav">
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf015;
+          
+        </div>
+        <a class="main-nav-link" href="/zh-tw/">首頁</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf01c;
+          
+        </div>
+        <a class="main-nav-link" href="/zh-tw/archives">歸檔</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf2bd;
+          
+        </div>
+        <a class="main-nav-link" href="/zh-tw/about">關於</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf519;
+          
+        </div>
+        <a class="main-nav-link" href="/zh-tw/friend">友鏈</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf075;
+          
+        </div>
+        <a class="main-nav-link" href="/zh-tw/moments">說說</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf005;
+          
+        </div>
+        <a class="main-nav-link" href="https://space.bilibili.com/348813114/bangumi">追番</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf239;
+          
+        </div>
+        <a class="main-nav-link" href="https://www.travellings.cn/go.html">開往</a>
+      </span>
+    
+    <a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav">
+    
+    
+  </nav>
+  
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    <nav id="i18n-nav">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">繁體中文</span>
+        </div>
+        <ul class="select-items" id="select-items">
+          
+            <li data-value="zh-cn"  >简体中文</li>
+          
+            <li data-value="en"  >English</li>
+          
+            <li data-value="zh-tw" class="selected" >繁體中文</li>
+          
+            <li data-value="ja"  >日本語</li>
+          
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+            
+              
+              langMap['zh-cn'] = '\/zh-cn\/post\/physics\/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80\/';
+              
+              langMap['en'] = '\/en\/post\/physics\/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80\/';
+              
+              langMap['ja'] = '\/ja\/post\/physics\/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80\/';
+              
+            
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            if (item.dataset.value === 'zh-tw') {
+              return;
+            }
+            if (!langMap[item.dataset.value]) {
+              _$("#lang-tooltip").style.opacity = "1";
+              setTimeout(() => {
+                _$("#lang-tooltip").style.opacity = "0";
+              }, 1000);
+              return;
+            }
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+          }
+        });
+      </script>
+    </nav>
+  
+</div>
+<header id="header">
+  
+    <picture></picture>
+    <img crossorigin="anonymous" fetchpriority="high" src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/60017701.png" alt="空氣動力學基礎">
+  
+
+  <div id="header-outer">
+    <div id="header-title">
+      
+        
+        
+          
+        
+  
+        
+          <a href="/zh-tw/" id="logo">
+            <h1 data-aos="slide-up">空氣動力學基礎</h1>
+          </a>
+        
+      
+  
+      
+        
+        
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+          
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+        <div id="content"
+          
+          class="sidebar-right"  >
+          <aside id="sidebar">
+  
+  
+  
+  <div class="sidebar-wrapper wrap-sticky">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    >
+      
+        
+          <div class="sidebar-toc-sidebar">
+            <div class="sidebar-toc">
+  <h3 class="toc-title">文章目錄</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#流體靜力學基礎">流體靜力學基礎</a>
+      <ul>
+        <li><a href="#氣體性質">氣體性質</a>
+          <ul>
+            <li><a href="#壓縮性">壓縮性</a>
+              <ul>
+                <li><a href="#體積彈性模數">體積彈性模數</a></li>
+              </ul>
+            </li>
+            <li><a href="#黏性">黏性</a>
+              <ul>
+                <li><a href="#牛頓黏性定律">牛頓黏性定律</a></li>
+                <li><a href="#薩特蘭公式">薩特蘭公式</a></li>
+                <li><a href="#運動黏性係數">運動黏性係數</a></li>
+              </ul>
+            </li>
+            <li><a href="#傳熱性">傳熱性</a></li>
+          </ul>
+        </li>
+        <li><a href="#流體分類">流體分類</a>
+          <ul>
+            <li><a href="#連續介質假設">連續介質假設</a></li>
+            <li><a href="#理想流體">理想流體</a>
+              <ul>
+                <li><a href="#壓強各向同性">壓強各向同性</a></li>
+              </ul>
+            </li>
+            <li><a href="#不可壓流體">不可壓流體</a></li>
+            <li><a href="#絕熱流體">絕熱流體</a></li>
+            <li><a href="#完全氣體">完全氣體</a>
+              <ul>
+                <li><a href="#完全氣體的狀態方程">完全氣體的狀態方程</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#流體微團受力">流體微團受力</a>
+          <ul>
+            <li><a href="#壓力">壓力</a></li>
+            <li><a href="#切應力摩擦力">切應力（摩擦力）</a></li>
+            <li><a href="#徹體力">徹體力</a></li>
+          </ul>
+        </li>
+        <li><a href="#靜平衡方程">靜平衡方程</a></li>
+      </ul>
+    </li>
+    <li><a href="#大氣">大氣</a>
+      <ul>
+        <li><a href="#大氣分層">大氣分層</a>
+          <ul>
+            <li><a href="#底層大氣">底層大氣</a>
+              <ul>
+                <li><a href="#對流層">對流層</a></li>
+                <li><a href="#對流頂層">對流頂層</a></li>
+                <li><a href="#平流層">平流層</a></li>
+                <li><a href="#中間大氣層">中間大氣層</a></li>
+              </ul>
+            </li>
+            <li><a href="#高層大氣">高層大氣</a>
+              <ul>
+                <li><a href="#高溫層">高溫層</a></li>
+                <li><a href="#外層大氣">外層大氣</a></li>
+              </ul>
+            </li>
+            <li><a href="#上層大氣與電離層">上層大氣與電離層</a>
+              <ul>
+                <li><a href="#d-層">D 層</a></li>
+                <li><a href="#e-層">E 層</a></li>
+                <li><a href="#層"> 層</a></li>
+                <li><a href="#層-1"> 層</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#國際標準大氣">國際標準大氣</a></li>
+      </ul>
+    </li>
+    <li><a href="#流體運動學與動力學基礎">流體運動學與動力學基礎</a>
+      <ul>
+        <li><a href="#流場">流場</a>
+          <ul>
+            <li><a href="#拉格朗日法">拉格朗日法</a></li>
+            <li><a href="#歐拉法">歐拉法</a>
+              <ul>
+                <li><a href="#當地加速度">當地加速度</a></li>
+                <li><a href="#遷移加速度">遷移加速度</a></li>
+                <li><a href="#非定常流場">非定常流場</a></li>
+                <li><a href="#定常流場">定常流場</a></li>
+              </ul>
+            </li>
+            <li><a href="#跡線">跡線</a></li>
+            <li><a href="#流線">流線</a></li>
+            <li><a href="#流線微分方程">流線微分方程</a></li>
+            <li><a href="#流管">流管</a></li>
+          </ul>
+        </li>
+        <li><a href="#流體微團運動分析">流體微團運動分析</a>
+          <ul>
+            <li><a href="#運動形式">運動形式</a>
+              <ul>
+                <li><a href="#剛體運動">剛體運動</a></li>
+                <li><a href="#流體運動">流體運動</a></li>
+              </ul>
+            </li>
+            <li><a href="#二維分析">二維分析</a>
+              <ul>
+                <li><a href="#線變形運動">線變形運動</a></li>
+                <li><a href="#角變形運動">角變形運動</a>
+                  <ul>
+                    <li><a href="#微團繞--軸轉動角速度">微團繞  軸轉動角速度</a></li>
+                    <li><a href="#角變形率">角變形率</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#散度">散度</a></li>
+            <li><a href="#旋度">旋度</a></li>
+            <li><a href="#速度位">速度位</a></li>
+          </ul>
+        </li>
+        <li><a href="#應力-單位面積上的力稱為應力">應力 ：單位面積上的力稱為應力</a></li>
+        <li><a href="#純量">純量</a>
+          <ul>
+            <li><a href="#壓力-1">壓力</a></li>
+            <li><a href="#密度">密度</a></li>
+            <li><a href="#溫度">溫度</a></li>
+            <li><a href="#黏性係數">黏性係數</a></li>
+          </ul>
+        </li>
+        <li><a href="#向量">向量</a>
+          <ul>
+            <li><a href="#流動速度">流動速度</a></li>
+            <li><a href="#剪應力">剪應力</a></li>
+          </ul>
+        </li>
+        <li><a href="#理想氣體狀態方程式">理想氣體狀態方程式</a></li>
+        <li><a href="#空氣動力及力矩">空氣動力及力矩</a>
+          <ul>
+            <li><a href="#空氣動力-resultant">空氣動力 ：Resultant</a></li>
+            <li><a href="#自由來流自由流">自由來流（自由流）</a></li>
+            <li><a href="#迎角攻角">迎角（攻角）</a></li>
+            <li><a href="#力矩-moment">力矩 ：Moment</a></li>
+            <li><a href="#動壓">動壓 </a></li>
+            <li><a href="#特徵幾何尺寸">特徵幾何尺寸 </a></li>
+            <li><a href="#無量綱參數">無量綱參數</a>
+              <ul>
+                <li><a href="#升力係數">升力係數</a></li>
+                <li><a href="#阻力係數">阻力係數</a></li>
+                <li><a href="#法向力係數">法向力係數</a></li>
+                <li><a href="#軸向力係數">軸向力係數</a></li>
+                <li><a href="#空氣動力係數">空氣動力係數</a></li>
+                <li><a href="#力矩係數">力矩係數</a></li>
+                <li><a href="#壓力係數">壓力係數</a></li>
+                <li><a href="#摩擦力係數">摩擦力係數</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#兩個中心">兩個中心</a>
+      <ul>
+        <li><a href="#壓力中心壓心">壓力中心（壓心）</a></li>
+        <li><a href="#空氣動力中心氣動中心焦點">空氣動力中心（氣動中心，焦點）</a></li>
+        <li><a href="#氣動中心與壓力中心的區別">氣動中心與壓力中心的區別</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+          </div>
+          <div class="sidebar-common-sidebar hidden">
+            
+<div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="孤筝"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">孤筝</div>
+  <div class="sidebar-description">来都来了，随便坐坐。<br />有些封面是随机图片api，所以可能抽风或包含R18：）</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    
+    <div class="sidebar-state-number">60</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分類</div>
+    <div class="sidebar-state-number">
+      9
+    </div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>標籤</div>
+    <div class="sidebar-state-number">34</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+    <div class="icon-bilibili sidebar-social-icon">
+      <a
+        href="https://space.bilibili.com/348813114"
+        itemprop="url"
+        target="_blank"
+        aria-label="bilibili"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-discord sidebar-social-icon">
+      <a
+        href="https://discordapp.com/users/guzhengsvt"
+        itemprop="url"
+        target="_blank"
+        aria-label="discord"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-email sidebar-social-icon">
+      <a
+        href="mailto:lvbowen040427@163.com"
+        itemprop="url"
+        target="_blank"
+        aria-label="email"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-facebook sidebar-social-icon">
+      <a
+        href="https://www.facebook.com/profile.php?id=100085813411626"
+        itemprop="url"
+        target="_blank"
+        aria-label="facebook"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-github sidebar-social-icon">
+      <a
+        href="https://github.com/GuZhengSVT"
+        itemprop="url"
+        target="_blank"
+        aria-label="github"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-steam sidebar-social-icon">
+      <a
+        href="https://steamcommunity.com/profiles/76561198903535314/"
+        itemprop="url"
+        target="_blank"
+        aria-label="steam"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-telegram sidebar-social-icon">
+      <a
+        href="https://t.me/GuZhengSVT"
+        itemprop="url"
+        target="_blank"
+        aria-label="telegram"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-twitter sidebar-social-icon">
+      <a
+        href="https://x.com/GuZhengSVT"
+        itemprop="url"
+        target="_blank"
+        aria-label="twitter"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-zhihu sidebar-social-icon">
+      <a
+        href="https://www.zhihu.com/people/Gu-Zheng"
+        itemprop="url"
+        target="_blank"
+        aria-label="zhihu"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+</div>
+<div class="sidebar-menu">
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/"
+        aria-label="首頁"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf015;
+        
+      </div>
+      <div class="sidebar-menu-link">首頁</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/archives"
+        aria-label="歸檔"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf01c;
+        
+      </div>
+      <div class="sidebar-menu-link">歸檔</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/about"
+        aria-label="關於"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf2bd;
+        
+      </div>
+      <div class="sidebar-menu-link">關於</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/friend"
+        aria-label="友鏈"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf519;
+        
+      </div>
+      <div class="sidebar-menu-link">友鏈</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/moments"
+        aria-label="說說"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf075;
+        
+      </div>
+      <div class="sidebar-menu-link">說說</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="https://space.bilibili.com/348813114/bangumi"
+        aria-label="追番"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf005;
+        
+      </div>
+      <div class="sidebar-menu-link">追番</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="https://www.travellings.cn/go.html"
+        aria-label="開往"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf239;
+        
+      </div>
+      <div class="sidebar-menu-link">開往</div>
+    </div>
+  
+</div>
+
+          </div>
+        
+      
+
+      
+        
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+        
+      
+    </div>
+  </div>
+
+  <div class="sidebar-widget">
+    
+  </div>
+  
+</aside>
+
+          <section id="main">
+  <article
+  class="h-entry article"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta">
+      <div class="article-date">
+  <span
+    class="article-date-link"
+    data-aos="zoom-in"
+  >
+    <time datetime="2024-09-02 22:13:45 &#43;0800 CST" itemprop="datePublished"
+      >2024-09-02</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2024-09-02</time
+    >
+  </span>
+</div>
+
+      <div class="article-category">
+  
+    <a
+      class="article-category-link"
+      href="/zh-tw/categories/physics"
+      data-aos="zoom-in"
+      >PHYSICS</a
+    >
+  
+</div>
+
+    </div>
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote id="outdate-blockquote" style="display: none;">
+          <p></p>
+        </blockquote>
+      
+      
+        <h1 id="流體靜力學基礎">
+<a class="header-anchor" href="#%e6%b5%81%e9%ab%94%e9%9d%9c%e5%8a%9b%e5%ad%b8%e5%9f%ba%e7%a4%8e"></a>
+流體靜力學基礎
+</h1><h2 id="氣體性質">
+<a class="header-anchor" href="#%e6%b0%a3%e9%ab%94%e6%80%a7%e8%b3%aa"></a>
+氣體性質
+</h2><h3 id="壓縮性">
+<a class="header-anchor" href="#%e5%a3%93%e7%b8%ae%e6%80%a7"></a>
+壓縮性
+</h3><h4 id="體積彈性模數">
+<a class="header-anchor" href="#%e9%ab%94%e7%a9%8d%e5%bd%88%e6%80%a7%e6%a8%a1%e6%95%b8"></a>
+體積彈性模數
+</h4><p>定義：產生單位相對體積變化所需壓強增高</p>
+$$
+E=-\frac{dp}{dV/V}
+$$<p>對於一定質量氣體，體積與密度成反比例關係，即</p>
+$$
+\frac{d \rho}{\rho}=-\frac{dV}{V}
+$$<p>回代得</p>
+$$
+E=\rho \frac{dp}{d \rho}
+$$<p>常溫下水的體積彈性模數：$2.1 \times 10^9N/m^2$</p>
+<p>通常情況下水可視為不可壓縮流體。</p>
+<h3 id="黏性">
+<a class="header-anchor" href="#%e9%bb%8f%e6%80%a7"></a>
+黏性
+</h3><h4 id="牛頓黏性定律">
+<a class="header-anchor" href="#%e7%89%9b%e9%a0%93%e9%bb%8f%e6%80%a7%e5%ae%9a%e5%be%8b"></a>
+牛頓黏性定律
+</h4><p>流體運動所產生的摩擦阻力與接觸面積成正比</p>
+$$
+\tau =\mu \frac{du}{d \vec{n}}
+$$<p>$\tau$ ：摩阻<strong>應力</strong>，單位面積上的摩擦阻力</p>
+<p>$\vec{n}$ ：接觸面法線方向</p>
+<p>$\mu$ ：比例常數，稱為流體的<strong>黏性係數</strong>，單位為 $N \cdot s/m^2$</p>
+<p>$\frac{du}{d \vec{n}}$ ：速度梯度</p>
+<p>不同流體介質黏性係數值各不相同，並且黏性係數隨溫度變化，與壓強基本無關。</p>
+<p>氣體黏性係數隨溫度升高而增大。</p>
+<h4 id="薩特蘭公式">
+<a class="header-anchor" href="#%e8%96%a9%e7%89%b9%e8%98%ad%e5%85%ac%e5%bc%8f"></a>
+薩特蘭公式
+</h4><p>空氣黏性係數隨溫度變化關係，近似公式之一薩特蘭公式</p>
+$$
+\frac{\mu}{\mu_0}=(\frac{T}{288.15})^{1.5}\frac{288.15+C}{T+C}
+$$<p>$\mu_0$ ：溫度為 $288.15K$ 時空氣黏性係數</p>
+<p>$C$ ：常數，值為 $110.4K$</p>
+<h4 id="運動黏性係數">
+<a class="header-anchor" href="#%e9%81%8b%e5%8b%95%e9%bb%8f%e6%80%a7%e4%bf%82%e6%95%b8"></a>
+運動黏性係數
+</h4>$$
+\nu=\frac{\mu}{\rho}
+$$<p>$\nu$ ：運動黏性係數，單位為 $m^2/s$</p>
+<p>$\mu$ ：黏性係數</p>
+<p>$\rho$ ：密度</p>
+<h3 id="傳熱性">
+<a class="header-anchor" href="#%e5%82%b3%e7%86%b1%e6%80%a7"></a>
+傳熱性
+</h3><p>定義：當氣體中沿某一方向存在溫度梯度時，熱量就會由溫度高的地方傳向溫度低的地方，這種性質稱為氣體的傳熱性。</p>
+<p>單位時間內所傳遞熱量與傳熱面積成正比，與沿熱流方向的溫度梯度成正比，即</p>
+$$
+q=-\lambda \frac{\partial T}{\partial \vec{n}}
+$$<p>$q$ ：單位時間通過單位面積熱量，單位 $kJ/(m^2 \cdot s)$</p>
+<p>$\frac{\partial T}{\partial \vec{n}}$ ：溫度梯度，單位為 $K/m$</p>
+<p>$\lambda$ ：導熱係數，單位為 $kJ/(m \cdot K \cdot s)$</p>
+<p>負號表示熱量傳遞方向永遠與溫度梯度方向相反。</p>
+<h2 id="流體分類">
+<a class="header-anchor" href="#%e6%b5%81%e9%ab%94%e5%88%86%e9%a1%9e"></a>
+流體分類
+</h2><h3 id="連續介質假設">
+<a class="header-anchor" href="#%e9%80%a3%e7%ba%8c%e4%bb%8b%e8%b3%aa%e5%81%87%e8%a8%ad"></a>
+連續介質假設
+</h3><h3 id="理想流體">
+<a class="header-anchor" href="#%e7%90%86%e6%83%b3%e6%b5%81%e9%ab%94"></a>
+理想流體
+</h3><p>不考慮黏性，在這種模型中，流體微團不承受黏性力作用。常用於氣體。</p>
+<p>忽略黏性的氣體稱為理想氣體。</p>
+<h4 id="壓強各向同性">
+<a class="header-anchor" href="#%e5%a3%93%e5%bc%b7%e5%90%84%e5%90%91%e5%90%8c%e6%80%a7"></a>
+壓強各向同性
+</h4><p>理想流體內一點處的壓強與受壓面的方位無關，它僅是空間坐標的連續函數。</p>
+<h3 id="不可壓流體">
+<a class="header-anchor" href="#%e4%b8%8d%e5%8f%af%e5%a3%93%e6%b5%81%e9%ab%94"></a>
+不可壓流體
+</h3><p>不考慮氣體壓縮性或彈性，可認為體積彈性模數無窮大，或流體密度為常數。常用於液體。</p>
+<p>求解不可壓流體的流動規律，只需要服從力學定律，不需要考慮熱力學關係。</p>
+<p>對流速較低的氣體，也可按不可壓流體處理流動問題。</p>
+<h3 id="絕熱流體">
+<a class="header-anchor" href="#%e7%b5%95%e7%86%b1%e6%b5%81%e9%ab%94"></a>
+絕熱流體
+</h3><p>不考慮流體傳熱性的模型，即把流體熱導係數看作零。低速流動的空氣一般熱導係數值很小，可視為絕熱。</p>
+<p>不考慮氣體微團之間熱傳導作用的氣體模型稱之為絕熱氣體。</p>
+<h3 id="完全氣體">
+<a class="header-anchor" href="#%e5%ae%8c%e5%85%a8%e6%b0%a3%e9%ab%94"></a>
+完全氣體
+</h3><p>任何狀態下，氣體的壓強、密度和溫度之間都存在一定的函數關係</p>
+$$
+p=p(\rho,T)
+$$<h4 id="完全氣體的狀態方程">
+<a class="header-anchor" href="#%e5%ae%8c%e5%85%a8%e6%b0%a3%e9%ab%94%e7%9a%84%e7%8b%80%e6%85%8b%e6%96%b9%e7%a8%8b"></a>
+完全氣體的狀態方程
+</h4>$$
+p=\frac{\overline{R}}{m}\rho T
+$$<p>$\overline{R}$ ：普適氣體常數，$8315m^2/(s^2 \cdot K)$</p>
+<p>$m$ ：某種氣體相對分子質量</p>
+<p>$R=\frac{\overline{R}}{m}$ 時，</p>
+$$
+p=\rho R T
+$$<p>$R$ 為氣體常數，空氣約為 $287.035m^2/(s^2 \cdot K)$</p>
+<h2 id="流體微團受力">
+<a class="header-anchor" href="#%e6%b5%81%e9%ab%94%e5%be%ae%e5%9c%98%e5%8f%97%e5%8a%9b"></a>
+流體微團受力
+</h2><h3 id="壓力">
+<a class="header-anchor" href="#%e5%a3%93%e5%8a%9b"></a>
+壓力
+</h3><h3 id="切應力摩擦力">
+<a class="header-anchor" href="#%e5%88%87%e6%87%89%e5%8a%9b%e6%91%a9%e6%93%a6%e5%8a%9b"></a>
+切應力（摩擦力）
+</h3><h3 id="徹體力">
+<a class="header-anchor" href="#%e5%be%b9%e9%ab%94%e5%8a%9b"></a>
+徹體力
+</h3><ul>
+<li>重力</li>
+<li>電磁力</li>
+<li>離心力</li>
+</ul>
+<h2 id="靜平衡方程">
+<a class="header-anchor" href="#%e9%9d%9c%e5%b9%b3%e8%a1%a1%e6%96%b9%e7%a8%8b"></a>
+靜平衡方程
+</h2><p>在==靜止流體==中取一點 $P$，壓力為 $p$</p>
+<p>建立笛卡爾坐標系，流體內各點處壓力為</p>
+$$
+p(x,y,z)
+$$<p>以 $P$ 為中心建立各邊平行於坐標軸的長方體，邊長為 $dx,dy,dz$</p>
+<p>觀察 $x$ 軸方向，兩面受壓力大小分別為</p>
+$$
+[p(x_0,y_0,z_0)+(\frac{\partial p}{\partial x})(\frac{dx}{2})]dx dy
+$$$$
+[p(x_0,y_0,z_0)-(\frac{\partial p}{\partial x})(\frac{dx}{2})]dx dy
+$$<p>流體微團 $x$ 軸方向受徹體力為</p>
+$$
+f_x \rho dx dy dz
+$$<p>$f_x$ 為單位質量上所受徹體力在 $x$ 軸方向分力。</p>
+<p>因為是靜止流體，流體微團受力平衡。</p>
+<p>$x$ 軸方向力平衡方程為</p>
+$$
+[p(x_0,y_0,z_0)-(\frac{\partial p}{\partial x})(\frac{dx}{2})]dx dy-[p(x_0,y_0,z_0)+(\frac{\partial p}{\partial x})(\frac{dx}{2})]dx dy+f_x \rho dx dy dz=0
+$$<p>整理得</p>
+$$
+\frac{\partial p}{\partial x}=\rho f_x
+$$$$
+\frac{\partial p}{\partial y}=\rho f_y
+$$$$
+\frac{\partial p}{\partial z}=\rho f_z
+$$<p>$\because$ $p$ 全微分方程為</p>
+$$
+dp=\frac{\partial p}{\partial x}dx+\frac{\partial p}{\partial y}dy+\frac{\partial p}{\partial z}dz
+$$<p>$\therefore$</p>
+$$
+dp=\rho(f_x dx+f_y dy+f_z dz)
+$$<p>設==徹體力位函數==</p>
+$$
+\varOmega=\varOmega(x,y,z)
+$$<p>全微分為</p>
+$$
+d \varOmega=\frac{\partial \varOmega}{\partial x}dx+\frac{\partial \varOmega}{\partial y}dy+\frac{\partial \varOmega}{\partial z}dz
+$$<p>其中 $\frac{\partial \varOmega}{\partial x}=f_x$，$\frac{\partial \varOmega}{\partial y}=f_y$，$\frac{\partial \varOmega}{\partial z}=-f_z$</p>
+<p>由上述關係得到</p>
+$$
+dp=-\rho d \varOmega
+$$<p>兩邊對 $x,y,z$ 三重積分得</p>
+$$
+p=-\rho \varOmega+C(常數)
+$$$$
+C=p+\rho \varOmega
+$$<p>當已知某一點 A 處的壓力 $p_a$ ，兩點處徹體力位函數差 $\varOmega_a-\varOmega$ ，該靜止流體密度 $\rho$ （處處相等）時，已知任一點徹體力位函數 $\varOmega$ 可求得該點壓力</p>
+$$
+p=p_a+\rho (\varOmega_a-\varOmega)
+$$<p><strong>推論：</strong> 流體內等壓面必是徹體力的等位面。</p>
+<h1 id="大氣">
+<a class="header-anchor" href="#%e5%a4%a7%e6%b0%a3"></a>
+大氣
+</h1><h2 id="大氣分層">
+<a class="header-anchor" href="#%e5%a4%a7%e6%b0%a3%e5%88%86%e5%b1%a4"></a>
+大氣分層
+</h2><h3 id="底層大氣">
+<a class="header-anchor" href="#%e5%ba%95%e5%b1%a4%e5%a4%a7%e6%b0%a3"></a>
+底層大氣
+</h3><ul>
+<li>高度：海平面——85 km</li>
+<li>特點：組分均勻，氮氣佔總體積 78.1%，氧氣佔總體積 21%</li>
+</ul>
+<h4 id="對流層">
+<a class="header-anchor" href="#%e5%b0%8d%e6%b5%81%e5%b1%a4"></a>
+對流層
+</h4><ul>
+<li>高度
+<ul>
+<li>赤道：16~18 km</li>
+<li>中緯度地區：10~12 km</li>
+<li>兩極：7~10 km</li>
+</ul>
+</li>
+<li>質量：佔整個大氣質量 75%</li>
+<li>特點：有上下方向流動，有風暴、雷雨現象。隨高度增加，空氣溫度快速下降。</li>
+</ul>
+<h4 id="對流頂層">
+<a class="header-anchor" href="#%e5%b0%8d%e6%b5%81%e9%a0%82%e5%b1%a4"></a>
+對流頂層
+</h4><p>過渡層，厚度數百米到一二千米。</p>
+<h4 id="平流層">
+<a class="header-anchor" href="#%e5%b9%b3%e6%b5%81%e5%b1%a4"></a>
+平流層
+</h4><ul>
+<li>高度：對流層~32 km</li>
+<li>質量：約佔大氣層質量四分之一</li>
+<li>特點：無氣象，空氣水平流動，溫度保持常數（平均約 216.65 K）</li>
+</ul>
+<h4 id="中間大氣層">
+<a class="header-anchor" href="#%e4%b8%ad%e9%96%93%e5%a4%a7%e6%b0%a3%e5%b1%a4"></a>
+中間大氣層
+</h4><ul>
+<li>高度：32~85 km</li>
+<li>質量：1/3000</li>
+<li>溫度：先上升後下降，85 km 處可降到 106 K 以下。</li>
+</ul>
+<h3 id="高層大氣">
+<a class="header-anchor" href="#%e9%ab%98%e5%b1%a4%e5%a4%a7%e6%b0%a3"></a>
+高層大氣
+</h3><ul>
+<li>高度：85 km 以上</li>
+<li>特點：組分不均勻，直接吸收太陽輻射</li>
+</ul>
+<h4 id="高溫層">
+<a class="header-anchor" href="#%e9%ab%98%e6%ba%ab%e5%b1%a4"></a>
+高溫層
+</h4><ul>
+<li>高度：85~500 km</li>
+<li>溫度：隨高度升高溫度上升，500 km 處白天可達 1370 K。</li>
+<li>特點：直接受太陽短波輻射</li>
+</ul>
+<h4 id="外層大氣">
+<a class="header-anchor" href="#%e5%a4%96%e5%b1%a4%e5%a4%a7%e6%b0%a3"></a>
+外層大氣
+</h4><ul>
+<li>高度：500+ km，大氣逐漸與星際空間融合</li>
+<li>質量：$1/10^{11}$</li>
+<li>特點：大氣過於稀薄，不適合用溫度定義。空氣分子可逃逸入太空。</li>
+</ul>
+<h3 id="上層大氣與電離層">
+<a class="header-anchor" href="#%e4%b8%8a%e5%b1%a4%e5%a4%a7%e6%b0%a3%e8%88%87%e9%9b%bb%e9%9b%a2%e5%b1%a4"></a>
+上層大氣與電離層
+</h3><ul>
+<li>上層大氣受太陽短波輻射離解為電子和離子，形成電離層。</li>
+<li>100 km 以上高空中，空氣是良導體。</li>
+<li>150 km 以上，空氣過於稀薄，無法傳遞聲音。</li>
+</ul>
+<h4 id="d-層">
+<a class="header-anchor" href="#d-%e5%b1%a4"></a>
+D 層
+</h4><ul>
+<li>高度：60~80 km</li>
+</ul>
+<h4 id="e-層">
+<a class="header-anchor" href="#e-%e5%b1%a4"></a>
+E 層
+</h4><ul>
+<li>高度：100~120 km</li>
+</ul>
+<h4 id="層">
+<a class="header-anchor" href="#%e5%b1%a4"></a>
+$F_1$ 層
+</h4><ul>
+<li>高度：180~220 km</li>
+</ul>
+<h4 id="層-1">
+<a class="header-anchor" href="#%e5%b1%a4-1"></a>
+$F_2$ 層
+</h4><ul>
+<li>高度：300~350 km</li>
+</ul>
+<h2 id="國際標準大氣">
+<a class="header-anchor" href="#%e5%9c%8b%e9%9a%9b%e6%a8%99%e6%ba%96%e5%a4%a7%e6%b0%a3"></a>
+國際標準大氣
+</h2><p>航空工程中統一的大氣壓強、密度、溫度等參數標準，按中緯度地區全年平均條件統計確定，稱為國際標準大氣。</p>
+<h1 id="流體運動學與動力學基礎">
+<a class="header-anchor" href="#%e6%b5%81%e9%ab%94%e9%81%8b%e5%8b%95%e5%ad%b8%e8%88%87%e5%8b%95%e5%8a%9b%e5%ad%b8%e5%9f%ba%e7%a4%8e"></a>
+流體運動學與動力學基礎
+</h1><h2 id="流場">
+<a class="header-anchor" href="#%e6%b5%81%e5%a0%b4"></a>
+流場
+</h2><p>流場：充滿運動流體的空間</p>
+<p>流動參數：用以表示流體運動特徵的物理量，如速度、密度、壓強等。</p>
+<p>流體力學方法：拉格朗日法，歐拉法</p>
+<h3 id="拉格朗日法">
+<a class="header-anchor" href="#%e6%8b%89%e6%a0%bc%e6%9c%97%e6%97%a5%e6%b3%95"></a>
+拉格朗日法
+</h3><p>著眼於<strong>質點</strong>（運動）</p>
+<ul>
+<li>研究流場各個質點的運動參數隨時間變化規律和運動軌跡。</li>
+<li>綜合所有流體質點運動參數變化從而得到整個流場運動規律。</li>
+</ul>
+<h3 id="歐拉法">
+<a class="header-anchor" href="#%e6%ad%90%e6%8b%89%e6%b3%95"></a>
+歐拉法
+</h3><p>著眼於<strong>空間點</strong>（不動）</p>
+<ul>
+<li>研究流體質點通過空間固定點時，運動參數隨時間變化規律。</li>
+<li>綜合流場中所有空間點處運動參數變化情況，可得到整個流場運動規律。</li>
+</ul>
+<p>歐拉法中，流場運動參數一般是空間點座標和時間的函數。</p>
+<p>以速度為例</p>
+$$
+v=v(x,y,z,t)
+$$<p>四個變量獨立。</p>
+<p>一般三維空間中，建立笛卡爾座標系，將標量參數分解到 $x,y,z$ 軸方向分別分析。</p>
+$$
+v_x=v_x(x,y,z,t)
+$$<p>求導得加速度分量</p>
+$$
+a_x=\frac{d v_x}{dt}=\frac{\partial v_x}{\partial t}+\frac{\partial v_x}{\partial x}\frac{dx}{dt}+\frac{\partial v_x}{\partial y}\frac{dy}{dt}+\frac{\partial v_x}{\partial z}\frac{dz}{dt}
+$$<p>$\because$ $\frac{dx}{dt}=v_x,\frac{dy}{dt}=v_y,\frac{dz}{dt}=v_z$</p>
+<p>$\therefore$</p>
+$$
+a_x=\frac{\partial v_x}{\partial t}+v_x \frac{\partial v_x}{\partial x}+v_y \frac{\partial v_x}{\partial y}+v_z \frac{\partial v_x}{\partial z}
+$$<p>由此可知，加速度是時間和位置的函數</p>
+$$
+a_x=a_x(t,x,y,z)
+$$<h4 id="當地加速度">
+<a class="header-anchor" href="#%e7%95%b6%e5%9c%b0%e5%8a%a0%e9%80%9f%e5%ba%a6"></a>
+當地加速度
+</h4><p>等式右邊第一項表示空間固定點處的流體質點速度隨時間變化率，稱<strong>當地加速度</strong>。（速度與時間關係）</p>
+<p>當地加速度是由流場中速度隨時間的變化性引起的。</p>
+<h4 id="遷移加速度">
+<a class="header-anchor" href="#%e9%81%b7%e7%a7%bb%e5%8a%a0%e9%80%9f%e5%ba%a6"></a>
+遷移加速度
+</h4><p>後三項反映在同一瞬時，流體質點沿速度矢量方向從空間一點運動到相鄰另一點速度變化率，稱為<strong>遷移加速度</strong>。（速度與位移關係）</p>
+<p>遷移加速度是由流場的不均勻性引起的。</p>
+<h4 id="非定常流場">
+<a class="header-anchor" href="#%e9%9d%9e%e5%ae%9a%e5%b8%b8%e6%b5%81%e5%a0%b4"></a>
+非定常流場
+</h4><p>流場中至少存在一<strong>空間點</strong>的物理量隨時間變化。</p>
+<h4 id="定常流場">
+<a class="header-anchor" href="#%e5%ae%9a%e5%b8%b8%e6%b5%81%e5%a0%b4"></a>
+定常流場
+</h4><p>流場中<strong>任意空間點</strong>處的物理量不隨時間變化。</p>
+<h3 id="跡線">
+<a class="header-anchor" href="#%e8%b7%a1%e7%b7%9a"></a>
+跡線
+</h3><p>流場中標定的運動流體質點在一段時間內所經過所有空間點的集合，稱為該流體質點跡線。</p>
+<h3 id="流線">
+<a class="header-anchor" href="#%e6%b5%81%e7%b7%9a"></a>
+流線
+</h3><p>在流場中每一空間點上都<strong>與速度矢量相切</strong>的曲線稱為流線。</p>
+<p>流線是同一時刻不同流體質點所組成的曲線，它給出該時刻不同流體質點的速度方向。</p>
+<p><strong>特點：</strong></p>
+<ul>
+<li>
+<p>在定常流場中各流線不隨時間變化。</p>
+</li>
+<li>
+<p>非定常流場中存在隨時間變化的流線。</p>
+</li>
+<li>
+<p>定常流場中，經過某一空間點的流線，與所有<strong>經過該空間點的流體質點</strong>的跡線重合。</p>
+</li>
+<li>
+<p>一般流線不相交（同一時刻同一空間點不存在兩個速度方向）</p>
+</li>
+<li>
+<p>在速度為 0 的空間點上，流線可以相交。通常稱速度為 0 的空間點為<strong>駐點</strong>。</p>
+</li>
+<li>
+<p>在速度無窮大的空間點上，流線可以相交，通常稱速度無窮大的空間點為<strong>奇點</strong>。</p>
+</li>
+<li>
+<p>流線相切，切點後兩線重合。</p>
+</li>
+<li>
+<p>流場中每一點都有流線通過，所有流線集合稱為<strong>流線譜</strong>或簡稱<strong>流譜</strong>。</p>
+</li>
+</ul>
+<h3 id="流線微分方程">
+<a class="header-anchor" href="#%e6%b5%81%e7%b7%9a%e5%be%ae%e5%88%86%e6%96%b9%e7%a8%8b"></a>
+流線微分方程
+</h3><p>設流線上某點 $M(x,y,z)$ 處速度為 $\vec{v}$ ，$M$ 點流線微段長 $ds$ ，在笛卡爾座標系分解為 $v_x,v_y,v_z$ 和 $dx,dy,dz$ 。</p>
+<p>流線任一點速度方向與流線切線方向相同，則</p>
+$$
+\cos(\vec{v},\vec{i})=\frac{v_x}{v}=\frac{dx}{ds}
+$$<p>$\vec{i}$ 為 $x$ 軸方向單位法向量，$y,z$ 軸同理。</p>
+$$
+\frac{dx}{v_x}=\frac{dy}{v_y}=\frac{dz}{v_z}
+$$<p>上式即為流線的微分方程式。</p>
+<p>已知速度分佈時，可求得流場中通過任一點的流線形狀。</p>
+<h3 id="流管">
+<a class="header-anchor" href="#%e6%b5%81%e7%ae%a1"></a>
+流管
+</h3><p>在流場中一條<strong>不為流線</strong>的<strong>封閉</strong>曲線 C，過 C 上每一點作流線，由這些流線集合構成的管狀曲面稱為流管。</p>
+<h2 id="流體微團運動分析">
+<a class="header-anchor" href="#%e6%b5%81%e9%ab%94%e5%be%ae%e5%9c%98%e9%81%8b%e5%8b%95%e5%88%86%e6%9e%90"></a>
+流體微團運動分析
+</h2><h3 id="運動形式">
+<a class="header-anchor" href="#%e9%81%8b%e5%8b%95%e5%bd%a2%e5%bc%8f"></a>
+運動形式
+</h3><h4 id="剛體運動">
+<a class="header-anchor" href="#%e5%89%9b%e9%ab%94%e9%81%8b%e5%8b%95"></a>
+剛體運動
+</h4><ul>
+<li>平移運動</li>
+<li>繞軸轉動</li>
+</ul>
+<h4 id="流體運動">
+<a class="header-anchor" href="#%e6%b5%81%e9%ab%94%e9%81%8b%e5%8b%95"></a>
+流體運動
+</h4><ul>
+<li>平移運動</li>
+<li>繞軸轉動</li>
+<li>變形運動
+<ul>
+<li>直線變形</li>
+<li>剪切變形</li>
+</ul>
+</li>
+</ul>
+<h3 id="二維分析">
+<a class="header-anchor" href="#%e4%ba%8c%e7%b6%ad%e5%88%86%e6%9e%90"></a>
+二維分析
+</h3><p>![Pasted image 20240902212258.png][1]</p>
+<p>在流場中任取一矩形流體微團 ABCD，其兩邊的邊長分別為 $\delta_x,\delta_y$ ，且均為小量。</p>
+<p>設 $v_x,v_y$ 為 A 點處流體微團分速度，且分速度均為空間點座標的連續函數，則 B, D 點速度可用泰勒級數在 A 點的展開表述。</p>
+<p>$\because$ 流體微團邊長足夠小</p>
+<p>$\therefore$ 二階以上小量可忽略</p>
+$$
+v_{Bx}=v_x+\frac{\partial v_x}{\partial x}\delta_x
+$$$$
+v_{By}=v_y+\frac{\partial v_y}{x}\delta_x
+$$<p>流體微團運動時，除了整體運動，B 相對於 A 點也有運動。</p>
+<p>$x$ 軸方向相對運動速度 $v_{Bx}-v_x=\frac{\partial v_x}{\partial x}\delta_x$ ，$y$ 軸方向同理 $\frac{\partial v_x}{\partial x}\delta_x$ 。</p>
+<p>D 相對於 A 運動速度為 $v_{Dx}-v_x=\frac{\partial v_x}{\partial y}\delta_y,v_{Dy}-v_y=\frac{\partial v_y}{\partial y}\delta_y$ 。</p>
+<h4 id="線變形運動">
+<a class="header-anchor" href="#%e7%b7%9a%e8%ae%8a%e5%bd%a2%e9%81%8b%e5%8b%95"></a>
+線變形運動
+</h4><p>![Pasted image 20240902212840.png][2]</p>
+<p>相對速度 $\frac{\partial v_x}{\partial x}\delta_x$ 和 $\frac{\partial v_y}{\partial y}\delta_y$ 是矩形 ABCD 邊線的直線形變速度，時間 $dt$ 內</p>
+$$
+AB'=AB+\frac{\partial v_x}{\partial x}\delta_x dt
+$$$$
+AD'=AD+\frac{\partial v_y}{\partial y}\delta_y dt
+$$<p>矩形面積相對變化率為</p>
+$$
+\frac{d(\delta S)}{\delta S \cdot dt}=\frac{AB' \cdot CD'-AB \cdot CD}{AB \cdot CD \cdot dt}
+$$<p>略去高階小量後，</p>
+$$
+\frac{d(\delta S)}{\delta S \cdot dt}=\frac{\partial v_x}{\partial x}+\frac{\partial v_y}{\partial y}
+$$<p>拓展到三維空間後，同理可得</p>
+$$
+\frac{d(\delta V)}{\delta V \cdot dt}=\frac{\partial v_x}{\partial x}+\frac{\partial v_y}{\partial y}+\frac{\partial v_z}{\partial z}
+$$<h4 id="角變形運動">
+<a class="header-anchor" href="#%e8%a7%92%e8%ae%8a%e5%bd%a2%e9%81%8b%e5%8b%95"></a>
+角變形運動
+</h4><p>![Pasted image 20240902214219.png][3]</p>
+<p>相對速度 $\frac{\partial v_y}{\partial x}\delta x,\frac{\partial v_x}{\partial y}\delta y$ 表示 AB 邊和 AD 邊繞 A 點的轉動。</p>
+<p>規定逆時針轉動為正，</p>
+<p>AB 邊轉動角速度</p>
+$$
+\frac{d\alpha_1}{dt}=\frac{\partial v_y}{\partial x}\delta_x / \delta_x=\frac{\partial v_y}{\partial x}
+$$<p>同理 AD 邊轉動角速度為</p>
+$$
+\frac{d \alpha_2}{dt}=-\frac{\partial v_x}{\partial y}
+$$<h5 id="微團繞--軸轉動角速度">
+<a class="header-anchor" href="#%e5%be%ae%e5%9c%98%e7%b9%9e--%e8%bb%b8%e8%bd%89%e5%8b%95%e8%a7%92%e9%80%9f%e5%ba%a6"></a>
+微團繞 $z$ 軸轉動角速度
+</h5><p><strong>定義</strong>：微團在 $xOy$ 平面投影中兩條<strong>互相垂直線</strong>繞 $z$ 軸轉動角速度的<strong>平均值</strong>。（角速度和之半）</p>
+$$
+\epsilon_z=\frac{1}{2}(\frac{\partial v_y}{\partial x}-\frac{\partial v_x}{\partial y})
+$$<h5 id="角變形率">
+<a class="header-anchor" href="#%e8%a7%92%e8%ae%8a%e5%bd%a2%e7%8e%87"></a>
+角變形率
+</h5><p><strong>定義</strong>：微團在 $xOy$ 平面投影中兩條互相垂直線在<strong>單位時間內</strong>的夾角變化量<strong>之半</strong>。（角速度差之半）</p>
+$$
+\gamma_z=\frac{1}{2}(\frac{\partial v_y}{\partial x}+\frac{\partial v_x}{\partial y})
+$$<p>拓展到三維空間後，流體微團的三軸轉動角速度和角變形率同理可求。</p>
+<p>略。</p>
+<h3 id="散度">
+<a class="header-anchor" href="#%e6%95%a3%e5%ba%a6"></a>
+散度
+</h3><p>定義：各速度分量在其分量方向上的方向導數之和為速度矢量的三度。</p>
+$$
+div \vec{v}=\frac{\partial v_x}{\partial x}+\frac{\partial v_y}{\partial y}+\frac{\partial v_z}{\partial z}
+$$<p>物理意義：標定流體微團在運動過程中<strong>相對體積變化率</strong>。</p>
+<p>==假設前提==：流體的密度沒有發生變化（流體的運動視為不可壓流）。</p>
+<p>由一點發出的體積流量定義為</p>
+$$
+\lim_{\delta V \to 0}\frac{體積流出量-體積流入量}{\delta V \cdot dt}=\frac{\partial v_x}{\partial x}+\frac{\partial v_y}{\partial y}+\frac{\partial v_z}{\partial z}
+$$<p>等於<strong>單位時間</strong>內空間某一點處，<strong>單位體積</strong>控制體的體積<strong>淨流出量</strong>，等於流體微團在運動中體積相對變化率。</p>
+<h3 id="旋度">
+<a class="header-anchor" href="#%e6%97%8b%e5%ba%a6"></a>
+旋度
+</h3><p>定義：旋轉角速度的兩倍。</p>
+$$
+\vec{\omega}=curl \vec{v}=(\frac{\partial v_z}{\partial y}-\frac{\partial v_y}{\partial z})\vec{i}+(\frac{\partial v_x}{\partial z}-\frac{\partial v_z}{\partial x})\vec{j}+(\frac{\partial v_y}{\partial x}-\frac{\partial v_x}{\partial y})\vec{k}
+$$<h3 id="速度位">
+<a class="header-anchor" href="#%e9%80%9f%e5%ba%a6%e4%bd%8d"></a>
+速度位
+</h3><p>在流體力學中, 可根據流體微團是否有旋轉運動, 而將流體運動分為</p>
+<ul>
+<li>有旋運動</li>
+<li>無旋運動</li>
+</ul>
+<p>當把流動看作無旋運動時，$\omega=0$ ，</p>
+$$
+\begin{cases}
+\frac{\partial v_z}{\partial y}=\frac{\partial v_y}{\partial z} \\
+\frac{\partial v_x}{\partial z}=\frac{\partial v_z}{\partial x} \\
+\frac{\partial v_y}{\partial x}=\frac{\partial v_x}{\partial y} \\
+\end{cases}
+$$<p>上述方程組是 $v_xdx+v_ydy+v_zdz$ 構成某函數 $\phi(x,y,z)$ 全微分的充要條件。即</p>
+$$
+d \phi=v_xdx+v_ydy+v_zdz=\frac{\partial \phi}{\partial x}dx+\frac{\partial \phi}{\partial y}dy+\frac{\partial \phi}{\partial z}dz
+$$<p>$\phi$ 稱為速度位或速度位函數。</p>
+$$
+\begin{cases}
+v_x=\frac{\partial \phi}{\partial x}\\
+v_y=\frac{\partial \phi}{\partial y}\\
+v_z=\frac{\partial \phi}{\partial z}\\
+\end{cases}
+$$<p>使用<strong>柱極座標</strong>時，</p>
+$$
+\phi=\phi(r,\theta,z)
+$$$$
+\begin{cases}
+v_r=\frac{\partial \phi}{\partial r}\\
+v_\theta=\frac{\partial \phi}{\partial \theta}\\
+v_z=\frac{\partial \phi}{\partial z}\\
+\end{cases}
+$$<hr>
+<h2 id="應力-單位面積上的力稱為應力">
+<a class="header-anchor" href="#%e6%87%89%e5%8a%9b-%e5%96%ae%e4%bd%8d%e9%9d%a2%e7%a9%8d%e4%b8%8a%e7%9a%84%e5%8a%9b%e7%a8%b1%e7%82%ba%e6%87%89%e5%8a%9b"></a>
+應力 ：單位面積上的力稱為應力
+</h2><h2 id="純量">
+<a class="header-anchor" href="#%e7%b4%94%e9%87%8f"></a>
+純量
+</h2><h3 id="壓力-1">
+<a class="header-anchor" href="#%e5%a3%93%e5%8a%9b-1"></a>
+壓力
+</h3><h3 id="密度">
+<a class="header-anchor" href="#%e5%af%86%e5%ba%a6"></a>
+密度
+</h3><h3 id="溫度">
+<a class="header-anchor" href="#%e6%ba%ab%e5%ba%a6"></a>
+溫度
+</h3><h3 id="黏性係數">
+<a class="header-anchor" href="#%e9%bb%8f%e6%80%a7%e4%bf%82%e6%95%b8"></a>
+黏性係數
+</h3><h2 id="向量">
+<a class="header-anchor" href="#%e5%90%91%e9%87%8f"></a>
+向量
+</h2><h3 id="流動速度">
+<a class="header-anchor" href="#%e6%b5%81%e5%8b%95%e9%80%9f%e5%ba%a6"></a>
+流動速度
+</h3><h3 id="剪應力">
+<a class="header-anchor" href="#%e5%89%aa%e6%87%89%e5%8a%9b"></a>
+剪應力
+</h3><h2 id="理想氣體狀態方程式">
+<a class="header-anchor" href="#%e7%90%86%e6%83%b3%e6%b0%a3%e9%ab%94%e7%8b%80%e6%85%8b%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+理想氣體狀態方程式
+</h2>$$
+pV=nRT
+$$<p>$R=8.314J \cdot mol^{-1} \cdot K^{-1}$ 為理想莫耳氣體常數。</p>
+$$
+p=\frac{n \cdot M}{V}\frac{R}{M} T
+$$$$
+n(物質的量) \cdot M(莫耳質量)=m(質量)
+$$$$
+p=\rho R' T
+$$$$
+R'=\frac{R}{M}
+$$<p>$R'$ 為==比氣體常數==。</p>
+<p>理想空氣 $R'=287J/(kg \cdot K)$</p>
+<h2 id="空氣動力及力矩">
+<a class="header-anchor" href="#%e7%a9%ba%e6%b0%a3%e5%8b%95%e5%8a%9b%e5%8f%8a%e5%8a%9b%e7%9f%a9"></a>
+空氣動力及力矩
+</h2><h3 id="空氣動力-resultant">
+<a class="header-anchor" href="#%e7%a9%ba%e6%b0%a3%e5%8b%95%e5%8a%9b-resultant"></a>
+空氣動力 $R$：Resultant
+</h3><p><strong>空氣對物體的力</strong></p>
+<ul>
+<li>壓力 $p$ ：Pressure</li>
+<li>剪應力 $\tau$ ：Shear stress</li>
+</ul>
+<p>壓力與剪應力的合力即為空氣對物體作用力，空氣動力。</p>
+<p><strong>風軸系</strong></p>
+<ul>
+<li>升力 $L$ ：Lift，豎直分力</li>
+<li>阻力 $D$ ：Drag，水平分力</li>
+</ul>
+<h3 id="自由來流自由流">
+<a class="header-anchor" href="#%e8%87%aa%e7%94%b1%e4%be%86%e6%b5%81%e8%87%aa%e7%94%b1%e6%b5%81"></a>
+自由來流（自由流）
+</h3>$$
+V_{\infty}
+$$<p>自由流是指飛機前未經擾動的來流，也即沒有飛機等干擾時，空氣的自然流動現象。</p>
+<p>升力與阻力的方向由自由來流方向決定。</p>
+<h3 id="迎角攻角">
+<a class="header-anchor" href="#%e8%bf%8e%e8%a7%92%e6%94%bb%e8%a7%92"></a>
+迎角（攻角）
+</h3>$$
+\alpha
+$$<p><strong>迎角</strong>（英語：Angle of attack，縮寫為AOA，常用<a href="https://zh.wikipedia.org/wiki/%E5%B8%8C%E8%87%98%E5%AD%97%E6%AF%8D" title="希臘字母">希臘字母</a>α表示）為<a href="https://zh.wikipedia.org/wiki/%E7%A9%BA%E6%B0%A3%E5%8B%95%E5%8A%9B%E5%AD%B8" title="空氣動力學">空氣動力學</a>名詞，為<a href="https://zh.wikipedia.org/wiki/%E6%A9%9F%E7%BF%BC" title="機翼">機翼</a>之<a href="https://zh.wikipedia.org/wiki/%E7%BF%BC%E5%BC%A6" title="翼弦">翼弦</a>與<strong>自由流</strong>（或是<strong>相對風流</strong>的方向）之夾角；如為飛機迎角，定義則為機軸對相對風流之夾角。當機翼向<strong>上</strong>為<strong>正</strong>迎角，向<strong>下</strong>則為<strong>負</strong>迎角。</p>
+<p><strong>體軸系</strong></p>
+<ul>
+<li>法向力 $N$：Normal，垂直於機翼方向</li>
+<li>軸向力 $A$：Axial，平行於機翼方向</li>
+</ul>
+<h3 id="力矩-moment">
+<a class="header-anchor" href="#%e5%8a%9b%e7%9f%a9-moment"></a>
+力矩 $M$：Moment
+</h3><p>讓飛機抬頭的力矩為正，讓飛機低頭力矩為負。</p>
+<h3 id="動壓">
+<a class="header-anchor" href="#%e5%8b%95%e5%a3%93"></a>
+動壓 $q$
+</h3><p>自由來流 $V_{\infty},\rho_{\infty}$ 產生的動壓</p>
+$$
+q_{\infty}=\frac{1}{2}\rho_{\infty}V_{\infty}^2
+$$<p>單位為 $Pa$ ，同壓強</p>
+<h3 id="特徵幾何尺寸">
+<a class="header-anchor" href="#%e7%89%b9%e5%be%b5%e5%b9%be%e4%bd%95%e5%b0%ba%e5%af%b8"></a>
+特徵幾何尺寸 $S$
+</h3><p>對三維物體來說是面積，對二位物體來說是周長。</p>
+<h3 id="無量綱參數">
+<a class="header-anchor" href="#%e7%84%a1%e9%87%8f%e7%b6%b1%e5%8f%83%e6%95%b8"></a>
+無量綱參數
+</h3><p>三維物體常用大寫 $C$ ，二維物體常用小寫 $c$ 。</p>
+<h4 id="升力係數">
+<a class="header-anchor" href="#%e5%8d%87%e5%8a%9b%e4%bf%82%e6%95%b8"></a>
+升力係數
+</h4>$$
+C_L=\frac{L}{q_{\infty}S}
+$$<h4 id="阻力係數">
+<a class="header-anchor" href="#%e9%98%bb%e5%8a%9b%e4%bf%82%e6%95%b8"></a>
+阻力係數
+</h4>$$
+C_D=\frac{D}{q_{\infty}S}
+$$<h4 id="法向力係數">
+<a class="header-anchor" href="#%e6%b3%95%e5%90%91%e5%8a%9b%e4%bf%82%e6%95%b8"></a>
+法向力係數
+</h4>$$
+C_N=\frac{N}{q_{\infty}S}
+$$<h4 id="軸向力係數">
+<a class="header-anchor" href="#%e8%bb%b8%e5%90%91%e5%8a%9b%e4%bf%82%e6%95%b8"></a>
+軸向力係數
+</h4>$$
+C_A=\frac{A}{q_{\infty}S}
+$$<h4 id="空氣動力係數">
+<a class="header-anchor" href="#%e7%a9%ba%e6%b0%a3%e5%8b%95%e5%8a%9b%e4%bf%82%e6%95%b8"></a>
+空氣動力係數
+</h4>$$
+C_R=\frac{R}{q_{\infty}S}
+$$<h4 id="力矩係數">
+<a class="header-anchor" href="#%e5%8a%9b%e7%9f%a9%e4%bf%82%e6%95%b8"></a>
+力矩係數
+</h4>$$
+C_M=\frac{\vec{M}}{\vec{r} \times \vec{q_{\infty}}S}
+$$<h4 id="壓力係數">
+<a class="header-anchor" href="#%e5%a3%93%e5%8a%9b%e4%bf%82%e6%95%b8"></a>
+壓力係數
+</h4><p>$p$：某點靜壓</p>
+<p>$p_{\infty}$：自由來流靜壓</p>
+$$
+C_p=\frac{p-p_{\infty}}{q_{\infty}}
+$$<h4 id="摩擦力係數">
+<a class="header-anchor" href="#%e6%91%a9%e6%93%a6%e5%8a%9b%e4%bf%82%e6%95%b8"></a>
+摩擦力係數
+</h4><p>$\tau$：某點剪應力，即剪應力對面積導數。量綱同壓強。</p>
+$$
+C_f=\frac{\tau}{q_{\infty}}
+$$<h1 id="兩個中心">
+<a class="header-anchor" href="#%e5%85%a9%e5%80%8b%e4%b8%ad%e5%bf%83"></a>
+兩個中心
+</h1><h2 id="壓力中心壓心">
+<a class="header-anchor" href="#%e5%a3%93%e5%8a%9b%e4%b8%ad%e5%bf%83%e5%a3%93%e5%bf%83"></a>
+壓力中心（壓心）
+</h2><p>壓力中心（Pressure Center）：流體中的平面或曲面所受流體壓力的合力的作用線同該平面或曲面的交點。空氣動力 $R$ 對此點力矩為 $\vec{0}$。</p>
+<h2 id="空氣動力中心氣動中心焦點">
+<a class="header-anchor" href="#%e7%a9%ba%e6%b0%a3%e5%8b%95%e5%8a%9b%e4%b8%ad%e5%bf%83%e6%b0%a3%e5%8b%95%e4%b8%ad%e5%bf%83%e7%84%a6%e9%bb%9e"></a>
+空氣動力中心（氣動中心，焦點）
+</h2><p><strong>空氣動力中心</strong>（英語：aerodynamic center，簡稱 AC）在<a href="https://zh.wikipedia.org/wiki/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6" title="空氣動力學">空氣動力學</a> 中是指<a href="https://zh.wikipedia.org/wiki/%E7%BF%BC%E5%9E%8B" title="翼型">翼型</a> 上的一個定點，繞該點的俯仰力矩不隨<a href="https://zh.wikipedia.org/wiki/%E8%BF%8E%E8%A7%92" title="迎角">迎角</a> 的改變而變化，即</p>
+$$
+\frac{d C_M}{d \alpha}=0
+$$<h2 id="氣動中心與壓力中心的區別">
+<a class="header-anchor" href="#%e6%b0%a3%e5%8b%95%e4%b8%ad%e5%bf%83%e8%88%87%e5%a3%93%e5%8a%9b%e4%b8%ad%e5%bf%83%e7%9a%84%e5%8d%80%e5%88%a5"></a>
+氣動中心與壓力中心的區別
+</h2><p>壓力中心是力系合成到一個特殊點時，使得這個點的<strong>合力矩為0</strong>的點，<strong>壓力中心在氣動中心的後面</strong>；而氣動中心是使得<strong>合力矩不變</strong>的點。</p>
+<p>壓力中心的位置隨著迎角的改變而改變，當迎角增大，升力增大，壓力中心前移，這同時使得壓力中心與氣動中心的距離縮短，增大的升力與縮短力臂乘積剛好是不變的力矩，這也正是氣動中心的定義所要求的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+
+
+
+
+
+
+<blockquote class="article-copyright">
+  
+    <p><strong><span class="icon-user icon"></span>本文作者：</strong>孤筝 @ 孤筝の温暖小家</p>
+  
+  
+  
+    <p><strong><span class="icon-pencil icon"></span>本文標題：</strong>空氣動力學基礎</p>
+  
+  
+    <p><strong><span class="icon-calendar icon"></span>本文發佈時間：</strong>2024-09-02 22:13:45</p>
+  
+  
+    <p><strong><span class="icon-calendar icon"></span>本文更新時間：</strong>2024-09-02 22:13:45</p>
+  
+  
+    <p>
+      <strong><span class="icon-copyright icon"></span>本文版權：</strong>
+      本部落格所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener external nofollow noreferrer" target="_blank"><span class="icon-creative-commons"></span>BY-NC-SA</a> 授權協議。轉載請註明出處！
+    </p>
+    <span class="icon-creative-commons article-copyright-bg"></span>
+  
+</blockquote>
+
+      
+
+      
+        <div class="sponsor-wrapper">
+  <div class="sponsor-button-wrapper">
+    <div class="sponsor-icon "></div>
+    <div class="sponsor-title">贊助</div>
+    <div class="sponsor-icon "></div>
+  </div>
+  <div class="sponsor-tip">我一个人打车六七十回家！</div>
+  
+    <div class="sponsor-qr">
+      
+        <div class="sponsor-qr-image-wrapper">
+          <img src="/sponsor/alipay.webp" alt="支付宝" width="200" />
+          <p class="sponsor-qr-name">支付宝</p>
+        </div>
+      
+        <div class="sponsor-qr-image-wrapper">
+          <img src="/sponsor/wechat.webp" alt="微信" width="200" />
+          <p class="sponsor-qr-name">微信</p>
+        </div>
+      
+    </div>
+  
+</div>
+      
+
+      
+        
+
+<div class="share-wrapper">
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/zh-tw/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/" target="_blank" rel="noopener noreferrer" title="空氣動力學基礎">
+      <div class="share-icon icon icon-facebook">
+        
+      </div>
+    </a>
+  
+    <a href="https://twitter.com/intent/tweet?url=http://localhost:1313/zh-tw/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/&amp;text=%e7%a9%ba%e6%b0%a3%e5%8b%95%e5%8a%9b%e5%ad%b8%e5%9f%ba%e7%a4%8e&amp;via=http://localhost:1313/" target="_blank" rel="noopener noreferrer" title="空氣動力學基礎">
+      <div class="share-icon icon icon-twitter">
+        
+      </div>
+    </a>
+  
+    <a href="https://www.linkedin.com/shareArticle?url=http://localhost:1313/zh-tw/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/&amp;title=%e7%a9%ba%e6%b0%a3%e5%8b%95%e5%8a%9b%e5%ad%b8%e5%9f%ba%e7%a4%8e&amp;summary=%20%e6%b5%81%e9%ab%94%e9%9d%9c%e5%8a%9b%e5%ad%b8%e5%9f%ba%e7%a4%8e%20%e6%b0%a3%e9%ab%94%e6%80%a7%e8%b3%aa%20%e5%a3%93%e7%b8%ae%e6%80%a7%20%e9%ab%94%e7%a9%8d%e5%bd%88%e6%80%a7%e6%a8%a1%e6%95%b8%20%e5%ae%9a%e7%be%a9%ef%bc%9a%e7%94%a2%e7%94%9f%e5%96%ae%e4%bd%8d%e7%9b%b8%e5%b0%8d%e9%ab%94%e7%a9%8d%e8%ae%8a%e5%8c%96%e6%89%80%e9%9c%80%e5%a3%93%e5%bc%b7%e5%a2%9e%e9%ab%98%0a$$%20E=-%5cfrac%7bdp%7d%7bdV/V%7d%20$$%e5%b0%8d%e6%96%bc%e4%b8%80%e5%ae%9a%e8%b3%aa%e9%87%8f%e6%b0%a3%e9%ab%94%ef%bc%8c%e9%ab%94%e7%a9%8d%e8%88%87%e5%af%86%e5%ba%a6%e6%88%90%e5%8f%8d%e6%af%94%e4%be%8b%e9%97%9c%e4%bf%82%ef%bc%8c%e5%8d%b3%0a$$%20%5cfrac%7bd%20%5crho%7d%7b%5crho%7d=-%5cfrac%7bdV%7d%7bV%7d%20$$%e5%9b%9e%e4%bb%a3%e5%be%97%0a&amp;mini=true&amp;ro=true" target="_blank" rel="noopener noreferrer" title="空氣動力學基礎">
+      <div class="share-icon icon icon-linkedin">
+        
+      </div>
+    </a>
+  
+    <a href="https://www.reddit.com/submit?url=http://localhost:1313/zh-tw/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/&amp;title=%e7%a9%ba%e6%b0%a3%e5%8b%95%e5%8a%9b%e5%ad%b8%e5%9f%ba%e7%a4%8e" target="_blank" rel="noopener noreferrer" title="空氣動力學基礎">
+      <div class="share-icon icon icon-reddit">
+        
+      </div>
+    </a>
+  
+    <a href="https://service.weibo.com/share/share.php?url=http://localhost:1313/zh-tw/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/&amp;appkey=&amp;title=%e7%a9%ba%e6%b0%a3%e5%8b%95%e5%8a%9b%e5%ad%b8%e5%9f%ba%e7%a4%8e&amp;pic=&amp;ralateUid=" target="_blank" rel="noopener noreferrer" title="空氣動力學基礎">
+      <div class="share-icon icon icon-weibo">
+        
+      </div>
+    </a>
+  
+    <a href="https://connect.qq.com/widget/shareqq/index.html?url=http://localhost:1313/zh-tw/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/&amp;title=%e7%a9%ba%e6%b0%a3%e5%8b%95%e5%8a%9b%e5%ad%b8%e5%9f%ba%e7%a4%8e&amp;desc=%20%e6%b5%81%e9%ab%94%e9%9d%9c%e5%8a%9b%e5%ad%b8%e5%9f%ba%e7%a4%8e%20%e6%b0%a3%e9%ab%94%e6%80%a7%e8%b3%aa%20%e5%a3%93%e7%b8%ae%e6%80%a7%20%e9%ab%94%e7%a9%8d%e5%bd%88%e6%80%a7%e6%a8%a1%e6%95%b8%20%e5%ae%9a%e7%be%a9%ef%bc%9a%e7%94%a2%e7%94%9f%e5%96%ae%e4%bd%8d%e7%9b%b8%e5%b0%8d%e9%ab%94%e7%a9%8d%e8%ae%8a%e5%8c%96%e6%89%80%e9%9c%80%e5%a3%93%e5%bc%b7%e5%a2%9e%e9%ab%98%0a$$%20E=-%5cfrac%7bdp%7d%7bdV/V%7d%20$$%e5%b0%8d%e6%96%bc%e4%b8%80%e5%ae%9a%e8%b3%aa%e9%87%8f%e6%b0%a3%e9%ab%94%ef%bc%8c%e9%ab%94%e7%a9%8d%e8%88%87%e5%af%86%e5%ba%a6%e6%88%90%e5%8f%8d%e6%af%94%e4%be%8b%e9%97%9c%e4%bf%82%ef%bc%8c%e5%8d%b3%0a$$%20%5cfrac%7bd%20%5crho%7d%7b%5crho%7d=-%5cfrac%7bdV%7d%7bV%7d%20$$%e5%9b%9e%e4%bb%a3%e5%be%97%0a&amp;source=http://localhost:1313/" target="_blank" rel="noopener noreferrer" title="空氣動力學基礎">
+      <div class="share-icon icon icon-qq">
+        
+      </div>
+    </a>
+  
+    <a href="javascript:;"  title="空氣動力學基礎">
+      <div class="share-icon icon icon-weixin">
+        
+          <div id="share-weixin">
+            <div class="share-weixin-dom">
+              <div class="share-weixin-content">
+                <img id="share-weixin-banner"> 
+                <div id="share-weixin-title"></div>
+                <div id="share-weixin-desc"></div>
+              </div>
+              <div class="share-weixin-qrcode">
+                <div class="share-weixin-info">
+                  <div id="share-weixin-author"></div>
+                  <div id="share-weixin-theme">Powered By hugo-theme-reimu</div>
+                </div>
+                <img id="share-weixin-qr" >
+              </div>
+            </div>
+            <div class="share-weixin-canvas"></div>
+          </div>
+        
+      </div>
+    </a>
+  
+</div>
+      
+
+      
+
+      
+        <a
+          data-aos="zoom-in"
+          href="/zh-tw/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/#comments"
+          class="article-comment-link"
+        >
+          <span
+            class="post-comments-count waline-comment-count"
+            data-path="http//localhost1313/zh-tw/post/physics/%e7%a9%ba%e6%b0%94%e5%8a%a8%e5%8a%9b%e5%ad%a6%e5%9f%ba%e7%a1%80/"
+            itemprop="commentCount"
+          ></span>
+          留言
+        </a>
+      
+
+      
+
+      
+
+      
+        <span
+          data-aos="zoom-in"
+          class="article-visitor-link"
+        >
+          <span
+            class="waline-pageview-count"
+            data-path="/zh-tw/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/"
+            >0</span
+          >
+          <em class="post-meta-item-text">閲讀量</em>
+        </span>
+      
+      <ul class="article-tag-list" itemprop="keywords">
+  
+    <li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/zh-tw/tags/%e5%8e%9f%e5%89%b5"
+        rel="tag"
+        >原創</a
+      >
+    </li>
+  
+    <li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/zh-tw/tags/%e7%ad%86%e8%a8%98"
+        rel="tag"
+        >筆記</a
+      >
+    </li>
+  
+    <li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/zh-tw/tags/%e7%89%a9%e7%90%86"
+        rel="tag"
+        >物理</a
+      >
+    </li>
+  
+    <li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/zh-tw/tags/%e7%a9%ba%e6%b0%a3%e5%8b%95%e5%8a%9b%e5%ad%b8"
+        rel="tag"
+        >空氣動力學</a
+      >
+    </li>
+  
+</ul>
+
+    </footer>
+  </div>
+  
+    
+  <nav
+    id="article-nav"
+    data-aos="fade-up"
+  >
+    
+      <div class="article-nav-link-wrap article-nav-link-left">
+        
+          <img
+            data-src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/08/1291433110.png"
+            data-sizes="auto"
+            alt="《黑神話：悟空》遊玩體驗（無雷）"
+            class="lazyload"
+          />
+        
+        <a href="/zh-tw/post/game/%E9%BB%91%E7%A5%9E%E8%AF%9D%E6%82%9F%E7%A9%BA%E6%B8%B8%E7%8E%A9%E4%BD%93%E9%AA%8C%E6%97%A0%E9%80%8F/"></a>
+        <div class="article-nav-caption">Newer</div>
+        <h3 class="article-nav-title">
+          
+            《黑神話：悟空》遊玩體驗（無雷）
+          
+        </h3>
+      </div>
+    
+
+    
+      <div class="article-nav-link-wrap article-nav-link-right">
+        
+          <img
+            data-src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/3379983618.png"
+            data-sizes="auto"
+            alt="數位訊號處理"
+            class="lazyload"
+          />
+        
+        <a href="/zh-tw/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/"></a>
+        <div class="article-nav-caption">Older</div>
+        <h3 class="article-nav-title">
+          
+            數位訊號處理
+          
+        </h3>
+      </div>
+    
+  </nav>
+
+
+  
+</article>
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+<section id="comments" data-aos="fade-up">
+<div class="comment-header">
+  <h2 class="comment-title">何时一樽酒，重与细论文。</h2>
+  <div class="comment-selector">
+    <div class="comment-selector-wrap">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <div class="selector-item" data-selector="waline">
+          <span>waline</span>
+        </div>
+        
+      
+    </div>
+  </div>
+</div>
+
+<div class="comment-content">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    <div class="comment waline-comment" data-aos="fade-up"
+     >
+    </div>
+    
+  
+</div>
+</section>
+
+
+</section>
+        </div>
+        
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+<footer id="footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    
+    <div>
+      <span class="icon-copyright"></span>
+      
+        2019.7.14 -
+        2025
+      
+      <span class="footer-info-sep rotate"></span>
+      孤筝
+    </div>
+    
+      <div>
+        基於&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          >Hugo</a
+        >&nbsp; Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          >Reimu</a
+        >
+      </div>
+    
+    
+    
+        <div class="footer-beian">
+          <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="noopener">
+            <img src="https://guzhengsvt.github.io/images/又拍云_logo5.png" alt="又拍云" style="height: 24px; vertical-align: middle;">
+            <span>CDN by 又拍云</span>
+          </a>
+        </div>
+
+    
+      <div>
+        <span class="icon-brush"
+          >&nbsp;
+            98.8k
+          </span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;
+          
+          
+
+          03:50
+        </span>
+      </div>
+    
+    
+    
+    
+    
+  </div>
+</footer>
+
+        
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi "></div>
+            <div class="arrow-up"></div>
+          </div>
+        
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav">
+  <div class="sidebar-wrap">
+    
+      
+        <div class="sidebar-toc-sidebar">
+          <div class="sidebar-toc">
+  <h3 class="toc-title">文章目錄</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#流體靜力學基礎">流體靜力學基礎</a>
+      <ul>
+        <li><a href="#氣體性質">氣體性質</a>
+          <ul>
+            <li><a href="#壓縮性">壓縮性</a>
+              <ul>
+                <li><a href="#體積彈性模數">體積彈性模數</a></li>
+              </ul>
+            </li>
+            <li><a href="#黏性">黏性</a>
+              <ul>
+                <li><a href="#牛頓黏性定律">牛頓黏性定律</a></li>
+                <li><a href="#薩特蘭公式">薩特蘭公式</a></li>
+                <li><a href="#運動黏性係數">運動黏性係數</a></li>
+              </ul>
+            </li>
+            <li><a href="#傳熱性">傳熱性</a></li>
+          </ul>
+        </li>
+        <li><a href="#流體分類">流體分類</a>
+          <ul>
+            <li><a href="#連續介質假設">連續介質假設</a></li>
+            <li><a href="#理想流體">理想流體</a>
+              <ul>
+                <li><a href="#壓強各向同性">壓強各向同性</a></li>
+              </ul>
+            </li>
+            <li><a href="#不可壓流體">不可壓流體</a></li>
+            <li><a href="#絕熱流體">絕熱流體</a></li>
+            <li><a href="#完全氣體">完全氣體</a>
+              <ul>
+                <li><a href="#完全氣體的狀態方程">完全氣體的狀態方程</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#流體微團受力">流體微團受力</a>
+          <ul>
+            <li><a href="#壓力">壓力</a></li>
+            <li><a href="#切應力摩擦力">切應力（摩擦力）</a></li>
+            <li><a href="#徹體力">徹體力</a></li>
+          </ul>
+        </li>
+        <li><a href="#靜平衡方程">靜平衡方程</a></li>
+      </ul>
+    </li>
+    <li><a href="#大氣">大氣</a>
+      <ul>
+        <li><a href="#大氣分層">大氣分層</a>
+          <ul>
+            <li><a href="#底層大氣">底層大氣</a>
+              <ul>
+                <li><a href="#對流層">對流層</a></li>
+                <li><a href="#對流頂層">對流頂層</a></li>
+                <li><a href="#平流層">平流層</a></li>
+                <li><a href="#中間大氣層">中間大氣層</a></li>
+              </ul>
+            </li>
+            <li><a href="#高層大氣">高層大氣</a>
+              <ul>
+                <li><a href="#高溫層">高溫層</a></li>
+                <li><a href="#外層大氣">外層大氣</a></li>
+              </ul>
+            </li>
+            <li><a href="#上層大氣與電離層">上層大氣與電離層</a>
+              <ul>
+                <li><a href="#d-層">D 層</a></li>
+                <li><a href="#e-層">E 層</a></li>
+                <li><a href="#層"> 層</a></li>
+                <li><a href="#層-1"> 層</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#國際標準大氣">國際標準大氣</a></li>
+      </ul>
+    </li>
+    <li><a href="#流體運動學與動力學基礎">流體運動學與動力學基礎</a>
+      <ul>
+        <li><a href="#流場">流場</a>
+          <ul>
+            <li><a href="#拉格朗日法">拉格朗日法</a></li>
+            <li><a href="#歐拉法">歐拉法</a>
+              <ul>
+                <li><a href="#當地加速度">當地加速度</a></li>
+                <li><a href="#遷移加速度">遷移加速度</a></li>
+                <li><a href="#非定常流場">非定常流場</a></li>
+                <li><a href="#定常流場">定常流場</a></li>
+              </ul>
+            </li>
+            <li><a href="#跡線">跡線</a></li>
+            <li><a href="#流線">流線</a></li>
+            <li><a href="#流線微分方程">流線微分方程</a></li>
+            <li><a href="#流管">流管</a></li>
+          </ul>
+        </li>
+        <li><a href="#流體微團運動分析">流體微團運動分析</a>
+          <ul>
+            <li><a href="#運動形式">運動形式</a>
+              <ul>
+                <li><a href="#剛體運動">剛體運動</a></li>
+                <li><a href="#流體運動">流體運動</a></li>
+              </ul>
+            </li>
+            <li><a href="#二維分析">二維分析</a>
+              <ul>
+                <li><a href="#線變形運動">線變形運動</a></li>
+                <li><a href="#角變形運動">角變形運動</a>
+                  <ul>
+                    <li><a href="#微團繞--軸轉動角速度">微團繞  軸轉動角速度</a></li>
+                    <li><a href="#角變形率">角變形率</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#散度">散度</a></li>
+            <li><a href="#旋度">旋度</a></li>
+            <li><a href="#速度位">速度位</a></li>
+          </ul>
+        </li>
+        <li><a href="#應力-單位面積上的力稱為應力">應力 ：單位面積上的力稱為應力</a></li>
+        <li><a href="#純量">純量</a>
+          <ul>
+            <li><a href="#壓力-1">壓力</a></li>
+            <li><a href="#密度">密度</a></li>
+            <li><a href="#溫度">溫度</a></li>
+            <li><a href="#黏性係數">黏性係數</a></li>
+          </ul>
+        </li>
+        <li><a href="#向量">向量</a>
+          <ul>
+            <li><a href="#流動速度">流動速度</a></li>
+            <li><a href="#剪應力">剪應力</a></li>
+          </ul>
+        </li>
+        <li><a href="#理想氣體狀態方程式">理想氣體狀態方程式</a></li>
+        <li><a href="#空氣動力及力矩">空氣動力及力矩</a>
+          <ul>
+            <li><a href="#空氣動力-resultant">空氣動力 ：Resultant</a></li>
+            <li><a href="#自由來流自由流">自由來流（自由流）</a></li>
+            <li><a href="#迎角攻角">迎角（攻角）</a></li>
+            <li><a href="#力矩-moment">力矩 ：Moment</a></li>
+            <li><a href="#動壓">動壓 </a></li>
+            <li><a href="#特徵幾何尺寸">特徵幾何尺寸 </a></li>
+            <li><a href="#無量綱參數">無量綱參數</a>
+              <ul>
+                <li><a href="#升力係數">升力係數</a></li>
+                <li><a href="#阻力係數">阻力係數</a></li>
+                <li><a href="#法向力係數">法向力係數</a></li>
+                <li><a href="#軸向力係數">軸向力係數</a></li>
+                <li><a href="#空氣動力係數">空氣動力係數</a></li>
+                <li><a href="#力矩係數">力矩係數</a></li>
+                <li><a href="#壓力係數">壓力係數</a></li>
+                <li><a href="#摩擦力係數">摩擦力係數</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#兩個中心">兩個中心</a>
+      <ul>
+        <li><a href="#壓力中心壓心">壓力中心（壓心）</a></li>
+        <li><a href="#空氣動力中心氣動中心焦點">空氣動力中心（氣動中心，焦點）</a></li>
+        <li><a href="#氣動中心與壓力中心的區別">氣動中心與壓力中心的區別</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+        </div>
+        <div class="sidebar-common-sidebar hidden">
+          
+<div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="孤筝"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">孤筝</div>
+  <div class="sidebar-description">来都来了，随便坐坐。<br />有些封面是随机图片api，所以可能抽风或包含R18：）</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    
+    <div class="sidebar-state-number">60</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分類</div>
+    <div class="sidebar-state-number">
+      9
+    </div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>標籤</div>
+    <div class="sidebar-state-number">34</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+    <div class="icon-bilibili sidebar-social-icon">
+      <a
+        href="https://space.bilibili.com/348813114"
+        itemprop="url"
+        target="_blank"
+        aria-label="bilibili"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-discord sidebar-social-icon">
+      <a
+        href="https://discordapp.com/users/guzhengsvt"
+        itemprop="url"
+        target="_blank"
+        aria-label="discord"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-email sidebar-social-icon">
+      <a
+        href="mailto:lvbowen040427@163.com"
+        itemprop="url"
+        target="_blank"
+        aria-label="email"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-facebook sidebar-social-icon">
+      <a
+        href="https://www.facebook.com/profile.php?id=100085813411626"
+        itemprop="url"
+        target="_blank"
+        aria-label="facebook"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-github sidebar-social-icon">
+      <a
+        href="https://github.com/GuZhengSVT"
+        itemprop="url"
+        target="_blank"
+        aria-label="github"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-steam sidebar-social-icon">
+      <a
+        href="https://steamcommunity.com/profiles/76561198903535314/"
+        itemprop="url"
+        target="_blank"
+        aria-label="steam"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-telegram sidebar-social-icon">
+      <a
+        href="https://t.me/GuZhengSVT"
+        itemprop="url"
+        target="_blank"
+        aria-label="telegram"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-twitter sidebar-social-icon">
+      <a
+        href="https://x.com/GuZhengSVT"
+        itemprop="url"
+        target="_blank"
+        aria-label="twitter"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-zhihu sidebar-social-icon">
+      <a
+        href="https://www.zhihu.com/people/Gu-Zheng"
+        itemprop="url"
+        target="_blank"
+        aria-label="zhihu"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+</div>
+<div class="sidebar-menu">
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/"
+        aria-label="首頁"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf015;
+        
+      </div>
+      <div class="sidebar-menu-link">首頁</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/archives"
+        aria-label="歸檔"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf01c;
+        
+      </div>
+      <div class="sidebar-menu-link">歸檔</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/about"
+        aria-label="關於"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf2bd;
+        
+      </div>
+      <div class="sidebar-menu-link">關於</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/friend"
+        aria-label="友鏈"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf519;
+        
+      </div>
+      <div class="sidebar-menu-link">友鏈</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/moments"
+        aria-label="說說"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf075;
+        
+      </div>
+      <div class="sidebar-menu-link">說說</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="https://space.bilibili.com/348813114/bangumi"
+        aria-label="追番"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf005;
+        
+      </div>
+      <div class="sidebar-menu-link">追番</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="https://www.travellings.cn/go.html"
+        aria-label="開往"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf239;
+        
+      </div>
+      <div class="sidebar-menu-link">開往</div>
+    </div>
+  
+</div>
+
+        </div>
+      
+    
+  </div>
+  
+    
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+    
+  
+</nav>
+
+    </div>
+    
+    
+    
+      <meting-js
+        theme="var(--color-link)"
+        id="13510920186"
+        server="netease"
+        type="playlist"
+        auto="false"
+        fixed="true"
+        
+        
+        
+        
+        
+        
+        
+        
+        >
+      </meting-js>
+    
+    
+
+
+
+
+
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"
+    
+    
+    
+    
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"
+  ></script>
+
+
+
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"
+    
+    
+    
+    
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"
+  ></script>
+
+
+
+
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/material-theme@1.0.0/dist/material-theme.umd.js"
+    
+    
+    
+    
+    integrity="sha384-vLev0II0HKFaxkcm&#43;/7kX5IGwVFBASkGchU311wmU/veIj2bB0UcBkQbW6yw2asK" crossorigin="anonymous"
+  ></script>
+
+
+
+
+
+
+
+
+
+
+  
+      
+      <script src="/js/main.js" ></script>
+      
+
+
+
+  
+
+
+
+
+
+  
+      
+      <script src="/js/aos.js" ></script>
+      
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+
+
+
+
+
+
+  
+      
+      <script src="/js/pjax_main.js" data-pjax></script>
+      
+
+
+
+
+
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/mouse-firework@0.1.1/dist/index.umd.js"
+    
+    
+    
+    
+    integrity="sha384-8LyaidD9GPxQQgLJO/WRw/O2h3BoNq/ApI/ecpvM6RsrCz2qP2ppBXUKihP4V/2d" crossorigin="anonymous"
+  ></script>
+
+
+<script>
+  if (window.firework) {
+    const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+    options.excludeElements = options.excludeelements;
+    delete options.excludeelements;
+    window.firework(options);
+  }
+</script>
+
+
+
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/theme-shokax-pjax@0.0.3/dist/index.umd.js"
+    
+    
+    
+    
+    integrity="sha384-xneY1WY8hOfUzswrE4CrYq35N4BdVcxqxwHPr9zawE/jMSCxD&#43;jAPU55x/jj3wlf" crossorigin="anonymous"
+  ></script>
+
+
+  <script>
+    function loadScripts(scripts, index) {
+      if (index < scripts.length) {
+        const script = scripts[index];
+        const src = script.getAttribute('src');
+
+        const loadScript = (scriptContent) => {
+          return new Promise((resolve, reject) => {
+            const scriptElement = document.createElement('script');
+            if (script.type) {
+              scriptElement.type = script.type;
+            }
+            if (script.src) {
+              scriptElement.src = script.src;
+              scriptElement.onload = resolve;
+              scriptElement.onerror = reject;
+            }
+            if (scriptContent) {
+              scriptElement.text = scriptContent;
+            }
+            document.head.appendChild(scriptElement);
+            if (!script.src) {
+              resolve();
+            }
+          })
+          
+        }
+
+        ;(src ? loadScript() : loadScript(script.text))
+          .then(() => loadScripts(scripts, index + 1))
+          .catch(error => {
+            console.error(`Failed to load script: ${src || 'inline script'}`, error);
+            loadScripts(scripts, index + 1);
+          });
+      }
+    }
+    if (window.Pjax) {
+      Pjax.prototype.getElements = function() {
+        const i18nLanguages = window.siteConfig.i18n_languages;
+        const baseUrl = window.siteConfig.base;
+        let basePathname = new URL(baseUrl).pathname;
+        if (!basePathname.endsWith('/')) {
+          basePathname += '/';
+        }
+        const currentUrl = window.location.href;
+        const currentPathname = new URL(currentUrl).pathname.replace(basePathname, '');
+        const aLinks = document.querySelectorAll('a[href]');
+        const pjaxLinks = [];
+        for(let i = 0; i < aLinks.length; i++) {
+          const aLink = aLinks[i];
+          const aLinkHref = aLink.getAttribute('href');
+          const isExternal = aLink.getAttribute('target') === '_blank' || aLink.getAttribute('rel')?.includes('noopener');
+          if (isExternal || aLinkHref.startsWith('mailto:') || aLinkHref.startsWith('tel:') || aLinkHref.startsWith('javascript:') || aLinkHref.startsWith("data:") || aLinkHref.startsWith("vbscript:")) {
+            continue;
+          }
+          if (!i18nLanguages) {
+            
+            pjaxLinks.push(aLink);
+            continue;
+          }
+          const absoluteUrl = new URL(aLinkHref, currentUrl).href;
+          const absolutePathname = new URL(absoluteUrl).pathname.replace(basePathname, '');
+          if (!absolutePathname || !currentPathname) {
+            pjaxLinks.push(aLink);
+            continue;
+          }
+          const currentLangIndex = i18nLanguages.findIndex(lang => currentPathname.startsWith(lang.Lang));
+          if (currentLangIndex > -1) {
+            
+            const absoluteLangIndex = i18nLanguages.findIndex(lang => absolutePathname.startsWith(lang.Lang));
+            if (absoluteLangIndex === currentLangIndex) {
+              
+              pjaxLinks.push(aLink);
+            }
+          } else {
+            
+            const absoluteLangIndex = i18nLanguages.findIndex(lang => absolutePathname.startsWith(lang.Lang));
+            if (absoluteLangIndex === -1) {
+              
+              pjaxLinks.push(aLink);
+            }
+          }
+        }
+        return pjaxLinks;
+      }
+    }
+    window.Pjax &&
+      new window.Pjax({
+        selectors: [
+          "#header>img",
+          "#header>picture",
+          "head title",
+          "#header-title",
+          "#subtitle-wrap",
+          "#main",
+          "#content",
+          ".sidebar-widget",
+          ".sidebar-wrapper",
+          "#mobile-nav",
+          "#lazy-script",
+          '#i18n-nav'
+        ],
+        switches: {
+          "#content": function(oldEl, newEl) {
+            
+            oldEl.className = newEl.className;
+            this.onSwitch();
+          },
+          "#header-title": Pjax.switches.outerHTML,
+          "#subtitle-wrap": Pjax.switches.outerHTML,
+          "#main": function (oldEl, newEl) {
+            const scripts = [...newEl.querySelectorAll("script")];
+            loadScripts(scripts, 0);
+            oldEl.outerHTML = newEl.outerHTML;
+            this.onSwitch();
+          },
+          "#mobile-nav": Pjax.switches.outerHTML,
+          "#lazy-script": function (oldEl, newEl) {
+            const scripts = [...newEl.querySelectorAll("script")];
+            loadScripts(scripts, 0);
+            oldEl.innerHTML = newEl.innerHTML;
+            this.onSwitch();
+          },
+        },
+        cacheBust: false,
+      });
+  </script>
+  
+
+
+
+
+
+  
+      
+      <script src="/js/pjax.js" ></script>
+      
+
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+    
+      
+      
+        
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "孤筝",
+          title: "空氣動力學基礎",
+          url: "http:\/\/localhost:1313\/zh-tw\/post\/physics\/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80\/",
+          description: " 流體靜力學基礎 氣體性質 壓縮性 體積彈性模數 定義：產生單位相對體積變化所需壓強增高\n$$ E=-\\frac{dp}{dV\/V} $$對於一定質量氣體，體積與密度成反比例關係，即\n$$ \\frac{d \\rho}{\\rho}=-\\frac{dV}{V} $$回代得\n",
+          cover: "https:\/\/cdn.jsdelivr.net\/gh\/GuZhengSVT\/Hugo-media\/2024\/09\/60017701.png",
+        };
+      </script>
+    
+    
+    
+      
+
+
+
+
+
+  
+      
+      <script src="/js/insert_highlight.js" data-pjax></script>
+      
+
+      
+      
+      
+      
+      <script type="module" data-pjax>
+        
+        const PhotoSwipeLightbox = (await safeImport("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;
+        
+        const pswp = () => {
+          if (_$$('.article-entry a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-entry',
+              children: 'a.article-gallery-item',
+              
+              pswpModule: () => safeImport("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")
+              
+            }).init();
+          }
+          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-gallery',
+              children: 'a.article-gallery-item',
+              
+              pswpModule: () => safeImport("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")
+              
+            }).init();
+          }
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script>
+      
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+<script data-pjax>
+  var loadScript = (src, integrity) => {
+    const script = document.createElement('script');
+    script.src = src;
+    if (integrity) script.integrity = integrity;
+    script.crossOrigin = 'anonymous';
+    return script;
+  };
+  var commentConfigKeys = ['valine', 'waline', 'twikoo', 'gitalk', 'giscus'];
+  var commentConfig = {
+    valine: {
+      enable: false,
+      load: () => {
+        const container = document.querySelector('.valine-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        const script = loadScript(
+          'https:\/\/cdn.jsdelivr.net\/npm\/valine@1.5.1\/dist\/Valine.min.js',
+          !'cdn_jsdelivr_npm|valine@1.5.1\/dist\/Valine.min.js'.startsWith('local') ? 'sha384-3ma91AExDeMAZ1rjTjaP8V2A2obQE\u002bs5ltKRwYlwdpArz9xVbp0tF3b0VV2ACNPn' : undefined
+        );
+        script.onload = () => {
+          const GUEST_INFO = ['nick', 'mail', 'link'];
+          const guest_info = 'nick,mail,link'.split(',').filter((item) => {
+            return GUEST_INFO.indexOf(item) > -1
+          });
+          const recordIP = JSON.parse('true');
+          const highlight = JSON.parse('true');
+          const visitor = JSON.parse('false');
+          const serverURLs = undefined;
+
+          new Valine({
+            el: '.valine-comment',
+            appId: "",
+            appKey: "",
+            placeholder: "Just go go",
+            pageSize: '10',
+            avatar: 'mp',
+            lang: 'zh-cn',
+            recordIP: recordIP,
+            highlight: highlight,
+            visitor: visitor,
+            requiredFields: guest_info,
+            path: window.location.pathname,
+            serverURLs,
+          });
+        };
+        document.head.appendChild(script);
+      }
+    },
+    waline: {
+      enable: true,
+      load: async () => {
+        const container = document.querySelector('.waline-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        let walineInit;
+        const walineCdn = 'https:\/\/cdn.jsdelivr.net\/npm\/@waline\/client@2.15.8\/dist\/waline.mjs';
+        
+        if ('cdn_jsdelivr_npm|@waline\/client@2.15.8\/dist\/waline.mjs'.startsWith('local')) {
+          
+          const module = await safeImport(walineCdn);
+          walineInit = module.init;
+        } else {
+          
+          const module = await safeImport(
+            walineCdn,
+            'sha384-9sbqJjrfGjbkI6\/PI4nU\/MvBfEmkkPC4YK9I4zBeMIf1CVCZdCMH\/KinBEAZII\/5'
+          );
+          walineInit = module.init;
+        }
+        
+        window.walineInstance = walineInit({
+          el: '.waline-comment',
+          serverURL: 'https:\/\/waline.guzhengsvt.cn',
+          lang: 'zh-CN',
+          locale: JSON.parse("{}"),
+          emoji: JSON.parse("[\"https://unpkg.com/@waline/emojis@1.2.0/weibo\",\"https://unpkg.com/@waline/emojis@1.2.0/alus\",\"https://unpkg.com/@waline/emojis@1.2.0/bilibili\",\"https://unpkg.com/@waline/emojis@1.2.0/qq\",\"https://unpkg.com/@waline/emojis@1.2.0/tieba\",\"https://unpkg.com/@waline/emojis@1.2.0/tw-emoji\"]"),
+          meta: JSON.parse("[\"nick\",\"mail\",\"link\"]"),
+          requiredMeta: JSON.parse("[\"nick\",\"mail\"]"),
+          wordLimit:  0 ,
+          comment: true,
+          pageSize:  10 ,
+          dark: 'html[data-theme="dark"]',
+          pageview:  true ,
+        });
+      }
+    },
+    twikoo: {
+      enable: false,
+      load: () => {
+        const container = document.querySelector('.twikoo-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        
+        const script = loadScript(
+          'https:\/\/cdn.jsdelivr.net\/npm\/twikoo@1.6.16\/dist\/twikoo.all.min.js',
+          !'cdn_jsdelivr_npm|twikoo@1.6.16\/dist\/twikoo.all.min.js'.startsWith('local') ? 'sha384-lDHsr5aZmkMS0eKnsUu6e9RWP\u002bdRmn7sgjRAKGOAoXfMyzbUK6Qi86zZK7R\u002bKvRV' : undefined
+        );
+        script.onload = () => {
+          twikoo.init({
+            envId: '',
+            el: '.twikoo-comment',
+            region: '',
+          });
+        };
+        document.head.appendChild(script);
+      }
+    },
+    gitalk: {
+      enable: false,
+      load: () => {
+        const container = document.querySelector('.gitalk-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        const script = loadScript(
+          'https:\/\/cdn.jsdelivr.net\/npm\/gitalk@1.8.0\/dist\/gitalk.min.js',
+          !'cdn_jsdelivr_npm|gitalk@1.8.0\/dist\/gitalk.min.js'.startsWith('local') ? 'sha384-kspnZUWBoSWwoJHa0hBCXYbHGbhvU\/lcEH5O8eVbSDhbPwsiVUTp\/aGX\/z\/5EuMA' : undefined
+        );
+        script.onload = () => {
+          if ( false ) {
+            
+            const md5Script = loadScript(
+              'https:\/\/cdn.jsdelivr.net\/npm\/blueimp-md5@2.19.0\/js\/md5.min.js',
+              !'cdn_jsdelivr_npm|blueimp-md5@2.19.0\/js\/md5.min.js'.startsWith('local') ? 'sha384-JmVtRz6RWiXnA14QbIOJzPuU3MidULOpBP66deeLLyyoF4Tr\/gZlbkHkL6vTthxH' : undefined
+            );
+            md5Script.onload = initGitalk;
+            document.head.appendChild(md5Script);
+          } else {
+            
+            initGitalk();
+          }
+        };
+        document.head.appendChild(script);
+
+        function initGitalk() {
+          let gitalk = new Gitalk({
+            clientID: '',
+            clientSecret: '',
+            repo: '',
+            owner: '',
+            admin: JSON.parse("null"),
+            id: location.pathname,
+            distractionFreeMode: false
+          });
+          gitalk.render('gitalk-comment');
+        }
+      }
+    },
+    giscus: {
+      enable: false,
+      load: () => {
+        const container = document.querySelector('.giscus-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        
+        const existingScript = container.querySelector('script[src*="giscus.app/client.js"]');
+        if (existingScript) existingScript.remove();
+        const existingFrame = document.querySelector('iframe.giscus-frame');
+        if (existingFrame) existingFrame.remove();
+
+        
+        const giscusScript = document.createElement('script');
+        const domMode = document.documentElement.getAttribute("data-theme");
+        giscusScript.src = 'https://giscus.app/client.js';
+        giscusScript.setAttribute('data-repo', '');
+        giscusScript.setAttribute('data-repo-id', '');
+        giscusScript.setAttribute('data-category', '');
+        giscusScript.setAttribute('data-category-id', '');
+        giscusScript.setAttribute('data-mapping', '0');
+        giscusScript.setAttribute('data-strict', '0');
+        giscusScript.setAttribute('data-reactions-enabled', '1');
+        giscusScript.setAttribute('data-emit-metadata', '0');
+        giscusScript.setAttribute('data-input-position', 'bottom');
+        giscusScript.setAttribute('data-theme', domMode === 'dark' ? 'dark' : 'light');
+        giscusScript.setAttribute('data-lang', 'zh-CN');
+        giscusScript.setAttribute('crossorigin', 'anonymous');
+        giscusScript.async = true;
+        container.appendChild(giscusScript);
+        document.body.addEventListener('light-theme-set', () => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'light' } } }, 'https://giscus.app');
+        });
+        document.body.addEventListener('dark-theme-set', () => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'dark' } } }, 'https://giscus.app');
+        });
+      }
+    }
+  };
+  commentConfig.enable = commentConfigKeys.some(key => commentConfig[key].enable);
+
+  var defaultComment = '';
+  if (commentConfig.enable) {
+    
+    var savedCommentType = localStorage.getItem('commentType');
+    
+    
+    if (savedCommentType) {
+      if (commentConfig[savedCommentType]?.enable) {
+        defaultComment = savedCommentType;
+      }
+    }
+    
+    
+    if (!defaultComment) {
+      var configDefault = 'waline';
+      if (commentConfig[configDefault]?.enable) {
+        defaultComment = configDefault;
+      }
+    }
+    
+    
+    if (!defaultComment) {
+      defaultComment = commentConfigKeys.find(sys => commentConfig[sys].enable) || '';
+    }
+  }
+
+  function loadComments() {
+    if (!commentConfig.enable) return;
+    
+    const loadedComments = {
+      valine: false,
+      waline: false,
+      twikoo: false,
+      gitalk: false,
+      giscus: false
+    };
+
+    
+    const hideAllComments = () => {
+      const commentContainers = document.querySelectorAll('.comment');
+      commentContainers.forEach(container => {
+        container.style.display = 'none';
+      });
+    };
+
+    
+    const loadCommentSystem = (type) => {
+      if (loadedComments[type]) {
+        
+        document.querySelector(`.${type}-comment`).style.display = 'block';
+        return;
+      }
+
+      
+      commentConfig[type]?.load();
+      loadedComments[type] = true;
+    };
+
+    
+    const changeActiveCommentItems = (item) => {
+      const commentItems = document.querySelectorAll('.selector-item');
+      for (let i = 0; i < commentItems.length; i++) {
+        commentItems[i].classList.remove('active');
+      }
+      item.classList.add('active');
+
+      
+      const commentType = item.getAttribute('data-selector');
+
+      
+      hideAllComments();
+
+      
+      loadCommentSystem(commentType);
+    };
+
+    const commentInit = () => {
+      
+      const commentItems = document.querySelectorAll('.selector-item');
+      for (let item of commentItems) {
+        item.addEventListener('click', () => {
+          
+          const commentType = item.getAttribute('data-selector');
+          window.localStorage.setItem('commentType', commentType);
+          
+          changeActiveCommentItems(item);
+        });
+      }
+
+      
+      if (defaultComment) {
+        const defaultSelectorItem = document.querySelector(`[data-selector="${defaultComment}"]`);
+        if (!defaultSelectorItem) return;
+        defaultSelectorItem.style.display = 'block';
+        defaultSelectorItem.classList.add('active');
+        loadCommentSystem(defaultComment);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', commentInit);
+    } else {
+      commentInit();
+    }
+  };
+  loadComments();
+</script>
+
+
+      
+        
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"
+    defer
+    
+    data-pjax
+    
+    integrity="sha384-0RsG1yo/crf/1Qc14sho26SXXOTngNCjgJw7fuvXBt9W/OChF/Ijx&#43;aUuBDqQwEk" crossorigin="anonymous"
+  ></script>
+
+
+        
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js"
+    defer
+    
+    data-pjax
+    
+    integrity="sha384-UbfRVKN3/elS1r7JcK2FhmPP&#43;KlJ4CvYwbyYD7tH&#43;uTkbT9bNJr9eJeQ0FoFbAgz" crossorigin="anonymous"
+  ></script>
+
+
+      
+    
+    
+      
+        
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+    
+    
+    data-pjax
+    
+    integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8" crossorigin="anonymous"
+  ></script>
+
+
+        
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    
+    
+    data-pjax
+    
+    integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05" crossorigin="anonymous"
+  ></script>
+
+
+        <script data-pjax>
+          var renderMath = () => {
+            if (!window.renderMathInElement) return;
+            window.renderMathInElement(_$("article"), {
+              delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+              ],
+            });
+          };
+          if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", renderMath, { once: true });
+          } else {
+            renderMath();
+          }
+        </script>
+      
+      
+    
+  </div>
+</div>
+
+
+  <script data-pjax>
+    var updateTime = _$('#post-update-time')?.innerHTML;
+
+    if (updateTime) {
+      const update = new Date(updateTime);
+      const now = new Date();
+      const diff = now - update;
+      const days = diff / 86400000;
+      const { daysago: daysAgo, message: template } = window.siteConfig.outdate;
+      if (days >= daysAgo) {
+        const message = template.replace(/{time}/, updateTime);
+        const blockquote = _$('#outdate-blockquote');
+        if (blockquote) {
+          blockquote.querySelector('p').innerText = message;
+          blockquote.style.display = 'block';
+        }
+      }
+    }
+  </script>
+
+
+
+
+
+  
+
+
+
+
+
+  
+      
+        
+      
+
+  
+
+
+
+
+
+  
+      
+      <script src="/js/service_worker.js" ></script>
+      
+
+
+
+<script>
+  const reimuCopyright = String.raw`
+   ______     ______     __     __    __     __  __    
+  /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+  \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+   \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+    \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                    
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script>
+
+
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"
+    
+    
+    
+    
+    integrity="sha384-gdGYZwHnfJM54evoZhpO0s6ZF5BQiybkiyW7VXr&#43;h5UfruuRL/aORyw&#43;5&#43;HZoU6e" crossorigin="anonymous"
+  ></script>
+
+
+  
+
+
+
+  
+  <script>
+    var isMobile = window.matchMedia('(max-width: 959px)').matches;
+    if (isMobile) {
+      const meting = _$('meting-js');
+      if (meting) {
+        meting.setAttribute('fixed', 'true');
+        const aside = meting.parentNode;
+        if (aside?.tagName === 'ASIDE') {
+          aside.removeChild(meting);
+          document.body.appendChild(meting);
+        }
+      }
+    }
+  </script>
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"
+    
+    
+    
+    
+    integrity="sha384-ASVlpKF80A22OXTK3tfEjZm1EL6uFMKIC4p8&#43;0maanw1S/IyB&#43;Y4JG&#43;ZDU7GpKE8" crossorigin="anonymous"
+  ></script>
+
+
+
+
+
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"
+    
+    
+    
+    
+    integrity="sha384-HeUHqi0nVsPUm/E0ss7OfnIV/yD96JWB8ehZvUuoVax9DpNHL17jj9pdfXHzqDxm" crossorigin="anonymous"
+  ></script>
+
+
+  <script data-pjax>
+    if (document.readyState === "loading") {
+      document.addEventListener('DOMContentLoaded', () => {
+        pangu?.spacingPage();
+      });
+    } else {
+      pangu?.spacingPage();
+    }
+  </script>
+
+
+    
+  </body>
+</html>

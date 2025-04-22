@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>C/C++ on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/en/tags/c/c++/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All website licensed under CC BY 4.0</copyright><lastBuildDate>Tue, 12 Dec 2023 15:00:26 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/en/tags/c/c++/index.xml" rel="self" type="application/rss+xml"/><item><title>Data Structure Lab Report 8 - Critical Path</title><link>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A8%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84/</link><pubDate>Tue, 12 Dec 2023 15:00:26 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A8%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84/</guid><description><![CDATA[<h1>Data Structure Lab Report 8 - Critical Path</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>C/C&#43;&#43; on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/en/tags/c/c&#43;&#43;/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Tue, 12 Dec 2023 15:00:26 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/en/tags/c/c&#43;&#43;/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Data Structure Lab Report 8 - Critical Path</title>
+      <link>http://localhost:1313/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A8%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Tue, 12 Dec 2023 15:00:26 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A8%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84/</guid>
+      <description><![CDATA[<h1>Data Structure Lab Report 8 - Critical Path</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="a-problem-analysis">
 <a class="header-anchor" href="#a-problem-analysis"></a>
 a. Problem Analysis
@@ -198,7 +224,23 @@ f. Source Code
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
-        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Code</category></item><item><title>Data Structure Lab Report 7 – Kruskal's Algorithm and the Minimum Spanning Tree Problem, Dijkstra's Algorithm and the Shortest Path Problem in Weighted Graphs</title><link>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A7kruskal%E7%AE%97%E6%B3%95%E4%B8%8E%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98dijkstra%E7%AE%97%E6%B3%95%E4%B8%8E%E5%B8%A6%E6%9D%83%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</link><pubDate>Tue, 12 Dec 2023 14:58:44 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A7kruskal%E7%AE%97%E6%B3%95%E4%B8%8E%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98dijkstra%E7%AE%97%E6%B3%95%E4%B8%8E%E5%B8%A6%E6%9D%83%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</guid><description><![CDATA[<h1>Data Structure Lab Report 7 – Kruskal's Algorithm and the Minimum Spanning Tree Problem, Dijkstra's Algorithm and the Shortest Path Problem in Weighted Graphs</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2023-12-12 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Data Structure Lab Report 7 – Kruskal&#39;s Algorithm and the Minimum Spanning Tree Problem, Dijkstra&#39;s Algorithm and the Shortest Path Problem in Weighted Graphs</title>
+      <link>http://localhost:1313/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A7kruskal%E7%AE%97%E6%B3%95%E4%B8%8E%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98dijkstra%E7%AE%97%E6%B3%95%E4%B8%8E%E5%B8%A6%E6%9D%83%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Tue, 12 Dec 2023 14:58:44 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A7kruskal%E7%AE%97%E6%B3%95%E4%B8%8E%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98dijkstra%E7%AE%97%E6%B3%95%E4%B8%8E%E5%B8%A6%E6%9D%83%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</guid>
+      <description><![CDATA[<h1>Data Structure Lab Report 7 – Kruskal's Algorithm and the Minimum Spanning Tree Problem, Dijkstra's Algorithm and the Shortest Path Problem in Weighted Graphs</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="kruskals-algorithm-for-generating-minimum-spanning-trees">
 <a class="header-anchor" href="#kruskals-algorithm-for-generating-minimum-spanning-trees"></a>
 Kruskal&rsquo;s Algorithm for Generating Minimum Spanning Trees
@@ -648,7 +690,23 @@ f Source Code
 </span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
 </span></span></code></pre></div>
-        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Code</category></item><item><title>Data Structure Lab Report 6 — Threading Binary Trees with Preorder and Postorder Traversals, Adjacency Matrix and Adjacency List Storage for Graphs</title><link>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8/</link><pubDate>Tue, 12 Dec 2023 14:56:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8/</guid><description><![CDATA[<h1>Data Structure Lab Report 6 — Threading Binary Trees with Preorder and Postorder Traversals, Adjacency Matrix and Adjacency List Storage for Graphs</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2023-12-12 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Data Structure Lab Report 6 — Threading Binary Trees with Preorder and Postorder Traversals, Adjacency Matrix and Adjacency List Storage for Graphs</title>
+      <link>http://localhost:1313/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8/</link>
+      <pubDate>Tue, 12 Dec 2023 14:56:33 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8/</guid>
+      <description><![CDATA[<h1>Data Structure Lab Report 6 — Threading Binary Trees with Preorder and Postorder Traversals, Adjacency Matrix and Adjacency List Storage for Graphs</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="threading-a-binary-tree-in-pre-order-and-post-order">
 <a class="header-anchor" href="#threading-a-binary-tree-in-pre-order-and-post-order"></a>
 Threading a Binary Tree in Pre-order and Post-order
@@ -908,7 +966,23 @@ Adjacency List Storage
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>  
 </span></span><span class="line"><span class="cl"><span class="p">}</span>  
 </span></span></code></pre></div>
-        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Code</category></item><item><title>Data Structure Lab Report 5 - Huffman Tree Encoding and Decoding, Construction and Node Deletion of Binary Search Tree</title><link>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A5%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E7%9A%84%E7%BC%96%E7%A0%81%E5%92%8C%E8%AF%91%E7%A0%81%E6%8E%92%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%92%8C%E8%8A%82%E7%82%B9%E5%88%A0%E9%99%A4/</link><pubDate>Tue, 12 Dec 2023 14:54:04 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A5%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E7%9A%84%E7%BC%96%E7%A0%81%E5%92%8C%E8%AF%91%E7%A0%81%E6%8E%92%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%92%8C%E8%8A%82%E7%82%B9%E5%88%A0%E9%99%A4/</guid><description><![CDATA[<h1>Data Structure Lab Report 5 - Huffman Tree Encoding and Decoding, Construction and Node Deletion of Binary Search Tree</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2023-12-12 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Data Structure Lab Report 5 - Huffman Tree Encoding and Decoding, Construction and Node Deletion of Binary Search Tree</title>
+      <link>http://localhost:1313/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A5%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E7%9A%84%E7%BC%96%E7%A0%81%E5%92%8C%E8%AF%91%E7%A0%81%E6%8E%92%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%92%8C%E8%8A%82%E7%82%B9%E5%88%A0%E9%99%A4/</link>
+      <pubDate>Tue, 12 Dec 2023 14:54:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A5%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E7%9A%84%E7%BC%96%E7%A0%81%E5%92%8C%E8%AF%91%E7%A0%81%E6%8E%92%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%92%8C%E8%8A%82%E7%82%B9%E5%88%A0%E9%99%A4/</guid>
+      <description><![CDATA[<h1>Data Structure Lab Report 5 - Huffman Tree Encoding and Decoding, Construction and Node Deletion of Binary Search Tree</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="implementing-huffman-tree-encoding-and-decoding">
 <a class="header-anchor" href="#implementing-huffman-tree-encoding-and-decoding"></a>
 Implementing Huffman Tree Encoding and Decoding
@@ -1369,7 +1443,23 @@ f. Source Code
 Summary
 </h3><p>The BST implementation supports insertion, traversal, and deletion (both entire tree and single nodes). Testing confirmed correct behavior for all operations.</p>
 
-        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Code</category></item><item><title>Data Structure Lab Report 4 - Binary Tree Construction, Storage, and Traversal</title><link>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/</link><pubDate>Tue, 12 Dec 2023 14:43:54 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/</guid><description><![CDATA[<h1>Data Structure Lab Report 4 - Binary Tree Construction, Storage, and Traversal</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2023-12-12 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Data Structure Lab Report 4 - Binary Tree Construction, Storage, and Traversal</title>
+      <link>http://localhost:1313/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/</link>
+      <pubDate>Tue, 12 Dec 2023 14:43:54 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/</guid>
+      <description><![CDATA[<h1>Data Structure Lab Report 4 - Binary Tree Construction, Storage, and Traversal</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="1-creating-binary-trees-from-input-sequential-and-linked-storage">
 <a class="header-anchor" href="#1-creating-binary-trees-from-input-sequential-and-linked-storage"></a>
 1. Creating Binary Trees from Input: Sequential and Linked Storage
@@ -1742,7 +1832,23 @@ Linked Storage
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
-        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Code</category></item><item><title>Data Structure Lab Report 3 – Using KMP Algorithm for String Search</title><link>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A3kmp%E7%AE%97%E6%B3%95%E7%94%A8%E4%BA%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2/</link><pubDate>Tue, 12 Dec 2023 14:42:01 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A3kmp%E7%AE%97%E6%B3%95%E7%94%A8%E4%BA%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2/</guid><description><![CDATA[<h1>Data Structure Lab Report 3 – Using KMP Algorithm for String Search</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2023-12-12 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Data Structure Lab Report 3 – Using KMP Algorithm for String Search</title>
+      <link>http://localhost:1313/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A3kmp%E7%AE%97%E6%B3%95%E7%94%A8%E4%BA%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2/</link>
+      <pubDate>Tue, 12 Dec 2023 14:42:01 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A3kmp%E7%AE%97%E6%B3%95%E7%94%A8%E4%BA%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2/</guid>
+      <description><![CDATA[<h1>Data Structure Lab Report 3 – Using KMP Algorithm for String Search</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="experiment-objective">
 <a class="header-anchor" href="#experiment-objective"></a>
 <strong>Experiment Objective:</strong>
@@ -1871,7 +1977,23 @@ Linked Storage
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
-        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Code</category></item><item><title>Data Structure Lab Report 2 — Sparse Matrix Multiplication</title><link>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A2%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</link><pubDate>Tue, 12 Dec 2023 14:38:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A2%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</guid><description><![CDATA[<h1>Data Structure Lab Report 2 — Sparse Matrix Multiplication</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2023-12-12 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Data Structure Lab Report 2 — Sparse Matrix Multiplication</title>
+      <link>http://localhost:1313/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A2%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</link>
+      <pubDate>Tue, 12 Dec 2023 14:38:24 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A2%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</guid>
+      <description><![CDATA[<h1>Data Structure Lab Report 2 — Sparse Matrix Multiplication</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="problem-analysis">
 <a class="header-anchor" href="#problem-analysis"></a>
 Problem Analysis
@@ -2040,7 +2162,23 @@ Source Code
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
-        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Code</category></item><item><title>Lab Report 1 on Data Structure Experiments——Fibonacci Sequence &amp; Set Partition Problem</title><link>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1fibonacci%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86%E5%AD%90%E9%9B%86%E9%97%AE%E9%A2%98/</link><pubDate>Tue, 12 Dec 2023 14:31:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1fibonacci%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86%E5%AD%90%E9%9B%86%E9%97%AE%E9%A2%98/</guid><description><![CDATA[<h1>Lab Report 1 on Data Structure Experiments——Fibonacci Sequence & Set Partition Problem</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2023-12-12 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Lab Report 1 on Data Structure Experiments——Fibonacci Sequence &amp; Set Partition Problem</title>
+      <link>http://localhost:1313/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1fibonacci%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86%E5%AD%90%E9%9B%86%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Tue, 12 Dec 2023 14:31:17 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1fibonacci%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86%E5%AD%90%E9%9B%86%E9%97%AE%E9%A2%98/</guid>
+      <description><![CDATA[<h1>Lab Report 1 on Data Structure Experiments——Fibonacci Sequence & Set Partition Problem</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="fibonacci-sequence">
 <a class="header-anchor" href="#fibonacci-sequence"></a>
 <strong>Fibonacci Sequence</strong>
@@ -2199,4 +2337,11 @@ Source Code
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
-        <hr><p>本文 2023-12-12 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Code</category></item></channel></rss>
+        <hr><p>本文 2023-12-12 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-12</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>笔记 on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-cn/tags/%E7%AC%94%E8%AE%B0/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All website licensed under CC BY 4.0</copyright><lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-cn/tags/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>Typecho评论导入Waline</title><link>https://guzhengsvt.cn/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description><![CDATA[<h1>Typecho评论导入Waline</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>笔记 on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/zh-cn/tags/%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/zh-cn/tags/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Typecho评论导入Waline</title>
+      <link>http://localhost:1313/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
+      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
+      <description><![CDATA[<h1>Typecho评论导入Waline</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <p>前两天把博客文章从 Typecho 迁移到 Hugo，光是设置 Front Matter 参数和重新配置图片链接就费了很大功夫。<br>
 一个博客的价值，首先是文章，紧接着就是评论。评论证明博客在互联网和真实世界产生的影响，承载了人与人之间的交互关系。私心一点地说，五湖四海的评论是重要的回忆，是构成“我”的一部分。<br>
 所以，将原站评论 copy 到新站的对应文章下是很有必要的。</p>
@@ -161,7 +187,23 @@ Waline 的<a href="https://waline.js.org/guide/get-started/">中文文档</a>内
 如最开始所言，这是笔者的成长轨迹，是笔者存活于世的证明，是“我”的一部分。</p>
 <p>而你，我亲爱的读者，是你赋予我价值。</p>
 <p>有空的话请多多评论吧～笔者真的会开心很久的说（如果评论善意的话）。</p>
-        <hr><p>本文 2025-04-19 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item><item><title>Hugo博客常用资料</title><link>https://guzhengsvt.cn/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link><pubDate>Tue, 15 Apr 2025 16:42:35 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid><description><![CDATA[<h1>Hugo博客常用资料</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2025-04-19 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Hugo博客常用资料</title>
+      <link>http://localhost:1313/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link>
+      <pubDate>Tue, 15 Apr 2025 16:42:35 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid>
+      <description><![CDATA[<h1>Hugo博客常用资料</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="hugo-常用命令">
 <a class="header-anchor" href="#hugo-%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4"></a>
 Hugo 常用命令
@@ -561,7 +603,23 @@ reimu 主题 icon_font
   </tbody>
 </table>
 
-        <hr><p>本文 2025-04-15 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item><item><title>概率论与数理统计</title><link>https://guzhengsvt.cn/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><pubDate>Tue, 10 Sep 2024 01:14:05 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid><description><![CDATA[<h1>概率论与数理统计</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2025-04-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>概率论与数理统计</title>
+      <link>http://localhost:1313/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link>
+      <pubDate>Tue, 10 Sep 2024 01:14:05 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid>
+      <description><![CDATA[<h1>概率论与数理统计</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="前言">
 <a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
 前言
@@ -1212,7 +1270,23 @@ F(x)=
 $$<p>
 $F(0^-)=F(0)=0$，$F(0^+)=0.5$，$x=0$ 是间断点，左连续而右不连续。</p>
 
-        <hr><p>本文 2024-09-10 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2024-09-10</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Math</category></item><item><title>Windows美化历程</title><link>https://guzhengsvt.cn/zh-cn/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link><pubDate>Sat, 07 Sep 2024 21:12:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid><description><![CDATA[<h1>Windows美化历程</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-09-10 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-10</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Math</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Windows美化历程</title>
+      <link>http://localhost:1313/zh-cn/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link>
+      <pubDate>Sat, 07 Sep 2024 21:12:17 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid>
+      <description><![CDATA[<h1>Windows美化历程</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="前言">
 <a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
 前言
@@ -1463,7 +1537,23 @@ Sapphire
 <li>蔚蓝档案千年光标，简约可爱，在用。
 GitHub项目地址：<a href="https://github.com/makipom/BlueArchive-Cursors">BlueArchive-Cursors</a></li>
 </ol>
-        <hr><p>本文 2024-09-07 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2024-09-07</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item><item><title>数字信号处理</title><link>https://guzhengsvt.cn/zh-cn/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link><pubDate>Wed, 04 Sep 2024 23:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid><description><![CDATA[<h1>数字信号处理</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-09-07 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-07</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>数字信号处理</title>
+      <link>http://localhost:1313/zh-cn/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link>
+      <pubDate>Wed, 04 Sep 2024 23:44:15 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid>
+      <description><![CDATA[<h1>数字信号处理</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="数字信号处理基本概念">
 <a class="header-anchor" href="#%e6%95%b0%e5%ad%97%e4%bf%a1%e5%8f%b7%e5%a4%84%e7%90%86%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5"></a>
 数字信号处理基本概念
@@ -1744,7 +1834,23 @@ $$<h3 id="线性常系数差分方程">
 <a class="header-anchor" href="#%e7%ba%bf%e6%80%a7%e5%b8%b8%e7%b3%bb%e6%95%b0%e5%b7%ae%e5%88%86%e6%96%b9%e7%a8%8b"></a>
 线性常系数差分方程
 </h3>
-        <hr><p>本文 2024-09-04 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2024-09-04</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Physics</category></item><item><title>空气动力学基础</title><link>https://guzhengsvt.cn/zh-cn/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link><pubDate>Mon, 02 Sep 2024 22:13:45 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid><description><![CDATA[<h1>空气动力学基础</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-09-04 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-04</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Physics</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>空气动力学基础</title>
+      <link>http://localhost:1313/zh-cn/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 02 Sep 2024 22:13:45 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid>
+      <description><![CDATA[<h1>空气动力学基础</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="流体静力学基础">
 <a class="header-anchor" href="#%e6%b5%81%e4%bd%93%e9%9d%99%e5%8a%9b%e5%ad%a6%e5%9f%ba%e7%a1%80"></a>
 流体静力学基础
@@ -2442,7 +2548,23 @@ $$<h2 id="气动中心与压力中心的区别">
 </h2><p>压力中心是力系合成到一个特殊点时，使得这个点的<strong>合力矩为0</strong>的点，<strong>压力中心在气动中心的后面</strong>；而气动中心是使得<strong>合力矩不变</strong>的点。</p>
 <p>压力中心的位置随着迎角的改变而改变，当迎角增大，升力增大，压力中心前移，这同时使得压力中心与气动中心的距离缩短，增大的升力与缩短力臂乘积刚好是不变的力矩，这也正是气动中心的定义所要求的。</p>
 
-        <hr><p>本文 2024-09-02 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2024-09-02</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Physics</category></item><item><title>自动拨号上网与任务计划程序</title><link>https://guzhengsvt.cn/zh-cn/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</link><pubDate>Wed, 12 Jun 2024 19:34:52 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</guid><description><![CDATA[<h1>自动拨号上网与任务计划程序</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-09-02 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-02</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Physics</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>自动拨号上网与任务计划程序</title>
+      <link>http://localhost:1313/zh-cn/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Wed, 12 Jun 2024 19:34:52 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</guid>
+      <description><![CDATA[<h1>自动拨号上网与任务计划程序</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="破事氵">
 <a class="header-anchor" href="#%e7%a0%b4%e4%ba%8b%e6%b0%b5"></a>
 破事氵
@@ -2473,7 +2595,23 @@ $$<h2 id="气动中心与压力中心的区别">
 转到操作-&gt;新建-&gt;启动程序-&gt;浏览找到你刚写的bat程序选中-&gt;确认</p>
 <p>确认（此时会要求输入Windows系统登录的微软账号密码，不是PIN，总是出错建议检查常规页面里的用户账户是否匹配。）</p>
 
-        <hr><p>本文 2024-06-12 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2024-06-12</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item><item><title>热力学与统计物理</title><link>https://guzhengsvt.cn/zh-cn/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</link><pubDate>Thu, 06 Jun 2024 00:00:59 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</guid><description><![CDATA[<h1>热力学与统计物理</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-06-12 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-06-12</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>热力学与统计物理</title>
+      <link>http://localhost:1313/zh-cn/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</link>
+      <pubDate>Thu, 06 Jun 2024 00:00:59 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</guid>
+      <description><![CDATA[<h1>热力学与统计物理</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="物理量">
 <a class="header-anchor" href="#%e7%89%a9%e7%90%86%e9%87%8f"></a>
 物理量
@@ -4686,7 +4824,23 @@ $$<h3 id="玻色气体与费米气体在--下比较">
 玻色气体与费米气体在 $T=0$ 下比较
 </h3><p>与理想玻色气体在绝对零度下粒子全部处于能量、动量为零的状态且压强为零完全不同，费米气体在绝对零度下具有很高的平均能量、动量，并产生很大的压强。</p>
 
-        <hr><p>本文 2024-06-06 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2024-06-06</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Physics</category></item><item><title>实数建立读书报告</title><link>https://guzhengsvt.cn/zh-cn/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</link><pubDate>Wed, 27 Dec 2023 21:40:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</guid><description><![CDATA[<h1>实数建立读书报告</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-06-06 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-06-06</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Physics</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>实数建立读书报告</title>
+      <link>http://localhost:1313/zh-cn/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</link>
+      <pubDate>Wed, 27 Dec 2023 21:40:17 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</guid>
+      <description><![CDATA[<h1>实数建立读书报告</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="real-number-foundation-book-report">
 <a class="header-anchor" href="#real-number-foundation-book-report"></a>
 Real Number Foundation Book Report
@@ -5040,7 +5194,23 @@ Real Number Foundation Book Report
 </h2><p>通过研读实数建立的相关书籍，我的数学观念得到了显著的拓展。更加深入了解了实数的构建过程，包括从有理数到无理数的引入，以及确界原理等方法的阐释证明。这使我对实数的概念有了更为清晰和深刻的认识，意识到实数的引入是为了弥补有理数的不足，使数学体系更为完备。</p>
 <p>在深入学习极限和连续性的过程中，我深感这是一种深邃而富有美感的思想。极限的引入不仅为理解数列和函数的趋势提供了有效的工具，也是实数系统中的核心思想之一。连续性的概念则使得实数轴上函数变化的渐进平滑，这种连续性贯穿于整个数学分析。</p>
 
-        <hr><p>本文 2023-12-27 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2023-12-27</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Math</category></item><item><title>留数定理与洛朗级数、高阶导数公式和柯西积分公式之间的关系或联系</title><link>https://guzhengsvt.cn/zh-cn/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link><pubDate>Wed, 20 Dec 2023 08:54:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid><description><![CDATA[<h1>留数定理与洛朗级数、高阶导数公式和柯西积分公式之间的关系或联系</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2023-12-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-27</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Math</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>留数定理与洛朗级数、高阶导数公式和柯西积分公式之间的关系或联系</title>
+      <link>http://localhost:1313/zh-cn/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link>
+      <pubDate>Wed, 20 Dec 2023 08:54:33 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid>
+      <description><![CDATA[<h1>留数定理与洛朗级数、高阶导数公式和柯西积分公式之间的关系或联系</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h3 id="1-留数定理residue-theorem">
 <a class="header-anchor" href="#1-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86residue-theorem"></a>
 1. 留数定理（Residue Theorem）：
@@ -5207,4 +5377,11 @@ $$f(z_0) = c_{-1}$$</li>
 $$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
 </ol>
 
-        <hr><p>本文 2023-12-20 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2023-12-20</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Math</category></item></channel></rss>
+        <hr><p>本文 2023-12-20 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-20</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Math</category>
+      
+    </item>
+    
+  </channel>
+</rss>

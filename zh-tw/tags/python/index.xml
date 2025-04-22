@@ -1,0 +1,1673 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>Python on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/zh-tw/tags/python/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>zh-tw</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Thu, 15 Feb 2024 11:44:33 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/zh-tw/tags/python/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>MicroPython 函式庫</title>
+      <link>http://localhost:1313/zh-tw/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link>
+      <pubDate>Thu, 15 Feb 2024 11:44:33 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-tw/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid>
+      <description><![CDATA[<h1>MicroPython 函式庫</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="machine-與硬體相關功能">
+<a class="header-anchor" href="#machine-%e8%88%87%e7%a1%ac%e9%ab%94%e7%9b%b8%e9%97%9c%e5%8a%9f%e8%83%bd"></a>
+machine-與硬體相關功能
+</h1><h2 id="pin類">
+<a class="header-anchor" href="#pin%e9%a1%9e"></a>
+Pin類
+</h2><h3 id="machinepinidmodenonepullnonevalue">
+<a class="header-anchor" href="#machinepinidmodenonepullnonevalue"></a>
+<code>machine.Pin(id,mode=None,pull=None,value)</code>
+</h3><p>Pin物件建構函式</p>
+<ul>
+<li>id：GPIO編號，對於Pico為0-29</li>
+<li>mode：模式，可選<code>None，Pin.IN(0),Pin.OUT(1),Pin.OPEN_DRAIN(2)</code></li>
+<li>pull：使用內部上下拉電阻，僅在輸入模式下有效，可選<code>None,Pin.PULL_UP(1),Pin.DOWN(2)</code></li>
+<li>value：輸出或開漏模式下埠值，0為低電位，1為高電位</li>
+</ul>
+<h3 id="pininitmodenonepullnone">
+<a class="header-anchor" href="#pininitmodenonepullnone"></a>
+<code>Pin.init(mode=None,pull=None)</code>
+</h3><p>重新初始化GPIO埠</p>
+<h3 id="pinvaluex">
+<a class="header-anchor" href="#pinvaluex"></a>
+<code>Pin.value([x])</code>
+</h3><ul>
+<li>不填參數時返回GPIO埠數值</li>
+<li>填參數0、1時將參數寫入GPIO埠</li>
+</ul>
+<h3 id="pintoggle">
+<a class="header-anchor" href="#pintoggle"></a>
+<code>Pin.toggle()</code>
+</h3><p>輸出或開漏模式下將埠設置翻轉
+eg.LED閃爍</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="c1">#每秒反轉一次燈亮/暗</span>
+</span></span></code></pre></div><h3 id="pinirqhandlernonetriggerpinirq_fallingpinirq_rising">
+<a class="header-anchor" href="#pinirqhandlernonetriggerpinirq_fallingpinirq_rising"></a>
+<code>Pin.irq(handler=None,trigger=(Pin.IRQ_FALLING|PIN.IRQ_RISING))</code>
+</h3><p>外部中斷函式</p>
+<ul>
+<li>handler：中斷觸發回呼函式</li>
+<li>trigger：中斷觸發條件（邊緣觸發/電位觸發）</li>
+</ul>
+<h3 id="others">
+<a class="header-anchor" href="#others"></a>
+others
+</h3><p>以下函式適用於輸出/開漏模式：</p>
+<ul>
+<li><code>Pin.low(),Pin.off()</code>將埠設置為低電壓。</li>
+<li><code>Pin.high(),Pin.on()</code>將埠設置為高電壓。</li>
+</ul>
+<h3 id="eg-點燈">
+<a class="header-anchor" href="#eg-%e9%bb%9e%e7%87%88"></a>
+eg. 點燈
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">utime</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#將按鈕接入GPIO15,設置為輸入模式，內部上拉</span>
+</span></span><span class="line"><span class="cl"><span class="n">button_num</span><span class="o">=</span><span class="mi">15</span>
+</span></span><span class="line"><span class="cl"><span class="n">button</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">button_num</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#GP25為板載LED，外設LED接入GP16</span>
+</span></span><span class="line"><span class="cl"><span class="n">led1_num</span><span class="o">=</span><span class="mi">25</span>
+</span></span><span class="line"><span class="cl"><span class="n">led2_num</span><span class="o">=</span><span class="mi">16</span>
+</span></span><span class="line"><span class="cl"><span class="n">led1</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">led1_num</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">led2</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">led2_num</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led2</span><span class="o">.</span><span class="n">off</span><span class="p">()</span><span class="c1">#開始關外設LED</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span><span class="c1">#判斷按鈕是否按下，按下為0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span><span class="c1">#軟體消抖</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led1</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span><span class="c1">#板載LED翻轉</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led2</span><span class="o">.</span><span class="n">on</span><span class="p">()</span><span class="c1">#外設LED亮（GP16高電位）</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;The button is pressed.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#按鈕處於按下狀態則等待變化（外設LED仍亮）</span>
+</span></span><span class="line"><span class="cl">                <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="pwm類">
+<a class="header-anchor" href="#pwm%e9%a1%9e"></a>
+PWM類
+</h2><h3 id="machinepwmpin">
+<a class="header-anchor" href="#machinepwmpin"></a>
+<code>machine.PWM(pin)</code>
+</h3><p>指定GPIO重新初始化為PWM輸出。
+pin為Pin類物件</p>
+<h3 id="pwmdeinit">
+<a class="header-anchor" href="#pwmdeinit"></a>
+<code>PWM.deinit()</code>
+</h3><p>PWM反初始化，停止PWM輸出。</p>
+<h3 id="pwmfreqvalue">
+<a class="header-anchor" href="#pwmfreqvalue"></a>
+<code>PWM.freq([value])</code>
+</h3><p>設置PWM頻率（單位$Hz$），自動計算分頻器參數與TOP寄存器參數。</p>
+<h3 id="pwmduty_u16value">
+<a class="header-anchor" href="#pwmduty_u16value"></a>
+`PWM.duty_u16([value])
+</h3><p>設置佔空比。
+value佔空比比例在[0,65536]，據此計算出對應數值賦給CC寄存器。</p>
+<h3 id="pwmduty_nsvalue">
+<a class="header-anchor" href="#pwmduty_nsvalue"></a>
+<code>PWM.duty_ns([value])</code>
+</h3><p>設置一個週期高電位時長，單位為ns。</p>
+<h3 id="eg-呼吸燈">
+<a class="header-anchor" href="#eg-%e5%91%bc%e5%90%b8%e7%87%88"></a>
+eg. 呼吸燈
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span><span class="n">PWM</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">=</span><span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span><span class="c1">#初始化板載LED為PWM物件</span>
+</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="c1">#設置頻率</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_duty</span><span class="o">=</span><span class="mi">0</span><span class="c1">#初始值</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_direction</span><span class="o">=</span><span class="mi">1</span><span class="c1">#步長</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led_duty</span><span class="o">+=</span><span class="n">led_direction</span><span class="c1">#增大/減小佔空比比值</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">led_duty</span><span class="o">&gt;=</span><span class="mi">100</span><span class="p">:</span><span class="c1">#滿</span>
+</span></span><span class="line"><span class="cl">        <span class="n">led_duty</span><span class="o">=</span><span class="mi">100</span>
+</span></span><span class="line"><span class="cl">        <span class="n">led_direction</span><span class="o">=-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">led_duty</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">:</span><span class="c1">#歸零</span>
+</span></span><span class="line"><span class="cl">        <span class="n">led_duty</span><span class="o">=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">led_direction</span><span class="o">=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">led_duty</span><span class="o">*</span><span class="mf">655.36</span><span class="p">))</span><span class="c1">#佔空比數值轉換</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">led_duty</span><span class="o">%</span><span class="mi">5</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">led_duty</span><span class="p">)</span><span class="c1">#便於繪圖觀察</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#週期2S</span>
+</span></span></code></pre></div><h2 id="adc類">
+<a class="header-anchor" href="#adc%e9%a1%9e"></a>
+ADC類
+</h2><h3 id="machineadcid">
+<a class="header-anchor" href="#machineadcid"></a>
+<code>machine.ADC(id)</code>
+</h3><p>初始化為ADC物件，id可為GPIO或ADC通道。使用Pin物件時GPIO需要支援ADC。
+0-3為Pico GPIO通道26-29，4為片內溫度感測器通道。</p>
+<h3 id="adcread_u16">
+<a class="header-anchor" href="#adcread_u16"></a>
+<code>ADC.read_u16()</code>
+</h3><p>讀取對應通道ADC返回讀取值[0,65525]。</p>
+
+        <hr><p>本文 2024-02-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-02-15</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Python基礎資料結構</title>
+      <link>http://localhost:1313/zh-tw/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Sun, 27 Aug 2023 21:40:39 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-tw/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <description><![CDATA[<h1>Python基礎資料結構</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p><strong>elem 是單詞 element（元素）的縮寫</strong>，在程式定義中代表某一不確定的類型，也就是抽象的資料類型。</p>
+<h1 id="清單">
+<a class="header-anchor" href="#%e6%b8%85%e5%96%ae"></a>
+清單
+</h1><h2 id="定義">
+<a class="header-anchor" href="#%e5%ae%9a%e7%be%a9"></a>
+定義
+</h2><p>由一系列元素按順序進行排列而成的容器</p>
+<ul>
+<li>元素可以是任意類型</li>
+<li>元素按確定順序排列，具有有序性</li>
+</ul>
+<h2 id="建立清單">
+<a class="header-anchor" href="#%e5%bb%ba%e7%ab%8b%e6%b8%85%e5%96%ae"></a>
+建立清單
+</h2><p>先建立空清單實例再新增元素</p>
+<ul>
+<li>list()</li>
+<li>.append()方法</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">wife</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span><span class="c1">#實例化</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">wife</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;西宮硝子&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">wife</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;櫻島麻衣&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">wife</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;愛莉希雅&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">wife</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="s1">&#39;西宮硝子&#39;</span><span class="p">,</span><span class="s1">&#39;櫻島麻衣&#39;</span><span class="p">,</span><span class="s1">&#39;愛莉希雅&#39;</span><span class="p">]</span>
+</span></span></code></pre></div><p>直接定義清單並填入元素</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">phones</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;Apple&#34;</span><span class="p">,</span> <span class="s2">&#34;Huawei&#34;</span><span class="p">,</span> <span class="s2">&#34;Xiaomi&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">phones</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="s1">&#39;Apple&#39;</span><span class="p">,</span> <span class="s1">&#39;Huawei&#39;</span><span class="p">,</span> <span class="s1">&#39;Xiaomi&#39;</span><span class="p">]</span>
+</span></span></code></pre></div><h2 id="查看元素">
+<a class="header-anchor" href="#%e6%9f%a5%e7%9c%8b%e5%85%83%e7%b4%a0"></a>
+查看元素
+</h2><ol>
+<li>使用索引
+用$[i]$查看第i+1個元素</li>
+<li>index()方法
+$$name.index(x)$$
+在list name中查找第一個值為x的元素，返回其索引</li>
+<li>count()方法
+$$name.count(x)$$
+在list name中查看有幾個元素為x，返回個數</li>
+<li>len()方法
+$$name.len()$$
+查找list name中元素總個數，返回個數</li>
+</ol>
+<h2 id="新增元素">
+<a class="header-anchor" href="#%e6%96%b0%e5%a2%9e%e5%85%83%e7%b4%a0"></a>
+新增元素
+</h2><ol>
+<li>append()方法
+$$name.append(x)$$
+向name末尾添加元素x</li>
+<li>insert()方法
+$$name.insert(i,x)$$
+將物件x插入name索引為i處，原來i以及i後面的元素順位後移</li>
+<li>extend()方法
+$$name.extend(name2)$$
+將list name2接在list name後面</li>
+</ol>
+<h2 id="修改元素">
+<a class="header-anchor" href="#%e4%bf%ae%e6%94%b9%e5%85%83%e7%b4%a0"></a>
+修改元素
+</h2><ol>
+<li>用索引指明元素直接賦值修改</li>
+</ol>
+<h2 id="刪除元素">
+<a class="header-anchor" href="#%e5%88%aa%e9%99%a4%e5%85%83%e7%b4%a0"></a>
+刪除元素
+</h2><ol>
+<li>pop()方法
+$$name.pop()$$
+預設刪除list最後一個元素
+$$name.pop(i)$$
+刪除索引為i的元素，後面的元素順位前移</li>
+<li>remove()方法
+$$name.remove(x)$$
+刪除第一個值為x的元素，後面的元素順位前移</li>
+<li>clear()方法
+$$name.clear()$$
+刪除所有元素（清空list）</li>
+<li>del<strong>語句</strong>
+$$del\ name[a:b]$$
+刪除del索引$[a,b)$的元素，包括a不包括b
+$del\ name[:]$表示清空list
+$$del\ name[i]$$
+刪除索引為i的元素</li>
+</ol>
+<h2 id="反轉列表">
+<a class="header-anchor" href="#%e5%8f%8d%e8%bd%89%e5%88%97%e8%a1%a8"></a>
+反轉列表
+</h2><ol>
+<li>reverse()方法
+$$name.reverse()$$
+將列表name反轉，最後一個元素變為第一個元素以此類推。</li>
+<li>切片法</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">nums</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">new_nums</span><span class="o">=</span><span class="n">nums</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">new_nums</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</span></span></code></pre></div><p>原對象nums不變，產生新對象new_nums為反轉列表</p>
+<h2 id="列表排序">
+<a class="header-anchor" href="#%e5%88%97%e8%a1%a8%e6%8e%92%e5%ba%8f"></a>
+列表排序
+</h2><ol>
+<li>sort()方法
+$$name.sort()$$
+$$name.sort(cmp=None,key=None,reverse=False)$$</li>
+</ol>
+<ul>
+<li>
+<p>該方法無返回值，會直接修改原list</p>
+</li>
+<li>
+<p>cmp為可選參數，</p>
+</li>
+<li>
+<p>key指明用元素的哪個參數作為比較權重，只有一個參數，取自比較的可迭代對象</p>
+<ul>
+<li>當比較元素elem僅包含一個參數（比如數字或單個字符）時，可省略key參數。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 獲取列表的第二個元素</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">takeSecond</span><span class="p">(</span><span class="n">elem</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">elem</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 列表</span>
+</span></span><span class="line"><span class="cl"><span class="n">random</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 指定第二個元素排序</span>
+</span></span><span class="line"><span class="cl"><span class="n">random</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">takeSecond</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#通過函數takeSecond指定比較元組第二個元素（權重）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 輸出類別</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;排序列表：&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">排序列表</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="p">[(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span>
+</span></span></code></pre></div><ul>
+<li>reverse為排序規則，默認False升序，True為降序</li>
+</ul>
+<h1 id="tuple">
+<a class="header-anchor" href="#tuple"></a>
+tuple
+</h1><h2 id="定義-1">
+<a class="header-anchor" href="#%e5%ae%9a%e7%be%a9-1"></a>
+定義
+</h2><p>元組（tuple），由一系列元素按順序進行排列形成的容器
+元組不可變（immutable），列表可變（mutable）</p>
+<h2 id="創建元組">
+<a class="header-anchor" href="#%e5%89%b5%e5%bb%ba%e5%85%83%e7%b5%84"></a>
+創建元組
+</h2><ol>
+<li>直接使用$()$將所有元素包圍，創建list是使用$[]$</li>
+<li>有時不使用$()$也能創建元組（不建議）</li>
+<li>元組推導式</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">atuple</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">31</span><span class="p">,</span><span class="mi">42</span><span class="p">))</span>
+</span></span></code></pre></div><ol start="4">
+<li>當創建的元組僅包含一個對象時，在其後添加逗號$","$
+否則帶小括號對象數據類型為對象類型而非元組</li>
+<li>創建空元組</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span><span class="o">=</span><span class="nb">tuple</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span><span class="o">=</span><span class="p">()</span>
+</span></span></code></pre></div><h2 id="tuple不允許增刪改查">
+<a class="header-anchor" href="#tuple%e4%b8%8d%e5%85%81%e8%a8%b1%e5%a2%9e%e5%88%aa%e6%94%b9%e6%9f%a5"></a>
+tuple不允許增刪改查
+</h2><h2 id="tuple與list轉換">
+<a class="header-anchor" href="#tuple%e8%88%87list%e8%bd%89%e6%8f%9b"></a>
+tuple與list轉換
+</h2><p>tuple-&gt;list</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">atuple</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;love&#39;</span><span class="p">,</span><span class="mf">3.334</span><span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">list</span><span class="p">(</span><span class="n">atuple</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;此時atuple仍為tuple類型&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">alist</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">atuple</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;alist為list類型&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">atuple</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">輸出</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;love&#39;</span><span class="p">,</span> <span class="mf">3.334</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">輸出</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;love&#39;</span><span class="p">,</span> <span class="mf">3.334</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">]</span>
+</span></span></code></pre></div><p>list-&gt;tuple</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">alist</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">3.1415</span><span class="p">,</span><span class="s1">&#39;polaris&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">atuple</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;alist仍為list，atuple為tuple&#39;&#39;&#39;</span>
+</span></span></code></pre></div><h1 id="dict">
+<a class="header-anchor" href="#dict"></a>
+dict
+</h1><h2 id="定義-2">
+<a class="header-anchor" href="#%e5%ae%9a%e7%be%a9-2"></a>
+定義
+</h2><ul>
+<li>字典（dict），由一系列<strong>鍵值對（key-value）</strong> 組合而成的資料結構。</li>
+<li>key必須為可以hash的值，如==字串==、數值
+<ul>
+<li>hash：雜湊（散列、雜湊），將任意長度輸入通過雜湊（雜湊）演算法變換成固定長度輸出（雜湊值）。
+hash是一種壓縮映射。</li>
+</ul>
+</li>
+<li>value，可以為任意物件</li>
+</ul>
+<h2 id="創建字典">
+<a class="header-anchor" href="#%e5%89%b5%e5%bb%ba%e5%ad%97%e5%85%b8"></a>
+創建字典
+</h2><ol>
+<li>先創建空字典再添加元素
+注意用<strong>等號</strong>連接識別符與物件（key&amp;value）
+此時key為識別符，<strong>識別符字串不用加引號</strong></li>
+<li>直接使用大括號$\{\}$
+注意用<strong>冒號</strong>連接key與value
+<strong>此時冒號前為key，字串需要引號</strong></li>
+<li>使用dict()函數從鍵值對序列（如tuple、list）創建dict</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;孤箏&#39;</span><span class="p">,</span><span class="n">age</span><span class="o">=</span><span class="mi">19</span><span class="p">,</span><span class="n">愛好</span><span class="o">=</span><span class="s1">&#39;明月栞那&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">=</span><span class="p">{</span><span class="n">name</span><span class="p">:</span><span class="s1">&#39;孤箏&#39;</span><span class="p">,</span><span class="n">age</span><span class="p">:</span><span class="mi">19</span><span class="p">,</span><span class="n">愛好</span><span class="p">:</span><span class="s1">&#39;明月栞那&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">alist</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;孤箏&#39;</span><span class="p">),(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="mi">19</span><span class="p">),(</span><span class="s1">&#39;愛好&#39;</span><span class="p">,</span><span class="s1">&#39;明月栞那&#39;</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">此時alist仍為list</span><span class="err">，</span><span class="n">profile物件為dict</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">輸出</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;孤箏&#39;</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="p">:</span><span class="mi">19</span><span class="p">,</span><span class="s1">&#39;愛好&#39;</span><span class="p">:</span><span class="s1">&#39;明月栞那&#39;</span><span class="p">}</span>
+</span></span></code></pre></div><ol start="4">
+<li>字典推導式</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">adict</span><span class="o">=</span><span class="p">{</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">adict</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">輸出</span><span class="p">{</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="mi">25</span><span class="p">}</span>
+</span></span></code></pre></div><h2 id="查看元素-1">
+<a class="header-anchor" href="#%e6%9f%a5%e7%9c%8b%e5%85%83%e7%b4%a0-1"></a>
+查看元素
+</h2><ol>
+<li>使用$$dict[key]$$
+dict為字典名稱，key為鍵
+key不存在時報錯KeyValue</li>
+<li>$dict.get(key[,value])$
+dict為字典名稱，key為鍵，value為可選參數，初始值
+當key不存在時返回設定的value，未設定value返回None
+==如果鍵不存在於字典中，將會添加鍵並將value設為預設值。==</li>
+</ol>
+<h2 id="新增元素-1">
+<a class="header-anchor" href="#%e6%96%b0%e5%a2%9e%e5%85%83%e7%b4%a0-1"></a>
+新增元素
+</h2>$$dict[key]=value$$<p>
+key為新增鍵，value為對應值</p>
+<h2 id="修改元素-1">
+<a class="header-anchor" href="#%e4%bf%ae%e6%94%b9%e5%85%83%e7%b4%a0-1"></a>
+修改元素
+</h2>$$dict[key]=new\_value$$<h2 id="刪除元素-1">
+<a class="header-anchor" href="#%e5%88%aa%e9%99%a4%e5%85%83%e7%b4%a0-1"></a>
+刪除元素
+</h2><ol>
+<li>$dict.pop(key)$
+dict為字典名稱，key為鍵，字串需帶引號</li>
+<li>del函數
+$$del\ dict[key]$$
+dict為字典名稱</li>
+</ol>
+<h2 id="其他重要方法">
+<a class="header-anchor" href="#%e5%85%b6%e4%bb%96%e9%87%8d%e8%a6%81%e6%96%b9%e6%b3%95"></a>
+其他重要方法
+</h2><h3 id="判斷key是否存在">
+<a class="header-anchor" href="#%e5%88%a4%e6%96%b7key%e6%98%af%e5%90%a6%e5%ad%98%e5%9c%a8"></a>
+判斷key是否存在
+</h3><ol>
+<li>$in,not in$</li>
+<li>$dict.has\_key()$函數
+存在返回True，否則返回False
+==僅在python2 中可使用，python3刪除==</li>
+</ol>
+<h3 id="設置key預設值">
+<a class="header-anchor" href="#%e8%a8%ad%e7%bd%aekey%e9%a0%90%e8%a8%ad%e5%80%bc"></a>
+設置key預設值
+</h3><ol>
+<li>先判斷key是否在dict中，若不在則賦值</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;王炳明&#34;</span><span class="p">,</span> <span class="s2">&#34;age&#34;</span><span class="p">:</span> <span class="mi">27</span><span class="p">,</span> <span class="s2">&#34;公众号&#34;</span><span class="p">:</span> <span class="s2">&#34;Python编程时光&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="s2">&#34;gender&#34;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">profile</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">profile</span><span class="p">[</span><span class="s2">&#34;gender&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;male&#34;</span>
+</span></span></code></pre></div><ol start="2">
+<li>$setdefault()$方法
+$$dict.setdefault(key,default=None)$$
+default為key不存在時設置的值，預設為None</li>
+</ol>
+<h1 id="set">
+<a class="header-anchor" href="#set"></a>
+set
+</h1><h2 id="定義-3">
+<a class="header-anchor" href="#%e5%ae%9a%e7%be%a9-3"></a>
+定義
+</h2><p>集合（set），同數學集合，一個<strong>無序</strong>的<strong>不重複</strong>元素序列。
+==question==：既然無序，那麼print set時元素是按照什麼順序，儲存時是什麼順序？</p>
+<h2 id="創建集合">
+<a class="header-anchor" href="#%e5%89%b5%e5%bb%ba%e9%9b%86%e5%90%88"></a>
+創建集合
+</h2><ol>
+<li>使用<strong>花括號</strong>創建，$\{\}$內可以有重複元素，但最後set會去重</li>
+<li>使用set()方法創建。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">aset</span><span class="o">=</span><span class="p">{</span><span class="mi">1314</span><span class="p">,</span><span class="s1">&#39;520&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">aset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">輸出</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="mi">1314</span><span class="p">,</span><span class="s1">&#39;520&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">bset</span><span class="o">=</span><span class="nb">set</span><span class="p">()</span><span class="c1">#創建空集合aset</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">bset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">輸出</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">cset</span><span class="o">=</span><span class="nb">set</span><span class="p">([</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="s1">&#39;love&#39;</span><span class="p">,</span><span class="s1">&#39;ishimiya&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">cset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">輸出</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="s1">&#39;love&#39;</span><span class="p">,</span><span class="s1">&#39;ishimiya&#39;</span><span class="p">}</span>
+</span></span></code></pre></div><h2 id="增加元素">
+<a class="header-anchor" href="#%e5%a2%9e%e5%8a%a0%e5%85%83%e7%b4%a0"></a>
+增加元素
+</h2><ol>
+<li>
+<p>$.add()$函數
+</p>
+$$set.add(elem)$$<p>
+==問題==：如果elem為原set已有元素會發生什麼？
+注意：當添加的元素與set集合中的元素出現重複的時候，不會有任何效果，但是並不報錯。</p>
+<p>添加的元素必須是<strong>不可變類型</strong>的，若添加可變類型的元素則會報錯。</p>
+</li>
+<li>
+<p>$.update()$函數
+</p>
+$$set.update(ElemType)$$<p>
+ElemType必須為一個序列（string，list，tuple，dict，set等）</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">aset</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;朱冰倩&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;suki&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;for&#39;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;接集合{&#39;for&#39;}&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">update</span><span class="p">([</span><span class="mi">10000</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;接列表[10000]&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">update</span><span class="p">((</span><span class="s1">&#39;years&#39;</span><span class="p">,))</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;接元組，僅有一個元素時帶上逗號&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;guzheng&#39;</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="p">:</span><span class="mi">19</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;接字典，僅將key加入set&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">aset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">輸出</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;朱冰倩&#39;</span><span class="p">,</span><span class="s1">&#39;suki&#39;</span><span class="p">,</span><span class="s1">&#39;for&#39;</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="s1">&#39;years&#39;</span><span class="p">,</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="p">}</span>
+</span></span></code></pre></div><h2 id="刪除元素-2">
+<a class="header-anchor" href="#%e5%88%aa%e9%99%a4%e5%85%83%e7%b4%a0-2"></a>
+刪除元素
+</h2><ol>
+<li>$.remove()$</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">aset</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;朱冰倩&#39;</span><span class="p">,</span><span class="s1">&#39;suki&#39;</span><span class="p">,</span><span class="s1">&#39;for&#39;</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="s1">&#39;years&#39;</span><span class="p">,</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;愛&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;當remove不存在元素時報錯&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="ne">KeyError</span><span class="p">:</span> <span class="s1">&#39;愛&#39;</span>
+</span></span></code></pre></div><ol start="2">
+<li>$.discard()$
+存在元素則移除，不存在也不會報錯</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">aset</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;朱冰倩&#39;</span><span class="p">,</span><span class="s1">&#39;suki&#39;</span><span class="p">,</span><span class="s1">&#39;for&#39;</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="s1">&#39;years&#39;</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="s1">&#39;love&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><ol start="3">
+<li>$.pop()$
+從集合中隨機刪除元素，不可傳入任何參數</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">aset</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;朱冰倩&#39;</span><span class="p">,</span><span class="s1">&#39;suki&#39;</span><span class="p">,</span><span class="s1">&#39;for&#39;</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="s1">&#39;love&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">aset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">可能輸出</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;朱冰倩&#39;</span><span class="p">,</span><span class="s1">&#39;suki&#39;</span><span class="p">,</span><span class="s1">&#39;for&#39;</span><span class="p">,</span><span class="mi">10000</span><span class="p">}</span>
+</span></span></code></pre></div><ol start="4">
+<li>$.clear()$
+清空集合中元素
+$$set.clear()$$</li>
+</ol>
+<h2 id="修改元素-2">
+<a class="header-anchor" href="#%e4%bf%ae%e6%94%b9%e5%85%83%e7%b4%a0-2"></a>
+修改元素
+</h2><p>因為 set 中的元素無序，所以集合沒有索引，無法修改元素，只能增加或刪除元素。</p>
+<h2 id="查看元素-2">
+<a class="header-anchor" href="#%e6%9f%a5%e7%9c%8b%e5%85%83%e7%b4%a0-2"></a>
+查看元素
+</h2><p>同上，無索引無法查看元素。
+<strong>查看元素數量</strong>
+</p>
+$$len(set)$$<p>
+返回集合中元素個數</p>
+<h2 id="集合運算">
+<a class="header-anchor" href="#%e9%9b%86%e5%90%88%e9%81%8b%e7%ae%97"></a>
+集合運算
+</h2><h3 id="合集">
+<a class="header-anchor" href="#%e5%90%88%e9%9b%86"></a>
+合集
+</h3><p>使用$union$函數將兩個集合合併並去重，返回合併後集合C
+</p>
+$$aset.union(bset)$$<p>
+等價於
+</p>
+$$aset\ |\ bset$$<h3 id="差集">
+<a class="header-anchor" href="#%e5%b7%ae%e9%9b%86"></a>
+差集
+</h3><p>使用$difference$函數求差集：找出==存在於集合A==但是==不在集合B==中的元素並作為一個新集合C返回。
+</p>
+$$aset.difference(bset)$$<p>
+等價於
+</p>
+$$aset\ -\ bset$$<h3 id="交集">
+<a class="header-anchor" href="#%e4%ba%a4%e9%9b%86"></a>
+交集
+</h3><ol>
+<li>使用$intersection$函數求交集：找出==同時存在於集合A和B==中的元素並返回集合C。
+$$aset.intersection(bset)$$
+或$$bset.intersection(aset)$$
+等價於
+$$aset\ \&\ bset$$
+$$bset\ \&\ aset$$</li>
+<li>使用$intersection\_update$函數求交集：找出交集並賦給aset，不會返回交集。
+$$aset.intersection\_update()$$</li>
+<li>使用$\&$，返回交集不改變aset、bset
+$$aset\ \&\ bset$$</li>
+</ol>
+<h3 id="不重合集">
+<a class="header-anchor" href="#%e4%b8%8d%e9%87%8d%e5%90%88%e9%9b%86"></a>
+不重合集
+</h3><ol>
+<li>$symmetric\_difference$函數，返回不重合集
+$$aset.symmetric\_difference(bset)$$</li>
+<li>使用$symmetric\_difference\_update$函數，將不重合集返回aset
+$$aset.symmetric\_difference\_update(bset)$$</li>
+</ol>
+<h2 id="其他">
+<a class="header-anchor" href="#%e5%85%b6%e4%bb%96"></a>
+其他
+</h2><ol>
+<li>判斷set是否含有某元素，用in
+$$print(elem\ in\ aset)$$</li>
+<li>判斷兩set是否有相同元素
+$$aset.isdisjoint(bset)$$
+如果有相同元素則返回False</li>
+<li>判斷bset是否為aset子集
+$$bset.issubset(aset)$$
+若<strong>bset為aset子集</strong>則返回True</li>
+</ol>
+<h1 id="迭代器">
+<a class="header-anchor" href="#%e8%bf%ad%e4%bb%a3%e5%99%a8"></a>
+迭代器
+</h1><h2 id="可迭代物件">
+<a class="header-anchor" href="#%e5%8f%af%e8%bf%ad%e4%bb%a3%e7%89%a9%e4%bb%b6"></a>
+可迭代物件
+</h2><p>可以利用 for 迴圈的物件，都叫可迭代物件。</p>
+<h2 id="可迭代協議">
+<a class="header-anchor" href="#%e5%8f%af%e8%bf%ad%e4%bb%a3%e5%8d%94%e8%ad%b0"></a>
+可迭代協議
+</h2><ol>
+<li><strong>第一種場景</strong>：如果一個物件內部實現了 <code>__iter__()</code> 方法 ，並返回一個迭代器實例，那麼該物件就是可迭代物件。
+<ol>
+<li>對於該場景，<code>isinstance(my_list,Iterable)</code>返回True</li>
+</ol>
+</li>
+<li><strong>第二種場景</strong>：假設一個物件沒有實現 <code>__iter__()</code> ，Python 解釋器 <code>__getitem__()</code> 方法獲取元素，如果可行，那麼該物件也是一個可迭代物件。
+<ol>
+<li>對於該類可迭代物件，<code>isinstance(my_list,Iterable)</code>返回False</li>
+</ol>
+</li>
+</ol>
+<h2 id="迭代器物件">
+<a class="header-anchor" href="#%e8%bf%ad%e4%bb%a3%e5%99%a8%e7%89%a9%e4%bb%b6"></a>
+迭代器物件
+</h2><p>當你對一個可迭代物件使用 iter 函數後，它會回傳一個迭代器物件，對於迭代器物件，我們可以使用 next 函數，去取得元素，每執行一次，取得一次，等到全部取得完畢，會拋出 StopIteration 提示無元素可取。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">alist</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;人&#39;</span><span class="p">,</span><span class="s1">&#39;生&#39;</span><span class="p">,</span><span class="s1">&#39;若&#39;</span><span class="p">,</span><span class="s1">&#39;只&#39;</span><span class="p">,</span><span class="s1">&#39;如&#39;</span><span class="p">,</span><span class="s1">&#39;初&#39;</span><span class="p">,</span><span class="s1">&#39;見&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">gen</span><span class="o">=</span><span class="nb">iter</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">輸出</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="n">人</span>
+</span></span><span class="line"><span class="cl"><span class="n">生</span>
+</span></span><span class="line"><span class="cl"><span class="n">若</span>
+</span></span><span class="line"><span class="cl"><span class="n">只</span>
+</span></span><span class="line"><span class="cl"><span class="n">如</span>
+</span></span><span class="line"><span class="cl"><span class="n">初</span>
+</span></span><span class="line"><span class="cl"><span class="n">見</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">輸出</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="n">人</span>
+</span></span><span class="line"><span class="cl"><span class="n">生</span>
+</span></span><span class="line"><span class="cl"><span class="n">若</span>
+</span></span><span class="line"><span class="cl"><span class="n">只</span>
+</span></span><span class="line"><span class="cl"><span class="n">如</span>
+</span></span><span class="line"><span class="cl"><span class="n">初</span>
+</span></span><span class="line"><span class="cl"><span class="n">見</span>
+</span></span></code></pre></div><h2 id="可迭代物件與迭代器物件">
+<a class="header-anchor" href="#%e5%8f%af%e8%bf%ad%e4%bb%a3%e7%89%a9%e4%bb%b6%e8%88%87%e8%bf%ad%e4%bb%a3%e5%99%a8%e7%89%a9%e4%bb%b6"></a>
+可迭代物件與迭代器物件
+</h2><ol>
+<li>可迭代物件指整體，如一個list</li>
+<li>迭代器物件是iter()函數返回的物件，可對該物件使用next()函數不斷獲取元素。</li>
+</ol>
+<h1 id="generator">
+<a class="header-anchor" href="#generator"></a>
+generator
+</h1><p>生成器，是一個可以像迭代器那樣使用for迴圈來獲取元素的函數。</p>
+<h2 id="生成器創建">
+<a class="header-anchor" href="#%e7%94%9f%e6%88%90%e5%99%a8%e5%89%b5%e5%bb%ba"></a>
+生成器創建
+</h2><h3 id="列表推導式">
+<a class="header-anchor" href="#%e5%88%97%e8%a1%a8%e6%8e%a8%e5%b0%8e%e5%bc%8f"></a>
+列表推導式
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">alist</span><span class="o">=</span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">輸出</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">用[]創建列表對象
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">alist</span><span class="o">=</span><span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">輸出</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">此時alist為生成器對象
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span></code></pre></div><h3 id="yield">
+<a class="header-anchor" href="#yield"></a>
+yield
+</h3><p>yield與renturn的區別</p>
+<ul>
+<li>當一個函數運行到 yield 後，函數的運行會暫停，並且會把 yield 後的值返回出去。</li>
+<li>若 yield 沒有接任何值，則返回 None。</li>
+<li>yield 雖然返回了，但是函數並沒有結束。再次調用該函數賦值的標識符，函數繼續運行。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">top</span><span class="o">=</span><span class="mi">5</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">top</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;當前值為：&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">    <span class="k">raise</span> <span class="ne">StopIteration</span>
+</span></span><span class="line"><span class="cl"><span class="n">gen</span><span class="o">=</span><span class="n">generator</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>
+</span></span></code></pre></div>
+        <hr><p>本文 2023-08-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-08-27</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Python其他筆記</title>
+      <link>http://localhost:1313/zh-tw/post/code/python%E5%85%B6%E4%BB%96%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 27 Jun 2023 00:57:42 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-tw/post/code/python%E5%85%B6%E4%BB%96%E7%AC%94%E8%AE%B0/</guid>
+      <description><![CDATA[<h1>Python其他筆記</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="註釋">
+<a class="header-anchor" href="#%e8%a8%bb%e9%87%8b"></a>
+註釋
+</h1><ul>
+<li>單行註釋
+$\#$內容</li>
+<li>多行註釋</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">你好這裡綠色的部分是註釋
+</span></span></span><span class="line"><span class="cl"><span class="s1">這裡也是
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">這裡就不算註釋了</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#單行註釋</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;&#39;&#39;&#39;這裡不是註釋&#39;&#39;&#39;你看會print出來嗎？&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;你好&#39;&#39;&#39;</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">終端</span><span class="err">：</span><span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">這樣寫會報錯，看來程式碼中間插入註釋會影響運行
+</span></span></span><span class="line"><span class="cl"><span class="s1">多行字串可以用&#39;&#39;&#39;</span><span class="n">字串</span><span class="s1">&#39;&#39;&#39;來定義，註釋被解釋為賦值操作，所以上面的報錯指向末尾的1
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span></code></pre></div><h1 id="編碼格式">
+<a class="header-anchor" href="#%e7%b7%a8%e7%a2%bc%e6%a0%bc%e5%bc%8f"></a>
+編碼格式
+</h1><ul>
+<li>在Python 2.x中，原始檔預設編碼格式為ASCII。如果內容中含有漢字，不指定編碼格式的話，便不能正確的讀取和輸出。可以將下面的程式碼放到原始檔的開頭，來指定編碼格式為UTF-8。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># -*- coding: UTF-8 -*-</span>
+</span></span></code></pre></div><p>在Python 3.x中，原始檔預設編碼格式為UTF-8。故在使用Python 3.x時，通常不需要指定編碼格式。</p>
+<h1 id="識別符號">
+<a class="header-anchor" href="#%e8%ad%98%e5%88%a5%e7%ac%a6%e8%99%9f"></a>
+識別符號
+</h1><ul>
+<li>識別符號是軟體程式設計中通用的概念，用於給==變數、函數、介面、類==等進行命名。</li>
+<li>Python中的識別符號區分大小寫，由字母、數字和底線組成，第一個字元必須是字母或底線，不能以數字開頭。在Python 3.x中，可以用中文作為識別符號。</li>
+<li>以下底線開頭的識別符號具有特殊含義。
+<ul>
+<li>單底線開頭的識別符號（比如：$\_name$），表示不能直接存取的類屬性，需透過類提供的介面才能存取。</li>
+<li>雙底線開頭的識別符號（比如：$\_\_age$），表示類的私有成員。</li>
+<li>雙底線開頭和結尾的識別符號（比如：$\_\_init\_\_()$為類的建構函數），表示Python中的內建識別。</li>
+</ul>
+</li>
+</ul>
+
+        <hr><p>本文 2023-06-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-06-27</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Python基礎函數</title>
+      <link>http://localhost:1313/zh-tw/post/code/python%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Tue, 27 Jun 2023 00:55:01 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-tw/post/code/python%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/</guid>
+      <description><![CDATA[<h1>Python基礎函數</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="函數傳參">
+<a class="header-anchor" href="#%e5%87%bd%e6%95%b8%e5%82%b3%e5%8f%83"></a>
+函數傳參
+</h2><p>python中，函數傳遞參數本質上是一種賦值操作</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arr</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">=</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span></code></pre></div><ol>
+<li>首先有兩個變數arr和a，有兩個物件1和2</li>
+<li>a綁定2，func(a)將a綁定的物件2貼上arr標籤</li>
+<li>這時，物件1尚未創建，2貼上a標籤和arr標籤</li>
+<li>$arr=1$操作將2上arr標籤撕下，創建物件1並貼上arr標籤</li>
+<li>輸出結果</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span>
+</span></span></code></pre></div><h2 id="輸入輸出">
+<a class="header-anchor" href="#%e8%bc%b8%e5%85%a5%e8%bc%b8%e5%87%ba"></a>
+輸入輸出
+</h2><h3 id="print函數">
+<a class="header-anchor" href="#print%e5%87%bd%e6%95%b8"></a>
+print()函數
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;字串&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">字串</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;str1&#34;</span><span class="p">,</span><span class="s2">&#34;str2&#34;</span><span class="p">,</span><span class="s2">&#34;str3&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">str1</span> <span class="n">str2</span> <span class="n">str3</span><span class="c1">#空格取代逗號</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">**</span><span class="n">c</span><span class="p">)</span><span class="c1">#會先計算數值再輸出</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">/</span><span class="n">c</span><span class="p">))</span><span class="c1">#優先執行sum()函數</span>
+</span></span></code></pre></div><p><strong>==原型==</strong>
+</p>
+$$print(self,*args,sep=' ',end='\n',file=None)$$<ul>
+<li>sep參數：分隔符，多個輸出結果（返回值）之間的分隔符，預設為space，可以手動設置</li>
+<li>end參數：列印後結束方式，預設為$\n$換行，可設置為&rsquo; &lsquo;則不換行</li>
+</ul>
+<h3 id="input函數">
+<a class="header-anchor" href="#input%e5%87%bd%e6%95%b8"></a>
+input()函數
+</h3><p><strong>獲得用戶輸入，並保存為一個==字串==</strong>
+如果輸入的是數字可通過int()將物件轉換為數字</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">age</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&#34;Please input your age:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Please</span> <span class="nb">input</span> <span class="n">your</span> <span class="n">age</span><span class="p">:</span><span class="mi">18</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;18&#39;</span><span class="c1">#type(age)==&lt;class&#39;str&#39;&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">age</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mi">18</span>
+</span></span></code></pre></div><ul>
+<li>$input()$可以傳入一個字串，會被列印以提示輸入</li>
+<li>使用$int()$時，如果兩邊有多餘的空格可以用$strip()$方法去除，保存字串物件時也是如此</li>
+<li>$input()$可用於吃掉回車，暫停程式運行
+[[資料類型及運算子#字串格式化]]</li>
+</ul>
+<h2 id="工具函數">
+<a class="header-anchor" href="#%e5%b7%a5%e5%85%b7%e5%87%bd%e6%95%b8"></a>
+工具函數
+</h2><h3 id="id">
+<a class="header-anchor" href="#id"></a>
+id()
+</h3><p>示例
+[[資料類型及運算子#賦值方式]]
+id(變數名)得到變數綁定<strong>物件</strong>的記憶體位址
+變數綁定的物件改變，查詢結果改變，原物件記憶體位址不變</p>
+<h3 id="type">
+<a class="header-anchor" href="#type"></a>
+type()
+</h3><ul>
+<li>一個參數時返回<strong>物件</strong>的類型</li>
+<li>三個參數返回新的物件類型
+<ul>
+<li>type(name,bases,dict)</li>
+<li>name &ndash; 類的名稱。</li>
+<li>bases &ndash; 基類的元組。</li>
+<li>dict &ndash; 字典，類內定義的命名空間變數。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 一個參數實例</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;int&#39;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;runoob&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;str&#39;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">([</span><span class="mi">2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;list&#39;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;zero&#39;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;dict&#39;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">==</span> <span class="nb">int</span> <span class="c1"># 判斷型別是否相等 </span>
+</span></span><span class="line"><span class="cl"><span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 三個參數</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">X</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> 
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">X</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">object</span><span class="p">,),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># 產生一個新的型別 X</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">X</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">__main__</span><span class="o">.</span><span class="n">X</span><span class="s1">&#39;&gt;</span>
+</span></span></code></pre></div><h3 id="next">
+<a class="header-anchor" href="#next"></a>
+next()
+</h3><p>[[基礎資料結構#迭代器物件]]</p>
+<h2 id="字串函數">
+<a class="header-anchor" href="#%e5%ad%97%e4%b8%b2%e5%87%bd%e6%95%b8"></a>
+字串函數
+</h2><h3 id="字串物件自帶函數">
+<a class="header-anchor" href="#%e5%ad%97%e4%b8%b2%e7%89%a9%e4%bb%b6%e8%87%aa%e5%b8%b6%e5%87%bd%e6%95%b8"></a>
+字串物件自帶函數
+</h3><ol>
+<li>去除首尾空格或字元$lstrip()$,$rstrip()$,$strip()$</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">str</span><span class="o">=</span><span class="s2">&#34;    人生苦短，我用Python。    &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">lstrip</span><span class="p">())</span><span class="c1">#去除左邊空格並輸出</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span><span class="c1">#去除右邊空格並輸出</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span><span class="c1">#去除左右空格並輸出</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">str_1</span><span class="o">=</span><span class="s1">&#39;333與君相別離，不知何日是歸期，我如朝露轉瞬晞。333&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str_1</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">))</span><span class="c1">#左右刪去所有字元3後輸出</span>
+</span></span></code></pre></div><p>==需要注意，該函數本質上是截取字串的一部分，而非修改原物件==
+$lstrip()$將返回返回截掉字串左邊的空格或指定字元後生成的<strong>新字串</strong>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">str</span><span class="o">=</span><span class="s2">&#34;    人生苦短，我用Python。    &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">str</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span><span class="c1">#僅僅呼叫函數不賦值也不輸出</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">此時輸出結果仍為
+</span></span></span><span class="line"><span class="cl"><span class="s1">    人生苦短，我用Python。    
+</span></span></span><span class="line"><span class="cl"><span class="s1">左右均帶空格
+</span></span></span><span class="line"><span class="cl"><span class="s1">說明物件未改變
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span></code></pre></div><ol start="2">
+<li>判斷字串是否以某字串開頭/結尾$startswith()$,$endswith()$
+是返回True，否返回False</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">str</span><span class="o">=</span><span class="s2">&#34;山有木兮木有枝，心悅君兮君不知。&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">starswith</span><span class="p">(</span><span class="s2">&#34;山&#34;</span><span class="p">))</span><span class="c1">#返回True並輸出</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;不知&#39;</span><span class="p">))</span><span class="c1">#沒有&#39;。&#39;返回False並輸出</span>
+</span></span></code></pre></div><ol start="3">
+<li>
+<p>格式化字串</p>
+$$f"字串內容{其他字串變數名}字串內容"$$<p>
+返回格式化後字串
+<a href="">待填坑</a></p>
+</li>
+<li>
+<p>分割字串$split()$
+以某字元分割字串為幾個子串，子串中不包括分割符，返回字串列表</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;根，緊握在地下，葉，相觸在雲裡，每一陣風過，我們都互相致意。&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">strP</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;，&#39;</span><span class="p">)</span><span class="c1">#注意中英文標點</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="c1">#輸出原字串物件</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">strP</span><span class="p">)</span><span class="c1">#輸出分割得到的字串列表</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">strP</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="c1">#輸出&#34;緊握在地下&#34;</span>
+</span></span></code></pre></div><h2 id="數值處理函數">
+<a class="header-anchor" href="#%e6%95%b8%e5%80%bc%e8%99%95%e7%90%86%e5%87%bd%e6%95%b8"></a>
+數值處理函數
+</h2><ol>
+<li>絕對值
+$$abs()$$</li>
+<li>取整
+$$int()$$</li>
+<li>四捨五入（返回整數）
+$$round()$$</li>
+<li>判斷大小、真假（布林函數）
+$$bool()$$
+[[數據類型及運算符#布林值與空值]]</li>
+</ol>
+<h2 id="資料類型轉換函數">
+<a class="header-anchor" href="#%e8%b3%87%e6%96%99%e9%a1%9e%e5%9e%8b%e8%bd%89%e6%8f%9b%e5%87%bd%e6%95%b8"></a>
+資料類型轉換函數
+</h2><ol>
+<li>$$int(x [,base])$$
+x為原對象，base為可選參數，默認為10表示十進制</li>
+<li>$$float(x)$$</li>
+<li>$$complex(real[,imag])$$
+real為實部，imag為可選的虛部參數</li>
+<li>$$str(x)$$</li>
+<li>$$repr(x)$$
+將對象x轉化為表達式字符串（python解釋器能夠讀取的形式）</li>
+<li>$$chr(x)$$
+將一個整數轉換為一個字符</li>
+<li>$$ord(x)$$
+將一個字符轉換為它的整數值</li>
+<li>$$hex(x)$$
+將一個整數x轉換為其十六進制形式的<strong>字符串</strong></li>
+<li>$$oct(x)$$
+將一個整數x轉換為其八進制形式==字符串==</li>
+<li>$$eval(str)$$
+用來計算在字符串中的有效Python表達式,並返回一個對象</li>
+<li>$$tuple(s)$$
+將序列s轉化為元組返回</li>
+<li>$$list(s)$$</li>
+<li>$$set(s)$$
+將序列s轉換為可變集合</li>
+<li>$$frozenset(s)$$
+將序列s轉換為不可變集合</li>
+<li>$$dict(d)$$
+將(key,value)形式元組序列d轉換為一個dict</li>
+</ol>
+<h3 id="數據類型高低之分">
+<a class="header-anchor" href="#%e6%95%b8%e6%93%9a%e9%a1%9e%e5%9e%8b%e9%ab%98%e4%bd%8e%e4%b9%8b%e5%88%86"></a>
+數據類型高低之分
+</h3><ol>
+<li>
+<p>&ldquo;較高數據類型&quot;和&quot;較低數據類型&quot;是在==隱式類型轉換==中用於描述數據精度的概念。</p>
+</li>
+<li>
+<p>==精度==可以理解為數據類型能夠表示的信息量或詳細程度。在Python中，數據類型的&quot;高&quot;和&quot;低&quot;主要根據它們的精度來判斷。</p>
+</li>
+<li>
+<p>這裡的&quot;較高&quot;數據類型指的是能夠表示更多信息（或更精確信息）的數據類型，而&quot;較低&quot;的數據類型則表示的信息較少。
+具體來說，比如浮點數就比整數&quot;高&rdquo;，因為浮點數不僅可以表示整數，還可以表示小數。所以在你的例子中，整數就會被自動轉換為浮點數，以保證信息不丟失。</p>
+</li>
+<li>
+<p>再比如，複數（complex）就比浮點數（float）和整數（int）&ldquo;高&rdquo;，因為複數可以表示實數和虛數，而浮點數和整數只能表示實數。所以在進行運算時，如果操作數包含複數，那麼其他的浮點數或整數就會被轉換為複數。</p>
+</li>
+<li>
+<p>通常情況下，Python的數據類型的&quot;高低&quot;可以按照如下順序理解：
+布爾（bool）&lt; 整型（int） &lt; 浮點型（float）&lt; 複數（complex）。
+這個順序主要根據數據類型可以表示的信息範圍和精度來確定的。</p>
+</li>
+</ol>
+<h4 id="不同數據類型之間能否隨意轉化">
+<a class="header-anchor" href="#%e4%b8%8d%e5%90%8c%e6%95%b8%e6%93%9a%e9%a1%9e%e5%9e%8b%e4%b9%8b%e9%96%93%e8%83%bd%e5%90%a6%e9%9a%a8%e6%84%8f%e8%bd%89%e5%8c%96"></a>
+不同數據類型之間能否隨意轉化
+</h4><p>雖然Python提供了一些內置的函數來實現不同數據類型之間的轉換，如$int(), float(), str(), list(), tuple(), set()$等等，但並非所有類型的數據都可以被轉換成其他任意類型。轉換是否可行，主要取決於數據本身<strong>是否包含足夠的信息來表示目標類型</strong>。</p>
+<p>例如：
+你可以輕鬆地將整數轉換為字符串，因為每一個整數都有一個明確的字符串表示（例如，整數123可以表示為字符串&quot;123&quot;）。</p>
+<p>類似地，一個只包含數字字符的字符串（如&quot;123&quot;）可以被轉換為一個整數或浮點數，因為這個字符串中包含了足夠的信息來表示一個數字。</p>
+<p>然而：
+對於一個非數字字符串（如&quot;Hello&quot;），它無法被轉換為一個整數或浮點數，因為這個字符串並不包含任何可以表示一個數字的信息。</p>
+<p>對於一個列表或元組，它可以被轉換為一個集合（如果它的元素是不可變的），但不能被轉換為一個整數，因為一個集合或列表中的元素無法合理地表示為一個單獨的數字。</p>
+<p>總的來說，數據類型的轉換==並非無限制==，它取決於<strong>原始數據是否能夠提供足夠的信息來表示目標類型</strong>。當你在編程中進行類型轉換時，需要注意這一點。</p>
+<h2 id="判斷與循環語句">
+<a class="header-anchor" href="#%e5%88%a4%e6%96%b7%e8%88%87%e5%be%aa%e7%92%b0%e8%aa%9e%e5%8f%a5"></a>
+判斷與循環語句
+</h2><h3 id="語句">
+<a class="header-anchor" href="#%e8%aa%9e%e5%8f%a5"></a>
+$if,elif,else$語句
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">condition1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">1</span><span class="n">條件成立時要執行操作</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">condition2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">1</span><span class="n">不成立2成立時執行操作</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="n">均不成立時執行操作</span>
+</span></span></code></pre></div><p>eg.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">name</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Who are you?&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">age</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;How ord are you?&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">name</span><span class="o">==</span><span class="s1">&#39;朱冰倩&#39;</span><span class="ow">and</span> <span class="n">age</span><span class="o">&gt;=</span><span class="mi">19</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Daring,long time no see.&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">name</span><span class="o">==</span><span class="s1">&#39;朱冰倩&#39;</span> <span class="ow">and</span> <span class="n">age</span><span class="o">==</span><span class="mi">18</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Thank you for being in my life.&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;こんにちわ。&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>假值 ：None、空列表、空集合、空字典，空元組、空字符串、0、False 等</li>
+<li>真值 ：非空列表、非空集合、非空字典，非空元組、非空字符串、非 0 數值、True 等</li>
+</ul>
+<h3 id="語句-1">
+<a class="header-anchor" href="#%e8%aa%9e%e5%8f%a5-1"></a>
+$for,break,continue$語句
+</h3><h4 id="普通循環">
+<a class="header-anchor" href="#%e6%99%ae%e9%80%9a%e5%be%aa%e7%92%b0"></a>
+普通循環
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">序列</span><span class="err">（</span><span class="nb">list</span><span class="err">，</span><span class="nb">dict</span><span class="err">，</span><span class="n">string</span><span class="err">，</span><span class="n">tuple等</span><span class="err">）</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">執行程式碼塊</span>
+</span></span></code></pre></div><ul>
+<li>for會依次將序列中元素提取出賦值給x</li>
+</ul>
+<h4 id="帶索引循環">
+<a class="header-anchor" href="#%e5%b8%b6%e7%b4%a2%e5%bc%95%e5%be%aa%e7%92%b0"></a>
+帶索引循環
+</h4><ul>
+<li>如果想在循環的時候，把索引也取出來，可以加一個 $enumerate()$ 函數。</li>
+<li>$enumerate()$函數用於將一個可遍歷的數據對象(如列表、元組或字符串)組合為一個索引序列，同時列出<strong>數據和數據下標</strong>，一般用在 for 循環當中。
+<ul>
+<li>Python 2.3. 以上版本可用，2.6添加 start 參數。</li>
+</ul>
+</li>
+<li>$$enumerate(sequence,[start=0])$$
+<ul>
+<li>sequence：可迭代對象</li>
+<li>可選參數start：下標起始位置值，默認為0</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">galgames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;咖啡館&#39;</span><span class="p">,</span><span class="s1">&#39;千戀萬花&#39;</span><span class="p">,</span><span class="s1">&#39;天使騷騷&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">galgame</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">galgames</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;今天玩第</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1">部作品</span><span class="si">{</span><span class="n">galgame</span><span class="si">}</span><span class="s1">。&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><p>output
+今天玩第1部作品咖啡館。
+今天玩第2部作品千戀萬花。
+今天玩第3部作品天使騷騷。</p>
+<h4 id="break">
+<a class="header-anchor" href="#break"></a>
+break
+</h4><p>中斷當前循環，不同層級break中斷不同循環</p>
+<h4 id="continue">
+<a class="header-anchor" href="#continue"></a>
+continue
+</h4><p>continue停止執行後續代碼進入下一循環</p>
+<h4 id="for-else">
+<a class="header-anchor" href="#for-else"></a>
+for-else
+</h4><ul>
+<li>for循環後接與for同級else，當for循環正常執行完時，會自動進入else；</li>
+<li>如果因為break中斷循環（continue視為正常），則不會進入else分支</li>
+</ul>
+<h3 id="while">
+<a class="header-anchor" href="#while"></a>
+while
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">while</span> <span class="n">判斷條件</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">執行語句</span>
+</span></span></code></pre></div><p>在判斷條件成立（True）時，循環執行語句；不成立，跳出循環
+==避免死循環出現，檢查執行語句能否保證打破循環條件or觸發break==</p>
+<h4 id="while-else">
+<a class="header-anchor" href="#while-else"></a>
+while-else
+</h4><p>同for-else，當不通過break跳出while循環時，執行後面的else分支；否則異常退出不執行else</p>
+
+        <hr><p>本文 2023-06-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-06-27</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Python資料類型及運算符</title>
+      <link>http://localhost:1313/zh-tw/post/code/python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/</link>
+      <pubDate>Tue, 27 Jun 2023 00:49:20 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-tw/post/code/python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/</guid>
+      <description><![CDATA[<h1>Python資料類型及運算符</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="常量與變數">
+<a class="header-anchor" href="#%e5%b8%b8%e9%87%8f%e8%88%87%e8%ae%8a%e6%95%b8"></a>
+常量與變數
+</h2><ul>
+<li>變數不需要宣告類型</li>
+<li>python用$=$給變數賦值，用$==$比較兩個值是否相等，相等返回True，不等返回False。</li>
+<li>變數使用前必須賦值（不同於C），變數只有賦值後才會被創建。
+<ul>
+<li>變數未定義異常</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span>
+</span></span><span class="line"><span class="cl"><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">File</span> <span class="s2">&#34;&lt;stdin&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;age&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</span></span></code></pre></div><p>常量——不變的變數
+<strong>python沒有任何機制保證變數不會改變對象，被改變時沒有報錯，沒有C的const，所以使用時需要萬分小心</strong></p>
+<h2 id="賦值方式">
+<a class="header-anchor" href="#%e8%b3%a6%e5%80%bc%e6%96%b9%e5%bc%8f"></a>
+賦值方式
+</h2><p>賦值運算符$=$為==右結合性==</p>
+<ul>
+<li>
+<p>單個賦值</p>
+<ul>
+<li>age = 18</li>
+</ul>
+</li>
+<li>
+<p>批量賦值</p>
+<ul>
+<li>a = b = c = 1
+<ul>
+<li>這在C/C++中想都不敢想:(</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>先計算再賦值</p>
+<ul>
+<li>age = 17+1</li>
+</ul>
+</li>
+<li>
+<p>分別賦值</p>
+<ul>
+<li>a,b,c=1,2,3
+<ul>
+<li>a == 1,b == 2,c == 3</li>
+</ul>
+</li>
+</ul>
+<p>當我們寫：a = &ldquo;Jack&rdquo; 時，Python解釋器幹了兩件事情：
+在內存中創建了一個&rsquo;Jack&rsquo;的字串對象（常量）；
+在內存中創建了一個名為a的變數，並把它指向 &lsquo;Jack&rsquo;。
+而當你把一個變數a賦值給另一個變數b，這個操作實際上是==將變數b指向變數a所指向的數據==，例如下面的代碼：</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Jack&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;Jack&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;Jack&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mi">4332916664</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mi">4332916664</span>
+</span></span></code></pre></div><p><em><strong>id()函數用於查看變數內存地址</strong></em>
+[[基礎函數#id()]]</p>
+<ul>
+<li>若把另一個變數賦給a，則id(a)改變而id(b)不變</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Ross&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">a</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;Ross&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">另一個數</span><span class="err">（</span><span class="n">不同於4332916664</span><span class="err">）</span>
+</span></span></code></pre></div><h2 id="變數與對象">
+<a class="header-anchor" href="#%e8%ae%8a%e6%95%b8%e8%88%87%e5%b0%8d%e8%b1%a1"></a>
+變數與對象
+</h2><blockquote>
+<p>Python中一切皆為對象，數字是對象，列表是對象，函數也是對象，任何東西都是對象。而變數是對象的一個引用（也可以稱為標籤或者名字），對象的操作都是通過引用來完成的。</p></blockquote>
+<p>例如</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span></code></pre></div><ul>
+<li>其中，數字1是對象，a是變數（變數名）</li>
+<li>賦值操作$=$是將一個名字綁定到一個對象上（給對象1加上標籤a）。</li>
+<li>顯然，對象可以綁定多個標籤（變數）。但是一個變數只能綁定一個對象。</li>
+<li><strong>變數本身沒有類型，類型儲存於對象中由對象類型決定</strong>
+<ul>
+<li>所以python不需要提前宣告變數類型，會自動判斷對象數據類型，這點與C/C++區別極大</li>
+</ul>
+</li>
+</ul>
+<h2 id="字串">
+<a class="header-anchor" href="#%e5%ad%97%e4%b8%b2"></a>
+字串
+</h2><ol>
+<li>python中不對單字符和字串做區分</li>
+<li>可以用單引號$''$或雙引號$""$來創建字串（不能一單一雙！）</li>
+<li>三個單引號或三個雙引號可以創建多行字串</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">name_1</span><span class="o">=</span><span class="s1">&#39;Jack&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">name_2</span><span class="o">=</span><span class="s2">&#34;Rose&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">sentence_1</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;Rose,
+</span></span></span><span class="line"><span class="cl"><span class="s1">Jack,
+</span></span></span><span class="line"><span class="cl"><span class="s1">You jump,
+</span></span></span><span class="line"><span class="cl"><span class="s1">I jump!&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">sentence_2</span><span class="o">=</span><span class="s2">&#34;&#34;&#34;Life is short,
+</span></span></span><span class="line"><span class="cl"><span class="s2">you need Python.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#完美運行！</span>
+</span></span></code></pre></div><ul>
+<li>想要使用引號可以加上轉義符&quot;\&quot;
+[[基礎函數#字串函數]]</li>
+</ul>
+<h3 id="字串格式化">
+<a class="header-anchor" href="#%e5%ad%97%e4%b8%b2%e6%a0%bc%e5%bc%8f%e5%8c%96"></a>
+字串格式化
+</h3><h4 id="方法">
+<a class="header-anchor" href="#%e6%96%b9%e6%b3%95"></a>
+%方法
+</h4>$$print('My\ wife\ is\ \%c,she\ is\ \%d.\ '\%(name,age))$$<ul>
+<li>$\%$後面是一個tuple|dict，用來傳遞需要格式化的值</li>
+<li>佔位符種類：
+![[Pasted image 20230628233506.png]]</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;布洛妮婭&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">age</span><span class="o">=</span><span class="mi">18</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife`s name is </span><span class="si">%s</span><span class="s1">,she is </span><span class="si">%d</span><span class="s1"> years old.&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="p">))</span><span class="c1">#按順序%對應於字串後面%()中的內容</span>
+</span></span><span class="line"><span class="cl"><span class="n">My</span> <span class="n">wife</span><span class="err">`</span><span class="n">s</span> <span class="n">name</span> <span class="ow">is</span> <span class="n">布洛妮婭</span><span class="p">,</span><span class="n">she</span> <span class="ow">is</span> <span class="mi">18</span> <span class="n">years</span> <span class="n">old</span><span class="o">.</span>
+</span></span></code></pre></div><ul>
+<li><strong>進階</strong>
+<ul>
+<li>$$\%[數據名稱][對齊標誌][寬度].[精度][類型]$$</li>
+<li>數據名稱用於dict賦值，若為數組則不需填寫</li>
+<li>對齊標誌
+<ul>
+<li>+：顯示正負符號</li>
+<li>-：左對齊</li>
+<li>space：正整數前加上一個space以和負數對齊</li>
+<li>0：正整數前加一個0以和負數對齊</li>
+</ul>
+</li>
+<li>寬度：格式化後字串長度，不足補0或空格</li>
+<li>精度：小數點後位數</li>
+<li>數據類型：佔位符種類</li>
+</ul>
+</li>
+</ul>
+<h4 id="format">
+<a class="header-anchor" href="#format"></a>
+format
+</h4><ul>
+<li>在字串中，使用$\{ \}$進行佔位，然後在字串後跟上 $.format()$函數，這個函數的參數就是我們要往字串中填充的變數。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;琪亞娜&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">age</span><span class="o">=</span><span class="mi">18</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">{}</span><span class="s1">,she is </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="p">))</span><span class="c1">#按順序依次填充</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">{1}</span><span class="s1">,she is </span><span class="si">{0}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="n">name</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">可以在</span><span class="si">{}</span><span class="s1">內使用索引
+</span></span></span><span class="line"><span class="cl"><span class="s1">其中</span><span class="si">{}</span><span class="s1">內數字為.format()元組/字典下標
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">{name}</span><span class="s1">,she is </span><span class="si">{age}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="o">=</span><span class="n">age</span><span class="p">))</span><span class="c1">#也可以直接用變數名替代（按對象屬性映射）</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">{name}</span><span class="s1">,she is </span><span class="si">{age}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;琪亞娜&#39;</span><span class="p">,</span><span class="n">age</span><span class="o">=</span><span class="mi">18</span><span class="p">))</span><span class="c1">#按關鍵字映射</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">list1</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;琪亞娜&#39;</span><span class="p">,</span><span class="mi">18</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;My wife is </span><span class="si">{0[0]}</span><span class="s2">,she is </span><span class="si">{0[1]}</span><span class="s2">.&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">list1</span><span class="p">))</span><span class="c1">#通過dict下標映射</span>
+</span></span></code></pre></div><ul>
+<li><strong>進階</strong>
+<ul>
+<li>$$\{:[填充字符][對齊方式][符號標誌][\#][寬度][,][.精度][類型]\}$$</li>
+<li>填充字符：不寫默認用space填充</li>
+<li>對齊方式
+<ul>
+<li><strong>^</strong>：置中對齊</li>
+<li>$`<$：左對齊</li>
+<li>$`>$：右對齊</li>
+</ul>
+</li>
+<li>符號標誌
+<ul>
+<li>+：顯示正負號</li>
+<li>space：正整數前加上一個space以和負數對齊</li>
+</ul>
+</li>
+<li>$\#$：表示是否在二進制、八進制、十六進制前顯示0b、0o、0x</li>
+<li>寬度：輸出字串總寬度</li>
+<li>$,$：開啟使用千位分隔符</li>
+<li>精度：小數點後位數</li>
+<li>類型：佔位符類型</li>
+</ul>
+</li>
+</ul>
+<h4 id="f-string">
+<a class="header-anchor" href="#f-string"></a>
+f-string
+</h4><p><em><strong>Formatted String Literals（字面量格式化字串），簡稱f-string，僅Python3.6支持</strong></em>
+在字串前加上$f$，開啟$f-string$,就可以直接在$\{\}$內使用變數</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;My wife is </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">,she is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>f-string同樣支持format格式控制參數
+$$\{變數名:[填充字符][對齊方式][符號標誌][\#][寬度][,][.精度][類型]\}$$</li>
+</ul>
+<h3 id="切片">
+<a class="header-anchor" href="#%e5%88%87%e7%89%87"></a>
+⭐切片
+</h3><ul>
+<li>可切片對象：字串，元組，列表
+$$name[a:b:c]$$</li>
+</ul>
+<ol>
+<li>選取區間為$[a,b)$包括a不包括b。不寫a默認從0開始，不寫b默認到末尾結束。</li>
+<li>c為步長，切片間隔，省略不寫時默認為1。
+==當c為負數時，從後往前切片==</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">name</span><span class="o">=</span><span class="s2">&#34;polaris&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;ol&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">(::</span><span class="o">-</span><span class="mi">3</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;sap&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;ris&#39;取s，&#39;ola&#39;取a，&#39;p&#39;取p
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;siralop&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#字串反轉</span>
+</span></span></code></pre></div><ol start="3">
+<li>切片操作不改變原對象，可通過切片賦值創建副本</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">y</span><span class="o">=</span><span class="n">x</span><span class="p">[:]</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">y</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span> <span class="n">y</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+</span></span></code></pre></div><h2 id="整數浮點數複數">
+<a class="header-anchor" href="#%e6%95%b4%e6%95%b8%e6%b5%ae%e9%bb%9e%e6%95%b8%e8%a4%87%e6%95%b8"></a>
+整數，浮點數，複數
+</h2><ol>
+<li>
+<p>整數（Int）</p>
+<ol>
+<li>0x十六進制</li>
+<li>0o八進制</li>
+</ol>
+</li>
+<li>
+<p>浮點數（Float）</p>
+<ol>
+<li>小數形式</li>
+<li>科學計數法，10用e代替
+<ul>
+<li>eg.1.23e-6</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>複數（Complex）</p>
+<ol>
+<li>實部+虛部，a+bj</li>
+<li>complex(a,b)</li>
+<li>a&amp;b均為浮點型</li>
+</ol>
+</li>
+<li>
+<p>[[基礎函數#type()]]</p>
+</li>
+<li>
+<p>取模（相除取整數部分）
+</p>
+$$a//b$$</li>
+<li>
+<p>取餘
+</p>
+$$a\%b$$</li>
+<li>
+<p>絕對值</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">a</span><span class="o">=</span><span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">b</span><span class="o">=</span><span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">a</span><span class="o">//</span><span class="n">b</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">a</span><span class="o">%</span><span class="n">b</span>
+</span></span><span class="line"><span class="cl"><span class="mi">1</span>
+</span></span></code></pre></div><h2 id="布爾值與空值">
+<a class="header-anchor" href="#%e5%b8%83%e7%88%be%e5%80%bc%e8%88%87%e7%a9%ba%e5%80%bc"></a>
+布爾值與空值
+</h2><ul>
+<li>True：真（非0數值，默認1）</li>
+<li>False：假（=0數值，默認0）</li>
+<li>None：空值，不是0（整型），不為布爾類型而是<strong>NoneType</strong></li>
+</ul>
+<ol>
+<li>注意事項
+<ul>
+<li>首字母大寫</li>
+<li>所有的計算結果，判斷表達式調用返回值是True或者False的過程都可以稱為布爾運算，例如比較運算。</li>
+</ul>
+</li>
+<li>以下會轉換為假值
+<ul>
+<li>0、0.0、-0.0</li>
+<li>None</li>
+<li>空字串、空列表、空元組、空字典</li>
+</ul>
+</li>
+<li>以下會轉換為真值
+<ul>
+<li>-1、1或者其他非0數值</li>
+<li>所有非空字串，包括 <code>&quot;False&quot;</code></li>
+<li>所有非空字典、非空列表、非空集合，非空元組</li>
+</ul>
+</li>
+<li>布爾值可進行四則運算，True == 1，False == 0</li>
+</ol>
+<h2 id="布爾運算">
+<a class="header-anchor" href="#%e5%b8%83%e7%88%be%e9%81%8b%e7%ae%97"></a>
+布爾運算
+</h2><ol>
+<li>與 $and$
+<ul>
+<li>只有所有都為True，and運算的結果才是True</li>
+</ul>
+</li>
+<li>或 $or$
+<ul>
+<li>只要其中有一個為True，or運算結果就是True</li>
+</ul>
+</li>
+<li>非 $not$
+<ul>
+<li><strong>單目運算符</strong>，把True變成False，False變成True
+[[基礎函數#數值處理函數]]</li>
+</ul>
+</li>
+</ol>
+<h2 id="運算符">
+<a class="header-anchor" href="#%e9%81%8b%e7%ae%97%e7%ac%a6"></a>
+運算符
+</h2><p><strong>Python語言支持以下類型的運算符:</strong></p>
+<ul>
+<li>算術運算符</li>
+<li>比較（關係）運算符</li>
+<li>賦值運算符</li>
+<li>邏輯運算符</li>
+<li>位運算符</li>
+<li>成員運算符</li>
+<li>身份運算符</li>
+<li>運算符優先級</li>
+</ul>
+<h3 id="算術運算符">
+<a class="header-anchor" href="#%e7%ae%97%e8%a1%93%e9%81%8b%e7%ae%97%e7%ac%a6"></a>
+算術運算符
+</h3><ul>
+<li>$**$：冪，$x**y$返回x的y次冪
+==從右往左結合==(右結合性)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="mi">2</span><span class="o">**</span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="mi">256</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="mi">64</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mi">256</span>
+</span></span></code></pre></div><ul>
+<li>$//$：取模，返回商的整數部分</li>
+<li><strong>整數與浮點數混合運算時，整數轉化為浮點數運算</strong></li>
+</ul>
+<h3 id="比較運算符">
+<a class="header-anchor" href="#%e6%af%94%e8%bc%83%e9%81%8b%e7%ae%97%e7%ac%a6"></a>
+比較運算符
+</h3><ul>
+<li>$==$：比較兩<strong>對象</strong>是否相等
+==python比較運算符可以連用==
+$$a>b==c等價於a>b\ and\ b==c$$</li>
+</ul>
+<h3 id="賦值運算符">
+<a class="header-anchor" href="#%e8%b3%a6%e5%80%bc%e9%81%8b%e7%ae%97%e7%ac%a6"></a>
+賦值運算符
+</h3><ul>
+<li>$**=$：冪賦值運算符，$$c**=a等價於c=c**a$$</li>
+<li>$//=$：取整除賦值運算符，$$c//=a等價於c=c//a$$</li>
+<li>&laquo;=：左移賦值
+$$a<<=2等價於a=a<<2$$</li>
+<li>
+<blockquote>
+<blockquote>
+<p>=：右移賦值</p></blockquote></blockquote>
+</li>
+<li>&amp;=：按位與賦值
+$$a\&=b等價於a=a\&b$$</li>
+<li>|=：按位或賦值</li>
+<li>^=：按位異或賦值</li>
+</ul>
+<h3 id="位運算符">
+<a class="header-anchor" href="#%e4%bd%8d%e9%81%8b%e7%ae%97%e7%ac%a6"></a>
+位運算符
+</h3><ul>
+<li>$\&$：按位與==右結合性==</li>
+<li>$|$：按位或</li>
+<li>^：按位異或</li>
+<li>~：按位取反==右結合性==</li>
+<li>$<<$：左移</li>
+<li>$>>$：右移</li>
+</ul>
+<h3 id="邏輯運算符">
+<a class="header-anchor" href="#%e9%82%8f%e8%bc%af%e9%81%8b%e7%ae%97%e7%ac%a6"></a>
+邏輯運算符
+</h3><ul>
+<li>$and$：布爾與
+<ul>
+<li>x and y，若x為False,則返回False，否則返回y的計算值</li>
+</ul>
+</li>
+<li>$or$：布爾或
+<ul>
+<li>x or y，x非0返回x的值，否則返回y計算值</li>
+</ul>
+</li>
+<li>$not$：布爾非
+<ul>
+<li>not x，x為True返回False，x為False返回True</li>
+<li>==右結合性==</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl"><span class="kc">False</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="kc">False</span> <span class="ow">and</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="kc">False</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="kc">True</span> <span class="ow">and</span> <span class="mi">0</span><span class="o">+</span><span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl"><span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="mi">0</span> <span class="ow">or</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="mi">0</span> <span class="ow">or</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="kc">False</span> <span class="ow">or</span> <span class="mi">31</span>
+</span></span><span class="line"><span class="cl"><span class="mi">31</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="ow">not</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="kc">False</span>
+</span></span></code></pre></div><h3 id="成員運算符">
+<a class="header-anchor" href="#%e6%88%90%e5%93%a1%e9%81%8b%e7%ae%97%e7%ac%a6"></a>
+成員運算符
+</h3><ul>
+<li>$in$：x in Y（x為對象或變數名，Y為字串、字典或元組），在指定序列中找到x則返回True，否則返回False</li>
+<li>$not\ in$：x not in Y，沒找到返回True</li>
+</ul>
+<h3 id="身份運算符">
+<a class="header-anchor" href="#%e8%ba%ab%e4%bb%bd%e9%81%8b%e7%ae%97%e7%ac%a6"></a>
+身份運算符
+</h3><ul>
+<li>$is$：判斷兩個標識符是否引用自同一對象，即本質是否相同
+<ul>
+<li>x is y,if id(x)== id(y),return True</li>
+</ul>
+</li>
+<li>$is\ not$：if id(x) != id(y),return True</li>
+</ul>
+<h3 id="運算符優先級">
+<a class="header-anchor" href="#%e9%81%8b%e7%ae%97%e7%ac%a6%e5%84%aa%e5%85%88%e7%b4%9a"></a>
+⭐運算符優先級
+</h3><ol>
+<li>()：小括號</li>
+<li>$[\ ]$：索引運算符</li>
+<li>x.attribute：屬性訪問</li>
+<li>$**$：指數運算</li>
+<li>~：按位取反</li>
+<li>+@、-@：==一元==加減號（正負號）
+<ul>
+<li>+@，-@為==右結合性==一元運算符</li>
+</ul>
+</li>
+<li>$*$、/、%、$//$：乘除，取餘，取模</li>
+<li>+、-：二元加減</li>
+<li>&laquo;、&raquo;：位運算左移右移</li>
+<li>&amp;：按位與</li>
+<li>^：按位異或</li>
+<li>|：按位或</li>
+<li>$<,<=,>,>=,==,!=$：比較運算符</li>
+<li>=，+=，-=……：賦值運算符</li>
+<li>is，is not：身份運算符</li>
+<li>in，not in：成員運算符</li>
+<li>not：非</li>
+<li>and：與</li>
+<li>or：或</li>
+<li>$,$：逗號運算符</li>
+</ol>
+
+        <hr><p>本文 2023-06-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-06-27</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+  </channel>
+</rss>

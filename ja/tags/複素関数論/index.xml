@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>複素関数論 on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/ja/tags/%E8%A4%87%E7%B4%A0%E9%96%A2%E6%95%B0%E8%AB%96/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Fri, 17 Nov 2023 19:42:47 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/ja/tags/%E8%A4%87%E7%B4%A0%E9%96%A2%E6%95%B0%E8%AB%96/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>複素関数論</title>
+      <link>http://localhost:1313/ja/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Fri, 17 Nov 2023 19:42:47 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid>
+      <description><![CDATA[<h1>複素関数論</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="複素数">
+<a class="header-anchor" href="#%e8%a4%87%e7%b4%a0%e6%95%b0"></a>
+複素数
+</h1><ol>
+<li>複素数の表現形式：$$z = r\cdot e^{i\theta} = r(cos\theta +i\cdot sin\theta)$$</li>
+<li>いくつかの初等関数
+<ol>
+<li>指数関数：$e^z = e^x(cosy+isiny)$
+<ol>
+<li>$e^zはexpzの略記であり、冪の意味はない$</li>
+<li>$|e^z| = e^x,Arg(e^z) = y+2k\pi$</li>
+</ol>
+</li>
+<li>対数関数：$Lnz =ln|r|+iArgz$
+<ol>
+<li>関数は原点と負の実軸を除く$z$平面内で解析的であり、$(Lnz)' = \frac{1}{z}$</li>
+</ol>
+</li>
+<li>三角関数
+<ol>
+<li>$cosz = \frac{e^{iz}+e^{-iz}}{2},sinz = \frac{e^{iz}-e^{-iz}}{2i}$</li>
+<li>$chz = \frac{e^z+e^{-z}}{2},shz = \frac{e^z-e^{-z}}{2}$</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="解析関数">
+<a class="header-anchor" href="#%e8%a7%a3%e6%9e%90%e9%96%a2%e6%95%b0"></a>
+解析関数
+</h1><ol>
+<li>微分可能の定義：$$\lim_{\Delta z \to 0} \frac{f(z_0+\Delta z)-f(z_0)}{\Delta z} 極限が存在する場合、f(z)はz_0で微分可能であるという$$</li>
+<li>解析の定義：$$関数f(z)がz_0及びz_0の近傍で至るところ微分可能である場合、f(z)はz_0で解析的であるという$$
+推論：解析関数の和、差、積、商も解析関数であり、解析関数の合成も解析関数である。</li>
+<li>微分可能、解析の必要十分条件：$u(x),v(x)が微分可能$であり、<strong>コーシー・リーマンの方程式</strong>$$\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y} ,\frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x} $$を満たすこと。一つでも満たさない場合、微分可能でも解析的でもない。
+推論：$f'(z) = \frac{\partial u}{\partial x}+i\frac{\partial v}{\partial x}=\frac{1}{i}\frac{\partial u}{\partial y}+\frac{\partial v}{\partial y}$</li>
+</ol>
+<h1 id="複素関数の積分">
+<a class="header-anchor" href="#%e8%a4%87%e7%b4%a0%e9%96%a2%e6%95%b0%e3%81%ae%e7%a9%8d%e5%88%86"></a>
+複素関数の積分
+</h1><p><strong>重要な公式</strong>
+</p>
+$$\oint_{|z-z_0|=r}\frac{1}{(z-z_0)^n}dz=\begin{cases}
+2\pi i ,n =1\\
+\text 0,\quad n\neq 1
+\end{cases} $$<ol>
+<li>コーシー・グーサの基本定理
+<strong>解析的で単連結</strong>な領域内の任意の閉曲線積分の値は0、すなわち$$\oint_{C}^{}f{(z)}dz = 0$$</li>
+<li>複合閉路定理——コーシーの積分定理を<strong>多連結</strong>に拡張
+Cを解析的で多連結な領域内の単純閉曲線とし、$C_1,C_2 \cdots C_n$をC内の同方向の単純閉曲線とすると、$$\oint_{C}^{}f{(z)}dz = \sum_{k=1}^{n} \oint_{C_k}f(z)dz $$</li>
+<li>コーシーの積分公式——曲線C内部の任意の点の値をその境界の値で表現</li>
+<li>$f(z)$が領域D内で解析的で、CがD内の正方向の単純閉曲線の場合$$2\pi i\cdot f(z_0) = \oint_{c} \frac{f(z)}{z-z_0}dx$$</li>
+<li>コーシーの積分公式の高次拡張——関数の高次導関数を用いて積分を求める
+$$f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}dz$$</li>
+</ol>
+<h1 id="級数">
+<a class="header-anchor" href="#%e7%b4%9a%e6%95%b0"></a>
+級数
+</h1><h2 id="冪級数">
+<a class="header-anchor" href="#%e5%86%aa%e7%b4%9a%e6%95%b0"></a>
+冪級数
+</h2><ol>
+<li>解析関数の二つの性質
+<ol>
+<li>解析関数は任意の次数の導関数を持つ</li>
+<li>解析関数は必ず冪級数で表現できる</li>
+</ol>
+</li>
+<li>テイラー展開$f(z) = \sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}z^n$</li>
+<li>テイラー展開を求める方法[[高等数学#関数展開為冪級数]]</li>
+</ol>
+<h2 id="ローラン級数">
+<a class="header-anchor" href="#%e3%83%ad%e3%83%bc%e3%83%a9%e3%83%b3%e7%b4%9a%e6%95%b0"></a>
+ローラン級数
+</h2><ol>
+<li>双方向冪級数
+<ol>
+<li>収束域は環状領域$R_1<|z-z_0|<R_2$</li>
+</ol>
+</li>
+<li>ローラン展開:$$f(z) = \sum_{n=-\infty}^{\infty}c_n(z-z_0)^n,c_n=\frac{1}{2\pi i}\cdot \oint_{C}\frac{f(z)}{(z-z_0)^{n+1}}dz$$
+推論：$n$が$-1$の場合、$c_{-1}\cdot 2\pi i=\oint_Cf(z)dz$</li>
+<li>ローラン展開を求める方法
+<ol>
+<li>定義を用いて$c_n$を計算する（ほとんど使用しない）</li>
+<li>代数演算や置換などの方法を用いて、ローラン級数をテイラー級数の<strong>形式と収束域</strong>に変換する</li>
+</ol>
+</li>
+</ol>
+<h1 id="留数">
+<a class="header-anchor" href="#%e7%95%99%e6%95%b0"></a>
+留数
+</h1><h2 id="孤立特異点">
+<a class="header-anchor" href="#%e5%ad%a4%e7%ab%8b%e7%89%b9%e7%95%b0%e7%82%b9"></a>
+孤立特異点
+</h2><ol>
+<li>定義：$f(z)$が$z_0$で解析的でないが、$z_0$のある除去近傍内で至るところ解析的である場合</li>
+<li>孤立特異点の分類（ローラン級数の負冪項に基づく）
+<ol>
+<li>除去可能な特異点：負冪項を含まないため、$z\to z_0$のとき$f(z)$の極限は有限値</li>
+<li>極：有限個の負冪項を含む（m個の負冪項がある場合、$z_0$を$f(z)$のm位の極と呼ぶ）、$z\to z_0$のとき$f(z)$の極限は$\infty$.</li>
+<li>真性特異点：無限個の負冪項を含み、$f(z)$の極限は存在しない</li>
+</ol>
+</li>
+<li>極と零点の関係
+<ol>
+<li>零点の定義：恒等的に零でない解析関数$f(z)$が$f(z) = (z-z_0)^m\varphi(z)$と表現できる場合、$z_0$を$f(z)$のm位の零点と呼ぶ。
+必要十分条件：$f^{(n)}(z_0) = 0,(n<m)\quad f^{(m)}\ne 0$</li>
+<li>$z_0$が$f(z)$のm位の零点である場合、$z_0$は$\frac{1}{f(z)}$のm位の極である。</li>
+</ol>
+</li>
+</ol>
+<h2 id="留数-1">
+<a class="header-anchor" href="#%e7%95%99%e6%95%b0-1"></a>
+留数
+</h2><ol>
+<li>定義：$$Res[f(z),z_0]=c_{-1} = \frac{1}{2\pi i}\oint_C f(z)d_z$$</li>
+<li>留数の計算規則
+<ol>
+<li>$z_0$が$f(z)$の1位の極である場合$$Res[f(z),z_0]=\lim_{z\to z_0}(z-z_0)f(z)$$</li>
+<li>$z_0$が$f(z)$のm位の極である場合$$Res[f(z),z_0]=\frac{1}{(m-1)!}\lim_{z\to z_0}\frac{d^{m-1}}{dz^{m-1}}(z-z_0)^mf(z)$$</li>
+<li>$f(z)=\frac{P(z)}{Q(z)},かつP(z_0)\ne0,Q(z_0) =0,Q'(z_0)\ne0$の場合$$Res[f(z),z_0]=\frac{P(z_0)}{Q'(z_0)}$$</li>
+<li>$$Res[f(z),\infty]=-Res[f(\frac{1}{z})\cdot\frac{1}{z^2},0]$$</li>
+</ol>
+</li>
+</ol>
+
+        <hr><p>本文 2023-11-17 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-11-17</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Math</category>
+      
+    </item>
+    
+  </channel>
+</rss>

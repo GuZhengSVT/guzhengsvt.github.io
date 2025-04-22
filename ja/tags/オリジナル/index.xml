@@ -1,0 +1,2315 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>オリジナル on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/ja/tags/%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/ja/tags/%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>TypechoコメントをWalineにインポート</title>
+      <link>http://localhost:1313/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
+      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
+      <description><![CDATA[<h1>TypechoコメントをWalineにインポート</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p>数日前、ブログの記事をTypechoからHugoに移行しましたが、Front Matterのパラメータ設定や画像リンクの再設定だけでかなりの手間がかかりました。<br>
+ブログの価値は、まず記事そのものにあり、次にコメントです。コメントはブログがインターネットと現実世界に与えた影響を証明し、人と人との交流を記録しています。私的な言い方をすれば、世界中からのコメントは大切な思い出であり、「私」を構成する一部です。<br>
+したがって、元のサイトのコメントを新しいサイトの対応する記事の下にコピーすることは非常に重要です。</p>
+<h2 id="walineの設定">
+<a class="header-anchor" href="#waline%e3%81%ae%e8%a8%ad%e5%ae%9a"></a>
+Walineの設定
+</h2><p>WordpressやTypechoなどの動的ブログと比べて、静的ブログは外部のコメントシステムに依存するしかありません。選択肢は多く、それぞれに長所と短所があります。<a href="https://cloud.tencent.com/developer/article/2196035">この記事</a>を参考にし、各コメントシステムの公式サイトを調べた後、最終的に<a href="https://waline.js.org">Waline</a>を選びました。<br>
+Walineの<a href="https://waline.js.org/guide/get-started/">中国語ドキュメント</a>は内容が充実しており、<a href="https://leancloud.app">LeanCloud</a>データベースと<a href="https://vercel.com/">Vercel</a>サーバーを設定すれば、コメント管理画面<code>https://&lt;あなたのサーバードメイン&gt;/ui/</code>にアクセスできます。初回登録で管理者になり、ここでコメントやユーザーを管理できます。</p>
+<h2 id="typechoコメントのエクスポート">
+<a class="header-anchor" href="#typecho%e3%82%b3%e3%83%a1%e3%83%b3%e3%83%88%e3%81%ae%e3%82%a8%e3%82%af%e3%82%b9%e3%83%9d%e3%83%bc%e3%83%88"></a>
+Typechoコメントのエクスポート
+</h2><p>Typechoは古く、ユーザーが少なく、HexoやWordpressのような活発なコミュニティがありません。インターネット上の資料も少ないです。<br>
+筆者が見つけたのは、<a href="https://imnerd.org">怡红院落</a>氏が書いたTypechoコメントをValineにエクスポートするプラグイン<a href="https://github.com/lizheming/typecho-export-valine">Export2Valine</a>（Walineのドキュメントにも記載されています）だけでした。<br>
+しかし、最後の更新は3年前で、テストしたところ最初のコメントしかインポートできませんでした。エクスポートされたjsonlファイルを見ると、コメントデータは完全にエクスポートされていることが明らかです。</p>
+<p>まず、このプラグインをTypechoにインストールします（プラグインフォルダ名を&quot;Export2Valine&quot;に変更する必要があります！）。</p>
+<p><a href="https://www.imwxz.com/posts/74f52ab0.html">この記事</a>を参考に、このプラグインは長年メンテナンスされていないため、いくつかの変更が必要です。<br>
+プラグインフォルダ内の<code>Action.php</code>を開き、42行目から以下のコードに変更します（親コメントを追跡するため）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$arr</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;objectId&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;QQAvatar&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;comment&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;text&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;insertedAt&#34;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;__type&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;iso&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span>
+</span></span><span class="line"><span class="cl">  <span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;createdAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;updatedAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ip&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;ip&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;link&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;url&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;mail&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;mail&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;nick&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;author&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ua&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;agent&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;url&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;/</span><span class="si">{</span><span class="nv">$slug</span><span class="si">}</span><span class="s2">.html&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;pid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;rid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getRootId</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>他の部分は変更不要です。<br>
+次に、Typechoの管理画面-コントロールパネル-コメントエクスポートで、ダウンロードしたjsonlファイルを開き、先頭の<code>#filetype:JSON-streaming {&quot;type&quot;:&quot;Class&quot;,&quot;class&quot;:&quot;Comment&quot;}\n\n</code>を削除します。<br>
+保存してファイルを閉じ、ファイル拡張子を<code>.json</code>に変更します。</p>
+<h2 id="json形式の修正">
+<a class="header-anchor" href="#json%e5%bd%a2%e5%bc%8f%e3%81%ae%e4%bf%ae%e6%ad%a3"></a>
+json形式の修正
+</h2><p>エクスポートされた<code>jsonl</code>ファイル内の中国語はエスケープされ、1行で表示されるため、見づらい状態です。<br>
+編集可能でインポートしやすい<code>json</code>形式に変換するため、まずエディタの<strong>検索と置換</strong>機能を使用し、<code>}\n{</code>を以下のように置換します：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span></code></pre></div><p>Xcodeの置換では、改行文字は左側の虫眼鏡アイコンをクリックして挿入できます。</p>
+<p>これで、1行に1つのコメントオブジェクトが表示されます。</p>
+<p>同様に、各コメントオブジェクト内のフィールド構造を分離するため、<code>&quot;,&quot;</code>を以下のように置換します：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;</span>
+</span></span></code></pre></div><p>これで、各コメントオブジェクト内に複数のデータが含まれていることがわかります。例えば：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u6d4b\u8bd5\u4e00\u4e0b&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="err">**</span><span class="kc">null</span><span class="err">**</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;4&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u600e\u4e48ip\u4e0d\u5bf9&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="err">**</span><span class="kc">null</span><span class="err">**</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
+</span></span></code></pre></div><h3 id="共通フィールドの説明">
+<a class="header-anchor" href="#%e5%85%b1%e9%80%9a%e3%83%95%e3%82%a3%e3%83%bc%e3%83%ab%e3%83%89%e3%81%ae%e8%aa%ac%e6%98%8e"></a>
+共通フィールドの説明
+</h3><ol>
+<li><strong>objectId</strong>: コメントの一意の識別子（例: &ldquo;4&quot;や&quot;5&rdquo;）</li>
+<li><strong>QQAvatar</strong>: QQアバターのリンク（現在は空文字列）</li>
+<li><strong>comment</strong>: コメント内容（Unicodeエスケープ文字を含む、例: <code>\u600e\u4e48</code>は「どうやって」を意味）</li>
+<li><strong>insertedAt/createdAt/updatedAt</strong>: タイムスタンプ（ISO 8601形式）</li>
+<li><strong>ip</strong>: コメント者のIPアドレス</li>
+<li><strong>link</strong>: コメント者が提供したリンク（nullの場合あり）</li>
+<li><strong>mail</strong>: コメント者のメールアドレス</li>
+<li><strong>nick</strong>: コメント者のニックネーム</li>
+<li><strong>ua</strong>: ユーザーエージェント（ブラウザ/デバイス情報を表示）</li>
+<li><strong>url</strong>: コメントされたページのパス</li>
+</ol>
+<h3 id="特殊フィールド">
+<a class="header-anchor" href="#%e7%89%b9%e6%ae%8a%e3%83%95%e3%82%a3%e3%83%bc%e3%83%ab%e3%83%89"></a>
+特殊フィールド
+</h3><ol start="11">
+<li><strong>pid</strong>: 親コメントID</li>
+<li><strong>rid</strong>: ルートコメントID</li>
+</ol>
+<p><code>&quot;link&quot;</code>の値が<code>null</code>の場合、<code>&quot;link&quot;</code>と<code>&quot;mail&quot;</code>の間に改行がありません。jsonは改行に敏感ではないため、無視できます。<br>
+この時点で、ファイルの先頭と末尾を<code>[ ]</code>で囲み、ファイルを保存します。</p>
+<h2 id="コメント属性の修正">
+<a class="header-anchor" href="#%e3%82%b3%e3%83%a1%e3%83%b3%e3%83%88%e5%b1%9e%e6%80%a7%e3%81%ae%e4%bf%ae%e6%ad%a3"></a>
+コメント属性の修正
+</h2><p>この時点でLeanCloudに直接インポートできますが、まだ修正可能な内容があります。</p>
+<p><code>Export2Valine</code>はコメントに関連する記事のurlを<code>\/slug</code>に設定しています。例えば<code>&quot;url&quot;: &quot;\/Summary-of-the-First-Semester-of-Junior-Year.html&quot;</code>で、<code>\/</code>は<code>/</code>のエスケープです。</p>
+<p>新しいブログの記事とコメントを関連付けるため、urlを新しいブログの記事リンクに手動で変更する必要があります。</p>
+<p>筆者のブログを例にすると、Hugoが生成するウェブサイトのルートディレクトリには<code>zh-cn,zh-tw,en,ja</code>の4つのフォルダ（多言語対応を有効にしている）があり、中国語サイトの記事は<code>/zh-cn/post/記事カテゴリ/</code>にあります。<br>
+筆者はローカルのブログソースファイルで記事をカテゴリごとに異なるフォルダに分類しています。例えば<code>/content/post/Thoughts/最近書いた詩.md</code>はウェブページの相対アドレス<code>zh-cn/post/thoughts/最近書いた詩</code>として生成されます。</p>
+<p>新しいブログの記事がルートディレクトリにあり、名前が変更されていない場合は、urlを変更する必要はありません。<br>
+すべての記事が<code>/post/</code>にある場合は、検索と置換を使用して</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/</span>
+</span></span></code></pre></div><p>を</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/post\/</span>
+</span></span></code></pre></div><p>に置換できます。</p>
+<p>筆者は一時的に</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/post\/</span>
+</span></span></code></pre></div><p>に置換しました。</p>
+<p>同様に、友達リンクやつぶやきなどの独立ページのコメントも、新しいブログの対応するページの相対アドレスに変更する必要があります。
+例えば友達リンクページ</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/links.html</span>
+</span></span></code></pre></div><p>を</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/friend\/</span>
+</span></span></code></pre></div><p>に置換します。</p>
+<p>postや独立ページで大規模に適用できる<em>検索と置換</em>を先に適用しないと、インポート後に一括置換が困難になります。</p>
+<p>検索と置換を使用する際は、できるだけ多くの共通部分を含め、「最大公約数」を見つけて誤った変更を避けてください。<br>
+<em><strong>エスケープ<code>\/</code>に注意!!!</strong></em></p>
+<h2 id="leancloudへのインポート">
+<a class="header-anchor" href="#leancloud%e3%81%b8%e3%81%ae%e3%82%a4%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88"></a>
+LeanCloudへのインポート
+</h2><p>LeanCloudのコントロールパネル-データストレージ-インポート/エクスポートで、修正したjsonファイルを選択し、<code>Class</code>に<code>Comment</code>と入力してインポートします。</p>
+<p><em><strong>注意</strong></em>、もし以前にブログのWalineでテストコメントを投稿したことがある場合、または<code>Comment</code>のインポートを試みたことがある場合、Walineは最初に<code>Comment</code> <code>Class</code>を作成するため、再度インポートしてもデータが正常にインポートされません（LeanCloudは成功を報告しますが、新しいデータはインポートされません）。</p>
+<p>コントロールパネル-構造化データで<code>Comment</code>を選択し、この<code>Class</code>を削除してから再度インポートを試みる必要があります。LeanCloudのページはすぐに更新されない場合があるため、<code>Ctrl+F5</code>でキャッシュをリフレッシュすると表示されます。</p>
+<p>インポートが成功したら、各コメントのurlを個別に設定します。<br>
+例えば筆者のpostは<code>&quot;url&quot;:&quot;\/zh-cn\/post\/記事カテゴリ\/</code>に分類する必要があり、この時点でLeanCloudの<strong>一括操作</strong>と<strong>条件付きフィルタリング</strong>機能を活用します。</p>
+<h2 id="後書き">
+<a class="header-anchor" href="#%e5%be%8c%e6%9b%b8%e3%81%8d"></a>
+後書き
+</h2><p>コメントの整理にはそれほど時間がかかりませんでした。120件のコメントのほとんどは筆者がつぶやきページで自分自身に語りかけたもので、urlを一括修正できました。他人からのコメントはわずか十数件で、数記事に分散していたため、<code>post</code>でフィルタリングして修正するのは簡単でした。これは良いことなのか悪いことなのか（笑）</p>
+<p>独り言であれ、他人からのメッセージであれ、一つ一つが筆者にとって特別な意味を持ち、時間を置いて振り返ると新たな気付きがあります。<br>
+最初に述べたように、これは筆者の成長の軌跡であり、この世に存在する証であり、「私」の一部です。</p>
+<p>そして、親愛なる読者であるあなたは、私に価値を与えてくれる存在です。</p>
+<p>時間があれば、ぜひコメントをください～筆者は本当に長く喜びます（善意のコメントであれば）。</p>
+        <hr><p>本文 2025-04-19 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>大学3年前期のまとめ</title>
+      <link>http://localhost:1313/ja/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Tue, 28 Jan 2025 19:46:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid>
+      <description><![CDATA[<h1>大学3年前期のまとめ</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="期末試験について">
+<a class="header-anchor" href="#%e6%9c%9f%e6%9c%ab%e8%a9%a6%e9%a8%93%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6"></a>
+期末試験について
+</h2><p>学生にとって、学期で最も重要なのは成績のようだ。<del>伝統的な美徳</del>である「泥縄式勉強」を貫き、期末の半月はほぼ毎日猛勉強した（もちろんサボる時もあった<del>なぜ16週目にも実験があるんだ、くそ</del>）。とにかく落第はせず、点数は高くないが満足している（一日で空気力学を学び終えて70点以上取る実力は言うまでもない）。</p>
+<p>そしてまた「新学期こそちゃんと勉強する」という嘘の決意を口にするのだろう、笑。
+だが本当に勉強すべきだ、そうでなければどうやって博士課程を卒業するのか？</p>
+<h2 id="博士課程について">
+<a class="header-anchor" href="#%e5%8d%9a%e5%a3%ab%e8%aa%b2%e7%a8%8b%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6"></a>
+博士課程について
+</h2><p>私は「銭班」の学士・博士一貫コースを選んだが、4+3の早期卒業のためでも（そんな実力もない）、より高い給与や「社会的地位」をもたらす学位を求めるためでもない。昔「Doctor」を「博士」と翻訳した人は、その「博学博聞」の名声を強調したかったのだと思う。</p>
+<p>「人に博士進学を勧めるのは罪」と言われ、留年や鬱に悩む人が多い中、私は自分で創造し、前人未到の成果を生み出してみたい。肩書きのためでも、派閥のためでもなく、人々のため、人類の利益のためだ。</p>
+<p>以前にも言ったように、</p>
+<blockquote>
+<p>私の物質的要求は家族を養えるだけで、現状では難しくない。だが学士課程の学識に満足していない、4年学んでもまだ入門すらできていない気がする。
+何十年、何百年も前に先人が探求した知識に縋って、日進月歩の現代を生きるのか？最先端の学問に触れる機会を捨てて家計維持に安住するのか？私にはできない。
+才能のない私が学術的に大成できないかもしれないが、人類の開拓と革新の勇気を捨ててはならない。少なくとも最前線の証人となり、世代を超えて物質と精神の束縛に挑む姿、文明が穏やかな揺り籠から未知の深宇宙へ向かう姿を見届けたい。
+新たな知を得る快感を手放せない、
+私はすでに空に触れたのだから。</p></blockquote>
+<p>今日は大言壮語が多すぎた、心の底では自分に何かを変える力などないと思っている。おそらく平凡なまま、論文を水増ししてどうにか卒業する学術ゴミになるだろう。
+だがとにかく試すべきだ、行動すべきだ、山がそこにあるから。</p>
+<h2 id="家族について">
+<a class="header-anchor" href="#%e5%ae%b6%e6%97%8f%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6"></a>
+家族について
+</h2><p>深刻な話題の後は、軽い話題を。
+8月に母が武漢同済で手術を受けた時、2週間付き添った<del>世話とは言いにくい</del>。子宮摘出後2ヶ月休養し、元気になったが、また早出遅帰の仕事に戻ってしまった、はあ。
+家族には特に心配事もなく、平穏だ。
+冬に祖母が作ってくれた卵の甘いスープが懐かしい。</p>
+<h2 id="友人について">
+<a class="header-anchor" href="#%e5%8f%8b%e4%ba%ba%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6"></a>
+友人について
+</h2><p>学校生活は相変わらずで、電子設計コンテスト以外は特に波乱もなかった。友人たちも変わらず、好きな人は元気で、それぞれの生活を送っている。
+<strong>天涯地角、知己は半ば散り散りに。</strong></p>
+<h2 id="ハンガリー旅行について">
+<a class="header-anchor" href="#%e3%83%8f%e3%83%b3%e3%82%ac%e3%83%aa%e3%83%bc%e6%97%85%e8%a1%8c%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6"></a>
+ハンガリー旅行について
+</h2><p>宇宙科学院の冬休みブダペスト工科大学訪学プログラムに申し込み、2週間滞在して帰国する準備だ。
+将来の勉強に関係のないAI応用を学び、本当に役立つスキルを期待しているわけではない。
+初めの数日は現地の食事がまずく、どうやって生きているのか不思議だった。後で地元のレストランでグヤーシュ（牛肉とジャガイモ、ニンジン入りのスープ）を食べ、確かに美味しかった。豚足も絶品で、量が多い<del>なのに関節と訳すのはなぜ？</del>。
+ステーキは論外で、レア過ぎて切れず噛み切れない。パンもパサパサで、サラダは石のように硬い。</p>
+<p>印象的だったのはトイレで、見たすべてのトイレが清潔で、定期的に清掃されトイレペーパーが補充されていた。手洗い用洗剤、乾燥機、ペーパータオルも完備（驚）。寮のトイレには便器洗浄用シャワーヘッドと洗剤漬けのブラシまであった。すべての水道で24時間冷水・温水が使え、暖房が効き過ぎて室内が暑いこともしばしば。
+唯一の残念点は公衆トイレがほぼなく、有料の場所もあることだ。
+先進国は金があり、資源をふんだんに使える。中国の北方で暖房を買えず、南方でエアコンを使えない人々を思うと胸が痛む。
+世界には苦しむ人々が多すぎる、まだまだ努力が必要だ。</p>
+<p>お土産を買ったが、友人に先に見られるとサプライズが台無しなので詳細は伏せる。</p>
+<h2 id="あとがき">
+<a class="header-anchor" href="#%e3%81%82%e3%81%a8%e3%81%8c%e3%81%8d"></a>
+あとがき
+</h2><p>明日帰国して新年を迎える、とても懐かしい。
+残り半分の冬休みは『通信原理』をしっかり勉強するつもり（するかもしれないし、しないかもしれない）。
+新年の幸せと平安を祈る。
+2025年1月24日</p>
+
+        <hr><p>本文 2025-01-28 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-01-28</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>考え事</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>東方紅</title>
+      <link>http://localhost:1313/ja/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</link>
+      <pubDate>Thu, 26 Dec 2024 00:16:35 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</guid>
+      <description><![CDATA[<h1>東方紅</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h3 id="東方紅">
+<a class="header-anchor" href="#%e6%9d%b1%e6%96%b9%e7%b4%85"></a>
+東方紅
+</h3><p><strong>中流で水を打つ音は遠く空に響き、ただ聞こえるのは夜ごと轟く江水の音。</strong></p>
+<p><strong>人々は皆、朝日のように若くはないが、万里の山河は万里にわたって紅に染まる。</strong></p>
+<p>2024.12.26<br>
+西安にて</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/12/1795319606.jpeg" alt="IMG_0434.jpeg"></p>
+
+        <hr><p>本文 2024-12-26 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-12-26</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>詩歌</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>春が来たから</title>
+      <link>http://localhost:1313/ja/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</link>
+      <pubDate>Wed, 13 Nov 2024 22:07:40 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</guid>
+      <description><![CDATA[<h1>春が来たから</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h3 id="この詩を私の人生のあのpolarisに捧ぐ">
+<a class="header-anchor" href="#%e3%81%93%e3%81%ae%e8%a9%a9%e3%82%92%e7%a7%81%e3%81%ae%e4%ba%ba%e7%94%9f%e3%81%ae%e3%81%82%e3%81%aepolaris%e3%81%ab%e6%8d%a7%e3%81%90"></a>
+――この詩を、私の人生のあのPolarisに捧ぐ
+</h3><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/11/1787644976.jpg" alt="IMG_4884.jpg"></p>
+<p><strong>ある可愛らしい旅人が、誰にも顧みられない風景を通り過ぎた。彼女は異国の暖かい風をもたらし、干上がった畑を吹き抜け、木々の梢を撫で、湖面にきらめく波紋を描いた。<br>
+果樹たちはこぞってこの美人に魅了され、急いで花を咲かせ実を結んだ。森の鳥たちは数少ない花枝を探し求め、花冠を編んで彼女の頭に載せた。<br>
+旅人は花びらの舞い散る中を歩き、厚意に甘えて真っ赤な実をいくつか摘んだ。そして一方的に受け取るだけでは申し訳なく思い、ポケットの中の花の種をすべて取り出し、ひび割れた地面のあちこちに蒔いた。<br>
+ただ荒れ果てた畑だけが、恥ずかしさと後ろめたさでいっぱいだった――この愛らしい娘に捧げるものは何もないのか？<br>
+彼はありったけの力で花の種に早く育つよう促し、畑に咲き誇る花々を彼女に見せたいと願った。<br>
+だが旅人はここに長く留まる運命になかった――この風景は確かに素晴らしく、木々も鳥たちも親切だったが、ここは家を構えるのに適した場所ではなかったのだ。<br>
+旅人が去ると、果樹も鳥たちも畑も名残惜しかった。<br>
+畑の花々はまだ贈られることなく、次の旅人が来た時には美しい庭園が見られるかもしれない。<br>
+けれど誰もこれを悲しんではいなかった、<br>
+春が来たからだ。</strong></p>
+<p><strong>冬が去り春が来て、秋が去り冬が来る。<br>
+果実は小さな果樹となり、ひな鳥は飛ぶことを覚えた。年輪は木の幹に巻き付き、夏の雨が羽をぴかぴかに洗った。<br>
+畑が心を込めて育てた庭では、最後の菊が花期を過ぎ、空っぽの茎が寒風に揺れていた。<br>
+この土地はもはや荒れ果ててはいない。過ぎ去ったいくつもの季節、旅人が蒔いた種は芽を出し、決められた花期に従って世界にその美しさを披露した。朝露を飲み、朝日を浴び、清風に舞い、月光に寄り添った。<br>
+春、畑はクチナシとサンザシで純白の花冠を作った。旅人の白いドレスのように美しかった。<br>
+夏、畑はサルスベリとムクゲで花籠を作ったが、ムクゲは朝咲いて夕方に散るので、旅人が急いで去っていくようだった。<br>
+秋、畑はキンモクセイとシマカンギクで花のベッドを作ろうとしたが、秋風が情趣を解さず何度もキンモクセイの香りを運び去った。<br>
+花々は使命を帯びて短い命を謳歌し、土の中で次の旅支度をした。<br>
+旅人は二度と戻ってこなかった。彼女は自分が無造作に蒔いた種がすでに庭園に成長したことを知らず、畑もまた彼の贈り物を捧げる機会を永遠に失った。<br>
+冬が去り春が来て、秋が去り冬が来る。<br>
+畑は雪を待ち望んだ。雪が降れば、地中の種に暖かい布団をかけてやれる。もし来年、旅人が再びこの桃源郷を訪れるなら、この庭園はあの愛らしい娘にふさわしいものになるだろう。<br>
+初冬の細雨の中、彼は静かに眠りにつき、10月の最後のタンポポが風に乗って旅立ち、旅人の頬に追いつきそうな夢を見た。<br>
+「花の種が冬を越せないんじゃないかと心配しないの？」木々と鳥たちが畑に尋ねた。今の畑はまた裸同然で何もなくなっていた。<br>
+「大丈夫、私はもう春を見たから。」<br>
+春が来たからだ。</strong></p>
+        <hr><p>本文 2024-11-13 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-11-13</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>詩</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>晋南行五首</title>
+      <link>http://localhost:1313/ja/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</link>
+      <pubDate>Tue, 08 Oct 2024 15:47:32 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</guid>
+      <description><![CDATA[<h1>晋南行五首</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="序">
+<a class="header-anchor" href="#%e5%ba%8f"></a>
+序
+</h2><p>　　国慶に『黒神話・悟空』に従って山西を旅し、晋南の晋城、臨汾、運城の三市を巡り、詩詞五首を作り、簡単に記す。
+　　</p>
+<h2 id="晋南行其一">
+<a class="header-anchor" href="#%e6%99%8b%e5%8d%97%e8%a1%8c%e5%85%b6%e4%b8%80"></a>
+晋南行・其一
+</h2><p><strong>門に残塑を掩い去り、檐から金鐸が出て来る。<br>
+翠林を点染して乱れ、碧裙を潑墨して開く。<br>
+新枝は朽木に攀じ、老壮は幼孩を携える。<br>
+徽因は涙有るべく、千年は留白可きか？</strong></p>
+<p><strong>孤筝<br>
+2024.10.2<br>
+晋城玉皇廟、府城関帝廟、青蓮寺</strong></p>
+<p>　　玉皇廟の二十八星宿などの殿は全てフラッシュ禁止で、仏像は鉄柵の奥に隠れ、漆の跡が剥がれ落ち、首や足が欠けているものもある。残念なことだ。<br>
+　　府城関帝廟の塑像はほとんどが現代の新作で、技術の拙劣さに食欲を失う。しかし建築は見る価値がある。<br>
+　　青蓮寺は山高く道遠く、途中の風景は極めて良く、秋の山は青く水は碧く、少しの紅葉や黄葉が点在し、雲一つない空は錦繍の福地である。<br>
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/4175125506.jpg" alt="IMG_0808 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/2744194162.jpg" alt="IMG_0836 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/4200527731.jpg" alt="IMG_1026 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/126764360.jpg" alt="IMG_0915 (1).JPG"></p>
+<h2 id="晋南行其二">
+<a class="header-anchor" href="#%e6%99%8b%e5%8d%97%e8%a1%8c%e5%85%b6%e4%ba%8c"></a>
+晋南行・其二
+</h2><p><strong>倦いて起きれば青帝は未だ点班せず、急騰する晨暁が寒さを破る。<br>
+人海を渡って仏面を窺い、林雲に登って伽藍を訪ねる。<br>
+九尊の金身に九菡萏、三進の相門に三浄壇。<br>
+鱗霞が暮色を収めるに及ばず、既に軽騎は重山を躍る。</strong></p>
+<p><strong>孤筝<br>
+2024.10.3<br>
+晋城開化寺、鉄仏寺、定林寺</strong></p>
+<p>　　早朝にバスで高平へ急ぎ、まず開化寺を見て回り、それから鉄仏寺に戻る。鉄仏寺は開放されて間もなく、人で溢れかえり、また小さな村の小さな庭に深く位置している。一時間以上並んで、仏面を二分間見ることができた。幸い並んでいる時に一家三人と出会い、両親は開明的で、二次元やゲームを拒まない。ああ、神仙のような親はどこにもいない。（娘さんのツインテールが可愛かったwwww）<br>
+　　定林寺の蓮華藻井も最近再開放されたばかりで、幸運にも出会え、確かに美しい。
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/438599092.jpg" alt="IMG_0998 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/1955933777.jpg" alt="IMG_1044 (1).JPG"></p>
+<h2 id="晋南行其三">
+<a class="header-anchor" href="#%e6%99%8b%e5%8d%97%e8%a1%8c%e5%85%b6%e4%b8%89"></a>
+晋南行・其三
+</h2><h3 id="水調歌頭">
+<a class="header-anchor" href="#%e6%b0%b4%e8%aa%bf%e6%ad%8c%e9%a0%ad"></a>
+水調歌頭
+</h3><p>**　　宝相は香禄を食み、石碑は風塵に浸る。敢えて問う座下の丘列、経を誦して神に達するか？既に青絲を削り欲を断ち、又酒肉を棄て宇を濯ぎ、笑面は嗔りを謹んで蔵す。空しく五蘊の律を識り、無明の身を解せず。<br>
+　　仮の金鐃、禅廟を修め、愚生を弄ぶ。誑語の功徳、却って如来に倣い大乗を釈す。利を許して虔衆を収め、善を勧めて信篤を得難く、八戒は沙門を誤る。司磬は富貴を称し、偽仏は俗僧を度す。**</p>
+<p><strong>孤筝<br>
+2024.10.4<br>
+臨汾小西天</strong></p>
+<p>八戒：一に殺生を戒め、二に偸盗を戒め、三に淫を戒め、四に妄語を戒め、五に飲酒を戒め、六に香華を着するを戒め、七に高広の大床に坐臥するを戒め、八に非時の食を戒む。<br>
+黄眉：殺生せずんば、仇恨は永く止息せず；偸盗せずんば、強弱は我と何の異なる；邪淫せずんば、一切の有情は皆孽；妄語せずんば、夢幻泡影は空虚；酒に饞らずんば、憂怖は漲落無常；楽に耽らずんば、芳華は刹那のみ；貪眠せずんば、苦苦は解脱を得ず；欲を縦にせずんば、諸行は生趣無し。</p>
+<p>　　小西天の下寺は見所がなく、財を求め子を求める善男善女が香を焚き仏を拝んでいるだけだ。あの尼僧（？疑問）が傍らに座って磬を叩き跪拝を見ながら、口々に一日一億円や一千万円を保証すると言い続け、皮肉極まりない。<br>
+　　上寺の大雄宝殿内の懸塑は、規模も規格も驚くべきものだ。残念ながら人が多すぎてじっくり見る時間がほとんどなかった。私は遅く着いたため山西の公式通関記念品である絵葉書をもらえず、少し残念だった。<br>
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/837638753.jpg" alt="IMG_1144 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/377169443.jpg" alt="IMG_1929 (1).JPG"></p>
+<h2 id="晋南行其四">
+<a class="header-anchor" href="#%e6%99%8b%e5%8d%97%e8%a1%8c%e5%85%b6%e5%9b%9b"></a>
+晋南行・其四
+</h2><p><strong>古刹は平陽に踞り、三震は仏光を隠す。<br>
+巍巍たる琉璃塔、缈缈たる羅漢堂。<br>
+経を求むるは功禄に憑り、雨を祈るは人王に頼る。<br>
+一蔵は東土に伝わり、貞観は盛唐を起こす。</strong></p>
+<p><strong>孤筝<br>
+2024.10.6<br>
+臨汾広勝寺</strong></p>
+<p>　　洪洞県の広勝寺、下寺には雨神廟があり、左右に壁画が満ちているが、保存状態はあまり良くない。殿内は暗く、はっきりと見えない。左右の部屋には公式のスキャンコピーがあり、色彩鮮やかで神韻も備わり、佳作と言える。<br>
+　　上寺では再び飛虹塔を見る。宝塔は全身が琉璃で覆われている。一階のみ開放されており、内部には見るべきものはあまりない。<br>
+　　奥の院の天中天殿には三尊の大仏があり、高さ十余尺で、姿形が優美で、一絶である。<br>
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/2152415040.jpg" alt="IMG_1956 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/270551755.jpg" alt="IMG_1985 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/4038570737.jpg" alt="IMG_2006 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/193997803.jpg" alt="IMG_2037 (2).JPG"></p>
+<h2 id="晋南行其五">
+<a class="header-anchor" href="#%e6%99%8b%e5%8d%97%e8%a1%8c%e5%85%b6%e4%ba%94"></a>
+晋南行・其五
+</h2><h3 id="鸛雀楼で幸い未陶然に遇い寄せる">
+<a class="header-anchor" href="#%e9%b8%9b%e9%9b%80%e6%a5%bc%e3%81%a7%e5%b9%b8%e3%81%84%e6%9c%aa%e9%99%b6%e7%84%b6%e3%81%ab%e9%81%87%e3%81%84%e5%af%84%e3%81%9b%e3%82%8b"></a>
+鸛雀楼で幸い未陶然に遇い寄せる
+</h3><p><strong>生まれながらにして酒中の仙ならず、墨を落として眉を皴め字を研ぐ。<br>
+鸛雀楼にて之涣と斗い、太行山の下にて教員を思う。<br>
+君は人間の逍遥客と作り、我は象塔に困り長く少年たり。<br>
+或いは天地の存する所無きを歴んとし、且つ詩債を酒銭に換えん。</strong></p>
+<p><strong>孤筝<br>
+2024.10.6<br>
+運城永楽宮、広仁王廟、鸛雀楼、関帝廟</strong></p>
+<p>　　運城はツアーで回り、時間が迫り場所も多く、じっくり見る時間がなかった。鸛雀楼に着いた時、「オリジナル詩集を売る」と書かれた小さな屋台を見た。新しい楼を見終わり、詩集を振り返り、長く驚きを覚えた。未陶然は大理の女詩人の影響を受けて文学の道を再び歩み、私もかつて多くの詩を書いたが、多くは暇な時の拙い筆で、これを生計とする考えもなかった。<br>
+　　高校時代に詩を作り、詩を抜き出した下書きを人に渡し、別れてから、もうほとんど詩を書かなくなった。一つはゲームと現実に耽り、本をあまり読まず、詩の才も勤めの心もなく、筆を下ろしても乾いてしまい結局満足できなかった。二つは心境がぼんやりし、当世を霧の中から見るようで、透ける力も清明さもなく、生きるのがぼんやりしていた。三つは長く象塔に住み経験も平凡で、喜びも悲しみもなく、詩情が湧きにくかった。<br>
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/3184801327.jpg" alt="IMG_2131 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/1585398490.jpg" alt="IMG_2134 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/3750612929.jpg" alt="IMG_2158 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/3048377807.jpg" alt="IMG_2214 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/1157009.jpg" alt="IMG_2233 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/343590413.jpg" alt="IMG_2234 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/915481746.jpg" alt="IMG_2235 (1).JPG"></p>
+<h2 id="後記">
+<a class="header-anchor" href="#%e5%be%8c%e8%a8%98"></a>
+後記
+</h2><p>晋南の三都市はそれぞれ特色がある。<br>
+晋城は繁華で、バスが発達しており、各観光地への専用路線がある。初めて市街地に着いた時、一路灯火が輝いていた。<br>
+臨汾は異様で、バスターミナルの周りでさえ暗く、観光地は市街地から遠くバス専用路線もなく、チャーター代がかさむ；公共トイレには特色があり、私は青桔電動バイクで二十余りを巡ったが、一つとして同じものはなかった。<br>
+運城は賑やかで、大通りも小路も、商店や小さな店や屋台で溢れ、南北二つの市もあると聞く（運城の包子は美味しく、小さな店は実直だ）。<br>
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/3704126306.jpg" alt="IMG_2091.JPG"></p>
+        <hr><p>本文 2024-10-08 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-10-08</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Poetry</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>中秋、家族に電話をかけよう</title>
+      <link>http://localhost:1313/ja/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</link>
+      <pubDate>Sun, 15 Sep 2024 22:35:40 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</guid>
+      <description><![CDATA[<h1>中秋、家族に電話をかけよう</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <blockquote>
+<p>「ママ、この世界に本当に私を好きになってくれる女の子はいるの？」<br>
+「もちろんよ、初めてあなたに会った時、私もまだ20代だったもの」</p></blockquote>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2045946501&auto=0&height=66"></iframe>
+
+
+<p>中秋節が近づいてきました。家族に電話をかけてみませんか。</p>
+<blockquote>
+<p>人に悲歓離合あり、月に陰晴円缺あり、此事古より全からず。<br>
+ただ願わくは人長久に、千里共に婵娟を。</p></blockquote>
+<p>ただ願わくは人長久に、ただ願わくは人長久に、ただ願わくは人長久に。</p>
+        <hr><p>本文 2024-09-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-15</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>思考</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>確率論と数理統計</title>
+      <link>http://localhost:1313/ja/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link>
+      <pubDate>Tue, 10 Sep 2024 01:14:05 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid>
+      <description><![CDATA[<h1>確率論と数理統計</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="序文">
+<a class="header-anchor" href="#%e5%ba%8f%e6%96%87"></a>
+序文
+</h2><h3 id="初版序文">
+<a class="header-anchor" href="#%e5%88%9d%e7%89%88%e5%ba%8f%e6%96%87"></a>
+初版序文
+</h3><p>[[2024-09-14]] 今日、追試験がようやく終了した。本試験では過去問がそのまま出題されると聞き、ここ数日インターネットで入手した「西安電子科技大学の過去問」（21年分と23年分2セット）をひたすら解いていた。午前中に21年の問題を解き、午後の試験では4分の1が一字一句変わらない同じ問題だったので、思わず笑ってしまった。</p>
+<p>戴浩教授はかつて「全力でQianクラス（特別優待クラス）に最良の教師を配置する」と語っていたが、今や数学統計学院には人材がいなくなったのか？教え方が下手なのは「教育に重点を置いていない」「教える才能がない」と言い訳できるが、試験問題を作成するのに過去数年の問題をそのまま流用し、誤りや不備も多いのには呆れ返った。</p>
+<p>自分で作成した試験問題に全く価値がなく、自分でも解こうとしない。これは態度の問題だ。期末試験で水増し採点するのは結構だが、古いネタで学生を騙し続けるのはやめてほしい。学生にはイノベーションを説きながら、自分自身は適当に済ませようとする。これは学問に対する態度でもなければ、教育者としてあるべき姿でもない。</p>
+<p>確率論はこれで一段落。この2日間、ノートを繰り返し見直し、問題を解き、多くの誤りを訂正することで、この科目の知識体系が明確になった。内容はまだ少ないが、期末試験の復習材料としては十分だろう。この版を最終版とする（おそらく）。
+中秋節には電磁気学とデジタル信号処理の整理を続ける予定だ。</p>
+<h3 id="第二版序文">
+<a class="header-anchor" href="#%e7%ac%ac%e4%ba%8c%e7%89%88%e5%ba%8f%e6%96%87"></a>
+第二版序文
+</h3><blockquote>
+<p>何事も最終などない!!!
+——銭学森</p></blockquote>
+<p>分布関数の左右連続性について補足した。この科目がfinalになるにはまだ遠いようだ&hellip;</p>
+<h2 id="事象演算から論理演算への変換">
+<a class="header-anchor" href="#%e4%ba%8b%e8%b1%a1%e6%bc%94%e7%ae%97%e3%81%8b%e3%82%89%e8%ab%96%e7%90%86%e6%bc%94%e7%ae%97%e3%81%b8%e3%81%ae%e5%a4%89%e6%8f%9b"></a>
+事象演算から論理演算への変換
+</h2><ul>
+<li>$A \cup B=A+B$</li>
+<li>$A \cap B=A \cdot B$</li>
+<li>$A-B=A \bar{B}$
+$A$事象が発生し$B$事象が発生しない場合。ベン図で簡単に証明可能。
+$-B$を$\cdot (-B)$と解釈でき、$-B$は$\bar{B}$に相当。</li>
+<li>$A \subset B$の場合、$A \cup B=B,A \cap B=A$</li>
+</ul>
+<p>事象演算を論理演算に変換後、ほとんどの法則が共通。
+デジタル回路で学んだ論理関数の演算と簡略化を用いて、複雑な事象演算を簡略化可能。
+ヒント：カルノー図</p>
+<h2 id="四大確率公式">
+<a class="header-anchor" href="#%e5%9b%9b%e5%a4%a7%e7%a2%ba%e7%8e%87%e5%85%ac%e5%bc%8f"></a>
+四大確率公式
+</h2>$$
+\begin{cases}
+P(A+B)=P(A)+P(B)-P(AB)\\
+P(A-B)=P(A)-P(AB)=P(A \bar{B})\\
+P(AB)=P(B) \cdot P(A|B)=P(A) \cdot P(B|A)\\
+P(A|B)=\frac{P(AB)}{P(B)}\\
+\end{cases}
+$$<h3 id="推論">
+<a class="header-anchor" href="#%e6%8e%a8%e8%ab%96"></a>
+推論
+</h3><p>$P(A+B+C)$において、$A+B$を一つの事象と見なし、上記の加法定理を適用し、二回分解すると：
+</p>
+$$
+P(A+B+C)=P(A)+P(B)+P(C)-P(AB)-P(AC)-P(BC)+P(ABC)
+$$<p>
+より多くの和事象の確率はこの方法で再帰的に求められる。</p>
+<p>余事象：$A$が発生しない確率。ベン図で一目瞭然。
+</p>
+$$
+P(\bar{A})=P(1 \cdot \bar{A})=P(1-A)=P(1)-P(1 \cdot A)=1-P(A)
+$$<h2 id="非負性と規格化">
+<a class="header-anchor" href="#%e9%9d%9e%e8%b2%a0%e6%80%a7%e3%81%a8%e8%a6%8f%e6%a0%bc%e5%8c%96"></a>
+非負性と規格化
+</h2><p>非負性：任意の事象$A$に対して、$0 \le P(A) \le 1$。
+規格化：全事象$\Omega$に対して、$P(\Omega)=1$。</p>
+<h2 id="相互独立">
+<a class="header-anchor" href="#%e7%9b%b8%e4%ba%92%e7%8b%ac%e7%ab%8b"></a>
+相互独立
+</h2>$$
+\begin{cases}
+P(AB)=P(A) \cdot P(B)\\
+P(A|B)=P(A)
+\end{cases}
+$$<p>
+独立は相互独立を包含。</p>
+<h2 id="古典的確率モデル">
+<a class="header-anchor" href="#%e5%8f%a4%e5%85%b8%e7%9a%84%e7%a2%ba%e7%8e%87%e3%83%a2%e3%83%87%e3%83%ab"></a>
+古典的確率モデル
+</h2><blockquote>
+<p>各基本事象の発生確率が等しい。</p></blockquote>
+<p>例：コイン投げ、サイコロ振り……
+</p>
+$$
+P(A)=\frac{Aに含まれる基本事象数}{\Omega中の基本事象数}
+$$<p>
+古典的条件付き確率公式
+</p>
+$$
+P(B|A)=\frac{P(AB)}{P(A)}=\frac{A,B両方に含まれる基本事象数}{Aに含まれる基本事象数}
+$$<h2 id="ベルヌーイ試行二項分布">
+<a class="header-anchor" href="#%e3%83%99%e3%83%ab%e3%83%8c%e3%83%bc%e3%82%a4%e8%a9%a6%e8%a1%8c%e4%ba%8c%e9%a0%85%e5%88%86%e5%b8%83"></a>
+ベルヌーイ試行（二項分布）
+</h2><blockquote>
+<p>$n$回の独立試行で、各試行の結果は$A,\bar{A}$の2通り。</p></blockquote>
+<p>$X \sim B(n,p)$
+</p>
+$$
+P_n(k)=C_n^kp^k(1-p)^{n-k}
+$$<p>
+ここで、$p=P(A),1-p=P(\bar{A})$</p>
+<h2 id="幾何的確率モデル">
+<a class="header-anchor" href="#%e5%b9%be%e4%bd%95%e7%9a%84%e7%a2%ba%e7%8e%87%e3%83%a2%e3%83%87%e3%83%ab"></a>
+幾何的確率モデル
+</h2><p>事象が占める<em>線/面/体積</em>部分と全体の<em>長さ/面積/体積</em>の比率。
+事象の占める空間次元が全事象空間$\Omega$の次元より低い場合、その事象の確率は常に0。
+==注意==：確率0は必ずしも発生しないことを意味しない。
+例：円内の点をランダムに選ぶ場合、任意の点を選ぶ確率は0だが、発生し得る。</p>
+<h2 id="一様分布">
+<a class="header-anchor" href="#%e4%b8%80%e6%a7%98%e5%88%86%e5%b8%83"></a>
+一様分布
+</h2><p>$x \sim U(a,b)$
+幾何分布における線形分布に近似。各点の確率密度：
+</p>
+$$
+f(x)=
+\begin{cases}
+0,x \le a\\
+\frac{1}{b-a},a < x \le b\\
+0,x>b\\
+\end{cases}
+$$<p>分布関数：
+</p>
+$$
+F(x)=
+\begin{cases}
+0,x \le a\\
+\frac{x-a}{b-a},a<x \le b\\
+1,x>b\\
+\end{cases}
+$$<h2 id="指数分布">
+<a class="header-anchor" href="#%e6%8c%87%e6%95%b0%e5%88%86%e5%b8%83"></a>
+指数分布
+</h2><p>$x \sim E(\lambda)$</p>
+<h3 id="確率密度">
+<a class="header-anchor" href="#%e7%a2%ba%e7%8e%87%e5%af%86%e5%ba%a6"></a>
+確率密度
+</h3>$$
+f(x)=
+\begin{cases}
+\lambda e^{-\lambda x},x>0\\
+0,x \le 0\\
+\end{cases}
+$$<h3 id="分布関数">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e9%96%a2%e6%95%b0"></a>
+分布関数
+</h3>$$
+F(x)=
+\begin{cases}
+1-e^{-\lambda x},x \ge 0\\
+0,x<0\\
+\end{cases}
+$$<h2 id="ポアソン分布">
+<a class="header-anchor" href="#%e3%83%9d%e3%82%a2%e3%82%bd%e3%83%b3%e5%88%86%e5%b8%83"></a>
+ポアソン分布
+</h2><p>$X \sim \pi(\lambda)$
+</p>
+$$
+P(X=k)=\frac{e^{-\lambda}\lambda^k}{k!}
+$$<h2 id="正規分布">
+<a class="header-anchor" href="#%e6%ad%a3%e8%a6%8f%e5%88%86%e5%b8%83"></a>
+正規分布
+</h2><p>$x \sim N(\mu,\sigma^2)$</p>
+<h3 id="確率密度-1">
+<a class="header-anchor" href="#%e7%a2%ba%e7%8e%87%e5%af%86%e5%ba%a6-1"></a>
+確率密度
+</h3>$$
+f(x)=\frac{1}{\sqrt{2 \pi} \sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}},x \in R,\sigma>0
+$$<h3 id="分布関数-1">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e9%96%a2%e6%95%b0-1"></a>
+分布関数
+</h3>$$
+F(x)=\int^{x}_{-\infty}f(t)dt
+$$<p>
+明らかに、$F(\mu)=\frac{1}{2}$、すなわち$P(x \le \mu)=P(x>\mu)=\frac{1}{2}$。</p>
+<h3 id="標準正規分布">
+<a class="header-anchor" href="#%e6%a8%99%e6%ba%96%e6%ad%a3%e8%a6%8f%e5%88%86%e5%b8%83"></a>
+標準正規分布
+</h3><p>$\mu=0,\sigma=1$の場合、この分布は標準正規分布となる。
+</p>
+$$
+\varphi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
+$$<p>
+</p>
+$$
+\varPhi(x)=\int^{x}_{-\infty}\varphi(t)dt
+$$<h3 id="推論-1">
+<a class="header-anchor" href="#%e6%8e%a8%e8%ab%96-1"></a>
+推論
+</h3>$$
+\varPhi(-x)=1-\varPhi(x)
+$$<p>
+</p>
+$$
+F(x)=\varPhi(\frac{x-\mu}{\sigma})
+$$<p>
+正規分布の標準化：
+</p>
+$$
+X \sim N(\mu,\sigma^2),Z=\frac{X-\mu}{\sigma}\sim N(0,1)
+$$<h2 id="全確率公式">
+<a class="header-anchor" href="#%e5%85%a8%e7%a2%ba%e7%8e%87%e5%85%ac%e5%bc%8f"></a>
+全確率公式
+</h2><h3 id="完全事象群">
+<a class="header-anchor" href="#%e5%ae%8c%e5%85%a8%e4%ba%8b%e8%b1%a1%e7%be%a4"></a>
+完全事象群
+</h3>$$
+\begin{cases}
+B_1 \cup B_2 \cup B_3 \cup \cdots \cup B_n=\Omega\\
+B_i \cap B_j=\varnothing,i \ne j,1 \le i \le n,1 \le j \le n\\
+\end{cases}
+$$<p>
+$B_1,B_2,B_3,\cdots B_n$は$\Omega$の完全事象群を構成する。</p>
+<h3 id="全確率公式-1">
+<a class="header-anchor" href="#%e5%85%a8%e7%a2%ba%e7%8e%87%e5%85%ac%e5%bc%8f-1"></a>
+全確率公式
+</h3>$$
+\begin{align}
+P(A)
+&=P(AB_1 \cup AB_2 \cup \cdots \cup AB_n)\\
+&=P(AB_1)+P(AB_2)+\cdots +P(AB_n)\\
+&=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+\cdots +P(B_n)P(A|B_n)\\
+\end{align}
+$$<h3 id="ベイズの定理">
+<a class="header-anchor" href="#%e3%83%99%e3%82%a4%e3%82%ba%e3%81%ae%e5%ae%9a%e7%90%86"></a>
+ベイズの定理
+</h3>$$
+P(B_1|A)=\frac{P(AB_1)}{P(A)}=\frac{P(B_1)P(A|B_1)}{P(A)}
+$$<h2 id="一次元離散確率変数">
+<a class="header-anchor" href="#%e4%b8%80%e6%ac%a1%e5%85%83%e9%9b%a2%e6%95%a3%e7%a2%ba%e7%8e%87%e5%a4%89%e6%95%b0"></a>
+一次元離散確率変数
+</h2><h3 id="確率分布">
+<a class="header-anchor" href="#%e7%a2%ba%e7%8e%87%e5%88%86%e5%b8%83"></a>
+確率分布
+</h3>$$
+P(X=x_i)=p_i=\frac{X=x_iの場合数}{総場合数},i=1,2,\cdots 
+$$<h3 id="分布関数-2">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e9%96%a2%e6%95%b0-2"></a>
+分布関数
+</h3>$$
+F(x)=\sum_{x_i<x}p_i,x \in R
+$$<h2 id="一次元連続確率変数">
+<a class="header-anchor" href="#%e4%b8%80%e6%ac%a1%e5%85%83%e9%80%a3%e7%b6%9a%e7%a2%ba%e7%8e%87%e5%a4%89%e6%95%b0"></a>
+一次元連続確率変数
+</h2><h3 id="確率密度-2">
+<a class="header-anchor" href="#%e7%a2%ba%e7%8e%87%e5%af%86%e5%ba%a6-2"></a>
+確率密度
+</h3>$$
+f(x)=F'(x)
+$$<h3 id="分布関数-3">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e9%96%a2%e6%95%b0-3"></a>
+分布関数
+</h3>$$
+F(x)=\int_{-\infty}^xf(t)dt
+$$<h3 id="区間確率">
+<a class="header-anchor" href="#%e5%8c%ba%e9%96%93%e7%a2%ba%e7%8e%87"></a>
+区間確率
+</h3>$$
+P(a<x \le b)=\int_a^bf(x)dx=F(b)-F(a)
+$$<p>$\because$ $P(x=a)=0,a \in R$
+$\therefore$ 区間の両端の等号は任意</p>
+<h3 id="規格化">
+<a class="header-anchor" href="#%e8%a6%8f%e6%a0%bc%e5%8c%96"></a>
+規格化
+</h3>$$
+F(\infty)=\int^{\infty}_{-\infty}f(x)dx=1
+$$$$
+F(-\infty)=0
+$$<h2 id="二次元離散確率変数">
+<a class="header-anchor" href="#%e4%ba%8c%e6%ac%a1%e5%85%83%e9%9b%a2%e6%95%a3%e7%a2%ba%e7%8e%87%e5%a4%89%e6%95%b0"></a>
+二次元離散確率変数
+</h2><h3 id="結合確率分布">
+<a class="header-anchor" href="#%e7%b5%90%e5%90%88%e7%a2%ba%e7%8e%87%e5%88%86%e5%b8%83"></a>
+結合確率分布
+</h3><p>$P(X=x_i,Y=y_j)$
+X、Yの取り得る値を二次元表にし、対応する確率を記入。</p>
+<h3 id="周辺分布">
+<a class="header-anchor" href="#%e5%91%a8%e8%be%ba%e5%88%86%e5%b8%83"></a>
+周辺分布
+</h3><p>$P(X=x_i),P(Y=y_j)$
+結合確率分布の行/列を合計し、$f_Y(x),f_X(y)$を得る。</p>
+<h3 id="条件付き分布">
+<a class="header-anchor" href="#%e6%9d%a1%e4%bb%b6%e4%bb%98%e3%81%8d%e5%88%86%e5%b8%83"></a>
+条件付き分布
+</h3><p>$P(X=x_i|Y=y_j),P(Y=y_i|X=x_j)$
+結合確率分布の各行/列をその行/列に対応する周辺分布で割る。
+つまり、各行/列の結合確率分布を<strong>比例項</strong>に変換し、各項の和を1とする。</p>
+<h3 id="二変数の独立性">
+<a class="header-anchor" href="#%e4%ba%8c%e5%a4%89%e6%95%b0%e3%81%ae%e7%8b%ac%e7%ab%8b%e6%80%a7"></a>
+二変数の独立性
+</h3><p>==ここでの独立性は線形無関係を指し、完全な独立無関係を意味しない。==
+結合分布表を行列$\vec{A}$と見なすと、$\det \vec{A}=0$の時XとYは独立。
+または：結合分布表の各行/列が比例する場合、XとYは独立。
+または：結合確率≠周辺確率の積、すなわち$P(X=x_i,Y=y_j)\ne P(X=x_i)P(Y=y_j)$の場合、XとYは相互独立でない。</p>
+<h2 id="二次元連続確率変数">
+<a class="header-anchor" href="#%e4%ba%8c%e6%ac%a1%e5%85%83%e9%80%a3%e7%b6%9a%e7%a2%ba%e7%8e%87%e5%a4%89%e6%95%b0"></a>
+二次元連続確率変数
+</h2><h3 id="結合密度関数">
+<a class="header-anchor" href="#%e7%b5%90%e5%90%88%e5%af%86%e5%ba%a6%e9%96%a2%e6%95%b0"></a>
+結合密度関数
+</h3>$$
+f(x,y)
+$$<h3 id="規格化-1">
+<a class="header-anchor" href="#%e8%a6%8f%e6%a0%bc%e5%8c%96-1"></a>
+規格化
+</h3>$$
+\int^{\infty}_{-\infty}\int^{\infty}_{-\infty}f(x,y)dxdy=1
+$$<h3 id="周辺密度関数">
+<a class="header-anchor" href="#%e5%91%a8%e8%be%ba%e5%af%86%e5%ba%a6%e9%96%a2%e6%95%b0"></a>
+周辺密度関数
+</h3>$$
+f_X(x)=\int^{\infty}_{-\infty}f(x,y)dy
+$$<p>
+</p>
+$$
+f_Y(y)=\int^{\infty}_{-\infty}f(x,y)dx
+$$<h3 id="条件付き密度">
+<a class="header-anchor" href="#%e6%9d%a1%e4%bb%b6%e4%bb%98%e3%81%8d%e5%af%86%e5%ba%a6"></a>
+条件付き密度
+</h3>$$
+f_{Y|X}(y|x)=\frac{f(x,y)}{f_X(x)}
+$$<h3 id="独立性">
+<a class="header-anchor" href="#%e7%8b%ac%e7%ab%8b%e6%80%a7"></a>
+独立性
+</h3>$$
+f(x,y)=f_X(x)f_Y(y)
+$$<p>
+上記条件を満たす時、XとYは相互独立。</p>
+<h3 id="分布関数-4">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e9%96%a2%e6%95%b0-4"></a>
+分布関数
+</h3><p>$Z=X-Y$とすると、
+</p>
+$$
+\begin{align}
+F_Z(z)
+&=P(Z<z)\\
+&=P(X-Y<z)\\
+&=P(X<Y+z)\\
+&=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
+\end{align}
+$$<p>
+つまり分布関数$F_Z(z)=\iint_Df(x,y)dxdy$。分布関数を微分して確率密度関数$f_Z(z)$を得る。
+==注意==：$F_Z(z)$は規格化条件を満たす。</p>
+<h2 id="期待値と分散">
+<a class="header-anchor" href="#%e6%9c%9f%e5%be%85%e5%80%a4%e3%81%a8%e5%88%86%e6%95%a3"></a>
+期待値と分散
+</h2><h3 id="関係式">
+<a class="header-anchor" href="#%e9%96%a2%e4%bf%82%e5%bc%8f"></a>
+関係式
+</h3>$$
+DX=EX^2-(EX)^2
+$$<p>
+</p>
+$$
+D(cX)=c^2DX
+$$<p>
+</p>
+$$
+D(X+Y)=D(X)+D(Y)+2Cov(X,Y)
+$$<p>
+XとYが相互独立の場合$Cov(X,Y)=0$。</p>
+<h3 id="主要な期待値と分散">
+<a class="header-anchor" href="#%e4%b8%bb%e8%a6%81%e3%81%aa%e6%9c%9f%e5%be%85%e5%80%a4%e3%81%a8%e5%88%86%e6%95%a3"></a>
+主要な期待値と分散
+</h3><h4 id="分布">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83"></a>
+$(0,1)$分布
+</h4>$$
+EX=p,DX=p(1-p)
+$$<h4 id="二項分布">
+<a class="header-anchor" href="#%e4%ba%8c%e9%a0%85%e5%88%86%e5%b8%83"></a>
+$B(n,p)$二項分布
+</h4>$$
+EX=np,DX=np(1-p)
+$$<h4 id="一様分布-1">
+<a class="header-anchor" href="#%e4%b8%80%e6%a7%98%e5%88%86%e5%b8%83-1"></a>
+$U(a,b)$一様分布
+</h4>$$
+EX=\frac{a+b}{2},DX=\frac{(b-a)^2}{12}
+$$<h4 id="指数分布-1">
+<a class="header-anchor" href="#%e6%8c%87%e6%95%b0%e5%88%86%e5%b8%83-1"></a>
+$E(\lambda)$指数分布
+</h4>$$
+EX=\frac{1}{\lambda},DX=\frac{1}{\lambda^2}
+$$<h4 id="ポアソン分布-1">
+<a class="header-anchor" href="#%e3%83%9d%e3%82%a2%e3%82%bd%e3%83%b3%e5%88%86%e5%b8%83-1"></a>
+$P(\lambda)$ポアソン分布
+</h4>$$
+EX=\lambda,DX=\lambda
+$$<h4 id="正規分布-1">
+<a class="header-anchor" href="#%e6%ad%a3%e8%a6%8f%e5%88%86%e5%b8%83-1"></a>
+$N(\mu,\sigma^2)$正規分布
+</h4>$$
+EX=\mu,DX=\sigma^2
+$$<h2 id="共分散と相関係数">
+<a class="header-anchor" href="#%e5%85%b1%e5%88%86%e6%95%a3%e3%81%a8%e7%9b%b8%e9%96%a2%e4%bf%82%e6%95%b0"></a>
+共分散と相関係数
+</h2><h3 id="共分散">
+<a class="header-anchor" href="#%e5%85%b1%e5%88%86%e6%95%a3"></a>
+共分散
+</h3>$$
+Cov(X,Y)=E(XY)-E(X)E(Y)
+$$<p>
+明らかに、$X=Y$の場合、$Cov(X,X)=DX$。
+</p>
+$$
+Cov(X+Y,Z)=Cov(X,Z)+Cov(Y,Z)
+$$<p>
+</p>
+$$
+Cov(X-Y,Z)=Cov(X,Z)+Cov(-Y,Z)=Cov(X,Z)-Cov(Y,Z)
+$$<h3 id="相関係数">
+<a class="header-anchor" href="#%e7%9b%b8%e9%96%a2%e4%bf%82%e6%95%b0"></a>
+相関係数
+</h3>$$
+\rho_{XY}=\frac{Cov(X,Y)}{\sqrt{DX \cdot DY}}
+$$<p>
+$|\rho|$が大きいほど相関が強い。
+$Y=X$の場合、$X$と$X$の相関が最も強く、$\rho=1$を得る。
+$Y=-X$の場合、$-X$と$X$の相関が最も強く、$\rho=-1$を得る。
+明らかに$|\rho| \le 1$。
+$\rho=0$の場合、$X$と$Y$は無相関。
+==注意==：無相関$\nRightarrow$独立、独立$\Rightarrow$無相関。</p>
+<h2 id="チェビシェフの不等式による確率推定">
+<a class="header-anchor" href="#%e3%83%81%e3%82%a7%e3%83%93%e3%82%b7%e3%82%a7%e3%83%95%e3%81%ae%e4%b8%8d%e7%ad%89%e5%bc%8f%e3%81%ab%e3%82%88%e3%82%8b%e7%a2%ba%e7%8e%87%e6%8e%a8%e5%ae%9a"></a>
+チェビシェフの不等式による確率推定
+</h2>$$
+P(|X-EX|\ge \varepsilon)\le \frac{DX}{\varepsilon^2}
+$$<h2 id="中心極限定理">
+<a class="header-anchor" href="#%e4%b8%ad%e5%bf%83%e6%a5%b5%e9%99%90%e5%ae%9a%e7%90%86"></a>
+中心極限定理
+</h2><p>多数の独立変数が同一分布に従う場合、正規分布で近似可能。
+$x_1,x_2,\cdots,x_n$が独立かつ同一分布の場合、
+</p>
+$$
+\sum_{i=1}^nx_i \sim N(\sum^{n}_{i=1}E(x_i),\sum^{n}_{i=1}D(x_i))
+$$<h2 id="三大分布">
+<a class="header-anchor" href="#%e4%b8%89%e5%a4%a7%e5%88%86%e5%b8%83"></a>
+三大分布
+</h2><h3 id="カイ二乗分布">
+<a class="header-anchor" href="#%e3%82%ab%e3%82%a4%e4%ba%8c%e4%b9%97%e5%88%86%e5%b8%83"></a>
+$\chi^2$（カイ二乗）分布
+</h3>$$
+X=x_1^2+x_2^2+\cdots +x_n^2 \sim \chi^2(n),x_i \sim N(0,1)かつ相互独立
+$$<p>
+上側$\alpha$分位点$\chi^2_\alpha(n)$
+密度関数は第一象限に存在</p>
+<h3 id="分布-1">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83-1"></a>
+$t$分布
+</h3>$$
+X=\frac{x_1}{\sqrt{x_2/n}}\sim t(n),x_1 \sim N(0,1),x_2 \sim \chi^2(n),x_1とx_2は相互独立
+$$<p>
+上側$\alpha$分位点$t_\alpha(n)$
+密度関数は正規分布に似ており、左右対称</p>
+<h3 id="分布-2">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83-2"></a>
+$F$分布
+</h3>$$
+X=\frac{x_1/n_1}{x_2/n_2} \sim F(n_1,n_2),x_1 \sim \chi^2(n_1),x_2 \sim \chi^2(n_2),x_1とx_2は相互独立
+$$<p>
+上側$\alpha$分位点$F_\alpha(n_1,n_2)$
+密度関数は第一象限に存在</p>
+<h2 id="推定法">
+<a class="header-anchor" href="#%e6%8e%a8%e5%ae%9a%e6%b3%95"></a>
+推定法
+</h2><p>単純無作為標本が相互独立かつ同一分布の場合、未知パラメータを推定。</p>
+<h3 id="モーメント法">
+<a class="header-anchor" href="#%e3%83%a2%e3%83%bc%e3%83%a1%e3%83%b3%e3%83%88%e6%b3%95"></a>
+モーメント法
+</h3><p>標本数が大きい場合、標本を平均分布で近似し、標本平均で母平均を代替（母モーメント=標本モーメント）。</p>
+<ol>
+<li>与えられた確率分布/密度関数から期待値$EX$（一次母モーメント）を求める</li>
+<li>与えられた標本から標本平均$\bar{X}$（一次標本モーメント）を求める</li>
+<li>$EX=\bar{X}$として$\theta_0$を解き、$\hat{\theta}$を得る</li>
+</ol>
+<h3 id="最尤推定法">
+<a class="header-anchor" href="#%e6%9c%80%e5%b0%a4%e6%8e%a8%e5%ae%9a%e6%b3%95"></a>
+最尤推定法
+</h3><p>推定値が標本の発生確率を最大化する。
+標本の尤度関数：
+</p>
+$$
+L(x_1,x_2,\cdots,x_n;\theta)=
+\begin{cases}
+P(X=x_1)P(X=x_2)\cdots P(X=x_n),離散型\\
+f(x_1;\theta)f(x_2;\theta)\cdots f(x_n;\theta),連続型\\
+\end{cases}
+$$<p>
+$L$の最大値を求めるため、微分して極点を得る。積の微分が煩雑なため、まず対数形式に変換後、未知パラメータ$\theta$で微分。
+</p>
+$$
+(\ln L)'=
+\begin{cases}
+(\ln P_1+\ln P_2+\cdots +\ln P_n)',離散型\\
+[\ln f(x_1;\theta)+\ln f(x_2;\theta)+\cdots +\ln f(x_n;\theta)]',連続型\\
+\end{cases}
+=0
+$$<p>
+極点$\theta_0$を解き、推定値$\hat{\theta}$を得る。</p>
+<h2 id="不偏性と有効性">
+<a class="header-anchor" href="#%e4%b8%8d%e5%81%8f%e6%80%a7%e3%81%a8%e6%9c%89%e5%8a%b9%e6%80%a7"></a>
+不偏性と有効性
+</h2><p>$E(\hat{\theta})=\theta$の場合、$\hat{\theta}$</p>
+
+        <hr><p>本文 2024-09-10 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-10</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>数学</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Windows美化の軌跡</title>
+      <link>http://localhost:1313/ja/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link>
+      <pubDate>Sat, 07 Sep 2024 21:12:17 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid>
+      <description><![CDATA[<h1>Windows美化の軌跡</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="はじめに">
+<a class="header-anchor" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab"></a>
+はじめに
+</h2><p>よく言われるように、<strong>美化の究極はデフォルト</strong>です。</p>
+<p>デフォルトのWindowsでも効率的に仕事をこなすことはできますが、確かに見た目が良くないですよね。</p>
+<p>性能過剰なPCを持っている場合、適度な美化と簡素化を追求し、私の<del>高級な美的感覚</del>を満たすことは非常に重要です（笑）</p>
+<p>以下では、私が現在使用中または過去に使用した美化ソフト/スキームについて紹介します。</p>
+<h2 id="現在のデスクトップスキーム">
+<a class="header-anchor" href="#%e7%8f%be%e5%9c%a8%e3%81%ae%e3%83%87%e3%82%b9%e3%82%af%e3%83%88%e3%83%83%e3%83%97%e3%82%b9%e3%82%ad%e3%83%bc%e3%83%a0"></a>
+現在のデスクトップスキーム
+</h2><ul>
+<li>TranslucentTB：タスクバーの透明/アクリル効果</li>
+<li>Sapphire：デスクトップアイコンの操作性向上</li>
+<li>Wallpaper Engine：GPU負荷とメモリ使用量を抑えるため、Blue ArchiveのNoaのメモリーホールを壁紙として選択。4K動画数秒で、Wallpaper全体のメモリ使用量は約100MB。</li>
+<li>Rainmeter：オーディオバー1つだけを使用。Noaが十分に美しいので😋
+以前はハードウェア情報表示ウィジェットを使用していましたが、不安を増やすだけで役に立たないので廃止。</li>
+<li>QQの美化、NetEase Cloud Musicの美化、カーソルの美化、Obsidianのテーマとプラグインを導入。さらにEdgeブラウザのiTabタブページと各種便利なプラグインを追加し、現在のワークフローは完全に快適です。</li>
+</ul>
+<p>いくつかのスクリーンショットを貼ります
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/4189283242.png" alt="デスクトップ表示1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/1078908045.png" alt="デスクトップ表示2.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2569059367.png" alt="QQ美化表示.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2176031375.png" alt="Edge表示.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/994680139.png" alt="Obsidian表示.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/130206377.png" alt="タスクマネージャー表示.png">
+上記の通常ワークフローでは、メモリを多く消費するのはブラウザで、GPU負荷は主にwallpaperからです。ログインから完全な自動起動まで10秒以内で、許容範囲内の負荷です。</p>
+<p><strong>構成：</strong></p>
+<ul>
+<li>12400 F</li>
+<li>7700 XT</li>
+<li>32G DDR4</li>
+<li>2K 180Hz HDRディスプレイ</li>
+<li>Windows 11 Pro 23H2</li>
+</ul>
+<h2 id="qqの美化">
+<a class="header-anchor" href="#qq%e3%81%ae%e7%be%8e%e5%8c%96"></a>
+QQの美化
+</h2><p>==特におすすめ！==
+QQは多くの中国人が使わざるを得ないが憎しみも持つものです——広告、ポップアップ、見たくないエンタメページ、ごちゃごちゃした機能性の低いインターフェース。
+Windows版ではQQ9のリリース以降、上記の状況は改善されましたが、最近また嫌なものが追加されてきています。本性は変わらないようです。
+この常用ソフトで毎日苦しまないために、偉大なオープンソース精神と工夫精神を持つ中国インターネットユーザーたちはQQ改造プロジェクトに取り組み、今日私が紹介するのはその中の一つ——<strong>LiteLoaderQQNT</strong>です。
+さて本題に入ります。liteloaderはQQNTのプラグインフレームワークで、インストール後多数のプラグインをダウンロードできます。
+GitHubプロジェクトアドレス：<a href="https://github.com/LiteLoaderQQNT/LiteLoaderQQNT">LiteLoaderQQNT: QQNT プラグインローダー：軽量 · シンプル · オープンソース · フレンズ</a></p>
+<p>おすすめプラグインの一部：</p>
+<ol>
+<li><a href="https://github.com/xinyihl/LiteLoaderQQNT-PluginInstaller/tree/main">PluginInstaller</a>：LiteLoaderQQNTプラグインインストーラー。更新チェックとワンクリックインストール/再起動が可能。最初にこれをインストールすると他のプラグインのインストールが楽になります。</li>
+<li><a href="https://github.com/ltxhhz/LL-plugin-list-viewer/tree/main">LL-plugin-list-viewer</a>: LiteLoaderQQNT Plugin プラグインリスト表示・インストール・更新。ほとんどのプラグインを収録し、GitHubプロジェクトアドレスに直接アクセス可能。インストール機能に問題があり、一部プラグインは手動インストールと更新が必要で、そうしないとQQが起動できなくなるエラーが発生する可能性があります。プラグイン/テーマビューアーとして使用することをおすすめします。</li>
+<li><a href="https://github.com/xiyuesaves/LiteLoaderQQNT-lite_tools/tree/v4">軽量ツールボックス —— 軽量 · エレガント · 効率的 · フレンズ</a>：多数の機能を集約したツールボックスで、プラグインを探し回る手間が省けます。一部のオプション機能：
+<ul>
+<li><strong>チャット画面の美化</strong>でtgのような効果を実現（アバター表示、タイムスタンプ追加、メッセージ左寄せなど）</li>
+<li>称号、VIP、おすすめタグなどの不要な要素を削除</li>
+<li>右クリックでテキスト/画像を検索、メッセージを画像として送信</li>
+<li>オプションハイライト、特殊メッセージハイライト</li>
+<li><strong>ミニアプリ共有をURLカードに変換</strong>、退出時の位置記録、クイック+1（リピート）</li>
+<li><strong>メッセージプレビュー</strong>：メッセージ内の最初のリンクからtg風のプレビューカードを生成</li>
+<li>ローカルスタンプ</li>
+<li>メッセージサフィックス</li>
+<li><strong>撤回メッセージのキャッシュとハイライト</strong></li>
+<li><strong>背景設定</strong>、明るさ・透明度調整、ぼかし効果など</li>
+<li><strong>サイドバーの簡素化</strong>、すべての機能をオン/オフ可能</li>
+<li>入力欄、メッセージボックスの機能切り替え</li>
+<li>……</li>
+</ul>
+</li>
+<li><a href="https://github.com/xh321/LiteLoaderQQNT-QR-Decode/tree/master">QRコード解析</a>：QQNTチャット内の画像のQRコードを解析</li>
+<li><a href="https://github.com/xh321/LiteLoaderQQNT-Directly-Jump/tree/master">カスタムブラウザでリンクを開き警告ページをスキップ</a></li>
+<li><a href="https://github.com/MUKAPP/LiteLoaderQQNT-DeepL/tree/main">DeepL翻訳をQQNTに統合</a></li>
+<li><a href="https://github.com/d0j1a1701/LiteLoaderQQNT-Markdown/tree/v4">Markdown</a>：QQにMarkdownレンダリング機能を追加。送信したメッセージはこのプラグインをインストールしたQQNTのみがMarkdownをレンダリングできるため、ほとんどの場合役に立ちません。</li>
+<li><a href="https://github.com/xh321/LiteLoaderQQNT-Kill-Update/tree/master">Kill-Update</a>：QQの自動更新ポップアップを無効化。一部プラグインは最新版QQにすぐに対応しないため、更新を禁止することは有用です。</li>
+<li><a href="https://github.com/mo-jinran/window-on-top/tree/v4">window-on-top</a>：ウィンドウを常に最前面に表示する機能を追加</li>
+</ol>
+<p>他にもテーマがありますが、ゴミを除去した後の美化されたQQNTは既に十分美しいです。
+またChatGPTなどのAI統合プラグインもありますが、APIの設定が面倒（<del>お金がない</del>）です。</p>
+<h2 id="netease-cloud-musicの美化">
+<a class="header-anchor" href="#netease-cloud-music%e3%81%ae%e7%be%8e%e5%8c%96"></a>
+NetEase Cloud Musicの美化
+</h2><p>==特におすすめ！==
+ご存知の通り、中国の主要音楽プラットフォームは複雑化、トラフィック化の路線を取っています。今日はコミュニティ、明日はショートビデオを追加し、長期VIPユーザーにしつこくアピールします。
+音楽を聴くソフトとしては、いくつかの基本機能があれば十分です。国内外には優れた音楽プレーヤーが多数ありますが、「プレーヤー」と「音楽プラットフォーム」の間には大きなギャップがあります。例えば便利な曲検索、コメント閲覧、一緒に聴く機能など。プレイリスト作成、アーティストフォロー、課金購入などのサンクコストもユーザーに我慢を強います。
+私が使っているNetEase Cloud Musicには偉大なインターネットユーザーが作ったプラグインがあり、美化後は確かに見やすく使いやすくなります。
+まずはプラットフォーム <strong>betterncm</strong></p>
+<ul>
+<li>公式サイト：<a href="https://microblock.cc/betterncm">MicroBlock | BetterNCM</a></li>
+<li>GitHubプロジェクトアドレス：<a href="https://github.com/MicroCBer/BetterNCM">GitHub - MicroCBer/BetterNCM: NCMソフトウェアプラグインマネージャー</a></li>
+<li>コミュニティ：<a href="https://v2e2npdz15.feishu.cn/docx/UZkSd9d46o4fVOxaPNBcGXSenme">BetterNCMの包括的な紹介とトラブルシューティング - 飛書クラウドドキュメント</a></li>
+</ul>
+<p>利点はbetterncmをインストール後、すべてのテーマとプラグインをNetEase内のプラットフォームからダウンロード・更新でき、GitHubを探し回る必要がないことです。
+<strong>おすすめテーマ：</strong></p>
+<ul>
+<li>Materia You：シンプルなテーマで、背景画像のない単色背景。配色バリエーションが豊富。
+<img src="https://guzhengsvt.top/usr/uploads/2024/09/1596889912.png" alt="Matreia You.png"></li>
+</ul>
+<p><strong>おすすめプラグイン：</strong></p>
+<ol>
+<li>
+<p>RoundCornerNCM：NetEase Cloud Musicウィンドウの角を丸くする。Windows 11のみ。</p>
+</li>
+<li>
+<p>MikuPlugin：各要素の表示/非表示を管理。迷惑な動画、ライブストリームなどの要素をオフに可能。
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/439024086.png" alt="MikuPlugin.png"></p>
+</li>
+<li>
+<p>アップル風歌詞：曲ページをApple Music風に変更。歌詞ソースも変更可能。
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/663279809.png" alt="アップル風歌詞.png"></p>
+</li>
+<li>
+<p>この曲のカバーは何？：曲リストにカバー画像を追加。ストレージ使用量が増え、動作が重くなる可能性あり。
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/1807448404.png" alt="この曲のカバーは何？.png"></p>
+</li>
+<li>
+<p>RuLyrics：デスクトップ歌詞プラグイン。単語単位表示、メイン/サブ歌詞、フォント変更、前景色（再生済み）/背景色（未再生）の個別設定、タスクバーへの埋め込みをサポート（TranslucentTBと同時使用時に若干の問題あり）
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/285235071.png" alt="デスクトップ歌詞.png"></p>
+</li>
+<li>
+<p>その他の便利なプラグインは自分で探してダウンロード</p>
+</li>
+<li>
+<p>一部プラグインは他のプラグインに依存・競合する場合があるため、GitHub Issuesで確認してください。</p>
+</li>
+</ol>
+<h2 id="wallpaper-engine">
+<a class="header-anchor" href="#wallpaper-engine"></a>
+Wallpaper Engine
+</h2><p>==必須アイテム！==
+有名な万能壁紙ソフト。××√を開いて新たな人生を楽しむ（笑）
+最も一般的で使いやすい壁紙ソフトとして、wallpaperには多くの利点があります：</p>
+<ul>
+<li>リソースが豊富。steamワークショップには常に大量の高品質壁紙が追加され、ほとんどが無料でダウンロード使用可能。</li>
+<li>リソースの種類が多い。動画、画像、GIF、ウェブページ……壁紙の種類が非常に多く、多くの壁紙は機能が豊富で、音楽歌詞、エフェクト、スペクトラムなどの機能を統合し、デスクトップを簡単に飾り付け。</li>
+<li>リソース検索が便利。Wallpaperの検索とフィルタリングルールが充実。壁紙の解像度、タイプ、適応年齢などでフィルタリング可能。</li>
+<li>使い方が簡単。steamワークショップベースで、steamにアクセスできれば壁紙をダウンロード可能。VPN不要でダウンロード速度も保証。機能が複雑な壁紙でも、wallpaperインターフェースで簡単に設定可能。</li>
+<li>スマホ連携。WallpaperはAndroidアプリをリリースしており、PCからスマホに壁紙を転送して使用可能。</li>
+</ul>
+<p><strong>警告</strong>：一部の複雑なエフェクトウェブページや高解像度動画壁紙はGPU性能を多く消費し、VRAM使用量が多い場合があります。wallpaper設定でフレームレート、エフェクト、アプリケーション動作などを調整して改善可能。</p>
+<p>唯一の欠点はsteamでwallpaperを購入するのに19元必要ですが、この価格は高くないでしょう。</p>
+<p>Steam：<a href="https://store.steampowered.com/app/431960/Wallpaper_Engine/">SteamのWallpaper Engine：壁紙エンジン</a></p>
+<h2 id="translucenttb">
+<a class="header-anchor" href="#translucenttb"></a>
+TranslucentTB
+</h2><p>==特におすすめ！==
+タスクバー透明化ツール。完全透明、アクリル、不透明、テーマ色変更などが可能。
+メモリ、ストレージ使用量が非常に少なく、CPUパフォーマンスをほとんど消費しません。</p>
+<p>GitHubプロジェクトアドレス：<a href="https://github.com/TranslucentTB/TranslucentTB">GitHub - TranslucentTB</a>
+GitHub中国語翻訳プロジェクトアドレス：<a href="https://github.com/kasuganosoras/TranslucentTB-CN">GitHub - kasuganosoras/TranslucentTB-CN</a></p>
+<h2 id="rainmeter">
+<a class="header-anchor" href="#rainmeter"></a>
+Rainmeter
+</h2><p>==特におすすめ！==
+長年有名なデスクトップウィジェットツール。多機能な<strong>小さなウィジェット</strong>をデスクトップに自作でき、他人が作成したウィジェット（スキン）を簡単にインポート可能。
+一般的な機能：</p>
+<ul>
+<li>CPU、GPU、メモリなどのハードウェア情報表示（リアルタイム更新）</li>
+<li>オーディオ認識で様々なスペクトラムバーを生成</li>
+<li>メディアプレーヤー</li>
+<li>ワンクリックでアニメを追跡、新作アニメを確認</li>
+<li>画像配置、スライドショーギャラリーなど</li>
+<li>……</li>
+</ul>
+<p>欠点</p>
+<ul>
+<li>ウィジェットを多く配置すると重くなる</li>
+<li>一部ウィジェットはリソース消費が大きい</li>
+<li>選択肢が多すぎて工夫が必要</li>
+</ul>
+<p>公式サイト：<a href="https://www.rainmeter.net/">Rainmeter</a>
+中国公式サイト：<a href="https://rainmeter.cn/">個人共有 Rainmeter</a>
+GitHubプロジェクトアドレス：<a href="https://github.com/rainmeter/rainmeter">GitHub - rainmeter</a>
+中国コミュニティ：<a href="https://bbs.rainmeter.cn/">雨滴美化コミュニティ</a></p>
+<h2 id="start-11">
+<a class="header-anchor" href="#start-11"></a>
+Start 11
+</h2><p>タスクバーとスタートメニュー美化ツール</p>
+<ul>
+<li>スタートメニューをWindows7-11のスタイルに変更可能。色、透明度、間隔、配置などを変更可能。</li>
+<li><strong>高度なインデックス機能</strong>：Edgeブラウザとペアリング時、開いているタブも検索結果に表示され、最も使用頻度の高いコンテンツが結果の上位に表示。<strong>ローカル検索結果の横に表示されるWebコンテンツを削除するオプション！</strong></li>
+<li>スタートボタンアイコン、スタートメニュー背景画像、タスクバー色・テクスチャを変更。</li>
+</ul>
+<p>欠点</p>
+<ul>
+<li>有料</li>
+<li>使用時に重くなったり起動が遅い現象あり。</li>
+<li>TranslucentTBと互換性なし。</li>
+</ul>
+<p>公式サイト永久版価格35元、少し高め、30日間無料試用可能。多くの代理店があり、学習版も存在（非推奨）。</p>
+<p>公式サイト：<a href="https://stardock-start11.com/">Start11</a>
+中国公式サイト： <a href="https://www.start11.cn/">Start 11</a>
+Steam（評価分かれ）：<a href="https://store.steampowered.com/app/1694750/Start11_v2/">SteamのStart11 v2</a></p>
+<h2 id="楓の美化ツールボックス">
+<a class="header-anchor" href="#%e6%a5%93%e3%81%ae%e7%be%8e%e5%8c%96%e3%83%84%e3%83%bc%e3%83%ab%e3%83%9c%e3%83%83%e3%82%af%e3%82%b9"></a>
+楓の美化ツールボックス
+</h2><p>ファイルエクスプローラー、スタートメニュー、グローバルウィンドウ美化ツール
+現在の機能：</p>
+<ul>
+<li>メインページ：ファイルエクスプローラーウィンドウのフォント、ローカルカラーモードLight、Darkのカスタマイズ（実験的Darkモードには小さな視覚的バグあり）</li>
+<li>背景設定：ファイルエクスプローラー、スタートメニュー、システム設定の<strong>背景画像</strong>をカスタマイズ</li>
+<li>色設定：ファイルエクスプローラーの配色（タイトル、グループ、ヘッダー、詳細、ハードディスク進捗バー）、丸みを</li>
+</ul>
+        <hr><p>本文 2024-09-07 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-07</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>その他メモ</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>デジタル信号処理</title>
+      <link>http://localhost:1313/ja/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link>
+      <pubDate>Wed, 04 Sep 2024 23:44:15 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid>
+      <description><![CDATA[<h1>デジタル信号処理</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="デジタル信号処理の基本概念">
+<a class="header-anchor" href="#%e3%83%87%e3%82%b8%e3%82%bf%e3%83%ab%e4%bf%a1%e5%8f%b7%e5%87%a6%e7%90%86%e3%81%ae%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5"></a>
+デジタル信号処理の基本概念
+</h1><h2 id="信号の分類">
+<a class="header-anchor" href="#%e4%bf%a1%e5%8f%b7%e3%81%ae%e5%88%86%e9%a1%9e"></a>
+信号の分類
+</h2><ol>
+<li>連続信号：アナログ信号、時域連続信号。</li>
+<li>時域離散信号：振幅値が連続、時間値が離散。</li>
+<li>振幅離散信号：振幅値が離散、時間値が連続。</li>
+<li>デジタル信号：振幅と時間の両方が離散値。</li>
+</ol>
+<h3 id="違い">
+<a class="header-anchor" href="#%e9%81%95%e3%81%84"></a>
+違い
+</h3><p>時域離散信号とデジタル信号の違いは、デジタル信号に量子化誤差が存在する点のみである。</p>
+<h2 id="デジタル信号処理の実現方法">
+<a class="header-anchor" href="#%e3%83%87%e3%82%b8%e3%82%bf%e3%83%ab%e4%bf%a1%e5%8f%b7%e5%87%a6%e7%90%86%e3%81%ae%e5%ae%9f%e7%8f%be%e6%96%b9%e6%b3%95"></a>
+デジタル信号処理の実現方法
+</h2><p>デジタル信号処理の主な対象は<strong>デジタル信号</strong>であり、<strong>数値演算</strong>の方法を用いて処理目的を達成する。</p>
+<h3 id="ソフトウェア実装">
+<a class="header-anchor" href="#%e3%82%bd%e3%83%95%e3%83%88%e3%82%a6%e3%82%a7%e3%82%a2%e5%ae%9f%e8%a3%85"></a>
+ソフトウェア実装
+</h3><p>原理とアルゴリズムに基づき、プログラムを作成して汎用コンピュータで実現する。</p>
+<ul>
+<li>利点：柔軟性が高い</li>
+<li>欠点：演算速度が遅く、リアルタイム処理効果を得ることが難しい。</li>
+<li>アルゴリズム研究とシミュレーションに適している。</li>
+</ul>
+<h3 id="ハードウェア実装">
+<a class="header-anchor" href="#%e3%83%8f%e3%83%bc%e3%83%89%e3%82%a6%e3%82%a7%e3%82%a2%e5%ae%9f%e8%a3%85"></a>
+ハードウェア実装
+</h3><p>具体的な要求とアルゴリズムに従い、ハードウェア構成図を設計し、乗算器、加算器、遅延器、制御器、メモリ、および入出力インターフェースなどの基本部品を用いて実現する。</p>
+<ul>
+<li>利点：演算速度が速く、リアルタイム処理が可能</li>
+<li>欠点：柔軟性に欠ける</li>
+</ul>
+<p>ハードウェア実装とは、適切なDSPチップを選択し、チップの言語とタスク要求に適合するソフトウェアを組み合わせて、特定の信号処理機能を実現する方法である。</p>
+<h3 id="専用チップ">
+<a class="header-anchor" href="#%e5%b0%82%e7%94%a8%e3%83%81%e3%83%83%e3%83%97"></a>
+専用チップ
+</h3><p>専用の**デジタル信号処理チップ（DSPチップ）**を採用する方法は、現在最も発展が速く、応用が広い方法である。DSPチップは汎用マイクロコントローラよりも優れた利点を持ち、デジタル信号処理の特徴を組み合わせ、<strong>内部に乗算器とアキュムレータを備え</strong>、構造上パイプライン動作方式および並列構造、マルチバスを採用し、デジタル信号処理に適した命令を備えた、高速演算が可能なマイクロプロセッサである。</p>
+<p>より高速なリアルタイムシステムにおいて、DSPの速度も要求を満たさない場合、プログラマブル超大规模集積回路（FPGA）を採用するか、専用チップを開発して実現する必要がある。</p>
+<h2 id="デジタル信号処理の特徴">
+<a class="header-anchor" href="#%e3%83%87%e3%82%b8%e3%82%bf%e3%83%ab%e4%bf%a1%e5%8f%b7%e5%87%a6%e7%90%86%e3%81%ae%e7%89%b9%e5%be%b4"></a>
+デジタル信号処理の特徴
+</h2><p>アナログ信号処理と比較して、デジタル信号処理には以下の特徴があります：</p>
+<ol>
+<li>柔軟性</li>
+<li>高精度と高安定性</li>
+<li>大規模集積化が容易</li>
+<li>記憶、複雑な変換や演算など、アナログシステムでは実現できない多くの機能を実現可能。</li>
+</ol>
+<h2 id="信号の次元">
+<a class="header-anchor" href="#%e4%bf%a1%e5%8f%b7%e3%81%ae%e6%ac%a1%e5%85%83"></a>
+信号の次元
+</h2><p>信号は通常、1つの独立変数または複数の独立変数の関数です。
+独立変数が1つだけの場合、それは1次元信号と呼ばれます。2つ以上の独立変数がある場合、それは多次元信号と呼ばれます。</p>
+<h1 id="時間領域離散信号とシステム">
+<a class="header-anchor" href="#%e6%99%82%e9%96%93%e9%a0%98%e5%9f%9f%e9%9b%a2%e6%95%a3%e4%bf%a1%e5%8f%b7%e3%81%a8%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0"></a>
+時間領域離散信号とシステム
+</h1><h2 id="時間領域離散信号">
+<a class="header-anchor" href="#%e6%99%82%e9%96%93%e9%a0%98%e5%9f%9f%e9%9b%a2%e6%95%a3%e4%bf%a1%e5%8f%b7"></a>
+時間領域離散信号
+</h2><p>実際に遭遇する信号は一般的にアナログ信号であり、これに<strong>等間隔サンプリング</strong>を施すことで時間領域離散信号を得ることができる。</p>
+<p>アナログ信号 $x_a(t)$ 、離散時間点 $t_n$ 。
+均一サンプリング（等間隔サンプリング）の場合、サンプリング間隔 $T$ 、$t_n=nT$
+</p>
+$$
+x(n)=x_a(t)|_{t=nT}=x_a(nT),- \infty<n<\infty
+$$<p>
+$x(n)$ を時間領域離散信号と呼び、$n$ を整数とすると、次のようなシーケンスが得られる。
+</p>
+$$
+x(n)=\{\cdots ,x_a(-2T),x_a(-T),x_a(0),x_a(T),x_a(2T),\cdots \}
+$$<p>
+時間領域離散信号はシーケンスとも呼ばれる。</p>
+<h3 id="シーケンスの表現方法">
+<a class="header-anchor" href="#%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9%e3%81%ae%e8%a1%a8%e7%8f%be%e6%96%b9%e6%b3%95"></a>
+シーケンスの表現方法
+</h3><h4 id="集合記号">
+<a class="header-anchor" href="#%e9%9b%86%e5%90%88%e8%a8%98%e5%8f%b7"></a>
+集合記号
+</h4><p>数の集合は集合記号 $\{\cdot \}$ で表され、時間領域離散信号は順序付けられた数の集合として表現できる。
+集合内で下線が引かれた要素は、$n=0$ の時刻におけるサンプル値を示す。</p>
+<h4 id="数式表現">
+<a class="header-anchor" href="#%e6%95%b0%e5%bc%8f%e8%a1%a8%e7%8f%be"></a>
+数式表現
+</h4><p>例:</p>
+$$
+x(n)=a^{|n|},0<a<1,-\infty<n<\infty
+$$<h4 id="グラフ表現">
+<a class="header-anchor" href="#%e3%82%b0%e3%83%a9%e3%83%95%e8%a1%a8%e7%8f%be"></a>
+グラフ表現
+</h4><p>横軸を $n$ 、縦軸を $x$ の値とし、縦線の先端に黒点を付ける。</p>
+<h3 id="一般的な代表的なシーケンス">
+<a class="header-anchor" href="#%e4%b8%80%e8%88%ac%e7%9a%84%e3%81%aa%e4%bb%a3%e8%a1%a8%e7%9a%84%e3%81%aa%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9"></a>
+一般的な代表的なシーケンス
+</h3><h4 id="単位インパルスシーケンス">
+<a class="header-anchor" href="#%e5%8d%98%e4%bd%8d%e3%82%a4%e3%83%b3%e3%83%91%e3%83%ab%e3%82%b9%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9"></a>
+単位インパルスシーケンス $\delta(n)$
+</h4>$$
+\delta(n)=
+\begin{cases}
+1 & n=0\\
+0 & n \ne 0\\
+\end{cases}
+$$<p>
+単位サンプリングシーケンスとも呼ばれ、単位インパルス信号 $\delta(t)$ とは異なる。</p>
+<h4 id="単位ステップシーケンス">
+<a class="header-anchor" href="#%e5%8d%98%e4%bd%8d%e3%82%b9%e3%83%86%e3%83%83%e3%83%97%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9"></a>
+単位ステップシーケンス $u(n)$
+</h4>$$
+u(n)=
+\begin{cases}
+1 & n \ge 0\\
+0 & n < 0\\
+\end{cases}
+$$$$
+\delta(n)=u(n)-u(n-1)
+$$<p>
+</p>
+$$
+u(n)=\sum^{\infty}_{k=0}\delta(n-k)
+$$<h4 id="矩形シーケンス">
+<a class="header-anchor" href="#%e7%9f%a9%e5%bd%a2%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9"></a>
+矩形シーケンス $R_N(n)$
+</h4>$$
+R_N(n)=
+\begin{cases}
+1 & 0 \le n \le N-1\\
+0 & Others
+\end{cases}
+$$<p>
+$N$ を矩形シーケンスの長さと呼び、矩形シーケンスは単位ステップシーケンスで表現できる。
+</p>
+$$
+R_N(n)=u(n)-u(n-N)
+$$<h4 id="実指数シーケンス">
+<a class="header-anchor" href="#%e5%ae%9f%e6%8c%87%e6%95%b0%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9"></a>
+実指数シーケンス
+</h4>$$
+x(n)=a^n u(n),a は実数
+$$<ul>
+<li>$|a|<1$ の場合、$x(n)$ を収束シーケンスと呼ぶ</li>
+<li>$|a|>1$ の場合、$x(n)$ を発散シーケンスと呼ぶ</li>
+</ul>
+<h4 id="正弦波シーケンス">
+<a class="header-anchor" href="#%e6%ad%a3%e5%bc%a6%e6%b3%a2%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9"></a>
+正弦波シーケンス
+</h4>$$
+x(n)=\sin (\omega n)
+$$<p>
+$\omega$ を正弦波シーケンスの**デジタル領域周波数（デジタル周波数）**と呼び、単位はラジアン $rad$ で、シーケンスの変化率（隣接する2つのシーケンス値間の位相変化のラジアン数）を表す。</p>
+<p><strong>アナログ角周波数 $\varOmega$</strong>、正弦波シーケンスがアナログ信号 $x_a(t)=\sin (\varOmega t)$ からサンプリングされた場合
+</p>
+$$
+x(n)=x_a(t)|_{t=nT}=\sin (\varOmega nT)=\sin (\omega n)
+$$<p>
+これにより、デジタル周波数とアナログ角周波数の関係が得られる。
+</p>
+$$
+\omega=\varOmega T
+$$<p>
+サンプリング周波数 $F_s=\frac{1}{T}$ であるため、
+</p>
+$$
+\omega=\frac{\varOmega}{F_s}
+$$<p>
+<em>デジタル領域周波数は、アナログ角周波数をサンプリング周波数で正規化した周波数である。</em></p>
+<h4 id="複素指数シーケンス">
+<a class="header-anchor" href="#%e8%a4%87%e7%b4%a0%e6%8c%87%e6%95%b0%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9"></a>
+複素指数シーケンス
+</h4>$$
+x(n)=e^{(\sigma+j \omega_0)n}=\cos(\omega_0 n)+j \sin(\omega_0 n)
+$$<p>
+$n$ が整数であるため、正弦波シーケンスと複素指数シーケンスはともに $2 \pi$ を周期とする。</p>
+<h4 id="周期シーケンス">
+<a class="header-anchor" href="#%e5%91%a8%e6%9c%9f%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9"></a>
+周期シーケンス
+</h4><p>すべての $n$ に対して、<strong>最小の正の整数</strong> $N$ が存在し、次の等式が成り立つ場合：
+</p>
+$$
+x(n)=x(n+N),-\infty<n<\infty
+$$<p>
+シーケンス $x(n)$ を周期的シーケンスと呼び、周期を $N$ とする。</p>
+<h3 id="シーケンスの演算">
+<a class="header-anchor" href="#%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9%e3%81%ae%e6%bc%94%e7%ae%97"></a>
+シーケンスの演算
+</h3><p>簡単</p>
+<h4 id="加算と乗算">
+<a class="header-anchor" href="#%e5%8a%a0%e7%ae%97%e3%81%a8%e4%b9%97%e7%ae%97"></a>
+加算と乗算
+</h4><h4 id="シフト反転スケール変換">
+<a class="header-anchor" href="#%e3%82%b7%e3%83%95%e3%83%88%e5%8f%8d%e8%bb%a2%e3%82%b9%e3%82%b1%e3%83%bc%e3%83%ab%e5%a4%89%e6%8f%9b"></a>
+シフト、反転、スケール変換
+</h4><h2 id="離散時間領域システム">
+<a class="header-anchor" href="#%e9%9b%a2%e6%95%a3%e6%99%82%e9%96%93%e9%a0%98%e5%9f%9f%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0"></a>
+離散時間領域システム
+</h2><p>システムの入力が $x(n)$、出力が $y(n)$ で、演算関係は $T[\cdot]$ で表される。
+</p>
+$$
+y(n)=T[x(n)]
+$$<h3 id="線形システム">
+<a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0"></a>
+線形システム
+</h3><p>システムの入力と出力の間が線形重ね合わせの原理を満たすシステムを線形システムと呼ぶ。</p>
+<h4 id="加法性">
+<a class="header-anchor" href="#%e5%8a%a0%e6%b3%95%e6%80%a7"></a>
+加法性
+</h4>$$
+y_1(n)=T[x_1(n)],y_2(n)=T[x_2(n)]
+$$<p>
+</p>
+$$
+T[x_1(n)+x_2(n)]=y_1(n)+y_2(n)
+$$<h4 id="斉次性比例性">
+<a class="header-anchor" href="#%e6%96%89%e6%ac%a1%e6%80%a7%e6%af%94%e4%be%8b%e6%80%a7"></a>
+斉次性（比例性）
+</h4>$$
+T[a \times x(n)]=a \times y(n)
+$$<h3 id="時不変システム">
+<a class="header-anchor" href="#%e6%99%82%e4%b8%8d%e5%a4%89%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0"></a>
+時不変システム
+</h3><p>システムが入力信号に対する演算関係 $T[\cdot]$ が演算過程全体で時間変化せず、あるいはシステムが入力信号に応答する時間に依存しない場合、このようなシステムを時不変システムと呼ぶ。
+</p>
+$$
+y(n)=T[x(n)]
+$$<p>
+</p>
+$$
+y(n-n_0)=T[x(n-n_0)]
+$$<h3 id="線形時不変システムの特徴">
+<a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e6%99%82%e4%b8%8d%e5%a4%89%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%81%ae%e7%89%b9%e5%be%b4"></a>
+線形時不変システムの特徴
+</h3><p>完全応答=零入力応答+零状態応答</p>
+<h4 id="単位インパルス応答">
+<a class="header-anchor" href="#%e5%8d%98%e4%bd%8d%e3%82%a4%e3%83%b3%e3%83%91%e3%83%ab%e3%82%b9%e5%bf%9c%e7%ad%94"></a>
+単位インパルス応答
+</h4><p>初期状態が 0（零入力応答なし）
+</p>
+$$
+h(n)=T[\delta(n)]
+$$<p>
+</p>
+$$
+x(n)=\sum^{\infty}_{m=-\infty}x(m)\delta(n-m)
+$$<p>
+</p>
+$$
+\begin{align}
+y(n)
+&=T[x(n)]\\
+&=T[\sum^{\infty}_{m=-\infty}x(m)\delta(n-m)]\\
+&=\sum^{\infty}_{m=-\infty}x(m)T[\delta(n-m)]\\
+&=\sum^{\infty}_{m=-\infty}x(m)h(n-m)\\
+&=x(n)*h(n)
+\end{align}
+$$<p>
+畳み込みに関する知識は『信号とシステム』を参照</p>
+<h3 id="システムの因果性">
+<a class="header-anchor" href="#%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%81%ae%e5%9b%a0%e6%9e%9c%e6%80%a7"></a>
+システムの因果性
+</h3><p>定義：システムの $n$ 時点の出力が $n$ 時点およびそれ以前の入力系列のみに依存し、$n$ 時点以降の入力系列に依存しない場合、そのシステムは因果性を持つ、または因果システムであると言う。</p>
+<p>==必要十分条件==：システムの単位インパルス応答が次の式を満たす
+</p>
+$$
+h(n)=0 \quad n<0
+$$<h3 id="システムの安定性">
+<a class="header-anchor" href="#%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%81%ae%e5%ae%89%e5%ae%9a%e6%80%a7"></a>
+システムの安定性
+</h3><p>定義：有界な入力に対して、システムが生成する出力も<strong>有界</strong>である場合、そのシステムは安定性を持つ、または安定システムであると言う。
+==必要十分条件==：システムの単位インパルス応答が絶対可和である。
+</p>
+$$
+\sum^{\infty}_{m=-\infty}|h(n)|<\infty
+$$<h3 id="線形定係数差分方程式">
+<a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e5%ae%9a%e4%bf%82%e6%95%b0%e5%b7%ae%e5%88%86%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+線形定係数差分方程式
+</h3>
+        <hr><p>本文 2024-09-04 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-04</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Physics</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>空気力学の基礎</title>
+      <link>http://localhost:1313/ja/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 02 Sep 2024 22:13:45 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid>
+      <description><![CDATA[<h1>空気力学の基礎</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="流体静力学の基礎">
+<a class="header-anchor" href="#%e6%b5%81%e4%bd%93%e9%9d%99%e5%8a%9b%e5%ad%a6%e3%81%ae%e5%9f%ba%e7%a4%8e"></a>
+流体静力学の基礎
+</h1><h2 id="気体の性質">
+<a class="header-anchor" href="#%e6%b0%97%e4%bd%93%e3%81%ae%e6%80%a7%e8%b3%aa"></a>
+気体の性質
+</h2><h2 id="圧縮性">
+<a class="header-anchor" href="#%e5%9c%a7%e7%b8%ae%e6%80%a7"></a>
+圧縮性
+</h2><h2 id="体積弾性係数">
+<a class="header-anchor" href="#%e4%bd%93%e7%a9%8d%e5%bc%be%e6%80%a7%e4%bf%82%e6%95%b0"></a>
+体積弾性係数
+</h2><p>定義：単位相対体積変化を生じさせるために必要な圧力増加</p>
+$$
+E=-\frac{dp}{dV/V}
+$$<p>一定質量の気体において、体積と密度は反比例の関係にあり、すなわち</p>
+$$
+\frac{d \rho}{\rho}=-\frac{dV}{V}
+$$<p>これを代入すると</p>
+$$
+E=\rho \frac{dp}{d \rho}
+$$<p>常温における水の体積弾性係数：$2.1 \times 10^9N/m^2$</p>
+<p>通常、水は非圧縮性流体と見なすことができる。</p>
+<h2 id="粘性">
+<a class="header-anchor" href="#%e7%b2%98%e6%80%a7"></a>
+粘性
+</h2><p>粘性（viscosity）とは、流体が流動する際に生じる内部摩擦の性質を指します。粘性は流体の種類や温度によって大きく変化します。</p>
+<h3 id="粘性の定義">
+<a class="header-anchor" href="#%e7%b2%98%e6%80%a7%e3%81%ae%e5%ae%9a%e7%be%a9"></a>
+粘性の定義
+</h3><p>粘性は、流体の層間に速度勾配が存在するときに生じるせん断応力として定義されます。ニュートン流体では、せん断応力τは速度勾配du/dyに比例します：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">τ = μ * (du/dy)
+</span></span></code></pre></div><p>ここで：</p>
+<ul>
+<li>μ：粘性係数（動粘度）</li>
+<li>du/dy：速度勾配</li>
+</ul>
+<h3 id="粘性の種類">
+<a class="header-anchor" href="#%e7%b2%98%e6%80%a7%e3%81%ae%e7%a8%ae%e9%a1%9e"></a>
+粘性の種類
+</h3><ol>
+<li>
+<p><strong>動粘度（Dynamic viscosity）</strong><br>
+単位はPa・s（パスカル秒）。絶対粘度とも呼ばれます。</p>
+</li>
+<li>
+<p><strong>動粘度（Kinematic viscosity）</strong><br>
+動粘度を密度で割った値で、単位はm²/s。ν = μ/ρ で表されます。</p>
+</li>
+</ol>
+<h3 id="温度の影響">
+<a class="header-anchor" href="#%e6%b8%a9%e5%ba%a6%e3%81%ae%e5%bd%b1%e9%9f%bf"></a>
+温度の影響
+</h3><ul>
+<li><strong>液体</strong>：温度が上昇すると粘性は減少します</li>
+<li><strong>気体</strong>：温度が上昇すると粘性は増加します</li>
+</ul>
+<h3 id="代表的な流体の粘性">
+<a class="header-anchor" href="#%e4%bb%a3%e8%a1%a8%e7%9a%84%e3%81%aa%e6%b5%81%e4%bd%93%e3%81%ae%e7%b2%98%e6%80%a7"></a>
+代表的な流体の粘性
+</h3><table>
+  <thead>
+      <tr>
+          <th>物質</th>
+          <th>温度(℃)</th>
+          <th>動粘度(Pa・s)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>水</td>
+          <td>20</td>
+          <td>0.001002</td>
+      </tr>
+      <tr>
+          <td>空気</td>
+          <td>20</td>
+          <td>0.0000181</td>
+      </tr>
+      <tr>
+          <td>蜂蜜</td>
+          <td>20</td>
+          <td>~10</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="非ニュートン流体">
+<a class="header-anchor" href="#%e9%9d%9e%e3%83%8b%e3%83%a5%e3%83%bc%e3%83%88%e3%83%b3%e6%b5%81%e4%bd%93"></a>
+非ニュートン流体
+</h3><p>剪断速度によって粘性が変化する流体を非ニュートン流体と呼びます。例えば：</p>
+<ul>
+<li>ケチャップ（シア・シニング流体）</li>
+<li>歯磨き粉（ビンガム流体）</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 粘性計算の例</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">calculate_shear_stress</span><span class="p">(</span><span class="n">viscosity</span><span class="p">,</span> <span class="n">velocity_gradient</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    せん断応力を計算する
+</span></span></span><span class="line"><span class="cl"><span class="s2">    viscosity: 粘性係数 (Pa・s)
+</span></span></span><span class="line"><span class="cl"><span class="s2">    velocity_gradient: 速度勾配 (1/s)
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">viscosity</span> <span class="o">*</span> <span class="n">velocity_gradient</span>
+</span></span></code></pre></div><p>粘性は、ポンプの設計、潤滑、食品加工など、多くの工業プロセスで重要なパラメータです。</p>
+<h2 id="ニュートンの粘性法則">
+<a class="header-anchor" href="#%e3%83%8b%e3%83%a5%e3%83%bc%e3%83%88%e3%83%b3%e3%81%ae%e7%b2%98%e6%80%a7%e6%b3%95%e5%89%87"></a>
+ニュートンの粘性法則
+</h2><p>流体の運動によって生じる摩擦抵抗は接触面積に比例する</p>
+$$
+\tau =\mu \frac{du}{d \vec{n}}
+$$<p>$\tau$ ：摩擦<strong>応力</strong>、単位面積あたりの摩擦抵抗</p>
+<p>$\vec{n}$ ：接触面の法線方向</p>
+<p>$\mu$ ：比例定数、流体の<strong>粘性係数</strong>と呼ばれ、単位は $N \cdot s/m^2$</p>
+<p>$\frac{du}{d \vec{n}}$ ：速度勾配</p>
+<p>異なる流体媒質の粘性係数値はそれぞれ異なり、粘性係数は温度変化に伴って変化し、圧力とは基本的に関係ない。</p>
+<p>気体の粘性係数は温度上昇と共に増加する。</p>
+<h2 id="サザーランドの式">
+<a class="header-anchor" href="#%e3%82%b5%e3%82%b6%e3%83%bc%e3%83%a9%e3%83%b3%e3%83%89%e3%81%ae%e5%bc%8f"></a>
+サザーランドの式
+</h2><p>空気の粘性係数が温度によって変化する関係を表す近似式の一つ、サザーランドの式</p>
+$$
+\frac{\mu}{\mu_0}=(\frac{T}{288.15})^{1.5}\frac{288.15+C}{T+C}
+$$<p>$\mu_0$ ：温度が $288.15K$ のときの空気の粘性係数</p>
+<p>$C$ ：定数、値は $110.4K$</p>
+<h2 id="動粘度係数">
+<a class="header-anchor" href="#%e5%8b%95%e7%b2%98%e5%ba%a6%e4%bf%82%e6%95%b0"></a>
+動粘度係数
+</h2>$$
+\nu=\frac{\mu}{\rho}
+$$<p>$\nu$ ：動粘度係数，単位は $m^2/s$</p>
+<p>$\mu$ ：粘性係数</p>
+<p>$\rho$ ：密度</p>
+<h2 id="熱伝導性">
+<a class="header-anchor" href="#%e7%86%b1%e4%bc%9d%e5%b0%8e%e6%80%a7"></a>
+熱伝導性
+</h2><p>定義：気体中のある方向に温度勾配が存在する場合、熱は温度の高い場所から低い場所へと伝わる。この性質を気体の熱伝導性と呼ぶ。</p>
+<p>単位時間内に伝達される熱量は、伝熱面積に比例し、熱流方向の温度勾配に比例する。すなわち、</p>
+$$
+q=-\lambda \frac{\partial T}{\partial \vec{n}}
+$$<p>$q$ ：単位時間当たりの単位面積を通過する熱量、単位 $kJ/(m^2 \cdot s)$</p>
+<p>$\frac{\partial T}{\partial \vec{n}}$ ：温度勾配、単位 $K/m$</p>
+<p>$\lambda$ ：熱伝導率、単位 $kJ/(m \cdot K \cdot s)$</p>
+<p>負号は、熱の伝達方向が常に温度勾配の方向と逆であることを示す。</p>
+<h2 id="流体の分類">
+<a class="header-anchor" href="#%e6%b5%81%e4%bd%93%e3%81%ae%e5%88%86%e9%a1%9e"></a>
+流体の分類
+</h2><h2 id="連続体仮説">
+<a class="header-anchor" href="#%e9%80%a3%e7%b6%9a%e4%bd%93%e4%bb%ae%e8%aa%ac"></a>
+連続体仮説
+</h2><h2 id="理想流体">
+<a class="header-anchor" href="#%e7%90%86%e6%83%b3%e6%b5%81%e4%bd%93"></a>
+理想流体
+</h2><p>粘性を考慮しないこのモデルでは、流体微粒子は粘性力の影響を受けません。主に気体に適用されます。</p>
+<p>粘性を無視した気体は理想気体と呼ばれます。</p>
+<h2 id="圧力の等方性">
+<a class="header-anchor" href="#%e5%9c%a7%e5%8a%9b%e3%81%ae%e7%ad%89%e6%96%b9%e6%80%a7"></a>
+圧力の等方性
+</h2><p>理想的な流体中の一点における圧力は、受圧面の方位とは無関係であり、空間座標の連続関数にすぎません。</p>
+<h2 id="非圧縮性流体">
+<a class="header-anchor" href="#%e9%9d%9e%e5%9c%a7%e7%b8%ae%e6%80%a7%e6%b5%81%e4%bd%93"></a>
+非圧縮性流体
+</h2><p>気体の圧縮性や弾性を考慮せず、体積弾性係数が無限大、または流体密度が定数と見なすことができる。液体によく用いられる。</p>
+<p>非圧縮性流体の流動法則を解くには、力学法則に従うだけでよく、熱力学関係を考慮する必要はない。</p>
+<p>流速が低い気体の場合も、非圧縮性流体として流動問題を扱うことができる。</p>
+<h2 id="断熱流体">
+<a class="header-anchor" href="#%e6%96%ad%e7%86%b1%e6%b5%81%e4%bd%93"></a>
+断熱流体
+</h2><p>熱伝導性を考慮しない流体モデル、つまり流体の熱伝導係数をゼロと見なす。低速で流れる空気は一般に熱伝導係数が非常に小さいため、断熱と見なすことができる。</p>
+<p>気体微粒子間の熱伝導作用を考慮しない気体モデルを断熱気体と呼ぶ。</p>
+<h2 id="完全気体">
+<a class="header-anchor" href="#%e5%ae%8c%e5%85%a8%e6%b0%97%e4%bd%93"></a>
+完全気体
+</h2><p>いかなる状態においても、気体の圧力、密度、温度の間には一定の関数関係が存在する</p>
+$$
+p=p(\rho,T)
+$$<h2 id="完全気体の状態方程式">
+<a class="header-anchor" href="#%e5%ae%8c%e5%85%a8%e6%b0%97%e4%bd%93%e3%81%ae%e7%8a%b6%e6%85%8b%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+完全気体の状態方程式
+</h2>$$
+p=\frac{\overline{R}}{m}\rho T
+$$<p>$\overline{R}$ ：普遍気体定数、$8315m^2/(s^2 \cdot K)$</p>
+<p>$m$ ：ある気体の相対分子質量</p>
+<p>$R=\frac{\overline{R}}{m}$ のとき、</p>
+$$
+p=\rho R T
+$$<p>$R$ は気体定数で、空気の場合は約 $287.035m^2/(s^2 \cdot K)$</p>
+<h2 id="流体微団に働く力">
+<a class="header-anchor" href="#%e6%b5%81%e4%bd%93%e5%be%ae%e5%9b%a3%e3%81%ab%e5%83%8d%e3%81%8f%e5%8a%9b"></a>
+流体微団に働く力
+</h2><h2 id="プレッシャー">
+<a class="header-anchor" href="#%e3%83%97%e3%83%ac%e3%83%83%e3%82%b7%e3%83%a3%e3%83%bc"></a>
+プレッシャー
+</h2><h2 id="せん断応力摩擦力">
+<a class="header-anchor" href="#%e3%81%9b%e3%82%93%e6%96%ad%e5%bf%9c%e5%8a%9b%e6%91%a9%e6%93%a6%e5%8a%9b"></a>
+せん断応力（摩擦力）
+</h2><h2 id="基本相互作用">
+<a class="header-anchor" href="#%e5%9f%ba%e6%9c%ac%e7%9b%b8%e4%ba%92%e4%bd%9c%e7%94%a8"></a>
+基本相互作用
+</h2><ul>
+<li>重力</li>
+<li>電磁力</li>
+<li>遠心力</li>
+</ul>
+<h2 id="静水圧平衡方程式">
+<a class="header-anchor" href="#%e9%9d%99%e6%b0%b4%e5%9c%a7%e5%b9%b3%e8%a1%a1%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+静水圧平衡方程式
+</h2><p>==静止流体==中のある点 $P$ を考え、その圧力を $p$ とする。</p>
+<p>デカルト座標系を構築し、流体内部の各点における圧力を</p>
+$$
+p(x,y,z)
+$$<p>とする。</p>
+<p>$P$ を中心として、各辺が座標軸に平行な直方体を作成し、辺の長さを $dx, dy, dz$ とする。</p>
+<p>$x$ 軸方向に注目すると、二つの面に加わる圧力の大きさはそれぞれ</p>
+$$
+[p(x_0,y_0,z_0)+(\frac{\partial p}{\partial x})(\frac{dx}{2})]dx dy
+$$$$
+[p(x_0,y_0,z_0)-(\frac{\partial p}{\partial x})(\frac{dx}{2})]dx dy
+$$<p>となる。</p>
+<p>流体微粒子の $x$ 軸方向に働く体積力は</p>
+$$
+f_x \rho dx dy dz
+$$<p>である。ここで、$f_x$ は単位質量に働く体積力の $x$ 軸方向成分を表す。</p>
+<p>流体が静止しているため、流体微粒子には力の平衡が成り立つ。</p>
+<p>$x$ 軸方向の力の平衡方程式は</p>
+$$
+[p(x_0,y_0,z_0)-(\frac{\partial p}{\partial x})(\frac{dx}{2})]dx dy-[p(x_0,y_0,z_0)+(\frac{\partial p}{\partial x})(\frac{dx}{2})]dx dy+f_x \rho dx dy dz=0
+$$<p>これを整理すると</p>
+$$
+\frac{\partial p}{\partial x}=\rho f_x
+$$$$
+\frac{\partial p}{\partial y}=\rho f_y
+$$$$
+\frac{\partial p}{\partial z}=\rho f_z
+$$<p>が得られる。</p>
+<p>$\because$ $p$ の全微分方程式は</p>
+$$
+dp=\frac{\partial p}{\partial x}dx+\frac{\partial p}{\partial y}dy+\frac{\partial p}{\partial z}dz
+$$<p>$\therefore$</p>
+$$
+dp=\rho(f_x dx+f_y dy+f_z dz)
+$$<p>==体積力ポテンシャル関数==を</p>
+$$
+\varOmega=\varOmega(x,y,z)
+$$<p>と定義する。</p>
+<p>その全微分は</p>
+$$
+d \varOmega=\frac{\partial \varOmega}{\partial x}dx+\frac{\partial \varOmega}{\partial y}dy+\frac{\partial \varOmega}{\partial z}dz
+$$<p>ここで、$\frac{\partial \varOmega}{\partial x}=f_x$、$\frac{\partial \varOmega}{\partial y}=f_y$、$\frac{\partial \varOmega}{\partial z}=-f_z$ である。</p>
+<p>以上の関係から</p>
+$$
+dp=-\rho d \varOmega
+$$<p>が得られる。両辺を $x,y,z$ について三重積分すると</p>
+$$
+p=-\rho \varOmega+C(定数)
+$$$$
+C=p+\rho \varOmega
+$$<p>ある点 A における圧力 $p_a$、二点間の体積力ポテンシャル関数の差 $\varOmega_a-\varOmega$、静止流体の密度 $\rho$（一様）が既知の場合、任意の点における体積力ポテンシャル関数 $\varOmega$ からその点の圧力を求めることができる：</p>
+$$
+p=p_a+\rho (\varOmega_a-\varOmega)
+$$<p><strong>推論:</strong> 流体中の等圧面は必ず体積力の等ポテンシャル面となる。</p>
+<h2 id="大気の層">
+<a class="header-anchor" href="#%e5%a4%a7%e6%b0%97%e3%81%ae%e5%b1%a4"></a>
+大気の層
+</h2><h2 id="下部大気圏">
+<a class="header-anchor" href="#%e4%b8%8b%e9%83%a8%e5%a4%a7%e6%b0%97%e5%9c%8f"></a>
+下部大気圏
+</h2><ul>
+<li>高度：海面——85 km</li>
+<li>特徴：組成が均一、窒素が総体積の78.1%を占め、酸素が総体積の21%を占める</li>
+</ul>
+<h2 id="対流圏">
+<a class="header-anchor" href="#%e5%af%be%e6%b5%81%e5%9c%8f"></a>
+対流圏
+</h2><ul>
+<li>高度
+<ul>
+<li>赤道：16~18 km</li>
+<li>中緯度地域：10~12 km</li>
+<li>極地：7~10 km</li>
+</ul>
+</li>
+<li>質量：大気全体の質量の75%を占める</li>
+<li>特徴：上下方向の気流があり、嵐や雷雨現象が発生する。高度が上がるにつれ、気温が急速に低下する。</li>
+</ul>
+<h2 id="対流圏界面">
+<a class="header-anchor" href="#%e5%af%be%e6%b5%81%e5%9c%8f%e7%95%8c%e9%9d%a2"></a>
+対流圏界面
+</h2><p>遷移層で、厚さは数百メートルから1～2キロメートル程度。</p>
+<h2 id="成層圏">
+<a class="header-anchor" href="#%e6%88%90%e5%b1%a4%e5%9c%8f"></a>
+成層圏
+</h2><ul>
+<li>高度：対流圏～32 km</li>
+<li>質量：大気圏の質量の約4分の1を占める</li>
+<li>特徴：気象現象がなく、空気は水平に流動し、温度は一定（平均約216.65 K）を保つ</li>
+</ul>
+<h2 id="中間大気圏">
+<a class="header-anchor" href="#%e4%b8%ad%e9%96%93%e5%a4%a7%e6%b0%97%e5%9c%8f"></a>
+中間大気圏
+</h2><ul>
+<li>高度：32~85 km</li>
+<li>質量：1/3000</li>
+<li>温度：最初に上昇し、その後下降し、85 km の地点で106 K以下まで下がることがある。</li>
+</ul>
+<h2 id="高層大気">
+<a class="header-anchor" href="#%e9%ab%98%e5%b1%a4%e5%a4%a7%e6%b0%97"></a>
+高層大気
+</h2><ul>
+<li>高度：85 km 以上</li>
+<li>特徴：組成が不均一で、太陽放射を直接吸収する</li>
+</ul>
+<h2 id="熱圏thermosphere">
+<a class="header-anchor" href="#%e7%86%b1%e5%9c%8fthermosphere"></a>
+熱圏（Thermosphere）
+</h2><ul>
+<li>高度：85～500 km</li>
+<li>温度：高度とともに上昇し、500 kmでは日中1370 Kに達する</li>
+<li>特徴：太陽からの短波放射を直接受ける</li>
+</ul>
+<h2 id="外層大気">
+<a class="header-anchor" href="#%e5%a4%96%e5%b1%a4%e5%a4%a7%e6%b0%97"></a>
+外層大気
+</h2><ul>
+<li>高度：500+ km，大気は徐々に星間空間と融合する</li>
+<li>質量：$1/10^{11}$</li>
+<li>特徴：大気が希薄すぎて、温度で定義するのに適さない。空気分子は宇宙空間に逃げ出すことができる。</li>
+</ul>
+<h2 id="上層大気と電離層">
+<a class="header-anchor" href="#%e4%b8%8a%e5%b1%a4%e5%a4%a7%e6%b0%97%e3%81%a8%e9%9b%bb%e9%9b%a2%e5%b1%a4"></a>
+上層大気と電離層
+</h2><ul>
+<li>上層大気は太陽の短波放射によって解離され、電子とイオンとなり、電離層を形成します。</li>
+<li>100 km以上の高高度では、空気は良い導体となります。</li>
+<li>150 km以上では、空気が薄すぎて音を伝えることができません。</li>
+</ul>
+<h2 id="d層">
+<a class="header-anchor" href="#d%e5%b1%a4"></a>
+D層
+</h2><ul>
+<li>高度：60～80 km</li>
+</ul>
+<h2 id="e-層">
+<a class="header-anchor" href="#e-%e5%b1%a4"></a>
+E 層
+</h2><ul>
+<li>高度：100~120 km</li>
+</ul>
+<h2 id="層">
+<a class="header-anchor" href="#%e5%b1%a4"></a>
+$F_1$ 層
+</h2><ul>
+<li>高度：180～220 km</li>
+</ul>
+<h2 id="層-1">
+<a class="header-anchor" href="#%e5%b1%a4-1"></a>
+$F_2$ 層
+</h2><ul>
+<li>高度：300~350 km</li>
+</ul>
+<h2 id="国際標準大気">
+<a class="header-anchor" href="#%e5%9b%bd%e9%9a%9b%e6%a8%99%e6%ba%96%e5%a4%a7%e6%b0%97"></a>
+国際標準大気
+</h2><p>航空工学において統一された大気圧、密度、温度などのパラメータ基準で、中緯度地域の年間平均条件に基づいて統計的に決定されたものを国際標準大気と呼ぶ。</p>
+<h1 id="流体運動学と力学の基礎">
+<a class="header-anchor" href="#%e6%b5%81%e4%bd%93%e9%81%8b%e5%8b%95%e5%ad%a6%e3%81%a8%e5%8a%9b%e5%ad%a6%e3%81%ae%e5%9f%ba%e7%a4%8e"></a>
+流体運動学と力学の基礎
+</h1><h2 id="流れ場">
+<a class="header-anchor" href="#%e6%b5%81%e3%82%8c%e5%a0%b4"></a>
+流れ場
+</h2><p>流れ場：運動する流体で満たされた空間</p>
+<p>流動パラメータ：流体の運動特性を表す物理量、例えば速度、密度、圧力など。</p>
+<p>流体力学の方法：ラグランジュ法、オイラー法</p>
+<h2 id="ラグランジュ法">
+<a class="header-anchor" href="#%e3%83%a9%e3%82%b0%e3%83%a9%e3%83%b3%e3%82%b8%e3%83%a5%e6%b3%95"></a>
+ラグランジュ法
+</h2><p><strong>質点</strong>（運動）に焦点を当てる</p>
+<ul>
+<li>流れ場の各質点の運動パラメータが時間とともにどのように変化するか、および運動軌跡を研究する。</li>
+<li>すべての流体質点の運動パラメータの変化を総合することで、流れ場全体の運動法則を得る。</li>
+</ul>
+<h2 id="オイラー法">
+<a class="header-anchor" href="#%e3%82%aa%e3%82%a4%e3%83%a9%e3%83%bc%e6%b3%95"></a>
+オイラー法
+</h2><p><strong>空間点</strong>に着目する（固定）</p>
+<ul>
+<li>流体粒子が空間の固定点を通過する際の、運動パラメータの時間変化を研究する。</li>
+<li>流れ場内の全ての空間点における運動パラメータの変化を総合することで、流れ場全体の運動法則を得ることができる。</li>
+</ul>
+<p>オイラー法では、流れ場の運動パラメータは一般に空間点の座標と時間の関数となる。</p>
+<p>速度を例にとると</p>
+$$
+v=v(x,y,z,t)
+$$<p>4つの変数は独立している。</p>
+<p>一般的な3次元空間では、デカルト座標系を構築し、スカラーパラメータを$x,y,z$軸方向に分解して分析する。</p>
+$$
+v_x=v_x(x,y,z,t)
+$$<p>微分して加速度成分を得る</p>
+$$
+a_x=\frac{d v_x}{dt}=\frac{\partial v_x}{\partial t}+\frac{\partial v_x}{\partial x}\frac{dx}{dt}+\frac{\partial v_x}{\partial y}\frac{dy}{dt}+\frac{\partial v_x}{\partial z}\frac{dz}{dt}
+$$<p>$\because$ $\frac{dx}{dt}=v_x,\frac{dy}{dt}=v_y,\frac{dz}{dt}=v_z$</p>
+<p>$\therefore$</p>
+$$
+a_x=\frac{\partial v_x}{\partial t}+v_x \frac{\partial v_x}{\partial x}+v_y \frac{\partial v_x}{\partial y}+v_z \frac{\partial v_x}{\partial z}
+$$<p>これにより、加速度は時間と位置の関数であることが分かる</p>
+$$
+a_x=a_x(t,x,y,z)
+$$<h2 id="局所加速度">
+<a class="header-anchor" href="#%e5%b1%80%e6%89%80%e5%8a%a0%e9%80%9f%e5%ba%a6"></a>
+局所加速度
+</h2><p>等式右边第一項は、空間固定点における流体粒子の速度の時間変化率を表し、<strong>局所加速度</strong>と呼ばれる。（速度と時間の関係）</p>
+<p>局所加速度は、流れ場中の速度が時間とともに変化することによって生じる。</p>
+<h2 id="移流加速度">
+<a class="header-anchor" href="#%e7%a7%bb%e6%b5%81%e5%8a%a0%e9%80%9f%e5%ba%a6"></a>
+移流加速度
+</h2><p>後ろの3つの項は、同じ瞬間に、流体粒子が速度ベクトルの方向に沿って空間のある点から隣接する別の点へ移動する際の速度変化率を反映しており、<strong>移流加速度</strong>と呼ばれる。（速度と変位の関係）</p>
+<p>移流加速度は、流れ場の不均一性によって引き起こされる。</p>
+<h2 id="非定常流れ場">
+<a class="header-anchor" href="#%e9%9d%9e%e5%ae%9a%e5%b8%b8%e6%b5%81%e3%82%8c%e5%a0%b4"></a>
+非定常流れ場
+</h2><p>流れ場において、少なくとも一つの<strong>空間点</strong>における物理量が時間とともに変化する状態。</p>
+<h2 id="定常流れ場">
+<a class="header-anchor" href="#%e5%ae%9a%e5%b8%b8%e6%b5%81%e3%82%8c%e5%a0%b4"></a>
+定常流れ場
+</h2><p>流れ場において<strong>任意の空間点</strong>における物理量が時間的に変化しない。</p>
+<h2 id="軌跡線">
+<a class="header-anchor" href="#%e8%bb%8c%e8%b7%a1%e7%b7%9a"></a>
+軌跡線
+</h2><p>流れ場で標識された運動する流体粒子が一定時間内に通過するすべての空間点の集合を、その流体粒子の軌跡線と呼ぶ。</p>
+<h2 id="流線">
+<a class="header-anchor" href="#%e6%b5%81%e7%b7%9a"></a>
+流線
+</h2><p>流れ場の各空間点において<strong>速度ベクトルと接する</strong>曲線を流線と呼ぶ。</p>
+<p>流線は、同一時刻における異なる流体粒子によって形成される曲線であり、その時刻における異なる流体粒子の速度方向を示す。</p>
+<p><strong>特徴：</strong></p>
+<ul>
+<li>
+<p>定常流れ場では、各流線は時間とともに変化しない。</p>
+</li>
+<li>
+<p>非定常流れ場では、時間とともに変化する流線が存在する。</p>
+</li>
+<li>
+<p>定常流れ場では、ある空間点を通る流線は、その空間点を通るすべての<strong>流体粒子の軌跡</strong>と一致する。</p>
+</li>
+<li>
+<p>一般的に流線は交わらない（同一時刻、同一空間点に2つの速度方向は存在しない）。</p>
+</li>
+<li>
+<p>速度が0の空間点では、流線は交わることができる。通常、速度が0の空間点を<strong>駐点</strong>と呼ぶ。</p>
+</li>
+<li>
+<p>速度が無限大の空間点では、流線は交わることができる。通常、速度が無限大の空間点を<strong>特異点</strong>と呼ぶ。</p>
+</li>
+<li>
+<p>流線が接する場合、接点以降の2つの線は一致する。</p>
+</li>
+<li>
+<p>流れ場の各点には流線が通っており、すべての流線の集合を<strong>流線譜</strong>または単に<strong>流譜</strong>と呼ぶ。</p>
+</li>
+</ul>
+<h2 id="流線微分方程式">
+<a class="header-anchor" href="#%e6%b5%81%e7%b7%9a%e5%be%ae%e5%88%86%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+流線微分方程式
+</h2><p>流線上のある点 $M(x,y,z)$ における速度を $\vec{v}$ とし、$M$ 点の流線微小要素の長さを $ds$ とする。デカルト座標系では、$v_x,v_y,v_z$ および $dx,dy,dz$ に分解される。</p>
+<p>流線上の任意の点における速度の方向は流線の接線方向と同じであるため、</p>
+$$
+\cos(\vec{v},\vec{i})=\frac{v_x}{v}=\frac{dx}{ds}
+$$<p>ここで、$\vec{i}$ は $x$ 軸方向の単位法線ベクトルであり、$y,z$ 軸についても同様である。</p>
+$$
+\frac{dx}{v_x}=\frac{dy}{v_y}=\frac{dz}{v_z}
+$$<p>上式が流線の微分方程式である。</p>
+<p>速度分布が既知の場合、流場中の任意の点を通る流線の形状を求めることができる。</p>
+<h2 id="流管">
+<a class="header-anchor" href="#%e6%b5%81%e7%ae%a1"></a>
+流管
+</h2><p>流れ場において、<strong>流線ではない</strong> <strong>閉じた</strong> 曲線 C があり、C 上の各点を通る流線を描いたとき、これらの流線の集合によって形成される管状の曲面を流管と呼びます。</p>
+<h2 id="流体微団の運動解析">
+<a class="header-anchor" href="#%e6%b5%81%e4%bd%93%e5%be%ae%e5%9b%a3%e3%81%ae%e9%81%8b%e5%8b%95%e8%a7%a3%e6%9e%90"></a>
+流体微団の運動解析
+</h2><h2 id="運動形式">
+<a class="header-anchor" href="#%e9%81%8b%e5%8b%95%e5%bd%a2%e5%bc%8f"></a>
+運動形式
+</h2><h2 id="剛体運動">
+<a class="header-anchor" href="#%e5%89%9b%e4%bd%93%e9%81%8b%e5%8b%95"></a>
+剛体運動
+</h2><ul>
+<li>平行移動</li>
+<li>軸周りの回転</li>
+</ul>
+<h2 id="流体の運動">
+<a class="header-anchor" href="#%e6%b5%81%e4%bd%93%e3%81%ae%e9%81%8b%e5%8b%95"></a>
+流体の運動
+</h2><ul>
+<li>並進運動</li>
+<li>軸回転運動</li>
+<li>変形運動
+<ul>
+<li>直線変形</li>
+<li>せん断変形</li>
+</ul>
+</li>
+</ul>
+<h2 id="二次元解析">
+<a class="header-anchor" href="#%e4%ba%8c%e6%ac%a1%e5%85%83%e8%a7%a3%e6%9e%90"></a>
+二次元解析
+</h2><p>![Pasted image 20240902212258.png][1]</p>
+<p>流れ場の中から任意に長方形の流体微小要素 ABCD を選び、その二辺の長さをそれぞれ $\delta_x,\delta_y$ とし、いずれも微小量とする。</p>
+<p>$v_x,v_y$ を点 A における流体微小要素の分速度とし、分速度は全て空間点座標の連続関数であるとする。すると、点 B, D の速度は点 A におけるテイラー級数展開で表現できる。</p>
+<p>$\because$ 流体微小要素の辺長は十分に小さい</p>
+<p>$\therefore$ 二次以上の微小量は無視できる</p>
+$$
+v_{Bx}=v_x+\frac{\partial v_x}{\partial x}\delta_x
+$$$$
+v_{By}=v_y+\frac{\partial v_y}{x}\delta_x
+$$<p>流体微小要素が運動する際、全体の運動に加えて、点 B は点 A に対して相対運動もする。</p>
+<p>$x$ 軸方向の相対運動速度は $v_{Bx}-v_x=\frac{\partial v_x}{\partial x}\delta_x$ であり、$y$ 軸方向も同様に $\frac{\partial v_x}{\partial x}\delta_x$ となる。</p>
+<p>点 D の点 A に対する相対運動速度は $v_{Dx}-v_x=\frac{\partial v_x}{\partial y}\delta_y,v_{Dy}-v_y=\frac{\partial v_y}{\partial y}\delta_y$ である。</p>
+<h2 id="線変形運動">
+<a class="header-anchor" href="#%e7%b7%9a%e5%a4%89%e5%bd%a2%e9%81%8b%e5%8b%95"></a>
+線変形運動
+</h2><p>![Pasted image 20240902212840.png][2]</p>
+<p>相対速度 $\frac{\partial v_x}{\partial x}\delta_x$ と $\frac{\partial v_y}{\partial y}\delta_y$ は、長方形 ABCD の辺の直線変形速度であり、時間 $dt$ の間に</p>
+$$
+AB'=AB+\frac{\partial v_x}{\partial x}\delta_x dt
+$$$$
+AD'=AD+\frac{\partial v_y}{\partial y}\delta_y dt
+$$<p>長方形の面積の相対変化率は</p>
+$$
+\frac{d(\delta S)}{\delta S \cdot dt}=\frac{AB' \cdot CD'-AB \cdot CD}{AB \cdot CD \cdot dt}
+$$<p>高次の微小量を無視すると、</p>
+$$
+\frac{d(\delta S)}{\delta S \cdot dt}=\frac{\partial v_x}{\partial x}+\frac{\partial v_y}{\partial y}
+$$<p>これを三次元空間に拡張すると、同様に</p>
+$$
+\frac{d(\delta V)}{\delta V \cdot dt}=\frac{\partial v_x}{\partial x}+\frac{\partial v_y}{\partial y}+\frac{\partial v_z}{\partial z}
+$$<h2 id="角変形運動">
+<a class="header-anchor" href="#%e8%a7%92%e5%a4%89%e5%bd%a2%e9%81%8b%e5%8b%95"></a>
+角変形運動
+</h2><p>![Pasted image 20240902214219.png][3]</p>
+<p>相対速度 $\frac{\partial v_y}{\partial x}\delta x,\frac{\partial v_x}{\partial y}\delta y$ は、AB辺とAD辺が点Aを中心に回転することを表す。</p>
+<p>反時計回りの回転を正と規定する。</p>
+<p>AB辺の回転角速度</p>
+$$
+\frac{d\alpha_1}{dt}=\frac{\partial v_y}{\partial x}\delta_x / \delta_x=\frac{\partial v_y}{\partial x}
+$$<p>同様に、AD辺の回転角速度は</p>
+$$
+\frac{d \alpha_2}{dt}=-\frac{\partial v_x}{\partial y}
+$$<h3 id="">
+<a class="header-anchor" href="#"></a>
+
+</h3><h2 id="微小領域の--軸周りの回転角速度">
+<a class="header-anchor" href="#%e5%be%ae%e5%b0%8f%e9%a0%98%e5%9f%9f%e3%81%ae--%e8%bb%b8%e5%91%a8%e3%82%8a%e3%81%ae%e5%9b%9e%e8%bb%a2%e8%a7%92%e9%80%9f%e5%ba%a6"></a>
+微小領域の $z$ 軸周りの回転角速度
+</h2><p><strong>定義</strong>：微小領域の $xOy$ 平面への投影において、<strong>互いに垂直な2本の直線</strong>が $z$ 軸周りに回転する角速度の<strong>平均値</strong>。（角速度和の半分）</p>
+$$
+\epsilon_z=\frac{1}{2}(\frac{\partial v_y}{\partial x}-\frac{\partial v_x}{\partial y})
+$$<h3 id="">
+<a class="header-anchor" href="#"></a>
+
+</h3><h2 id="角変形率">
+<a class="header-anchor" href="#%e8%a7%92%e5%a4%89%e5%bd%a2%e7%8e%87"></a>
+角変形率
+</h2><p><strong>定義</strong>：微小要素の $xOy$ 平面への投影において、互いに垂直な2本の直線が<strong>単位時間内</strong>に成す角度の変化量<strong>の半分</strong>。（角速度差の半分）</p>
+$$
+\gamma_z=\frac{1}{2}(\frac{\partial v_y}{\partial x}+\frac{\partial v_x}{\partial y})
+$$<p>三次元空間に拡張すると、流体微小要素の三軸回転角速度と角変形率も同様に求められる。</p>
+<p>略。</p>
+<h2 id="発散度">
+<a class="header-anchor" href="#%e7%99%ba%e6%95%a3%e5%ba%a6"></a>
+発散度
+</h2><p>定義：各速度成分がその成分方向における方向微分の和を速度ベクトルの発散度とする。</p>
+$$
+div \vec{v}=\frac{\partial v_x}{\partial x}+\frac{\partial v_y}{\partial y}+\frac{\partial v_z}{\partial z}
+$$<p>物理的意味：流体微粒子の運動過程における<strong>相対的な体積変化率</strong>を表す。</p>
+<p>==前提条件==：流体の密度が変化しない（流体の運動を非圧縮流れと見なす）。</p>
+<p>一点から発生する体積流量を以下のように定義する。</p>
+$$
+\lim_{\delta V \to 0}\frac{体積流出量-体積流入量}{\delta V \cdot dt}=\frac{\partial v_x}{\partial x}+\frac{\partial v_y}{\partial y}+\frac{\partial v_z}{\partial z}
+$$<p>これは、<strong>単位時間</strong>内における空間の一点での<strong>単位体積</strong>制御体の体積<strong>正味流出量</strong>に等しく、流体微粒子の運動中の体積相対変化率に等しい。</p>
+<h2 id="回転-curl">
+<a class="header-anchor" href="#%e5%9b%9e%e8%bb%a2-curl"></a>
+回転 (curl)
+</h2><p>定義：角速度の2倍。</p>
+$$
+\vec{\omega}=curl \vec{v}=(\frac{\partial v_z}{\partial y}-\frac{\partial v_y}{\partial z})\vec{i}+(\frac{\partial v_x}{\partial z}-\frac{\partial v_z}{\partial x})\vec{j}+(\frac{\partial v_y}{\partial x}-\frac{\partial v_x}{\partial y})\vec{k}
+$$<h2 id="速度ポテンシャル">
+<a class="header-anchor" href="#%e9%80%9f%e5%ba%a6%e3%83%9d%e3%83%86%e3%83%b3%e3%82%b7%e3%83%a3%e3%83%ab"></a>
+速度ポテンシャル
+</h2><p>流体力学において、流体微粒子に回転運動があるかどうかによって、流体運動を以下のように分類できます:</p>
+<ul>
+<li>有回転運動</li>
+<li>無回転運動</li>
+</ul>
+<p>流れを無回転運動と見なす場合、$\omega=0$となり、</p>
+$$
+\begin{cases}
+\frac{\partial v_z}{\partial y}=\frac{\partial v_y}{\partial z} \\
+\frac{\partial v_x}{\partial z}=\frac{\partial v_z}{\partial x} \\
+\frac{\partial v_y}{\partial x}=\frac{\partial v_x}{\partial y} \\
+\end{cases}
+$$<p>上記の方程式系は、$v_xdx+v_ydy+v_zdz$がある関数$\phi(x,y,z)$の全微分を構成するための必要十分条件です。すなわち、</p>
+$$
+d \phi=v_xdx+v_ydy+v_zdz=\frac{\partial \phi}{\partial x}dx+\frac{\partial \phi}{\partial y}dy+\frac{\partial \phi}{\partial z}dz
+$$<p>$\phi$を速度ポテンシャルまたは速度ポテンシャル関数と呼びます。</p>
+$$
+\begin{cases}
+v_x=\frac{\partial \phi}{\partial x}\\
+v_y=\frac{\partial \phi}{\partial y}\\
+v_z=\frac{\partial \phi}{\partial z}\\
+\end{cases}
+$$<p><strong>円柱座標</strong>を使用する場合、</p>
+$$
+\phi=\phi(r,\theta,z)
+$$$$
+\begin{cases}
+v_r=\frac{\partial \phi}{\partial r}\\
+v_\theta=\frac{\partial \phi}{\partial \theta}\\
+v_z=\frac{\partial \phi}{\partial z}\\
+\end{cases}
+$$<hr>
+<h2 id="スカラー">
+<a class="header-anchor" href="#%e3%82%b9%e3%82%ab%e3%83%a9%e3%83%bc"></a>
+スカラー
+</h2><h2 id="圧力">
+<a class="header-anchor" href="#%e5%9c%a7%e5%8a%9b"></a>
+圧力
+</h2><h2 id="密度">
+<a class="header-anchor" href="#%e5%af%86%e5%ba%a6"></a>
+密度
+</h2><h2 id="温度">
+<a class="header-anchor" href="#%e6%b8%a9%e5%ba%a6"></a>
+温度
+</h2><h2 id="ベクトル">
+<a class="header-anchor" href="#%e3%83%99%e3%82%af%e3%83%88%e3%83%ab"></a>
+ベクトル
+</h2><h2 id="流速">
+<a class="header-anchor" href="#%e6%b5%81%e9%80%9f"></a>
+流速
+</h2><h2 id="理想気体の状態方程式">
+<a class="header-anchor" href="#%e7%90%86%e6%83%b3%e6%b0%97%e4%bd%93%e3%81%ae%e7%8a%b6%e6%85%8b%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+理想気体の状態方程式
+</h2>$$
+pV=nRT
+$$<p>$R=8.314J \cdot mol^{-1} \cdot K^{-1}$ は理想気体定数である。</p>
+$$
+p=\frac{n \cdot M}{V}\frac{R}{M} T
+$$$$
+n(物質量) \cdot M(モル質量)=m(質量)
+$$$$
+p=\rho R' T
+$$$$
+R'=\frac{R}{M}
+$$<p>$R'$ は==比気体定数==と呼ばれる。</p>
+<p>理想気体の空気の場合、$R'=287J/(kg \cdot K)$ である。</p>
+<h2 id="空気力学とモーメント">
+<a class="header-anchor" href="#%e7%a9%ba%e6%b0%97%e5%8a%9b%e5%ad%a6%e3%81%a8%e3%83%a2%e3%83%bc%e3%83%a1%e3%83%b3%e3%83%88"></a>
+空気力学とモーメント
+</h2><h2 id="空気動力-合力">
+<a class="header-anchor" href="#%e7%a9%ba%e6%b0%97%e5%8b%95%e5%8a%9b-%e5%90%88%e5%8a%9b"></a>
+空気動力 $R$：合力
+</h2><p><strong>空気が物体に及ぼす力</strong></p>
+<ul>
+<li>圧力 $p$ ：Pressure</li>
+<li>せん断応力 $\tau$ ：Shear stress</li>
+</ul>
+<p>圧力とせん断応力の合力が、空気が物体に及ぼす力、すなわち空気動力となる。</p>
+<p><strong>風軸座標系</strong></p>
+<ul>
+<li>揚力 $L$ ：Lift、垂直成分</li>
+<li>抗力 $D$ ：Drag、水平成分</li>
+</ul>
+<h2 id="自由流フリーストリーム">
+<a class="header-anchor" href="#%e8%87%aa%e7%94%b1%e6%b5%81%e3%83%95%e3%83%aa%e3%83%bc%e3%82%b9%e3%83%88%e3%83%aa%e3%83%bc%e3%83%a0"></a>
+自由流（フリーストリーム）
+</h2>$$
+V_{\infty}
+$$<p>自由流とは、航空機の前方で乱されていない気流、すなわち航空機などの干渉がない場合の空気の自然な流れ現象を指します。</p>
+<p>揚力と抗力の方向は自由流の方向によって決まります。</p>
+<h2 id="迎角アングルオブアタック">
+<a class="header-anchor" href="#%e8%bf%8e%e8%a7%92%e3%82%a2%e3%83%b3%e3%82%b0%e3%83%ab%e3%82%aa%e3%83%96%e3%82%a2%e3%82%bf%e3%83%83%e3%82%af"></a>
+迎角（アングル・オブ・アタック）
+</h2>$$
+\alpha
+$$<p><strong>迎角</strong>（英語：Angle of attack、略称：AOA、一般的に<a href="https://zh.wikipedia.org/wiki/%E5%B8%8C%E8%87%98%E5%AD%97%E6%AF%8D" title="ギリシャ文字">ギリシャ文字</a>αで表記）は、<a href="https://zh.wikipedia.org/wiki/%E7%A9%BA%E6%B0%A3%E5%8B%95%E5%8A%9B%E5%AD%B8" title="空気力学">空気力学</a>の用語で、<a href="https://zh.wikipedia.org/wiki/%E6%A9%9F%E7%BF%BC" title="翼">翼</a>の<a href="https://zh.wikipedia.org/wiki/%E7%BF%BC%E5%BC%A6" title="翼弦">翼弦</a>と<strong>自由流</strong>（または<strong>相対風の方向</strong>）との間の角度を指します。航空機の迎角の場合、定義は機軸と相対風との間の角度となります。翼が<strong>上方</strong>に向いている場合は<strong>正</strong>の迎角、<strong>下方</strong>に向いている場合は<strong>負</strong>の迎角となります。</p>
+<p><strong>体軸座標系</strong></p>
+<ul>
+<li>法線力 $N$：Normal、翼に垂直な方向</li>
+<li>軸力 $A$：Axial、翼に平行な方向</li>
+</ul>
+<h2 id="モーメント-moment">
+<a class="header-anchor" href="#%e3%83%a2%e3%83%bc%e3%83%a1%e3%83%b3%e3%83%88-moment"></a>
+モーメント $M$：Moment
+</h2><p>機首を上げるモーメントを正とし、機首を下げるモーメントを負とする。</p>
+<h2 id="動圧">
+<a class="header-anchor" href="#%e5%8b%95%e5%9c%a7"></a>
+動圧 $q$
+</h2><p>自由流 $V_{\infty},\rho_{\infty}$ によって生成される動圧</p>
+$$
+q_{\infty}=\frac{1}{2}\rho_{\infty}V_{\infty}^2
+$$<p>単位は $Pa$ 、圧力と同じ</p>
+<h2 id="特徴幾何サイズ">
+<a class="header-anchor" href="#%e7%89%b9%e5%be%b4%e5%b9%be%e4%bd%95%e3%82%b5%e3%82%a4%e3%82%ba"></a>
+特徴幾何サイズ $S$
+</h2><p>三次元物体の場合は面積、二次元物体の場合は周長を指します。</p>
+<h2 id="無次元パラメータ">
+<a class="header-anchor" href="#%e7%84%a1%e6%ac%a1%e5%85%83%e3%83%91%e3%83%a9%e3%83%a1%e3%83%bc%e3%82%bf"></a>
+無次元パラメータ
+</h2><p>三次元物体には大文字の $C$ がよく使われ、二次元物体には小文字の $c$ がよく使われます。</p>
+<h2 id="揚力係数">
+<a class="header-anchor" href="#%e6%8f%9a%e5%8a%9b%e4%bf%82%e6%95%b0"></a>
+揚力係数
+</h2>$$
+C_L=\frac{L}{q_{\infty}S}
+$$<h2 id="">
+<a class="header-anchor" href="#"></a>
+
+</h2><h2 id="抗力係数">
+<a class="header-anchor" href="#%e6%8a%97%e5%8a%9b%e4%bf%82%e6%95%b0"></a>
+抗力係数
+</h2>$$
+C_D=\frac{D}{q_{\infty}S}
+$$<h2 id="">
+<a class="header-anchor" href="#"></a>
+
+</h2><h2 id="法線力係数">
+<a class="header-anchor" href="#%e6%b3%95%e7%b7%9a%e5%8a%9b%e4%bf%82%e6%95%b0"></a>
+法線力係数
+</h2>$$
+C_N=\frac{N}{q_{\infty}S}
+$$<h2 id="">
+<a class="header-anchor" href="#"></a>
+
+</h2><h2 id="軸力係数">
+<a class="header-anchor" href="#%e8%bb%b8%e5%8a%9b%e4%bf%82%e6%95%b0"></a>
+軸力係数
+</h2>$$
+C_A=\frac{A}{q_{\infty}S}
+$$<h2 id="">
+<a class="header-anchor" href="#"></a>
+
+</h2><h2 id="空力係数">
+<a class="header-anchor" href="#%e7%a9%ba%e5%8a%9b%e4%bf%82%e6%95%b0"></a>
+空力係数
+</h2>$$
+C_R=\frac{R}{q_{\infty}S}
+$$<h2 id="">
+<a class="header-anchor" href="#"></a>
+
+</h2><h2 id="モーメント係数">
+<a class="header-anchor" href="#%e3%83%a2%e3%83%bc%e3%83%a1%e3%83%b3%e3%83%88%e4%bf%82%e6%95%b0"></a>
+モーメント係数
+</h2>$$
+C_M=\frac{\vec{M}}{\vec{r} \times \vec{q_{\infty}}S}
+$$<h2 id="">
+<a class="header-anchor" href="#"></a>
+
+</h2><h2 id="圧力係数">
+<a class="header-anchor" href="#%e5%9c%a7%e5%8a%9b%e4%bf%82%e6%95%b0"></a>
+圧力係数
+</h2><p>$p$：ある点の静圧</p>
+<p>$p_{\infty}$：自由流の静圧</p>
+$$
+C_p=\frac{p-p_{\infty}}{q_{\infty}}
+$$<h2 id="摩擦力係数">
+<a class="header-anchor" href="#%e6%91%a9%e6%93%a6%e5%8a%9b%e4%bf%82%e6%95%b0"></a>
+摩擦力係数
+</h2><p>$\tau$：ある点での剪断応力、つまり剪断応力の面積に対する微分。次元は圧力と同じ。</p>
+$$
+C_f=\frac{\tau}{q_{\infty}}
+$$<h1 id="二つの中心">
+<a class="header-anchor" href="#%e4%ba%8c%e3%81%a4%e3%81%ae%e4%b8%ad%e5%bf%83"></a>
+二つの中心
+</h1><h2 id="空力中心空力焦点">
+<a class="header-anchor" href="#%e7%a9%ba%e5%8a%9b%e4%b8%ad%e5%bf%83%e7%a9%ba%e5%8a%9b%e7%84%a6%e7%82%b9"></a>
+空力中心（空力焦点）
+</h2><p><strong>空力中心</strong>（英語：aerodynamic center、略称AC）は<a href="https://zh.wikipedia.org/wiki/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6" title="空気力学">空気力学</a>において、<a href="https://zh.wikipedia.org/wiki/%E7%BF%BC%E5%9E%8B" title="翼型">翼型</a>上の固定点を指し、この点を中心としたピッチングモーメントは<a href="https://zh.wikipedia.org/wiki/%E8%BF%8E%E8%A7%92" title="迎え角">迎え角</a>の変化によって変化しない。つまり、</p>
+$$
+\frac{d C_M}{d \alpha}=0
+$$<h2 id="空力中心と圧力中心の違い">
+<a class="header-anchor" href="#%e7%a9%ba%e5%8a%9b%e4%b8%ad%e5%bf%83%e3%81%a8%e5%9c%a7%e5%8a%9b%e4%b8%ad%e5%bf%83%e3%81%ae%e9%81%95%e3%81%84"></a>
+空力中心と圧力中心の違い
+</h2><p>圧力中心は力系を合成した際に<strong>合力モーメントが0</strong>になる特別な点であり、<strong>圧力中心は空力中心の後方</strong>に位置します。一方、空力中心は<strong>合力モーメントが不変</strong>となる点です。</p>
+<p>圧力中心の位置は迎え角の変化に伴って変化します。迎え角が増加すると揚力が増加し、圧力中心は前方に移動します。これにより、圧力中心と空力中心の距離が短縮され、増加した揚力と短縮された腕の長さの積がちょうど不変のモーメントとなります。これはまさに空力中心の定義が要求するものです。</p>
+
+        <hr><p>本文 2024-09-02 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-02</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>物理学</category>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>複變函數 on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/zh-tw/tags/%E8%A4%87%E8%AE%8A%E5%87%BD%E6%95%B8/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>zh-tw</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Wed, 20 Dec 2023 08:54:33 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/zh-tw/tags/%E8%A4%87%E8%AE%8A%E5%87%BD%E6%95%B8/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>留數定理與洛朗級數、高階導數公式和柯西積分公式之間的關係或聯繫</title>
+      <link>http://localhost:1313/zh-tw/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link>
+      <pubDate>Wed, 20 Dec 2023 08:54:33 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-tw/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid>
+      <description><![CDATA[<h1>留數定理與洛朗級數、高階導數公式和柯西積分公式之間的關係或聯繫</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h3 id="1-留數定理residue-theorem">
+<a class="header-anchor" href="#1-%e7%95%99%e6%95%b8%e5%ae%9a%e7%90%86residue-theorem"></a>
+1. 留數定理（Residue Theorem）：
+</h3><p>留數定理是複變函數理論中的一個關鍵結果，它建立在留數的概念之上。留數定理的核心思想是，如果在一個包含孤立奇點的閉曲線內，函數在這個曲線上處處解析，那麼曲線內的整體積分等於函數在奇點處的留數之和。</p>
+<h3 id="2-洛朗級數laurent-series">
+<a class="header-anchor" href="#2-%e6%b4%9b%e6%9c%97%e7%b4%9a%e6%95%b8laurent-series"></a>
+2. 洛朗級數（Laurent Series）：
+</h3><p>洛朗級數是一種複變函數的展開形式，可以表示為無窮級數的形式，包括正次冪和負次冪。具體而言，一個複函數在一個環形區域內的洛朗級數表示如下：
+</p>
+$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<p>其中，$c_n$是係數，而$z_0$是展開點。</p>
+<h3 id="3-高階導數公式">
+<a class="header-anchor" href="#3-%e9%ab%98%e9%9a%8e%e5%b0%8e%e6%95%b8%e5%85%ac%e5%bc%8f"></a>
+3. 高階導數公式：
+</h3><p>複變函數的高階導數公式和實變函數有些相似，但在複平面上的運算需要注意。如果一個函數在某點解析，那麼它在該點處的高階導數可以通過對冪級數逐項求導得到。</p>
+<h3 id="4-柯西積分公式cauchys-integral-formula">
+<a class="header-anchor" href="#4-%e6%9f%af%e8%a5%bf%e7%a9%8d%e5%88%86%e5%85%ac%e5%bc%8fcauchys-integral-formula"></a>
+4. 柯西積分公式（Cauchy&rsquo;s Integral Formula）：
+</h3><p>柯西積分公式是複分析中的一個基本結果，它建立了解析函數和其在圍道上的積分之間的關係。具體而言，如果函數$f(z)$在一個簡單閉合曲線內解析，那麼對於這個曲線內的任意點$z_0$，有：</p>
+$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$<p>其中，$C$是包圍$z_0$的簡單閉合曲線。</p>
+<h3 id="關係和聯繫">
+<a class="header-anchor" href="#%e9%97%9c%e4%bf%82%e5%92%8c%e8%81%af%e7%b9%ab"></a>
+關係和聯繫：
+</h3><ol>
+<li>
+<p><strong>留數定理與洛朗級數：</strong> 留數定理可以用來計算閉合曲線內函數的積分，而洛朗級數展開可以幫助我們理解函數在奇點附近的性質，從而求得留數。</p>
+</li>
+<li>
+<p><strong>留數定理與高階導數公式：</strong> 留數定理可以通過對函數在奇點處的洛朗級數展開，然後逐項求導，來計算高階導數。</p>
+</li>
+<li>
+<p><strong>留數定理與柯西積分公式：</strong> 柯西積分公式可以用來計算函數在圍道上的積分，而留數定理是柯西積分公式的一種特例，其中圍道內只有有限個孤立奇點。</p>
+</li>
+</ol>
+<h3 id="1-留數定理的洛朗級數證明">
+<a class="header-anchor" href="#1-%e7%95%99%e6%95%b8%e5%ae%9a%e7%90%86%e7%9a%84%e6%b4%9b%e6%9c%97%e7%b4%9a%e6%95%b8%e8%ad%89%e6%98%8e"></a>
+1. 留數定理的洛朗級數證明：
+</h3><h4 id="留數定理">
+<a class="header-anchor" href="#%e7%95%99%e6%95%b8%e5%ae%9a%e7%90%86"></a>
+留數定理：
+</h4><p>留數定理的表述為：</p>
+<p>如果$f(z)$在包含孤立奇點$z_0$的閉曲線內處處解析，那麼曲線內的整體積分等於函數在奇點處的留數之和。</p>
+<h4 id="洛朗級數展開">
+<a class="header-anchor" href="#%e6%b4%9b%e6%9c%97%e7%b4%9a%e6%95%b8%e5%b1%95%e9%96%8b"></a>
+洛朗級數展開：
+</h4>$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<p>其中，$c_n$是留數。</p>
+<h4 id="證明步驟">
+<a class="header-anchor" href="#%e8%ad%89%e6%98%8e%e6%ad%a5%e9%a9%9f"></a>
+證明步驟：
+</h4><ol>
+<li>
+<p><strong>洛朗級數的求解：</strong>
+通過複變函數的洛朗級數展開，我們有
+</p>
+$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<p>其中，$c_n$是由留數計算得到的係數。</p>
+</li>
+<li>
+<p><strong>積分的計算：</strong>
+對洛朗級數進行積分：
+</p>
+$$\oint_C f(z) \, dz = \oint_C \left( \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n \right) \, dz$$</li>
+<li>
+<p><strong>積分與求和次序交換：</strong>
+由於積分與求和次序可以交換，我們得到：
+</p>
+$$\oint_C f(z) \, dz = \sum_{n=-\infty}^{\infty} \oint_C c_n (z - z_0)^n \, dz$$</li>
+<li>
+<p><strong>留數定理的應用：</strong>
+對於$n \neq -1$，由於$c_n$不含$z^{-1}$，積分結果為零。只有$n = -1$項會貢獻非零積分。
+</p>
+$$\oint_C f(z) \, dz = 2\pi i \cdot c_{-1}$$</li>
+<li>
+<p><strong>結論：</strong>
+最終得到留數定理的結論：
+</p>
+$$\oint_C f(z) \, dz = 2\pi i \cdot c_{-1}$$</li>
+</ol>
+<h3 id="2-留數定理到高階導數公式的證明">
+<a class="header-anchor" href="#2-%e7%95%99%e6%95%b8%e5%ae%9a%e7%90%86%e5%88%b0%e9%ab%98%e9%9a%8e%e5%b0%8e%e6%95%b8%e5%85%ac%e5%bc%8f%e7%9a%84%e8%ad%89%e6%98%8e"></a>
+2. 留數定理到高階導數公式的證明：
+</h3><h4 id="留數定理-1">
+<a class="header-anchor" href="#%e7%95%99%e6%95%b8%e5%ae%9a%e7%90%86-1"></a>
+留數定理：
+</h4><p>留數定理的表述為：</p>
+<p>如果$f(z)$在包含孤立奇點$z_0$的閉曲線內處處解析，那麼曲線內的整體積分等於函數在奇點處的留數之和。</p>
+<h4 id="高階導數公式">
+<a class="header-anchor" href="#%e9%ab%98%e9%9a%8e%e5%b0%8e%e6%95%b8%e5%85%ac%e5%bc%8f"></a>
+高階導數公式：
+</h4><p>複變函數的高階導數公式如下：</p>
+<p>如果$f(z)$在某點$z_0$處解析，那麼它在該點的$n$階導數可以表示為：
+</p>
+$$f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} \, dz$$<p>其中，$C$是包圍$z_0$的簡單閉合曲線。</p>
+<h4 id="證明步驟-1">
+<a class="header-anchor" href="#%e8%ad%89%e6%98%8e%e6%ad%a5%e9%a9%9f-1"></a>
+證明步驟：
+</h4><ol>
+<li>
+<p><strong>留數定理的應用：</strong>
+根據留數定理，我們知道
+</p>
+$$\oint_C f(z) \, dz = 2\pi i \cdot \text{Res}(f, z_0)$$</li>
+<li>
+<p><strong>洛朗級數的求解：</strong>
+類似於前面的討論，我們可以將$f(z)$在$z_0$處展開為洛朗級數：
+</p>
+$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$</li>
+<li>
+<p><strong>高階導數的計算：</strong>
+利用洛朗級數，我們可以計算$f^{(n)}(z_0)$：
+</p>
+$$f^{(n)}(z_0) = \sum_{n=-\infty}^{\infty} n(n-1)\ldots(n-k+1) \cdot c_n \cdot (z - z_0)^{n-k}$$</li>
+<li>
+<p><strong>留數的提取：</strong>
+我們可以觀察到只有$n = -k$時才會貢獻非零項，因此
+</p>
+$$f^{(n)}(z_0) = n! \cdot c_{-n}$$</li>
+<li>
+<p><strong>結論：</strong>
+將$c_{-n}$代入留數定理的表達式，得到高階導數公式的形式：
+</p>
+$$f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} \, dz$$</li>
+</ol>
+<h3 id="3-留數定理da柯西積分公式的證明">
+<a class="header-anchor" href="#3-%e7%95%99%e6%95%b8%e5%ae%9a%e7%90%86da%e6%9f%af%e8%a5%bf%e7%a9%8d%e5%88%86%e5%85%ac%e5%bc%8f%e7%9a%84%e8%ad%89%e6%98%8e"></a>
+3. 留數定理da柯西積分公式的證明：
+</h3><h4 id="留數定理-2">
+<a class="header-anchor" href="#%e7%95%99%e6%95%b8%e5%ae%9a%e7%90%86-2"></a>
+留數定理：
+</h4><p>留數定理的表述為：</p>
+<p>如果$f(z)$在包含孤立奇點$z_0$的閉曲線內處處解析，那麼曲線內的整體積分等於函數在奇點處的留數之和。</p>
+<h4 id="柯西積分公式">
+<a class="header-anchor" href="#%e6%9f%af%e8%a5%bf%e7%a9%8d%e5%88%86%e5%85%ac%e5%bc%8f"></a>
+柯西積分公式：
+</h4><p>柯西積分公式表述為：
+</p>
+$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$<p>其中，$C$是包圍$z_0$的簡單閉合曲線。</p>
+<h4 id="證明步驟-2">
+<a class="header-anchor" href="#%e8%ad%89%e6%98%8e%e6%ad%a5%e9%a9%9f-2"></a>
+證明步驟：
+</h4><ol>
+<li>
+<p><strong>留數定理的應用：</strong>
+根據留數定理，我們知道
+</p>
+$$\oint_C f(z) \, dz = 2\pi i \cdot \text{Res}(f, z_0)$$</li>
+<li>
+<p><strong>洛朗級數的求解：</strong>
+類似於前面的討論，我們可以將$f(z)$在$z_0$處展開為洛朗級數：
+</p>
+$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$</li>
+<li>
+<p><strong>柯西積分公式的形式：</strong>
+考慮柯西積分公式的形式：
+</p>
+$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
+<li>
+<p><strong>留數的提取：</strong>
+我們可以觀察到$c_{-1}$對應著$1/(z - z_0)$，因此：
+</p>
+$$f(z_0) = c_{-1}$$</li>
+<li>
+<p><strong>結論：</strong>
+將$c_{-1}$代入柯西積分公式的表達式，得到柯西積分公式：
+</p>
+$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
+</ol>
+
+        <hr><p>本文 2023-12-20 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-20</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Math</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>複變函數</title>
+      <link>http://localhost:1313/zh-tw/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Fri, 17 Nov 2023 19:42:47 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-tw/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid>
+      <description><![CDATA[<h1>複變函數</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="複數">
+<a class="header-anchor" href="#%e8%a4%87%e6%95%b8"></a>
+複數
+</h1><ol>
+<li>複數的表達形式：$$z = r\cdot e^{i\theta} = r(cos\theta +i\cdot sin\theta)$$</li>
+<li>幾種初等函數
+<ol>
+<li>指數函數：$e^z = e^x(cosy+isiny)$
+<ol>
+<li>$e^z只是expz的縮寫，並沒有冪的含義$</li>
+<li>$|e^z| = e^x,Arg(e^z) = y+2k\pi$</li>
+</ol>
+</li>
+<li>對數函數：$Lnz =ln|r|+iArgz$
+<ol>
+<li>函數在除去原點和負實軸的$z$平面內解析，且$(Lnz)' = \frac{1}{z}$</li>
+</ol>
+</li>
+<li>三角函數
+<ol>
+<li>$cosz = \frac{e^{iz}+e^{-iz}}{2},sinz = \frac{e^{iz}-e^{-iz}}{2i}$</li>
+<li>$chz = \frac{e^z+e^{-z}}{2},shz = \frac{e^z-e^{-z}}{2}$</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="解析函數">
+<a class="header-anchor" href="#%e8%a7%a3%e6%9e%90%e5%87%bd%e6%95%b8"></a>
+解析函數
+</h1><ol>
+<li>可導的定義：$$\lim_{\Delta z \to 0} \frac{f(z_0+\Delta z)-f(z_0)}{\Delta z} 極限存在，就稱f(z)在z_0可導$$</li>
+<li>解析的定義：$$函數f(z)在z_0及z_0的鄰域內處處可導，就稱f(z)在z_0處解析$$
+推論：解析函數的和、差、積、商也是解析函數，解析函數的複合也是解析函數。</li>
+<li>可導、解析的充要條件：$u(x),v(x)可微$，並且滿足<strong>柯西-黎曼方程</strong>$$\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y} ,\frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x} $$若有一個不滿足，則既不可導也不解析。
+推論：$f'(z) = \frac{\partial u}{\partial x}+i\frac{\partial v}{\partial x}=\frac{1}{i}\frac{\partial u}{\partial y}+\frac{\partial v}{\partial y}$</li>
+</ol>
+<h1 id="複變函數的積分">
+<a class="header-anchor" href="#%e8%a4%87%e8%ae%8a%e5%87%bd%e6%95%b8%e7%9a%84%e7%a9%8d%e5%88%86"></a>
+複變函數的積分
+</h1><p><strong>重要公式</strong>
+</p>
+$$\oint_{|z-z_0|=r}\frac{1}{(z-z_0)^n}dz=\begin{cases}
+2\pi i ,n =1\\
+\text 0,\quad n\neq 1
+\end{cases} $$<ol>
+<li>柯西-古薩基本定理
+在<strong>解析，單連通</strong>的區域內的任意閉合曲線積分值為0，即$$\oint_{C}^{}f{(z)}dz = 0$$</li>
+<li>複合閉路定理——柯西積分定理向<strong>多連通</strong>推廣
+C為解析、多連通區域內的簡單閉曲線，$C_1,C_2 \cdots C_n$為C內同向的簡單閉曲線，$$\oint_{C}^{}f{(z)}dz = \sum_{k=1}^{n} \oint_{C_k}f(z)dz $$</li>
+<li>柯西積分公式——將曲線C內部任意一點的值用它邊界的值來表示</li>
+<li>$f(z)$在區域D內解析，C為D內一條正向簡單閉曲線$$2\pi i\cdot f(z_0) = \oint_{c} \frac{f(z)}{z-z_0}dx$$</li>
+<li>柯西積分公式的高階推廣——用函數的高階導數來求積分
+$$f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}dz$$</li>
+</ol>
+<h1 id="級數">
+<a class="header-anchor" href="#%e7%b4%9a%e6%95%b8"></a>
+級數
+</h1><h2 id="冪級數">
+<a class="header-anchor" href="#%e5%86%aa%e7%b4%9a%e6%95%b8"></a>
+冪級數
+</h2><ol>
+<li>解析函數的兩個性質
+<ol>
+<li>解析函數具有任意階導數</li>
+<li>解析函數都一定可以用冪級數來表示</li>
+</ol>
+</li>
+<li>泰勒展開$f(z) = \sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}z^n$</li>
+<li>求泰勒展開的方法[[高等數學#函數展開為冪級數]]</li>
+</ol>
+<h2 id="洛朗級數">
+<a class="header-anchor" href="#%e6%b4%9b%e6%9c%97%e7%b4%9a%e6%95%b8"></a>
+洛朗級數
+</h2><ol>
+<li>雙邊冪級數
+<ol>
+<li>收斂域是圓環域$R_1<|z-z_0|<R_2$</li>
+</ol>
+</li>
+<li>洛朗展開:$$f(z) = \sum_{n=-\infty}^{\infty}c_n(z-z_0)^n,c_n=\frac{1}{2\pi i}\cdot \oint_{C}\frac{f(z)}{(z-z_0)^{n+1}}dz$$
+推論：當$n$取$-1$時，$c_{-1}\cdot 2\pi i=\oint_Cf(z)dz$</li>
+<li>求洛朗展開的方法
+<ol>
+<li>用定義來算出來$c_n$(幾乎不用)</li>
+<li>運用代數運算、代換等方法，使得洛朗級數變為泰勒級數的<strong>形式和收斂域</strong></li>
+</ol>
+</li>
+</ol>
+<h1 id="留數">
+<a class="header-anchor" href="#%e7%95%99%e6%95%b8"></a>
+留數
+</h1><h2 id="孤立奇點">
+<a class="header-anchor" href="#%e5%ad%a4%e7%ab%8b%e5%a5%87%e9%bb%9e"></a>
+孤立奇點
+</h2><ol>
+<li>定義：$f(z)$在$z_0$處不解析，但在$z_0$的某一去心鄰域內處處解析</li>
+<li>孤立奇點的分類（根據洛朗級數的負冪項）
+<ol>
+<li>可去奇點：不含有負冪項 ，因此當$z\to z_0$時$f(z)$的極限為有限數</li>
+<li>極點：含有有限個負冪項（若有m個負冪項，則稱$z_0$為$f(z)$的m級極點），當$z\to z_0$時$f(z)$的極限為$\infty$.</li>
+<li>本性奇點：含有無限個負冪項，$f(z)$的極限不存在</li>
+</ol>
+</li>
+<li>極點和零點的關係
+<ol>
+<li>零點的定義：不恆等於零的解析函數$f(z)$,如果能表示成$f(z) = (z-z_0)^m\varphi(z)$,$則稱z_0為f(z)的m級零點$.
+充要條件是：$f^{(n)}(z_0) = 0,(n<m)\quad f^{(m)}\ne 0$</li>
+<li>如果$z_0為f(z)的m級零點$，$則稱z_0為\frac{1}{f(z)}的m級極點$.</li>
+</ol>
+</li>
+</ol>
+<h2 id="留數-1">
+<a class="header-anchor" href="#%e7%95%99%e6%95%b8-1"></a>
+留數
+</h2><ol>
+<li>定義：$$Res[f(z),z_0]=c_{-1} = \frac{1}{2\pi i}\oint_C f(z)d_z$$</li>
+<li>留數的計算法則
+<ol>
+<li>如果$z_0為f(z)的一級極點$$$Res[f(z),z_0]=\lim_{z\to z_0}(z-z_0)f(z)$$</li>
+<li>如果$z_0為f(z)的m級極點$$$Res[f(z),z_0]=\frac{1}{(m-1)!}\lim_{z\to z_0}\frac{d^{m-1}}{dz^{m-1}}(z-z_0)^mf(z)$$</li>
+<li>如果$f(z)=\frac{P(z)}{Q(z)},且P(z_0)\ne0,Q(z_0) =0,Q'(z_0)\ne0$$$Res[f(z),z_0]=\frac{P(z_0)}{Q'(z_0)}$$</li>
+<li>$$Res[f(z),\infty]=-Res[f(\frac{1}{z})\cdot\frac{1}{z^2},0]$$</li>
+</ol>
+</li>
+</ol>
+
+        <hr><p>本文 2023-11-17 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-11-17</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Math</category>
+      
+    </item>
+    
+  </channel>
+</rss>

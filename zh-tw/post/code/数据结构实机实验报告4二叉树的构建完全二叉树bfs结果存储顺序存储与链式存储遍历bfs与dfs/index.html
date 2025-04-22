@@ -1,0 +1,3154 @@
+<!doctype html>
+<html
+  lang="zh-tw" 
+  
+    data-theme-mode="auto"
+  
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/>
+
+
+
+
+
+
+
+  
+
+<title>
+  資料結構實機實驗報告4——二元樹的建構（完全二元樹BFS結果）、儲存（順序儲存與鏈式儲存）、遍歷（BFS與DFS） | 孤筝
+</title>
+<meta
+  name="description"
+  content="来都来了，随便坐坐。有些封面是随机图片api，所以可能抽风或包含R18：）"
+/>
+
+
+
+
+  
+<script src="https://www.googletagmanager.com/gtag/js?id=true"></script>
+<script data-pjax>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+
+  gtag('config', 'true');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  window.siteConfig = JSON.parse("{\"anchor_icon\":null,\"base\":\"http://localhost:1313/\",\"clipboard\":{\"copyright\":{\"content\":\"本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！\",\"count\":50,\"enable\":false},\"fail\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"success\":\"复制成功(*^▽^*)\"},\"code_block\":{\"expand\":true},\"i18n_languages\":[{\"Lang\":\"zh-cn\",\"LanguageName\":\"简体中文\",\"LanguageCode\":\"\",\"Title\":\"\",\"LanguageDirection\":\"\",\"Weight\":1,\"Disabled\":false},{\"Lang\":\"en\",\"LanguageName\":\"English\",\"LanguageCode\":\"\",\"Title\":\"\",\"LanguageDirection\":\"\",\"Weight\":2,\"Disabled\":false},{\"Lang\":\"zh-tw\",\"LanguageName\":\"繁體中文\",\"LanguageCode\":\"\",\"Title\":\"\",\"LanguageDirection\":\"\",\"Weight\":3,\"Disabled\":false},{\"Lang\":\"ja\",\"LanguageName\":\"日本語\",\"LanguageCode\":\"\",\"Title\":\"\",\"LanguageDirection\":\"\",\"Weight\":4,\"Disabled\":false}],\"icon_font\":false,\"outdate\":{\"daysago\":180,\"enable\":true,\"message\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\"}}");
+  
+  window.siteConfig.swPath = '\/sw.js';
+  
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/regular.min.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/solid.min.css" />
+
+
+  
+
+
+  <link
+    rel="preload"
+    as="style"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/brands.min.css"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+
+  <link
+    rel="preload"
+    as="style"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/v5-font-face.min.css"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+
+  <link
+    rel="preload"
+    as="style"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/v4-font-face.min.css"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+
+
+
+
+
+  
+
+
+
+
+
+
+ <link rel="stylesheet" href="/css/loader.css" />
+
+
+
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="資料結構實機實驗報告4——二元樹的建構（完全二元樹BFS結果）、儲存（順序儲存與鏈式儲存）、遍歷（BFS與DFS） | 孤筝" />
+  <meta
+    property="og:description"
+    content="来都来了，随便坐坐。有些封面是随机图片api，所以可能抽风或包含R18：）"
+  />
+  <meta property="og:url" content="http://localhost:1313/zh-tw/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/" />
+  <meta
+    property="og:site_name"
+    content="孤筝の温暖小家"
+  />
+  <meta
+    property="og:image"
+    content="/"
+  />
+  <meta property="article:author" content="孤筝" />
+  <meta property="article:published_time" content="2023-12-12T14:43:54&#43;08:00" />
+  <meta property="article:modified_time" content="2023-12-12T14:43:54&#43;08:00" />
+  
+    <meta property="article:tag" content="原創資料結構C/C&#43;&#43;" />
+  
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="/" />
+  
+  
+  
+  
+  
+
+
+
+
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+
+
+
+ <link rel="stylesheet" href="/css/main.css" />
+
+
+
+
+
+  <link
+    rel="preload"
+    as="style"
+    href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+
+
+
+
+
+
+  <link
+    rel="preload"
+    as="style"
+    href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+
+
+
+
+  
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@waline/client@2.15.8/dist/waline.css" />
+
+
+
+
+
+
+
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"
+    
+    
+    
+    
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"
+  ></script>
+
+
+
+
+
+  
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@reimujs/aos@0.1.0/dist/aos.css" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" />
+
+
+
+
+    
+  </head>
+  <body>
+    
+    
+  <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi ">
+        
+          <img src="/images/saki-cry.GIF" alt="loading" />
+        
+      </div>
+      <div class="loading-word">“为什么要演奏《春日影》！”</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var startLoading = () => {
+      time = Date.now();
+      document.getElementById('loader').classList.remove("loading");
+    }
+    var endLoading = () => {
+      if (!time) {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader').classList.add("loading");
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    document.getElementById('loader').addEventListener('click', endLoading);
+  </script>
+
+
+<div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+</div>
+<div id="lang-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+本文章沒有找到對應的語言版本
+</div>
+
+
+  <div class="notification-wrapper">
+    <h1>發現新版本</h1>
+    <p>網站好像有新內容，是否更新？</p>
+    <div class="notification-btn">
+      <button id="notification-update-btn">更新</button>
+      <button id="notification-close-btn">取消</button>
+    </div>
+  </div>
+
+
+    <div id="container">
+      <div id="wrap">
+        
+<div id="header-nav">
+  <nav id="main-nav">
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf015;
+          
+        </div>
+        <a class="main-nav-link" href="/zh-tw/">首頁</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf01c;
+          
+        </div>
+        <a class="main-nav-link" href="/zh-tw/archives">歸檔</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf2bd;
+          
+        </div>
+        <a class="main-nav-link" href="/zh-tw/about">關於</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf519;
+          
+        </div>
+        <a class="main-nav-link" href="/zh-tw/friend">友鏈</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf075;
+          
+        </div>
+        <a class="main-nav-link" href="/zh-tw/moments">說說</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf005;
+          
+        </div>
+        <a class="main-nav-link" href="https://space.bilibili.com/348813114/bangumi">追番</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf239;
+          
+        </div>
+        <a class="main-nav-link" href="https://www.travellings.cn/go.html">開往</a>
+      </span>
+    
+    <a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav">
+    
+    
+  </nav>
+  
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    <nav id="i18n-nav">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">繁體中文</span>
+        </div>
+        <ul class="select-items" id="select-items">
+          
+            <li data-value="zh-cn"  >简体中文</li>
+          
+            <li data-value="en"  >English</li>
+          
+            <li data-value="zh-tw" class="selected" >繁體中文</li>
+          
+            <li data-value="ja"  >日本語</li>
+          
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+            
+              
+              langMap['zh-cn'] = '\/zh-cn\/post\/code\/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs\/';
+              
+              langMap['en'] = '\/en\/post\/code\/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs\/';
+              
+              langMap['ja'] = '\/ja\/post\/code\/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs\/';
+              
+            
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            if (item.dataset.value === 'zh-tw') {
+              return;
+            }
+            if (!langMap[item.dataset.value]) {
+              _$("#lang-tooltip").style.opacity = "1";
+              setTimeout(() => {
+                _$("#lang-tooltip").style.opacity = "0";
+              }, 1000);
+              return;
+            }
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+          }
+        });
+      </script>
+    </nav>
+  
+</div>
+<header id="header">
+  
+    
+      
+        <picture>
+          
+        </picture>
+        
+          <img crossorigin="anonymous" fetchpriority="high" src="/images/noa4.webp" alt="資料結構實機實驗報告4——二元樹的建構（完全二元樹BFS結果）、儲存（順序儲存與鏈式儲存）、遍歷（BFS與DFS）">
+        
+      
+    
+  
+
+  <div id="header-outer">
+    <div id="header-title">
+      
+        
+        
+          
+        
+  
+        
+          <a href="/zh-tw/" id="logo">
+            <h1 data-aos="slide-up">資料結構實機實驗報告4——二元樹的建構（完全二元樹BFS結果）、儲存（順序儲存與鏈式儲存）、遍歷（BFS與DFS）</h1>
+          </a>
+        
+      
+  
+      
+        
+        
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+          
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+        <div id="content"
+          
+          class="sidebar-right"  >
+          <aside id="sidebar">
+  
+  
+  
+  <div class="sidebar-wrapper wrap-sticky">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    >
+      
+        
+          <div class="sidebar-toc-sidebar">
+            <div class="sidebar-toc">
+  <h3 class="toc-title">文章目錄</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-根據輸入建立二元樹順序儲存和鏈結儲存">1. 根據輸入建立二元樹，順序儲存和鏈結儲存</a>
+      <ul>
+        <li><a href="#a-問題分析">a. 問題分析：</a></li>
+        <li><a href="#b-演算法設計">b. 演算法設計：</a>
+          <ul>
+            <li><a href="#順序儲存方式">順序儲存方式：</a></li>
+            <li><a href="#鏈結儲存方式">鏈結儲存方式：</a></li>
+          </ul>
+        </li>
+        <li><a href="#c-資料結構設計">c. 資料結構設計：</a>
+          <ul>
+            <li><a href="#順序存儲方式">順序存儲方式：</a></li>
+            <li><a href="#鏈式存儲方式">鏈式存儲方式：</a></li>
+          </ul>
+        </li>
+        <li><a href="#d-除錯過程">d. 除錯過程：</a></li>
+        <li><a href="#e-輸出結果">e. 輸出結果：</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-深度遍歷演算法的實現">2. 深度遍歷演算法的實現</a>
+      <ul>
+        <li><a href="#a-問題分析-1">a. 問題分析：</a></li>
+        <li><a href="#b-演算法設計-1">b. 演算法設計：</a>
+          <ul>
+            <li><a href="#前序遍歷">前序遍歷：</a></li>
+            <li><a href="#中序遍歷">中序遍歷：</a></li>
+            <li><a href="#後序遍歷">後序遍歷：</a></li>
+          </ul>
+        </li>
+        <li><a href="#c-資料結構設計-1">c. 資料結構設計：</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-廣度遍歷演算法的實現">3. 廣度遍歷演算法的實現</a>
+      <ul>
+        <li><a href="#a-問題分析-2">a. 問題分析：</a></li>
+        <li><a href="#b-演算法設計-2">b. 演算法設計：</a></li>
+        <li><a href="#c-資料結構設計-2">c. 資料結構設計：</a></li>
+      </ul>
+    </li>
+    <li><a href="#樣例">樣例</a>
+      <ul>
+        <li><a href="#調試過程">調試過程：</a></li>
+        <li><a href="#輸出結果">輸出結果：</a></li>
+      </ul>
+    </li>
+    <li><a href="#原始碼">原始碼</a>
+      <ul>
+        <li><a href="#順序儲存">順序儲存</a></li>
+        <li><a href="#鏈式儲存">鏈式儲存</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+          </div>
+          <div class="sidebar-common-sidebar hidden">
+            
+<div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="孤筝"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">孤筝</div>
+  <div class="sidebar-description">来都来了，随便坐坐。<br />有些封面是随机图片api，所以可能抽风或包含R18：）</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    
+    <div class="sidebar-state-number">60</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分類</div>
+    <div class="sidebar-state-number">
+      9
+    </div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>標籤</div>
+    <div class="sidebar-state-number">34</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+    <div class="icon-bilibili sidebar-social-icon">
+      <a
+        href="https://space.bilibili.com/348813114"
+        itemprop="url"
+        target="_blank"
+        aria-label="bilibili"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-discord sidebar-social-icon">
+      <a
+        href="https://discordapp.com/users/guzhengsvt"
+        itemprop="url"
+        target="_blank"
+        aria-label="discord"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-email sidebar-social-icon">
+      <a
+        href="mailto:lvbowen040427@163.com"
+        itemprop="url"
+        target="_blank"
+        aria-label="email"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-facebook sidebar-social-icon">
+      <a
+        href="https://www.facebook.com/profile.php?id=100085813411626"
+        itemprop="url"
+        target="_blank"
+        aria-label="facebook"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-github sidebar-social-icon">
+      <a
+        href="https://github.com/GuZhengSVT"
+        itemprop="url"
+        target="_blank"
+        aria-label="github"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-steam sidebar-social-icon">
+      <a
+        href="https://steamcommunity.com/profiles/76561198903535314/"
+        itemprop="url"
+        target="_blank"
+        aria-label="steam"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-telegram sidebar-social-icon">
+      <a
+        href="https://t.me/GuZhengSVT"
+        itemprop="url"
+        target="_blank"
+        aria-label="telegram"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-twitter sidebar-social-icon">
+      <a
+        href="https://x.com/GuZhengSVT"
+        itemprop="url"
+        target="_blank"
+        aria-label="twitter"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-zhihu sidebar-social-icon">
+      <a
+        href="https://www.zhihu.com/people/Gu-Zheng"
+        itemprop="url"
+        target="_blank"
+        aria-label="zhihu"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+</div>
+<div class="sidebar-menu">
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/"
+        aria-label="首頁"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf015;
+        
+      </div>
+      <div class="sidebar-menu-link">首頁</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/archives"
+        aria-label="歸檔"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf01c;
+        
+      </div>
+      <div class="sidebar-menu-link">歸檔</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/about"
+        aria-label="關於"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf2bd;
+        
+      </div>
+      <div class="sidebar-menu-link">關於</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/friend"
+        aria-label="友鏈"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf519;
+        
+      </div>
+      <div class="sidebar-menu-link">友鏈</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/moments"
+        aria-label="說說"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf075;
+        
+      </div>
+      <div class="sidebar-menu-link">說說</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="https://space.bilibili.com/348813114/bangumi"
+        aria-label="追番"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf005;
+        
+      </div>
+      <div class="sidebar-menu-link">追番</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="https://www.travellings.cn/go.html"
+        aria-label="開往"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf239;
+        
+      </div>
+      <div class="sidebar-menu-link">開往</div>
+    </div>
+  
+</div>
+
+          </div>
+        
+      
+
+      
+        
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+        
+      
+    </div>
+  </div>
+
+  <div class="sidebar-widget">
+    
+  </div>
+  
+</aside>
+
+          <section id="main">
+  <article
+  class="h-entry article"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta">
+      <div class="article-date">
+  <span
+    class="article-date-link"
+    data-aos="zoom-in"
+  >
+    <time datetime="2023-12-12 14:43:54 &#43;0800 CST" itemprop="datePublished"
+      >2023-12-12</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2023-12-12</time
+    >
+  </span>
+</div>
+
+      <div class="article-category">
+  
+    <a
+      class="article-category-link"
+      href="/zh-tw/categories/code"
+      data-aos="zoom-in"
+      >CODE</a
+    >
+  
+</div>
+
+    </div>
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote id="outdate-blockquote" style="display: none;">
+          <p></p>
+        </blockquote>
+      
+      
+        <h1 id="1-根據輸入建立二元樹順序儲存和鏈結儲存">
+<a class="header-anchor" href="#1-%e6%a0%b9%e6%93%9a%e8%bc%b8%e5%85%a5%e5%bb%ba%e7%ab%8b%e4%ba%8c%e5%85%83%e6%a8%b9%e9%a0%86%e5%ba%8f%e5%84%b2%e5%ad%98%e5%92%8c%e9%8f%88%e7%b5%90%e5%84%b2%e5%ad%98"></a>
+1. 根據輸入建立二元樹，順序儲存和鏈結儲存
+</h1><h2 id="a-問題分析">
+<a class="header-anchor" href="#a-%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90"></a>
+a. 問題分析：
+</h2><p>在這個問題中，需要根據輸入的字元序列建立一個二元樹，要求實現兩種儲存方式：順序儲存和鏈式儲存。輸入的字元序列中，字元 &lsquo;@&rsquo; 表示空節點。</p>
+<h2 id="b-演算法設計">
+<a class="header-anchor" href="#b-%e6%bc%94%e7%ae%97%e6%b3%95%e8%a8%ad%e8%a8%88"></a>
+b. 演算法設計：
+</h2><h3 id="順序儲存方式">
+<a class="header-anchor" href="#%e9%a0%86%e5%ba%8f%e5%84%b2%e5%ad%98%e6%96%b9%e5%bc%8f"></a>
+順序儲存方式：
+</h3><ol>
+<li>初始化一個陣列來表示順序儲存的二元樹。</li>
+<li>依序遍歷輸入字元序列，將字元按照順序儲存到陣列中。</li>
+<li>可以使用陣列的索引來表示節點的位置，假設父節點的索引為 <code>i</code>，則左子節點的索引為 <code>2*i + 1</code>，右子節點的索引為 <code>2*i + 2</code>。</li>
+<li>將 &lsquo;@&rsquo; 字元表示的空節點跳過，只儲存實際的資料。</li>
+</ol>
+<h3 id="鏈結儲存方式">
+<a class="header-anchor" href="#%e9%8f%88%e7%b5%90%e5%84%b2%e5%ad%98%e6%96%b9%e5%bc%8f"></a>
+鏈結儲存方式：
+</h3><ol>
+<li>建立一個結構體 <code>TreeNode</code> 來表示二元樹的節點，包含資料、左子樹指標和右子樹指標。</li>
+<li>使用佇列資料結構輔助建構二元樹。初始化一個根節點，將其入隊。</li>
+<li>遍歷輸入字元序列，每次從佇列中取出一個節點，為其建立左子節點和右子節點，然後將它們入隊。</li>
+</ol>
+<h2 id="c-資料結構設計">
+<a class="header-anchor" href="#c-%e8%b3%87%e6%96%99%e7%b5%90%e6%a7%8b%e8%a8%ad%e8%a8%88"></a>
+c. 資料結構設計：
+</h2><h3 id="順序存儲方式">
+<a class="header-anchor" href="#%e9%a0%86%e5%ba%8f%e5%ad%98%e5%84%b2%e6%96%b9%e5%bc%8f"></a>
+順序存儲方式：
+</h3><ul>
+<li><code>struct TreeNode</code> 用於表示二元樹的節點。</li>
+<li>陣列用於順序存儲二元樹節點。</li>
+</ul>
+<h3 id="鏈式存儲方式">
+<a class="header-anchor" href="#%e9%8f%88%e5%bc%8f%e5%ad%98%e5%84%b2%e6%96%b9%e5%bc%8f"></a>
+鏈式存儲方式：
+</h3><ul>
+<li><code>struct TreeNode</code> 用於表示二元樹的節點，包含資料、左子樹指標和右子樹指標。</li>
+<li>佇列資料結構用於輔助構建二元樹。</li>
+</ul>
+<h2 id="d-除錯過程">
+<a class="header-anchor" href="#d-%e9%99%a4%e9%8c%af%e9%81%8e%e7%a8%8b"></a>
+d. 除錯過程：
+</h2><ul>
+<li>執行程式，按照輸入範例輸入字元以建構二元樹。</li>
+<li>確保輸入的字元順序正確，空節點用 &lsquo;@&rsquo; 表示。</li>
+<li>鏈式儲存時用&rsquo;#&lsquo;表示輸入完畢</li>
+<li>驗證建立的二元樹的順序儲存和鏈式儲存是否正確。</li>
+</ul>
+<h2 id="e-輸出結果">
+<a class="header-anchor" href="#e-%e8%bc%b8%e5%87%ba%e7%b5%90%e6%9e%9c"></a>
+e. 輸出結果：
+</h2><ul>
+<li>輸出結果包括順序儲存的二元樹節點資料和鏈式儲存的二元樹的遍歷結果。</li>
+</ul>
+<h1 id="2-深度遍歷演算法的實現">
+<a class="header-anchor" href="#2-%e6%b7%b1%e5%ba%a6%e9%81%8d%e6%ad%b7%e6%bc%94%e7%ae%97%e6%b3%95%e7%9a%84%e5%af%a6%e7%8f%be"></a>
+2. 深度遍歷演算法的實現
+</h1><h2 id="a-問題分析-1">
+<a class="header-anchor" href="#a-%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90-1"></a>
+a. 問題分析：
+</h2><p>在這個問題中，需要實現深度遍歷演算法，包括前序遍歷、中序遍歷和後序遍歷。對於順序儲存的二元樹，需要實現相應的遍歷演算法。</p>
+<h2 id="b-演算法設計-1">
+<a class="header-anchor" href="#b-%e6%bc%94%e7%ae%97%e6%b3%95%e8%a8%ad%e8%a8%88-1"></a>
+b. 演算法設計：
+</h2><h3 id="前序遍歷">
+<a class="header-anchor" href="#%e5%89%8d%e5%ba%8f%e9%81%8d%e6%ad%b7"></a>
+前序遍歷：
+</h3><ul>
+<li>訪問根節點，然後遞迴遍歷左子樹和右子樹。</li>
+</ul>
+<h3 id="中序遍歷">
+<a class="header-anchor" href="#%e4%b8%ad%e5%ba%8f%e9%81%8d%e6%ad%b7"></a>
+中序遍歷：
+</h3><ul>
+<li>先遞迴遍歷左子樹，然後訪問根節點，最後遞迴遍歷右子樹。</li>
+</ul>
+<h3 id="後序遍歷">
+<a class="header-anchor" href="#%e5%be%8c%e5%ba%8f%e9%81%8d%e6%ad%b7"></a>
+後序遍歷：
+</h3><ul>
+<li>先遞迴遍歷左子樹和右子樹，然後訪問根節點。</li>
+</ul>
+<h2 id="c-資料結構設計-1">
+<a class="header-anchor" href="#c-%e8%b3%87%e6%96%99%e7%b5%90%e6%a7%8b%e8%a8%ad%e8%a8%88-1"></a>
+c. 資料結構設計：
+</h2><ul>
+<li>遞迴演算法。</li>
+</ul>
+<h1 id="3-廣度遍歷演算法的實現">
+<a class="header-anchor" href="#3-%e5%bb%a3%e5%ba%a6%e9%81%8d%e6%ad%b7%e6%bc%94%e7%ae%97%e6%b3%95%e7%9a%84%e5%af%a6%e7%8f%be"></a>
+3. 廣度遍歷演算法的實現
+</h1><h2 id="a-問題分析-2">
+<a class="header-anchor" href="#a-%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90-2"></a>
+a. 問題分析：
+</h2><p>在這個問題中，需要實現廣度遍歷演算法（層次遍歷）。對於鏈式存儲的二元樹，需要實現相應的遍歷演算法。</p>
+<h2 id="b-演算法設計-2">
+<a class="header-anchor" href="#b-%e6%bc%94%e7%ae%97%e6%b3%95%e8%a8%ad%e8%a8%88-2"></a>
+b. 演算法設計：
+</h2><ul>
+<li>使用佇列資料結構，從根節點開始，將節點逐層加入佇列，並逐個存取佇列中的節點。</li>
+</ul>
+<h2 id="c-資料結構設計-2">
+<a class="header-anchor" href="#c-%e8%b3%87%e6%96%99%e7%b5%90%e6%a7%8b%e8%a8%ad%e8%a8%88-2"></a>
+c. 資料結構設計：
+</h2><ul>
+<li>佇列資料結構。</li>
+</ul>
+<p>非常抱歉，我理解你的要求，下面將使用具體的樣例 <code>abc@@@d@ef@</code> 和 <code>abc@@@d@ef@#</code> 來完善調試過程和輸出結果，並結合你提供的程式碼進行說明。</p>
+<h1 id="樣例">
+<a class="header-anchor" href="#%e6%a8%a3%e4%be%8b"></a>
+樣例
+</h1><p><code>abc@@@d@ef@</code>，<code>abc@@@d@ef@#</code></p>
+<h2 id="調試過程">
+<a class="header-anchor" href="#%e8%aa%bf%e8%a9%a6%e9%81%8e%e7%a8%8b"></a>
+調試過程：
+</h2><ol>
+<li>使用順序存儲方式：
+<ul>
+<li>依次讀入字元 &lsquo;a&rsquo;， &lsquo;b&rsquo;， &lsquo;c&rsquo;， &lsquo;@&rsquo;， &lsquo;@&rsquo;， &lsquo;@&rsquo;， &rsquo;d&rsquo;， &lsquo;@&rsquo;， &rsquo;e&rsquo;， &lsquo;f&rsquo;。</li>
+<li>構建順序存儲的二元樹，陣列元素如下： <code>['a', 'b', 'c', '@', '@', '@', 'd', '@', 'e', 'f']</code>。</li>
+</ul>
+</li>
+<li>使用鏈式存儲方式：
+<ul>
+<li>創建根節點 &lsquo;a&rsquo;，將其入隊。</li>
+<li>讀入字元 &lsquo;b&rsquo;，創建 &lsquo;a&rsquo; 的左子節點 &lsquo;b&rsquo;，將其入隊。</li>
+<li>讀入字元 &lsquo;c&rsquo;，創建 &lsquo;a&rsquo; 的右子節點 &lsquo;c&rsquo;，將其入隊。</li>
+<li>讀入字元 &lsquo;@&rsquo;，表示左子節點為空。</li>
+<li>讀入字元 &lsquo;@&rsquo;，表示右子節點為空。</li>
+<li>讀入字元 &rsquo;d&rsquo;，創建 &lsquo;b&rsquo; 的左子節點 &rsquo;d&rsquo;，將其入隊。</li>
+<li>讀入字元 &lsquo;@&rsquo;，表示右子節點為空。</li>
+<li>讀入字元 &rsquo;e&rsquo;，創建 &lsquo;c&rsquo; 的左子節點 &rsquo;e&rsquo;，將其入隊。</li>
+<li>讀入字元 &lsquo;f&rsquo;，創建 &lsquo;c&rsquo; 的右子節點 &lsquo;f&rsquo;，將其入隊。</li>
+</ul>
+</li>
+</ol>
+<h2 id="輸出結果">
+<a class="header-anchor" href="#%e8%bc%b8%e5%87%ba%e7%b5%90%e6%9e%9c"></a>
+輸出結果：
+</h2><ol>
+<li>順序存儲方式：
+<ul>
+<li>先序遍歷結果： <code>a b d c e f</code></li>
+<li>中序遍歷結果： <code>d b a e c f</code></li>
+<li>後序遍歷結果： <code>d b e f c a</code></li>
+</ul>
+</li>
+<li>鏈式存儲方式：
+<ul>
+<li>前序遍歷結果： <code>a b d c e f</code></li>
+<li>中序遍歷結果： <code>b d a e c f</code></li>
+<li>後序遍歷結果： <code>d b e f c a</code></li>
+<li>廣度優先搜索（層次遍歷）結果： <code>a b c d e f</code></li>
+</ul>
+</li>
+</ol>
+<h1 id="原始碼">
+<a class="header-anchor" href="#%e5%8e%9f%e5%a7%8b%e7%a2%bc"></a>
+原始碼
+</h1><h2 id="順序儲存">
+<a class="header-anchor" href="#%e9%a0%86%e5%ba%8f%e5%84%b2%e5%ad%98"></a>
+順序儲存
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define MAX_NODES 1000  </span><span class="c1">// 最大節點數量
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 定義二元樹節點結構
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">struct</span> <span class="nc">TreeNode</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 創建一個新的二元樹節點
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">createNode</span><span class="p">(</span><span class="kt">char</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">newNode</span> <span class="o">=</span> <span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">TreeNode</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">newNode</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">newNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 順序儲存的字符二元樹結構
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">struct</span> <span class="nc">SequentialTree</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">nodes</span><span class="p">[</span><span class="n">MAX_NODES</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">size</span><span class="p">;</span> <span class="c1">// 記錄節點數量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 初始化順序儲存的字符二元樹
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">initSequentialTree</span><span class="p">(</span><span class="n">SequentialTree</span><span class="o">*</span> <span class="n">tree</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX_NODES</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 插入一個節點到順序儲存的字符二元樹
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">insertNode</span><span class="p">(</span><span class="n">SequentialTree</span><span class="o">*</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">char</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">&lt;</span> <span class="n">MAX_NODES</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">newNode</span> <span class="o">=</span> <span class="n">createNode</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="n">newNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;該二元樹已滿，無法插入節點</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 獲取根節點
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">getRoot</span><span class="p">(</span><span class="n">SequentialTree</span><span class="o">*</span> <span class="n">tree</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 獲取左子節點
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">getLeftChild</span><span class="p">(</span><span class="n">SequentialTree</span><span class="o">*</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">parentIndex</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">leftChildIndex</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">parentIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">leftChildIndex</span> <span class="o">&lt;</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">)</span> <span class="p">{</span><span class="c1">//檢驗是否存在
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">leftChildIndex</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 獲取右子節點
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">getRightChild</span><span class="p">(</span><span class="n">SequentialTree</span><span class="o">*</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">parentIndex</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">rightChildIndex</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">parentIndex</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">rightChildIndex</span> <span class="o">&lt;</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">rightChildIndex</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 前序遍歷
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">preorderTraversal</span><span class="p">(</span><span class="k">struct</span> <span class="nc">SequentialTree</span><span class="o">*</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">||</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">==</span> <span class="sc">&#39;@&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%c &#34;</span><span class="p">,</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span> <span class="c1">// 訪問根節點
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">preorderTraversal</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// 遍歷左子樹
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">preorderTraversal</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// 遍歷右子樹
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 中序遍歷
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">inorderTraversal</span><span class="p">(</span><span class="k">struct</span> <span class="nc">SequentialTree</span><span class="o">*</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">||</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">==</span> <span class="sc">&#39;@&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inorderTraversal</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// 遍歷左子樹
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%c &#34;</span><span class="p">,</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span> <span class="c1">// 訪問根節點
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">inorderTraversal</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// 遍歷右子樹
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 後序遍歷
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">postorderTraversal</span><span class="p">(</span><span class="k">struct</span> <span class="nc">SequentialTree</span><span class="o">*</span> <span class="n">tree</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">||</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">==</span> <span class="sc">&#39;@&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">postorderTraversal</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// 遍歷左子樹
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">postorderTraversal</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// 遍歷右子樹
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%c &#34;</span><span class="p">,</span> <span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span> <span class="c1">// 訪問根節點
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SequentialTree</span><span class="o">*</span> <span class="n">tree</span><span class="o">=</span><span class="p">(</span><span class="n">SequentialTree</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">SequentialTree</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">initSequentialTree</span><span class="p">(</span><span class="n">tree</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">data</span><span class="o">=</span><span class="sc">&#39;a&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">data</span><span class="o">==</span><span class="sc">&#39;#&#39;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">insertNode</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span><span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;先序遍歷結果:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">preorderTraversal</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;中序遍歷結果:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inorderTraversal</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;後序遍歷結果:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">postorderTraversal</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;層次遍歷結果:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">tree</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span><span class="o">!=</span><span class="sc">&#39;@&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">tree</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">data</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="鏈式儲存">
+<a class="header-anchor" href="#%e9%8f%88%e5%bc%8f%e5%84%b2%e5%ad%98"></a>
+鏈式儲存
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 二元樹節點結構
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">struct</span> <span class="nc">TreeNode</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="p">(</span><span class="kt">char</span> <span class="n">val</span><span class="p">)</span> <span class="o">:</span> <span class="n">data</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="n">left</span><span class="p">(</span><span class="k">nullptr</span><span class="p">),</span> <span class="n">right</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 建立鏈式儲存的二元樹
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">createBinaryTree</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">input</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">nodeQueue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">input</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nodeQueue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">input</span><span class="p">.</span><span class="n">length</span><span class="p">();</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">current</span> <span class="o">=</span> <span class="n">nodeQueue</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">nodeQueue</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">input</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">&#39;@&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">current</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">input</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nodeQueue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">input</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">input</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">&#39;@&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">current</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">input</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nodeQueue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 前序遍歷
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">preorderTraversal</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">preorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">preorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 中序遍歷
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">inorderTraversal</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">inorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">inorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 後序遍歷
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">postorderTraversal</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">postorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">postorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 廣度優先搜尋（層次遍歷）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">breadthFirstTraversal</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">nodeQueue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nodeQueue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">nodeQueue</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">current</span> <span class="o">=</span> <span class="n">nodeQueue</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">nodeQueue</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nodeQueue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nodeQueue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="n">input</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">input</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span> <span class="o">=</span> <span class="n">createBinaryTree</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;前序遍歷結果: &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">preorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;中序遍歷結果: &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;後序遍歷結果: &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">postorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;廣度優先搜尋（層次遍歷）結果: &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">breadthFirstTraversal</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+
+
+
+
+
+
+<blockquote class="article-copyright">
+  
+    <p><strong><span class="icon-user icon"></span>本文作者：</strong>孤筝 @ 孤筝の温暖小家</p>
+  
+  
+  
+    <p><strong><span class="icon-pencil icon"></span>本文標題：</strong>資料結構實機實驗報告4——二元樹的建構（完全二元樹BFS結果）、儲存（順序儲存與鏈式儲存）、遍歷（BFS與DFS）</p>
+  
+  
+    <p><strong><span class="icon-calendar icon"></span>本文發佈時間：</strong>2023-12-12 14:43:54</p>
+  
+  
+    <p><strong><span class="icon-calendar icon"></span>本文更新時間：</strong>2023-12-12 14:43:54</p>
+  
+  
+    <p>
+      <strong><span class="icon-copyright icon"></span>本文版權：</strong>
+      本部落格所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener external nofollow noreferrer" target="_blank"><span class="icon-creative-commons"></span>BY-NC-SA</a> 授權協議。轉載請註明出處！
+    </p>
+    <span class="icon-creative-commons article-copyright-bg"></span>
+  
+</blockquote>
+
+      
+
+      
+        <div class="sponsor-wrapper">
+  <div class="sponsor-button-wrapper">
+    <div class="sponsor-icon "></div>
+    <div class="sponsor-title">贊助</div>
+    <div class="sponsor-icon "></div>
+  </div>
+  <div class="sponsor-tip">我一个人打车六七十回家！</div>
+  
+    <div class="sponsor-qr">
+      
+        <div class="sponsor-qr-image-wrapper">
+          <img src="/sponsor/alipay.webp" alt="支付宝" width="200" />
+          <p class="sponsor-qr-name">支付宝</p>
+        </div>
+      
+        <div class="sponsor-qr-image-wrapper">
+          <img src="/sponsor/wechat.webp" alt="微信" width="200" />
+          <p class="sponsor-qr-name">微信</p>
+        </div>
+      
+    </div>
+  
+</div>
+      
+
+      
+        
+
+<div class="share-wrapper">
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/zh-tw/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/" target="_blank" rel="noopener noreferrer" title="資料結構實機實驗報告4——二元樹的建構（完全二元樹BFS結果）、儲存（順序儲存與鏈式儲存）、遍歷（BFS與DFS）">
+      <div class="share-icon icon icon-facebook">
+        
+      </div>
+    </a>
+  
+    <a href="https://twitter.com/intent/tweet?url=http://localhost:1313/zh-tw/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/&amp;text=%e8%b3%87%e6%96%99%e7%b5%90%e6%a7%8b%e5%af%a6%e6%a9%9f%e5%af%a6%e9%a9%97%e5%a0%b1%e5%91%8a4%e2%80%94%e2%80%94%e4%ba%8c%e5%85%83%e6%a8%b9%e7%9a%84%e5%bb%ba%e6%a7%8b%ef%bc%88%e5%ae%8c%e5%85%a8%e4%ba%8c%e5%85%83%e6%a8%b9BFS%e7%b5%90%e6%9e%9c%ef%bc%89%e3%80%81%e5%84%b2%e5%ad%98%ef%bc%88%e9%a0%86%e5%ba%8f%e5%84%b2%e5%ad%98%e8%88%87%e9%8f%88%e5%bc%8f%e5%84%b2%e5%ad%98%ef%bc%89%e3%80%81%e9%81%8d%e6%ad%b7%ef%bc%88BFS%e8%88%87DFS%ef%bc%89&amp;via=http://localhost:1313/" target="_blank" rel="noopener noreferrer" title="資料結構實機實驗報告4——二元樹的建構（完全二元樹BFS結果）、儲存（順序儲存與鏈式儲存）、遍歷（BFS與DFS）">
+      <div class="share-icon icon icon-twitter">
+        
+      </div>
+    </a>
+  
+    <a href="https://www.linkedin.com/shareArticle?url=http://localhost:1313/zh-tw/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/&amp;title=%e8%b3%87%e6%96%99%e7%b5%90%e6%a7%8b%e5%af%a6%e6%a9%9f%e5%af%a6%e9%a9%97%e5%a0%b1%e5%91%8a4%e2%80%94%e2%80%94%e4%ba%8c%e5%85%83%e6%a8%b9%e7%9a%84%e5%bb%ba%e6%a7%8b%ef%bc%88%e5%ae%8c%e5%85%a8%e4%ba%8c%e5%85%83%e6%a8%b9BFS%e7%b5%90%e6%9e%9c%ef%bc%89%e3%80%81%e5%84%b2%e5%ad%98%ef%bc%88%e9%a0%86%e5%ba%8f%e5%84%b2%e5%ad%98%e8%88%87%e9%8f%88%e5%bc%8f%e5%84%b2%e5%ad%98%ef%bc%89%e3%80%81%e9%81%8d%e6%ad%b7%ef%bc%88BFS%e8%88%87DFS%ef%bc%89&amp;summary=%201.%20%e6%a0%b9%e6%93%9a%e8%bc%b8%e5%85%a5%e5%bb%ba%e7%ab%8b%e4%ba%8c%e5%85%83%e6%a8%b9%ef%bc%8c%e9%a0%86%e5%ba%8f%e5%84%b2%e5%ad%98%e5%92%8c%e9%8f%88%e7%b5%90%e5%84%b2%e5%ad%98%20a.%20%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90%ef%bc%9a%20%e5%9c%a8%e9%80%99%e5%80%8b%e5%95%8f%e9%a1%8c%e4%b8%ad%ef%bc%8c%e9%9c%80%e8%a6%81%e6%a0%b9%e6%93%9a%e8%bc%b8%e5%85%a5%e7%9a%84%e5%ad%97%e5%85%83%e5%ba%8f%e5%88%97%e5%bb%ba%e7%ab%8b%e4%b8%80%e5%80%8b%e4%ba%8c%e5%85%83%e6%a8%b9%ef%bc%8c%e8%a6%81%e6%b1%82%e5%af%a6%e7%8f%be%e5%85%a9%e7%a8%ae%e5%84%b2%e5%ad%98%e6%96%b9%e5%bc%8f%ef%bc%9a%e9%a0%86%e5%ba%8f%e5%84%b2%e5%ad%98%e5%92%8c%e9%8f%88%e5%bc%8f%e5%84%b2%e5%ad%98%e3%80%82%e8%bc%b8%e5%85%a5%e7%9a%84%e5%ad%97%e5%85%83%e5%ba%8f%e5%88%97%e4%b8%ad%ef%bc%8c%e5%ad%97%e5%85%83%20&amp;lsquo;@&amp;rsquo;%20%e8%a1%a8%e7%a4%ba%e7%a9%ba%e7%af%80%e9%bb%9e%e3%80%82%0a&amp;mini=true&amp;ro=true" target="_blank" rel="noopener noreferrer" title="資料結構實機實驗報告4——二元樹的建構（完全二元樹BFS結果）、儲存（順序儲存與鏈式儲存）、遍歷（BFS與DFS）">
+      <div class="share-icon icon icon-linkedin">
+        
+      </div>
+    </a>
+  
+    <a href="https://www.reddit.com/submit?url=http://localhost:1313/zh-tw/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/&amp;title=%e8%b3%87%e6%96%99%e7%b5%90%e6%a7%8b%e5%af%a6%e6%a9%9f%e5%af%a6%e9%a9%97%e5%a0%b1%e5%91%8a4%e2%80%94%e2%80%94%e4%ba%8c%e5%85%83%e6%a8%b9%e7%9a%84%e5%bb%ba%e6%a7%8b%ef%bc%88%e5%ae%8c%e5%85%a8%e4%ba%8c%e5%85%83%e6%a8%b9BFS%e7%b5%90%e6%9e%9c%ef%bc%89%e3%80%81%e5%84%b2%e5%ad%98%ef%bc%88%e9%a0%86%e5%ba%8f%e5%84%b2%e5%ad%98%e8%88%87%e9%8f%88%e5%bc%8f%e5%84%b2%e5%ad%98%ef%bc%89%e3%80%81%e9%81%8d%e6%ad%b7%ef%bc%88BFS%e8%88%87DFS%ef%bc%89" target="_blank" rel="noopener noreferrer" title="資料結構實機實驗報告4——二元樹的建構（完全二元樹BFS結果）、儲存（順序儲存與鏈式儲存）、遍歷（BFS與DFS）">
+      <div class="share-icon icon icon-reddit">
+        
+      </div>
+    </a>
+  
+    <a href="https://service.weibo.com/share/share.php?url=http://localhost:1313/zh-tw/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/&amp;appkey=&amp;title=%e8%b3%87%e6%96%99%e7%b5%90%e6%a7%8b%e5%af%a6%e6%a9%9f%e5%af%a6%e9%a9%97%e5%a0%b1%e5%91%8a4%e2%80%94%e2%80%94%e4%ba%8c%e5%85%83%e6%a8%b9%e7%9a%84%e5%bb%ba%e6%a7%8b%ef%bc%88%e5%ae%8c%e5%85%a8%e4%ba%8c%e5%85%83%e6%a8%b9BFS%e7%b5%90%e6%9e%9c%ef%bc%89%e3%80%81%e5%84%b2%e5%ad%98%ef%bc%88%e9%a0%86%e5%ba%8f%e5%84%b2%e5%ad%98%e8%88%87%e9%8f%88%e5%bc%8f%e5%84%b2%e5%ad%98%ef%bc%89%e3%80%81%e9%81%8d%e6%ad%b7%ef%bc%88BFS%e8%88%87DFS%ef%bc%89&amp;pic=&amp;ralateUid=" target="_blank" rel="noopener noreferrer" title="資料結構實機實驗報告4——二元樹的建構（完全二元樹BFS結果）、儲存（順序儲存與鏈式儲存）、遍歷（BFS與DFS）">
+      <div class="share-icon icon icon-weibo">
+        
+      </div>
+    </a>
+  
+    <a href="https://connect.qq.com/widget/shareqq/index.html?url=http://localhost:1313/zh-tw/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/&amp;title=%e8%b3%87%e6%96%99%e7%b5%90%e6%a7%8b%e5%af%a6%e6%a9%9f%e5%af%a6%e9%a9%97%e5%a0%b1%e5%91%8a4%e2%80%94%e2%80%94%e4%ba%8c%e5%85%83%e6%a8%b9%e7%9a%84%e5%bb%ba%e6%a7%8b%ef%bc%88%e5%ae%8c%e5%85%a8%e4%ba%8c%e5%85%83%e6%a8%b9BFS%e7%b5%90%e6%9e%9c%ef%bc%89%e3%80%81%e5%84%b2%e5%ad%98%ef%bc%88%e9%a0%86%e5%ba%8f%e5%84%b2%e5%ad%98%e8%88%87%e9%8f%88%e5%bc%8f%e5%84%b2%e5%ad%98%ef%bc%89%e3%80%81%e9%81%8d%e6%ad%b7%ef%bc%88BFS%e8%88%87DFS%ef%bc%89&amp;desc=%201.%20%e6%a0%b9%e6%93%9a%e8%bc%b8%e5%85%a5%e5%bb%ba%e7%ab%8b%e4%ba%8c%e5%85%83%e6%a8%b9%ef%bc%8c%e9%a0%86%e5%ba%8f%e5%84%b2%e5%ad%98%e5%92%8c%e9%8f%88%e7%b5%90%e5%84%b2%e5%ad%98%20a.%20%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90%ef%bc%9a%20%e5%9c%a8%e9%80%99%e5%80%8b%e5%95%8f%e9%a1%8c%e4%b8%ad%ef%bc%8c%e9%9c%80%e8%a6%81%e6%a0%b9%e6%93%9a%e8%bc%b8%e5%85%a5%e7%9a%84%e5%ad%97%e5%85%83%e5%ba%8f%e5%88%97%e5%bb%ba%e7%ab%8b%e4%b8%80%e5%80%8b%e4%ba%8c%e5%85%83%e6%a8%b9%ef%bc%8c%e8%a6%81%e6%b1%82%e5%af%a6%e7%8f%be%e5%85%a9%e7%a8%ae%e5%84%b2%e5%ad%98%e6%96%b9%e5%bc%8f%ef%bc%9a%e9%a0%86%e5%ba%8f%e5%84%b2%e5%ad%98%e5%92%8c%e9%8f%88%e5%bc%8f%e5%84%b2%e5%ad%98%e3%80%82%e8%bc%b8%e5%85%a5%e7%9a%84%e5%ad%97%e5%85%83%e5%ba%8f%e5%88%97%e4%b8%ad%ef%bc%8c%e5%ad%97%e5%85%83%20&amp;lsquo;@&amp;rsquo;%20%e8%a1%a8%e7%a4%ba%e7%a9%ba%e7%af%80%e9%bb%9e%e3%80%82%0a&amp;source=http://localhost:1313/" target="_blank" rel="noopener noreferrer" title="資料結構實機實驗報告4——二元樹的建構（完全二元樹BFS結果）、儲存（順序儲存與鏈式儲存）、遍歷（BFS與DFS）">
+      <div class="share-icon icon icon-qq">
+        
+      </div>
+    </a>
+  
+    <a href="javascript:;"  title="資料結構實機實驗報告4——二元樹的建構（完全二元樹BFS結果）、儲存（順序儲存與鏈式儲存）、遍歷（BFS與DFS）">
+      <div class="share-icon icon icon-weixin">
+        
+          <div id="share-weixin">
+            <div class="share-weixin-dom">
+              <div class="share-weixin-content">
+                <img id="share-weixin-banner"> 
+                <div id="share-weixin-title"></div>
+                <div id="share-weixin-desc"></div>
+              </div>
+              <div class="share-weixin-qrcode">
+                <div class="share-weixin-info">
+                  <div id="share-weixin-author"></div>
+                  <div id="share-weixin-theme">Powered By hugo-theme-reimu</div>
+                </div>
+                <img id="share-weixin-qr" >
+              </div>
+            </div>
+            <div class="share-weixin-canvas"></div>
+          </div>
+        
+      </div>
+    </a>
+  
+</div>
+      
+
+      
+
+      
+        <a
+          data-aos="zoom-in"
+          href="/zh-tw/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/#comments"
+          class="article-comment-link"
+        >
+          <span
+            class="post-comments-count waline-comment-count"
+            data-path="http//localhost1313/zh-tw/post/code/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e5%ae%9e%e6%9c%ba%e5%ae%9e%e9%aa%8c%e6%8a%a5%e5%91%8a4%e4%ba%8c%e5%8f%89%e6%a0%91%e7%9a%84%e6%9e%84%e5%bb%ba%e5%ae%8c%e5%85%a8%e4%ba%8c%e5%8f%89%e6%a0%91bfs%e7%bb%93%e6%9e%9c%e5%ad%98%e5%82%a8%e9%a1%ba%e5%ba%8f%e5%ad%98%e5%82%a8%e4%b8%8e%e9%93%be%e5%bc%8f%e5%ad%98%e5%82%a8%e9%81%8d%e5%8e%86bfs%e4%b8%8edfs/"
+            itemprop="commentCount"
+          ></span>
+          留言
+        </a>
+      
+
+      
+
+      
+
+      
+        <span
+          data-aos="zoom-in"
+          class="article-visitor-link"
+        >
+          <span
+            class="waline-pageview-count"
+            data-path="/zh-tw/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/"
+            >0</span
+          >
+          <em class="post-meta-item-text">閲讀量</em>
+        </span>
+      
+      <ul class="article-tag-list" itemprop="keywords">
+  
+    <li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/zh-tw/tags/%e5%8e%9f%e5%89%b5"
+        rel="tag"
+        >原創</a
+      >
+    </li>
+  
+    <li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/zh-tw/tags/%e8%b3%87%e6%96%99%e7%b5%90%e6%a7%8b"
+        rel="tag"
+        >資料結構</a
+      >
+    </li>
+  
+    <li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/zh-tw/tags/c/c&#43;&#43;"
+        rel="tag"
+        >C/C&#43;&#43;</a
+      >
+    </li>
+  
+</ul>
+
+    </footer>
+  </div>
+  
+    
+  <nav
+    id="article-nav"
+    data-aos="fade-up"
+  >
+    
+      <div class="article-nav-link-wrap article-nav-link-left">
+        
+          
+          
+            <img
+              data-src="https://api.mtyqx.cn/tapi/random.php"
+              data-sizes="auto"
+              alt="資料結構實機實驗報告3——KMP演算法用於字串搜尋"
+              class="lazyload"
+            />
+          
+        
+        <a href="/zh-tw/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A3kmp%E7%AE%97%E6%B3%95%E7%94%A8%E4%BA%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2/"></a>
+        <div class="article-nav-caption">Newer</div>
+        <h3 class="article-nav-title">
+          
+            資料結構實機實驗報告3——KMP演算法用於字串搜尋
+          
+        </h3>
+      </div>
+    
+
+    
+      <div class="article-nav-link-wrap article-nav-link-right">
+        
+          
+          
+            <img
+              data-src="https://img.paulzzh.com/touhou/random"
+              data-sizes="auto"
+              alt="資料結構實機實驗報告5——哈夫曼樹的編碼和解碼，排序二元樹的建構和節點刪除"
+              class="lazyload"
+            />
+          
+        
+        <a href="/zh-tw/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A5%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E7%9A%84%E7%BC%96%E7%A0%81%E5%92%8C%E8%AF%91%E7%A0%81%E6%8E%92%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%92%8C%E8%8A%82%E7%82%B9%E5%88%A0%E9%99%A4/"></a>
+        <div class="article-nav-caption">Older</div>
+        <h3 class="article-nav-title">
+          
+            資料結構實機實驗報告5——哈夫曼樹的編碼和解碼，排序二元樹的建構和節點刪除
+          
+        </h3>
+      </div>
+    
+  </nav>
+
+
+  
+</article>
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+<section id="comments" data-aos="fade-up">
+<div class="comment-header">
+  <h2 class="comment-title">何时一樽酒，重与细论文。</h2>
+  <div class="comment-selector">
+    <div class="comment-selector-wrap">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <div class="selector-item" data-selector="waline">
+          <span>waline</span>
+        </div>
+        
+      
+    </div>
+  </div>
+</div>
+
+<div class="comment-content">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    <div class="comment waline-comment" data-aos="fade-up"
+     >
+    </div>
+    
+  
+</div>
+</section>
+
+
+</section>
+        </div>
+        
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+<footer id="footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    
+    <div>
+      <span class="icon-copyright"></span>
+      
+        2019.7.14 -
+        2025
+      
+      <span class="footer-info-sep rotate"></span>
+      孤筝
+    </div>
+    
+      <div>
+        基於&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          >Hugo</a
+        >&nbsp; Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          >Reimu</a
+        >
+      </div>
+    
+    
+    
+        <div class="footer-beian">
+          <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="noopener">
+            <img src="https://guzhengsvt.github.io/images/又拍云_logo5.png" alt="又拍云" style="height: 24px; vertical-align: middle;">
+            <span>CDN by 又拍云</span>
+          </a>
+        </div>
+
+    
+      <div>
+        <span class="icon-brush"
+          >&nbsp;
+            98.8k
+          </span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;
+          
+          
+
+          03:50
+        </span>
+      </div>
+    
+    
+    
+    
+    
+  </div>
+</footer>
+
+        
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi "></div>
+            <div class="arrow-up"></div>
+          </div>
+        
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav">
+  <div class="sidebar-wrap">
+    
+      
+        <div class="sidebar-toc-sidebar">
+          <div class="sidebar-toc">
+  <h3 class="toc-title">文章目錄</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-根據輸入建立二元樹順序儲存和鏈結儲存">1. 根據輸入建立二元樹，順序儲存和鏈結儲存</a>
+      <ul>
+        <li><a href="#a-問題分析">a. 問題分析：</a></li>
+        <li><a href="#b-演算法設計">b. 演算法設計：</a>
+          <ul>
+            <li><a href="#順序儲存方式">順序儲存方式：</a></li>
+            <li><a href="#鏈結儲存方式">鏈結儲存方式：</a></li>
+          </ul>
+        </li>
+        <li><a href="#c-資料結構設計">c. 資料結構設計：</a>
+          <ul>
+            <li><a href="#順序存儲方式">順序存儲方式：</a></li>
+            <li><a href="#鏈式存儲方式">鏈式存儲方式：</a></li>
+          </ul>
+        </li>
+        <li><a href="#d-除錯過程">d. 除錯過程：</a></li>
+        <li><a href="#e-輸出結果">e. 輸出結果：</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-深度遍歷演算法的實現">2. 深度遍歷演算法的實現</a>
+      <ul>
+        <li><a href="#a-問題分析-1">a. 問題分析：</a></li>
+        <li><a href="#b-演算法設計-1">b. 演算法設計：</a>
+          <ul>
+            <li><a href="#前序遍歷">前序遍歷：</a></li>
+            <li><a href="#中序遍歷">中序遍歷：</a></li>
+            <li><a href="#後序遍歷">後序遍歷：</a></li>
+          </ul>
+        </li>
+        <li><a href="#c-資料結構設計-1">c. 資料結構設計：</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-廣度遍歷演算法的實現">3. 廣度遍歷演算法的實現</a>
+      <ul>
+        <li><a href="#a-問題分析-2">a. 問題分析：</a></li>
+        <li><a href="#b-演算法設計-2">b. 演算法設計：</a></li>
+        <li><a href="#c-資料結構設計-2">c. 資料結構設計：</a></li>
+      </ul>
+    </li>
+    <li><a href="#樣例">樣例</a>
+      <ul>
+        <li><a href="#調試過程">調試過程：</a></li>
+        <li><a href="#輸出結果">輸出結果：</a></li>
+      </ul>
+    </li>
+    <li><a href="#原始碼">原始碼</a>
+      <ul>
+        <li><a href="#順序儲存">順序儲存</a></li>
+        <li><a href="#鏈式儲存">鏈式儲存</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+        </div>
+        <div class="sidebar-common-sidebar hidden">
+          
+<div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="孤筝"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">孤筝</div>
+  <div class="sidebar-description">来都来了，随便坐坐。<br />有些封面是随机图片api，所以可能抽风或包含R18：）</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    
+    <div class="sidebar-state-number">60</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分類</div>
+    <div class="sidebar-state-number">
+      9
+    </div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>標籤</div>
+    <div class="sidebar-state-number">34</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+    <div class="icon-bilibili sidebar-social-icon">
+      <a
+        href="https://space.bilibili.com/348813114"
+        itemprop="url"
+        target="_blank"
+        aria-label="bilibili"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-discord sidebar-social-icon">
+      <a
+        href="https://discordapp.com/users/guzhengsvt"
+        itemprop="url"
+        target="_blank"
+        aria-label="discord"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-email sidebar-social-icon">
+      <a
+        href="mailto:lvbowen040427@163.com"
+        itemprop="url"
+        target="_blank"
+        aria-label="email"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-facebook sidebar-social-icon">
+      <a
+        href="https://www.facebook.com/profile.php?id=100085813411626"
+        itemprop="url"
+        target="_blank"
+        aria-label="facebook"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-github sidebar-social-icon">
+      <a
+        href="https://github.com/GuZhengSVT"
+        itemprop="url"
+        target="_blank"
+        aria-label="github"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-steam sidebar-social-icon">
+      <a
+        href="https://steamcommunity.com/profiles/76561198903535314/"
+        itemprop="url"
+        target="_blank"
+        aria-label="steam"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-telegram sidebar-social-icon">
+      <a
+        href="https://t.me/GuZhengSVT"
+        itemprop="url"
+        target="_blank"
+        aria-label="telegram"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-twitter sidebar-social-icon">
+      <a
+        href="https://x.com/GuZhengSVT"
+        itemprop="url"
+        target="_blank"
+        aria-label="twitter"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-zhihu sidebar-social-icon">
+      <a
+        href="https://www.zhihu.com/people/Gu-Zheng"
+        itemprop="url"
+        target="_blank"
+        aria-label="zhihu"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+</div>
+<div class="sidebar-menu">
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/"
+        aria-label="首頁"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf015;
+        
+      </div>
+      <div class="sidebar-menu-link">首頁</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/archives"
+        aria-label="歸檔"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf01c;
+        
+      </div>
+      <div class="sidebar-menu-link">歸檔</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/about"
+        aria-label="關於"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf2bd;
+        
+      </div>
+      <div class="sidebar-menu-link">關於</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/friend"
+        aria-label="友鏈"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf519;
+        
+      </div>
+      <div class="sidebar-menu-link">友鏈</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/zh-tw/moments"
+        aria-label="說說"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf075;
+        
+      </div>
+      <div class="sidebar-menu-link">說說</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="https://space.bilibili.com/348813114/bangumi"
+        aria-label="追番"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf005;
+        
+      </div>
+      <div class="sidebar-menu-link">追番</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="https://www.travellings.cn/go.html"
+        aria-label="開往"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf239;
+        
+      </div>
+      <div class="sidebar-menu-link">開往</div>
+    </div>
+  
+</div>
+
+        </div>
+      
+    
+  </div>
+  
+    
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+    
+  
+</nav>
+
+    </div>
+    
+    
+    
+      <meting-js
+        theme="var(--color-link)"
+        id="13510920186"
+        server="netease"
+        type="playlist"
+        auto="false"
+        fixed="true"
+        
+        
+        
+        
+        
+        
+        
+        
+        >
+      </meting-js>
+    
+    
+
+
+
+
+
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"
+    
+    
+    
+    
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"
+  ></script>
+
+
+
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"
+    
+    
+    
+    
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"
+  ></script>
+
+
+
+
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/material-theme@1.0.0/dist/material-theme.umd.js"
+    
+    
+    
+    
+    integrity="sha384-vLev0II0HKFaxkcm&#43;/7kX5IGwVFBASkGchU311wmU/veIj2bB0UcBkQbW6yw2asK" crossorigin="anonymous"
+  ></script>
+
+
+
+
+
+
+
+
+
+
+  
+      
+      <script src="/js/main.js" ></script>
+      
+
+
+
+  
+
+
+
+
+
+  
+      
+      <script src="/js/aos.js" ></script>
+      
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+
+
+
+
+
+
+  
+      
+      <script src="/js/pjax_main.js" data-pjax></script>
+      
+
+
+
+
+
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/mouse-firework@0.1.1/dist/index.umd.js"
+    
+    
+    
+    
+    integrity="sha384-8LyaidD9GPxQQgLJO/WRw/O2h3BoNq/ApI/ecpvM6RsrCz2qP2ppBXUKihP4V/2d" crossorigin="anonymous"
+  ></script>
+
+
+<script>
+  if (window.firework) {
+    const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+    options.excludeElements = options.excludeelements;
+    delete options.excludeelements;
+    window.firework(options);
+  }
+</script>
+
+
+
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/theme-shokax-pjax@0.0.3/dist/index.umd.js"
+    
+    
+    
+    
+    integrity="sha384-xneY1WY8hOfUzswrE4CrYq35N4BdVcxqxwHPr9zawE/jMSCxD&#43;jAPU55x/jj3wlf" crossorigin="anonymous"
+  ></script>
+
+
+  <script>
+    function loadScripts(scripts, index) {
+      if (index < scripts.length) {
+        const script = scripts[index];
+        const src = script.getAttribute('src');
+
+        const loadScript = (scriptContent) => {
+          return new Promise((resolve, reject) => {
+            const scriptElement = document.createElement('script');
+            if (script.type) {
+              scriptElement.type = script.type;
+            }
+            if (script.src) {
+              scriptElement.src = script.src;
+              scriptElement.onload = resolve;
+              scriptElement.onerror = reject;
+            }
+            if (scriptContent) {
+              scriptElement.text = scriptContent;
+            }
+            document.head.appendChild(scriptElement);
+            if (!script.src) {
+              resolve();
+            }
+          })
+          
+        }
+
+        ;(src ? loadScript() : loadScript(script.text))
+          .then(() => loadScripts(scripts, index + 1))
+          .catch(error => {
+            console.error(`Failed to load script: ${src || 'inline script'}`, error);
+            loadScripts(scripts, index + 1);
+          });
+      }
+    }
+    if (window.Pjax) {
+      Pjax.prototype.getElements = function() {
+        const i18nLanguages = window.siteConfig.i18n_languages;
+        const baseUrl = window.siteConfig.base;
+        let basePathname = new URL(baseUrl).pathname;
+        if (!basePathname.endsWith('/')) {
+          basePathname += '/';
+        }
+        const currentUrl = window.location.href;
+        const currentPathname = new URL(currentUrl).pathname.replace(basePathname, '');
+        const aLinks = document.querySelectorAll('a[href]');
+        const pjaxLinks = [];
+        for(let i = 0; i < aLinks.length; i++) {
+          const aLink = aLinks[i];
+          const aLinkHref = aLink.getAttribute('href');
+          const isExternal = aLink.getAttribute('target') === '_blank' || aLink.getAttribute('rel')?.includes('noopener');
+          if (isExternal || aLinkHref.startsWith('mailto:') || aLinkHref.startsWith('tel:') || aLinkHref.startsWith('javascript:') || aLinkHref.startsWith("data:") || aLinkHref.startsWith("vbscript:")) {
+            continue;
+          }
+          if (!i18nLanguages) {
+            
+            pjaxLinks.push(aLink);
+            continue;
+          }
+          const absoluteUrl = new URL(aLinkHref, currentUrl).href;
+          const absolutePathname = new URL(absoluteUrl).pathname.replace(basePathname, '');
+          if (!absolutePathname || !currentPathname) {
+            pjaxLinks.push(aLink);
+            continue;
+          }
+          const currentLangIndex = i18nLanguages.findIndex(lang => currentPathname.startsWith(lang.Lang));
+          if (currentLangIndex > -1) {
+            
+            const absoluteLangIndex = i18nLanguages.findIndex(lang => absolutePathname.startsWith(lang.Lang));
+            if (absoluteLangIndex === currentLangIndex) {
+              
+              pjaxLinks.push(aLink);
+            }
+          } else {
+            
+            const absoluteLangIndex = i18nLanguages.findIndex(lang => absolutePathname.startsWith(lang.Lang));
+            if (absoluteLangIndex === -1) {
+              
+              pjaxLinks.push(aLink);
+            }
+          }
+        }
+        return pjaxLinks;
+      }
+    }
+    window.Pjax &&
+      new window.Pjax({
+        selectors: [
+          "#header>img",
+          "#header>picture",
+          "head title",
+          "#header-title",
+          "#subtitle-wrap",
+          "#main",
+          "#content",
+          ".sidebar-widget",
+          ".sidebar-wrapper",
+          "#mobile-nav",
+          "#lazy-script",
+          '#i18n-nav'
+        ],
+        switches: {
+          "#content": function(oldEl, newEl) {
+            
+            oldEl.className = newEl.className;
+            this.onSwitch();
+          },
+          "#header-title": Pjax.switches.outerHTML,
+          "#subtitle-wrap": Pjax.switches.outerHTML,
+          "#main": function (oldEl, newEl) {
+            const scripts = [...newEl.querySelectorAll("script")];
+            loadScripts(scripts, 0);
+            oldEl.outerHTML = newEl.outerHTML;
+            this.onSwitch();
+          },
+          "#mobile-nav": Pjax.switches.outerHTML,
+          "#lazy-script": function (oldEl, newEl) {
+            const scripts = [...newEl.querySelectorAll("script")];
+            loadScripts(scripts, 0);
+            oldEl.innerHTML = newEl.innerHTML;
+            this.onSwitch();
+          },
+        },
+        cacheBust: false,
+      });
+  </script>
+  
+
+
+
+
+
+  
+      
+      <script src="/js/pjax.js" ></script>
+      
+
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+    
+      
+      
+        
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "孤筝",
+          title: "資料結構實機實驗報告4——二元樹的建構（完全二元樹BFS結果）、儲存（順序儲存與鏈式儲存）、遍歷（BFS與DFS）",
+          url: "http:\/\/localhost:1313\/zh-tw\/post\/code\/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs\/",
+          description: " 1. 根據輸入建立二元樹，順序儲存和鏈結儲存 a. 問題分析： 在這個問題中，需要根據輸入的字元序列建立一個二元樹，要求實現兩種儲存方式：順序儲存和鏈式儲存。輸入的字元序列中，字元 \u0026lsquo;@\u0026rsquo; 表示空節點。\n",
+          cover: "http:\/\/localhost:1313\/images\/noa4.webp",
+        };
+      </script>
+    
+    
+    
+      
+
+
+
+
+
+  
+      
+      <script src="/js/insert_highlight.js" data-pjax></script>
+      
+
+      
+      
+      
+      
+      <script type="module" data-pjax>
+        
+        const PhotoSwipeLightbox = (await safeImport("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;
+        
+        const pswp = () => {
+          if (_$$('.article-entry a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-entry',
+              children: 'a.article-gallery-item',
+              
+              pswpModule: () => safeImport("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")
+              
+            }).init();
+          }
+          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-gallery',
+              children: 'a.article-gallery-item',
+              
+              pswpModule: () => safeImport("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")
+              
+            }).init();
+          }
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script>
+      
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+<script data-pjax>
+  var loadScript = (src, integrity) => {
+    const script = document.createElement('script');
+    script.src = src;
+    if (integrity) script.integrity = integrity;
+    script.crossOrigin = 'anonymous';
+    return script;
+  };
+  var commentConfigKeys = ['valine', 'waline', 'twikoo', 'gitalk', 'giscus'];
+  var commentConfig = {
+    valine: {
+      enable: false,
+      load: () => {
+        const container = document.querySelector('.valine-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        const script = loadScript(
+          'https:\/\/cdn.jsdelivr.net\/npm\/valine@1.5.1\/dist\/Valine.min.js',
+          !'cdn_jsdelivr_npm|valine@1.5.1\/dist\/Valine.min.js'.startsWith('local') ? 'sha384-3ma91AExDeMAZ1rjTjaP8V2A2obQE\u002bs5ltKRwYlwdpArz9xVbp0tF3b0VV2ACNPn' : undefined
+        );
+        script.onload = () => {
+          const GUEST_INFO = ['nick', 'mail', 'link'];
+          const guest_info = 'nick,mail,link'.split(',').filter((item) => {
+            return GUEST_INFO.indexOf(item) > -1
+          });
+          const recordIP = JSON.parse('true');
+          const highlight = JSON.parse('true');
+          const visitor = JSON.parse('false');
+          const serverURLs = undefined;
+
+          new Valine({
+            el: '.valine-comment',
+            appId: "",
+            appKey: "",
+            placeholder: "Just go go",
+            pageSize: '10',
+            avatar: 'mp',
+            lang: 'zh-cn',
+            recordIP: recordIP,
+            highlight: highlight,
+            visitor: visitor,
+            requiredFields: guest_info,
+            path: window.location.pathname,
+            serverURLs,
+          });
+        };
+        document.head.appendChild(script);
+      }
+    },
+    waline: {
+      enable: true,
+      load: async () => {
+        const container = document.querySelector('.waline-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        let walineInit;
+        const walineCdn = 'https:\/\/cdn.jsdelivr.net\/npm\/@waline\/client@2.15.8\/dist\/waline.mjs';
+        
+        if ('cdn_jsdelivr_npm|@waline\/client@2.15.8\/dist\/waline.mjs'.startsWith('local')) {
+          
+          const module = await safeImport(walineCdn);
+          walineInit = module.init;
+        } else {
+          
+          const module = await safeImport(
+            walineCdn,
+            'sha384-9sbqJjrfGjbkI6\/PI4nU\/MvBfEmkkPC4YK9I4zBeMIf1CVCZdCMH\/KinBEAZII\/5'
+          );
+          walineInit = module.init;
+        }
+        
+        window.walineInstance = walineInit({
+          el: '.waline-comment',
+          serverURL: 'https:\/\/waline.guzhengsvt.cn',
+          lang: 'zh-CN',
+          locale: JSON.parse("{}"),
+          emoji: JSON.parse("[\"https://unpkg.com/@waline/emojis@1.2.0/weibo\",\"https://unpkg.com/@waline/emojis@1.2.0/alus\",\"https://unpkg.com/@waline/emojis@1.2.0/bilibili\",\"https://unpkg.com/@waline/emojis@1.2.0/qq\",\"https://unpkg.com/@waline/emojis@1.2.0/tieba\",\"https://unpkg.com/@waline/emojis@1.2.0/tw-emoji\"]"),
+          meta: JSON.parse("[\"nick\",\"mail\",\"link\"]"),
+          requiredMeta: JSON.parse("[\"nick\",\"mail\"]"),
+          wordLimit:  0 ,
+          comment: true,
+          pageSize:  10 ,
+          dark: 'html[data-theme="dark"]',
+          pageview:  true ,
+        });
+      }
+    },
+    twikoo: {
+      enable: false,
+      load: () => {
+        const container = document.querySelector('.twikoo-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        
+        const script = loadScript(
+          'https:\/\/cdn.jsdelivr.net\/npm\/twikoo@1.6.16\/dist\/twikoo.all.min.js',
+          !'cdn_jsdelivr_npm|twikoo@1.6.16\/dist\/twikoo.all.min.js'.startsWith('local') ? 'sha384-lDHsr5aZmkMS0eKnsUu6e9RWP\u002bdRmn7sgjRAKGOAoXfMyzbUK6Qi86zZK7R\u002bKvRV' : undefined
+        );
+        script.onload = () => {
+          twikoo.init({
+            envId: '',
+            el: '.twikoo-comment',
+            region: '',
+          });
+        };
+        document.head.appendChild(script);
+      }
+    },
+    gitalk: {
+      enable: false,
+      load: () => {
+        const container = document.querySelector('.gitalk-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        const script = loadScript(
+          'https:\/\/cdn.jsdelivr.net\/npm\/gitalk@1.8.0\/dist\/gitalk.min.js',
+          !'cdn_jsdelivr_npm|gitalk@1.8.0\/dist\/gitalk.min.js'.startsWith('local') ? 'sha384-kspnZUWBoSWwoJHa0hBCXYbHGbhvU\/lcEH5O8eVbSDhbPwsiVUTp\/aGX\/z\/5EuMA' : undefined
+        );
+        script.onload = () => {
+          if ( false ) {
+            
+            const md5Script = loadScript(
+              'https:\/\/cdn.jsdelivr.net\/npm\/blueimp-md5@2.19.0\/js\/md5.min.js',
+              !'cdn_jsdelivr_npm|blueimp-md5@2.19.0\/js\/md5.min.js'.startsWith('local') ? 'sha384-JmVtRz6RWiXnA14QbIOJzPuU3MidULOpBP66deeLLyyoF4Tr\/gZlbkHkL6vTthxH' : undefined
+            );
+            md5Script.onload = initGitalk;
+            document.head.appendChild(md5Script);
+          } else {
+            
+            initGitalk();
+          }
+        };
+        document.head.appendChild(script);
+
+        function initGitalk() {
+          let gitalk = new Gitalk({
+            clientID: '',
+            clientSecret: '',
+            repo: '',
+            owner: '',
+            admin: JSON.parse("null"),
+            id: location.pathname,
+            distractionFreeMode: false
+          });
+          gitalk.render('gitalk-comment');
+        }
+      }
+    },
+    giscus: {
+      enable: false,
+      load: () => {
+        const container = document.querySelector('.giscus-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        
+        const existingScript = container.querySelector('script[src*="giscus.app/client.js"]');
+        if (existingScript) existingScript.remove();
+        const existingFrame = document.querySelector('iframe.giscus-frame');
+        if (existingFrame) existingFrame.remove();
+
+        
+        const giscusScript = document.createElement('script');
+        const domMode = document.documentElement.getAttribute("data-theme");
+        giscusScript.src = 'https://giscus.app/client.js';
+        giscusScript.setAttribute('data-repo', '');
+        giscusScript.setAttribute('data-repo-id', '');
+        giscusScript.setAttribute('data-category', '');
+        giscusScript.setAttribute('data-category-id', '');
+        giscusScript.setAttribute('data-mapping', '0');
+        giscusScript.setAttribute('data-strict', '0');
+        giscusScript.setAttribute('data-reactions-enabled', '1');
+        giscusScript.setAttribute('data-emit-metadata', '0');
+        giscusScript.setAttribute('data-input-position', 'bottom');
+        giscusScript.setAttribute('data-theme', domMode === 'dark' ? 'dark' : 'light');
+        giscusScript.setAttribute('data-lang', 'zh-CN');
+        giscusScript.setAttribute('crossorigin', 'anonymous');
+        giscusScript.async = true;
+        container.appendChild(giscusScript);
+        document.body.addEventListener('light-theme-set', () => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'light' } } }, 'https://giscus.app');
+        });
+        document.body.addEventListener('dark-theme-set', () => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'dark' } } }, 'https://giscus.app');
+        });
+      }
+    }
+  };
+  commentConfig.enable = commentConfigKeys.some(key => commentConfig[key].enable);
+
+  var defaultComment = '';
+  if (commentConfig.enable) {
+    
+    var savedCommentType = localStorage.getItem('commentType');
+    
+    
+    if (savedCommentType) {
+      if (commentConfig[savedCommentType]?.enable) {
+        defaultComment = savedCommentType;
+      }
+    }
+    
+    
+    if (!defaultComment) {
+      var configDefault = 'waline';
+      if (commentConfig[configDefault]?.enable) {
+        defaultComment = configDefault;
+      }
+    }
+    
+    
+    if (!defaultComment) {
+      defaultComment = commentConfigKeys.find(sys => commentConfig[sys].enable) || '';
+    }
+  }
+
+  function loadComments() {
+    if (!commentConfig.enable) return;
+    
+    const loadedComments = {
+      valine: false,
+      waline: false,
+      twikoo: false,
+      gitalk: false,
+      giscus: false
+    };
+
+    
+    const hideAllComments = () => {
+      const commentContainers = document.querySelectorAll('.comment');
+      commentContainers.forEach(container => {
+        container.style.display = 'none';
+      });
+    };
+
+    
+    const loadCommentSystem = (type) => {
+      if (loadedComments[type]) {
+        
+        document.querySelector(`.${type}-comment`).style.display = 'block';
+        return;
+      }
+
+      
+      commentConfig[type]?.load();
+      loadedComments[type] = true;
+    };
+
+    
+    const changeActiveCommentItems = (item) => {
+      const commentItems = document.querySelectorAll('.selector-item');
+      for (let i = 0; i < commentItems.length; i++) {
+        commentItems[i].classList.remove('active');
+      }
+      item.classList.add('active');
+
+      
+      const commentType = item.getAttribute('data-selector');
+
+      
+      hideAllComments();
+
+      
+      loadCommentSystem(commentType);
+    };
+
+    const commentInit = () => {
+      
+      const commentItems = document.querySelectorAll('.selector-item');
+      for (let item of commentItems) {
+        item.addEventListener('click', () => {
+          
+          const commentType = item.getAttribute('data-selector');
+          window.localStorage.setItem('commentType', commentType);
+          
+          changeActiveCommentItems(item);
+        });
+      }
+
+      
+      if (defaultComment) {
+        const defaultSelectorItem = document.querySelector(`[data-selector="${defaultComment}"]`);
+        if (!defaultSelectorItem) return;
+        defaultSelectorItem.style.display = 'block';
+        defaultSelectorItem.classList.add('active');
+        loadCommentSystem(defaultComment);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', commentInit);
+    } else {
+      commentInit();
+    }
+  };
+  loadComments();
+</script>
+
+
+      
+        
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"
+    defer
+    
+    data-pjax
+    
+    integrity="sha384-0RsG1yo/crf/1Qc14sho26SXXOTngNCjgJw7fuvXBt9W/OChF/Ijx&#43;aUuBDqQwEk" crossorigin="anonymous"
+  ></script>
+
+
+        
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js"
+    defer
+    
+    data-pjax
+    
+    integrity="sha384-UbfRVKN3/elS1r7JcK2FhmPP&#43;KlJ4CvYwbyYD7tH&#43;uTkbT9bNJr9eJeQ0FoFbAgz" crossorigin="anonymous"
+  ></script>
+
+
+      
+    
+    
+      
+        
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+    
+    
+    data-pjax
+    
+    integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8" crossorigin="anonymous"
+  ></script>
+
+
+        
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    
+    
+    data-pjax
+    
+    integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05" crossorigin="anonymous"
+  ></script>
+
+
+        <script data-pjax>
+          var renderMath = () => {
+            if (!window.renderMathInElement) return;
+            window.renderMathInElement(_$("article"), {
+              delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+              ],
+            });
+          };
+          if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", renderMath, { once: true });
+          } else {
+            renderMath();
+          }
+        </script>
+      
+      
+    
+  </div>
+</div>
+
+
+  <script data-pjax>
+    var updateTime = _$('#post-update-time')?.innerHTML;
+
+    if (updateTime) {
+      const update = new Date(updateTime);
+      const now = new Date();
+      const diff = now - update;
+      const days = diff / 86400000;
+      const { daysago: daysAgo, message: template } = window.siteConfig.outdate;
+      if (days >= daysAgo) {
+        const message = template.replace(/{time}/, updateTime);
+        const blockquote = _$('#outdate-blockquote');
+        if (blockquote) {
+          blockquote.querySelector('p').innerText = message;
+          blockquote.style.display = 'block';
+        }
+      }
+    }
+  </script>
+
+
+
+
+
+  
+
+
+
+
+
+  
+      
+        
+      
+
+  
+
+
+
+
+
+  
+      
+      <script src="/js/service_worker.js" ></script>
+      
+
+
+
+<script>
+  const reimuCopyright = String.raw`
+   ______     ______     __     __    __     __  __    
+  /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+  \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+   \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+    \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                    
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script>
+
+
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"
+    
+    
+    
+    
+    integrity="sha384-gdGYZwHnfJM54evoZhpO0s6ZF5BQiybkiyW7VXr&#43;h5UfruuRL/aORyw&#43;5&#43;HZoU6e" crossorigin="anonymous"
+  ></script>
+
+
+  
+
+
+
+  
+  <script>
+    var isMobile = window.matchMedia('(max-width: 959px)').matches;
+    if (isMobile) {
+      const meting = _$('meting-js');
+      if (meting) {
+        meting.setAttribute('fixed', 'true');
+        const aside = meting.parentNode;
+        if (aside?.tagName === 'ASIDE') {
+          aside.removeChild(meting);
+          document.body.appendChild(meting);
+        }
+      }
+    }
+  </script>
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"
+    
+    
+    
+    
+    integrity="sha384-ASVlpKF80A22OXTK3tfEjZm1EL6uFMKIC4p8&#43;0maanw1S/IyB&#43;Y4JG&#43;ZDU7GpKE8" crossorigin="anonymous"
+  ></script>
+
+
+
+
+
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"
+    
+    
+    
+    
+    integrity="sha384-HeUHqi0nVsPUm/E0ss7OfnIV/yD96JWB8ehZvUuoVax9DpNHL17jj9pdfXHzqDxm" crossorigin="anonymous"
+  ></script>
+
+
+  <script data-pjax>
+    if (document.readyState === "loading") {
+      document.addEventListener('DOMContentLoaded', () => {
+        pangu?.spacingPage();
+      });
+    } else {
+      pangu?.spacingPage();
+    }
+  </script>
+
+
+    
+  </body>
+</html>

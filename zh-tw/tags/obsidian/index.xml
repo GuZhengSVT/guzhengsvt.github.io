@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>Obsidian on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/zh-tw/tags/obsidian/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>zh-tw</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Tue, 27 Jun 2023 00:41:26 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/zh-tw/tags/obsidian/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Obsidian基礎</title>
+      <link>http://localhost:1313/zh-tw/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Tue, 27 Jun 2023 00:41:26 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-tw/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</guid>
+      <description><![CDATA[<h1>Obsidian基礎</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p><a href="https://publish.obsidian.md/help-zh/%E7%94%B1%E6%AD%A4%E5%BC%80%E5%A7%8B">Obsidian 中文幫助</a></p>
+<h1 id="介面">
+<a class="header-anchor" href="#%e4%bb%8b%e9%9d%a2"></a>
+介面
+</h1><p><a href="https://zhuanlan.zhihu.com/p/428519519">想一小時上手obsidian？這一篇就夠了。【玩轉Obsidian的保姆級教程】 - 知乎 (zhihu.com)</a>
+建立庫資料夾——庫資料夾下建立筆記分類資料夾——細分筆記
+obsidian help
+筆記最上一欄——豎三點更多——拆分筆記查看
+<a href="https://zhuanlan.zhihu.com/p/409409946">Wyatt：打造自己的工作台【玩轉Obsidian的保姆級教程】216 贊同 · 7 評論文章<img src="https://pic1.zhimg.com/v2-2323eabf712e3ebaae40c322ec18dde0_180x120.jpg" alt=""></a>
+左上角查看大綱</p>
+<h1 id="插件待開坑">
+<a class="header-anchor" href="#%e6%8f%92%e4%bb%b6%e5%be%85%e9%96%8b%e5%9d%91"></a>
+插件（待開坑）
+</h1><p><a href="https://zhuanlan.zhihu.com/p/403001135">Wyatt：如何安裝插件？【玩轉Obsidian的保姆級教程】264 贊同 · 63 評論文章<img src="https://pic2.zhimg.com/v2-51f1cdbc1b5891f62958cdb379dc5561_180x120.jpg" alt=""></a></p>
+<h1 id="字體">
+<a class="header-anchor" href="#%e5%ad%97%e9%ab%94"></a>
+字體
+</h1><p>用#+一個空格對標題分級，#越多，級別越低</p>
+<h3 id="強調">
+<a class="header-anchor" href="#%e5%bc%b7%e8%aa%bf"></a>
+強調
+</h3><p><em>這是斜體</em>
+<em>斜體另一種寫法，英文短底線</em></p>
+<h3 id="粗體">
+<a class="header-anchor" href="#%e7%b2%97%e9%ab%94"></a>
+粗體
+</h3><p><strong>粗體示例，兩個星號</strong>
+<strong>或者是兩個底線</strong></p>
+<h3 id="組合使用">
+<a class="header-anchor" href="#%e7%b5%84%e5%90%88%e4%bd%bf%e7%94%a8"></a>
+組合使用
+</h3><p><em>這是<strong>斜體+粗體</strong></em></p>
+<h3 id="刪除線">
+<a class="header-anchor" href="#%e5%88%aa%e9%99%a4%e7%b7%9a"></a>
+刪除線
+</h3><p>~~既然要追求刺激，那就貫徹到底嘍~~~</p>
+<h3 id="高亮">
+<a class="header-anchor" href="#%e9%ab%98%e4%ba%ae"></a>
+高亮
+</h3><p>==疏影橫斜水清淺，暗香浮動月黃昏==</p>
+<h3 id="腳註">
+<a class="header-anchor" href="#%e8%85%b3%e8%a8%bb"></a>
+腳註
+</h3><p>文本<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>文本</p>
+<h3 id="註釋">
+<a class="header-anchor" href="#%e8%a8%bb%e9%87%8b"></a>
+註釋
+</h3><ul>
+<li>行內註釋
+%%這裡是行內註釋%%</li>
+<li>跨行註釋
+%%
+你是四月早天裡的雲煙
+黃昏吹著風的軟
+星子在無意中閃
+細雨點灑在花前
+%%</li>
+</ul>
+<h1 id="列表">
+<a class="header-anchor" href="#%e5%88%97%e8%a1%a8"></a>
+列表
+</h1><ul>
+<li>無序列表
+<ul>
+<li>短橫線+一個空格</li>
+<li>tab+短橫線+一個空格使這一行作為上一行子列表元素</li>
+</ul>
+</li>
+<li>有序列表
+<ol>
+<li>數字+小數點+一個空格</li>
+<li>同樣tab+數字+小數點+一個空格縮排一行</li>
+<li></li>
+</ol>
+</li>
+</ul>
+<h1 id="圖片">
+<a class="header-anchor" href="#%e5%9c%96%e7%89%87"></a>
+圖片
+</h1><ul>
+<li>$$![Engelbart](圖片網址)$$</li>
+<li>![[Pasted image 20230625203344.png]]</li>
+<li>調整寬度
+<ul>
+<li>$$![Engelbart|100](圖片連結)$$</li>
+<li>![[Pasted image 20230625203536.png]]</li>
+</ul>
+</li>
+</ul>
+<h1 id="外部連結">
+<a class="header-anchor" href="#%e5%a4%96%e9%83%a8%e9%80%a3%e7%b5%90"></a>
+外部連結
+</h1><h3 id="指向庫中筆記圖片">
+<a class="header-anchor" href="#%e6%8c%87%e5%90%91%e5%ba%ab%e4%b8%ad%e7%ad%86%e8%a8%98%e5%9c%96%e7%89%87"></a>
+指向庫中筆記/圖片
+</h3><ul>
+<li>$http://obsidian.md - automatic!$
+<ul>
+<li><em>指向網路連結，以網址顯示，$僅為排版美觀</em></li>
+</ul>
+</li>
+<li>$[obsidian](http://obsidian.md)$
+<ul>
+<li><em>指向網路連接，以中括號內內容顯示</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="obsidian-url">
+<a class="header-anchor" href="#obsidian-url"></a>
+Obsidian URL
+</h3><p>Obsidian URI 通常採用以下形式：
+</p>
+$$obsidian://action?param1=value&param2=value$$<p>
+action表示執行操作，value為參數
+比如打開筆記：
+</p>
+$$[標註的筆記名，想給的代號](obsidian://open?path=筆記絕對路徑)$$<p>
+<strong>注意中英文括號、冒號</strong>
+舉例：
+<a href="#ZgotmplZ">打開高數</a>
+其中，path接檔案絕對路徑</p>
+<ul>
+<li><em>打開某庫，不打開具體檔案只打開資料夾不顯示效果</em>
+$$[name](obsidian://open?vault=庫資料夾名稱/庫ID)$$
+<a href="#ZgotmplZ">打開筆記資料夾</a></li>
+<li><em>打開Math資料夾下的高數，<strong>.md</strong>副檔名可不寫</em>
+<a href="#ZgotmplZ">高數</a></li>
+</ul>
+<h3 id="others">
+<a class="header-anchor" href="#others"></a>
+Others
+</h3><ul>
+<li>
+<p>URL中有空格時需要轉義為$\%20$</p>
+<ul>
+<li>上面%20的百分號%需要轉義，%</li>
+</ul>
+</li>
+<li>
+<p>或者用&lt;&gt;將有空格內容包圍</p>
+</li>
+<li>
+<p>引用
+</p>
+$$> 引用內容$$<p>
+</p>
+$$\ 引用來源$$<p>
+eg</p>
+</li>
+</ul>
+<blockquote>
+<p>時間是一場有去無回的旅行，好的壞的都是風景。
+\ ——《歲月神偷》金玟岐</p></blockquote>
+<ul>
+<li>
+<p>行內程式碼
+<code>include&lt;stdc++.h&gt;</code></p>
+</li>
+<li>
+<p>程式碼塊
+<em>Obsidian 會將六個反引號括起來的內容識別為程式碼塊，並將其按程式碼格式顯示。程式碼塊支援語法高亮功能，你可以在程式碼塊的第一行（即開頭處的反引號後）宣告語言來使用特定的語法高亮。</em></p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include&lt;stdc++.h&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="n">b</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">b</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="o">+=</span><span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cont</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><a href="https://en.wikipedia.org/wiki/Percent-encoding">更多編碼規範</a></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>這裡是對應註釋
+腳註可以多行，用縮排&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        <hr><p>本文 2023-06-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-06-27</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+  </channel>
+</rss>

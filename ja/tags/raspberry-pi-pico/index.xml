@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>Raspberry Pi Pico on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/ja/tags/raspberry-pi-pico/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Thu, 15 Feb 2024 11:44:33 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/ja/tags/raspberry-pi-pico/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>MicroPython関数ライブラリ</title>
+      <link>http://localhost:1313/ja/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link>
+      <pubDate>Thu, 15 Feb 2024 11:44:33 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid>
+      <description><![CDATA[<h1>MicroPython関数ライブラリ</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="machine-ハードウェア関連機能">
+<a class="header-anchor" href="#machine-%e3%83%8f%e3%83%bc%e3%83%89%e3%82%a6%e3%82%a7%e3%82%a2%e9%96%a2%e9%80%a3%e6%a9%9f%e8%83%bd"></a>
+machine-ハードウェア関連機能
+</h1><h2 id="pinクラス">
+<a class="header-anchor" href="#pin%e3%82%af%e3%83%a9%e3%82%b9"></a>
+Pinクラス
+</h2><h3 id="machinepinidmodenonepullnonevalue">
+<a class="header-anchor" href="#machinepinidmodenonepullnonevalue"></a>
+<code>machine.Pin(id,mode=None,pull=None,value)</code>
+</h3><p>Pinオブジェクトコンストラクタ</p>
+<ul>
+<li>id：GPIO番号、Picoでは0-29</li>
+<li>mode：モード、オプション<code>None、Pin.IN(0)、Pin.OUT(1)、Pin.OPEN_DRAIN(2)</code></li>
+<li>pull：内部プルアップ/プルダウン抵抗の使用、入力モードでのみ有効、オプション<code>None、Pin.PULL_UP(1)、Pin.DOWN(2)</code></li>
+<li>value：出力またはオープンドレインモードでのポート値、0は低電位、1は高電位</li>
+</ul>
+<h3 id="pininitmodenonepullnone">
+<a class="header-anchor" href="#pininitmodenonepullnone"></a>
+<code>Pin.init(mode=None,pull=None)</code>
+</h3><p>GPIOポートの再初期化</p>
+<h3 id="pinvaluex">
+<a class="header-anchor" href="#pinvaluex"></a>
+<code>Pin.value([x])</code>
+</h3><ul>
+<li>パラメータなしの場合、GPIOポートの値を返す</li>
+<li>パラメータ0または1を指定すると、GPIOポートに値を書き込む</li>
+</ul>
+<h3 id="pintoggle">
+<a class="header-anchor" href="#pintoggle"></a>
+<code>Pin.toggle()</code>
+</h3><p>出力またはオープンドレインモードでポートの状態を反転
+例.LED点滅</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="c1">#1秒ごとにLEDのON/OFFを切り替え</span>
+</span></span></code></pre></div><h3 id="pinirqhandlernonetriggerpinirq_fallingpinirq_rising">
+<a class="header-anchor" href="#pinirqhandlernonetriggerpinirq_fallingpinirq_rising"></a>
+<code>Pin.irq(handler=None,trigger=(Pin.IRQ_FALLING|PIN.IRQ_RISING))</code>
+</h3><p>外部割り込み関数</p>
+<ul>
+<li>handler：割り込みトリガーコールバック関数</li>
+<li>trigger：割り込みトリガー条件（エッジトリガー/レベルトリガー）</li>
+</ul>
+<h3 id="その他">
+<a class="header-anchor" href="#%e3%81%9d%e3%81%ae%e4%bb%96"></a>
+その他
+</h3><p>以下の関数は出力/オープンドレインモードで使用可能：</p>
+<ul>
+<li><code>Pin.low(),Pin.off()</code> ポートを低電圧に設定</li>
+<li><code>Pin.high(),Pin.on()</code> ポートを高電圧に設定</li>
+</ul>
+<h3 id="例-led制御">
+<a class="header-anchor" href="#%e4%be%8b-led%e5%88%b6%e5%be%a1"></a>
+例. LED制御
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">utime</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#ボタンをGPIO15に接続、入力モード、内部プルアップ</span>
+</span></span><span class="line"><span class="cl"><span class="n">button_num</span><span class="o">=</span><span class="mi">15</span>
+</span></span><span class="line"><span class="cl"><span class="n">button</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">button_num</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#GP25はボード上のLED、外部LEDはGP16に接続</span>
+</span></span><span class="line"><span class="cl"><span class="n">led1_num</span><span class="o">=</span><span class="mi">25</span>
+</span></span><span class="line"><span class="cl"><span class="n">led2_num</span><span class="o">=</span><span class="mi">16</span>
+</span></span><span class="line"><span class="cl"><span class="n">led1</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">led1_num</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">led2</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">led2_num</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led2</span><span class="o">.</span><span class="n">off</span><span class="p">()</span><span class="c1">#外部LEDをオフ</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span><span class="c1">#ボタンが押されたか判定（押下時0）</span>
+</span></span><span class="line"><span class="cl">        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span><span class="c1">#ソフトウェアデバウンス</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led1</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span><span class="c1">#ボード上のLEDを反転</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led2</span><span class="o">.</span><span class="n">on</span><span class="p">()</span><span class="c1">#外部LEDを点灯（GP16高電位）</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;The button is pressed.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#ボタンが押された状態で待機（外部LEDは点灯したまま）</span>
+</span></span><span class="line"><span class="cl">                <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="pwmクラス">
+<a class="header-anchor" href="#pwm%e3%82%af%e3%83%a9%e3%82%b9"></a>
+PWMクラス
+</h2><h3 id="machinepwmpin">
+<a class="header-anchor" href="#machinepwmpin"></a>
+<code>machine.PWM(pin)</code>
+</h3><p>指定GPIOをPWM出力として再初期化
+pinはPinクラスオブジェクト</p>
+<h3 id="pwmdeinit">
+<a class="header-anchor" href="#pwmdeinit"></a>
+<code>PWM.deinit()</code>
+</h3><p>PWMの初期化解除、PWM出力を停止</p>
+<h3 id="pwmfreqvalue">
+<a class="header-anchor" href="#pwmfreqvalue"></a>
+<code>PWM.freq([value])</code>
+</h3><p>PWM周波数を設定（単位$Hz$）、分周器パラメータとTOPレジスタパラメータを自動計算</p>
+<h3 id="pwmduty_u16value">
+<a class="header-anchor" href="#pwmduty_u16value"></a>
+`PWM.duty_u16([value])
+</h3><p>デューティ比を設定
+valueのデューティ比範囲は[0,65536]、これに基づいてCCレジスタに値を設定</p>
+<h3 id="pwmduty_nsvalue">
+<a class="header-anchor" href="#pwmduty_nsvalue"></a>
+<code>PWM.duty_ns([value])</code>
+</h3><p>1周期の高電位時間をナノ秒単位で設定</p>
+<h3 id="例-ブレスled">
+<a class="header-anchor" href="#%e4%be%8b-%e3%83%96%e3%83%ac%e3%82%b9led"></a>
+例. ブレスLED
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span><span class="n">PWM</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">=</span><span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span><span class="c1">#ボード上のLEDをPWMオブジェクトとして初期化</span>
+</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="c1">#周波数設定</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_duty</span><span class="o">=</span><span class="mi">0</span><span class="c1">#初期値</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_direction</span><span class="o">=</span><span class="mi">1</span><span class="c1">#ステップ幅</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led_duty</span><span class="o">+=</span><span class="n">led_direction</span><span class="c1">#デューティ比を増加/減少</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">led_duty</span><span class="o">&gt;=</span><span class="mi">100</span><span class="p">:</span><span class="c1">#最大</span>
+</span></span><span class="line"><span class="cl">        <span class="n">led_duty</span><span class="o">=</span><span class="mi">100</span>
+</span></span><span class="line"><span class="cl">        <span class="n">led_direction</span><span class="o">=-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">led_duty</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">:</span><span class="c1">#最小</span>
+</span></span><span class="line"><span class="cl">        <span class="n">led_duty</span><span class="o">=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">led_direction</span><span class="o">=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">led_duty</span><span class="o">*</span><span class="mf">655.36</span><span class="p">))</span><span class="c1">#デューティ比値変換</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">led_duty</span><span class="o">%</span><span class="mi">5</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">led_duty</span><span class="p">)</span><span class="c1">#グラフ観測用</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#周期2秒</span>
+</span></span></code></pre></div><h2 id="adcクラス">
+<a class="header-anchor" href="#adc%e3%82%af%e3%83%a9%e3%82%b9"></a>
+ADCクラス
+</h2><h3 id="machineadcid">
+<a class="header-anchor" href="#machineadcid"></a>
+<code>machine.ADC(id)</code>
+</h3><p>ADCオブジェクトとして初期化、idはGPIOまたはADCチャンネル。Pinオブジェクト使用時はGPIOがADCをサポートしている必要あり。
+0-3はPicoのGPIOチャンネル26-29、4はチップ内温度センサーチャンネル。</p>
+<h3 id="adcread_u16">
+<a class="header-anchor" href="#adcread_u16"></a>
+<code>ADC.read_u16()</code>
+</h3><p>対応チャンネルのADC値を読み取り[0,65525]の範囲で返す。</p>
+
+        <hr><p>本文 2024-02-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-02-15</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+  </channel>
+</rss>

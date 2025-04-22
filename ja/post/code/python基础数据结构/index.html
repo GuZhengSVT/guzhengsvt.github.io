@@ -1,0 +1,3386 @@
+<!doctype html>
+<html
+  lang="ja" 
+  
+    data-theme-mode="auto"
+  
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/>
+
+
+
+
+
+
+
+  
+
+<title>
+  Pythonの基本データ構造 | 孤筝
+</title>
+<meta
+  name="description"
+  content="Pythonの基本データ構造"
+/>
+
+
+
+
+  
+<script src="https://www.googletagmanager.com/gtag/js?id=true"></script>
+<script data-pjax>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+
+  gtag('config', 'true');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  window.siteConfig = JSON.parse("{\"anchor_icon\":null,\"base\":\"http://localhost:1313/\",\"clipboard\":{\"copyright\":{\"content\":\"本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！\",\"count\":50,\"enable\":false},\"fail\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"success\":\"复制成功(*^▽^*)\"},\"code_block\":{\"expand\":true},\"i18n_languages\":[{\"Lang\":\"zh-cn\",\"LanguageName\":\"简体中文\",\"LanguageCode\":\"\",\"Title\":\"\",\"LanguageDirection\":\"\",\"Weight\":1,\"Disabled\":false},{\"Lang\":\"en\",\"LanguageName\":\"English\",\"LanguageCode\":\"\",\"Title\":\"\",\"LanguageDirection\":\"\",\"Weight\":2,\"Disabled\":false},{\"Lang\":\"zh-tw\",\"LanguageName\":\"繁體中文\",\"LanguageCode\":\"\",\"Title\":\"\",\"LanguageDirection\":\"\",\"Weight\":3,\"Disabled\":false},{\"Lang\":\"ja\",\"LanguageName\":\"日本語\",\"LanguageCode\":\"\",\"Title\":\"\",\"LanguageDirection\":\"\",\"Weight\":4,\"Disabled\":false}],\"icon_font\":false,\"outdate\":{\"daysago\":180,\"enable\":true,\"message\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\"}}");
+  
+  window.siteConfig.swPath = '\/sw.js';
+  
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/regular.min.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/solid.min.css" />
+
+
+  
+
+
+  <link
+    rel="preload"
+    as="style"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/brands.min.css"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+
+  <link
+    rel="preload"
+    as="style"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/v5-font-face.min.css"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+
+  <link
+    rel="preload"
+    as="style"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/v4-font-face.min.css"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+
+
+
+
+
+  
+
+
+
+
+
+
+ <link rel="stylesheet" href="/css/loader.css" />
+
+
+
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Pythonの基本データ構造 | 孤筝" />
+  <meta
+    property="og:description"
+    content="Pythonの基本データ構造"
+  />
+  <meta property="og:url" content="http://localhost:1313/ja/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" />
+  <meta
+    property="og:site_name"
+    content="孤筝の温暖小家"
+  />
+  <meta
+    property="og:image"
+    content="/"
+  />
+  <meta property="article:author" content="孤筝" />
+  <meta property="article:published_time" content="2023-08-27T21:40:39&#43;08:00" />
+  <meta property="article:modified_time" content="2023-08-27T21:40:39&#43;08:00" />
+  
+    <meta property="article:tag" content="原创笔记Python" />
+  
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="/" />
+  
+  
+  
+  
+  
+
+
+
+
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+
+
+
+ <link rel="stylesheet" href="/css/main.css" />
+
+
+
+
+
+  <link
+    rel="preload"
+    as="style"
+    href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+
+
+
+
+
+
+  <link
+    rel="preload"
+    as="style"
+    href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+
+
+
+
+  
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@waline/client@2.15.8/dist/waline.css" />
+
+
+
+
+
+
+
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"
+    
+    
+    
+    
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"
+  ></script>
+
+
+
+
+
+  
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@reimujs/aos@0.1.0/dist/aos.css" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" />
+
+
+
+
+    
+  </head>
+  <body>
+    
+    
+  <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi ">
+        
+          <img src="/images/saki-cry.GIF" alt="loading" />
+        
+      </div>
+      <div class="loading-word">“为什么要演奏《春日影》！”</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var startLoading = () => {
+      time = Date.now();
+      document.getElementById('loader').classList.remove("loading");
+    }
+    var endLoading = () => {
+      if (!time) {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader').classList.add("loading");
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    document.getElementById('loader').addEventListener('click', endLoading);
+  </script>
+
+
+<div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+</div>
+<div id="lang-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+本文書は対応する言語バージョンが見つかりません
+</div>
+
+
+  <div class="notification-wrapper">
+    <h1>新しいバージョンが見つかりました</h1>
+    <p>ウェブサイトに新しいコンテンツがあるようです。更新しますか？</p>
+    <div class="notification-btn">
+      <button id="notification-update-btn">更新</button>
+      <button id="notification-close-btn">キャンセル</button>
+    </div>
+  </div>
+
+
+    <div id="container">
+      <div id="wrap">
+        
+<div id="header-nav">
+  <nav id="main-nav">
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf015;
+          
+        </div>
+        <a class="main-nav-link" href="/ja/">ホーム</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf01c;
+          
+        </div>
+        <a class="main-nav-link" href="/ja/archives">アーカイブ</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf2bd;
+          
+        </div>
+        <a class="main-nav-link" href="/ja/about">プロフィール</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf519;
+          
+        </div>
+        <a class="main-nav-link" href="/ja/friend">フレンド</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf075;
+          
+        </div>
+        <a class="main-nav-link" href="/ja/moments">コメント</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf005;
+          
+        </div>
+        <a class="main-nav-link" href="https://space.bilibili.com/348813114/bangumi">マイアニメリスト</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon '>
+          
+            &#xf239;
+          
+        </div>
+        <a class="main-nav-link" href="https://www.travellings.cn/go.html">Travelling</a>
+      </span>
+    
+    <a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav">
+    
+    
+  </nav>
+  
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    <nav id="i18n-nav">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">日本語</span>
+        </div>
+        <ul class="select-items" id="select-items">
+          
+            <li data-value="zh-cn"  >简体中文</li>
+          
+            <li data-value="en"  >English</li>
+          
+            <li data-value="zh-tw"  >繁體中文</li>
+          
+            <li data-value="ja" class="selected" >日本語</li>
+          
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+            
+              
+              langMap['zh-cn'] = '\/zh-cn\/post\/code\/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84\/';
+              
+              langMap['en'] = '\/en\/post\/code\/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84\/';
+              
+              langMap['zh-tw'] = '\/zh-tw\/post\/code\/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84\/';
+              
+            
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            if (item.dataset.value === 'ja') {
+              return;
+            }
+            if (!langMap[item.dataset.value]) {
+              _$("#lang-tooltip").style.opacity = "1";
+              setTimeout(() => {
+                _$("#lang-tooltip").style.opacity = "0";
+              }, 1000);
+              return;
+            }
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+          }
+        });
+      </script>
+    </nav>
+  
+</div>
+<header id="header">
+  
+    
+      
+        <picture>
+          
+        </picture>
+        
+          <img crossorigin="anonymous" fetchpriority="high" src="/images/noa4.webp" alt="Pythonの基本データ構造">
+        
+      
+    
+  
+
+  <div id="header-outer">
+    <div id="header-title">
+      
+        
+        
+          
+        
+  
+        
+          <a href="/ja/" id="logo">
+            <h1 data-aos="slide-up">Pythonの基本データ構造</h1>
+          </a>
+        
+      
+  
+      
+        
+        
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+          
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+        <div id="content"
+          
+          class="sidebar-right"  >
+          <aside id="sidebar">
+  
+  
+  
+  <div class="sidebar-wrapper wrap-sticky">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    >
+      
+        
+          <div class="sidebar-toc-sidebar">
+            <div class="sidebar-toc">
+  <h3 class="toc-title">見出し</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#リスト">リスト</a>
+      <ul>
+        <li><a href="#定義">定義</a></li>
+        <li><a href="#リストの作成">リストの作成</a></li>
+        <li><a href="#要素の確認">要素の確認</a></li>
+        <li><a href="#新しい要素の追加">新しい要素の追加</a></li>
+        <li><a href="#要素の変更">要素の変更</a></li>
+        <li><a href="#要素の削除">要素の削除</a></li>
+        <li><a href="#リストの反転">リストの反転</a></li>
+        <li><a href="#リストのソート">リストのソート</a></li>
+      </ul>
+    </li>
+    <li><a href="#タプル">タプル</a>
+      <ul>
+        <li><a href="#定義-1">定義</a></li>
+        <li><a href="#タプルの作成">タプルの作成</a></li>
+        <li><a href="#tupleは増減改査を許可しません">tupleは増減改査を許可しません</a></li>
+        <li><a href="#tupleとlistの変換">tupleとlistの変換</a></li>
+      </ul>
+    </li>
+    <li><a href="#dict">dict</a>
+      <ul>
+        <li><a href="#定義-2">定義</a></li>
+        <li><a href="#辞書の作成">辞書の作成</a></li>
+        <li><a href="#要素の確認-1">要素の確認</a></li>
+        <li><a href="#新しい要素の追加-1">新しい要素の追加</a></li>
+        <li><a href="#要素の変更-1">要素の変更</a></li>
+        <li><a href="#要素の削除-1">要素の削除</a></li>
+        <li><a href="#その他の重要な方法">その他の重要な方法</a>
+          <ul>
+            <li><a href="#keyの存在を確認する">keyの存在を確認する</a></li>
+            <li><a href="#keyのデフォルト値を設定する">keyのデフォルト値を設定する</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#set">set</a>
+      <ul>
+        <li><a href="#定義-3">定義</a></li>
+        <li><a href="#集合の作成">集合の作成</a></li>
+        <li><a href="#要素の追加">要素の追加</a></li>
+        <li><a href="#要素の削除-2">要素の削除</a></li>
+        <li><a href="#要素の変更-2">要素の変更</a></li>
+        <li><a href="#要素の確認-2">要素の確認</a></li>
+        <li><a href="#集合演算">集合演算</a>
+          <ul>
+            <li><a href="#和集合">和集合</a></li>
+            <li><a href="#差集合">差集合</a></li>
+            <li><a href="#積集合">積集合</a></li>
+            <li><a href="#対称差集合">対称差集合</a></li>
+          </ul>
+        </li>
+        <li><a href="#その他">その他</a></li>
+      </ul>
+    </li>
+    <li><a href="#イテレータ">イテレータ</a>
+      <ul>
+        <li><a href="#反復可能オブジェクト">反復可能オブジェクト</a></li>
+        <li><a href="#反復可能プロトコル">反復可能プロトコル</a></li>
+        <li><a href="#イテレータオブジェクト">イテレータオブジェクト</a></li>
+        <li><a href="#反復可能オブジェクトとイテレータオブジェクト">反復可能オブジェクトとイテレータオブジェクト</a></li>
+      </ul>
+    </li>
+    <li><a href="#generator">generator</a>
+      <ul>
+        <li><a href="#ジェネレータの作成">ジェネレータの作成</a>
+          <ul>
+            <li><a href="#リスト内包表記">リスト内包表記</a></li>
+            <li><a href="#yield">yield</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+          </div>
+          <div class="sidebar-common-sidebar hidden">
+            
+<div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="孤筝"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">孤筝</div>
+  <div class="sidebar-description">来都来了，随便坐坐。<br />有些封面是随机图片api，所以可能抽风或包含R18：）</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    
+    <div class="sidebar-state-number">60</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">
+      18
+    </div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">42</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+    <div class="icon-bilibili sidebar-social-icon">
+      <a
+        href="https://space.bilibili.com/348813114"
+        itemprop="url"
+        target="_blank"
+        aria-label="bilibili"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-discord sidebar-social-icon">
+      <a
+        href="https://discordapp.com/users/guzhengsvt"
+        itemprop="url"
+        target="_blank"
+        aria-label="discord"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-email sidebar-social-icon">
+      <a
+        href="mailto:lvbowen040427@163.com"
+        itemprop="url"
+        target="_blank"
+        aria-label="email"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-facebook sidebar-social-icon">
+      <a
+        href="https://www.facebook.com/profile.php?id=100085813411626"
+        itemprop="url"
+        target="_blank"
+        aria-label="facebook"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-github sidebar-social-icon">
+      <a
+        href="https://github.com/GuZhengSVT"
+        itemprop="url"
+        target="_blank"
+        aria-label="github"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-steam sidebar-social-icon">
+      <a
+        href="https://steamcommunity.com/profiles/76561198903535314/"
+        itemprop="url"
+        target="_blank"
+        aria-label="steam"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-telegram sidebar-social-icon">
+      <a
+        href="https://t.me/GuZhengSVT"
+        itemprop="url"
+        target="_blank"
+        aria-label="telegram"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-twitter sidebar-social-icon">
+      <a
+        href="https://x.com/GuZhengSVT"
+        itemprop="url"
+        target="_blank"
+        aria-label="twitter"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-zhihu sidebar-social-icon">
+      <a
+        href="https://www.zhihu.com/people/Gu-Zheng"
+        itemprop="url"
+        target="_blank"
+        aria-label="zhihu"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+</div>
+<div class="sidebar-menu">
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/ja/"
+        aria-label="ホーム"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf015;
+        
+      </div>
+      <div class="sidebar-menu-link">ホーム</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/ja/archives"
+        aria-label="アーカイブ"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf01c;
+        
+      </div>
+      <div class="sidebar-menu-link">アーカイブ</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/ja/about"
+        aria-label="プロフィール"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf2bd;
+        
+      </div>
+      <div class="sidebar-menu-link">プロフィール</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/ja/friend"
+        aria-label="フレンド"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf519;
+        
+      </div>
+      <div class="sidebar-menu-link">フレンド</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/ja/moments"
+        aria-label="コメント"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf075;
+        
+      </div>
+      <div class="sidebar-menu-link">コメント</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="https://space.bilibili.com/348813114/bangumi"
+        aria-label="マイアニメリスト"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf005;
+        
+      </div>
+      <div class="sidebar-menu-link">マイアニメリスト</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="https://www.travellings.cn/go.html"
+        aria-label="Travelling"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf239;
+        
+      </div>
+      <div class="sidebar-menu-link">Travelling</div>
+    </div>
+  
+</div>
+
+          </div>
+        
+      
+
+      
+        
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+        
+      
+    </div>
+  </div>
+
+  <div class="sidebar-widget">
+    
+  </div>
+  
+</aside>
+
+          <section id="main">
+  <article
+  class="h-entry article"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta">
+      <div class="article-date">
+  <span
+    class="article-date-link"
+    data-aos="zoom-in"
+  >
+    <time datetime="2023-08-27 21:40:39 &#43;0800 CST" itemprop="datePublished"
+      >2023-08-27</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2023-08-27</time
+    >
+  </span>
+</div>
+
+      <div class="article-category">
+  
+    <a
+      class="article-category-link"
+      href="/ja/categories/code"
+      data-aos="zoom-in"
+      >CODE</a
+    >
+  
+</div>
+
+    </div>
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote id="outdate-blockquote" style="display: none;">
+          <p></p>
+        </blockquote>
+      
+      
+        <p><strong>elemは単語element（要素）の略称</strong>であり、プログラムの定義では不確定な型、つまり抽象的なデータ型を表します。</p>
+<h1 id="リスト">
+<a class="header-anchor" href="#%e3%83%aa%e3%82%b9%e3%83%88"></a>
+リスト
+</h1><h2 id="定義">
+<a class="header-anchor" href="#%e5%ae%9a%e7%be%a9"></a>
+定義
+</h2><p>順番に並べられた要素からなるコンテナ</p>
+<ul>
+<li>要素は任意の型で可能</li>
+<li>要素は確定した順序で並び、順序性を持つ</li>
+</ul>
+<h2 id="リストの作成">
+<a class="header-anchor" href="#%e3%83%aa%e3%82%b9%e3%83%88%e3%81%ae%e4%bd%9c%e6%88%90"></a>
+リストの作成
+</h2><p>空のリストインスタンスを作成してから要素を追加する</p>
+<ul>
+<li>list()</li>
+<li>.append()メソッド</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">wife</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span><span class="c1">#インスタンス化</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">wife</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;西宮硝子&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">wife</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;櫻島麻衣&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">wife</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;愛莉希雅&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">wife</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="s1">&#39;西宮硝子&#39;</span><span class="p">,</span><span class="s1">&#39;櫻島麻衣&#39;</span><span class="p">,</span><span class="s1">&#39;愛莉希雅&#39;</span><span class="p">]</span>
+</span></span></code></pre></div><p>直接リストを定義して要素を埋める</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">phones</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;Apple&#34;</span><span class="p">,</span> <span class="s2">&#34;Huawei&#34;</span><span class="p">,</span> <span class="s2">&#34;Xiaomi&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">phones</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="s1">&#39;Apple&#39;</span><span class="p">,</span> <span class="s1">&#39;Huawei&#39;</span><span class="p">,</span> <span class="s1">&#39;Xiaomi&#39;</span><span class="p">]</span>
+</span></span></code></pre></div><h2 id="要素の確認">
+<a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e7%a2%ba%e8%aa%8d"></a>
+要素の確認
+</h2><ol>
+<li>インデックスの使用
+$[i]$でi+1番目の要素を確認</li>
+<li>index()メソッド
+$$name.index(x)$$
+list name内で最初に値がxとなる要素を検索し、そのインデックスを返す</li>
+<li>count()メソッド
+$$name.count(x)$$
+list name内で値がxとなる要素がいくつあるかを確認し、その数を返す</li>
+<li>len()メソッド
+$$name.len()$$
+list name内の要素の総数を検索し、その数を返す</li>
+</ol>
+<h2 id="新しい要素の追加">
+<a class="header-anchor" href="#%e6%96%b0%e3%81%97%e3%81%84%e8%a6%81%e7%b4%a0%e3%81%ae%e8%bf%bd%e5%8a%a0"></a>
+新しい要素の追加
+</h2><ol>
+<li>append()メソッド
+$$name.append(x)$$
+nameの末尾に要素xを追加する</li>
+<li>insert()メソッド
+$$name.insert(i,x)$$
+オブジェクトxをnameのインデックスiの位置に挿入し、元のiおよびi以降の要素を順番に後ろに移動させる</li>
+<li>extend()メソッド
+$$name.extend(name2)$$
+リストname2をリストnameの後ろに連結する</li>
+</ol>
+<h2 id="要素の変更">
+<a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e5%a4%89%e6%9b%b4"></a>
+要素の変更
+</h2><ol>
+<li>インデックスを指定して要素を直接代入して変更する</li>
+</ol>
+<h2 id="要素の削除">
+<a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e5%89%8a%e9%99%a4"></a>
+要素の削除
+</h2><ol>
+<li>pop()メソッド
+$$name.pop()$$
+デフォルトでlistの最後の要素を削除
+$$name.pop(i)$$
+インデックスがiの要素を削除し、後ろの要素を順番に前に移動</li>
+<li>remove()メソッド
+$$name.remove(x)$$
+最初に値がxである要素を削除し、後ろの要素を順番に前に移動</li>
+<li>clear()メソッド
+$$name.clear()$$
+すべての要素を削除（listを空にする）</li>
+<li>del<strong>文</strong>
+$$del\ name[a:b]$$
+delインデックス$[a,b)$の要素を削除、aを含みbを含まない
+$del\ name[:]$はlistを空にすることを意味する
+$$del\ name[i]$$
+インデックスがiの要素を削除</li>
+</ol>
+<h2 id="リストの反転">
+<a class="header-anchor" href="#%e3%83%aa%e3%82%b9%e3%83%88%e3%81%ae%e5%8f%8d%e8%bb%a2"></a>
+リストの反転
+</h2><ol>
+<li>reverse()メソッド
+$$name.reverse()$$
+リストnameを反転させ、最後の要素が最初の要素になり、以降も同様に順番が逆になります。</li>
+<li>スライス法</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">nums</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">new_nums</span><span class="o">=</span><span class="n">nums</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">new_nums</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</span></span></code></pre></div><p>元のオブジェクトnumsは変更されず、反転されたリストとして新しいオブジェクトnew_numsが生成されます。</p>
+<h2 id="リストのソート">
+<a class="header-anchor" href="#%e3%83%aa%e3%82%b9%e3%83%88%e3%81%ae%e3%82%bd%e3%83%bc%e3%83%88"></a>
+リストのソート
+</h2><ol>
+<li>sort()メソッド
+$$name.sort()$$
+$$name.sort(cmp=None,key=None,reverse=False)$$</li>
+</ol>
+<ul>
+<li>
+<p>このメソッドは戻り値がなく、元のlistを直接変更します</p>
+</li>
+<li>
+<p>cmpはオプションのパラメータです</p>
+</li>
+<li>
+<p>keyは要素のどのパラメータを比較の重みとして使用するかを指定し、比較可能なオブジェクトから取られる単一のパラメータです</p>
+<ul>
+<li>比較要素elemが単一のパラメータ（数字や単一の文字など）のみを含む場合、keyパラメータは省略可能です。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># リストの2番目の要素を取得</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">takeSecond</span><span class="p">(</span><span class="n">elem</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">elem</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># リスト</span>
+</span></span><span class="line"><span class="cl"><span class="n">random</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 2番目の要素でソートを指定</span>
+</span></span><span class="line"><span class="cl"><span class="n">random</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">takeSecond</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#関数takeSecondを通じてタプルの2番目の要素（重み）を比較するように指定</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># リストを出力</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ソートされたリスト：&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ソートされたリスト</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="p">[(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span>
+</span></span></code></pre></div><ul>
+<li>reverseはソートのルールで、デフォルトはFalseで昇順、Trueは降順です</li>
+</ul>
+<h1 id="タプル">
+<a class="header-anchor" href="#%e3%82%bf%e3%83%97%e3%83%ab"></a>
+タプル
+</h1><h2 id="定義-1">
+<a class="header-anchor" href="#%e5%ae%9a%e7%be%a9-1"></a>
+定義
+</h2><p>タプル（tuple）は、一連の要素を順番に並べて形成されるコンテナです。
+タプルは不変（immutable）であり、リストは可変（mutable）です。</p>
+<h2 id="タプルの作成">
+<a class="header-anchor" href="#%e3%82%bf%e3%83%97%e3%83%ab%e3%81%ae%e4%bd%9c%e6%88%90"></a>
+タプルの作成
+</h2><ol>
+<li>直接$()$ですべての要素を囲むことで作成、リストの作成は$[]$を使用</li>
+<li>時には$()$を使用しなくてもタプルを作成できる（非推奨）</li>
+<li>タプルの内包表記</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">atuple</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">31</span><span class="p">,</span><span class="mi">42</span><span class="p">))</span>
+</span></span></code></pre></div><ol start="4">
+<li>作成するタプルが1つのオブジェクトのみを含む場合、その後にカンマ$","$を追加
+そうしないと、括弧付きオブジェクトのデータ型はタプルではなくオブジェクト型になる</li>
+<li>空のタプルを作成</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span><span class="o">=</span><span class="nb">tuple</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span><span class="o">=</span><span class="p">()</span>
+</span></span></code></pre></div><h2 id="tupleは増減改査を許可しません">
+<a class="header-anchor" href="#tuple%e3%81%af%e5%a2%97%e6%b8%9b%e6%94%b9%e6%9f%bb%e3%82%92%e8%a8%b1%e5%8f%af%e3%81%97%e3%81%be%e3%81%9b%e3%82%93"></a>
+tupleは増減改査を許可しません
+</h2><h2 id="tupleとlistの変換">
+<a class="header-anchor" href="#tuple%e3%81%a8list%e3%81%ae%e5%a4%89%e6%8f%9b"></a>
+tupleとlistの変換
+</h2><p>tuple-&gt;list</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">atuple</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;love&#39;</span><span class="p">,</span><span class="mf">3.334</span><span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">list</span><span class="p">(</span><span class="n">atuple</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;この時atupleは依然としてtuple型&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">alist</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">atuple</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;alistはlist型&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">atuple</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">出力</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;love&#39;</span><span class="p">,</span> <span class="mf">3.334</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">出力</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;love&#39;</span><span class="p">,</span> <span class="mf">3.334</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">]</span>
+</span></span></code></pre></div><p>list-&gt;tuple</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">alist</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">3.1415</span><span class="p">,</span><span class="s1">&#39;polaris&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">atuple</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;alistは依然としてlist、atupleはtuple&#39;&#39;&#39;</span>
+</span></span></code></pre></div><h1 id="dict">
+<a class="header-anchor" href="#dict"></a>
+dict
+</h1><h2 id="定義-2">
+<a class="header-anchor" href="#%e5%ae%9a%e7%be%a9-2"></a>
+定義
+</h2><ul>
+<li>辞書（dict）、一連の<strong>キーと値のペア（key-value）</strong> で構成されるデータ構造です。</li>
+<li>キーはハッシュ可能な値でなければなりません。例えば==文字列==や数値など。
+<ul>
+<li>ハッシュ：任意の長さの入力をハッシュ（散列）アルゴリズムを通じて固定長の出力（ハッシュ値）に変換すること。
+ハッシュは一種の圧縮マッピングです。</li>
+</ul>
+</li>
+<li>値は任意のオブジェクトを指定できます。</li>
+</ul>
+<h2 id="辞書の作成">
+<a class="header-anchor" href="#%e8%be%9e%e6%9b%b8%e3%81%ae%e4%bd%9c%e6%88%90"></a>
+辞書の作成
+</h2><ol>
+<li>空の辞書を作成してから要素を追加する
+識別子とオブジェクト（key&amp;value）を<strong>等号</strong>で接続することに注意
+この場合、keyは識別子であり、<strong>識別子の文字列には引用符を付けない</strong></li>
+<li>直接中括弧$\{\}$を使用する
+keyとvalueを<strong>コロン</strong>で接続することに注意
+<strong>この場合、コロンの前がkeyであり、文字列には引用符が必要</strong></li>
+<li>dict()関数を使用してキーと値のシーケンス（tuple、listなど）からdictを作成する</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;孤筝&#39;</span><span class="p">,</span><span class="n">age</span><span class="o">=</span><span class="mi">19</span><span class="p">,</span><span class="n">爱好</span><span class="o">=</span><span class="s1">&#39;明月栞那&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">=</span><span class="p">{</span><span class="n">name</span><span class="p">:</span><span class="s1">&#39;孤筝&#39;</span><span class="p">,</span><span class="n">age</span><span class="p">:</span><span class="mi">19</span><span class="p">,</span><span class="n">爱好</span><span class="p">:</span><span class="s1">&#39;明月栞那&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">alist</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;孤筝&#39;</span><span class="p">),(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="mi">19</span><span class="p">),(</span><span class="s1">&#39;爱好&#39;</span><span class="p">,</span><span class="s1">&#39;明月栞那&#39;</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">この場合</span><span class="err">、</span><span class="n">alistはlistのまま</span><span class="err">、</span><span class="n">profileオブジェクトはdict</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">出力</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;孤筝&#39;</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="p">:</span><span class="mi">19</span><span class="p">,</span><span class="s1">&#39;爱好&#39;</span><span class="p">:</span><span class="s1">&#39;明月栞那&#39;</span><span class="p">}</span>
+</span></span></code></pre></div><ol start="4">
+<li>辞書内包表記</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">adict</span><span class="o">=</span><span class="p">{</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">adict</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">出力</span><span class="p">{</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="mi">25</span><span class="p">}</span>
+</span></span></code></pre></div><h2 id="要素の確認-1">
+<a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e7%a2%ba%e8%aa%8d-1"></a>
+要素の確認
+</h2><ol>
+<li>$$dict[key]$$を使用
+dictは辞書名、keyはキー
+keyが存在しない場合、KeyValueエラーが発生</li>
+<li>$dict.get(key[,value])$を使用
+dictは辞書名、keyはキー、valueはオプションパラメータで初期値
+keyが存在しない場合、設定したvalueを返し、valueが設定されていない場合はNoneを返す
+==キーが辞書に存在しない場合、キーが追加され、valueがデフォルト値に設定されます。==</li>
+</ol>
+<h2 id="新しい要素の追加-1">
+<a class="header-anchor" href="#%e6%96%b0%e3%81%97%e3%81%84%e8%a6%81%e7%b4%a0%e3%81%ae%e8%bf%bd%e5%8a%a0-1"></a>
+新しい要素の追加
+</h2>$$dict[key]=value$$<p>
+keyは新しいキーで、valueは対応する値です</p>
+<h2 id="要素の変更-1">
+<a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e5%a4%89%e6%9b%b4-1"></a>
+要素の変更
+</h2>$$dict[key]=new\_value$$<h2 id="要素の削除-1">
+<a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e5%89%8a%e9%99%a4-1"></a>
+要素の削除
+</h2><ol>
+<li>$dict.pop(key)$
+dictは辞書名、keyはキーで、文字列には引用符が必要</li>
+<li>del関数
+$$del\ dict[key]$$
+dictは辞書名</li>
+</ol>
+<h2 id="その他の重要な方法">
+<a class="header-anchor" href="#%e3%81%9d%e3%81%ae%e4%bb%96%e3%81%ae%e9%87%8d%e8%a6%81%e3%81%aa%e6%96%b9%e6%b3%95"></a>
+その他の重要な方法
+</h2><h3 id="keyの存在を確認する">
+<a class="header-anchor" href="#key%e3%81%ae%e5%ad%98%e5%9c%a8%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%99%e3%82%8b"></a>
+keyの存在を確認する
+</h3><ol>
+<li>$in,not in$</li>
+<li>$dict.has\_key()$関数
+存在すればTrueを返し、存在しなければFalseを返す
+==Python2でのみ使用可能、Python3では削除==</li>
+</ol>
+<h3 id="keyのデフォルト値を設定する">
+<a class="header-anchor" href="#key%e3%81%ae%e3%83%87%e3%83%95%e3%82%a9%e3%83%ab%e3%83%88%e5%80%a4%e3%82%92%e8%a8%ad%e5%ae%9a%e3%81%99%e3%82%8b"></a>
+keyのデフォルト値を設定する
+</h3><ol>
+<li>まずkeyがdictに存在するかどうかを確認し、存在しない場合は値を割り当てる</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;王炳明&#34;</span><span class="p">,</span> <span class="s2">&#34;age&#34;</span><span class="p">:</span> <span class="mi">27</span><span class="p">,</span> <span class="s2">&#34;公众号&#34;</span><span class="p">:</span> <span class="s2">&#34;Python编程时光&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="s2">&#34;gender&#34;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">profile</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">profile</span><span class="p">[</span><span class="s2">&#34;gender&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;male&#34;</span>
+</span></span></code></pre></div><ol start="2">
+<li>$setdefault()$メソッド
+$$dict.setdefault(key,default=None)$$
+defaultはkeyが存在しない場合に設定する値で、デフォルトはNone</li>
+</ol>
+<h1 id="set">
+<a class="header-anchor" href="#set"></a>
+set
+</h1><h2 id="定義-3">
+<a class="header-anchor" href="#%e5%ae%9a%e7%be%a9-3"></a>
+定義
+</h2><p>集合（set）は、数学の集合と同じく、<strong>順序付けされていない</strong>、<strong>重複のない</strong>要素のシーケンスです。
+==question==：順序がない場合、print setの際に要素はどのような順序で表示され、保存時はどのような順序になるのでしょうか？</p>
+<h2 id="集合の作成">
+<a class="header-anchor" href="#%e9%9b%86%e5%90%88%e3%81%ae%e4%bd%9c%e6%88%90"></a>
+集合の作成
+</h2><ol>
+<li><strong>波括弧</strong>を使用して作成します。$\{\}$内に重複した要素を含めることができますが、最終的にsetは重複を削除します。</li>
+<li>set()メソッドを使用して作成します。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">aset</span><span class="o">=</span><span class="p">{</span><span class="mi">1314</span><span class="p">,</span><span class="s1">&#39;520&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">aset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">出力</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="mi">1314</span><span class="p">,</span><span class="s1">&#39;520&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">bset</span><span class="o">=</span><span class="nb">set</span><span class="p">()</span><span class="c1">#空の集合asetを作成</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">bset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">出力</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">cset</span><span class="o">=</span><span class="nb">set</span><span class="p">([</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="s1">&#39;love&#39;</span><span class="p">,</span><span class="s1">&#39;ishimiya&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">cset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">出力</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="s1">&#39;love&#39;</span><span class="p">,</span><span class="s1">&#39;ishimiya&#39;</span><span class="p">}</span>
+</span></span></code></pre></div><h2 id="要素の追加">
+<a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e8%bf%bd%e5%8a%a0"></a>
+要素の追加
+</h2><ol>
+<li>
+<p>$.add()$関数
+</p>
+$$set.add(elem)$$<p>
+==question==：elemが既存のset要素の場合、何が起こるか？
+注意：追加する要素がset集合内の要素と重複する場合、何の効果もないが、エラーは発生しない。</p>
+<p>追加する要素は<strong>不変型</strong>でなければならない。可変型の要素を追加するとエラーが発生する。</p>
+</li>
+<li>
+<p>$.update()$関数
+</p>
+$$set.update(ElemType)$$<p>
+ElemTypeはシーケンス（string、list、tuple、dict、setなど）でなければならない。</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">aset</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;朱冰倩&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;suki&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;for&#39;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;集合{&#39;for&#39;}を追加&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">update</span><span class="p">([</span><span class="mi">10000</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;リスト[10000]を追加&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">update</span><span class="p">((</span><span class="s1">&#39;years&#39;</span><span class="p">,))</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;タプルを追加、要素が1つの場合カンマを付ける&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;guzheng&#39;</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="p">:</span><span class="mi">19</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;辞書を追加、keyのみsetに追加される&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">aset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">出力</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;朱冰倩&#39;</span><span class="p">,</span><span class="s1">&#39;suki&#39;</span><span class="p">,</span><span class="s1">&#39;for&#39;</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="s1">&#39;years&#39;</span><span class="p">,</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="p">}</span>
+</span></span></code></pre></div><h2 id="要素の削除-2">
+<a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e5%89%8a%e9%99%a4-2"></a>
+要素の削除
+</h2><ol>
+<li>$.remove()$</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">aset</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;朱冰倩&#39;</span><span class="p">,</span><span class="s1">&#39;suki&#39;</span><span class="p">,</span><span class="s1">&#39;for&#39;</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="s1">&#39;years&#39;</span><span class="p">,</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;爱&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;存在しない要素をremoveするとエラーが発生する&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="ne">KeyError</span><span class="p">:</span> <span class="s1">&#39;愛&#39;</span>
+</span></span></code></pre></div><ol start="2">
+<li>$.discard()$
+要素が存在すれば削除し、存在しなくてもエラーにならない</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">aset</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;朱冰倩&#39;</span><span class="p">,</span><span class="s1">&#39;suki&#39;</span><span class="p">,</span><span class="s1">&#39;for&#39;</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="s1">&#39;years&#39;</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="s1">&#39;love&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><ol start="3">
+<li>$.pop()$
+集合からランダムに要素を削除し、パラメータを渡すことはできない</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">aset</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;朱冰倩&#39;</span><span class="p">,</span><span class="s1">&#39;suki&#39;</span><span class="p">,</span><span class="s1">&#39;for&#39;</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="s1">&#39;love&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">aset</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">aset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">出力例</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;朱冰倩&#39;</span><span class="p">,</span><span class="s1">&#39;suki&#39;</span><span class="p">,</span><span class="s1">&#39;for&#39;</span><span class="p">,</span><span class="mi">10000</span><span class="p">}</span>
+</span></span></code></pre></div><ol start="4">
+<li>$.clear()$
+集合内の要素をすべて削除する
+$$set.clear()$$</li>
+</ol>
+<h2 id="要素の変更-2">
+<a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e5%a4%89%e6%9b%b4-2"></a>
+要素の変更
+</h2><p>セット内の要素は順序がないため、集合にはインデックスがなく、要素を変更することはできず、追加または削除のみ可能です。</p>
+<h2 id="要素の確認-2">
+<a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e7%a2%ba%e8%aa%8d-2"></a>
+要素の確認
+</h2><p>同上、インデックスなしでは要素を確認できません。
+<strong>要素数の確認</strong>
+</p>
+$$len(set)$$<p>
+セット内の要素数を返します</p>
+<h2 id="集合演算">
+<a class="header-anchor" href="#%e9%9b%86%e5%90%88%e6%bc%94%e7%ae%97"></a>
+集合演算
+</h2><h3 id="和集合">
+<a class="header-anchor" href="#%e5%92%8c%e9%9b%86%e5%90%88"></a>
+和集合
+</h3><p>$union$関数を使用して2つの集合を結合し重複を削除し、結合後の集合Cを返します
+</p>
+$$aset.union(bset)$$<p>
+同等
+</p>
+$$aset\ |\ bset$$<h3 id="差集合">
+<a class="header-anchor" href="#%e5%b7%ae%e9%9b%86%e5%90%88"></a>
+差集合
+</h3><p>$difference$関数を使用して差集合を求めます：==集合Aに存在する==が==集合Bには存在しない==要素を見つけ、新しい集合Cとして返します。
+</p>
+$$aset.difference(bset)$$<p>
+同等
+</p>
+$$aset\ -\ bset$$<h3 id="積集合">
+<a class="header-anchor" href="#%e7%a9%8d%e9%9b%86%e5%90%88"></a>
+積集合
+</h3><ol>
+<li>$intersection$関数を使用して積集合を求めます：==集合AとBの両方に存在する==要素を見つけ、集合Cとして返します。
+$$aset.intersection(bset)$$
+または$$bset.intersection(aset)$$
+同等
+$$aset\ \&\ bset$$
+$$bset\ \&\ aset$$</li>
+<li>$intersection\_update$関数を使用して積集合を求めます：積集合を見つけasetに代入し、積集合を返しません。
+$$aset.intersection\_update()$$</li>
+<li>$\&$を使用し、積集合を返しますがaset、bsetは変更しません
+$$aset\ \&\ bset$$</li>
+</ol>
+<h3 id="対称差集合">
+<a class="header-anchor" href="#%e5%af%be%e7%a7%b0%e5%b7%ae%e9%9b%86%e5%90%88"></a>
+対称差集合
+</h3><ol>
+<li>$symmetric\_difference$関数を使用し、対称差集合を返します
+$$aset.symmetric\_difference(bset)$$</li>
+<li>$symmetric\_difference\_update$関数を使用し、対称差集合をasetに返します
+$$aset.symmetric\_difference\_update(bset)$$</li>
+</ol>
+<h2 id="その他">
+<a class="header-anchor" href="#%e3%81%9d%e3%81%ae%e4%bb%96"></a>
+その他
+</h2><ol>
+<li>setが特定の要素を含むかどうかを判断するには、inを使用します
+$$print(elem\ in\ aset)$$</li>
+<li>2つのsetに共通の要素があるかどうかを判断します
+$$aset.isdisjoint(bset)$$
+共通の要素がある場合はFalseを返します</li>
+<li>bsetがasetの部分集合かどうかを判断します
+$$bset.issubset(aset)$$
+<strong>bsetがasetの部分集合である</strong>場合、Trueを返します</li>
+</ol>
+<h1 id="イテレータ">
+<a class="header-anchor" href="#%e3%82%a4%e3%83%86%e3%83%ac%e3%83%bc%e3%82%bf"></a>
+イテレータ
+</h1><p>イテレータ</p>
+<h2 id="反復可能オブジェクト">
+<a class="header-anchor" href="#%e5%8f%8d%e5%be%a9%e5%8f%af%e8%83%bd%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88"></a>
+反復可能オブジェクト
+</h2><p>forループを利用できるオブジェクトは、すべて反復可能オブジェクトと呼ばれます。</p>
+<h2 id="反復可能プロトコル">
+<a class="header-anchor" href="#%e5%8f%8d%e5%be%a9%e5%8f%af%e8%83%bd%e3%83%97%e3%83%ad%e3%83%88%e3%82%b3%e3%83%ab"></a>
+反復可能プロトコル
+</h2><ol>
+<li><strong>最初のシナリオ</strong>：あるオブジェクトが内部で<code>__iter__()</code>メソッドを実装し、イテレータインスタンスを返す場合、そのオブジェクトは反復可能オブジェクトです。
+<ol>
+<li>このシナリオでは、<code>isinstance(my_list,Iterable)</code>はTrueを返します</li>
+</ol>
+</li>
+<li><strong>2番目のシナリオ</strong>：あるオブジェクトが<code>__iter__()</code>を実装していない場合、Pythonインタプリタは<code>__getitem__()</code>メソッドを使用して要素を取得します。これが可能であれば、そのオブジェクトも反復可能オブジェクトです。
+<ol>
+<li>このタイプの反復可能オブジェクトの場合、<code>isinstance(my_list,Iterable)</code>はFalseを返します</li>
+</ol>
+</li>
+</ol>
+<h2 id="イテレータオブジェクト">
+<a class="header-anchor" href="#%e3%82%a4%e3%83%86%e3%83%ac%e3%83%bc%e3%82%bf%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88"></a>
+イテレータオブジェクト
+</h2><p>反復可能なオブジェクトに対してiter関数を使用すると、イテレータオブジェクトが返されます。イテレータオブジェクトに対してはnext関数を使用して要素を取得できます。実行するたびに1つずつ要素を取得し、すべて取得し終わるとStopIterationが発生し、これ以上要素がないことが通知されます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">alist</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;人&#39;</span><span class="p">,</span><span class="s1">&#39;生&#39;</span><span class="p">,</span><span class="s1">&#39;若&#39;</span><span class="p">,</span><span class="s1">&#39;只&#39;</span><span class="p">,</span><span class="s1">&#39;如&#39;</span><span class="p">,</span><span class="s1">&#39;初&#39;</span><span class="p">,</span><span class="s1">&#39;見&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">gen</span><span class="o">=</span><span class="nb">iter</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">出力</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="n">人</span>
+</span></span><span class="line"><span class="cl"><span class="n">生</span>
+</span></span><span class="line"><span class="cl"><span class="n">若</span>
+</span></span><span class="line"><span class="cl"><span class="n">只</span>
+</span></span><span class="line"><span class="cl"><span class="n">如</span>
+</span></span><span class="line"><span class="cl"><span class="n">初</span>
+</span></span><span class="line"><span class="cl"><span class="n">見</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">出力</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="n">人</span>
+</span></span><span class="line"><span class="cl"><span class="n">生</span>
+</span></span><span class="line"><span class="cl"><span class="n">若</span>
+</span></span><span class="line"><span class="cl"><span class="n">只</span>
+</span></span><span class="line"><span class="cl"><span class="n">如</span>
+</span></span><span class="line"><span class="cl"><span class="n">初</span>
+</span></span><span class="line"><span class="cl"><span class="n">見</span>
+</span></span></code></pre></div><h2 id="反復可能オブジェクトとイテレータオブジェクト">
+<a class="header-anchor" href="#%e5%8f%8d%e5%be%a9%e5%8f%af%e8%83%bd%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%81%a8%e3%82%a4%e3%83%86%e3%83%ac%e3%83%bc%e3%82%bf%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88"></a>
+反復可能オブジェクトとイテレータオブジェクト
+</h2><ol>
+<li>反復可能オブジェクトは全体を指し、例えばリストのようなものです。</li>
+<li>イテレータオブジェクトはiter()関数によって返されるオブジェクトで、このオブジェクトに対してnext()関数を使用して要素を次々と取得できます。</li>
+</ol>
+<h1 id="generator">
+<a class="header-anchor" href="#generator"></a>
+generator
+</h1><p>ジェネレータは、イテレータのようにforループを使用して要素を取得できる関数です。</p>
+<h2 id="ジェネレータの作成">
+<a class="header-anchor" href="#%e3%82%b8%e3%82%a7%e3%83%8d%e3%83%ac%e3%83%bc%e3%82%bf%e3%81%ae%e4%bd%9c%e6%88%90"></a>
+ジェネレータの作成
+</h2><h3 id="リスト内包表記">
+<a class="header-anchor" href="#%e3%83%aa%e3%82%b9%e3%83%88%e5%86%85%e5%8c%85%e8%a1%a8%e8%a8%98"></a>
+リスト内包表記
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">alist</span><span class="o">=</span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">出力</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">[]を使用してリストオブジェクトを作成
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">alist</span><span class="o">=</span><span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">出力</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">この場合、alistはジェネレータオブジェクト
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span></code></pre></div><h3 id="yield">
+<a class="header-anchor" href="#yield"></a>
+yield
+</h3><p>yieldとrenturnの違い</p>
+<ul>
+<li>関数がyieldに到達すると、関数の実行は一時停止し、yieldの後の値が返されます。</li>
+<li>yieldに何も値が続いていない場合、Noneが返されます。</li>
+<li>yieldは値を返しますが、関数は終了しません。この関数を割り当てた識別子を再度呼び出すと、関数は実行を継続します。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">top</span><span class="o">=</span><span class="mi">5</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">top</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;現在の値：&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">    <span class="k">raise</span> <span class="ne">StopIteration</span>
+</span></span><span class="line"><span class="cl"><span class="n">gen</span><span class="o">=</span><span class="n">generator</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>
+</span></span></code></pre></div>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+
+
+
+
+
+
+<blockquote class="article-copyright">
+  
+    <p><strong><span class="icon-user icon"></span>著者: </strong>孤筝 @ 孤筝の温暖小家</p>
+  
+  
+  
+    <p><strong><span class="icon-pencil icon"></span>タイトル: </strong>Pythonの基本データ構造</p>
+  
+  
+    <p><strong><span class="icon-calendar icon"></span>公開日: </strong>2023-08-27 21:40:39</p>
+  
+  
+    <p><strong><span class="icon-calendar icon"></span>更新日: </strong>2023-08-27 21:40:39</p>
+  
+  
+    <p>
+      <strong><span class="icon-copyright icon"></span>ライセンス: </strong>
+      本ブログのすべての文書は、特に指定されていない限り、<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener external nofollow noreferrer" target="_blank"><span class="icon-creative-commons"></span>BY-NC-SA</a>ライセンスに従っています。引用の際は出典を明記してください！
+    </p>
+    <span class="icon-creative-commons article-copyright-bg"></span>
+  
+</blockquote>
+
+      
+
+      
+        <div class="sponsor-wrapper">
+  <div class="sponsor-button-wrapper">
+    <div class="sponsor-icon "></div>
+    <div class="sponsor-title">スポンサー</div>
+    <div class="sponsor-icon "></div>
+  </div>
+  <div class="sponsor-tip">我一个人打车六七十回家！</div>
+  
+    <div class="sponsor-qr">
+      
+        <div class="sponsor-qr-image-wrapper">
+          <img src="/sponsor/alipay.webp" alt="支付宝" width="200" />
+          <p class="sponsor-qr-name">支付宝</p>
+        </div>
+      
+        <div class="sponsor-qr-image-wrapper">
+          <img src="/sponsor/wechat.webp" alt="微信" width="200" />
+          <p class="sponsor-qr-name">微信</p>
+        </div>
+      
+    </div>
+  
+</div>
+      
+
+      
+        
+
+<div class="share-wrapper">
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/ja/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" target="_blank" rel="noopener noreferrer" title="Pythonの基本データ構造">
+      <div class="share-icon icon icon-facebook">
+        
+      </div>
+    </a>
+  
+    <a href="https://twitter.com/intent/tweet?url=http://localhost:1313/ja/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/&amp;text=Python%e3%81%ae%e5%9f%ba%e6%9c%ac%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0&amp;via=http://localhost:1313/" target="_blank" rel="noopener noreferrer" title="Pythonの基本データ構造">
+      <div class="share-icon icon icon-twitter">
+        
+      </div>
+    </a>
+  
+    <a href="https://www.linkedin.com/shareArticle?url=http://localhost:1313/ja/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/&amp;title=Python%e3%81%ae%e5%9f%ba%e6%9c%ac%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0&amp;summary=Python%e3%81%ae%e5%9f%ba%e6%9c%ac%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0&amp;mini=true&amp;ro=true" target="_blank" rel="noopener noreferrer" title="Pythonの基本データ構造">
+      <div class="share-icon icon icon-linkedin">
+        
+      </div>
+    </a>
+  
+    <a href="https://www.reddit.com/submit?url=http://localhost:1313/ja/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/&amp;title=Python%e3%81%ae%e5%9f%ba%e6%9c%ac%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0" target="_blank" rel="noopener noreferrer" title="Pythonの基本データ構造">
+      <div class="share-icon icon icon-reddit">
+        
+      </div>
+    </a>
+  
+    <a href="https://service.weibo.com/share/share.php?url=http://localhost:1313/ja/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/&amp;appkey=&amp;title=Python%e3%81%ae%e5%9f%ba%e6%9c%ac%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0&amp;pic=&amp;ralateUid=" target="_blank" rel="noopener noreferrer" title="Pythonの基本データ構造">
+      <div class="share-icon icon icon-weibo">
+        
+      </div>
+    </a>
+  
+    <a href="https://connect.qq.com/widget/shareqq/index.html?url=http://localhost:1313/ja/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/&amp;title=Python%e3%81%ae%e5%9f%ba%e6%9c%ac%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0&amp;desc=Python%e3%81%ae%e5%9f%ba%e6%9c%ac%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0&amp;source=http://localhost:1313/" target="_blank" rel="noopener noreferrer" title="Pythonの基本データ構造">
+      <div class="share-icon icon icon-qq">
+        
+      </div>
+    </a>
+  
+    <a href="javascript:;"  title="Pythonの基本データ構造">
+      <div class="share-icon icon icon-weixin">
+        
+          <div id="share-weixin">
+            <div class="share-weixin-dom">
+              <div class="share-weixin-content">
+                <img id="share-weixin-banner"> 
+                <div id="share-weixin-title"></div>
+                <div id="share-weixin-desc"></div>
+              </div>
+              <div class="share-weixin-qrcode">
+                <div class="share-weixin-info">
+                  <div id="share-weixin-author"></div>
+                  <div id="share-weixin-theme">Powered By hugo-theme-reimu</div>
+                </div>
+                <img id="share-weixin-qr" >
+              </div>
+            </div>
+            <div class="share-weixin-canvas"></div>
+          </div>
+        
+      </div>
+    </a>
+  
+</div>
+      
+
+      
+
+      
+        <a
+          data-aos="zoom-in"
+          href="/ja/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#comments"
+          class="article-comment-link"
+        >
+          <span
+            class="post-comments-count waline-comment-count"
+            data-path="http//localhost1313/ja/post/code/python%e5%9f%ba%e7%a1%80%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84/"
+            itemprop="commentCount"
+          ></span>
+          コメント
+        </a>
+      
+
+      
+
+      
+
+      
+        <span
+          data-aos="zoom-in"
+          class="article-visitor-link"
+        >
+          <span
+            class="waline-pageview-count"
+            data-path="/ja/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"
+            >0</span
+          >
+          <em class="post-meta-item-text">閲覧数</em>
+        </span>
+      
+      <ul class="article-tag-list" itemprop="keywords">
+  
+    <li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/ja/tags/%e5%8e%9f%e5%88%9b"
+        rel="tag"
+        >原创</a
+      >
+    </li>
+  
+    <li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/ja/tags/%e7%ac%94%e8%ae%b0"
+        rel="tag"
+        >笔记</a
+      >
+    </li>
+  
+    <li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/ja/tags/python"
+        rel="tag"
+        >PYTHON</a
+      >
+    </li>
+  
+</ul>
+
+    </footer>
+  </div>
+  
+    
+  <nav
+    id="article-nav"
+    data-aos="fade-up"
+  >
+    
+      <div class="article-nav-link-wrap article-nav-link-left">
+        
+          
+          
+            <img
+              data-src="https://api.likepoems.com/img/pc/"
+              data-sizes="auto"
+              alt="Pythonその他のノート"
+              class="lazyload"
+            />
+          
+        
+        <a href="/ja/post/code/python%E5%85%B6%E4%BB%96%E7%AC%94%E8%AE%B0/"></a>
+        <div class="article-nav-caption">次の記事</div>
+        <h3 class="article-nav-title">
+          
+            Pythonその他のノート
+          
+        </h3>
+      </div>
+    
+
+    
+      <div class="article-nav-link-wrap article-nav-link-right">
+        
+          
+          
+            <img
+              data-src="https://t.alcy.cc/tx"
+              data-sizes="auto"
+              alt="複素関数論"
+              class="lazyload"
+            />
+          
+        
+        <a href="/ja/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/"></a>
+        <div class="article-nav-caption">前の記事</div>
+        <h3 class="article-nav-title">
+          
+            複素関数論
+          
+        </h3>
+      </div>
+    
+  </nav>
+
+
+  
+</article>
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+<section id="comments" data-aos="fade-up">
+<div class="comment-header">
+  <h2 class="comment-title">何时一樽酒，重与细论文。</h2>
+  <div class="comment-selector">
+    <div class="comment-selector-wrap">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <div class="selector-item" data-selector="waline">
+          <span>waline</span>
+        </div>
+        
+      
+    </div>
+  </div>
+</div>
+
+<div class="comment-content">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    <div class="comment waline-comment" data-aos="fade-up"
+     >
+    </div>
+    
+  
+</div>
+</section>
+
+
+</section>
+        </div>
+        
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+<footer id="footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    
+    <div>
+      <span class="icon-copyright"></span>
+      
+        2019.7.14 -
+        2025
+      
+      <span class="footer-info-sep rotate"></span>
+      孤筝
+    </div>
+    
+      <div>
+        Powered by&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          >Hugo</a
+        >&nbsp; Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          >Reimu</a
+        >
+      </div>
+    
+    
+    
+        <div class="footer-beian">
+          <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="noopener">
+            <img src="https://guzhengsvt.github.io/images/又拍云_logo5.png" alt="又拍云" style="height: 24px; vertical-align: middle;">
+            <span>CDN by 又拍云</span>
+          </a>
+        </div>
+
+    
+      <div>
+        <span class="icon-brush"
+          >&nbsp;
+            135.0k
+          </span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;
+          
+          
+
+          05:00
+        </span>
+      </div>
+    
+    
+    
+    
+    
+  </div>
+</footer>
+
+        
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi "></div>
+            <div class="arrow-up"></div>
+          </div>
+        
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav">
+  <div class="sidebar-wrap">
+    
+      
+        <div class="sidebar-toc-sidebar">
+          <div class="sidebar-toc">
+  <h3 class="toc-title">見出し</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#リスト">リスト</a>
+      <ul>
+        <li><a href="#定義">定義</a></li>
+        <li><a href="#リストの作成">リストの作成</a></li>
+        <li><a href="#要素の確認">要素の確認</a></li>
+        <li><a href="#新しい要素の追加">新しい要素の追加</a></li>
+        <li><a href="#要素の変更">要素の変更</a></li>
+        <li><a href="#要素の削除">要素の削除</a></li>
+        <li><a href="#リストの反転">リストの反転</a></li>
+        <li><a href="#リストのソート">リストのソート</a></li>
+      </ul>
+    </li>
+    <li><a href="#タプル">タプル</a>
+      <ul>
+        <li><a href="#定義-1">定義</a></li>
+        <li><a href="#タプルの作成">タプルの作成</a></li>
+        <li><a href="#tupleは増減改査を許可しません">tupleは増減改査を許可しません</a></li>
+        <li><a href="#tupleとlistの変換">tupleとlistの変換</a></li>
+      </ul>
+    </li>
+    <li><a href="#dict">dict</a>
+      <ul>
+        <li><a href="#定義-2">定義</a></li>
+        <li><a href="#辞書の作成">辞書の作成</a></li>
+        <li><a href="#要素の確認-1">要素の確認</a></li>
+        <li><a href="#新しい要素の追加-1">新しい要素の追加</a></li>
+        <li><a href="#要素の変更-1">要素の変更</a></li>
+        <li><a href="#要素の削除-1">要素の削除</a></li>
+        <li><a href="#その他の重要な方法">その他の重要な方法</a>
+          <ul>
+            <li><a href="#keyの存在を確認する">keyの存在を確認する</a></li>
+            <li><a href="#keyのデフォルト値を設定する">keyのデフォルト値を設定する</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#set">set</a>
+      <ul>
+        <li><a href="#定義-3">定義</a></li>
+        <li><a href="#集合の作成">集合の作成</a></li>
+        <li><a href="#要素の追加">要素の追加</a></li>
+        <li><a href="#要素の削除-2">要素の削除</a></li>
+        <li><a href="#要素の変更-2">要素の変更</a></li>
+        <li><a href="#要素の確認-2">要素の確認</a></li>
+        <li><a href="#集合演算">集合演算</a>
+          <ul>
+            <li><a href="#和集合">和集合</a></li>
+            <li><a href="#差集合">差集合</a></li>
+            <li><a href="#積集合">積集合</a></li>
+            <li><a href="#対称差集合">対称差集合</a></li>
+          </ul>
+        </li>
+        <li><a href="#その他">その他</a></li>
+      </ul>
+    </li>
+    <li><a href="#イテレータ">イテレータ</a>
+      <ul>
+        <li><a href="#反復可能オブジェクト">反復可能オブジェクト</a></li>
+        <li><a href="#反復可能プロトコル">反復可能プロトコル</a></li>
+        <li><a href="#イテレータオブジェクト">イテレータオブジェクト</a></li>
+        <li><a href="#反復可能オブジェクトとイテレータオブジェクト">反復可能オブジェクトとイテレータオブジェクト</a></li>
+      </ul>
+    </li>
+    <li><a href="#generator">generator</a>
+      <ul>
+        <li><a href="#ジェネレータの作成">ジェネレータの作成</a>
+          <ul>
+            <li><a href="#リスト内包表記">リスト内包表記</a></li>
+            <li><a href="#yield">yield</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+        </div>
+        <div class="sidebar-common-sidebar hidden">
+          
+<div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="孤筝"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">孤筝</div>
+  <div class="sidebar-description">来都来了，随便坐坐。<br />有些封面是随机图片api，所以可能抽风或包含R18：）</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    
+    <div class="sidebar-state-number">60</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">
+      18
+    </div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">42</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+    <div class="icon-bilibili sidebar-social-icon">
+      <a
+        href="https://space.bilibili.com/348813114"
+        itemprop="url"
+        target="_blank"
+        aria-label="bilibili"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-discord sidebar-social-icon">
+      <a
+        href="https://discordapp.com/users/guzhengsvt"
+        itemprop="url"
+        target="_blank"
+        aria-label="discord"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-email sidebar-social-icon">
+      <a
+        href="mailto:lvbowen040427@163.com"
+        itemprop="url"
+        target="_blank"
+        aria-label="email"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-facebook sidebar-social-icon">
+      <a
+        href="https://www.facebook.com/profile.php?id=100085813411626"
+        itemprop="url"
+        target="_blank"
+        aria-label="facebook"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-github sidebar-social-icon">
+      <a
+        href="https://github.com/GuZhengSVT"
+        itemprop="url"
+        target="_blank"
+        aria-label="github"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-steam sidebar-social-icon">
+      <a
+        href="https://steamcommunity.com/profiles/76561198903535314/"
+        itemprop="url"
+        target="_blank"
+        aria-label="steam"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-telegram sidebar-social-icon">
+      <a
+        href="https://t.me/GuZhengSVT"
+        itemprop="url"
+        target="_blank"
+        aria-label="telegram"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-twitter sidebar-social-icon">
+      <a
+        href="https://x.com/GuZhengSVT"
+        itemprop="url"
+        target="_blank"
+        aria-label="twitter"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+    <div class="icon-zhihu sidebar-social-icon">
+      <a
+        href="https://www.zhihu.com/people/Gu-Zheng"
+        itemprop="url"
+        target="_blank"
+        aria-label="zhihu"
+        rel="noopener external nofollow noreferrer"
+      ></a>
+    </div>
+  
+</div>
+<div class="sidebar-menu">
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/ja/"
+        aria-label="ホーム"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf015;
+        
+      </div>
+      <div class="sidebar-menu-link">ホーム</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/ja/archives"
+        aria-label="アーカイブ"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf01c;
+        
+      </div>
+      <div class="sidebar-menu-link">アーカイブ</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/ja/about"
+        aria-label="プロフィール"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf2bd;
+        
+      </div>
+      <div class="sidebar-menu-link">プロフィール</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/ja/friend"
+        aria-label="フレンド"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf519;
+        
+      </div>
+      <div class="sidebar-menu-link">フレンド</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/ja/moments"
+        aria-label="コメント"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf075;
+        
+      </div>
+      <div class="sidebar-menu-link">コメント</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="https://space.bilibili.com/348813114/bangumi"
+        aria-label="マイアニメリスト"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf005;
+        
+      </div>
+      <div class="sidebar-menu-link">マイアニメリスト</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="https://www.travellings.cn/go.html"
+        aria-label="Travelling"
+      ></a>
+      <div class='sidebar-menu-icon icon '>
+        
+          &#xf239;
+        
+      </div>
+      <div class="sidebar-menu-link">Travelling</div>
+    </div>
+  
+</div>
+
+        </div>
+      
+    
+  </div>
+  
+    
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+    
+  
+</nav>
+
+    </div>
+    
+    
+    
+      <meting-js
+        theme="var(--color-link)"
+        id="13510920186"
+        server="netease"
+        type="playlist"
+        auto="false"
+        fixed="true"
+        
+        
+        
+        
+        
+        
+        
+        
+        >
+      </meting-js>
+    
+    
+
+
+
+
+
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"
+    
+    
+    
+    
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"
+  ></script>
+
+
+
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"
+    
+    
+    
+    
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"
+  ></script>
+
+
+
+
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/material-theme@1.0.0/dist/material-theme.umd.js"
+    
+    
+    
+    
+    integrity="sha384-vLev0II0HKFaxkcm&#43;/7kX5IGwVFBASkGchU311wmU/veIj2bB0UcBkQbW6yw2asK" crossorigin="anonymous"
+  ></script>
+
+
+
+
+
+
+
+
+
+
+  
+      
+      <script src="/js/main.js" ></script>
+      
+
+
+
+  
+
+
+
+
+
+  
+      
+      <script src="/js/aos.js" ></script>
+      
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+
+
+
+
+
+
+  
+      
+      <script src="/js/pjax_main.js" data-pjax></script>
+      
+
+
+
+
+
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/mouse-firework@0.1.1/dist/index.umd.js"
+    
+    
+    
+    
+    integrity="sha384-8LyaidD9GPxQQgLJO/WRw/O2h3BoNq/ApI/ecpvM6RsrCz2qP2ppBXUKihP4V/2d" crossorigin="anonymous"
+  ></script>
+
+
+<script>
+  if (window.firework) {
+    const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+    options.excludeElements = options.excludeelements;
+    delete options.excludeelements;
+    window.firework(options);
+  }
+</script>
+
+
+
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/theme-shokax-pjax@0.0.3/dist/index.umd.js"
+    
+    
+    
+    
+    integrity="sha384-xneY1WY8hOfUzswrE4CrYq35N4BdVcxqxwHPr9zawE/jMSCxD&#43;jAPU55x/jj3wlf" crossorigin="anonymous"
+  ></script>
+
+
+  <script>
+    function loadScripts(scripts, index) {
+      if (index < scripts.length) {
+        const script = scripts[index];
+        const src = script.getAttribute('src');
+
+        const loadScript = (scriptContent) => {
+          return new Promise((resolve, reject) => {
+            const scriptElement = document.createElement('script');
+            if (script.type) {
+              scriptElement.type = script.type;
+            }
+            if (script.src) {
+              scriptElement.src = script.src;
+              scriptElement.onload = resolve;
+              scriptElement.onerror = reject;
+            }
+            if (scriptContent) {
+              scriptElement.text = scriptContent;
+            }
+            document.head.appendChild(scriptElement);
+            if (!script.src) {
+              resolve();
+            }
+          })
+          
+        }
+
+        ;(src ? loadScript() : loadScript(script.text))
+          .then(() => loadScripts(scripts, index + 1))
+          .catch(error => {
+            console.error(`Failed to load script: ${src || 'inline script'}`, error);
+            loadScripts(scripts, index + 1);
+          });
+      }
+    }
+    if (window.Pjax) {
+      Pjax.prototype.getElements = function() {
+        const i18nLanguages = window.siteConfig.i18n_languages;
+        const baseUrl = window.siteConfig.base;
+        let basePathname = new URL(baseUrl).pathname;
+        if (!basePathname.endsWith('/')) {
+          basePathname += '/';
+        }
+        const currentUrl = window.location.href;
+        const currentPathname = new URL(currentUrl).pathname.replace(basePathname, '');
+        const aLinks = document.querySelectorAll('a[href]');
+        const pjaxLinks = [];
+        for(let i = 0; i < aLinks.length; i++) {
+          const aLink = aLinks[i];
+          const aLinkHref = aLink.getAttribute('href');
+          const isExternal = aLink.getAttribute('target') === '_blank' || aLink.getAttribute('rel')?.includes('noopener');
+          if (isExternal || aLinkHref.startsWith('mailto:') || aLinkHref.startsWith('tel:') || aLinkHref.startsWith('javascript:') || aLinkHref.startsWith("data:") || aLinkHref.startsWith("vbscript:")) {
+            continue;
+          }
+          if (!i18nLanguages) {
+            
+            pjaxLinks.push(aLink);
+            continue;
+          }
+          const absoluteUrl = new URL(aLinkHref, currentUrl).href;
+          const absolutePathname = new URL(absoluteUrl).pathname.replace(basePathname, '');
+          if (!absolutePathname || !currentPathname) {
+            pjaxLinks.push(aLink);
+            continue;
+          }
+          const currentLangIndex = i18nLanguages.findIndex(lang => currentPathname.startsWith(lang.Lang));
+          if (currentLangIndex > -1) {
+            
+            const absoluteLangIndex = i18nLanguages.findIndex(lang => absolutePathname.startsWith(lang.Lang));
+            if (absoluteLangIndex === currentLangIndex) {
+              
+              pjaxLinks.push(aLink);
+            }
+          } else {
+            
+            const absoluteLangIndex = i18nLanguages.findIndex(lang => absolutePathname.startsWith(lang.Lang));
+            if (absoluteLangIndex === -1) {
+              
+              pjaxLinks.push(aLink);
+            }
+          }
+        }
+        return pjaxLinks;
+      }
+    }
+    window.Pjax &&
+      new window.Pjax({
+        selectors: [
+          "#header>img",
+          "#header>picture",
+          "head title",
+          "#header-title",
+          "#subtitle-wrap",
+          "#main",
+          "#content",
+          ".sidebar-widget",
+          ".sidebar-wrapper",
+          "#mobile-nav",
+          "#lazy-script",
+          '#i18n-nav'
+        ],
+        switches: {
+          "#content": function(oldEl, newEl) {
+            
+            oldEl.className = newEl.className;
+            this.onSwitch();
+          },
+          "#header-title": Pjax.switches.outerHTML,
+          "#subtitle-wrap": Pjax.switches.outerHTML,
+          "#main": function (oldEl, newEl) {
+            const scripts = [...newEl.querySelectorAll("script")];
+            loadScripts(scripts, 0);
+            oldEl.outerHTML = newEl.outerHTML;
+            this.onSwitch();
+          },
+          "#mobile-nav": Pjax.switches.outerHTML,
+          "#lazy-script": function (oldEl, newEl) {
+            const scripts = [...newEl.querySelectorAll("script")];
+            loadScripts(scripts, 0);
+            oldEl.innerHTML = newEl.innerHTML;
+            this.onSwitch();
+          },
+        },
+        cacheBust: false,
+      });
+  </script>
+  
+
+
+
+
+
+  
+      
+      <script src="/js/pjax.js" ></script>
+      
+
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+    
+      
+      
+        
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "孤筝",
+          title: "Pythonの基本データ構造",
+          url: "http:\/\/localhost:1313\/ja\/post\/code\/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84\/",
+          description: "Pythonの基本データ構造",
+          cover: "http:\/\/localhost:1313\/images\/noa4.webp",
+        };
+      </script>
+    
+    
+    
+      
+
+
+
+
+
+  
+      
+      <script src="/js/insert_highlight.js" data-pjax></script>
+      
+
+      
+      
+      
+      
+      <script type="module" data-pjax>
+        
+        const PhotoSwipeLightbox = (await safeImport("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;
+        
+        const pswp = () => {
+          if (_$$('.article-entry a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-entry',
+              children: 'a.article-gallery-item',
+              
+              pswpModule: () => safeImport("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")
+              
+            }).init();
+          }
+          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-gallery',
+              children: 'a.article-gallery-item',
+              
+              pswpModule: () => safeImport("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")
+              
+            }).init();
+          }
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script>
+      
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+<script data-pjax>
+  var loadScript = (src, integrity) => {
+    const script = document.createElement('script');
+    script.src = src;
+    if (integrity) script.integrity = integrity;
+    script.crossOrigin = 'anonymous';
+    return script;
+  };
+  var commentConfigKeys = ['valine', 'waline', 'twikoo', 'gitalk', 'giscus'];
+  var commentConfig = {
+    valine: {
+      enable: false,
+      load: () => {
+        const container = document.querySelector('.valine-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        const script = loadScript(
+          'https:\/\/cdn.jsdelivr.net\/npm\/valine@1.5.1\/dist\/Valine.min.js',
+          !'cdn_jsdelivr_npm|valine@1.5.1\/dist\/Valine.min.js'.startsWith('local') ? 'sha384-3ma91AExDeMAZ1rjTjaP8V2A2obQE\u002bs5ltKRwYlwdpArz9xVbp0tF3b0VV2ACNPn' : undefined
+        );
+        script.onload = () => {
+          const GUEST_INFO = ['nick', 'mail', 'link'];
+          const guest_info = 'nick,mail,link'.split(',').filter((item) => {
+            return GUEST_INFO.indexOf(item) > -1
+          });
+          const recordIP = JSON.parse('true');
+          const highlight = JSON.parse('true');
+          const visitor = JSON.parse('false');
+          const serverURLs = undefined;
+
+          new Valine({
+            el: '.valine-comment',
+            appId: "",
+            appKey: "",
+            placeholder: "Just go go",
+            pageSize: '10',
+            avatar: 'mp',
+            lang: 'zh-cn',
+            recordIP: recordIP,
+            highlight: highlight,
+            visitor: visitor,
+            requiredFields: guest_info,
+            path: window.location.pathname,
+            serverURLs,
+          });
+        };
+        document.head.appendChild(script);
+      }
+    },
+    waline: {
+      enable: true,
+      load: async () => {
+        const container = document.querySelector('.waline-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        let walineInit;
+        const walineCdn = 'https:\/\/cdn.jsdelivr.net\/npm\/@waline\/client@2.15.8\/dist\/waline.mjs';
+        
+        if ('cdn_jsdelivr_npm|@waline\/client@2.15.8\/dist\/waline.mjs'.startsWith('local')) {
+          
+          const module = await safeImport(walineCdn);
+          walineInit = module.init;
+        } else {
+          
+          const module = await safeImport(
+            walineCdn,
+            'sha384-9sbqJjrfGjbkI6\/PI4nU\/MvBfEmkkPC4YK9I4zBeMIf1CVCZdCMH\/KinBEAZII\/5'
+          );
+          walineInit = module.init;
+        }
+        
+        window.walineInstance = walineInit({
+          el: '.waline-comment',
+          serverURL: 'https:\/\/waline.guzhengsvt.cn',
+          lang: 'zh-CN',
+          locale: JSON.parse("{}"),
+          emoji: JSON.parse("[\"https://unpkg.com/@waline/emojis@1.2.0/weibo\",\"https://unpkg.com/@waline/emojis@1.2.0/alus\",\"https://unpkg.com/@waline/emojis@1.2.0/bilibili\",\"https://unpkg.com/@waline/emojis@1.2.0/qq\",\"https://unpkg.com/@waline/emojis@1.2.0/tieba\",\"https://unpkg.com/@waline/emojis@1.2.0/tw-emoji\"]"),
+          meta: JSON.parse("[\"nick\",\"mail\",\"link\"]"),
+          requiredMeta: JSON.parse("[\"nick\",\"mail\"]"),
+          wordLimit:  0 ,
+          comment: true,
+          pageSize:  10 ,
+          dark: 'html[data-theme="dark"]',
+          pageview:  true ,
+        });
+      }
+    },
+    twikoo: {
+      enable: false,
+      load: () => {
+        const container = document.querySelector('.twikoo-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        
+        const script = loadScript(
+          'https:\/\/cdn.jsdelivr.net\/npm\/twikoo@1.6.16\/dist\/twikoo.all.min.js',
+          !'cdn_jsdelivr_npm|twikoo@1.6.16\/dist\/twikoo.all.min.js'.startsWith('local') ? 'sha384-lDHsr5aZmkMS0eKnsUu6e9RWP\u002bdRmn7sgjRAKGOAoXfMyzbUK6Qi86zZK7R\u002bKvRV' : undefined
+        );
+        script.onload = () => {
+          twikoo.init({
+            envId: '',
+            el: '.twikoo-comment',
+            region: '',
+          });
+        };
+        document.head.appendChild(script);
+      }
+    },
+    gitalk: {
+      enable: false,
+      load: () => {
+        const container = document.querySelector('.gitalk-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        const script = loadScript(
+          'https:\/\/cdn.jsdelivr.net\/npm\/gitalk@1.8.0\/dist\/gitalk.min.js',
+          !'cdn_jsdelivr_npm|gitalk@1.8.0\/dist\/gitalk.min.js'.startsWith('local') ? 'sha384-kspnZUWBoSWwoJHa0hBCXYbHGbhvU\/lcEH5O8eVbSDhbPwsiVUTp\/aGX\/z\/5EuMA' : undefined
+        );
+        script.onload = () => {
+          if ( false ) {
+            
+            const md5Script = loadScript(
+              'https:\/\/cdn.jsdelivr.net\/npm\/blueimp-md5@2.19.0\/js\/md5.min.js',
+              !'cdn_jsdelivr_npm|blueimp-md5@2.19.0\/js\/md5.min.js'.startsWith('local') ? 'sha384-JmVtRz6RWiXnA14QbIOJzPuU3MidULOpBP66deeLLyyoF4Tr\/gZlbkHkL6vTthxH' : undefined
+            );
+            md5Script.onload = initGitalk;
+            document.head.appendChild(md5Script);
+          } else {
+            
+            initGitalk();
+          }
+        };
+        document.head.appendChild(script);
+
+        function initGitalk() {
+          let gitalk = new Gitalk({
+            clientID: '',
+            clientSecret: '',
+            repo: '',
+            owner: '',
+            admin: JSON.parse("null"),
+            id: location.pathname,
+            distractionFreeMode: false
+          });
+          gitalk.render('gitalk-comment');
+        }
+      }
+    },
+    giscus: {
+      enable: false,
+      load: () => {
+        const container = document.querySelector('.giscus-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        
+        const existingScript = container.querySelector('script[src*="giscus.app/client.js"]');
+        if (existingScript) existingScript.remove();
+        const existingFrame = document.querySelector('iframe.giscus-frame');
+        if (existingFrame) existingFrame.remove();
+
+        
+        const giscusScript = document.createElement('script');
+        const domMode = document.documentElement.getAttribute("data-theme");
+        giscusScript.src = 'https://giscus.app/client.js';
+        giscusScript.setAttribute('data-repo', '');
+        giscusScript.setAttribute('data-repo-id', '');
+        giscusScript.setAttribute('data-category', '');
+        giscusScript.setAttribute('data-category-id', '');
+        giscusScript.setAttribute('data-mapping', '0');
+        giscusScript.setAttribute('data-strict', '0');
+        giscusScript.setAttribute('data-reactions-enabled', '1');
+        giscusScript.setAttribute('data-emit-metadata', '0');
+        giscusScript.setAttribute('data-input-position', 'bottom');
+        giscusScript.setAttribute('data-theme', domMode === 'dark' ? 'dark' : 'light');
+        giscusScript.setAttribute('data-lang', 'zh-CN');
+        giscusScript.setAttribute('crossorigin', 'anonymous');
+        giscusScript.async = true;
+        container.appendChild(giscusScript);
+        document.body.addEventListener('light-theme-set', () => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'light' } } }, 'https://giscus.app');
+        });
+        document.body.addEventListener('dark-theme-set', () => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'dark' } } }, 'https://giscus.app');
+        });
+      }
+    }
+  };
+  commentConfig.enable = commentConfigKeys.some(key => commentConfig[key].enable);
+
+  var defaultComment = '';
+  if (commentConfig.enable) {
+    
+    var savedCommentType = localStorage.getItem('commentType');
+    
+    
+    if (savedCommentType) {
+      if (commentConfig[savedCommentType]?.enable) {
+        defaultComment = savedCommentType;
+      }
+    }
+    
+    
+    if (!defaultComment) {
+      var configDefault = 'waline';
+      if (commentConfig[configDefault]?.enable) {
+        defaultComment = configDefault;
+      }
+    }
+    
+    
+    if (!defaultComment) {
+      defaultComment = commentConfigKeys.find(sys => commentConfig[sys].enable) || '';
+    }
+  }
+
+  function loadComments() {
+    if (!commentConfig.enable) return;
+    
+    const loadedComments = {
+      valine: false,
+      waline: false,
+      twikoo: false,
+      gitalk: false,
+      giscus: false
+    };
+
+    
+    const hideAllComments = () => {
+      const commentContainers = document.querySelectorAll('.comment');
+      commentContainers.forEach(container => {
+        container.style.display = 'none';
+      });
+    };
+
+    
+    const loadCommentSystem = (type) => {
+      if (loadedComments[type]) {
+        
+        document.querySelector(`.${type}-comment`).style.display = 'block';
+        return;
+      }
+
+      
+      commentConfig[type]?.load();
+      loadedComments[type] = true;
+    };
+
+    
+    const changeActiveCommentItems = (item) => {
+      const commentItems = document.querySelectorAll('.selector-item');
+      for (let i = 0; i < commentItems.length; i++) {
+        commentItems[i].classList.remove('active');
+      }
+      item.classList.add('active');
+
+      
+      const commentType = item.getAttribute('data-selector');
+
+      
+      hideAllComments();
+
+      
+      loadCommentSystem(commentType);
+    };
+
+    const commentInit = () => {
+      
+      const commentItems = document.querySelectorAll('.selector-item');
+      for (let item of commentItems) {
+        item.addEventListener('click', () => {
+          
+          const commentType = item.getAttribute('data-selector');
+          window.localStorage.setItem('commentType', commentType);
+          
+          changeActiveCommentItems(item);
+        });
+      }
+
+      
+      if (defaultComment) {
+        const defaultSelectorItem = document.querySelector(`[data-selector="${defaultComment}"]`);
+        if (!defaultSelectorItem) return;
+        defaultSelectorItem.style.display = 'block';
+        defaultSelectorItem.classList.add('active');
+        loadCommentSystem(defaultComment);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', commentInit);
+    } else {
+      commentInit();
+    }
+  };
+  loadComments();
+</script>
+
+
+      
+        
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"
+    defer
+    
+    data-pjax
+    
+    integrity="sha384-0RsG1yo/crf/1Qc14sho26SXXOTngNCjgJw7fuvXBt9W/OChF/Ijx&#43;aUuBDqQwEk" crossorigin="anonymous"
+  ></script>
+
+
+        
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js"
+    defer
+    
+    data-pjax
+    
+    integrity="sha384-UbfRVKN3/elS1r7JcK2FhmPP&#43;KlJ4CvYwbyYD7tH&#43;uTkbT9bNJr9eJeQ0FoFbAgz" crossorigin="anonymous"
+  ></script>
+
+
+      
+    
+    
+      
+        
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+    
+    
+    data-pjax
+    
+    integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8" crossorigin="anonymous"
+  ></script>
+
+
+        
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    
+    
+    data-pjax
+    
+    integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05" crossorigin="anonymous"
+  ></script>
+
+
+        <script data-pjax>
+          var renderMath = () => {
+            if (!window.renderMathInElement) return;
+            window.renderMathInElement(_$("article"), {
+              delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+              ],
+            });
+          };
+          if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", renderMath, { once: true });
+          } else {
+            renderMath();
+          }
+        </script>
+      
+      
+    
+  </div>
+</div>
+
+
+  <script data-pjax>
+    var updateTime = _$('#post-update-time')?.innerHTML;
+
+    if (updateTime) {
+      const update = new Date(updateTime);
+      const now = new Date();
+      const diff = now - update;
+      const days = diff / 86400000;
+      const { daysago: daysAgo, message: template } = window.siteConfig.outdate;
+      if (days >= daysAgo) {
+        const message = template.replace(/{time}/, updateTime);
+        const blockquote = _$('#outdate-blockquote');
+        if (blockquote) {
+          blockquote.querySelector('p').innerText = message;
+          blockquote.style.display = 'block';
+        }
+      }
+    }
+  </script>
+
+
+
+
+
+  
+
+
+
+
+
+  
+      
+        
+      
+
+  
+
+
+
+
+
+  
+      
+      <script src="/js/service_worker.js" ></script>
+      
+
+
+
+<script>
+  const reimuCopyright = String.raw`
+   ______     ______     __     __    __     __  __    
+  /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+  \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+   \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+    \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                    
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script>
+
+
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"
+    
+    
+    
+    
+    integrity="sha384-gdGYZwHnfJM54evoZhpO0s6ZF5BQiybkiyW7VXr&#43;h5UfruuRL/aORyw&#43;5&#43;HZoU6e" crossorigin="anonymous"
+  ></script>
+
+
+  
+
+
+
+  
+  <script>
+    var isMobile = window.matchMedia('(max-width: 959px)').matches;
+    if (isMobile) {
+      const meting = _$('meting-js');
+      if (meting) {
+        meting.setAttribute('fixed', 'true');
+        const aside = meting.parentNode;
+        if (aside?.tagName === 'ASIDE') {
+          aside.removeChild(meting);
+          document.body.appendChild(meting);
+        }
+      }
+    }
+  </script>
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"
+    
+    
+    
+    
+    integrity="sha384-ASVlpKF80A22OXTK3tfEjZm1EL6uFMKIC4p8&#43;0maanw1S/IyB&#43;Y4JG&#43;ZDU7GpKE8" crossorigin="anonymous"
+  ></script>
+
+
+
+
+
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"
+    
+    
+    
+    
+    integrity="sha384-HeUHqi0nVsPUm/E0ss7OfnIV/yD96JWB8ehZvUuoVax9DpNHL17jj9pdfXHzqDxm" crossorigin="anonymous"
+  ></script>
+
+
+  <script data-pjax>
+    if (document.readyState === "loading") {
+      document.addEventListener('DOMContentLoaded', () => {
+        pangu?.spacingPage();
+      });
+    } else {
+      pangu?.spacingPage();
+    }
+  </script>
+
+
+    
+  </body>
+</html>

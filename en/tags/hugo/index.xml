@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/en/tags/hugo/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All website licensed under CC BY 4.0</copyright><lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/en/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>Typecho Comments Import to Waline</title><link>https://guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description><![CDATA[<h1>Typecho Comments Import to Waline</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>Hugo on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/en/tags/hugo/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/en/tags/hugo/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Typecho Comments Import to Waline</title>
+      <link>http://localhost:1313/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
+      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
+      <description><![CDATA[<h1>Typecho Comments Import to Waline</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <p>A couple of days ago, I migrated my blog posts from Typecho to Hugo. Just setting up the Front Matter parameters and reconfiguring image links took considerable effort.<br>
 The value of a blog lies first in its articles, followed closely by its comments. Comments are proof that the blog has made an impact in both the digital and real worlds, carrying the interactions between people. More personally, comments from all corners of the globe are precious memories and a part of what makes &ldquo;me&rdquo;.<br>
 Thus, it&rsquo;s essential to copy the original comments to the corresponding articles on the new site.</p>
@@ -140,7 +166,23 @@ Afterword
 As I said at the beginning, they&rsquo;re traces of my growth, proof of my existence, and part of &ldquo;me&rdquo;.</p>
 <p>And you, dear reader, are the one who gives me value.</p>
 <p>If you have time, please leave a comment—it’ll genuinely make my day (as long as it’s kind, of course).</p>
-        <hr><p>本文 2025-04-19 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item><item><title>Common Hugo Blog Resources</title><link>https://guzhengsvt.cn/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link><pubDate>Tue, 15 Apr 2025 16:42:35 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid><description><![CDATA[<h1>Common Hugo Blog Resources</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2025-04-19 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Common Hugo Blog Resources</title>
+      <link>http://localhost:1313/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link>
+      <pubDate>Tue, 15 Apr 2025 16:42:35 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid>
+      <description><![CDATA[<h1>Common Hugo Blog Resources</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="hugo-common-commands">
 <a class="header-anchor" href="#hugo-common-commands"></a>
 Hugo Common Commands
@@ -540,4 +582,11 @@ reimu Theme icon_font
   </tbody>
 </table>
 
-        <hr><p>本文 2025-04-15 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item></channel></rss>
+        <hr><p>本文 2025-04-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+  </channel>
+</rss>

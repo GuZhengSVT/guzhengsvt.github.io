@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OtherNotes on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/en/categories/othernotes/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All website licensed under CC BY 4.0</copyright><lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/en/categories/othernotes/index.xml" rel="self" type="application/rss+xml"/><item><title>Typecho Comments Import to Waline</title><link>https://guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description><![CDATA[<h1>Typecho Comments Import to Waline</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>OtherNotes on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/en/categories/othernotes/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/en/categories/othernotes/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Typecho Comments Import to Waline</title>
+      <link>http://localhost:1313/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
+      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
+      <description><![CDATA[<h1>Typecho Comments Import to Waline</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <p>A couple of days ago, I migrated my blog posts from Typecho to Hugo. Just setting up the Front Matter parameters and reconfiguring image links took considerable effort.<br>
 The value of a blog lies first in its articles, followed closely by its comments. Comments are proof that the blog has made an impact in both the digital and real worlds, carrying the interactions between people. More personally, comments from all corners of the globe are precious memories and a part of what makes &ldquo;me&rdquo;.<br>
 Thus, it&rsquo;s essential to copy the original comments to the corresponding articles on the new site.</p>
@@ -140,7 +166,23 @@ Afterword
 As I said at the beginning, they&rsquo;re traces of my growth, proof of my existence, and part of &ldquo;me&rdquo;.</p>
 <p>And you, dear reader, are the one who gives me value.</p>
 <p>If you have time, please leave a comment—it’ll genuinely make my day (as long as it’s kind, of course).</p>
-        <hr><p>本文 2025-04-19 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item><item><title>Common Hugo Blog Resources</title><link>https://guzhengsvt.cn/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link><pubDate>Tue, 15 Apr 2025 16:42:35 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid><description><![CDATA[<h1>Common Hugo Blog Resources</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2025-04-19 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Common Hugo Blog Resources</title>
+      <link>http://localhost:1313/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link>
+      <pubDate>Tue, 15 Apr 2025 16:42:35 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid>
+      <description><![CDATA[<h1>Common Hugo Blog Resources</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h1 id="hugo-common-commands">
 <a class="header-anchor" href="#hugo-common-commands"></a>
 Hugo Common Commands
@@ -540,7 +582,23 @@ reimu Theme icon_font
   </tbody>
 </table>
 
-        <hr><p>本文 2025-04-15 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item><item><title>Windows Customization Journey</title><link>https://guzhengsvt.cn/en/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link><pubDate>Sat, 07 Sep 2024 21:12:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid><description><![CDATA[<h1>Windows Customization Journey</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2025-04-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Windows Customization Journey</title>
+      <link>http://localhost:1313/en/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link>
+      <pubDate>Sat, 07 Sep 2024 21:12:17 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid>
+      <description><![CDATA[<h1>Windows Customization Journey</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="preface">
 <a class="header-anchor" href="#preface"></a>
 Preface
@@ -784,7 +842,23 @@ Cursor Customization
 <li><strong>Blue Archive Millennium cursor</strong> (simple/cute, currently using):<br>
 GitHub: <a href="https://github.com/makipom/BlueArchive-Cursors">BlueArchive-Cursors</a></li>
 </ol>
-        <hr><p>本文 2024-09-07 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2024-09-07</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item><item><title>Automatic Dial-up Internet Connection and Task Scheduler</title><link>https://guzhengsvt.cn/en/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</link><pubDate>Wed, 12 Jun 2024 19:34:52 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</guid><description><![CDATA[<h1>Automatic Dial-up Internet Connection and Task Scheduler</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-09-07 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-07</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Automatic Dial-up Internet Connection and Task Scheduler</title>
+      <link>http://localhost:1313/en/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Wed, 12 Jun 2024 19:34:52 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</guid>
+      <description><![CDATA[<h1>Automatic Dial-up Internet Connection and Task Scheduler</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="annoying-network-shenanigans">
 <a class="header-anchor" href="#annoying-network-shenanigans"></a>
 Annoying Network Shenanigans
@@ -838,7 +912,23 @@ Auto-Dial on Boot &amp; Reconnect
 </ol>
 <p>Confirm (requires entering your Microsoft account password, not PIN. If errors persist, check the &ldquo;General&rdquo; tab for correct user account matching.)</p>
 
-        <hr><p>本文 2024-06-12 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2024-06-12</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item><item><title>Obsidian Basics</title><link>https://guzhengsvt.cn/en/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</link><pubDate>Tue, 27 Jun 2023 00:41:26 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</guid><description><![CDATA[<h1>Obsidian Basics</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>本文 2024-06-12 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-06-12</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Obsidian Basics</title>
+      <link>http://localhost:1313/en/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Tue, 27 Jun 2023 00:41:26 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</guid>
+      <description><![CDATA[<h1>Obsidian Basics</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <p><a href="https://publish.obsidian.md/help-zh/%E7%94%B1%E6%AD%A4%E5%BC%80%E5%A7%8B">Obsidian Chinese Help</a></p>
 <h1 id="interface">
 <a class="header-anchor" href="#interface"></a>
@@ -1023,4 +1113,11 @@ Footnotes can span multiple lines using indentation&#160;<a href="#fnref:1" clas
 </ol>
 </div>
 
-        <hr><p>本文 2023-06-27 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2023-06-27</p><p>All website licensed under CC BY 4.0</p>]]></description><category>OtherNotes</category></item></channel></rss>
+        <hr><p>本文 2023-06-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-06-27</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+  </channel>
+</rss>

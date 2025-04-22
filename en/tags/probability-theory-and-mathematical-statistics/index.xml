@@ -1,142 +1,156 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Probability Theory and Mathematical Statistics on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/en/tags/probability-theory-and-mathematical-statistics/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All website licensed under CC BY 4.0</copyright><lastBuildDate>Tue, 10 Sep 2024 01:14:05 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/en/tags/probability-theory-and-mathematical-statistics/index.xml" rel="self" type="application/rss+xml"/><item><title>Probability Theory and Mathematical Statistics</title><link>https://guzhengsvt.cn/en/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><pubDate>Tue, 10 Sep 2024 01:14:05 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid><description><![CDATA[<h1>Probability Theory and Mathematical Statistics</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>Probability Theory and Mathematical Statistics on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/en/tags/probability-theory-and-mathematical-statistics/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Tue, 10 Sep 2024 01:14:05 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/en/tags/probability-theory-and-mathematical-statistics/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Probability Theory and Mathematical Statistics</title>
+      <link>http://localhost:1313/en/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link>
+      <pubDate>Tue, 10 Sep 2024 01:14:05 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid>
+      <description><![CDATA[<h1>Probability Theory and Mathematical Statistics</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
           <h2 id="preface">
 <a class="header-anchor" href="#preface"></a>
 Preface
 </h2><h3 id="first-edition-preface">
 <a class="header-anchor" href="#first-edition-preface"></a>
 First Edition Preface
-</h3><p>[[2024-09-14]] Today, the makeup exam finally ended. I heard the original exam directly reused past papers. Over the past few days, I practiced three sets of &ldquo;XDU&rsquo;s original exam papers&rdquo; (from 2021 and two from 2023) found online. The morning session covered the 2021 paper, and in the afternoon, <strong>a quarter</strong> of the questions were identical word-for-word. I couldn&rsquo;t help but laugh.</p>
-<p>Dai Hao once said he would try his best to assign the best teachers to the Qian Class. But now, it seems the School of Mathematics and Statistics has run out of competent faculty? Poor teaching could be excused as a lack of focus on pedagogy or innate teaching talent. However, reusing recent exam papers verbatim, riddled with errors, is downright laughable.</p>
-<p>The self-made exam papers lack any originality, and the creators didn’t even bother to review them. This is an attitude problem.</p>
-<p>It’s fine for your university to go easy on finals, but don’t keep recycling old material. You preach innovation to students yet settle for mediocrity yourselves. This is neither the attitude for academia nor for teaching.</p>
-<p>Probability Theory ends here. Over the past two days, I repeatedly reviewed notes, solved problems, and corrected many errors, clarifying the knowledge structure of this course. Although the content remains relatively sparse, it should suffice as final review material. This edition will likely be the final version (probably).</p>
-<p>During the Mid-Autumn Festival, I’ll continue organizing Electrodynamics and Digital Signal Processing.</p>
+</h3><p>[[2024-09-14]] Today the makeup exam finally ended. I heard the original exam directly reused past papers. These past few days I practiced three sets of &ldquo;XDU original papers&rdquo; (from 2021 and two from 2023) found online. I did the 2021 paper in the morning, and in the afternoon $\frac{1}{4}$ of the questions were exact copies without any changes. I couldn&rsquo;t help but laugh.</p>
+<p>Dai Hao once said he would try his best to find the best teachers for the Qian Class. But now it seems the School of Mathematics and Statistics has no one left? Poor teaching could be excused as not focusing on education or lacking talent in teaching; but directly reusing recent past papers for exams, full of unchecked errors and omissions, made me laugh in frustration.</p>
+<p>The exams they create have no value, and they don&rsquo;t even bother to test them themselves. This is an attitude problem.</p>
+<p>It&rsquo;s fine that your university goes easy on final exams, but don&rsquo;t keep fooling people with old material. You preach innovation to students, yet for yourselves, just getting by is enough. This is not the attitude for academic work, nor is it the attitude one should have for teaching.</p>
+<p>Probability theory ends here for now. Over the past two days, I repeatedly reviewed notes, practiced problems, and corrected many errors, clarifying the knowledge structure of this course. Although the content is still relatively sparse, it should suffice as final review material. This edition will likely be the final version (probably).
+I&rsquo;ll continue organizing Electrodynamics and Digital Signal Processing during the Mid-Autumn Festival.</p>
 <h3 id="second-edition-preface">
 <a class="header-anchor" href="#second-edition-preface"></a>
 Second Edition Preface
 </h3><blockquote>
-<p>Nothing is final!!!<br>
-—Qian Xuesen</p></blockquote>
-<p>Added clarification on the left/right continuity of distribution functions. It seems this course is far from &ldquo;final&rdquo;&hellip;</p>
-<hr>
+<p>Nothing is final!!!
+——Qian Xuesen</p></blockquote>
+<p>Added content on the left/right continuity of distribution functions. It seems this course is far from final&hellip;</p>
 <h2 id="event-operations-to-logical-operations">
 <a class="header-anchor" href="#event-operations-to-logical-operations"></a>
 Event Operations to Logical Operations
 </h2><ul>
-<li>$A \cup B = A + B$</li>
-<li>$A \cap B = A \cdot B$</li>
-<li>$A - B = A \bar{B}$<br>
-Event $A$ occurs while $B$ does not, easily verified via Venn diagrams.<br>
-Interpret $-B$ as $\cdot (-B)$, where $-B$ is $\bar{B}$.</li>
-<li>If $A \subset B$, then $A \cup B = B$ and $A \cap B = A$.</li>
+<li>$A \cup B=A+B$</li>
+<li>$A \cap B=A \cdot B$</li>
+<li>$A-B=A \bar{B}$
+Event $A$ occurs and event $B$ does not occur, easily proven by Venn diagrams.
+$-B$ can be interpreted as $\cdot (-B)$, where $-B$ is $\bar{B}$.</li>
+<li>If $A \subset B$, then $A \cup B=B$, $A \cap B=A$.</li>
 </ul>
-<p>After converting event operations to logical operations, most rules align.<br>
-Use logical function simplification from digital electronics to reduce complex event operations.<br>
-<strong>Tip</strong>: Karnaugh maps.</p>
-<hr>
+<p>After converting event operations to logical operations, most rules are shared.
+Using logical function operations and simplification learned in digital circuits, complex event operations can be simplified.
+Tips: Karnaugh maps.</p>
 <h2 id="four-major-probability-formulas">
 <a class="header-anchor" href="#four-major-probability-formulas"></a>
 Four Major Probability Formulas
 </h2>$$
 \begin{cases}
-P(A+B) = P(A) + P(B) - P(AB) \\
-P(A-B) = P(A) - P(AB) = P(A \bar{B}) \\
-P(AB) = P(B) \cdot P(A|B) = P(A) \cdot P(B|A) \\
-P(A|B) = \frac{P(AB)}{P(B)} \\
+P(A+B)=P(A)+P(B)-P(AB)\\
+P(A-B)=P(A)-P(AB)=P(A \bar{B})\\
+P(AB)=P(B) \cdot P(A|B)=P(A) \cdot P(B|A)\\
+P(A|B)=\frac{P(AB)}{P(B)}\\
 \end{cases}
-$$<h3 id="corollaries">
-<a class="header-anchor" href="#corollaries"></a>
-Corollaries
-</h3><p>For $P(A+B+C)$, treat $A+B$ as a single event and apply the addition formula twice:<br>
+$$<h3 id="corollary">
+<a class="header-anchor" href="#corollary"></a>
+Corollary
+</h3><p>$P(A+B+C)$: Treat $A+B$ as a single event and apply the addition formula above, splitting twice to get:
 </p>
 $$
-P(A+B+C) = P(A) + P(B) + P(C) - P(AB) - P(AC) - P(BC) + P(ABC)
-$$<p><br>
-Larger unions follow recursively.</p>
-<p>Complementary event: Probability of $A$ not occurring, obvious from Venn diagrams.<br>
+P(A+B+C)=P(A)+P(B)+P(C)-P(AB)-P(AC)-P(BC)+P(ABC)
+$$<p>
+Probabilities for more joint events can be derived recursively.</p>
+<p>Complementary event: The probability that $A$ does not occur, obvious from Venn diagrams.
 </p>
 $$
-P(\bar{A}) = P(1 \cdot \bar{A}) = P(1 - A) = P(1) - P(1 \cdot A) = 1 - P(A)
-$$<hr>
-<h2 id="non-negativity-and-normalization">
+P(\bar{A})=P(1 \cdot \bar{A})=P(1-A)=P(1)-P(1 \cdot A)=1-P(A)
+$$<h2 id="non-negativity-and-normalization">
 <a class="header-anchor" href="#non-negativity-and-normalization"></a>
 Non-Negativity and Normalization
-</h2><ul>
-<li><strong>Non-negativity</strong>: For any event $A$, $0 \le P(A) \le 1$.</li>
-<li><strong>Normalization</strong>: For the sample space $\Omega$, $P(\Omega) = 1$.</li>
-</ul>
-<hr>
+</h2><p>Non-negativity: For any event $A$, $0 \le P(A) \le 1$.
+Normalization: For the total event $\Omega$, $P(\Omega)=1$.</p>
 <h2 id="independence">
 <a class="header-anchor" href="#independence"></a>
 Independence
 </h2>$$
 \begin{cases}
-P(AB) = P(A) \cdot P(B) \\
-P(A|B) = P(A) \\
+P(AB)=P(A) \cdot P(B)\\
+P(A|B)=P(A)
 \end{cases}
-$$<p><br>
+$$<p>
 Independence implies mutual independence.</p>
-<hr>
 <h2 id="classical-probability-model">
 <a class="header-anchor" href="#classical-probability-model"></a>
 Classical Probability Model
 </h2><blockquote>
-<p>All elementary events are equally likely.</p></blockquote>
-<p><strong>E.g.</strong>, coin tosses, dice rolls&hellip;<br>
+<p>All elementary events have equal probability.</p></blockquote>
+<p>Eg. Coin toss, dice roll&hellip;
 </p>
 $$
-P(A) = \frac{\text{Number of elementary events in } A}{\text{Total elementary events in } \Omega}
-$$<p><br>
-Classical conditional probability formula:<br>
+P(A)=\frac{\text{Number of elementary events in } A}{\text{Total elementary events in } \Omega}
+$$<p>
+Classical conditional probability formula:
 </p>
 $$
-P(B|A) = \frac{P(AB)}{P(A)} = \frac{\text{Elementary events in both } A \text{ and } B}{\text{Elementary events in } A}
-$$<hr>
-<h2 id="bernoulli-trials-binomial-distribution">
+P(B|A)=\frac{P(AB)}{P(A)}=\frac{\text{Elementary events in both } A \text{ and } B}{\text{Elementary events in } A}
+$$<h2 id="bernoulli-trials-binomial-distribution">
 <a class="header-anchor" href="#bernoulli-trials-binomial-distribution"></a>
 Bernoulli Trials (Binomial Distribution)
 </h2><blockquote>
-<p>$n$ independent trials, each with outcomes $A$ or $\bar{A}$.</p></blockquote>
-<p>$X \sim B(n, p)$<br>
+<p>$n$ independent trials, each with only two outcomes: $A$ or $\bar{A}$.</p></blockquote>
+<p>$X \sim B(n,p)$
 </p>
 $$
-P_n(k) = C_n^k p^k (1-p)^{n-k}
-$$<p><br>
-where $p = P(A)$, $1-p = P(\bar{A})$.</p>
-<hr>
+P_n(k)=C_n^kp^k(1-p)^{n-k}
+$$<p>
+Where $p=P(A)$, $1-p=P(\bar{A})$.</p>
 <h2 id="geometric-probability-model">
 <a class="header-anchor" href="#geometric-probability-model"></a>
 Geometric Probability Model
-</h2><p>The ratio of the <em>length/area/volume</em> occupied by an event to the total <em>length/area/volume</em> of $\Omega$.<br>
-If the event&rsquo;s dimension is lower than $\Omega$&rsquo;s, its probability is always 0.<br>
-<strong>Warning</strong>: A probability of 0 doesn’t mean the event is impossible.<br>
-<strong>E.g.</strong>: Randomly selecting a point inside a circle—the probability of any specific point is 0, but it can still occur.</p>
-<hr>
+</h2><p>The ratio of the <em>length/area/volume</em> occupied by the event to the total <em>length/area/volume</em> of the sample space $\Omega$.
+When the event&rsquo;s dimension is lower than $\Omega$&rsquo;s dimension, its probability is always 0.
+==Warning==: A probability of 0 does not mean the event cannot occur.
+Eg: Randomly selecting a point inside a circle, the probability of selecting any specific point is 0, but it can still happen.</p>
 <h2 id="uniform-distribution">
 <a class="header-anchor" href="#uniform-distribution"></a>
 Uniform Distribution
-</h2><p>$x \sim U(a, b)$<br>
-Linear approximation in geometric distributions. Probability density:<br>
+</h2><p>$x \sim U(a,b)$
+Approximates a linear distribution in geometric probability, with probability density:
 </p>
 $$
-f(x) =
+f(x)=
 \begin{cases}
-0, & x \le a \\
-\frac{1}{b-a}, & a < x \le b \\
-0, & x > b \\
+0,x \le a\\
+\frac{1}{b-a},a < x \le b\\
+0,x>b\\
 \end{cases}
-$$<p><br>
-Cumulative distribution function (CDF):<br>
+$$<p>Cumulative distribution function:
 </p>
 $$
-F(x) =
+F(x)=
 \begin{cases}
-0, & x \le a \\
-\frac{x - a}{b - a}, & a < x \le b \\
-1, & x > b \\
+0,x \le a\\
+\frac{x-a}{b-a},a<x \le b\\
+1,x>b\\
 \end{cases}
-$$<hr>
-<h2 id="exponential-distribution">
+$$<h2 id="exponential-distribution">
 <a class="header-anchor" href="#exponential-distribution"></a>
 Exponential Distribution
 </h2><p>$x \sim E(\lambda)$</p>
@@ -144,72 +158,69 @@ Exponential Distribution
 <a class="header-anchor" href="#probability-density"></a>
 Probability Density
 </h3>$$
-f(x) =
+f(x)=
 \begin{cases}
-\lambda e^{-\lambda x}, & x > 0 \\
-0, & x \le 0 \\
+\lambda e^{-\lambda x},x>0\\
+0,x \le 0\\
 \end{cases}
-$$<h3 id="cdf">
-<a class="header-anchor" href="#cdf"></a>
-CDF
+$$<h3 id="cumulative-distribution-function">
+<a class="header-anchor" href="#cumulative-distribution-function"></a>
+Cumulative Distribution Function
 </h3>$$
-F(x) =
+F(x)=
 \begin{cases}
-1 - e^{-\lambda x}, & x \ge 0 \\
-0, & x < 0 \\
+1-e^{-\lambda x},x \ge 0\\
+0,x<0\\
 \end{cases}
-$$<hr>
-<h2 id="poisson-distribution">
+$$<h2 id="poisson-distribution">
 <a class="header-anchor" href="#poisson-distribution"></a>
 Poisson Distribution
-</h2><p>$X \sim \pi(\lambda)$<br>
+</h2><p>$X \sim \pi(\lambda)$
 </p>
 $$
-P(X = k) = \frac{e^{-\lambda} \lambda^k}{k!}
-$$<hr>
-<h2 id="normal-distribution">
+P(X=k)=\frac{e^{-\lambda}\lambda^k}{k!}
+$$<h2 id="normal-distribution">
 <a class="header-anchor" href="#normal-distribution"></a>
 Normal Distribution
-</h2><p>$x \sim N(\mu, \sigma^2)$</p>
+</h2><p>$x \sim N(\mu,\sigma^2)$</p>
 <h3 id="probability-density-1">
 <a class="header-anchor" href="#probability-density-1"></a>
 Probability Density
 </h3>$$
-f(x) = \frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{(x - \mu)^2}{2 \sigma^2}}, \quad x \in \mathbb{R}, \sigma > 0
-$$<h3 id="cdf-1">
-<a class="header-anchor" href="#cdf-1"></a>
-CDF
+f(x)=\frac{1}{\sqrt{2 \pi} \sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}},x \in R,\sigma>0
+$$<h3 id="cumulative-distribution-function-1">
+<a class="header-anchor" href="#cumulative-distribution-function-1"></a>
+Cumulative Distribution Function
 </h3>$$
-F(x) = \int_{-\infty}^x f(t) \, dt
-$$<p><br>
-Clearly, $F(\mu) = \frac{1}{2}$, i.e., $P(x \le \mu) = P(x > \mu) = \frac{1}{2}$.</p>
+F(x)=\int^{x}_{-\infty}f(t)dt
+$$<p>
+Clearly, $F(\mu)=\frac{1}{2}$, meaning $P(x \le \mu)=P(x>\mu)=\frac{1}{2}$.</p>
 <h3 id="standard-normal-distribution">
 <a class="header-anchor" href="#standard-normal-distribution"></a>
 Standard Normal Distribution
-</h3><p>When $\mu = 0$, $\sigma = 1$, it becomes the standard normal distribution.<br>
+</h3><p>When $\mu=0,\sigma=1$, it becomes the standard normal distribution.
 </p>
 $$
-\varphi(x) = \frac{1}{\sqrt{2 \pi}} e^{-\frac{x^2}{2}}
-$$<p><br>
+\varphi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
+$$<p>
 </p>
 $$
-\Phi(x) = \int_{-\infty}^x \varphi(t) \, dt
-$$<h3 id="corollaries-1">
-<a class="header-anchor" href="#corollaries-1"></a>
+\varPhi(x)=\int^{x}_{-\infty}\varphi(t)dt
+$$<h3 id="corollaries">
+<a class="header-anchor" href="#corollaries"></a>
 Corollaries
 </h3>$$
-\Phi(-x) = 1 - \Phi(x)
-$$<p><br>
+\varPhi(-x)=1-\varPhi(x)
+$$<p>
 </p>
 $$
-F(x) = \Phi\left(\frac{x - \mu}{\sigma}\right)
-$$<p><br>
-Normalization:<br>
+F(x)=\varPhi(\frac{x-\mu}{\sigma})
+$$<p>
+Normalization of normal distribution:
 </p>
 $$
-X \sim N(\mu, \sigma^2), \quad Z = \frac{X - \mu}{\sigma} \sim N(0, 1)
-$$<hr>
-<h2 id="total-probability-formula">
+X \sim N(\mu,\sigma^2),Z=\frac{X-\mu}{\sigma}\sim N(0,1)
+$$<h2 id="total-probability-formula">
 <a class="header-anchor" href="#total-probability-formula"></a>
 Total Probability Formula
 </h2><h3 id="complete-event-group">
@@ -217,165 +228,160 @@ Total Probability Formula
 Complete Event Group
 </h3>$$
 \begin{cases}
-B_1 \cup B_2 \cup \cdots \cup B_n = \Omega \\
-B_i \cap B_j = \varnothing, \quad i \ne j, 1 \le i, j \le n \\
+B_1 \cup B_2 \cup B_3 \cup \cdots \cup B_n=\Omega\\
+B_i \cap B_j=\varnothing,i \ne j,1 \le i \le n,1 \le j \le n\\
 \end{cases}
-$$<p><br>
-Here, $B_1, B_2, \dots, B_n$ form a complete event group of $\Omega$.</p>
+$$<p>
+$B_1,B_2,B_3,\cdots B_n$ form a complete event group for $\Omega$.</p>
 <h3 id="total-probability-formula-1">
 <a class="header-anchor" href="#total-probability-formula-1"></a>
 Total Probability Formula
 </h3>$$
 \begin{align}
-P(A) &= P(AB_1 \cup AB_2 \cup \cdots \cup AB_n) \\
-&= P(AB_1) + P(AB_2) + \cdots + P(AB_n) \\
-&= P(B_1)P(A|B_1) + P(B_2)P(A|B_2) + \cdots + P(B_n)P(A|B_n) \\
+P(A)
+&=P(AB_1 \cup AB_2 \cup \cdots \cup AB_n)\\
+&=P(AB_1)+P(AB_2)+\cdots +P(AB_n)\\
+&=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+\cdots +P(B_n)P(A|B_n)\\
 \end{align}
 $$<h3 id="bayes-formula">
 <a class="header-anchor" href="#bayes-formula"></a>
 Bayes&rsquo; Formula
 </h3>$$
-P(B_1|A) = \frac{P(AB_1)}{P(A)} = \frac{P(B_1)P(A|B_1)}{P(A)}
-$$<hr>
-<h2 id="one-dimensional-discrete-random-variables">
+P(B_1|A)=\frac{P(AB_1)}{P(A)}=\frac{P(B_1)P(A|B_1)}{P(A)}
+$$<h2 id="one-dimensional-discrete-random-variables">
 <a class="header-anchor" href="#one-dimensional-discrete-random-variables"></a>
 One-Dimensional Discrete Random Variables
-</h2><h3 id="probability-mass-function-pmf">
-<a class="header-anchor" href="#probability-mass-function-pmf"></a>
-Probability Mass Function (PMF)
+</h2><h3 id="probability-mass-function">
+<a class="header-anchor" href="#probability-mass-function"></a>
+Probability Mass Function
 </h3>$$
-P(X = x_i) = p_i = \frac{\text{Count of } X = x_i}{\text{Total cases}}, \quad i = 1, 2, \dots
-$$<h3 id="cdf-2">
-<a class="header-anchor" href="#cdf-2"></a>
-CDF
+P(X=x_i)=p_i=\frac{\text{Count of } X=x_i}{\text{Total count}},i=1,2,\cdots 
+$$<h3 id="cumulative-distribution-function-2">
+<a class="header-anchor" href="#cumulative-distribution-function-2"></a>
+Cumulative Distribution Function
 </h3>$$
-F(x) = \sum_{x_i < x} p_i, \quad x \in \mathbb{R}
-$$<hr>
-<h2 id="one-dimensional-continuous-random-variables">
+F(x)=\sum_{x_i<x}p_i,x \in R
+$$<h2 id="one-dimensional-continuous-random-variables">
 <a class="header-anchor" href="#one-dimensional-continuous-random-variables"></a>
 One-Dimensional Continuous Random Variables
-</h2><h3 id="probability-density-function-pdf">
-<a class="header-anchor" href="#probability-density-function-pdf"></a>
-Probability Density Function (PDF)
+</h2><h3 id="probability-density-function">
+<a class="header-anchor" href="#probability-density-function"></a>
+Probability Density Function
 </h3>$$
-f(x) = F'(x)
-$$<h3 id="cdf-3">
-<a class="header-anchor" href="#cdf-3"></a>
-CDF
+f(x)=F'(x)
+$$<h3 id="cumulative-distribution-function-3">
+<a class="header-anchor" href="#cumulative-distribution-function-3"></a>
+Cumulative Distribution Function
 </h3>$$
-F(x) = \int_{-\infty}^x f(t) \, dt
+F(x)=\int_{-\infty}^xf(t)dt
 $$<h3 id="interval-probability">
 <a class="header-anchor" href="#interval-probability"></a>
 Interval Probability
 </h3>$$
-P(a < x \le b) = \int_a^b f(x) \, dx = F(b) - F(a)
-$$<p><br>
-Since $P(x = a) = 0$ for any $a \in \mathbb{R}$, interval endpoints can be inclusive/exclusive.</p>
+P(a<x \le b)=\int_a^bf(x)dx=F(b)-F(a)
+$$<p>$\because$ $P(x=a)=0,a \in R$
+$\therefore$ The equality signs on the interval can be chosen freely.</p>
 <h3 id="normalization">
 <a class="header-anchor" href="#normalization"></a>
 Normalization
 </h3>$$
-F(\infty) = \int_{-\infty}^\infty f(x) \, dx = 1
-$$<p><br>
-</p>
-$$
-F(-\infty) = 0
-$$<hr>
-<h2 id="two-dimensional-discrete-random-variables">
+F(\infty)=\int^{\infty}_{-\infty}f(x)dx=1
+$$$$
+F(-\infty)=0
+$$<h2 id="two-dimensional-discrete-random-variables">
 <a class="header-anchor" href="#two-dimensional-discrete-random-variables"></a>
 Two-Dimensional Discrete Random Variables
-</h2><h3 id="joint-pmf">
-<a class="header-anchor" href="#joint-pmf"></a>
-Joint PMF
-</h3><p>$P(X = x_i, Y = y_j)$<br>
-Create a 2D table of possible $(X, Y)$ values and fill in probabilities.</p>
-<h3 id="marginal-pmf">
-<a class="header-anchor" href="#marginal-pmf"></a>
-Marginal PMF
-</h3><p>$P(X = x_i)$, $P(Y = y_j)$<br>
-Sum rows/columns of the joint PMF to obtain $f_Y(x)$, $f_X(y)$.</p>
+</h2><h3 id="joint-probability-mass-function">
+<a class="header-anchor" href="#joint-probability-mass-function"></a>
+Joint Probability Mass Function
+</h3><p>$P(X=x_i,Y=y_j)$
+Create a 2D table of possible values for X and Y, filling in corresponding probabilities.</p>
+<h3 id="marginal-probability-mass-function">
+<a class="header-anchor" href="#marginal-probability-mass-function"></a>
+Marginal Probability Mass Function
+</h3><p>$P(X=x_i),P(Y=y_j)$
+Sum the rows/columns of the joint probability table to get $f_Y(x),f_X(y)$.</p>
 <h3 id="conditional-distribution">
 <a class="header-anchor" href="#conditional-distribution"></a>
 Conditional Distribution
-</h3><p>$P(X = x_i | Y = y_j)$, $P(Y = y_i | X = x_j)$<br>
-Divide each row/column of the joint PMF by its marginal PMF.<br>
-Each row/column becomes <strong>proportional</strong>, summing to 1.</p>
-<h3 id="independence-of-variables">
-<a class="header-anchor" href="#independence-of-variables"></a>
-Independence of Variables
-</h3><p><strong>Note</strong>: Independence here refers to linear independence, not complete independence.<br>
-Write the joint PMF as a matrix $\vec{A}$. If $\det \vec{A} = 0$, $X$ and $Y$ are independent.<br>
-Alternatively: Rows/columns of the joint PMF are proportional.<br>
-Or: If $P(X = x_i, Y = y_j) \ne P(X = x_i)P(Y = y_j)$, $X$ and $Y$ are dependent.</p>
-<hr>
+</h3><p>$P(X=x_i|Y=y_j),P(Y=y_i|X=x_j)$
+Divide each row/column of the joint probability table by its marginal probability.
+This scales the joint probabilities so each row/column sums to 1.</p>
+<h3 id="independence-of-two-variables">
+<a class="header-anchor" href="#independence-of-two-variables"></a>
+Independence of Two Variables
+</h3><p>==Independence here refers to linear independence, not complete statistical independence.==
+Write the joint probability table as a matrix $\vec{A}$. If $\det \vec{A}=0$, X and Y are independent.
+Or: If the rows/columns of the joint probability table are proportional, X and Y are independent.
+Or: If the joint probability $\ne$ the product of marginal probabilities, i.e., $P(X=x_i,Y=y_j)\ne P(X=x_i)P(Y=y_j)$, then X and Y are not independent.</p>
 <h2 id="two-dimensional-continuous-random-variables">
 <a class="header-anchor" href="#two-dimensional-continuous-random-variables"></a>
 Two-Dimensional Continuous Random Variables
-</h2><h3 id="joint-pdf">
-<a class="header-anchor" href="#joint-pdf"></a>
-Joint PDF
+</h2><h3 id="joint-density-function">
+<a class="header-anchor" href="#joint-density-function"></a>
+Joint Density Function
 </h3>$$
-f(x, y)
+f(x,y)
 $$<h3 id="normalization-1">
 <a class="header-anchor" href="#normalization-1"></a>
 Normalization
 </h3>$$
-\int_{-\infty}^\infty \int_{-\infty}^\infty f(x, y) \, dx \, dy = 1
-$$<h3 id="marginal-pdf">
-<a class="header-anchor" href="#marginal-pdf"></a>
-Marginal PDF
+\int^{\infty}_{-\infty}\int^{\infty}_{-\infty}f(x,y)dxdy=1
+$$<h3 id="marginal-density-functions">
+<a class="header-anchor" href="#marginal-density-functions"></a>
+Marginal Density Functions
 </h3>$$
-f_X(x) = \int_{-\infty}^\infty f(x, y) \, dy
-$$<p><br>
+f_X(x)=\int^{\infty}_{-\infty}f(x,y)dy
+$$<p>
 </p>
 $$
-f_Y(y) = \int_{-\infty}^\infty f(x, y) \, dx
-$$<h3 id="conditional-pdf">
-<a class="header-anchor" href="#conditional-pdf"></a>
-Conditional PDF
+f_Y(y)=\int^{\infty}_{-\infty}f(x,y)dx
+$$<h3 id="conditional-density">
+<a class="header-anchor" href="#conditional-density"></a>
+Conditional Density
 </h3>$$
-f_{Y|X}(y | x) = \frac{f(x, y)}{f_X(x)}
+f_{Y|X}(y|x)=\frac{f(x,y)}{f_X(x)}
 $$<h3 id="independence-1">
 <a class="header-anchor" href="#independence-1"></a>
 Independence
 </h3>$$
-f(x, y) = f_X(x) f_Y(y)
-$$<p><br>
-If satisfied, $X$ and $Y$ are independent.</p>
-<h3 id="cdf-4">
-<a class="header-anchor" href="#cdf-4"></a>
-CDF
-</h3><p>Let $Z = X - Y$,<br>
+f(x,y)=f_X(x)f_Y(y)
+$$<p>
+When this holds, X and Y are independent.</p>
+<h3 id="distribution-function">
+<a class="header-anchor" href="#distribution-function"></a>
+Distribution Function
+</h3><p>Let $Z=X-Y$,
 </p>
 $$
 \begin{align}
-F_Z(z) &= P(Z < z) \\
-&= P(X - Y < z) \\
-&= P(X < Y + z) \\
-&= \int_{-\infty}^y \int_{-\infty}^{y + z} f(x, y) \, dx \, dy \\
+F_Z(z)
+&=P(Z<z)\\
+&=P(X-Y<z)\\
+&=P(X<Y+z)\\
+&=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
 \end{align}
-$$<p><br>
-Thus, $F_Z(z) = \iint_D f(x, y) \, dx \, dy$. Differentiate $F_Z(z)$ to get $f_Z(z)$.<br>
-<strong>Warning</strong>: $F_Z(z)$ must satisfy normalization.</p>
-<hr>
+$$<p>
+The distribution function $F_Z(z)=\iint_Df(x,y)dxdy$. Differentiate to get the probability density function $f_Z(z)$.
+==Warning==: $F_Z(z)$ must satisfy normalization.</p>
 <h2 id="expectation-and-variance">
 <a class="header-anchor" href="#expectation-and-variance"></a>
 Expectation and Variance
-</h2><h3 id="key-relations">
-<a class="header-anchor" href="#key-relations"></a>
-Key Relations
+</h2><h3 id="relations">
+<a class="header-anchor" href="#relations"></a>
+Relations
 </h3>$$
-D(X) = E(X^2) - [E(X)]^2
-$$<p><br>
+DX=EX^2-(EX)^2
+$$<p>
 </p>
 $$
-D(cX) = c^2 D(X)
-$$<p><br>
+D(cX)=c^2DX
+$$<p>
 </p>
 $$
-D(X + Y) = D(X) + D(Y) + 2 \text{Cov}(X, Y)
-$$<p><br>
-If $X$ and $Y$ are independent, $\text{Cov}(X, Y) = 0$.</p>
+D(X+Y)=D(X)+D(Y)+2Cov(X,Y)
+$$<p>
+When X and Y are independent, $Cov(X,Y)=0$.</p>
 <h3 id="common-expectations-and-variances">
 <a class="header-anchor" href="#common-expectations-and-variances"></a>
 Common Expectations and Variances
@@ -383,108 +389,101 @@ Common Expectations and Variances
 <a class="header-anchor" href="#distribution"></a>
 $(0,1)$ Distribution
 </h4>$$
-E(X) = p, \quad D(X) = p(1 - p)
+EX=p,DX=p(1-p)
 $$<h4 id="binomial-distribution">
 <a class="header-anchor" href="#binomial-distribution"></a>
-$B(n, p)$ Binomial Distribution
+$B(n,p)$ Binomial Distribution
 </h4>$$
-E(X) = np, \quad D(X) = np(1 - p)
+EX=np,DX=np(1-p)
 $$<h4 id="uniform-distribution-1">
 <a class="header-anchor" href="#uniform-distribution-1"></a>
-$U(a, b)$ Uniform Distribution
+$U(a,b)$ Uniform Distribution
 </h4>$$
-E(X) = \frac{a + b}{2}, \quad D(X) = \frac{(b - a)^2}{12}
+EX=\frac{a+b}{2},DX=\frac{(b-a)^2}{12}
 $$<h4 id="exponential-distribution-1">
 <a class="header-anchor" href="#exponential-distribution-1"></a>
 $E(\lambda)$ Exponential Distribution
 </h4>$$
-E(X) = \frac{1}{\lambda}, \quad D(X) = \frac{1}{\lambda^2}
+EX=\frac{1}{\lambda},DX=\frac{1}{\lambda^2}
 $$<h4 id="poisson-distribution-1">
 <a class="header-anchor" href="#poisson-distribution-1"></a>
 $P(\lambda)$ Poisson Distribution
 </h4>$$
-E(X) = \lambda, \quad D(X) = \lambda
+EX=\lambda,DX=\lambda
 $$<h4 id="normal-distribution-1">
 <a class="header-anchor" href="#normal-distribution-1"></a>
-$N(\mu, \sigma^2)$ Normal Distribution
+$N(\mu,\sigma^2)$ Normal Distribution
 </h4>$$
-E(X) = \mu, \quad D(X) = \sigma^2
-$$<hr>
-<h2 id="covariance-and-correlation">
-<a class="header-anchor" href="#covariance-and-correlation"></a>
-Covariance and Correlation
+EX=\mu,DX=\sigma^2
+$$<h2 id="covariance-and-correlation-coefficient">
+<a class="header-anchor" href="#covariance-and-correlation-coefficient"></a>
+Covariance and Correlation Coefficient
 </h2><h3 id="covariance">
 <a class="header-anchor" href="#covariance"></a>
 Covariance
 </h3>$$
-\text{Cov}(X, Y) = E(XY) - E(X)E(Y)
-$$<p><br>
-Clearly, if $X = Y$, $\text{Cov}(X, X) = D(X)$.<br>
+Cov(X,Y)=E(XY)-E(X)E(Y)
+$$<p>
+Clearly, when $X=Y$, $Cov(X,X)=DX$.
 </p>
 $$
-\text{Cov}(X + Y, Z) = \text{Cov}(X, Z) + \text{Cov}(Y, Z)
-$$<p><br>
+Cov(X+Y,Z)=Cov(X,Z)+Cov(Y,Z)
+$$<p>
 </p>
 $$
-\text{Cov}(X - Y, Z) = \text{Cov}(X, Z) - \text{Cov}(Y, Z)
+Cov(X-Y,Z)=Cov(X,Z)+Cov(-Y,Z)=Cov(X,Z)-Cov(Y,Z)
 $$<h3 id="correlation-coefficient">
 <a class="header-anchor" href="#correlation-coefficient"></a>
 Correlation Coefficient
 </h3>$$
-\rho_{XY} = \frac{\text{Cov}(X, Y)}{\sqrt{D(X) D(Y)}}
-$$<p><br>
-Higher $|\rho|$ indicates stronger correlation.</p>
-<ul>
-<li>If $Y = X$, $\rho = 1$ (perfect positive correlation).</li>
-<li>If $Y = -X$, $\rho = -1$ (perfect negative correlation).<br>
-Thus, $|\rho| \le 1$.</li>
-<li>$\rho = 0$ implies no correlation.<br>
-<strong>Warning</strong>: No correlation $\nRightarrow$ independence, but independence $\Rightarrow$ no correlation.</li>
-</ul>
-<hr>
+\rho_{XY}=\frac{Cov(X,Y)}{\sqrt{DX \cdot DY}}
+$$<p>
+Higher $|\rho|$ means stronger correlation.
+When $Y=X$, $X$ and $X$ are perfectly correlated, $\rho=1$.
+When $Y=-X$, $-X$ and $X$ are perfectly correlated, $\rho=-1$.
+Clearly $|\rho| \le 1$.
+$\rho=0$ means X and Y are uncorrelated.
+==Warning==: Uncorrelated $\nRightarrow$ Independent, but Independent $\Rightarrow$ Uncorrelated.</p>
 <h2 id="chebyshevs-inequality-for-probability-estimation">
 <a class="header-anchor" href="#chebyshevs-inequality-for-probability-estimation"></a>
 Chebyshev&rsquo;s Inequality for Probability Estimation
 </h2>$$
-P(|X - E(X)| \ge \varepsilon) \le \frac{D(X)}{\varepsilon^2}
-$$<hr>
-<h2 id="central-limit-theorem">
+P(|X-EX|\ge \varepsilon)\le \frac{DX}{\varepsilon^2}
+$$<h2 id="central-limit-theorem">
 <a class="header-anchor" href="#central-limit-theorem"></a>
 Central Limit Theorem
-</h2><p>For a large number of independent, identically distributed variables, their sum approximates a normal distribution.<br>
-If $x_1, x_2, \dots, x_n$ are independent and identically distributed, then<br>
+</h2><p>A large number of independent, identically distributed variables can be approximated by a normal distribution.
+If $x_1,x_2,\cdots,x_n$ are independent and identically distributed, then
 </p>
 $$
-\sum_{i=1}^n x_i \sim N\left(\sum_{i=1}^n E(x_i), \sum_{i=1}^n D(x_i)\right)
-$$<hr>
-<h2 id="three-major-distributions">
+\sum_{i=1}^nx_i \sim N(\sum^{n}_{i=1}E(x_i),\sum^{n}_{i=1}D(x_i))
+$$<h2 id="three-major-distributions">
 <a class="header-anchor" href="#three-major-distributions"></a>
 Three Major Distributions
 </h2><h3 id="chi-squared-distribution">
 <a class="header-anchor" href="#chi-squared-distribution"></a>
 $\chi^2$ (Chi-Squared) Distribution
 </h3>$$
-X = x_1^2 + x_2^2 + \cdots + x_n^2 \sim \chi^2(n), \quad x_i \sim N(0,1) \text{ and independent}
-$$<p><br>
-Upper $\alpha$ quantile: $\chi^2_\alpha(n)$.<br>
-Density function is defined in the first quadrant.</p>
-<h3 id="-distribution">
-<a class="header-anchor" href="#-distribution"></a>
-$t$-Distribution
+X=x_1^2+x_2^2+\cdots +x_n^2 \sim \chi^2(n),x_i \sim N(0,1) \text{ and independent}
+$$<p>
+Upper $\alpha$ quantile $\chi^2_\alpha(n)$
+Density function is in the first quadrant.</p>
+<h3 id="distribution-1">
+<a class="header-anchor" href="#distribution-1"></a>
+$t$ Distribution
 </h3>$$
-X = \frac{x_1}{\sqrt{x_2 / n}} \sim t(n), \quad x_1 \sim N(0,1), x_2 \sim \chi^2(n), \text{ and independent}
-$$<p><br>
-Upper $\alpha$ quantile: $t_\alpha(n)$.<br>
-Density function resembles a normal distribution, symmetric about zero.</p>
-<h3 id="-distribution-1">
-<a class="header-anchor" href="#-distribution-1"></a>
-$F$-Distribution
+X=\frac{x_1}{\sqrt{x_2/n}}\sim t(n),x_1 \sim N(0,1),x_2 \sim \chi^2(n),x_1 \text{ and } x_2 \text{ independent}
+$$<p>
+Upper $\alpha$ quantile $t_\alpha(n)$
+Density function resembles normal distribution, symmetric.</p>
+<h3 id="distribution-2">
+<a class="header-anchor" href="#distribution-2"></a>
+$F$ Distribution
 </h3>$$
-X = \frac{x_1 / n_1}{x_2 / n_2} \sim F(n_1, n_2), \quad x_1 \sim \chi^2(n_1), x_2 \sim \chi^2(n_2), \text{ and independent}
-$$<p><br>
-Upper $\alpha$ quantile: $F_\alpha(n_1, n_2)$.<br>
-Density function is defined in the first quadrant.</p>
-<hr>
+X=\frac{x_1/n_1}{x_2/n_2} \sim F(n_1,n_2),x_1 \sim \chi^2(n_1),x_2 \sim \chi^2(n_2),x_1 \text{ and } x_2 \text{ independent}
+$$<p>
+Upper $\alpha$ quantile $F_\alpha(n_1,n_2)$
+Density function is in the first quadrant.</p>
 <h2 id="estimation-methods">
 <a class="header-anchor" href="#estimation-methods"></a>
 Estimation Methods
@@ -492,41 +491,220 @@ Estimation Methods
 <h3 id="method-of-moments">
 <a class="header-anchor" href="#method-of-moments"></a>
 Method of Moments
-</h3><p>For large samples, approximate the sample mean as the population mean (moment matching).</p>
+</h3><p>When sample size is large, approximate the sample as uniformly distributed, using sample mean to replace population mean (population moment = sample moment).</p>
 <ol>
-<li>Derive $E(X)$ (first population moment) from the given PMF/PDF.</li>
-<li>Compute the sample mean $\bar{X}$ (first sample moment).</li>
-<li>Solve $E(X) = \bar{X}$ for $\theta_0$, yielding the estimate $\hat{\theta}$.</li>
+<li>Calculate the expectation $EX$ (first population moment) from the given probability mass/density function.</li>
+<li>Calculate the sample mean $\bar{X}$ (first sample moment) from the given sample.</li>
+<li>Set $EX=\bar{X}$ and solve for $\theta_0$ as $\hat{\theta}$.</li>
 </ol>
 <h3 id="maximum-likelihood-estimation">
 <a class="header-anchor" href="#maximum-likelihood-estimation"></a>
 Maximum Likelihood Estimation
-</h3><p>Estimate $\theta$ to maximize the probability of observing the sample.<br>
-Likelihood function:<br>
+</h3><p>The estimate maximizes the probability of the observed sample.
+Likelihood function for the sample:
 </p>
 $$
-L(x_1, x_2, \dots, x_n; \theta) =
+L(x_1,x_2,\cdots,x_n;\theta)=
 \begin{cases}
-P(X = x_1) P(X = x_2) \cdots P(X = x_n), & \text{discrete} \\
-f(x_1; \theta) f(x_2; \theta) \cdots f(x_n; \theta), & \text{continuous} \\
+P(X=x_1)P(X=x_2)\cdots P(X=x_n), \text{discrete}\\
+f(x_1;\theta)f(x_2;\theta)\cdots f(x_n;\theta), \text{continuous}\\
 \end{cases}
-$$<p><br>
-Maximize $L$ by solving for its critical points. For computational ease, take the natural logarithm first:<br>
+$$<p>
+To find the maximum of $L$, take the derivative to find critical points. Since the product form is cumbersome, first take the logarithm before differentiating with respect to $\theta$.
 </p>
 $$
-(\ln L)' =
+(\ln L)'=
 \begin{cases}
-(\ln P_1 + \ln P_2 + \cdots + \ln P_n)', & \text{discrete} \\
-[\ln f(x_1; \theta) + \ln f(x_2; \theta) + \cdots + \ln f(x_n; \theta)]', & \text{continuous} \\
+(\ln P_1+\ln P_2+\cdots +\ln P_n)', \text{discrete}\\
+[\ln f(x_1;\theta)+\ln f(x_2;\theta)+\cdots +\ln f(x_n;\theta)]', \text{continuous}\\
 \end{cases}
-= 0
-$$<p><br>
-The solution $\theta_0$ is the estimate $\hat{\theta}$.</p>
-<hr>
+=0
+$$<p>
+Solve for the critical point $\theta_0$, which is the estimate $\hat{\theta}$.</p>
 <h2 id="unbiasedness-and-efficiency">
 <a class="header-anchor" href="#unbiasedness-and-efficiency"></a>
 Unbiasedness and Efficiency
-</h2><p>If $E(\hat{\theta}) = \theta$, $\hat{\theta}$ is an unbiased estimator.<br>
-If $\</p>
+</h2><p>If $E(\hat{\theta})=\theta$, then $\hat{\theta}$ is an unbiased estimator of $\theta$.
+If $\hat{\theta_1},\hat{\theta_2}$ are both unbiased, and $D(\hat{\theta_1})<\hat{\theta_2}$, then $\hat{\theta_1}$ is more efficient than $\hat{\theta_2}$.</p>
+<h2 id="interval-estimation">
+<a class="header-anchor" href="#interval-estimation"></a>
+Interval Estimation
+</h2><p>$X \sim N(\mu,\sigma^2)$, typically given $\bar{X}=\mu,S=\sigma$.
+Confidence level: $1-\alpha$, usually $\alpha=5\%$.</p>
+<h3 id="confidence-interval-for">
+<a class="header-anchor" href="#confidence-interval-for"></a>
+Confidence Interval for $\mu$
+</h3><h4 id="known">
+<a class="header-anchor" href="#known"></a>
+$\sigma^2$ Known
+</h4><p>Pivotal quantity (standardized):
+</p>
+$$
+\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\sim N(0,1)
+$$<p>
+</p>
+$$
+\mu \in (\bar{x}-\frac{\sigma}{\sqrt{n}}\mu_{\frac{\alpha}{2}},\bar{x}+\frac{\sigma}{\sqrt{n}}\mu_{\frac{\alpha}{2}})
+$$<h4 id="unknown">
+<a class="header-anchor" href="#unknown"></a>
+$\sigma^2$ Unknown
+</h4><p>Pivotal quantity:
+</p>
+$$
+\frac{\bar{X}-\mu}{S/\sqrt{n}}\sim t(n-1)
+$$<p>
+</p>
+$$
+\mu \in (\bar{x}-\frac{S}{\sqrt{n}}t_{\frac{\alpha}{2}}(n-1),\bar{x}+\frac{S}{\sqrt{n}}t_{\frac{\alpha}{2}}(n-1))
+$$<h3 id="confidence-interval-for-1">
+<a class="header-anchor" href="#confidence-interval-for-1"></a>
+Confidence Interval for $\sigma^2$
+</h3><p>Usually $\mu$ is unknown.
+Pivotal quantity:
+</p>
+$$
+\frac{(n-1)S^2}{\sigma^2}\sim \chi^2(n-1)
+$$<p>
+</p>
+$$
+\sigma^2 \in (\frac{(n-1)S^2}{\chi^2_{\frac{\alpha}{2}}(n-1)},\frac{(n-1)S^2}{\chi^2_{1-\frac{\alpha}{2}}(n-1)}})
+$$<h2 id="hypothesis-testing">
+<a class="header-anchor" href="#hypothesis-testing"></a>
+Hypothesis Testing
+</h2><p>Generally, the significance level is set at $\alpha=5\%$.</p>
+<h3 id="test-mean-test">
+<a class="header-anchor" href="#test-mean-test"></a>
+$\mu$ Test (Mean Test)
+</h3><ol>
+<li>
+<p><strong>Hypothesis Formulation</strong><br>
+$H_0: \mu = \mu_0$ (null hypothesis)<br>
+$H_1: \mu \ne \mu_0$ (alternative hypothesis)</p>
+</li>
+<li>
+<p><strong>Test Statistic Selection</strong></p>
+<ul>
+<li>When population variance $\sigma^2$ is <strong>known</strong>:<br>
+Use $Z = \frac{\bar{X} - \mu}{\sigma / \sqrt{n}} \sim N(0,1)$ (<strong>Z-test</strong>)</li>
+<li>When population variance $\sigma^2$ is <strong>unknown</strong>:<br>
+Use $T = \frac{\bar{X} - \mu}{S / \sqrt{n}} \sim t(n-1)$ (<strong>T-test</strong>)</li>
+</ul>
+</li>
+<li>
+<p><strong>Rejection Region Determination</strong></p>
+<ul>
+<li>For Z-test:<br>
+$W = (-\infty, -z_{\alpha/2}) \cup (z_{\alpha/2}, \infty)$</li>
+<li>For T-test:<br>
+$W = (-\infty, -t_{\alpha/2}(n-1)) \cup (t_{\alpha/2}(n-1), \infty)$</li>
+</ul>
+</li>
+<li>
+<p><strong>Decision Rule</strong><br>
+Reject $H_0$ if the computed test statistic falls within the rejection region $W$.</p>
+</li>
+</ol>
+<h3 id="test-variance-test">
+<a class="header-anchor" href="#test-variance-test"></a>
+$\sigma^2$ Test (Variance Test)
+</h3><p>Sample standard deviation formula:<br>
+</p>
+$$ S = \sqrt{S^2} = \sqrt{\frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{X})^2} $$<ol>
+<li>
+<p><strong>Hypothesis Formulation</strong><br>
+$H_0: \sigma^2 = \sigma_0^2$<br>
+$H_1: \sigma^2 \ne \sigma_0^2$</p>
+</li>
+<li>
+<p><strong>Test Statistic Selection</strong><br>
+Use $\chi^2 = \frac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1)$ (<strong>Chi-square test</strong>)</p>
+</li>
+<li>
+<p><strong>Rejection Region Determination</strong><br>
+$W = (0, \chi^2_{1-\alpha/2}(n-1)) \cup (\chi^2_{\alpha/2}(n-1), \infty)$</p>
+</li>
+<li>
+<p><strong>Decision Rule</strong><br>
+Reject $H_0$ if the test statistic falls within the rejection region $W$.</p>
+</li>
+</ol>
+<h2 id="supplementary-notes">
+<a class="header-anchor" href="#supplementary-notes"></a>
+Supplementary Notes
+</h2><h3 id="properties-of-distribution-functions">
+<a class="header-anchor" href="#properties-of-distribution-functions"></a>
+Properties of Distribution Functions
+</h3><p>For different types of random variables:</p>
+<ul>
+<li><strong>Continuous random variables</strong>: The distribution function is continuous.</li>
+<li><strong>Discrete random variables</strong>: The continuity of the distribution function depends on its definition.</li>
+</ul>
+<h4 id="left-continuous-definition">
+<a class="header-anchor" href="#left-continuous-definition"></a>
+Left-Continuous Definition
+</h4>$$ F(x) = P(X < x) $$<p><br>
+In this case:</p>
+<ul>
+<li>$F(x) = F(x^-) = F(x-0) = P(X < x)$</li>
+<li>$F(x^+) = F(x+0) = P(X < x) + P(X = x)$</li>
+</ul>
+<p>When $P(X = x) \ne 0$, $F(x^+) > F(x) = F(x^-)$, making the distribution function <strong>left-continuous but not right-continuous</strong>.</p>
+<h4 id="right-continuous-definition">
+<a class="header-anchor" href="#right-continuous-definition"></a>
+Right-Continuous Definition
+</h4>$$ F(x) = P(X \le x) $$<p><br>
+In this case:</p>
+<ul>
+<li>$F(x) = F(x^+) = F(x+0) = P(X \le x)$</li>
+<li>$F(x^-) = F(x-0) = P(X \le x) - P(X = x)$</li>
+</ul>
+<p>When $P(X = x) \ne 0$, $F(x^+) = F(x) > F(x^-)$, making the distribution function <strong>right-continuous but not left-continuous</strong>.</p>
+<h4 id="coin-toss-example">
+<a class="header-anchor" href="#coin-toss-example"></a>
+Coin Toss Example
+</h4><p>Consider a single coin toss:</p>
+<ul>
+<li>Heads (1): Probability 0.5</li>
+<li>Tails (0): Probability 0.5</li>
+</ul>
+<p>Random variable $X$ has the distribution:<br>
+</p>
+$$ 
+\begin{cases} 
+P(X=0) = 0.5 \\ 
+P(X=1) = 0.5 \\ 
+P(X=\text{other values}) = 0 \\ 
+\end{cases} 
+$$<p>Cumulative probabilities:<br>
+</p>
+$$ 
+\begin{cases} 
+P(X < 0) = 0 \\ 
+P(0 \le X < 1) = 0.5 \\ 
+P(X \ge 1) = 1 \\ 
+\end{cases} 
+$$<p>Using the <strong>left-continuous definition</strong> $F(x) = P(X < x)$:<br>
+</p>
+$$ 
+F(x) = 
+\begin{cases} 
+0, & x \le 0 \\ 
+0.5, & 0 < x \le 1 \\ 
+1, & x > 1 \\ 
+\end{cases} 
+$$<p><br>
+Here:</p>
+<ul>
+<li>$F(0^-) = F(0) = 0$</li>
+<li>$F(0^+) = 0.5$</li>
+<li>At $x=0$, there is a discontinuity point where the function is <strong>left-continuous but not right-continuous</strong>.</li>
+</ul>
 
-        <hr><p>本文 2024-09-10 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2024-09-10</p><p>All website licensed under CC BY 4.0</p>]]></description><category>Math</category></item></channel></rss>
+        <hr><p>本文 2024-09-10 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-10</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Math</category>
+      
+    </item>
+    
+  </channel>
+</rss>

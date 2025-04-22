@@ -1,0 +1,1067 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>OtherNotes on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/zh-tw/categories/othernotes/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>zh-tw</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/zh-tw/categories/othernotes/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Typecho評論匯入Waline</title>
+      <link>http://localhost:1313/zh-tw/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
+      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-tw/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
+      <description><![CDATA[<h1>Typecho評論匯入Waline</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p>前兩天把部落格文章從 Typecho 遷移到 Hugo，光是設定 Front Matter 參數和重新配置圖片連結就費了很大功夫。<br>
+一個部落格的價值，首先是文章，緊接著就是評論。評論證明部落格在網際網路和真實世界產生的影響，承載了人與人之間的交互關係。私心一點地說，五湖四海的評論是重要的回憶，是構成「我」的一部分。<br>
+所以，將原站評論 copy 到新站的對應文章下是很有必要的。</p>
+<h2 id="配置-waline">
+<a class="header-anchor" href="#%e9%85%8d%e7%bd%ae-waline"></a>
+配置 Waline
+</h2><p>相比於 Wordpress、Typecho 等動態部落格，靜態部落格只能外掛評論系統，選擇眾多，各有優劣。在參考了<a href="https://cloud.tencent.com/developer/article/2196035">這篇文章</a>和查閱各個評論系統官網後，我最終選擇<a href="https://waline.js.org">Waline</a>。<br>
+Waline 的<a href="https://waline.js.org/guide/get-started/">中文文檔</a>內容翔實，設置<a href="https://leancloud.app">LeanCloud</a>數據庫和<a href="https://vercel.com/">Vercel</a> 服務端後即可進入評論管理後台 <code>https://&lt;你的服務端域名&gt;/ui/</code> 。首次註冊成為管理員，在這裡可以管理評論和用戶。</p>
+<h2 id="導出-typecho-評論">
+<a class="header-anchor" href="#%e5%b0%8e%e5%87%ba-typecho-%e8%a9%95%e8%ab%96"></a>
+導出 Typecho 評論
+</h2><p>Typecho 太老了，用戶少，不如 Hexo、Wordpress 等社區活躍，網際網路上資料也很少。<br>
+筆者僅找到大佬<a href="https://imnerd.org">怡紅院落</a>寫的一個 Typecho 導出評論到 Valine 的插件 <a href="https://github.com/lizheming/typecho-export-valine">Export2Valine</a>（也是 Waline 文檔中的）。<br>
+但上次更新是三年前，經測試已經失效，僅能導入第一條評論。查看導出的 jsonl 文件，顯然評論數據都已經完全導出。</p>
+<p>先將該插件安裝到 Typecho （注意更改插件文件夾名稱為 &ldquo;Export2Valine&rdquo; ！）。</p>
+<p>參考<a href="https://www.imwxz.com/posts/74f52ab0.html">這一篇</a> Typecho 遷移到 Hexo 的文章，該插件年久失修，需要作一些更改。<br>
+找到插件文件夾下的 <code>Action.php</code> ，第 42 行開始改成如下代碼（追蹤父評論）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$arr</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;objectId&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;QQAvatar&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;comment&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;text&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;insertedAt&#34;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;__type&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;iso&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span>
+</span></span><span class="line"><span class="cl">  <span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;createdAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;updatedAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ip&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;ip&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;link&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;url&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;mail&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;mail&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;nick&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;author&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ua&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;agent&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;url&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;/</span><span class="si">{</span><span class="nv">$slug</span><span class="si">}</span><span class="s2">.html&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;pid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;rid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getRootId</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>其他部分不用修改。<br>
+接著在 Typecho 後台-控制台-評論導出，打開下載的 jsonl 文件，刪除開頭的 <code>#filetype:JSON-streaming {&quot;type&quot;:&quot;Class&quot;,&quot;class&quot;:&quot;Comment&quot;}\n\n</code> 。<br>
+保存後關閉文件，將文件拓展名改為 <code>.json</code> 。</p>
+<h2 id="修正-json-格式">
+<a class="header-anchor" href="#%e4%bf%ae%e6%ad%a3-json-%e6%a0%bc%e5%bc%8f"></a>
+修正 json 格式
+</h2><p>導出文件 <code>jsonl</code> 內中文都用轉義，只有一行，看起來一團亂麻。<br>
+為轉化成便於閱讀、編輯與導入的 <code>json</code> 格式，我們先利用編輯器的<strong>查找與替換</strong>功能，將 <code>}\n{</code> 替換為</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span></code></pre></div><p>Xcode 的替換，換行符可以點擊左側小放大鏡標選擇插入。</p>
+<p>此時每行一個評論對象。</p>
+<p>同樣，將各個評論對象內的字段結構分開，將 <code>&quot;,&quot;</code> 替換為</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;</span>
+</span></span></code></pre></div><p>此時，我們可以看出每個評論對象內包含多個數據，形似</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u6d4b\u8bd5\u4e00\u4e0b&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="err">**</span><span class="kc">null</span><span class="err">**</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;4&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u600e\u4e48ip\u4e0d\u5bf9&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="err">**</span><span class="kc">null</span><span class="err">**</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
+</span></span></code></pre></div><h3 id="公共字段說明">
+<a class="header-anchor" href="#%e5%85%ac%e5%85%b1%e5%ad%97%e6%ae%b5%e8%aa%aa%e6%98%8e"></a>
+公共字段說明
+</h3><ol>
+<li><strong>objectId</strong>: 評論的唯一標識符（如 &ldquo;4&rdquo; 和 &ldquo;5&rdquo;）</li>
+<li><strong>QQAvatar</strong>: QQ頭像鏈接（當前為空字符串）</li>
+<li><strong>comment</strong>: 評論內容（包含 Unicode 轉義字符，如 <code>\u600e\u4e48</code> 表示&quot;怎麼&quot;）</li>
+<li><strong>insertedAt/createdAt/updatedAt</strong>: 時間戳（ISO 8601 格式）</li>
+<li><strong>ip</strong>: 評論者的 IP 地址</li>
+<li><strong>link</strong>: 評論者提供的鏈接（可能為 null）</li>
+<li><strong>mail</strong>: 評論者的郵箱地址</li>
+<li><strong>nick</strong>: 評論者暱稱</li>
+<li><strong>ua</strong>: 用戶代理（顯示瀏覽器/設備信息）</li>
+<li><strong>url</strong>: 被評論的頁面路徑</li>
+</ol>
+<h3 id="特殊字段">
+<a class="header-anchor" href="#%e7%89%b9%e6%ae%8a%e5%ad%97%e6%ae%b5"></a>
+特殊字段
+</h3><ol start="11">
+<li><strong>pid</strong>: 父評論 ID</li>
+<li><strong>rid</strong>: 根評論 ID</li>
+</ol>
+<p>如果 <code>&quot;link&quot;</code> 值為 <code>null</code> ，則 <code>&quot;link&quot;</code> 與 <code>&quot;mail&quot;</code> 間沒有換行。json 對換行不敏感，所以可以不管。<br>
+此時在文件首尾用 <code>[ ]</code> 將內容包裹起來，保存文件。</p>
+<h2 id="修改評論屬性">
+<a class="header-anchor" href="#%e4%bf%ae%e6%94%b9%e8%a9%95%e8%ab%96%e5%b1%ac%e6%80%a7"></a>
+修改評論屬性
+</h2><p>此時可以直接導入 LeanCloud 了，但尚有內容可以修改。</p>
+<p><code>Export2Valine</code> 將評論關聯文章的 url 設置為 <code>\/slug</code> ，比如 <code>&quot;url&quot;: &quot;\/Summary-of-the-First-Semester-of-Junior-Year.html&quot;</code> ，其中 <code>\/</code> 是轉義 <code>/</code> 。</p>
+<p>想要把評論與新部落格的文章聯繫起來，需要手動修改 url 為新部落格的文章鏈接。</p>
+<p>以筆者該部落格為例，Hugo 生成的網站根目錄下有 <code>zh-cn,zh-tw,en,ja</code> 四個文件夾（開啟了多語言），中文站的文章在 <code>/zh-cn/post/文章分類/</code> 下。<br>
+筆者在本地部落格源文件就將文章按分類放入不同文件夾，比如 <code>/content/post/Thoughts/最近寫的詩.md</code> 生成網頁相對地址為 <code>zh-cn/post/thoughts/最近寫的詩</code> 。</p>
+<p>如果你的新部落格文章在根目錄且名稱未更改，那自然不用修改 url。<br>
+若都在 <code>/post/</code> 下，可以使用查找與替換將</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/</span>
+</span></span></code></pre></div><p>替換為</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/post\/</span>
+</span></span></code></pre></div><p>筆者是暫時替換為</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/post\/</span>
+</span></span></code></pre></div><p>同樣，友鏈、說說之類的獨立頁面評論也應修改為新部落格對應頁面相對地址。
+比如友鏈頁面</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/links.html</span>
+</span></span></code></pre></div><p>替換為</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/friend\/</span>
+</span></span></code></pre></div><p>將 post 和獨立頁面中可以大規模應用<em>查找替換</em>的 url 先替換，否則導入後難以大批量替換。</p>
+<p>使用查找與替換時，盡量多包裹共同內容，找「最大公約數」，避免錯誤修改。<br>
+<em><strong>注意轉義 <code>\/</code> !!!</strong></em></p>
+<h2 id="導入-leancloud">
+<a class="header-anchor" href="#%e5%b0%8e%e5%85%a5-leancloud"></a>
+導入 LeanCloud
+</h2><p>在 LeanCloud 控制台-數據存儲-導入導出，選擇修改好的 json 文件，<code>Class</code> 填寫 <code>Comment</code> ，導入。</p>
+<p><em><strong>注意</strong></em>，如果你之前在部落格 Waline 發過測試評論，或曾嘗試過導入 <code>Comment</code>，Waline 會先創建 <code>Comment</code> <code>Class</code> ，再導入就無法成功導入數據（LeanCloud 會提示成功，但沒有新數據導入）。</p>
+<p>只能先在控制台-結構化數據，選擇 <code>Comment</code> 並刪除該 <code>Class</code>，再次嘗試導入。LeanCloud 頁面可能不會及時刷新結果，<code>Ctrl+F5</code> 刷新緩存就有了。</p>
+<p>導入成功後，再針對每個評論 url 進行單獨設置。<br>
+比如筆者的 post 需要一個個歸類到 <code>&quot;url&quot;:&quot;\/zh-cn\/post\/文章分類\/</code> 下，此時善用 LeanCloud <strong>批量操作</strong>和<strong>按條件過濾</strong>功能。</p>
+<h2 id="後記">
+<a class="header-anchor" href="#%e5%be%8c%e8%a8%98"></a>
+後記
+</h2><p>評論的整理並沒有耽誤筆者太長時間，120 條評論大部分是筆者自己在說說頁面的自言自語，所以 url 可以批量修正。僅有的十幾條他人評論分佈在寥寥三五個文章中，通過 <code>post</code> 篩選修改起來很快。不知道是好事還是壞事呢（笑）</p>
+<p>自言自語也好，他人的留言也好，每一條於筆者都有著非同尋常的意義，隔一段時間回看就會有新的感受。<br>
+如最開始所言，這是筆者的成長軌跡，是筆者存活於世的證明，是「我」的一部分。</p>
+<p>而你，我親愛的讀者，是你賦予我價值。</p>
+<p>有空的話請多多評論吧～筆者真的會開心很久的說（如果評論善意的話）。</p>
+        <hr><p>本文 2025-04-19 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Hugo部落格常用資料</title>
+      <link>http://localhost:1313/zh-tw/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link>
+      <pubDate>Tue, 15 Apr 2025 16:42:35 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-tw/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid>
+      <description><![CDATA[<h1>Hugo部落格常用資料</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="hugo-常用指令">
+<a class="header-anchor" href="#hugo-%e5%b8%b8%e7%94%a8%e6%8c%87%e4%bb%a4"></a>
+Hugo 常用指令
+</h1><p>| 命令 | 作用 | 說明 |</p>
+<p>|&mdash;&mdash;|&mdash;&mdash;|&mdash;&mdash;|
+| <code>hugo version</code> | 查看版本 | 顯示當前 Hugo 安裝版本 |
+| <code>hugo new site &lt;專案名&gt;</code> | 建立新站點 | 會生成 Hugo 的目錄結構 |
+| <code>hugo new post/&lt;檔案名.md&gt;</code> | 建立新文章 | 會在 <code>content/post/</code> 下生成文章並附帶預設 Front Matter |
+| <code>hugo server</code> | 啟動本地服務 | 啟動本地預覽，預設地址 <code>http://localhost:1313</code> |
+| <code>hugo server -D</code> | 啟動並顯示草稿 | <code>-D</code> 參數顯示 <code>draft: true</code> 的文章 |
+| <code>hugo</code> | 構建網站 | 將 Markdown 內容生成靜態檔案到 <code>public/</code> 目錄 |
+| <code>hugo -D &lt;輸出目錄&gt;</code> | 構建包含草稿 | 用於發佈前的全站構建（含草稿） |
+| <code>hugo --minify</code> | 壓縮構建檔案 | 構建時壓縮 HTML/CSS/JS，減小體積 |
+| <code>hugo config</code> | 查看配置資訊 | 顯示當前站點的配置資訊 |
+| <code>hugo list drafts</code> | 列出草稿 | 查看所有設定了 <code>draft: true</code> 的文章 |
+| <code>hugo list future</code> | 列出未來發佈的文章 | <code>date</code> 設定在當前時間之後的文章 |
+| <code>hugo list expired</code> | 列出過期文章 | <code>expiryDate</code> 已過期的文章 |
+| <code>hugo --gc</code> | 垃圾回收 | 清理過時資源，如縮圖快取 |</p>
+<h1 id="reimu-主題-icon_font">
+<a class="header-anchor" href="#reimu-%e4%b8%bb%e9%a1%8c-icon_font"></a>
+reimu 主題 icon_font
+</h1><table>
+  <thead>
+      <tr>
+          <th>圖標類名</th>
+          <th>十六進制編號</th>
+          <th>中文含義</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>.tag-wrap</code> / <code>.article-tag-list-link</code></td>
+          <td><code>\e622</code></td>
+          <td>標籤</td>
+      </tr>
+      <tr>
+          <td><code>.category-wrap</code> / <code>.article-category-link</code></td>
+          <td><code>\e604</code></td>
+          <td>分類</td>
+      </tr>
+      <tr>
+          <td><code>.article-date-link</code></td>
+          <td><code>\e606</code></td>
+          <td>日期</td>
+      </tr>
+      <tr>
+          <td><code>.article-comment-link</code></td>
+          <td><code>\e608</code></td>
+          <td>評論</td>
+      </tr>
+      <tr>
+          <td><code>.icon-copyright</code></td>
+          <td><code>\e60a</code></td>
+          <td>版權</td>
+      </tr>
+      <tr>
+          <td><code>.icon-brush</code></td>
+          <td><code>\e618</code></td>
+          <td>畫筆 / 美化</td>
+      </tr>
+      <tr>
+          <td><code>.icon-coffee</code></td>
+          <td><code>\e607</code></td>
+          <td>咖啡</td>
+      </tr>
+      <tr>
+          <td><code>.icon-eye</code></td>
+          <td><code>\e60f</code></td>
+          <td>觀看 / 瀏覽</td>
+      </tr>
+      <tr>
+          <td><code>.icon-user</code></td>
+          <td><code>\e628</code></td>
+          <td>使用者</td>
+      </tr>
+      <tr>
+          <td><code>#main-nav-toggle</code></td>
+          <td><code>\e62f</code></td>
+          <td>導航選單切換</td>
+      </tr>
+      <tr>
+          <td><code>#nav-rss-link</code></td>
+          <td><code>\e61f</code></td>
+          <td>RSS訂閱</td>
+      </tr>
+      <tr>
+          <td><code>#nav-search-btn</code> / <code>.reimu-search-input-icon</code></td>
+          <td><code>\e631</code></td>
+          <td>搜尋按鈕</td>
+      </tr>
+      <tr>
+          <td><code>#nav-sun-btn</code></td>
+          <td><code>\e621</code></td>
+          <td>太陽圖標（亮色主題）</td>
+      </tr>
+      <tr>
+          <td><code>#nav-moon-btn</code></td>
+          <td><code>\e617</code></td>
+          <td>月亮圖標（暗色主題）</td>
+      </tr>
+      <tr>
+          <td><code>#nav-circle-half-stroke-btn</code></td>
+          <td><code>\e641</code></td>
+          <td>半圓（主題切換）</td>
+      </tr>
+      <tr>
+          <td><code>.icon-copy</code></td>
+          <td><code>\e60c</code></td>
+          <td>複製</td>
+      </tr>
+      <tr>
+          <td><code>.icon-chevron-down</code></td>
+          <td><code>\e609</code></td>
+          <td>下箭頭</td>
+      </tr>
+      <tr>
+          <td><code>.icon-check</code></td>
+          <td><code>\e636</code></td>
+          <td>勾 / 確認</td>
+      </tr>
+      <tr>
+          <td><code>.icon-times</code></td>
+          <td><code>\e637</code></td>
+          <td>叉 / 關閉</td>
+      </tr>
+      <tr>
+          <td><code>.icon-calendar</code></td>
+          <td><code>\e605</code></td>
+          <td>日曆</td>
+      </tr>
+      <tr>
+          <td><code>.icon-pencil</code></td>
+          <td><code>\e61b</code></td>
+          <td>鉛筆 / 編輯</td>
+      </tr>
+      <tr>
+          <td><code>.icon-clock</code></td>
+          <td><code>\e613</code></td>
+          <td>時鐘</td>
+      </tr>
+      <tr>
+          <td><code>.post-sticky</code></td>
+          <td><code>\e627</code></td>
+          <td>置頂</td>
+      </tr>
+      <tr>
+          <td><code>.reimu-popup .popup-btn-close</code></td>
+          <td><code>\e626</code></td>
+          <td>彈窗關閉</td>
+      </tr>
+      <tr>
+          <td><code>.ais-pagination--item__previous</code></td>
+          <td><code>\e601</code></td>
+          <td>上一頁</td>
+      </tr>
+      <tr>
+          <td><code>.ais-pagination--item__next</code></td>
+          <td><code>\e630</code></td>
+          <td>下一頁</td>
+      </tr>
+      <tr>
+          <td><code>.icon-github</code></td>
+          <td><code>\e619</code></td>
+          <td>GitHub圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-google</code></td>
+          <td><code>\e611</code></td>
+          <td>Google圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-facebook</code></td>
+          <td><code>\e60e</code></td>
+          <td>Facebook圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-twitter</code></td>
+          <td><code>\e62a</code></td>
+          <td>Twitter圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-instagram</code></td>
+          <td><code>\e615</code></td>
+          <td>Instagram圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-linkedin</code></td>
+          <td><code>\e614</code></td>
+          <td>LinkedIn圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-pinterest</code></td>
+          <td><code>\e61a</code></td>
+          <td>Pinterest圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-youtube</code></td>
+          <td><code>\e62d</code></td>
+          <td>YouTube圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-vimeo</code></td>
+          <td><code>\e629</code></td>
+          <td>Vimeo圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-flickr</code></td>
+          <td><code>\e612</code></td>
+          <td>Flickr圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-dribbble</code></td>
+          <td><code>\e610</code></td>
+          <td>Dribbble圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-behance</code></td>
+          <td><code>\e602</code></td>
+          <td>Behance圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-bilibili</code></td>
+          <td><code>\e603</code></td>
+          <td>嗶哩嗶哩圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-weibo</code></td>
+          <td><code>\e62c</code></td>
+          <td>微博圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-zhihu</code></td>
+          <td><code>\e62e</code></td>
+          <td>知乎圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-reddit</code></td>
+          <td><code>\e61c</code></td>
+          <td>Reddit圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-tumblr</code></td>
+          <td><code>\e625</code></td>
+          <td>Tumblr圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-medium</code></td>
+          <td><code>\e616</code></td>
+          <td>Medium圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-deviantart</code></td>
+          <td><code>\e60b</code></td>
+          <td>DeviantArt圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-stackoverflow</code></td>
+          <td><code>\e620</code></td>
+          <td>StackOverflow圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-keybase</code></td>
+          <td><code>\e61e</code></td>
+          <td>Keybase圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-telegram</code></td>
+          <td><code>\e623</code></td>
+          <td>Telegram圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-discord</code></td>
+          <td><code>\e60d</code></td>
+          <td>Discord圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-steam</code></td>
+          <td><code>\e624</code></td>
+          <td>Steam圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-email</code></td>
+          <td><code>\e63c</code></td>
+          <td>郵件</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-toc-btn</code></td>
+          <td><code>\e633</code></td>
+          <td>目錄按鈕</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-common-btn</code></td>
+          <td><code>\e632</code></td>
+          <td>側邊通用按鈕</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-top .arrow-up</code></td>
+          <td><code>\e634</code></td>
+          <td>向上箭頭</td>
+      </tr>
+      <tr>
+          <td><code>.icon-link</code></td>
+          <td><code>\e639</code></td>
+          <td>連結</td>
+      </tr>
+      <tr>
+          <td><code>.icon-globe</code></td>
+          <td><code>\e638</code></td>
+          <td>地球 / 多語言</td>
+      </tr>
+      <tr>
+          <td><code>.icon-creative-commons</code></td>
+          <td><code>\e63a</code></td>
+          <td>創用CC授權</td>
+      </tr>
+      <tr>
+          <td><code>.icon-taichi</code></td>
+          <td><code>\e62b</code></td>
+          <td>太極（暗黑模式）</td>
+      </tr>
+      <tr>
+          <td><code>.icon-weixin</code></td>
+          <td><code>\e640</code></td>
+          <td>微信圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-qq</code></td>
+          <td><code>\e63e</code></td>
+          <td>QQ圖標</td>
+      </tr>
+      <tr>
+          <td><code>.icon-image</code></td>
+          <td><code>\e63f</code></td>
+          <td>圖片圖標</td>
+      </tr>
+  </tbody>
+</table>
+
+        <hr><p>本文 2025-04-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Windows美化歷程</title>
+      <link>http://localhost:1313/zh-tw/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link>
+      <pubDate>Sat, 07 Sep 2024 21:12:17 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-tw/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid>
+      <description><![CDATA[<h1>Windows美化歷程</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="前言">
+<a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
+前言
+</h2><p>俗話說得好，<strong>美化的盡頭是預設</strong>。</p>
+<p>雖然預設的 Windows 已經能高效地勝任各項工作，但它確實 ugly 啊。</p>
+<p>在擁有一台性能過剩 PC 的情況下，適度追求美化和簡化，滿足本私齋的<del>高端審美</del>是極有必要的（）</p>
+<p>下面來說說我在用/用過的美化軟體/方案。</p>
+<h2 id="當前桌面方案">
+<a class="header-anchor" href="#%e7%95%b6%e5%89%8d%e6%a1%8c%e9%9d%a2%e6%96%b9%e6%a1%88"></a>
+當前桌面方案
+</h2><ul>
+<li>TranslucentTB：工作列透明/壓克力效果</li>
+<li>Sapphire：桌面圖示互動優化</li>
+<li>Wallpaper Engine：為減少 GPU 消耗和記憶體佔用，只選了 Blue Archive 中 Noa 的記憶大廳作為桌布，幾秒的 4 K 影片，整個 Wallpaper 記憶體佔用約 100 Mb。</li>
+<li>Rainmeter：只用了一個音頻條作為美化，因為 Noa 已經夠美了😋
+原來用過查看硬體資訊的組件，發現除了增加焦慮外沒什麼用，遂放棄。</li>
+<li>QQ 美化、網易雲音樂美化、游標美化、Obsidian 主題、插件安排上。再加上 Edge 瀏覽器的 iTab 標籤頁和各類實用插件，目前的工作流完全舒適。</li>
+</ul>
+<p>貼幾張圖
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/4189283242.png" alt="桌面展示1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/1078908045.png" alt="桌面展示2.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2569059367.png" alt="QQ美化展示.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2176031375.png" alt="Edge展示.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/994680139.png" alt="Obsidian展示.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/130206377.png" alt="工作管理員展示.png">
+在以上正常工作流下，記憶體佔大頭的是瀏覽器，GPU 消耗主要來自 wallpaper，從登入到完全自啟動耗時 10s 內，均在可接受負載範圍內。</p>
+<p><strong>配置：</strong></p>
+<ul>
+<li>12400 F</li>
+<li>7700 XT</li>
+<li>32G DDR4</li>
+<li>2K 180Hz HDR顯示器</li>
+<li>Windows 11 專業版 23H2</li>
+</ul>
+<h2 id="qq-美化">
+<a class="header-anchor" href="#qq-%e7%be%8e%e5%8c%96"></a>
+QQ 美化
+</h2><p>==特別推薦！==
+QQ 是大部分中國人不得不用又恨之入骨的東西——廣告、彈窗、不想看的娛樂頁面、花里胡哨功能性差的界面。
+Windows 端自從推出 QQ 9，上述情況改善了不少，然而噁心人的東西最近逐漸加回來了，只能說本性難移。
+為了不被迫在這個常用軟體上天天吃屎，偉大的具有開源精神和折騰精神的中文互聯網人紛紛投入 QQ 改造計劃，而今天我要介紹的就是其中一個偉大項目——<strong>LiteLoaderQQNT</strong>。
+好了說正事，liteloader 是 QQNT 的插件平台，安裝後可以下載眾多插件。
+GitHub 項目地址：<a href="https://github.com/LiteLoaderQQNT/LiteLoaderQQNT">LiteLoaderQQNT: QQNT 插件加載器：輕量 · 簡潔 · 開源 · 福瑞</a></p>
+<p>部分推薦插件如下：</p>
+<ol>
+<li><a href="https://github.com/xinyihl/LiteLoaderQQNT-PluginInstaller/tree/main">PluginInstaller</a>：LiteLoaderQQNT 插件安裝器，可檢查更新和一鍵安裝/重啟。先安裝這個再安裝其他插件省事很多。</li>
+<li><a href="https://github.com/ltxhhz/LL-plugin-list-viewer/tree/main">LL-plugin-list-viewer</a>: LiteLoaderQQNT Plugin 插件列表查看·安裝·更新。收錄了大部分插件，可直達 GitHub 項目地址。安裝功能存在問題，部分插件需要手動安裝和更新，否則會報錯無法啟動 QQ，建議作為插件/主題查看器。</li>
+<li><a href="https://github.com/xiyuesaves/LiteLoaderQQNT-lite_tools/tree/v4">輕量工具箱 —— 輕量 · 優雅 · 高效 · 福瑞</a>：聚合了大量功能的工具箱，免於四處尋找插件。部分可選功能如下：
+<ul>
+<li><strong>美化聊天界面</strong>實現類 tg 效果（顯示頭像，加時間戳，消息靠左等）</li>
+<li>移除稱號、VIP 、推薦標籤等亂七八糟的東西。</li>
+<li>右鍵快捷搜索文字/圖片，消息轉圖片發送</li>
+<li>選項高亮，特殊消息高亮</li>
+<li><strong>小程序分享轉 URL 卡片</strong>，記錄離開時位置，快捷+1（復讀機）</li>
+<li><strong>消息預覽</strong>：根據消息中第一個連結生成一張類 tg 的預覽卡片</li>
+<li>本地表情</li>
+<li>消息後綴</li>
+<li><strong>撤回消息緩存並高亮</strong></li>
+<li><strong>設置背景</strong>，調整亮度、透明度，可加磨砂等效果</li>
+<li><strong>精簡側邊欄</strong>，所有功能可開關</li>
+<li>輸入框、消息框功能開關</li>
+<li>……</li>
+</ul>
+</li>
+<li><a href="https://github.com/xh321/LiteLoaderQQNT-QR-Decode/tree/master">二維碼解析</a>：對 QQNT 聊天中的圖片進行二維碼解析</li>
+<li><a href="https://github.com/xh321/LiteLoaderQQNT-Directly-Jump/tree/master">使用自定義瀏覽器打開連結並跳過攔截頁</a></li>
+<li><a href="https://github.com/MUKAPP/LiteLoaderQQNT-DeepL/tree/main">將 DeepL 翻譯接入你的 QQNT</a></li>
+<li><a href="https://github.com/d0j1a1701/LiteLoaderQQNT-Markdown/tree/v4">Markdown</a>：為 QQ 添加 Markdown 渲染支持。發出的消息只有安裝了該插件的 QQNT 能渲染 markdown，所以大部分情況下沒用。</li>
+<li><a href="https://github.com/xh321/LiteLoaderQQNT-Kill-Update/tree/master">Kill-Update</a>：關閉 QQ自動更新彈窗，有些插件不會第一時間支持最新版 QQ，所以禁止更新是有用的。</li>
+<li><a href="https://github.com/mo-jinran/window-on-top/tree/v4">window-on-top</a>：讓窗口有置頂功能</li>
+</ol>
+<p>還有一些主題我沒有介紹，因為去除垃圾之後部分美化的 QQNT 已經很好看了。
+另外 ChatGPT 等 AI 接入插件也有，懶得折騰 API（<del>沒錢</del>）。</p>
+<h2 id="網易雲音樂美化">
+<a class="header-anchor" href="#%e7%b6%b2%e6%98%93%e9%9b%b2%e9%9f%b3%e6%a8%82%e7%be%8e%e5%8c%96"></a>
+網易雲音樂美化
+</h2><p>==特別推薦！==
+眾所周知，國內幾大音樂平台巨頭都在走複雜化、流量化路線，今天加一個社區，明天加一個短視頻，長期 VIP 跳臉。
+作為聽音樂的軟體，有幾項基本功能就夠了。國內外都有很多做得好的音樂播放器，但“播放器”和“音樂平台”之間還是有很多差距的。比如便捷搜索歌曲，查看評論，一起聽等。建立歌單、關注歌手、充值購買等沉沒成本也迫使用戶繼續吃屎。
+我一直用的網易雲音樂有一群偉大的互聯網人做了插件，美化後確實美觀好用。
+首先是插件平台 <strong>betterncm</strong></p>
+<ul>
+<li>官網：<a href="https://microblock.cc/betterncm">MicroBlock | BetterNCM</a></li>
+<li>GitHub 項目地址：<a href="https://github.com/MicroCBer/BetterNCM">GitHub - MicroCBer/BetterNCM: NCM 軟體插件管理器</a></li>
+<li>社區：<a href="https://v2e2npdz15.feishu.cn/docx/UZkSd9d46o4fVOxaPNBcGXSenme">關於 BetterNCM 最全面的介紹以及疑難解答 - 飛書雲文檔</a></li>
+</ul>
+<p>優點是安裝 betterncm 後，所有的主題、插件可以從網易雲內平台下載、更新，不用一個個去查找翻 GitHub。
+<strong>推薦主題：</strong></p>
+<ul>
+<li>Materia You：比較簡潔的主題，純色背景沒有背景圖片。配色方案多樣。
+<img src="https://guzhengsvt.top/usr/uploads/2024/09/1596889912.png" alt="Matreia You.png"></li>
+</ul>
+<p><strong>推薦插件：</strong></p>
+<ol>
+<li>
+<p>RoundCornerNCM：網易雲音樂窗口圓角，僅 Windows 11。</p>
+</li>
+<li>
+<p>MikuPlugin：管理各元素是否顯示，可以關閉惱人的視頻、直播等元素。
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/439024086.png" alt="MikuPlugin.png"></p>
+</li>
+<li>
+<p>類蘋果歌詞：將歌曲頁面改為類 Apple Music 的樣式，還可更改歌詞源。
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/663279809.png" alt="類蘋果歌詞.png"></p>
+</li>
+<li>
+<p>這首歌的封面是什麼？：歌曲列表添加封面，增加儲存佔用，易造成卡頓
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/1807448404.png" alt="這首歌的封面是什麼？.png"></p>
+</li>
+<li>
+<p>RuLyrics：桌面歌詞插件，支持逐詞，主副歌詞，更改字體，分別更改前景色（已唱）、背景色（未唱），支持嵌入工作列（與 TranslucentTB 同時使用似乎有點問題）
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/285235071.png" alt="桌面歌詞.png"></p>
+</li>
+<li>
+<p>更多好用插件自行探索下載</p>
+</li>
+<li>
+<p>部分插件對其他插件有依賴、衝突，注意在 GitHub Issues 查看甄別。</p>
+</li>
+</ol>
+<h2 id="wallpaper-engine">
+<a class="header-anchor" href="#wallpaper-engine"></a>
+Wallpaper Engine
+</h2><p>==必備好物！==
+鼎鼎大名的萬能小紅車，開啟××√享受嶄新人生（bushi）
+作為最常用最好用的桌布軟體，wallpaper 有許多優點：</p>
+<ul>
+<li>資源豐富。steam 創意工坊每時每刻都有大量優質桌布上架，且幾乎全部免費下載使用。</li>
+<li>資源種類多。視頻、圖片、動圖、網頁……桌布種類極多，且不少桌布功能豐富，聚合了音樂歌詞、特效、頻譜等功能，一鍵裝點桌面。</li>
+<li>找資源方便。Wallpaper 搜索和篩選規則完善豐富，可篩選桌布解析度、類型、適用年齡等。</li>
+<li>使用簡便。基於 steam 創意工坊，能訪問 steam 就能下載桌布，無需翻牆，下載速度有保障。大部分桌布，即使功能複雜，在 wallpaper 界面也能輕鬆設置。</li>
+<li>串聯手機。Wallpaper 推出了安卓應用，可通過 PC 向手機傳輸使用桌布。</li>
+</ul>
+<p><strong>Warning</strong>：部分複雜特效網頁、高清視頻桌布較為消耗 GPU 性能，佔顯存較多。可以在 wallpaper 設置裡調整幀率、特效和應用行為等改善。</p>
+<p>唯一的缺點是在 steam 購買 wallpaper 需要 19 RMB，不過這價格真不高吧。</p>
+<p>Steam：<a href="https://store.steampowered.com/app/431960/Wallpaper_Engine/">Steam 上的 Wallpaper Engine：桌布引擎</a></p>
+<h2 id="translucenttb">
+<a class="header-anchor" href="#translucenttb"></a>
+TranslucentTB
+</h2><p>==特別推薦！==
+工作列透明工具，可以全透、壓克力、不透，換主題色等。
+佔用記憶體、儲存極小，幾乎不消耗 CPU 性能。</p>
+<p>GitHub 項目地址：<a href="https://github.com/TranslucentTB/TranslucentTB">GitHub - TranslucentTB</a>
+GitHub 中文翻譯項目地址：<a href="https://github.com/kasuganosoras/TranslucentTB-CN">GitHub - kasuganosoras/TranslucentTB-CN</a></p>
+<h2 id="rainmeter">
+<a class="header-anchor" href="#rainmeter"></a>
+Rainmeter
+</h2><p>==特別推薦！==
+久負盛名的桌面組件工具，可以自製功能多樣的<strong>小部件</strong>放在桌面，也可以方便地導入他人製作的部件（即皮膚）。
+常見的功能有：</p>
+<ul>
+<li>顯示 CPU、GPU、記憶體等硬體資訊（實時更新）</li>
+<li>音頻識別生成各式各樣的律動頻譜條</li>
+<li>媒體播放器</li>
+<li>一鍵追番、查看新番</li>
+<li>放置圖片、輪播圖庫等</li>
+<li>……</li>
+</ul>
+<p>缺點</p>
+<ul>
+<li>組件放多了會卡</li>
+<li>部分組件資源消耗大</li>
+<li>選擇太多了需要折騰</li>
+</ul>
+<p>官網：<a href="https://www.rainmeter.net/">Rainmeter</a>
+中國官網：<a href="https://rainmeter.cn/">個人分享 Rainmeter</a>
+GitHub 項目地址：<a href="https://github.com/rainmeter/rainmeter">GitHub - rainmeter</a>
+中國社區：<a href="https://bbs.rainmeter.cn/">雨滴美化社區</a></p>
+<h2 id="start-11">
+<a class="header-anchor" href="#start-11"></a>
+Start 11
+</h2><p>工作列及開始菜單美化工具</p>
+<ul>
+<li>可以將開始菜單改為 Windows 7-11 的風格，可改變顏色、透明度、間距、對齊方式等。</li>
+<li><strong>高級索引功能</strong>：與 Edge 瀏覽器配對時，打開的選項卡也會顯示在搜索內容中，最常用的內容在結果中的顯示位置會更高。<strong>移除本地搜索結果旁邊顯示的 Web 內容的選項！</strong></li>
+<li>更改開始按鈕圖標，開始菜單背景圖，工作列顏色、紋理。</li>
+</ul>
+<p>缺點</p>
+<ul>
+<li>付費</li>
+<li>我用起來有卡頓、啟動慢等現象。</li>
+<li>和 TranslucentTB 不兼容。</li>
+</ul>
+<p>官網終身版售價 35 RMB，小貴，30 天免費試用。有許多代理，存在學習版（不推薦）。</p>
+<p>官網：<a href="https://stardock-start11.com/">Start11</a>
+中國官網： <a href="https://www.start11.cn/">Start 11</a>
+Steam（褒貶不一）：<a href="https://store.steampowered.com/app/1694750/Start11_v2/">Steam 上的 Start11 v2</a></p>
+<h2 id="楓の美化工具箱">
+<a class="header-anchor" href="#%e6%a5%93%e3%81%ae%e7%be%8e%e5%8c%96%e5%b7%a5%e5%85%b7%e7%ae%b1"></a>
+楓の美化工具箱
+</h2><p>檔案資源管理器、開始菜單、全局窗口美化工具
+目前擁有的功能：</p>
+<ul>
+<li>主頁面：自定義檔案資源管理器窗口字體、局部顏色模式 Light、Dark (實驗性局部Dark模式存在小的視覺bug)</li>
+<li>背景設置：自定義檔案資源管理器、開始菜單、系統設置的<strong>背景圖片</strong></li>
+<li>顏色設置：自定義檔案資源管理器配色(標題、組、頁眉、詳細資訊、硬碟進度條)、圓角化硬碟進度條</li>
+<li>圖標設置：自定義桌面、檔案資源管理器圖標組圖標</li>
+<li>窗口設置：自定義檔案資源管理器窗口<strong>背景效果</strong>半透明、Blur、Acrylic、Mica效果 win11圓角類型、開始菜單、系統設置Acrylic背景效果</li>
+<li>控件樣式：自定義全局窗口<strong>標題欄按鈕樣式</strong>、macOS樣式按鈕、檔案資源管理器Tab標籤頁、<strong>工具欄</strong>、地址欄配色、自繪圓角滾動條</li>
+<li>預設列表：保存、導入、分享你的配置文件</li>
+<li>插件列表：安裝插件增強和擴展工具箱的功能</li>
+</ul>
+<p>Evaluations：</p>
+<ul>
+<li>還算是簡單易用，記憶體和 GPU 佔用尚可接受。</li>
+<li>可裝插件和導入配置文件，有一定可玩性。</li>
+<li>不兼容 TranslucentTB</li>
+<li>我用起來檔案資源管理器常崩潰、不顯示背景圖片、工具欄配色未更改，可能已經優化穩定了。</li>
+<li>背景圖片清晰度不高，在 dark 模式下背景圖片容易干擾正常閱讀檔案資訊</li>
+<li>軟體免費，不完全開源，需要註冊登入賬號。</li>
+</ul>
+<p>發布地址：<a href="https://winmoes.com/tools/12948.html">win美化工具箱 ★ 楓の主題社</a></p>
+<h2 id="sapphire">
+<a class="header-anchor" href="#sapphire"></a>
+Sapphire
+</h2><p>==特別推薦！==
+桌面圖示、佈局美化，<strong>更改互動體驗</strong>。</p>
+<ul>
+<li>可調整桌面圖示佈局，更改橫縱網格數</li>
+<li>放置格子（類手機上的資料夾），將桌面各類檔案直接放進資料夾，分類同一管理</li>
+<li>調整圖示、格子大小（網格數整數倍），圓角，背景，透明度</li>
+<li>更改檔案名的字體</li>
+<li>精簡模式去除檔案名，可每個圖示單獨設置</li>
+<li>可設置互動動效</li>
+<li><strong>Dock 欄</strong>，類 Mac/手機下方的 dock，可豎置，改變長寬、背景色</li>
+<li>開啟資料夾高級互動後可以資料夾滑鼠懸停預覽內容，單擊原地展開，不必開檔案資源管理器窗口。</li>
+<li><strong>針對 steam 內應用的快捷方式優化</strong></li>
+<li><strong>雙擊隱藏圖示</strong>，每個可單獨設置是否隱藏。</li>
+<li>後台記憶體佔用 100 mb 左右，尚可接受。幾乎不消耗 GPU</li>
+<li>可自定義圖片、動圖作為桌布。初步兼容 WallpaperEngine（需在設置中設置當其他程序成為焦點時為始終運行）。</li>
+<li>多屏支持</li>
+</ul>
+<p>缺點：</p>
+<ul>
+<li>我的電腦開啟高級檔案互動後，只要資料夾內檔案數稍多，sapphire 會直接卡死。觀望作者更新。</li>
+<li>暫時還沒有保存桌面佈局的功能，好在即使卡退也會記錄最新佈局。</li>
+<li>只保證兼容 Windows 11</li>
+<li>更改桌面右鍵互動但目前還不能自定義</li>
+</ul>
+<p>GitHub 項目地址：<a href="https://github.com/hymnly133/Sapphire-EnhancedDesktop">Sapphire-EnhancedDesktop: Windows桌面取代軟體</a></p>
+<h2 id="游標美化">
+<a class="header-anchor" href="#%e6%b8%b8%e6%a8%99%e7%be%8e%e5%8c%96"></a>
+游標美化
+</h2><p>網上有很多分享游標美化檔案的，根據個人喜好挑選。安裝也不難。
+分享兩款，不影響視野同時具有個性化設計的：</p>
+<ol>
+<li>原神納西妲游標：<a href="https://www.bilibili.com/video/BV14P411c7ap/">納西妲同款滑鼠游標4.0版來咯_原神</a></li>
+<li>蔚藍檔案千年游標，簡約可愛，在用。
+GitHub項目地址：<a href="https://github.com/makipom/BlueArchive-Cursors">BlueArchive-Cursors</a></li>
+</ol>
+        <hr><p>本文 2024-09-07 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-07</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>自動撥號上網與工作排程器</title>
+      <link>http://localhost:1313/zh-tw/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Wed, 12 Jun 2024 19:34:52 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-tw/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</guid>
+      <description><![CDATA[<h1>自動撥號上網與工作排程器</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="破事水">
+<a class="header-anchor" href="#%e7%a0%b4%e4%ba%8b%e6%b0%b4"></a>
+破事水
+</h2><p>桌上型電腦透過網路線連接校園網需要撥號上網，<strong>幽默</strong>騰訊幾百年沒更新的TIM登入時沒網路會報錯彈窗。
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2343467847.png" alt="TIM報錯">
+於是每次開機我都得手動打開設定裡的撥號上網，設定的TIM開機自動啟動會先一步報錯，顯得開機自動啟動這個功能很<strong>幽默</strong>。
+於是寫個bat自動連網，工作管理員裡設定開機自動啟動。但它啟動和TIM是同一個優先級，往往來不及連上網路TIM就自動登入然後報錯彈窗了。
+在排程程式庫裡把自動連網程式設為開機啟動，TIM登入後延遲15秒啟動。
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2593746197.png" alt="延遲TIM啟動"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2438765248.png" alt="斷網重連">
+（為方便記憶我把bat放startup資料夾裡，開機連網排程程式設為最高優先級隱藏，<strong>幽默</strong>火絨檢測不到的排程程式不讓執行，以至於除錯好幾次都是登入後才開始連網，我一度以為哪裡設定有問題。）
+![幽默火絨<a href="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2362191046.png">4</a>
+但這樣又顯得花68大洋買指紋辨識器的我很<strong>幽默</strong>。
+不知道萬能的好友列表裡有沒有懂電腦的大神有更好的解決方案。</p>
+<p>有一個無線網卡，但效能不好。連接校園網時常要網頁驗證，我設了梯子開機自動啟動，掛著梯子就打不開學校網路驗證的網頁，得先關梯子-&gt;網頁驗證-&gt;開梯子-&gt;關TIM報錯彈窗-&gt;重啟TIM。讓人十分乃至九分的火大。</p>
+<h2 id="撥號上網程式">
+<a class="header-anchor" href="#%e6%92%a5%e8%99%9f%e4%b8%8a%e7%b6%b2%e7%a8%8b%e5%bc%8f"></a>
+撥號上網程式
+</h2><p>先新建文字文件（txt），寫入下面內容後<strong>儲存</strong>，更改檔名為想要的名稱（如reconnect internet，最好為英文），副檔名改為bat。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bat" data-lang="bat"><span class="line"><span class="cl">rasdial 你的寬頻網路名稱（如寬頻連線，最好用英文） 帳號（如學號） 密碼
+</span></span></code></pre></div><h2 id="開機自動撥號與斷網重連">
+<a class="header-anchor" href="#%e9%96%8b%e6%a9%9f%e8%87%aa%e5%8b%95%e6%92%a5%e8%99%9f%e8%88%87%e6%96%b7%e7%b6%b2%e9%87%8d%e9%80%a3"></a>
+開機自動撥號與斷網重連
+</h2><p>Windows圖標（開始）右鍵-&gt;電腦管理-&gt;工作排程器-&gt;工作排程器程式庫
+右邊建立工作-&gt;設定工作名稱（如斷網重連）-&gt;不管使用者是否登入都要執行-&gt;使用最高管理權限執行（可選）-&gt;<strong>不要隱藏！！！</strong>-&gt;設定根據自身電腦選（比如Windows11選擇最接近的Win10）
+觸發程序-&gt;新增-&gt;開始工作選擇「啟動時」-&gt;確定（開機連網）
+新增-&gt;開始工作選擇「發生事件時」-&gt;日誌翻到最下面倒數第二個「應用程式」-&gt;來源「RasClient」-&gt;確定（斷網重連）
+轉到操作-&gt;新增-&gt;啟動程式-&gt;瀏覽找到你剛寫的bat程式選中-&gt;確認</p>
+<p>確認（此時會要求輸入Windows系統登入的微軟帳號密碼，不是PIN，總是出錯建議檢查一般頁面裡的用戶帳戶是否匹配。）</p>
+
+        <hr><p>本文 2024-06-12 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-06-12</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Obsidian基礎</title>
+      <link>http://localhost:1313/zh-tw/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Tue, 27 Jun 2023 00:41:26 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-tw/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</guid>
+      <description><![CDATA[<h1>Obsidian基礎</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p><a href="https://publish.obsidian.md/help-zh/%E7%94%B1%E6%AD%A4%E5%BC%80%E5%A7%8B">Obsidian 中文幫助</a></p>
+<h1 id="介面">
+<a class="header-anchor" href="#%e4%bb%8b%e9%9d%a2"></a>
+介面
+</h1><p><a href="https://zhuanlan.zhihu.com/p/428519519">想一小時上手obsidian？這一篇就夠了。【玩轉Obsidian的保姆級教程】 - 知乎 (zhihu.com)</a>
+建立庫資料夾——庫資料夾下建立筆記分類資料夾——細分筆記
+obsidian help
+筆記最上一欄——豎三點更多——拆分筆記查看
+<a href="https://zhuanlan.zhihu.com/p/409409946">Wyatt：打造自己的工作台【玩轉Obsidian的保姆級教程】216 贊同 · 7 評論文章<img src="https://pic1.zhimg.com/v2-2323eabf712e3ebaae40c322ec18dde0_180x120.jpg" alt=""></a>
+左上角查看大綱</p>
+<h1 id="插件待開坑">
+<a class="header-anchor" href="#%e6%8f%92%e4%bb%b6%e5%be%85%e9%96%8b%e5%9d%91"></a>
+插件（待開坑）
+</h1><p><a href="https://zhuanlan.zhihu.com/p/403001135">Wyatt：如何安裝插件？【玩轉Obsidian的保姆級教程】264 贊同 · 63 評論文章<img src="https://pic2.zhimg.com/v2-51f1cdbc1b5891f62958cdb379dc5561_180x120.jpg" alt=""></a></p>
+<h1 id="字體">
+<a class="header-anchor" href="#%e5%ad%97%e9%ab%94"></a>
+字體
+</h1><p>用#+一個空格對標題分級，#越多，級別越低</p>
+<h3 id="強調">
+<a class="header-anchor" href="#%e5%bc%b7%e8%aa%bf"></a>
+強調
+</h3><p><em>這是斜體</em>
+<em>斜體另一種寫法，英文短底線</em></p>
+<h3 id="粗體">
+<a class="header-anchor" href="#%e7%b2%97%e9%ab%94"></a>
+粗體
+</h3><p><strong>粗體示例，兩個星號</strong>
+<strong>或者是兩個底線</strong></p>
+<h3 id="組合使用">
+<a class="header-anchor" href="#%e7%b5%84%e5%90%88%e4%bd%bf%e7%94%a8"></a>
+組合使用
+</h3><p><em>這是<strong>斜體+粗體</strong></em></p>
+<h3 id="刪除線">
+<a class="header-anchor" href="#%e5%88%aa%e9%99%a4%e7%b7%9a"></a>
+刪除線
+</h3><p>~~既然要追求刺激，那就貫徹到底嘍~~~</p>
+<h3 id="高亮">
+<a class="header-anchor" href="#%e9%ab%98%e4%ba%ae"></a>
+高亮
+</h3><p>==疏影橫斜水清淺，暗香浮動月黃昏==</p>
+<h3 id="腳註">
+<a class="header-anchor" href="#%e8%85%b3%e8%a8%bb"></a>
+腳註
+</h3><p>文本<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>文本</p>
+<h3 id="註釋">
+<a class="header-anchor" href="#%e8%a8%bb%e9%87%8b"></a>
+註釋
+</h3><ul>
+<li>行內註釋
+%%這裡是行內註釋%%</li>
+<li>跨行註釋
+%%
+你是四月早天裡的雲煙
+黃昏吹著風的軟
+星子在無意中閃
+細雨點灑在花前
+%%</li>
+</ul>
+<h1 id="列表">
+<a class="header-anchor" href="#%e5%88%97%e8%a1%a8"></a>
+列表
+</h1><ul>
+<li>無序列表
+<ul>
+<li>短橫線+一個空格</li>
+<li>tab+短橫線+一個空格使這一行作為上一行子列表元素</li>
+</ul>
+</li>
+<li>有序列表
+<ol>
+<li>數字+小數點+一個空格</li>
+<li>同樣tab+數字+小數點+一個空格縮排一行</li>
+<li></li>
+</ol>
+</li>
+</ul>
+<h1 id="圖片">
+<a class="header-anchor" href="#%e5%9c%96%e7%89%87"></a>
+圖片
+</h1><ul>
+<li>$$![Engelbart](圖片網址)$$</li>
+<li>![[Pasted image 20230625203344.png]]</li>
+<li>調整寬度
+<ul>
+<li>$$![Engelbart|100](圖片連結)$$</li>
+<li>![[Pasted image 20230625203536.png]]</li>
+</ul>
+</li>
+</ul>
+<h1 id="外部連結">
+<a class="header-anchor" href="#%e5%a4%96%e9%83%a8%e9%80%a3%e7%b5%90"></a>
+外部連結
+</h1><h3 id="指向庫中筆記圖片">
+<a class="header-anchor" href="#%e6%8c%87%e5%90%91%e5%ba%ab%e4%b8%ad%e7%ad%86%e8%a8%98%e5%9c%96%e7%89%87"></a>
+指向庫中筆記/圖片
+</h3><ul>
+<li>$http://obsidian.md - automatic!$
+<ul>
+<li><em>指向網路連結，以網址顯示，$僅為排版美觀</em></li>
+</ul>
+</li>
+<li>$[obsidian](http://obsidian.md)$
+<ul>
+<li><em>指向網路連接，以中括號內內容顯示</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="obsidian-url">
+<a class="header-anchor" href="#obsidian-url"></a>
+Obsidian URL
+</h3><p>Obsidian URI 通常採用以下形式：
+</p>
+$$obsidian://action?param1=value&param2=value$$<p>
+action表示執行操作，value為參數
+比如打開筆記：
+</p>
+$$[標註的筆記名，想給的代號](obsidian://open?path=筆記絕對路徑)$$<p>
+<strong>注意中英文括號、冒號</strong>
+舉例：
+<a href="#ZgotmplZ">打開高數</a>
+其中，path接檔案絕對路徑</p>
+<ul>
+<li><em>打開某庫，不打開具體檔案只打開資料夾不顯示效果</em>
+$$[name](obsidian://open?vault=庫資料夾名稱/庫ID)$$
+<a href="#ZgotmplZ">打開筆記資料夾</a></li>
+<li><em>打開Math資料夾下的高數，<strong>.md</strong>副檔名可不寫</em>
+<a href="#ZgotmplZ">高數</a></li>
+</ul>
+<h3 id="others">
+<a class="header-anchor" href="#others"></a>
+Others
+</h3><ul>
+<li>
+<p>URL中有空格時需要轉義為$\%20$</p>
+<ul>
+<li>上面%20的百分號%需要轉義，%</li>
+</ul>
+</li>
+<li>
+<p>或者用&lt;&gt;將有空格內容包圍</p>
+</li>
+<li>
+<p>引用
+</p>
+$$> 引用內容$$<p>
+</p>
+$$\ 引用來源$$<p>
+eg</p>
+</li>
+</ul>
+<blockquote>
+<p>時間是一場有去無回的旅行，好的壞的都是風景。
+\ ——《歲月神偷》金玟岐</p></blockquote>
+<ul>
+<li>
+<p>行內程式碼
+<code>include&lt;stdc++.h&gt;</code></p>
+</li>
+<li>
+<p>程式碼塊
+<em>Obsidian 會將六個反引號括起來的內容識別為程式碼塊，並將其按程式碼格式顯示。程式碼塊支援語法高亮功能，你可以在程式碼塊的第一行（即開頭處的反引號後）宣告語言來使用特定的語法高亮。</em></p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include&lt;stdc++.h&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="n">b</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">b</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="o">+=</span><span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cont</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><a href="https://en.wikipedia.org/wiki/Percent-encoding">更多編碼規範</a></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>這裡是對應註釋
+腳註可以多行，用縮排&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        <hr><p>本文 2023-06-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-06-27</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+  </channel>
+</rss>
