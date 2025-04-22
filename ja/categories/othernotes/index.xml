@@ -1,0 +1,1074 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>OtherNotes on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/ja/categories/othernotes/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/ja/categories/othernotes/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>TypechoコメントをWalineにインポート</title>
+      <link>http://localhost:1313/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
+      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
+      <description><![CDATA[<h1>TypechoコメントをWalineにインポート</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p>数日前、ブログの記事をTypechoからHugoに移行しましたが、Front Matterのパラメータ設定や画像リンクの再設定だけでかなりの手間がかかりました。<br>
+ブログの価値は、まず記事そのものにあり、次にコメントです。コメントはブログがインターネットと現実世界に与えた影響を証明し、人と人との交流を記録しています。私的な言い方をすれば、世界中からのコメントは大切な思い出であり、「私」を構成する一部です。<br>
+したがって、元のサイトのコメントを新しいサイトの対応する記事の下にコピーすることは非常に重要です。</p>
+<h2 id="walineの設定">
+<a class="header-anchor" href="#waline%e3%81%ae%e8%a8%ad%e5%ae%9a"></a>
+Walineの設定
+</h2><p>WordpressやTypechoなどの動的ブログと比べて、静的ブログは外部のコメントシステムに依存するしかありません。選択肢は多く、それぞれに長所と短所があります。<a href="https://cloud.tencent.com/developer/article/2196035">この記事</a>を参考にし、各コメントシステムの公式サイトを調べた後、最終的に<a href="https://waline.js.org">Waline</a>を選びました。<br>
+Walineの<a href="https://waline.js.org/guide/get-started/">中国語ドキュメント</a>は内容が充実しており、<a href="https://leancloud.app">LeanCloud</a>データベースと<a href="https://vercel.com/">Vercel</a>サーバーを設定すれば、コメント管理画面<code>https://&lt;あなたのサーバードメイン&gt;/ui/</code>にアクセスできます。初回登録で管理者になり、ここでコメントやユーザーを管理できます。</p>
+<h2 id="typechoコメントのエクスポート">
+<a class="header-anchor" href="#typecho%e3%82%b3%e3%83%a1%e3%83%b3%e3%83%88%e3%81%ae%e3%82%a8%e3%82%af%e3%82%b9%e3%83%9d%e3%83%bc%e3%83%88"></a>
+Typechoコメントのエクスポート
+</h2><p>Typechoは古く、ユーザーが少なく、HexoやWordpressのような活発なコミュニティがありません。インターネット上の資料も少ないです。<br>
+筆者が見つけたのは、<a href="https://imnerd.org">怡红院落</a>氏が書いたTypechoコメントをValineにエクスポートするプラグイン<a href="https://github.com/lizheming/typecho-export-valine">Export2Valine</a>（Walineのドキュメントにも記載されています）だけでした。<br>
+しかし、最後の更新は3年前で、テストしたところ最初のコメントしかインポートできませんでした。エクスポートされたjsonlファイルを見ると、コメントデータは完全にエクスポートされていることが明らかです。</p>
+<p>まず、このプラグインをTypechoにインストールします（プラグインフォルダ名を&quot;Export2Valine&quot;に変更する必要があります！）。</p>
+<p><a href="https://www.imwxz.com/posts/74f52ab0.html">この記事</a>を参考に、このプラグインは長年メンテナンスされていないため、いくつかの変更が必要です。<br>
+プラグインフォルダ内の<code>Action.php</code>を開き、42行目から以下のコードに変更します（親コメントを追跡するため）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$arr</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;objectId&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;QQAvatar&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;comment&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;text&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;insertedAt&#34;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;__type&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;iso&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span>
+</span></span><span class="line"><span class="cl">  <span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;createdAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;updatedAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ip&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;ip&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;link&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;url&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;mail&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;mail&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;nick&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;author&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ua&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;agent&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;url&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;/</span><span class="si">{</span><span class="nv">$slug</span><span class="si">}</span><span class="s2">.html&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;pid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;rid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getRootId</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>他の部分は変更不要です。<br>
+次に、Typechoの管理画面-コントロールパネル-コメントエクスポートで、ダウンロードしたjsonlファイルを開き、先頭の<code>#filetype:JSON-streaming {&quot;type&quot;:&quot;Class&quot;,&quot;class&quot;:&quot;Comment&quot;}\n\n</code>を削除します。<br>
+保存してファイルを閉じ、ファイル拡張子を<code>.json</code>に変更します。</p>
+<h2 id="json形式の修正">
+<a class="header-anchor" href="#json%e5%bd%a2%e5%bc%8f%e3%81%ae%e4%bf%ae%e6%ad%a3"></a>
+json形式の修正
+</h2><p>エクスポートされた<code>jsonl</code>ファイル内の中国語はエスケープされ、1行で表示されるため、見づらい状態です。<br>
+編集可能でインポートしやすい<code>json</code>形式に変換するため、まずエディタの<strong>検索と置換</strong>機能を使用し、<code>}\n{</code>を以下のように置換します：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span></code></pre></div><p>Xcodeの置換では、改行文字は左側の虫眼鏡アイコンをクリックして挿入できます。</p>
+<p>これで、1行に1つのコメントオブジェクトが表示されます。</p>
+<p>同様に、各コメントオブジェクト内のフィールド構造を分離するため、<code>&quot;,&quot;</code>を以下のように置換します：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;</span>
+</span></span></code></pre></div><p>これで、各コメントオブジェクト内に複数のデータが含まれていることがわかります。例えば：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u6d4b\u8bd5\u4e00\u4e0b&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="err">**</span><span class="kc">null</span><span class="err">**</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;4&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u600e\u4e48ip\u4e0d\u5bf9&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="err">**</span><span class="kc">null</span><span class="err">**</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
+</span></span></code></pre></div><h3 id="共通フィールドの説明">
+<a class="header-anchor" href="#%e5%85%b1%e9%80%9a%e3%83%95%e3%82%a3%e3%83%bc%e3%83%ab%e3%83%89%e3%81%ae%e8%aa%ac%e6%98%8e"></a>
+共通フィールドの説明
+</h3><ol>
+<li><strong>objectId</strong>: コメントの一意の識別子（例: &ldquo;4&quot;や&quot;5&rdquo;）</li>
+<li><strong>QQAvatar</strong>: QQアバターのリンク（現在は空文字列）</li>
+<li><strong>comment</strong>: コメント内容（Unicodeエスケープ文字を含む、例: <code>\u600e\u4e48</code>は「どうやって」を意味）</li>
+<li><strong>insertedAt/createdAt/updatedAt</strong>: タイムスタンプ（ISO 8601形式）</li>
+<li><strong>ip</strong>: コメント者のIPアドレス</li>
+<li><strong>link</strong>: コメント者が提供したリンク（nullの場合あり）</li>
+<li><strong>mail</strong>: コメント者のメールアドレス</li>
+<li><strong>nick</strong>: コメント者のニックネーム</li>
+<li><strong>ua</strong>: ユーザーエージェント（ブラウザ/デバイス情報を表示）</li>
+<li><strong>url</strong>: コメントされたページのパス</li>
+</ol>
+<h3 id="特殊フィールド">
+<a class="header-anchor" href="#%e7%89%b9%e6%ae%8a%e3%83%95%e3%82%a3%e3%83%bc%e3%83%ab%e3%83%89"></a>
+特殊フィールド
+</h3><ol start="11">
+<li><strong>pid</strong>: 親コメントID</li>
+<li><strong>rid</strong>: ルートコメントID</li>
+</ol>
+<p><code>&quot;link&quot;</code>の値が<code>null</code>の場合、<code>&quot;link&quot;</code>と<code>&quot;mail&quot;</code>の間に改行がありません。jsonは改行に敏感ではないため、無視できます。<br>
+この時点で、ファイルの先頭と末尾を<code>[ ]</code>で囲み、ファイルを保存します。</p>
+<h2 id="コメント属性の修正">
+<a class="header-anchor" href="#%e3%82%b3%e3%83%a1%e3%83%b3%e3%83%88%e5%b1%9e%e6%80%a7%e3%81%ae%e4%bf%ae%e6%ad%a3"></a>
+コメント属性の修正
+</h2><p>この時点でLeanCloudに直接インポートできますが、まだ修正可能な内容があります。</p>
+<p><code>Export2Valine</code>はコメントに関連する記事のurlを<code>\/slug</code>に設定しています。例えば<code>&quot;url&quot;: &quot;\/Summary-of-the-First-Semester-of-Junior-Year.html&quot;</code>で、<code>\/</code>は<code>/</code>のエスケープです。</p>
+<p>新しいブログの記事とコメントを関連付けるため、urlを新しいブログの記事リンクに手動で変更する必要があります。</p>
+<p>筆者のブログを例にすると、Hugoが生成するウェブサイトのルートディレクトリには<code>zh-cn,zh-tw,en,ja</code>の4つのフォルダ（多言語対応を有効にしている）があり、中国語サイトの記事は<code>/zh-cn/post/記事カテゴリ/</code>にあります。<br>
+筆者はローカルのブログソースファイルで記事をカテゴリごとに異なるフォルダに分類しています。例えば<code>/content/post/Thoughts/最近書いた詩.md</code>はウェブページの相対アドレス<code>zh-cn/post/thoughts/最近書いた詩</code>として生成されます。</p>
+<p>新しいブログの記事がルートディレクトリにあり、名前が変更されていない場合は、urlを変更する必要はありません。<br>
+すべての記事が<code>/post/</code>にある場合は、検索と置換を使用して</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/</span>
+</span></span></code></pre></div><p>を</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/post\/</span>
+</span></span></code></pre></div><p>に置換できます。</p>
+<p>筆者は一時的に</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/post\/</span>
+</span></span></code></pre></div><p>に置換しました。</p>
+<p>同様に、友達リンクやつぶやきなどの独立ページのコメントも、新しいブログの対応するページの相対アドレスに変更する必要があります。
+例えば友達リンクページ</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/links.html</span>
+</span></span></code></pre></div><p>を</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/friend\/</span>
+</span></span></code></pre></div><p>に置換します。</p>
+<p>postや独立ページで大規模に適用できる<em>検索と置換</em>を先に適用しないと、インポート後に一括置換が困難になります。</p>
+<p>検索と置換を使用する際は、できるだけ多くの共通部分を含め、「最大公約数」を見つけて誤った変更を避けてください。<br>
+<em><strong>エスケープ<code>\/</code>に注意!!!</strong></em></p>
+<h2 id="leancloudへのインポート">
+<a class="header-anchor" href="#leancloud%e3%81%b8%e3%81%ae%e3%82%a4%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88"></a>
+LeanCloudへのインポート
+</h2><p>LeanCloudのコントロールパネル-データストレージ-インポート/エクスポートで、修正したjsonファイルを選択し、<code>Class</code>に<code>Comment</code>と入力してインポートします。</p>
+<p><em><strong>注意</strong></em>、もし以前にブログのWalineでテストコメントを投稿したことがある場合、または<code>Comment</code>のインポートを試みたことがある場合、Walineは最初に<code>Comment</code> <code>Class</code>を作成するため、再度インポートしてもデータが正常にインポートされません（LeanCloudは成功を報告しますが、新しいデータはインポートされません）。</p>
+<p>コントロールパネル-構造化データで<code>Comment</code>を選択し、この<code>Class</code>を削除してから再度インポートを試みる必要があります。LeanCloudのページはすぐに更新されない場合があるため、<code>Ctrl+F5</code>でキャッシュをリフレッシュすると表示されます。</p>
+<p>インポートが成功したら、各コメントのurlを個別に設定します。<br>
+例えば筆者のpostは<code>&quot;url&quot;:&quot;\/zh-cn\/post\/記事カテゴリ\/</code>に分類する必要があり、この時点でLeanCloudの<strong>一括操作</strong>と<strong>条件付きフィルタリング</strong>機能を活用します。</p>
+<h2 id="後書き">
+<a class="header-anchor" href="#%e5%be%8c%e6%9b%b8%e3%81%8d"></a>
+後書き
+</h2><p>コメントの整理にはそれほど時間がかかりませんでした。120件のコメントのほとんどは筆者がつぶやきページで自分自身に語りかけたもので、urlを一括修正できました。他人からのコメントはわずか十数件で、数記事に分散していたため、<code>post</code>でフィルタリングして修正するのは簡単でした。これは良いことなのか悪いことなのか（笑）</p>
+<p>独り言であれ、他人からのメッセージであれ、一つ一つが筆者にとって特別な意味を持ち、時間を置いて振り返ると新たな気付きがあります。<br>
+最初に述べたように、これは筆者の成長の軌跡であり、この世に存在する証であり、「私」の一部です。</p>
+<p>そして、親愛なる読者であるあなたは、私に価値を与えてくれる存在です。</p>
+<p>時間があれば、ぜひコメントをください～筆者は本当に長く喜びます（善意のコメントであれば）。</p>
+        <hr><p>本文 2025-04-19 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Hugoブログよく使う資料</title>
+      <link>http://localhost:1313/ja/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link>
+      <pubDate>Tue, 15 Apr 2025 16:42:35 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid>
+      <description><![CDATA[<h1>Hugoブログよく使う資料</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="reimuテーマ-icon_font">
+<a class="header-anchor" href="#reimu%e3%83%86%e3%83%bc%e3%83%9e-icon_font"></a>
+reimuテーマ icon_font
+</h1><table>
+  <thead>
+      <tr>
+          <th>コマンド</th>
+          <th>作用</th>
+          <th>説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>hugo version</code></td>
+          <td>バージョン確認</td>
+          <td>現在インストールされているHugoのバージョンを表示</td>
+      </tr>
+      <tr>
+          <td><code>hugo new site &lt;プロジェクト名&gt;</code></td>
+          <td>新規サイト作成</td>
+          <td>Hugoのディレクトリ構造を生成</td>
+      </tr>
+      <tr>
+          <td><code>hugo new post/&lt;ファイル名.md&gt;</code></td>
+          <td>新規記事作成</td>
+          <td><code>content/post/</code> 下に記事を生成しデフォルトのFront Matterを付与</td>
+      </tr>
+      <tr>
+          <td><code>hugo server</code></td>
+          <td>ローカルサーバー起動</td>
+          <td>ローカルプレビューを開始、デフォルトアドレス <code>http://localhost:1313</code></td>
+      </tr>
+      <tr>
+          <td><code>hugo server -D</code></td>
+          <td>下書きを含めて起動</td>
+          <td><code>-D</code> パラメータで <code>draft: true</code> の記事を表示</td>
+      </tr>
+      <tr>
+          <td><code>hugo</code></td>
+          <td>ウェブサイト構築</td>
+          <td>Markdownコンテンツを <code>public/</code> ディレクトリに静的ファイルとして生成</td>
+      </tr>
+      <tr>
+          <td><code>hugo -D &lt;出力ディレクトリ&gt;</code></td>
+          <td>下書きを含めて構築</td>
+          <td>公開前のフルサイト構築（下書き含む）</td>
+      </tr>
+      <tr>
+          <td><code>hugo --minify</code></td>
+          <td>ファイル圧縮</td>
+          <td>HTML/CSS/JSを圧縮して構築、サイズ削減</td>
+      </tr>
+      <tr>
+          <td><code>hugo config</code></td>
+          <td>設定情報表示</td>
+          <td>現在のサイト設定情報を表示</td>
+      </tr>
+      <tr>
+          <td><code>hugo list drafts</code></td>
+          <td>下書き一覧</td>
+          <td><code>draft: true</code> 設定の全記事を表示</td>
+      </tr>
+      <tr>
+          <td><code>hugo list future</code></td>
+          <td>未来投稿一覧</td>
+          <td><code>date</code> が現在時刻より未来の記事</td>
+      </tr>
+      <tr>
+          <td><code>hugo list expired</code></td>
+          <td>期限切れ記事一覧</td>
+          <td><code>expiryDate</code> が過ぎた記事</td>
+      </tr>
+      <tr>
+          <td><code>hugo --gc</code></td>
+          <td>ガベージコレクション</td>
+          <td>サムネイルキャッシュなどの古いリソースをクリーンアップ</td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th>アイコンクラス名</th>
+          <th>16進数コード</th>
+          <th>日本語意味</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>.tag-wrap</code> / <code>.article-tag-list-link</code></td>
+          <td><code>\e622</code></td>
+          <td>タグ</td>
+      </tr>
+      <tr>
+          <td><code>.category-wrap</code> / <code>.article-category-link</code></td>
+          <td><code>\e604</code></td>
+          <td>カテゴリ</td>
+      </tr>
+      <tr>
+          <td><code>.article-date-link</code></td>
+          <td><code>\e606</code></td>
+          <td>日付</td>
+      </tr>
+      <tr>
+          <td><code>.article-comment-link</code></td>
+          <td><code>\e608</code></td>
+          <td>コメント</td>
+      </tr>
+      <tr>
+          <td><code>.icon-copyright</code></td>
+          <td><code>\e60a</code></td>
+          <td>著作権</td>
+      </tr>
+      <tr>
+          <td><code>.icon-brush</code></td>
+          <td><code>\e618</code></td>
+          <td>筆 / 美化</td>
+      </tr>
+      <tr>
+          <td><code>.icon-coffee</code></td>
+          <td><code>\e607</code></td>
+          <td>コーヒー</td>
+      </tr>
+      <tr>
+          <td><code>.icon-eye</code></td>
+          <td><code>\e60f</code></td>
+          <td>閲覧</td>
+      </tr>
+      <tr>
+          <td><code>.icon-user</code></td>
+          <td><code>\e628</code></td>
+          <td>ユーザー</td>
+      </tr>
+      <tr>
+          <td><code>#main-nav-toggle</code></td>
+          <td><code>\e62f</code></td>
+          <td>ナビゲーションメニュー切替</td>
+      </tr>
+      <tr>
+          <td><code>#nav-rss-link</code></td>
+          <td><code>\e61f</code></td>
+          <td>RSS購読</td>
+      </tr>
+      <tr>
+          <td><code>#nav-search-btn</code> / <code>.reimu-search-input-icon</code></td>
+          <td><code>\e631</code></td>
+          <td>検索ボタン</td>
+      </tr>
+      <tr>
+          <td><code>#nav-sun-btn</code></td>
+          <td><code>\e621</code></td>
+          <td>太陽アイコン（ライトテーマ）</td>
+      </tr>
+      <tr>
+          <td><code>#nav-moon-btn</code></td>
+          <td><code>\e617</code></td>
+          <td>月アイコン（ダークテーマ）</td>
+      </tr>
+      <tr>
+          <td><code>#nav-circle-half-stroke-btn</code></td>
+          <td><code>\e641</code></td>
+          <td>半円（テーマ切替）</td>
+      </tr>
+      <tr>
+          <td><code>.icon-copy</code></td>
+          <td><code>\e60c</code></td>
+          <td>コピー</td>
+      </tr>
+      <tr>
+          <td><code>.icon-chevron-down</code></td>
+          <td><code>\e609</code></td>
+          <td>下矢印</td>
+      </tr>
+      <tr>
+          <td><code>.icon-check</code></td>
+          <td><code>\e636</code></td>
+          <td>チェック / 確認</td>
+      </tr>
+      <tr>
+          <td><code>.icon-times</code></td>
+          <td><code>\e637</code></td>
+          <td>クローズ</td>
+      </tr>
+      <tr>
+          <td><code>.icon-calendar</code></td>
+          <td><code>\e605</code></td>
+          <td>カレンダー</td>
+      </tr>
+      <tr>
+          <td><code>.icon-pencil</code></td>
+          <td><code>\e61b</code></td>
+          <td>鉛筆 / 編集</td>
+      </tr>
+      <tr>
+          <td><code>.icon-clock</code></td>
+          <td><code>\e613</code></td>
+          <td>時計</td>
+      </tr>
+      <tr>
+          <td><code>.post-sticky</code></td>
+          <td><code>\e627</code></td>
+          <td>固定表示</td>
+      </tr>
+      <tr>
+          <td><code>.reimu-popup .popup-btn-close</code></td>
+          <td><code>\e626</code></td>
+          <td>ポップアップ閉じる</td>
+      </tr>
+      <tr>
+          <td><code>.ais-pagination--item__previous</code></td>
+          <td><code>\e601</code></td>
+          <td>前ページ</td>
+      </tr>
+      <tr>
+          <td><code>.ais-pagination--item__next</code></td>
+          <td><code>\e630</code></td>
+          <td>次ページ</td>
+      </tr>
+      <tr>
+          <td><code>.icon-github</code></td>
+          <td><code>\e619</code></td>
+          <td>GitHubアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-google</code></td>
+          <td><code>\e611</code></td>
+          <td>Googleアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-facebook</code></td>
+          <td><code>\e60e</code></td>
+          <td>Facebookアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-twitter</code></td>
+          <td><code>\e62a</code></td>
+          <td>Twitterアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-instagram</code></td>
+          <td><code>\e615</code></td>
+          <td>Instagramアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-linkedin</code></td>
+          <td><code>\e614</code></td>
+          <td>LinkedInアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-pinterest</code></td>
+          <td><code>\e61a</code></td>
+          <td>Pinterestアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-youtube</code></td>
+          <td><code>\e62d</code></td>
+          <td>YouTubeアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-vimeo</code></td>
+          <td><code>\e629</code></td>
+          <td>Vimeoアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-flickr</code></td>
+          <td><code>\e612</code></td>
+          <td>Flickrアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-dribbble</code></td>
+          <td><code>\e610</code></td>
+          <td>Dribbbleアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-behance</code></td>
+          <td><code>\e602</code></td>
+          <td>Behanceアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-bilibili</code></td>
+          <td><code>\e603</code></td>
+          <td>ビリビリアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-weibo</code></td>
+          <td><code>\e62c</code></td>
+          <td>微博アイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-zhihu</code></td>
+          <td><code>\e62e</code></td>
+          <td>知乎アイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-reddit</code></td>
+          <td><code>\e61c</code></td>
+          <td>Redditアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-tumblr</code></td>
+          <td><code>\e625</code></td>
+          <td>Tumblrアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-medium</code></td>
+          <td><code>\e616</code></td>
+          <td>Mediumアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-deviantart</code></td>
+          <td><code>\e60b</code></td>
+          <td>DeviantArtアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-stackoverflow</code></td>
+          <td><code>\e620</code></td>
+          <td>StackOverflowアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-keybase</code></td>
+          <td><code>\e61e</code></td>
+          <td>Keybaseアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-telegram</code></td>
+          <td><code>\e623</code></td>
+          <td>Telegramアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-discord</code></td>
+          <td><code>\e60d</code></td>
+          <td>Discordアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-steam</code></td>
+          <td><code>\e624</code></td>
+          <td>Steamアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-email</code></td>
+          <td><code>\e63c</code></td>
+          <td>メール</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-toc-btn</code></td>
+          <td><code>\e633</code></td>
+          <td>目次ボタン</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-common-btn</code></td>
+          <td><code>\e632</code></td>
+          <td>サイドバー共通ボタン</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-top .arrow-up</code></td>
+          <td><code>\e634</code></td>
+          <td>上矢印</td>
+      </tr>
+      <tr>
+          <td><code>.icon-link</code></td>
+          <td><code>\e639</code></td>
+          <td>リンク</td>
+      </tr>
+      <tr>
+          <td><code>.icon-globe</code></td>
+          <td><code>\e638</code></td>
+          <td>地球 / 多言語</td>
+      </tr>
+      <tr>
+          <td><code>.icon-creative-commons</code></td>
+          <td><code>\e63a</code></td>
+          <td>CCライセンス</td>
+      </tr>
+      <tr>
+          <td><code>.icon-taichi</code></td>
+          <td><code>\e62b</code></td>
+          <td>太極（ダークモード）</td>
+      </tr>
+      <tr>
+          <td><code>.icon-weixin</code></td>
+          <td><code>\e640</code></td>
+          <td>WeChatアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-qq</code></td>
+          <td><code>\e63e</code></td>
+          <td>QQアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-image</code></td>
+          <td><code>\e63f</code></td>
+          <td>画像アイコン</td>
+      </tr>
+  </tbody>
+</table>
+
+        <hr><p>本文 2025-04-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Windows美化の軌跡</title>
+      <link>http://localhost:1313/ja/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link>
+      <pubDate>Sat, 07 Sep 2024 21:12:17 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid>
+      <description><![CDATA[<h1>Windows美化の軌跡</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="はじめに">
+<a class="header-anchor" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab"></a>
+はじめに
+</h2><p>よく言われるように、<strong>美化の究極はデフォルト</strong>です。</p>
+<p>デフォルトのWindowsでも効率的に仕事をこなすことはできますが、確かに見た目が良くないですよね。</p>
+<p>性能過剰なPCを持っている場合、適度な美化と簡素化を追求し、私の<del>高級な美的感覚</del>を満たすことは非常に重要です（笑）</p>
+<p>以下では、私が現在使用中または過去に使用した美化ソフト/スキームについて紹介します。</p>
+<h2 id="現在のデスクトップスキーム">
+<a class="header-anchor" href="#%e7%8f%be%e5%9c%a8%e3%81%ae%e3%83%87%e3%82%b9%e3%82%af%e3%83%88%e3%83%83%e3%83%97%e3%82%b9%e3%82%ad%e3%83%bc%e3%83%a0"></a>
+現在のデスクトップスキーム
+</h2><ul>
+<li>TranslucentTB：タスクバーの透明/アクリル効果</li>
+<li>Sapphire：デスクトップアイコンの操作性向上</li>
+<li>Wallpaper Engine：GPU負荷とメモリ使用量を抑えるため、Blue ArchiveのNoaのメモリーホールを壁紙として選択。4K動画数秒で、Wallpaper全体のメモリ使用量は約100MB。</li>
+<li>Rainmeter：オーディオバー1つだけを使用。Noaが十分に美しいので😋
+以前はハードウェア情報表示ウィジェットを使用していましたが、不安を増やすだけで役に立たないので廃止。</li>
+<li>QQの美化、NetEase Cloud Musicの美化、カーソルの美化、Obsidianのテーマとプラグインを導入。さらにEdgeブラウザのiTabタブページと各種便利なプラグインを追加し、現在のワークフローは完全に快適です。</li>
+</ul>
+<p>いくつかのスクリーンショットを貼ります
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/4189283242.png" alt="デスクトップ表示1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/1078908045.png" alt="デスクトップ表示2.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2569059367.png" alt="QQ美化表示.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2176031375.png" alt="Edge表示.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/994680139.png" alt="Obsidian表示.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/130206377.png" alt="タスクマネージャー表示.png">
+上記の通常ワークフローでは、メモリを多く消費するのはブラウザで、GPU負荷は主にwallpaperからです。ログインから完全な自動起動まで10秒以内で、許容範囲内の負荷です。</p>
+<p><strong>構成：</strong></p>
+<ul>
+<li>12400 F</li>
+<li>7700 XT</li>
+<li>32G DDR4</li>
+<li>2K 180Hz HDRディスプレイ</li>
+<li>Windows 11 Pro 23H2</li>
+</ul>
+<h2 id="qqの美化">
+<a class="header-anchor" href="#qq%e3%81%ae%e7%be%8e%e5%8c%96"></a>
+QQの美化
+</h2><p>==特におすすめ！==
+QQは多くの中国人が使わざるを得ないが憎しみも持つものです——広告、ポップアップ、見たくないエンタメページ、ごちゃごちゃした機能性の低いインターフェース。
+Windows版ではQQ9のリリース以降、上記の状況は改善されましたが、最近また嫌なものが追加されてきています。本性は変わらないようです。
+この常用ソフトで毎日苦しまないために、偉大なオープンソース精神と工夫精神を持つ中国インターネットユーザーたちはQQ改造プロジェクトに取り組み、今日私が紹介するのはその中の一つ——<strong>LiteLoaderQQNT</strong>です。
+さて本題に入ります。liteloaderはQQNTのプラグインフレームワークで、インストール後多数のプラグインをダウンロードできます。
+GitHubプロジェクトアドレス：<a href="https://github.com/LiteLoaderQQNT/LiteLoaderQQNT">LiteLoaderQQNT: QQNT プラグインローダー：軽量 · シンプル · オープンソース · フレンズ</a></p>
+<p>おすすめプラグインの一部：</p>
+<ol>
+<li><a href="https://github.com/xinyihl/LiteLoaderQQNT-PluginInstaller/tree/main">PluginInstaller</a>：LiteLoaderQQNTプラグインインストーラー。更新チェックとワンクリックインストール/再起動が可能。最初にこれをインストールすると他のプラグインのインストールが楽になります。</li>
+<li><a href="https://github.com/ltxhhz/LL-plugin-list-viewer/tree/main">LL-plugin-list-viewer</a>: LiteLoaderQQNT Plugin プラグインリスト表示・インストール・更新。ほとんどのプラグインを収録し、GitHubプロジェクトアドレスに直接アクセス可能。インストール機能に問題があり、一部プラグインは手動インストールと更新が必要で、そうしないとQQが起動できなくなるエラーが発生する可能性があります。プラグイン/テーマビューアーとして使用することをおすすめします。</li>
+<li><a href="https://github.com/xiyuesaves/LiteLoaderQQNT-lite_tools/tree/v4">軽量ツールボックス —— 軽量 · エレガント · 効率的 · フレンズ</a>：多数の機能を集約したツールボックスで、プラグインを探し回る手間が省けます。一部のオプション機能：
+<ul>
+<li><strong>チャット画面の美化</strong>でtgのような効果を実現（アバター表示、タイムスタンプ追加、メッセージ左寄せなど）</li>
+<li>称号、VIP、おすすめタグなどの不要な要素を削除</li>
+<li>右クリックでテキスト/画像を検索、メッセージを画像として送信</li>
+<li>オプションハイライト、特殊メッセージハイライト</li>
+<li><strong>ミニアプリ共有をURLカードに変換</strong>、退出時の位置記録、クイック+1（リピート）</li>
+<li><strong>メッセージプレビュー</strong>：メッセージ内の最初のリンクからtg風のプレビューカードを生成</li>
+<li>ローカルスタンプ</li>
+<li>メッセージサフィックス</li>
+<li><strong>撤回メッセージのキャッシュとハイライト</strong></li>
+<li><strong>背景設定</strong>、明るさ・透明度調整、ぼかし効果など</li>
+<li><strong>サイドバーの簡素化</strong>、すべての機能をオン/オフ可能</li>
+<li>入力欄、メッセージボックスの機能切り替え</li>
+<li>……</li>
+</ul>
+</li>
+<li><a href="https://github.com/xh321/LiteLoaderQQNT-QR-Decode/tree/master">QRコード解析</a>：QQNTチャット内の画像のQRコードを解析</li>
+<li><a href="https://github.com/xh321/LiteLoaderQQNT-Directly-Jump/tree/master">カスタムブラウザでリンクを開き警告ページをスキップ</a></li>
+<li><a href="https://github.com/MUKAPP/LiteLoaderQQNT-DeepL/tree/main">DeepL翻訳をQQNTに統合</a></li>
+<li><a href="https://github.com/d0j1a1701/LiteLoaderQQNT-Markdown/tree/v4">Markdown</a>：QQにMarkdownレンダリング機能を追加。送信したメッセージはこのプラグインをインストールしたQQNTのみがMarkdownをレンダリングできるため、ほとんどの場合役に立ちません。</li>
+<li><a href="https://github.com/xh321/LiteLoaderQQNT-Kill-Update/tree/master">Kill-Update</a>：QQの自動更新ポップアップを無効化。一部プラグインは最新版QQにすぐに対応しないため、更新を禁止することは有用です。</li>
+<li><a href="https://github.com/mo-jinran/window-on-top/tree/v4">window-on-top</a>：ウィンドウを常に最前面に表示する機能を追加</li>
+</ol>
+<p>他にもテーマがありますが、ゴミを除去した後の美化されたQQNTは既に十分美しいです。
+またChatGPTなどのAI統合プラグインもありますが、APIの設定が面倒（<del>お金がない</del>）です。</p>
+<h2 id="netease-cloud-musicの美化">
+<a class="header-anchor" href="#netease-cloud-music%e3%81%ae%e7%be%8e%e5%8c%96"></a>
+NetEase Cloud Musicの美化
+</h2><p>==特におすすめ！==
+ご存知の通り、中国の主要音楽プラットフォームは複雑化、トラフィック化の路線を取っています。今日はコミュニティ、明日はショートビデオを追加し、長期VIPユーザーにしつこくアピールします。
+音楽を聴くソフトとしては、いくつかの基本機能があれば十分です。国内外には優れた音楽プレーヤーが多数ありますが、「プレーヤー」と「音楽プラットフォーム」の間には大きなギャップがあります。例えば便利な曲検索、コメント閲覧、一緒に聴く機能など。プレイリスト作成、アーティストフォロー、課金購入などのサンクコストもユーザーに我慢を強います。
+私が使っているNetEase Cloud Musicには偉大なインターネットユーザーが作ったプラグインがあり、美化後は確かに見やすく使いやすくなります。
+まずはプラットフォーム <strong>betterncm</strong></p>
+<ul>
+<li>公式サイト：<a href="https://microblock.cc/betterncm">MicroBlock | BetterNCM</a></li>
+<li>GitHubプロジェクトアドレス：<a href="https://github.com/MicroCBer/BetterNCM">GitHub - MicroCBer/BetterNCM: NCMソフトウェアプラグインマネージャー</a></li>
+<li>コミュニティ：<a href="https://v2e2npdz15.feishu.cn/docx/UZkSd9d46o4fVOxaPNBcGXSenme">BetterNCMの包括的な紹介とトラブルシューティング - 飛書クラウドドキュメント</a></li>
+</ul>
+<p>利点はbetterncmをインストール後、すべてのテーマとプラグインをNetEase内のプラットフォームからダウンロード・更新でき、GitHubを探し回る必要がないことです。
+<strong>おすすめテーマ：</strong></p>
+<ul>
+<li>Materia You：シンプルなテーマで、背景画像のない単色背景。配色バリエーションが豊富。
+<img src="https://guzhengsvt.top/usr/uploads/2024/09/1596889912.png" alt="Matreia You.png"></li>
+</ul>
+<p><strong>おすすめプラグイン：</strong></p>
+<ol>
+<li>
+<p>RoundCornerNCM：NetEase Cloud Musicウィンドウの角を丸くする。Windows 11のみ。</p>
+</li>
+<li>
+<p>MikuPlugin：各要素の表示/非表示を管理。迷惑な動画、ライブストリームなどの要素をオフに可能。
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/439024086.png" alt="MikuPlugin.png"></p>
+</li>
+<li>
+<p>アップル風歌詞：曲ページをApple Music風に変更。歌詞ソースも変更可能。
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/663279809.png" alt="アップル風歌詞.png"></p>
+</li>
+<li>
+<p>この曲のカバーは何？：曲リストにカバー画像を追加。ストレージ使用量が増え、動作が重くなる可能性あり。
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/1807448404.png" alt="この曲のカバーは何？.png"></p>
+</li>
+<li>
+<p>RuLyrics：デスクトップ歌詞プラグイン。単語単位表示、メイン/サブ歌詞、フォント変更、前景色（再生済み）/背景色（未再生）の個別設定、タスクバーへの埋め込みをサポート（TranslucentTBと同時使用時に若干の問題あり）
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/285235071.png" alt="デスクトップ歌詞.png"></p>
+</li>
+<li>
+<p>その他の便利なプラグインは自分で探してダウンロード</p>
+</li>
+<li>
+<p>一部プラグインは他のプラグインに依存・競合する場合があるため、GitHub Issuesで確認してください。</p>
+</li>
+</ol>
+<h2 id="wallpaper-engine">
+<a class="header-anchor" href="#wallpaper-engine"></a>
+Wallpaper Engine
+</h2><p>==必須アイテム！==
+有名な万能壁紙ソフト。××√を開いて新たな人生を楽しむ（笑）
+最も一般的で使いやすい壁紙ソフトとして、wallpaperには多くの利点があります：</p>
+<ul>
+<li>リソースが豊富。steamワークショップには常に大量の高品質壁紙が追加され、ほとんどが無料でダウンロード使用可能。</li>
+<li>リソースの種類が多い。動画、画像、GIF、ウェブページ……壁紙の種類が非常に多く、多くの壁紙は機能が豊富で、音楽歌詞、エフェクト、スペクトラムなどの機能を統合し、デスクトップを簡単に飾り付け。</li>
+<li>リソース検索が便利。Wallpaperの検索とフィルタリングルールが充実。壁紙の解像度、タイプ、適応年齢などでフィルタリング可能。</li>
+<li>使い方が簡単。steamワークショップベースで、steamにアクセスできれば壁紙をダウンロード可能。VPN不要でダウンロード速度も保証。機能が複雑な壁紙でも、wallpaperインターフェースで簡単に設定可能。</li>
+<li>スマホ連携。WallpaperはAndroidアプリをリリースしており、PCからスマホに壁紙を転送して使用可能。</li>
+</ul>
+<p><strong>警告</strong>：一部の複雑なエフェクトウェブページや高解像度動画壁紙はGPU性能を多く消費し、VRAM使用量が多い場合があります。wallpaper設定でフレームレート、エフェクト、アプリケーション動作などを調整して改善可能。</p>
+<p>唯一の欠点はsteamでwallpaperを購入するのに19元必要ですが、この価格は高くないでしょう。</p>
+<p>Steam：<a href="https://store.steampowered.com/app/431960/Wallpaper_Engine/">SteamのWallpaper Engine：壁紙エンジン</a></p>
+<h2 id="translucenttb">
+<a class="header-anchor" href="#translucenttb"></a>
+TranslucentTB
+</h2><p>==特におすすめ！==
+タスクバー透明化ツール。完全透明、アクリル、不透明、テーマ色変更などが可能。
+メモリ、ストレージ使用量が非常に少なく、CPUパフォーマンスをほとんど消費しません。</p>
+<p>GitHubプロジェクトアドレス：<a href="https://github.com/TranslucentTB/TranslucentTB">GitHub - TranslucentTB</a>
+GitHub中国語翻訳プロジェクトアドレス：<a href="https://github.com/kasuganosoras/TranslucentTB-CN">GitHub - kasuganosoras/TranslucentTB-CN</a></p>
+<h2 id="rainmeter">
+<a class="header-anchor" href="#rainmeter"></a>
+Rainmeter
+</h2><p>==特におすすめ！==
+長年有名なデスクトップウィジェットツール。多機能な<strong>小さなウィジェット</strong>をデスクトップに自作でき、他人が作成したウィジェット（スキン）を簡単にインポート可能。
+一般的な機能：</p>
+<ul>
+<li>CPU、GPU、メモリなどのハードウェア情報表示（リアルタイム更新）</li>
+<li>オーディオ認識で様々なスペクトラムバーを生成</li>
+<li>メディアプレーヤー</li>
+<li>ワンクリックでアニメを追跡、新作アニメを確認</li>
+<li>画像配置、スライドショーギャラリーなど</li>
+<li>……</li>
+</ul>
+<p>欠点</p>
+<ul>
+<li>ウィジェットを多く配置すると重くなる</li>
+<li>一部ウィジェットはリソース消費が大きい</li>
+<li>選択肢が多すぎて工夫が必要</li>
+</ul>
+<p>公式サイト：<a href="https://www.rainmeter.net/">Rainmeter</a>
+中国公式サイト：<a href="https://rainmeter.cn/">個人共有 Rainmeter</a>
+GitHubプロジェクトアドレス：<a href="https://github.com/rainmeter/rainmeter">GitHub - rainmeter</a>
+中国コミュニティ：<a href="https://bbs.rainmeter.cn/">雨滴美化コミュニティ</a></p>
+<h2 id="start-11">
+<a class="header-anchor" href="#start-11"></a>
+Start 11
+</h2><p>タスクバーとスタートメニュー美化ツール</p>
+<ul>
+<li>スタートメニューをWindows7-11のスタイルに変更可能。色、透明度、間隔、配置などを変更可能。</li>
+<li><strong>高度なインデックス機能</strong>：Edgeブラウザとペアリング時、開いているタブも検索結果に表示され、最も使用頻度の高いコンテンツが結果の上位に表示。<strong>ローカル検索結果の横に表示されるWebコンテンツを削除するオプション！</strong></li>
+<li>スタートボタンアイコン、スタートメニュー背景画像、タスクバー色・テクスチャを変更。</li>
+</ul>
+<p>欠点</p>
+<ul>
+<li>有料</li>
+<li>使用時に重くなったり起動が遅い現象あり。</li>
+<li>TranslucentTBと互換性なし。</li>
+</ul>
+<p>公式サイト永久版価格35元、少し高め、30日間無料試用可能。多くの代理店があり、学習版も存在（非推奨）。</p>
+<p>公式サイト：<a href="https://stardock-start11.com/">Start11</a>
+中国公式サイト： <a href="https://www.start11.cn/">Start 11</a>
+Steam（評価分かれ）：<a href="https://store.steampowered.com/app/1694750/Start11_v2/">SteamのStart11 v2</a></p>
+<h2 id="楓の美化ツールボックス">
+<a class="header-anchor" href="#%e6%a5%93%e3%81%ae%e7%be%8e%e5%8c%96%e3%83%84%e3%83%bc%e3%83%ab%e3%83%9c%e3%83%83%e3%82%af%e3%82%b9"></a>
+楓の美化ツールボックス
+</h2><p>ファイルエクスプローラー、スタートメニュー、グローバルウィンドウ美化ツール
+現在の機能：</p>
+<ul>
+<li>メインページ：ファイルエクスプローラーウィンドウのフォント、ローカルカラーモードLight、Darkのカスタマイズ（実験的Darkモードには小さな視覚的バグあり）</li>
+<li>背景設定：ファイルエクスプローラー、スタートメニュー、システム設定の<strong>背景画像</strong>をカスタマイズ</li>
+<li>色設定：ファイルエクスプローラーの配色（タイトル、グループ、ヘッダー、詳細、ハードディスク進捗バー）、丸みを</li>
+</ul>
+        <hr><p>本文 2024-09-07 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-07</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>自動ダイヤルアップ接続とタスクスケジューラ</title>
+      <link>http://localhost:1313/ja/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Wed, 12 Jun 2024 19:34:52 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</guid>
+      <description><![CDATA[<h1>自動ダイヤルアップ接続とタスクスケジューラ</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="くだらないこと水">
+<a class="header-anchor" href="#%e3%81%8f%e3%81%a0%e3%82%89%e3%81%aa%e3%81%84%e3%81%93%e3%81%a8%e6%b0%b4"></a>
+くだらないこと水
+</h2><p>デスクトップPCを有線で学内ネットワークに接続する際にダイヤルアップ接続が必要で、<strong>ユーモア</strong>たっぷりに何年も更新されていないTIMは起動時にネットワークがないとエラーポップアップを表示します。
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2343467847.png" alt="TIMエラー">
+そのため毎回起動時に手動で設定からダイヤルアップ接続を開始しなければならず、TIMの自動起動設定が先に動作してエラーを出すので、自動起動機能がとても<strong>ユーモラス</strong>に感じられます。
+そこでbatファイルを作成して自動接続し、タスクマネージャーで自動起動を設定しました。しかしTIMと同じ起動優先度のため、ネットワーク接続が完了する前にTIMが自動ログインしてエラーポップアップを表示してしまいます。
+タスクスケジューラで自動接続プログラムを起動時に実行し、TIMの起動を15秒遅らせるように設定しました。
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2593746197.png" alt="TIM起動遅延"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2438765248.png" alt="接続再接続">
+（記憶に便利なようにbatファイルをstartupフォルダに入れ、自動接続タスクを最高優先度で非表示に設定しましたが、<strong>ユーモア</strong>たっぷりにHuorongセキュリティが検知できないタスクは実行されず、何度もデバッグしてログイン後にようやく接続が開始されることに気づくまで、設定に問題があると思い込んでいました。）
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2362191046.png" alt="ユーモアなHuorong">
+しかしこれでは68ドルもした指紋認証デバイスを買った自分がとても<strong>ユーモラス</strong>に感じられます。
+万能なフレンドリストにコンピュータに詳しい方がいらっしゃれば、もっと良い解決策をご存じないでしょうか。</p>
+<p>ワイヤレスネットワークカードは持っていますが性能が悪いです。学内ネットワーク接続時にはウェブ認証が必要で、VPNを自動起動するように設定していると、VPN接続中は学内認証ページが開けず、VPNを切断→ウェブ認証→VPN接続→TIMエラーポップアップを閉じる→TIM再起動という手順が必要で、非常にイライラします。</p>
+<h2 id="ダイヤルアップ接続プログラム">
+<a class="header-anchor" href="#%e3%83%80%e3%82%a4%e3%83%a4%e3%83%ab%e3%82%a2%e3%83%83%e3%83%97%e6%8e%a5%e7%b6%9a%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%a0"></a>
+ダイヤルアップ接続プログラム
+</h2><p>まずテキスト文書（txt）を新規作成し、以下の内容を記入して<strong>保存</strong>し、ファイル名を変更（例：reconnect internet、英語推奨）、拡張子をbatに変更します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bat" data-lang="bat"><span class="line"><span class="cl">rasdial あなたのブロードバンド接続名（例：Broadband Connection、英語推奨） アカウント（例：学籍番号） パスワード
+</span></span></code></pre></div><h2 id="自動ダイヤルアップと接続再接続">
+<a class="header-anchor" href="#%e8%87%aa%e5%8b%95%e3%83%80%e3%82%a4%e3%83%a4%e3%83%ab%e3%82%a2%e3%83%83%e3%83%97%e3%81%a8%e6%8e%a5%e7%b6%9a%e5%86%8d%e6%8e%a5%e7%b6%9a"></a>
+自動ダイヤルアップと接続再接続
+</h2><p>Windowsアイコン（スタート）右クリック→コンピュータの管理→タスクスケジューラ→タスクスケジューラライブラリ
+右側のタスク作成→タスク名設定（例：再接続）→ユーザーがログオンしているかどうかにかかわらず実行→最高権限で実行（オプション）→<strong>非表示にしないでください！！！</strong>→設定はPCに合わせて選択（例：Windows11なら最も近いWin10を選択）
+トリガー→新規→タスク開始「起動時」→OK（起動時接続）
+新規→タスク開始「イベント発生時」→ログ最下部から2番目の「アプリケーション」→ソース「RasClient」→OK（接続再接続）
+操作タブ→新規→プログラム開始→作成したbatファイルを選択→OK</p>
+<p>OK（この時Windowsログイン用のMicrosoftアカウントパスワードが要求されます。PINではありません。エラーが続く場合は全般タブのユーザーアカウントが一致しているか確認してください。）</p>
+
+        <hr><p>本文 2024-06-12 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-06-12</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Obsidian基礎</title>
+      <link>http://localhost:1313/ja/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Tue, 27 Jun 2023 00:41:26 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</guid>
+      <description><![CDATA[<h1>Obsidian基礎</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="インターフェース">
+<a class="header-anchor" href="#%e3%82%a4%e3%83%b3%e3%82%bf%e3%83%bc%e3%83%95%e3%82%a7%e3%83%bc%e3%82%b9"></a>
+インターフェース
+</h1><p><a href="https://zhuanlan.zhihu.com/p/428519519">1時間でObsidianをマスターしたい？この記事で十分です。【Obsidian完全ガイド】 - 知乎 (zhihu.com)</a>
+ライブラリフォルダの作成——ライブラリフォルダ内にノート分類フォルダを作成——ノートの細分化
+obsidian help
+ノート最上部のバー——縦三点の「その他」——ノートの分割表示
+<a href="https://zhuanlan.zhihu.com/p/409409946">Wyatt：ワークベンチの構築【Obsidian完全ガイド】216 いいね · 7 コメント記事<img src="https://pic1.zhimg.com/v2-2323eabf712e3ebaae40c322ec18dde0_180x120.jpg" alt=""></a>
+左上でアウトラインを表示</p>
+<h1 id="プラグイン準備中">
+<a class="header-anchor" href="#%e3%83%97%e3%83%a9%e3%82%b0%e3%82%a4%e3%83%b3%e6%ba%96%e5%82%99%e4%b8%ad"></a>
+プラグイン（準備中）
+</h1><p><a href="https://zhuanlan.zhihu.com/p/403001135">Wyatt：プラグインのインストール方法？【Obsidian完全ガイド】264 いいね · 63 コメント記事<img src="https://pic2.zhimg.com/v2-51f1cdbc1b5891f62958cdb379dc5561_180x120.jpg" alt=""></a></p>
+<h1 id="フォーマット">
+<a class="header-anchor" href="#%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%83%e3%83%88"></a>
+フォーマット
+</h1><p>#＋スペースで見出しを階層化、#が多いほど下位レベル</p>
+<h3 id="強調">
+<a class="header-anchor" href="#%e5%bc%b7%e8%aa%bf"></a>
+強調
+</h3><p><em>これは斜体</em>
+<em>斜体の別の書き方、英語のアンダースコア</em></p>
+<h3 id="太字">
+<a class="header-anchor" href="#%e5%a4%aa%e5%ad%97"></a>
+太字
+</h3><p><strong>太字の例、二つのアスタリスク</strong>
+<strong>または二つのアンダースコア</strong></p>
+<h3 id="組み合わせ">
+<a class="header-anchor" href="#%e7%b5%84%e3%81%bf%e5%90%88%e3%82%8f%e3%81%9b"></a>
+組み合わせ
+</h3><p><em>これは<strong>斜体＋太字</strong></em></p>
+<h3 id="打ち消し線">
+<a class="header-anchor" href="#%e6%89%93%e3%81%a1%e6%b6%88%e3%81%97%e7%b7%9a"></a>
+打ち消し線
+</h3><p><del>刺激を求めるなら、とことん貫き通しましょう</del></p>
+<h3 id="ハイライト">
+<a class="header-anchor" href="#%e3%83%8f%e3%82%a4%e3%83%a9%e3%82%a4%e3%83%88"></a>
+ハイライト
+</h3><p>==疎影横斜みず清く浅く、暗香浮動月黄昏==</p>
+<h3 id="脚注">
+<a class="header-anchor" href="#%e8%84%9a%e6%b3%a8"></a>
+脚注
+</h3><p>テキスト<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>テキスト</p>
+<h3 id="コメント">
+<a class="header-anchor" href="#%e3%82%b3%e3%83%a1%e3%83%b3%e3%83%88"></a>
+コメント
+</h3><ul>
+<li>インラインコメント
+%%ここはインラインコメント%%</li>
+<li>複数行コメント
+%%
+あなたは四月の早天の雲煙
+黄昏は風の柔らかさを吹く
+星は意図せずに瞬き
+細雨は花の前に降り注ぐ
+%%</li>
+</ul>
+<h1 id="リスト">
+<a class="header-anchor" href="#%e3%83%aa%e3%82%b9%e3%83%88"></a>
+リスト
+</h1><ul>
+<li>順不同リスト
+<ul>
+<li>ハイフン＋スペース</li>
+<li>tab＋ハイフン＋スペースで前の行のサブリスト要素にする</li>
+</ul>
+</li>
+<li>順序付きリスト
+<ol>
+<li>数字＋ピリオド＋スペース</li>
+<li>同様にtab＋数字＋ピリオド＋スペースで行をインデント</li>
+<li></li>
+</ol>
+</li>
+</ul>
+<h1 id="画像">
+<a class="header-anchor" href="#%e7%94%bb%e5%83%8f"></a>
+画像
+</h1><ul>
+<li>$$![Engelbart](画像URL)$$</li>
+<li>![[Pasted image 20230625203344.png]]</li>
+<li>幅の調整
+<ul>
+<li>$$![Engelbart|100](画像リンク)$$</li>
+<li>![[Pasted image 20230625203536.png]]</li>
+</ul>
+</li>
+</ul>
+<h1 id="外部リンク">
+<a class="header-anchor" href="#%e5%a4%96%e9%83%a8%e3%83%aa%e3%83%b3%e3%82%af"></a>
+外部リンク
+</h1><h3 id="ライブラリ内のノート画像へのリンク">
+<a class="header-anchor" href="#%e3%83%a9%e3%82%a4%e3%83%96%e3%83%a9%e3%83%aa%e5%86%85%e3%81%ae%e3%83%8e%e3%83%bc%e3%83%88%e7%94%bb%e5%83%8f%e3%81%b8%e3%81%ae%e3%83%aa%e3%83%b3%e3%82%af"></a>
+ライブラリ内のノート/画像へのリンク
+</h3><ul>
+<li>$http://obsidian.md - automatic!$
+<ul>
+<li><em>ウェブリンクを指し、URLで表示、$はレイアウトのため</em></li>
+</ul>
+</li>
+<li>$[obsidian](http://obsidian.md)$
+<ul>
+<li><em>ウェブリンクを指し、角括弧内の内容で表示</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="obsidian-url">
+<a class="header-anchor" href="#obsidian-url"></a>
+Obsidian URL
+</h3><p>Obsidian URIは通常以下の形式：
+</p>
+$$obsidian://action?param1=value&param2=value$$<p>
+actionは実行する操作、valueはパラメータ
+例：ノートを開く：
+</p>
+$$[注釈付きノート名、任意の識別子](obsidian://open?path=ノートの絶対パス)$$<p>
+<strong>角括弧、コロンの言語に注意</strong>
+例：
+<a href="#ZgotmplZ">高等数学を開く</a>
+pathにはファイルの絶対パスを指定</p>
+<ul>
+<li><em>特定のライブラリを開く、具体的なファイルを開かずフォルダのみ表示</em>
+$$[name](obsidian://open?vault=ライブラリフォルダ名/ライブラリID)$$
+<a href="#ZgotmplZ">笔记フォルダを開く</a></li>
+<li><em>Mathフォルダ内の高等数学を開く、<strong>.md</strong>拡張子は省略可能</em>
+<a href="#ZgotmplZ">高等数学</a></li>
+</ul>
+<h3 id="その他">
+<a class="header-anchor" href="#%e3%81%9d%e3%81%ae%e4%bb%96"></a>
+その他
+</h3><ul>
+<li>
+<p>URLにスペースがある場合、$\%20$にエスケープ</p>
+<ul>
+<li>上記%20の%はエスケープが必要、%</li>
+</ul>
+</li>
+<li>
+<p>または&lt;&gt;でスペースを含む内容を囲む</p>
+</li>
+<li>
+<p>引用
+</p>
+$$> 引用内容$$<p>
+</p>
+$$\ 引用元$$<p>
+例</p>
+</li>
+</ul>
+<blockquote>
+<p>時間は一方通行の旅、良いも悪いも全て風景。
+\ ——『歳月神偷』金玟岐</p></blockquote>
+<ul>
+<li>
+<p>インラインコード
+<code>include&lt;stdc++.h&gt;</code></p>
+</li>
+<li>
+<p>コードブロック
+<em>Obsidianは6つのバッククォートで囲まれた内容をコードブロックとして認識し、コード形式で表示。コードブロックはシンタックスハイライトをサポート、最初の行（開始バッククォートの後）で言語を宣言して特定のシンタックスハイライトを使用可能。</em></p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include&lt;stdc++.h&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="n">b</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">b</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="o">+=</span><span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cont</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><a href="https://en.wikipedia.org/wiki/Percent-encoding">さらに詳しいエンコーディング規約</a></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>ここに対応する注釈
+脚注は複数行可能、インデントを使用&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        <hr><p>本文 2023-06-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-06-27</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+  </channel>
+</rss>

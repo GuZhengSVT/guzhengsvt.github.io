@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>メモ on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/ja/tags/%E3%83%A1%E3%83%A2/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Tue, 15 Apr 2025 16:42:35 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/ja/tags/%E3%83%A1%E3%83%A2/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Hugoブログよく使う資料</title>
+      <link>http://localhost:1313/ja/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link>
+      <pubDate>Tue, 15 Apr 2025 16:42:35 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid>
+      <description><![CDATA[<h1>Hugoブログよく使う資料</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="reimuテーマ-icon_font">
+<a class="header-anchor" href="#reimu%e3%83%86%e3%83%bc%e3%83%9e-icon_font"></a>
+reimuテーマ icon_font
+</h1><table>
+  <thead>
+      <tr>
+          <th>コマンド</th>
+          <th>作用</th>
+          <th>説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>hugo version</code></td>
+          <td>バージョン確認</td>
+          <td>現在インストールされているHugoのバージョンを表示</td>
+      </tr>
+      <tr>
+          <td><code>hugo new site &lt;プロジェクト名&gt;</code></td>
+          <td>新規サイト作成</td>
+          <td>Hugoのディレクトリ構造を生成</td>
+      </tr>
+      <tr>
+          <td><code>hugo new post/&lt;ファイル名.md&gt;</code></td>
+          <td>新規記事作成</td>
+          <td><code>content/post/</code> 下に記事を生成しデフォルトのFront Matterを付与</td>
+      </tr>
+      <tr>
+          <td><code>hugo server</code></td>
+          <td>ローカルサーバー起動</td>
+          <td>ローカルプレビューを開始、デフォルトアドレス <code>http://localhost:1313</code></td>
+      </tr>
+      <tr>
+          <td><code>hugo server -D</code></td>
+          <td>下書きを含めて起動</td>
+          <td><code>-D</code> パラメータで <code>draft: true</code> の記事を表示</td>
+      </tr>
+      <tr>
+          <td><code>hugo</code></td>
+          <td>ウェブサイト構築</td>
+          <td>Markdownコンテンツを <code>public/</code> ディレクトリに静的ファイルとして生成</td>
+      </tr>
+      <tr>
+          <td><code>hugo -D &lt;出力ディレクトリ&gt;</code></td>
+          <td>下書きを含めて構築</td>
+          <td>公開前のフルサイト構築（下書き含む）</td>
+      </tr>
+      <tr>
+          <td><code>hugo --minify</code></td>
+          <td>ファイル圧縮</td>
+          <td>HTML/CSS/JSを圧縮して構築、サイズ削減</td>
+      </tr>
+      <tr>
+          <td><code>hugo config</code></td>
+          <td>設定情報表示</td>
+          <td>現在のサイト設定情報を表示</td>
+      </tr>
+      <tr>
+          <td><code>hugo list drafts</code></td>
+          <td>下書き一覧</td>
+          <td><code>draft: true</code> 設定の全記事を表示</td>
+      </tr>
+      <tr>
+          <td><code>hugo list future</code></td>
+          <td>未来投稿一覧</td>
+          <td><code>date</code> が現在時刻より未来の記事</td>
+      </tr>
+      <tr>
+          <td><code>hugo list expired</code></td>
+          <td>期限切れ記事一覧</td>
+          <td><code>expiryDate</code> が過ぎた記事</td>
+      </tr>
+      <tr>
+          <td><code>hugo --gc</code></td>
+          <td>ガベージコレクション</td>
+          <td>サムネイルキャッシュなどの古いリソースをクリーンアップ</td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th>アイコンクラス名</th>
+          <th>16進数コード</th>
+          <th>日本語意味</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>.tag-wrap</code> / <code>.article-tag-list-link</code></td>
+          <td><code>\e622</code></td>
+          <td>タグ</td>
+      </tr>
+      <tr>
+          <td><code>.category-wrap</code> / <code>.article-category-link</code></td>
+          <td><code>\e604</code></td>
+          <td>カテゴリ</td>
+      </tr>
+      <tr>
+          <td><code>.article-date-link</code></td>
+          <td><code>\e606</code></td>
+          <td>日付</td>
+      </tr>
+      <tr>
+          <td><code>.article-comment-link</code></td>
+          <td><code>\e608</code></td>
+          <td>コメント</td>
+      </tr>
+      <tr>
+          <td><code>.icon-copyright</code></td>
+          <td><code>\e60a</code></td>
+          <td>著作権</td>
+      </tr>
+      <tr>
+          <td><code>.icon-brush</code></td>
+          <td><code>\e618</code></td>
+          <td>筆 / 美化</td>
+      </tr>
+      <tr>
+          <td><code>.icon-coffee</code></td>
+          <td><code>\e607</code></td>
+          <td>コーヒー</td>
+      </tr>
+      <tr>
+          <td><code>.icon-eye</code></td>
+          <td><code>\e60f</code></td>
+          <td>閲覧</td>
+      </tr>
+      <tr>
+          <td><code>.icon-user</code></td>
+          <td><code>\e628</code></td>
+          <td>ユーザー</td>
+      </tr>
+      <tr>
+          <td><code>#main-nav-toggle</code></td>
+          <td><code>\e62f</code></td>
+          <td>ナビゲーションメニュー切替</td>
+      </tr>
+      <tr>
+          <td><code>#nav-rss-link</code></td>
+          <td><code>\e61f</code></td>
+          <td>RSS購読</td>
+      </tr>
+      <tr>
+          <td><code>#nav-search-btn</code> / <code>.reimu-search-input-icon</code></td>
+          <td><code>\e631</code></td>
+          <td>検索ボタン</td>
+      </tr>
+      <tr>
+          <td><code>#nav-sun-btn</code></td>
+          <td><code>\e621</code></td>
+          <td>太陽アイコン（ライトテーマ）</td>
+      </tr>
+      <tr>
+          <td><code>#nav-moon-btn</code></td>
+          <td><code>\e617</code></td>
+          <td>月アイコン（ダークテーマ）</td>
+      </tr>
+      <tr>
+          <td><code>#nav-circle-half-stroke-btn</code></td>
+          <td><code>\e641</code></td>
+          <td>半円（テーマ切替）</td>
+      </tr>
+      <tr>
+          <td><code>.icon-copy</code></td>
+          <td><code>\e60c</code></td>
+          <td>コピー</td>
+      </tr>
+      <tr>
+          <td><code>.icon-chevron-down</code></td>
+          <td><code>\e609</code></td>
+          <td>下矢印</td>
+      </tr>
+      <tr>
+          <td><code>.icon-check</code></td>
+          <td><code>\e636</code></td>
+          <td>チェック / 確認</td>
+      </tr>
+      <tr>
+          <td><code>.icon-times</code></td>
+          <td><code>\e637</code></td>
+          <td>クローズ</td>
+      </tr>
+      <tr>
+          <td><code>.icon-calendar</code></td>
+          <td><code>\e605</code></td>
+          <td>カレンダー</td>
+      </tr>
+      <tr>
+          <td><code>.icon-pencil</code></td>
+          <td><code>\e61b</code></td>
+          <td>鉛筆 / 編集</td>
+      </tr>
+      <tr>
+          <td><code>.icon-clock</code></td>
+          <td><code>\e613</code></td>
+          <td>時計</td>
+      </tr>
+      <tr>
+          <td><code>.post-sticky</code></td>
+          <td><code>\e627</code></td>
+          <td>固定表示</td>
+      </tr>
+      <tr>
+          <td><code>.reimu-popup .popup-btn-close</code></td>
+          <td><code>\e626</code></td>
+          <td>ポップアップ閉じる</td>
+      </tr>
+      <tr>
+          <td><code>.ais-pagination--item__previous</code></td>
+          <td><code>\e601</code></td>
+          <td>前ページ</td>
+      </tr>
+      <tr>
+          <td><code>.ais-pagination--item__next</code></td>
+          <td><code>\e630</code></td>
+          <td>次ページ</td>
+      </tr>
+      <tr>
+          <td><code>.icon-github</code></td>
+          <td><code>\e619</code></td>
+          <td>GitHubアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-google</code></td>
+          <td><code>\e611</code></td>
+          <td>Googleアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-facebook</code></td>
+          <td><code>\e60e</code></td>
+          <td>Facebookアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-twitter</code></td>
+          <td><code>\e62a</code></td>
+          <td>Twitterアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-instagram</code></td>
+          <td><code>\e615</code></td>
+          <td>Instagramアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-linkedin</code></td>
+          <td><code>\e614</code></td>
+          <td>LinkedInアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-pinterest</code></td>
+          <td><code>\e61a</code></td>
+          <td>Pinterestアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-youtube</code></td>
+          <td><code>\e62d</code></td>
+          <td>YouTubeアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-vimeo</code></td>
+          <td><code>\e629</code></td>
+          <td>Vimeoアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-flickr</code></td>
+          <td><code>\e612</code></td>
+          <td>Flickrアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-dribbble</code></td>
+          <td><code>\e610</code></td>
+          <td>Dribbbleアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-behance</code></td>
+          <td><code>\e602</code></td>
+          <td>Behanceアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-bilibili</code></td>
+          <td><code>\e603</code></td>
+          <td>ビリビリアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-weibo</code></td>
+          <td><code>\e62c</code></td>
+          <td>微博アイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-zhihu</code></td>
+          <td><code>\e62e</code></td>
+          <td>知乎アイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-reddit</code></td>
+          <td><code>\e61c</code></td>
+          <td>Redditアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-tumblr</code></td>
+          <td><code>\e625</code></td>
+          <td>Tumblrアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-medium</code></td>
+          <td><code>\e616</code></td>
+          <td>Mediumアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-deviantart</code></td>
+          <td><code>\e60b</code></td>
+          <td>DeviantArtアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-stackoverflow</code></td>
+          <td><code>\e620</code></td>
+          <td>StackOverflowアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-keybase</code></td>
+          <td><code>\e61e</code></td>
+          <td>Keybaseアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-telegram</code></td>
+          <td><code>\e623</code></td>
+          <td>Telegramアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-discord</code></td>
+          <td><code>\e60d</code></td>
+          <td>Discordアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-steam</code></td>
+          <td><code>\e624</code></td>
+          <td>Steamアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-email</code></td>
+          <td><code>\e63c</code></td>
+          <td>メール</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-toc-btn</code></td>
+          <td><code>\e633</code></td>
+          <td>目次ボタン</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-common-btn</code></td>
+          <td><code>\e632</code></td>
+          <td>サイドバー共通ボタン</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-top .arrow-up</code></td>
+          <td><code>\e634</code></td>
+          <td>上矢印</td>
+      </tr>
+      <tr>
+          <td><code>.icon-link</code></td>
+          <td><code>\e639</code></td>
+          <td>リンク</td>
+      </tr>
+      <tr>
+          <td><code>.icon-globe</code></td>
+          <td><code>\e638</code></td>
+          <td>地球 / 多言語</td>
+      </tr>
+      <tr>
+          <td><code>.icon-creative-commons</code></td>
+          <td><code>\e63a</code></td>
+          <td>CCライセンス</td>
+      </tr>
+      <tr>
+          <td><code>.icon-taichi</code></td>
+          <td><code>\e62b</code></td>
+          <td>太極（ダークモード）</td>
+      </tr>
+      <tr>
+          <td><code>.icon-weixin</code></td>
+          <td><code>\e640</code></td>
+          <td>WeChatアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-qq</code></td>
+          <td><code>\e63e</code></td>
+          <td>QQアイコン</td>
+      </tr>
+      <tr>
+          <td><code>.icon-image</code></td>
+          <td><code>\e63f</code></td>
+          <td>画像アイコン</td>
+      </tr>
+  </tbody>
+</table>
+
+        <hr><p>本文 2025-04-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>春が来たから</title>
+      <link>http://localhost:1313/ja/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</link>
+      <pubDate>Wed, 13 Nov 2024 22:07:40 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</guid>
+      <description><![CDATA[<h1>春が来たから</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h3 id="この詩を私の人生のあのpolarisに捧ぐ">
+<a class="header-anchor" href="#%e3%81%93%e3%81%ae%e8%a9%a9%e3%82%92%e7%a7%81%e3%81%ae%e4%ba%ba%e7%94%9f%e3%81%ae%e3%81%82%e3%81%aepolaris%e3%81%ab%e6%8d%a7%e3%81%90"></a>
+――この詩を、私の人生のあのPolarisに捧ぐ
+</h3><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/11/1787644976.jpg" alt="IMG_4884.jpg"></p>
+<p><strong>ある可愛らしい旅人が、誰にも顧みられない風景を通り過ぎた。彼女は異国の暖かい風をもたらし、干上がった畑を吹き抜け、木々の梢を撫で、湖面にきらめく波紋を描いた。<br>
+果樹たちはこぞってこの美人に魅了され、急いで花を咲かせ実を結んだ。森の鳥たちは数少ない花枝を探し求め、花冠を編んで彼女の頭に載せた。<br>
+旅人は花びらの舞い散る中を歩き、厚意に甘えて真っ赤な実をいくつか摘んだ。そして一方的に受け取るだけでは申し訳なく思い、ポケットの中の花の種をすべて取り出し、ひび割れた地面のあちこちに蒔いた。<br>
+ただ荒れ果てた畑だけが、恥ずかしさと後ろめたさでいっぱいだった――この愛らしい娘に捧げるものは何もないのか？<br>
+彼はありったけの力で花の種に早く育つよう促し、畑に咲き誇る花々を彼女に見せたいと願った。<br>
+だが旅人はここに長く留まる運命になかった――この風景は確かに素晴らしく、木々も鳥たちも親切だったが、ここは家を構えるのに適した場所ではなかったのだ。<br>
+旅人が去ると、果樹も鳥たちも畑も名残惜しかった。<br>
+畑の花々はまだ贈られることなく、次の旅人が来た時には美しい庭園が見られるかもしれない。<br>
+けれど誰もこれを悲しんではいなかった、<br>
+春が来たからだ。</strong></p>
+<p><strong>冬が去り春が来て、秋が去り冬が来る。<br>
+果実は小さな果樹となり、ひな鳥は飛ぶことを覚えた。年輪は木の幹に巻き付き、夏の雨が羽をぴかぴかに洗った。<br>
+畑が心を込めて育てた庭では、最後の菊が花期を過ぎ、空っぽの茎が寒風に揺れていた。<br>
+この土地はもはや荒れ果ててはいない。過ぎ去ったいくつもの季節、旅人が蒔いた種は芽を出し、決められた花期に従って世界にその美しさを披露した。朝露を飲み、朝日を浴び、清風に舞い、月光に寄り添った。<br>
+春、畑はクチナシとサンザシで純白の花冠を作った。旅人の白いドレスのように美しかった。<br>
+夏、畑はサルスベリとムクゲで花籠を作ったが、ムクゲは朝咲いて夕方に散るので、旅人が急いで去っていくようだった。<br>
+秋、畑はキンモクセイとシマカンギクで花のベッドを作ろうとしたが、秋風が情趣を解さず何度もキンモクセイの香りを運び去った。<br>
+花々は使命を帯びて短い命を謳歌し、土の中で次の旅支度をした。<br>
+旅人は二度と戻ってこなかった。彼女は自分が無造作に蒔いた種がすでに庭園に成長したことを知らず、畑もまた彼の贈り物を捧げる機会を永遠に失った。<br>
+冬が去り春が来て、秋が去り冬が来る。<br>
+畑は雪を待ち望んだ。雪が降れば、地中の種に暖かい布団をかけてやれる。もし来年、旅人が再びこの桃源郷を訪れるなら、この庭園はあの愛らしい娘にふさわしいものになるだろう。<br>
+初冬の細雨の中、彼は静かに眠りにつき、10月の最後のタンポポが風に乗って旅立ち、旅人の頬に追いつきそうな夢を見た。<br>
+「花の種が冬を越せないんじゃないかと心配しないの？」木々と鳥たちが畑に尋ねた。今の畑はまた裸同然で何もなくなっていた。<br>
+「大丈夫、私はもう春を見たから。」<br>
+春が来たからだ。</strong></p>
+        <hr><p>本文 2024-11-13 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-11-13</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Poetry</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>旅人と花</title>
+      <link>http://localhost:1313/ja/post/poetry/%E6%97%85%E4%BA%BA%E4%B8%8E%E8%8A%B1%E5%84%BF/</link>
+      <pubDate>Mon, 18 Dec 2023 20:13:15 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/poetry/%E6%97%85%E4%BA%BA%E4%B8%8E%E8%8A%B1%E5%84%BF/</guid>
+      <description><![CDATA[<h1>旅人と花</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p>愛らしい旅人が、誰にも賞賛されない風景を通り過ぎた。彼女がもたらした異国の暖かい風は、干上がった畑を吹き抜け、木々の梢を撫で、湖面にきらめく波紋を描いた。</p>
+<p>果樹たちはこぞってこの美人に魅了され、急いで花を咲かせ実を結んだ。森の鳥たちは数少ない花枝を探し求め、花冠を編んで彼女の頭に載せた。</p>
+<p>旅人は花びらの舞い散る中を歩き、その厚意に逆らえず、いくつかの真っ赤な果実を摘んだ。ただ受け取るだけでは申し訳なく、ポケットの中の花の種をすべて取り出し、ひび割れた地面のあちこちに蒔いた。</p>
+<p>ただ荒れ果てた畑だけが、恥ずかしさと後悔に苛まれた――この愛らしい娘に捧げるものなど何があるだろうか？</p>
+<p>畑はありったけの力で花の種に早く育つよう促し、彼女に咲き誇る花々を見せたいと願った。</p>
+<p>しかし旅人はここに長く留まる運命ではない――確かにここは素晴らしい風景で、木々も鳥たちも親切だったが、ただ、家と呼ぶにはふさわしい場所ではなかったのだ。</p>
+<p>旅人が去ると、果樹も鳥たちも畑も、少し寂しさを感じた。</p>
+<p>畑の花々はまだ贈られることなく、おそらく次の旅人が訪れた時には美しい庭園が見られるだろう。</p>
+<p><strong>しかし誰もこれを悲しんではいなかった、</strong></p>
+<p><strong>春が訪れたのだから。</strong></p>
+
+        <hr><p>本文 2023-12-18 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-18</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Poetry</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>独立と相互独立</title>
+      <link>http://localhost:1313/ja/post/thoughts/%E7%8B%AC%E7%AB%8B%E4%B8%8E%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B/</link>
+      <pubDate>Fri, 15 Dec 2023 00:21:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/thoughts/%E7%8B%AC%E7%AB%8B%E4%B8%8E%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B/</guid>
+      <description><![CDATA[<h1>独立と相互独立</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="間違ったことをした時まだ取り返しがつかないとは思っていなかった">
+<a class="header-anchor" href="#%e9%96%93%e9%81%95%e3%81%a3%e3%81%9f%e3%81%93%e3%81%a8%e3%82%92%e3%81%97%e3%81%9f%e6%99%82%e3%81%be%e3%81%a0%e5%8f%96%e3%82%8a%e8%bf%94%e3%81%97%e3%81%8c%e3%81%a4%e3%81%8b%e3%81%aa%e3%81%84%e3%81%a8%e3%81%af%e6%80%9d%e3%81%a3%e3%81%a6%e3%81%84%e3%81%aa%e3%81%8b%e3%81%a3%e3%81%9f"></a>
+間違ったことをした時、まだ取り返しがつかないとは思っていなかった。
+</h2><p>18年間の放浪が教えてくれたのは、後悔する価値のあるものなど何もないということだ。良い結果でも悪い結果でも、全ては成長の過程で必ず通る道に過ぎない。言い換えれば、それは<strong>運命</strong>であり、「そうあるべきもの」なのだ。</p>
+<p>本当に取り返しがつかず、どうしても諦められない過ちを犯すまでは、独立心という誇りは短い麻酔薬に過ぎなかった。その唯一の効能は、ふと振り返った時に痛みを倍増させることだった。</p>
+<h2 id="この棘を抜こうとすればするほど深く刺さっていく">
+<a class="header-anchor" href="#%e3%81%93%e3%81%ae%e6%a3%98%e3%82%92%e6%8a%9c%e3%81%93%e3%81%86%e3%81%a8%e3%81%99%e3%82%8c%e3%81%b0%e3%81%99%e3%82%8b%e3%81%bb%e3%81%a9%e6%b7%b1%e3%81%8f%e5%88%ba%e3%81%95%e3%81%a3%e3%81%a6%e3%81%84%e3%81%8f"></a>
+この棘を抜こうとすればするほど、深く刺さっていく。
+</h2><p>因果関係を検討すればするほど、後悔と妄想が私の脳をますます占領していく。若い頃の頑固さは次々と敗退し、弱さの門を大きく開く――やはり後悔しないことなどないのだ、ただ痛いところを突かれていないだけだった。この唯一無二を打ち砕いて、彼が何で代用するか見てやろう！</p>
+<p>「あの時……すればよかった」――時が経つにつれ、こんな美しい妄想さえも跡形もなく消え、空虚な後悔だけが空虚な記憶を埋め尽くす。まるで廃墟の灯台が一度も光を導かなかったように。</p>
+<h2 id="今さら後悔したところで何の意味があるだろう">
+<a class="header-anchor" href="#%e4%bb%8a%e3%81%95%e3%82%89%e5%be%8c%e6%82%94%e3%81%97%e3%81%9f%e3%81%a8%e3%81%93%e3%82%8d%e3%81%a7%e4%bd%95%e3%81%ae%e6%84%8f%e5%91%b3%e3%81%8c%e3%81%82%e3%82%8b%e3%81%a0%e3%82%8d%e3%81%86"></a>
+今さら後悔したところで、何の意味があるだろう？
+</h2><p>時間は逆転せず、取り返しがつかないものはどうしようもない。私にできるのは自分を騙し、この棘を**「成長過程で必ず通る挫折の一つ」**と位置付けることだけだ。</p>
+<blockquote>
+<p>独立とは、体に刺さった棘に慣れることに過ぎない――眼鏡をかけていると、そのうち異物感がなくなるのと同じように。<br>
+孤筝</p></blockquote>
+<p>時の流れの向こう側から振り返り、心の底から全ての出来事に正誤はなく必然の結果だと信じ、後悔も妄想もない。</p>
+<p>そして独立は必ず相互に独立しているから、</p>
+$$Pr(A∩B)=Pr(A)×Pr(B)$$<p>おそらく相手も笑いながらこの話をできるようになったのだろう。</p>
+<p><strong>ただ、たまに思うことがある。足跡で汚されていないもう一つの道には、どんな風景が広がっていたのだろうかと。</strong></p>
+
+        <hr><p>本文 2023-12-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-15</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+  </channel>
+</rss>

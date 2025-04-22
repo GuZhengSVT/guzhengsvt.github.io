@@ -1,0 +1,3340 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>Physics on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/ja/categories/physics/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Wed, 04 Sep 2024 23:44:15 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/ja/categories/physics/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>デジタル信号処理</title>
+      <link>http://localhost:1313/ja/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link>
+      <pubDate>Wed, 04 Sep 2024 23:44:15 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid>
+      <description><![CDATA[<h1>デジタル信号処理</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="デジタル信号処理の基本概念">
+<a class="header-anchor" href="#%e3%83%87%e3%82%b8%e3%82%bf%e3%83%ab%e4%bf%a1%e5%8f%b7%e5%87%a6%e7%90%86%e3%81%ae%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5"></a>
+デジタル信号処理の基本概念
+</h1><h2 id="信号の分類">
+<a class="header-anchor" href="#%e4%bf%a1%e5%8f%b7%e3%81%ae%e5%88%86%e9%a1%9e"></a>
+信号の分類
+</h2><ol>
+<li>連続信号：アナログ信号、時域連続信号。</li>
+<li>時域離散信号：振幅値が連続、時間値が離散。</li>
+<li>振幅離散信号：振幅値が離散、時間値が連続。</li>
+<li>デジタル信号：振幅と時間の両方が離散値。</li>
+</ol>
+<h3 id="違い">
+<a class="header-anchor" href="#%e9%81%95%e3%81%84"></a>
+違い
+</h3><p>時域離散信号とデジタル信号の違いは、デジタル信号に量子化誤差が存在する点のみである。</p>
+<h2 id="デジタル信号処理の実現方法">
+<a class="header-anchor" href="#%e3%83%87%e3%82%b8%e3%82%bf%e3%83%ab%e4%bf%a1%e5%8f%b7%e5%87%a6%e7%90%86%e3%81%ae%e5%ae%9f%e7%8f%be%e6%96%b9%e6%b3%95"></a>
+デジタル信号処理の実現方法
+</h2><p>デジタル信号処理の主な対象は<strong>デジタル信号</strong>であり、<strong>数値演算</strong>の方法を用いて処理目的を達成する。</p>
+<h3 id="ソフトウェア実装">
+<a class="header-anchor" href="#%e3%82%bd%e3%83%95%e3%83%88%e3%82%a6%e3%82%a7%e3%82%a2%e5%ae%9f%e8%a3%85"></a>
+ソフトウェア実装
+</h3><p>原理とアルゴリズムに基づき、プログラムを作成して汎用コンピュータで実現する。</p>
+<ul>
+<li>利点：柔軟性が高い</li>
+<li>欠点：演算速度が遅く、リアルタイム処理効果を得ることが難しい。</li>
+<li>アルゴリズム研究とシミュレーションに適している。</li>
+</ul>
+<h3 id="ハードウェア実装">
+<a class="header-anchor" href="#%e3%83%8f%e3%83%bc%e3%83%89%e3%82%a6%e3%82%a7%e3%82%a2%e5%ae%9f%e8%a3%85"></a>
+ハードウェア実装
+</h3><p>具体的な要求とアルゴリズムに従い、ハードウェア構成図を設計し、乗算器、加算器、遅延器、制御器、メモリ、および入出力インターフェースなどの基本部品を用いて実現する。</p>
+<ul>
+<li>利点：演算速度が速く、リアルタイム処理が可能</li>
+<li>欠点：柔軟性に欠ける</li>
+</ul>
+<p>ハードウェア実装とは、適切なDSPチップを選択し、チップの言語とタスク要求に適合するソフトウェアを組み合わせて、特定の信号処理機能を実現する方法である。</p>
+<h3 id="専用チップ">
+<a class="header-anchor" href="#%e5%b0%82%e7%94%a8%e3%83%81%e3%83%83%e3%83%97"></a>
+専用チップ
+</h3><p>専用の**デジタル信号処理チップ（DSPチップ）**を採用する方法は、現在最も発展が速く、応用が広い方法である。DSPチップは汎用マイクロコントローラよりも優れた利点を持ち、デジタル信号処理の特徴を組み合わせ、<strong>内部に乗算器とアキュムレータを備え</strong>、構造上パイプライン動作方式および並列構造、マルチバスを採用し、デジタル信号処理に適した命令を備えた、高速演算が可能なマイクロプロセッサである。</p>
+<p>より高速なリアルタイムシステムにおいて、DSPの速度も要求を満たさない場合、プログラマブル超大规模集積回路（FPGA）を採用するか、専用チップを開発して実現する必要がある。</p>
+<h2 id="デジタル信号処理の特徴">
+<a class="header-anchor" href="#%e3%83%87%e3%82%b8%e3%82%bf%e3%83%ab%e4%bf%a1%e5%8f%b7%e5%87%a6%e7%90%86%e3%81%ae%e7%89%b9%e5%be%b4"></a>
+デジタル信号処理の特徴
+</h2><p>アナログ信号処理と比較して、デジタル信号処理には以下の特徴があります：</p>
+<ol>
+<li>柔軟性</li>
+<li>高精度と高安定性</li>
+<li>大規模集積化が容易</li>
+<li>記憶、複雑な変換や演算など、アナログシステムでは実現できない多くの機能を実現可能。</li>
+</ol>
+<h2 id="信号の次元">
+<a class="header-anchor" href="#%e4%bf%a1%e5%8f%b7%e3%81%ae%e6%ac%a1%e5%85%83"></a>
+信号の次元
+</h2><p>信号は通常、1つの独立変数または複数の独立変数の関数です。
+独立変数が1つだけの場合、それは1次元信号と呼ばれます。2つ以上の独立変数がある場合、それは多次元信号と呼ばれます。</p>
+<h1 id="時間領域離散信号とシステム">
+<a class="header-anchor" href="#%e6%99%82%e9%96%93%e9%a0%98%e5%9f%9f%e9%9b%a2%e6%95%a3%e4%bf%a1%e5%8f%b7%e3%81%a8%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0"></a>
+時間領域離散信号とシステム
+</h1><h2 id="時間領域離散信号">
+<a class="header-anchor" href="#%e6%99%82%e9%96%93%e9%a0%98%e5%9f%9f%e9%9b%a2%e6%95%a3%e4%bf%a1%e5%8f%b7"></a>
+時間領域離散信号
+</h2><p>実際に遭遇する信号は一般的にアナログ信号であり、これに<strong>等間隔サンプリング</strong>を施すことで時間領域離散信号を得ることができる。</p>
+<p>アナログ信号 $x_a(t)$ 、離散時間点 $t_n$ 。
+均一サンプリング（等間隔サンプリング）の場合、サンプリング間隔 $T$ 、$t_n=nT$
+</p>
+$$
+x(n)=x_a(t)|_{t=nT}=x_a(nT),- \infty<n<\infty
+$$<p>
+$x(n)$ を時間領域離散信号と呼び、$n$ を整数とすると、次のようなシーケンスが得られる。
+</p>
+$$
+x(n)=\{\cdots ,x_a(-2T),x_a(-T),x_a(0),x_a(T),x_a(2T),\cdots \}
+$$<p>
+時間領域離散信号はシーケンスとも呼ばれる。</p>
+<h3 id="シーケンスの表現方法">
+<a class="header-anchor" href="#%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9%e3%81%ae%e8%a1%a8%e7%8f%be%e6%96%b9%e6%b3%95"></a>
+シーケンスの表現方法
+</h3><h4 id="集合記号">
+<a class="header-anchor" href="#%e9%9b%86%e5%90%88%e8%a8%98%e5%8f%b7"></a>
+集合記号
+</h4><p>数の集合は集合記号 $\{\cdot \}$ で表され、時間領域離散信号は順序付けられた数の集合として表現できる。
+集合内で下線が引かれた要素は、$n=0$ の時刻におけるサンプル値を示す。</p>
+<h4 id="数式表現">
+<a class="header-anchor" href="#%e6%95%b0%e5%bc%8f%e8%a1%a8%e7%8f%be"></a>
+数式表現
+</h4><p>例:</p>
+$$
+x(n)=a^{|n|},0<a<1,-\infty<n<\infty
+$$<h4 id="グラフ表現">
+<a class="header-anchor" href="#%e3%82%b0%e3%83%a9%e3%83%95%e8%a1%a8%e7%8f%be"></a>
+グラフ表現
+</h4><p>横軸を $n$ 、縦軸を $x$ の値とし、縦線の先端に黒点を付ける。</p>
+<h3 id="一般的な代表的なシーケンス">
+<a class="header-anchor" href="#%e4%b8%80%e8%88%ac%e7%9a%84%e3%81%aa%e4%bb%a3%e8%a1%a8%e7%9a%84%e3%81%aa%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9"></a>
+一般的な代表的なシーケンス
+</h3><h4 id="単位インパルスシーケンス">
+<a class="header-anchor" href="#%e5%8d%98%e4%bd%8d%e3%82%a4%e3%83%b3%e3%83%91%e3%83%ab%e3%82%b9%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9"></a>
+単位インパルスシーケンス $\delta(n)$
+</h4>$$
+\delta(n)=
+\begin{cases}
+1 & n=0\\
+0 & n \ne 0\\
+\end{cases}
+$$<p>
+単位サンプリングシーケンスとも呼ばれ、単位インパルス信号 $\delta(t)$ とは異なる。</p>
+<h4 id="単位ステップシーケンス">
+<a class="header-anchor" href="#%e5%8d%98%e4%bd%8d%e3%82%b9%e3%83%86%e3%83%83%e3%83%97%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9"></a>
+単位ステップシーケンス $u(n)$
+</h4>$$
+u(n)=
+\begin{cases}
+1 & n \ge 0\\
+0 & n < 0\\
+\end{cases}
+$$$$
+\delta(n)=u(n)-u(n-1)
+$$<p>
+</p>
+$$
+u(n)=\sum^{\infty}_{k=0}\delta(n-k)
+$$<h4 id="矩形シーケンス">
+<a class="header-anchor" href="#%e7%9f%a9%e5%bd%a2%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9"></a>
+矩形シーケンス $R_N(n)$
+</h4>$$
+R_N(n)=
+\begin{cases}
+1 & 0 \le n \le N-1\\
+0 & Others
+\end{cases}
+$$<p>
+$N$ を矩形シーケンスの長さと呼び、矩形シーケンスは単位ステップシーケンスで表現できる。
+</p>
+$$
+R_N(n)=u(n)-u(n-N)
+$$<h4 id="実指数シーケンス">
+<a class="header-anchor" href="#%e5%ae%9f%e6%8c%87%e6%95%b0%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9"></a>
+実指数シーケンス
+</h4>$$
+x(n)=a^n u(n),a は実数
+$$<ul>
+<li>$|a|<1$ の場合、$x(n)$ を収束シーケンスと呼ぶ</li>
+<li>$|a|>1$ の場合、$x(n)$ を発散シーケンスと呼ぶ</li>
+</ul>
+<h4 id="正弦波シーケンス">
+<a class="header-anchor" href="#%e6%ad%a3%e5%bc%a6%e6%b3%a2%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9"></a>
+正弦波シーケンス
+</h4>$$
+x(n)=\sin (\omega n)
+$$<p>
+$\omega$ を正弦波シーケンスの**デジタル領域周波数（デジタル周波数）**と呼び、単位はラジアン $rad$ で、シーケンスの変化率（隣接する2つのシーケンス値間の位相変化のラジアン数）を表す。</p>
+<p><strong>アナログ角周波数 $\varOmega$</strong>、正弦波シーケンスがアナログ信号 $x_a(t)=\sin (\varOmega t)$ からサンプリングされた場合
+</p>
+$$
+x(n)=x_a(t)|_{t=nT}=\sin (\varOmega nT)=\sin (\omega n)
+$$<p>
+これにより、デジタル周波数とアナログ角周波数の関係が得られる。
+</p>
+$$
+\omega=\varOmega T
+$$<p>
+サンプリング周波数 $F_s=\frac{1}{T}$ であるため、
+</p>
+$$
+\omega=\frac{\varOmega}{F_s}
+$$<p>
+<em>デジタル領域周波数は、アナログ角周波数をサンプリング周波数で正規化した周波数である。</em></p>
+<h4 id="複素指数シーケンス">
+<a class="header-anchor" href="#%e8%a4%87%e7%b4%a0%e6%8c%87%e6%95%b0%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9"></a>
+複素指数シーケンス
+</h4>$$
+x(n)=e^{(\sigma+j \omega_0)n}=\cos(\omega_0 n)+j \sin(\omega_0 n)
+$$<p>
+$n$ が整数であるため、正弦波シーケンスと複素指数シーケンスはともに $2 \pi$ を周期とする。</p>
+<h4 id="周期シーケンス">
+<a class="header-anchor" href="#%e5%91%a8%e6%9c%9f%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9"></a>
+周期シーケンス
+</h4><p>すべての $n$ に対して、<strong>最小の正の整数</strong> $N$ が存在し、次の等式が成り立つ場合：
+</p>
+$$
+x(n)=x(n+N),-\infty<n<\infty
+$$<p>
+シーケンス $x(n)$ を周期的シーケンスと呼び、周期を $N$ とする。</p>
+<h3 id="シーケンスの演算">
+<a class="header-anchor" href="#%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9%e3%81%ae%e6%bc%94%e7%ae%97"></a>
+シーケンスの演算
+</h3><p>簡単</p>
+<h4 id="加算と乗算">
+<a class="header-anchor" href="#%e5%8a%a0%e7%ae%97%e3%81%a8%e4%b9%97%e7%ae%97"></a>
+加算と乗算
+</h4><h4 id="シフト反転スケール変換">
+<a class="header-anchor" href="#%e3%82%b7%e3%83%95%e3%83%88%e5%8f%8d%e8%bb%a2%e3%82%b9%e3%82%b1%e3%83%bc%e3%83%ab%e5%a4%89%e6%8f%9b"></a>
+シフト、反転、スケール変換
+</h4><h2 id="離散時間領域システム">
+<a class="header-anchor" href="#%e9%9b%a2%e6%95%a3%e6%99%82%e9%96%93%e9%a0%98%e5%9f%9f%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0"></a>
+離散時間領域システム
+</h2><p>システムの入力が $x(n)$、出力が $y(n)$ で、演算関係は $T[\cdot]$ で表される。
+</p>
+$$
+y(n)=T[x(n)]
+$$<h3 id="線形システム">
+<a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0"></a>
+線形システム
+</h3><p>システムの入力と出力の間が線形重ね合わせの原理を満たすシステムを線形システムと呼ぶ。</p>
+<h4 id="加法性">
+<a class="header-anchor" href="#%e5%8a%a0%e6%b3%95%e6%80%a7"></a>
+加法性
+</h4>$$
+y_1(n)=T[x_1(n)],y_2(n)=T[x_2(n)]
+$$<p>
+</p>
+$$
+T[x_1(n)+x_2(n)]=y_1(n)+y_2(n)
+$$<h4 id="斉次性比例性">
+<a class="header-anchor" href="#%e6%96%89%e6%ac%a1%e6%80%a7%e6%af%94%e4%be%8b%e6%80%a7"></a>
+斉次性（比例性）
+</h4>$$
+T[a \times x(n)]=a \times y(n)
+$$<h3 id="時不変システム">
+<a class="header-anchor" href="#%e6%99%82%e4%b8%8d%e5%a4%89%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0"></a>
+時不変システム
+</h3><p>システムが入力信号に対する演算関係 $T[\cdot]$ が演算過程全体で時間変化せず、あるいはシステムが入力信号に応答する時間に依存しない場合、このようなシステムを時不変システムと呼ぶ。
+</p>
+$$
+y(n)=T[x(n)]
+$$<p>
+</p>
+$$
+y(n-n_0)=T[x(n-n_0)]
+$$<h3 id="線形時不変システムの特徴">
+<a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e6%99%82%e4%b8%8d%e5%a4%89%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%81%ae%e7%89%b9%e5%be%b4"></a>
+線形時不変システムの特徴
+</h3><p>完全応答=零入力応答+零状態応答</p>
+<h4 id="単位インパルス応答">
+<a class="header-anchor" href="#%e5%8d%98%e4%bd%8d%e3%82%a4%e3%83%b3%e3%83%91%e3%83%ab%e3%82%b9%e5%bf%9c%e7%ad%94"></a>
+単位インパルス応答
+</h4><p>初期状態が 0（零入力応答なし）
+</p>
+$$
+h(n)=T[\delta(n)]
+$$<p>
+</p>
+$$
+x(n)=\sum^{\infty}_{m=-\infty}x(m)\delta(n-m)
+$$<p>
+</p>
+$$
+\begin{align}
+y(n)
+&=T[x(n)]\\
+&=T[\sum^{\infty}_{m=-\infty}x(m)\delta(n-m)]\\
+&=\sum^{\infty}_{m=-\infty}x(m)T[\delta(n-m)]\\
+&=\sum^{\infty}_{m=-\infty}x(m)h(n-m)\\
+&=x(n)*h(n)
+\end{align}
+$$<p>
+畳み込みに関する知識は『信号とシステム』を参照</p>
+<h3 id="システムの因果性">
+<a class="header-anchor" href="#%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%81%ae%e5%9b%a0%e6%9e%9c%e6%80%a7"></a>
+システムの因果性
+</h3><p>定義：システムの $n$ 時点の出力が $n$ 時点およびそれ以前の入力系列のみに依存し、$n$ 時点以降の入力系列に依存しない場合、そのシステムは因果性を持つ、または因果システムであると言う。</p>
+<p>==必要十分条件==：システムの単位インパルス応答が次の式を満たす
+</p>
+$$
+h(n)=0 \quad n<0
+$$<h3 id="システムの安定性">
+<a class="header-anchor" href="#%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%81%ae%e5%ae%89%e5%ae%9a%e6%80%a7"></a>
+システムの安定性
+</h3><p>定義：有界な入力に対して、システムが生成する出力も<strong>有界</strong>である場合、そのシステムは安定性を持つ、または安定システムであると言う。
+==必要十分条件==：システムの単位インパルス応答が絶対可和である。
+</p>
+$$
+\sum^{\infty}_{m=-\infty}|h(n)|<\infty
+$$<h3 id="線形定係数差分方程式">
+<a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e5%ae%9a%e4%bf%82%e6%95%b0%e5%b7%ae%e5%88%86%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+線形定係数差分方程式
+</h3>
+        <hr><p>本文 2024-09-04 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-04</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Physics</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>空気力学の基礎</title>
+      <link>http://localhost:1313/ja/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 02 Sep 2024 22:13:45 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid>
+      <description><![CDATA[<h1>空気力学の基礎</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="流体静力学の基礎">
+<a class="header-anchor" href="#%e6%b5%81%e4%bd%93%e9%9d%99%e5%8a%9b%e5%ad%a6%e3%81%ae%e5%9f%ba%e7%a4%8e"></a>
+流体静力学の基礎
+</h1><h2 id="気体の性質">
+<a class="header-anchor" href="#%e6%b0%97%e4%bd%93%e3%81%ae%e6%80%a7%e8%b3%aa"></a>
+気体の性質
+</h2><h2 id="圧縮性">
+<a class="header-anchor" href="#%e5%9c%a7%e7%b8%ae%e6%80%a7"></a>
+圧縮性
+</h2><h2 id="体積弾性係数">
+<a class="header-anchor" href="#%e4%bd%93%e7%a9%8d%e5%bc%be%e6%80%a7%e4%bf%82%e6%95%b0"></a>
+体積弾性係数
+</h2><p>定義：単位相対体積変化を生じさせるために必要な圧力増加</p>
+$$
+E=-\frac{dp}{dV/V}
+$$<p>一定質量の気体において、体積と密度は反比例の関係にあり、すなわち</p>
+$$
+\frac{d \rho}{\rho}=-\frac{dV}{V}
+$$<p>これを代入すると</p>
+$$
+E=\rho \frac{dp}{d \rho}
+$$<p>常温における水の体積弾性係数：$2.1 \times 10^9N/m^2$</p>
+<p>通常、水は非圧縮性流体と見なすことができる。</p>
+<h2 id="粘性">
+<a class="header-anchor" href="#%e7%b2%98%e6%80%a7"></a>
+粘性
+</h2><p>粘性（viscosity）とは、流体が流動する際に生じる内部摩擦の性質を指します。粘性は流体の種類や温度によって大きく変化します。</p>
+<h3 id="粘性の定義">
+<a class="header-anchor" href="#%e7%b2%98%e6%80%a7%e3%81%ae%e5%ae%9a%e7%be%a9"></a>
+粘性の定義
+</h3><p>粘性は、流体の層間に速度勾配が存在するときに生じるせん断応力として定義されます。ニュートン流体では、せん断応力τは速度勾配du/dyに比例します：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">τ = μ * (du/dy)
+</span></span></code></pre></div><p>ここで：</p>
+<ul>
+<li>μ：粘性係数（動粘度）</li>
+<li>du/dy：速度勾配</li>
+</ul>
+<h3 id="粘性の種類">
+<a class="header-anchor" href="#%e7%b2%98%e6%80%a7%e3%81%ae%e7%a8%ae%e9%a1%9e"></a>
+粘性の種類
+</h3><ol>
+<li>
+<p><strong>動粘度（Dynamic viscosity）</strong><br>
+単位はPa・s（パスカル秒）。絶対粘度とも呼ばれます。</p>
+</li>
+<li>
+<p><strong>動粘度（Kinematic viscosity）</strong><br>
+動粘度を密度で割った値で、単位はm²/s。ν = μ/ρ で表されます。</p>
+</li>
+</ol>
+<h3 id="温度の影響">
+<a class="header-anchor" href="#%e6%b8%a9%e5%ba%a6%e3%81%ae%e5%bd%b1%e9%9f%bf"></a>
+温度の影響
+</h3><ul>
+<li><strong>液体</strong>：温度が上昇すると粘性は減少します</li>
+<li><strong>気体</strong>：温度が上昇すると粘性は増加します</li>
+</ul>
+<h3 id="代表的な流体の粘性">
+<a class="header-anchor" href="#%e4%bb%a3%e8%a1%a8%e7%9a%84%e3%81%aa%e6%b5%81%e4%bd%93%e3%81%ae%e7%b2%98%e6%80%a7"></a>
+代表的な流体の粘性
+</h3><table>
+  <thead>
+      <tr>
+          <th>物質</th>
+          <th>温度(℃)</th>
+          <th>動粘度(Pa・s)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>水</td>
+          <td>20</td>
+          <td>0.001002</td>
+      </tr>
+      <tr>
+          <td>空気</td>
+          <td>20</td>
+          <td>0.0000181</td>
+      </tr>
+      <tr>
+          <td>蜂蜜</td>
+          <td>20</td>
+          <td>~10</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="非ニュートン流体">
+<a class="header-anchor" href="#%e9%9d%9e%e3%83%8b%e3%83%a5%e3%83%bc%e3%83%88%e3%83%b3%e6%b5%81%e4%bd%93"></a>
+非ニュートン流体
+</h3><p>剪断速度によって粘性が変化する流体を非ニュートン流体と呼びます。例えば：</p>
+<ul>
+<li>ケチャップ（シア・シニング流体）</li>
+<li>歯磨き粉（ビンガム流体）</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 粘性計算の例</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">calculate_shear_stress</span><span class="p">(</span><span class="n">viscosity</span><span class="p">,</span> <span class="n">velocity_gradient</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    せん断応力を計算する
+</span></span></span><span class="line"><span class="cl"><span class="s2">    viscosity: 粘性係数 (Pa・s)
+</span></span></span><span class="line"><span class="cl"><span class="s2">    velocity_gradient: 速度勾配 (1/s)
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">viscosity</span> <span class="o">*</span> <span class="n">velocity_gradient</span>
+</span></span></code></pre></div><p>粘性は、ポンプの設計、潤滑、食品加工など、多くの工業プロセスで重要なパラメータです。</p>
+<h2 id="ニュートンの粘性法則">
+<a class="header-anchor" href="#%e3%83%8b%e3%83%a5%e3%83%bc%e3%83%88%e3%83%b3%e3%81%ae%e7%b2%98%e6%80%a7%e6%b3%95%e5%89%87"></a>
+ニュートンの粘性法則
+</h2><p>流体の運動によって生じる摩擦抵抗は接触面積に比例する</p>
+$$
+\tau =\mu \frac{du}{d \vec{n}}
+$$<p>$\tau$ ：摩擦<strong>応力</strong>、単位面積あたりの摩擦抵抗</p>
+<p>$\vec{n}$ ：接触面の法線方向</p>
+<p>$\mu$ ：比例定数、流体の<strong>粘性係数</strong>と呼ばれ、単位は $N \cdot s/m^2$</p>
+<p>$\frac{du}{d \vec{n}}$ ：速度勾配</p>
+<p>異なる流体媒質の粘性係数値はそれぞれ異なり、粘性係数は温度変化に伴って変化し、圧力とは基本的に関係ない。</p>
+<p>気体の粘性係数は温度上昇と共に増加する。</p>
+<h2 id="サザーランドの式">
+<a class="header-anchor" href="#%e3%82%b5%e3%82%b6%e3%83%bc%e3%83%a9%e3%83%b3%e3%83%89%e3%81%ae%e5%bc%8f"></a>
+サザーランドの式
+</h2><p>空気の粘性係数が温度によって変化する関係を表す近似式の一つ、サザーランドの式</p>
+$$
+\frac{\mu}{\mu_0}=(\frac{T}{288.15})^{1.5}\frac{288.15+C}{T+C}
+$$<p>$\mu_0$ ：温度が $288.15K$ のときの空気の粘性係数</p>
+<p>$C$ ：定数、値は $110.4K$</p>
+<h2 id="動粘度係数">
+<a class="header-anchor" href="#%e5%8b%95%e7%b2%98%e5%ba%a6%e4%bf%82%e6%95%b0"></a>
+動粘度係数
+</h2>$$
+\nu=\frac{\mu}{\rho}
+$$<p>$\nu$ ：動粘度係数，単位は $m^2/s$</p>
+<p>$\mu$ ：粘性係数</p>
+<p>$\rho$ ：密度</p>
+<h2 id="熱伝導性">
+<a class="header-anchor" href="#%e7%86%b1%e4%bc%9d%e5%b0%8e%e6%80%a7"></a>
+熱伝導性
+</h2><p>定義：気体中のある方向に温度勾配が存在する場合、熱は温度の高い場所から低い場所へと伝わる。この性質を気体の熱伝導性と呼ぶ。</p>
+<p>単位時間内に伝達される熱量は、伝熱面積に比例し、熱流方向の温度勾配に比例する。すなわち、</p>
+$$
+q=-\lambda \frac{\partial T}{\partial \vec{n}}
+$$<p>$q$ ：単位時間当たりの単位面積を通過する熱量、単位 $kJ/(m^2 \cdot s)$</p>
+<p>$\frac{\partial T}{\partial \vec{n}}$ ：温度勾配、単位 $K/m$</p>
+<p>$\lambda$ ：熱伝導率、単位 $kJ/(m \cdot K \cdot s)$</p>
+<p>負号は、熱の伝達方向が常に温度勾配の方向と逆であることを示す。</p>
+<h2 id="流体の分類">
+<a class="header-anchor" href="#%e6%b5%81%e4%bd%93%e3%81%ae%e5%88%86%e9%a1%9e"></a>
+流体の分類
+</h2><h2 id="連続体仮説">
+<a class="header-anchor" href="#%e9%80%a3%e7%b6%9a%e4%bd%93%e4%bb%ae%e8%aa%ac"></a>
+連続体仮説
+</h2><h2 id="理想流体">
+<a class="header-anchor" href="#%e7%90%86%e6%83%b3%e6%b5%81%e4%bd%93"></a>
+理想流体
+</h2><p>粘性を考慮しないこのモデルでは、流体微粒子は粘性力の影響を受けません。主に気体に適用されます。</p>
+<p>粘性を無視した気体は理想気体と呼ばれます。</p>
+<h2 id="圧力の等方性">
+<a class="header-anchor" href="#%e5%9c%a7%e5%8a%9b%e3%81%ae%e7%ad%89%e6%96%b9%e6%80%a7"></a>
+圧力の等方性
+</h2><p>理想的な流体中の一点における圧力は、受圧面の方位とは無関係であり、空間座標の連続関数にすぎません。</p>
+<h2 id="非圧縮性流体">
+<a class="header-anchor" href="#%e9%9d%9e%e5%9c%a7%e7%b8%ae%e6%80%a7%e6%b5%81%e4%bd%93"></a>
+非圧縮性流体
+</h2><p>気体の圧縮性や弾性を考慮せず、体積弾性係数が無限大、または流体密度が定数と見なすことができる。液体によく用いられる。</p>
+<p>非圧縮性流体の流動法則を解くには、力学法則に従うだけでよく、熱力学関係を考慮する必要はない。</p>
+<p>流速が低い気体の場合も、非圧縮性流体として流動問題を扱うことができる。</p>
+<h2 id="断熱流体">
+<a class="header-anchor" href="#%e6%96%ad%e7%86%b1%e6%b5%81%e4%bd%93"></a>
+断熱流体
+</h2><p>熱伝導性を考慮しない流体モデル、つまり流体の熱伝導係数をゼロと見なす。低速で流れる空気は一般に熱伝導係数が非常に小さいため、断熱と見なすことができる。</p>
+<p>気体微粒子間の熱伝導作用を考慮しない気体モデルを断熱気体と呼ぶ。</p>
+<h2 id="完全気体">
+<a class="header-anchor" href="#%e5%ae%8c%e5%85%a8%e6%b0%97%e4%bd%93"></a>
+完全気体
+</h2><p>いかなる状態においても、気体の圧力、密度、温度の間には一定の関数関係が存在する</p>
+$$
+p=p(\rho,T)
+$$<h2 id="完全気体の状態方程式">
+<a class="header-anchor" href="#%e5%ae%8c%e5%85%a8%e6%b0%97%e4%bd%93%e3%81%ae%e7%8a%b6%e6%85%8b%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+完全気体の状態方程式
+</h2>$$
+p=\frac{\overline{R}}{m}\rho T
+$$<p>$\overline{R}$ ：普遍気体定数、$8315m^2/(s^2 \cdot K)$</p>
+<p>$m$ ：ある気体の相対分子質量</p>
+<p>$R=\frac{\overline{R}}{m}$ のとき、</p>
+$$
+p=\rho R T
+$$<p>$R$ は気体定数で、空気の場合は約 $287.035m^2/(s^2 \cdot K)$</p>
+<h2 id="流体微団に働く力">
+<a class="header-anchor" href="#%e6%b5%81%e4%bd%93%e5%be%ae%e5%9b%a3%e3%81%ab%e5%83%8d%e3%81%8f%e5%8a%9b"></a>
+流体微団に働く力
+</h2><h2 id="プレッシャー">
+<a class="header-anchor" href="#%e3%83%97%e3%83%ac%e3%83%83%e3%82%b7%e3%83%a3%e3%83%bc"></a>
+プレッシャー
+</h2><h2 id="せん断応力摩擦力">
+<a class="header-anchor" href="#%e3%81%9b%e3%82%93%e6%96%ad%e5%bf%9c%e5%8a%9b%e6%91%a9%e6%93%a6%e5%8a%9b"></a>
+せん断応力（摩擦力）
+</h2><h2 id="基本相互作用">
+<a class="header-anchor" href="#%e5%9f%ba%e6%9c%ac%e7%9b%b8%e4%ba%92%e4%bd%9c%e7%94%a8"></a>
+基本相互作用
+</h2><ul>
+<li>重力</li>
+<li>電磁力</li>
+<li>遠心力</li>
+</ul>
+<h2 id="静水圧平衡方程式">
+<a class="header-anchor" href="#%e9%9d%99%e6%b0%b4%e5%9c%a7%e5%b9%b3%e8%a1%a1%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+静水圧平衡方程式
+</h2><p>==静止流体==中のある点 $P$ を考え、その圧力を $p$ とする。</p>
+<p>デカルト座標系を構築し、流体内部の各点における圧力を</p>
+$$
+p(x,y,z)
+$$<p>とする。</p>
+<p>$P$ を中心として、各辺が座標軸に平行な直方体を作成し、辺の長さを $dx, dy, dz$ とする。</p>
+<p>$x$ 軸方向に注目すると、二つの面に加わる圧力の大きさはそれぞれ</p>
+$$
+[p(x_0,y_0,z_0)+(\frac{\partial p}{\partial x})(\frac{dx}{2})]dx dy
+$$$$
+[p(x_0,y_0,z_0)-(\frac{\partial p}{\partial x})(\frac{dx}{2})]dx dy
+$$<p>となる。</p>
+<p>流体微粒子の $x$ 軸方向に働く体積力は</p>
+$$
+f_x \rho dx dy dz
+$$<p>である。ここで、$f_x$ は単位質量に働く体積力の $x$ 軸方向成分を表す。</p>
+<p>流体が静止しているため、流体微粒子には力の平衡が成り立つ。</p>
+<p>$x$ 軸方向の力の平衡方程式は</p>
+$$
+[p(x_0,y_0,z_0)-(\frac{\partial p}{\partial x})(\frac{dx}{2})]dx dy-[p(x_0,y_0,z_0)+(\frac{\partial p}{\partial x})(\frac{dx}{2})]dx dy+f_x \rho dx dy dz=0
+$$<p>これを整理すると</p>
+$$
+\frac{\partial p}{\partial x}=\rho f_x
+$$$$
+\frac{\partial p}{\partial y}=\rho f_y
+$$$$
+\frac{\partial p}{\partial z}=\rho f_z
+$$<p>が得られる。</p>
+<p>$\because$ $p$ の全微分方程式は</p>
+$$
+dp=\frac{\partial p}{\partial x}dx+\frac{\partial p}{\partial y}dy+\frac{\partial p}{\partial z}dz
+$$<p>$\therefore$</p>
+$$
+dp=\rho(f_x dx+f_y dy+f_z dz)
+$$<p>==体積力ポテンシャル関数==を</p>
+$$
+\varOmega=\varOmega(x,y,z)
+$$<p>と定義する。</p>
+<p>その全微分は</p>
+$$
+d \varOmega=\frac{\partial \varOmega}{\partial x}dx+\frac{\partial \varOmega}{\partial y}dy+\frac{\partial \varOmega}{\partial z}dz
+$$<p>ここで、$\frac{\partial \varOmega}{\partial x}=f_x$、$\frac{\partial \varOmega}{\partial y}=f_y$、$\frac{\partial \varOmega}{\partial z}=-f_z$ である。</p>
+<p>以上の関係から</p>
+$$
+dp=-\rho d \varOmega
+$$<p>が得られる。両辺を $x,y,z$ について三重積分すると</p>
+$$
+p=-\rho \varOmega+C(定数)
+$$$$
+C=p+\rho \varOmega
+$$<p>ある点 A における圧力 $p_a$、二点間の体積力ポテンシャル関数の差 $\varOmega_a-\varOmega$、静止流体の密度 $\rho$（一様）が既知の場合、任意の点における体積力ポテンシャル関数 $\varOmega$ からその点の圧力を求めることができる：</p>
+$$
+p=p_a+\rho (\varOmega_a-\varOmega)
+$$<p><strong>推論:</strong> 流体中の等圧面は必ず体積力の等ポテンシャル面となる。</p>
+<h2 id="大気の層">
+<a class="header-anchor" href="#%e5%a4%a7%e6%b0%97%e3%81%ae%e5%b1%a4"></a>
+大気の層
+</h2><h2 id="下部大気圏">
+<a class="header-anchor" href="#%e4%b8%8b%e9%83%a8%e5%a4%a7%e6%b0%97%e5%9c%8f"></a>
+下部大気圏
+</h2><ul>
+<li>高度：海面——85 km</li>
+<li>特徴：組成が均一、窒素が総体積の78.1%を占め、酸素が総体積の21%を占める</li>
+</ul>
+<h2 id="対流圏">
+<a class="header-anchor" href="#%e5%af%be%e6%b5%81%e5%9c%8f"></a>
+対流圏
+</h2><ul>
+<li>高度
+<ul>
+<li>赤道：16~18 km</li>
+<li>中緯度地域：10~12 km</li>
+<li>極地：7~10 km</li>
+</ul>
+</li>
+<li>質量：大気全体の質量の75%を占める</li>
+<li>特徴：上下方向の気流があり、嵐や雷雨現象が発生する。高度が上がるにつれ、気温が急速に低下する。</li>
+</ul>
+<h2 id="対流圏界面">
+<a class="header-anchor" href="#%e5%af%be%e6%b5%81%e5%9c%8f%e7%95%8c%e9%9d%a2"></a>
+対流圏界面
+</h2><p>遷移層で、厚さは数百メートルから1～2キロメートル程度。</p>
+<h2 id="成層圏">
+<a class="header-anchor" href="#%e6%88%90%e5%b1%a4%e5%9c%8f"></a>
+成層圏
+</h2><ul>
+<li>高度：対流圏～32 km</li>
+<li>質量：大気圏の質量の約4分の1を占める</li>
+<li>特徴：気象現象がなく、空気は水平に流動し、温度は一定（平均約216.65 K）を保つ</li>
+</ul>
+<h2 id="中間大気圏">
+<a class="header-anchor" href="#%e4%b8%ad%e9%96%93%e5%a4%a7%e6%b0%97%e5%9c%8f"></a>
+中間大気圏
+</h2><ul>
+<li>高度：32~85 km</li>
+<li>質量：1/3000</li>
+<li>温度：最初に上昇し、その後下降し、85 km の地点で106 K以下まで下がることがある。</li>
+</ul>
+<h2 id="高層大気">
+<a class="header-anchor" href="#%e9%ab%98%e5%b1%a4%e5%a4%a7%e6%b0%97"></a>
+高層大気
+</h2><ul>
+<li>高度：85 km 以上</li>
+<li>特徴：組成が不均一で、太陽放射を直接吸収する</li>
+</ul>
+<h2 id="熱圏thermosphere">
+<a class="header-anchor" href="#%e7%86%b1%e5%9c%8fthermosphere"></a>
+熱圏（Thermosphere）
+</h2><ul>
+<li>高度：85～500 km</li>
+<li>温度：高度とともに上昇し、500 kmでは日中1370 Kに達する</li>
+<li>特徴：太陽からの短波放射を直接受ける</li>
+</ul>
+<h2 id="外層大気">
+<a class="header-anchor" href="#%e5%a4%96%e5%b1%a4%e5%a4%a7%e6%b0%97"></a>
+外層大気
+</h2><ul>
+<li>高度：500+ km，大気は徐々に星間空間と融合する</li>
+<li>質量：$1/10^{11}$</li>
+<li>特徴：大気が希薄すぎて、温度で定義するのに適さない。空気分子は宇宙空間に逃げ出すことができる。</li>
+</ul>
+<h2 id="上層大気と電離層">
+<a class="header-anchor" href="#%e4%b8%8a%e5%b1%a4%e5%a4%a7%e6%b0%97%e3%81%a8%e9%9b%bb%e9%9b%a2%e5%b1%a4"></a>
+上層大気と電離層
+</h2><ul>
+<li>上層大気は太陽の短波放射によって解離され、電子とイオンとなり、電離層を形成します。</li>
+<li>100 km以上の高高度では、空気は良い導体となります。</li>
+<li>150 km以上では、空気が薄すぎて音を伝えることができません。</li>
+</ul>
+<h2 id="d層">
+<a class="header-anchor" href="#d%e5%b1%a4"></a>
+D層
+</h2><ul>
+<li>高度：60～80 km</li>
+</ul>
+<h2 id="e-層">
+<a class="header-anchor" href="#e-%e5%b1%a4"></a>
+E 層
+</h2><ul>
+<li>高度：100~120 km</li>
+</ul>
+<h2 id="層">
+<a class="header-anchor" href="#%e5%b1%a4"></a>
+$F_1$ 層
+</h2><ul>
+<li>高度：180～220 km</li>
+</ul>
+<h2 id="層-1">
+<a class="header-anchor" href="#%e5%b1%a4-1"></a>
+$F_2$ 層
+</h2><ul>
+<li>高度：300~350 km</li>
+</ul>
+<h2 id="国際標準大気">
+<a class="header-anchor" href="#%e5%9b%bd%e9%9a%9b%e6%a8%99%e6%ba%96%e5%a4%a7%e6%b0%97"></a>
+国際標準大気
+</h2><p>航空工学において統一された大気圧、密度、温度などのパラメータ基準で、中緯度地域の年間平均条件に基づいて統計的に決定されたものを国際標準大気と呼ぶ。</p>
+<h1 id="流体運動学と力学の基礎">
+<a class="header-anchor" href="#%e6%b5%81%e4%bd%93%e9%81%8b%e5%8b%95%e5%ad%a6%e3%81%a8%e5%8a%9b%e5%ad%a6%e3%81%ae%e5%9f%ba%e7%a4%8e"></a>
+流体運動学と力学の基礎
+</h1><h2 id="流れ場">
+<a class="header-anchor" href="#%e6%b5%81%e3%82%8c%e5%a0%b4"></a>
+流れ場
+</h2><p>流れ場：運動する流体で満たされた空間</p>
+<p>流動パラメータ：流体の運動特性を表す物理量、例えば速度、密度、圧力など。</p>
+<p>流体力学の方法：ラグランジュ法、オイラー法</p>
+<h2 id="ラグランジュ法">
+<a class="header-anchor" href="#%e3%83%a9%e3%82%b0%e3%83%a9%e3%83%b3%e3%82%b8%e3%83%a5%e6%b3%95"></a>
+ラグランジュ法
+</h2><p><strong>質点</strong>（運動）に焦点を当てる</p>
+<ul>
+<li>流れ場の各質点の運動パラメータが時間とともにどのように変化するか、および運動軌跡を研究する。</li>
+<li>すべての流体質点の運動パラメータの変化を総合することで、流れ場全体の運動法則を得る。</li>
+</ul>
+<h2 id="オイラー法">
+<a class="header-anchor" href="#%e3%82%aa%e3%82%a4%e3%83%a9%e3%83%bc%e6%b3%95"></a>
+オイラー法
+</h2><p><strong>空間点</strong>に着目する（固定）</p>
+<ul>
+<li>流体粒子が空間の固定点を通過する際の、運動パラメータの時間変化を研究する。</li>
+<li>流れ場内の全ての空間点における運動パラメータの変化を総合することで、流れ場全体の運動法則を得ることができる。</li>
+</ul>
+<p>オイラー法では、流れ場の運動パラメータは一般に空間点の座標と時間の関数となる。</p>
+<p>速度を例にとると</p>
+$$
+v=v(x,y,z,t)
+$$<p>4つの変数は独立している。</p>
+<p>一般的な3次元空間では、デカルト座標系を構築し、スカラーパラメータを$x,y,z$軸方向に分解して分析する。</p>
+$$
+v_x=v_x(x,y,z,t)
+$$<p>微分して加速度成分を得る</p>
+$$
+a_x=\frac{d v_x}{dt}=\frac{\partial v_x}{\partial t}+\frac{\partial v_x}{\partial x}\frac{dx}{dt}+\frac{\partial v_x}{\partial y}\frac{dy}{dt}+\frac{\partial v_x}{\partial z}\frac{dz}{dt}
+$$<p>$\because$ $\frac{dx}{dt}=v_x,\frac{dy}{dt}=v_y,\frac{dz}{dt}=v_z$</p>
+<p>$\therefore$</p>
+$$
+a_x=\frac{\partial v_x}{\partial t}+v_x \frac{\partial v_x}{\partial x}+v_y \frac{\partial v_x}{\partial y}+v_z \frac{\partial v_x}{\partial z}
+$$<p>これにより、加速度は時間と位置の関数であることが分かる</p>
+$$
+a_x=a_x(t,x,y,z)
+$$<h2 id="局所加速度">
+<a class="header-anchor" href="#%e5%b1%80%e6%89%80%e5%8a%a0%e9%80%9f%e5%ba%a6"></a>
+局所加速度
+</h2><p>等式右边第一項は、空間固定点における流体粒子の速度の時間変化率を表し、<strong>局所加速度</strong>と呼ばれる。（速度と時間の関係）</p>
+<p>局所加速度は、流れ場中の速度が時間とともに変化することによって生じる。</p>
+<h2 id="移流加速度">
+<a class="header-anchor" href="#%e7%a7%bb%e6%b5%81%e5%8a%a0%e9%80%9f%e5%ba%a6"></a>
+移流加速度
+</h2><p>後ろの3つの項は、同じ瞬間に、流体粒子が速度ベクトルの方向に沿って空間のある点から隣接する別の点へ移動する際の速度変化率を反映しており、<strong>移流加速度</strong>と呼ばれる。（速度と変位の関係）</p>
+<p>移流加速度は、流れ場の不均一性によって引き起こされる。</p>
+<h2 id="非定常流れ場">
+<a class="header-anchor" href="#%e9%9d%9e%e5%ae%9a%e5%b8%b8%e6%b5%81%e3%82%8c%e5%a0%b4"></a>
+非定常流れ場
+</h2><p>流れ場において、少なくとも一つの<strong>空間点</strong>における物理量が時間とともに変化する状態。</p>
+<h2 id="定常流れ場">
+<a class="header-anchor" href="#%e5%ae%9a%e5%b8%b8%e6%b5%81%e3%82%8c%e5%a0%b4"></a>
+定常流れ場
+</h2><p>流れ場において<strong>任意の空間点</strong>における物理量が時間的に変化しない。</p>
+<h2 id="軌跡線">
+<a class="header-anchor" href="#%e8%bb%8c%e8%b7%a1%e7%b7%9a"></a>
+軌跡線
+</h2><p>流れ場で標識された運動する流体粒子が一定時間内に通過するすべての空間点の集合を、その流体粒子の軌跡線と呼ぶ。</p>
+<h2 id="流線">
+<a class="header-anchor" href="#%e6%b5%81%e7%b7%9a"></a>
+流線
+</h2><p>流れ場の各空間点において<strong>速度ベクトルと接する</strong>曲線を流線と呼ぶ。</p>
+<p>流線は、同一時刻における異なる流体粒子によって形成される曲線であり、その時刻における異なる流体粒子の速度方向を示す。</p>
+<p><strong>特徴：</strong></p>
+<ul>
+<li>
+<p>定常流れ場では、各流線は時間とともに変化しない。</p>
+</li>
+<li>
+<p>非定常流れ場では、時間とともに変化する流線が存在する。</p>
+</li>
+<li>
+<p>定常流れ場では、ある空間点を通る流線は、その空間点を通るすべての<strong>流体粒子の軌跡</strong>と一致する。</p>
+</li>
+<li>
+<p>一般的に流線は交わらない（同一時刻、同一空間点に2つの速度方向は存在しない）。</p>
+</li>
+<li>
+<p>速度が0の空間点では、流線は交わることができる。通常、速度が0の空間点を<strong>駐点</strong>と呼ぶ。</p>
+</li>
+<li>
+<p>速度が無限大の空間点では、流線は交わることができる。通常、速度が無限大の空間点を<strong>特異点</strong>と呼ぶ。</p>
+</li>
+<li>
+<p>流線が接する場合、接点以降の2つの線は一致する。</p>
+</li>
+<li>
+<p>流れ場の各点には流線が通っており、すべての流線の集合を<strong>流線譜</strong>または単に<strong>流譜</strong>と呼ぶ。</p>
+</li>
+</ul>
+<h2 id="流線微分方程式">
+<a class="header-anchor" href="#%e6%b5%81%e7%b7%9a%e5%be%ae%e5%88%86%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+流線微分方程式
+</h2><p>流線上のある点 $M(x,y,z)$ における速度を $\vec{v}$ とし、$M$ 点の流線微小要素の長さを $ds$ とする。デカルト座標系では、$v_x,v_y,v_z$ および $dx,dy,dz$ に分解される。</p>
+<p>流線上の任意の点における速度の方向は流線の接線方向と同じであるため、</p>
+$$
+\cos(\vec{v},\vec{i})=\frac{v_x}{v}=\frac{dx}{ds}
+$$<p>ここで、$\vec{i}$ は $x$ 軸方向の単位法線ベクトルであり、$y,z$ 軸についても同様である。</p>
+$$
+\frac{dx}{v_x}=\frac{dy}{v_y}=\frac{dz}{v_z}
+$$<p>上式が流線の微分方程式である。</p>
+<p>速度分布が既知の場合、流場中の任意の点を通る流線の形状を求めることができる。</p>
+<h2 id="流管">
+<a class="header-anchor" href="#%e6%b5%81%e7%ae%a1"></a>
+流管
+</h2><p>流れ場において、<strong>流線ではない</strong> <strong>閉じた</strong> 曲線 C があり、C 上の各点を通る流線を描いたとき、これらの流線の集合によって形成される管状の曲面を流管と呼びます。</p>
+<h2 id="流体微団の運動解析">
+<a class="header-anchor" href="#%e6%b5%81%e4%bd%93%e5%be%ae%e5%9b%a3%e3%81%ae%e9%81%8b%e5%8b%95%e8%a7%a3%e6%9e%90"></a>
+流体微団の運動解析
+</h2><h2 id="運動形式">
+<a class="header-anchor" href="#%e9%81%8b%e5%8b%95%e5%bd%a2%e5%bc%8f"></a>
+運動形式
+</h2><h2 id="剛体運動">
+<a class="header-anchor" href="#%e5%89%9b%e4%bd%93%e9%81%8b%e5%8b%95"></a>
+剛体運動
+</h2><ul>
+<li>平行移動</li>
+<li>軸周りの回転</li>
+</ul>
+<h2 id="流体の運動">
+<a class="header-anchor" href="#%e6%b5%81%e4%bd%93%e3%81%ae%e9%81%8b%e5%8b%95"></a>
+流体の運動
+</h2><ul>
+<li>並進運動</li>
+<li>軸回転運動</li>
+<li>変形運動
+<ul>
+<li>直線変形</li>
+<li>せん断変形</li>
+</ul>
+</li>
+</ul>
+<h2 id="二次元解析">
+<a class="header-anchor" href="#%e4%ba%8c%e6%ac%a1%e5%85%83%e8%a7%a3%e6%9e%90"></a>
+二次元解析
+</h2><p>![Pasted image 20240902212258.png][1]</p>
+<p>流れ場の中から任意に長方形の流体微小要素 ABCD を選び、その二辺の長さをそれぞれ $\delta_x,\delta_y$ とし、いずれも微小量とする。</p>
+<p>$v_x,v_y$ を点 A における流体微小要素の分速度とし、分速度は全て空間点座標の連続関数であるとする。すると、点 B, D の速度は点 A におけるテイラー級数展開で表現できる。</p>
+<p>$\because$ 流体微小要素の辺長は十分に小さい</p>
+<p>$\therefore$ 二次以上の微小量は無視できる</p>
+$$
+v_{Bx}=v_x+\frac{\partial v_x}{\partial x}\delta_x
+$$$$
+v_{By}=v_y+\frac{\partial v_y}{x}\delta_x
+$$<p>流体微小要素が運動する際、全体の運動に加えて、点 B は点 A に対して相対運動もする。</p>
+<p>$x$ 軸方向の相対運動速度は $v_{Bx}-v_x=\frac{\partial v_x}{\partial x}\delta_x$ であり、$y$ 軸方向も同様に $\frac{\partial v_x}{\partial x}\delta_x$ となる。</p>
+<p>点 D の点 A に対する相対運動速度は $v_{Dx}-v_x=\frac{\partial v_x}{\partial y}\delta_y,v_{Dy}-v_y=\frac{\partial v_y}{\partial y}\delta_y$ である。</p>
+<h2 id="線変形運動">
+<a class="header-anchor" href="#%e7%b7%9a%e5%a4%89%e5%bd%a2%e9%81%8b%e5%8b%95"></a>
+線変形運動
+</h2><p>![Pasted image 20240902212840.png][2]</p>
+<p>相対速度 $\frac{\partial v_x}{\partial x}\delta_x$ と $\frac{\partial v_y}{\partial y}\delta_y$ は、長方形 ABCD の辺の直線変形速度であり、時間 $dt$ の間に</p>
+$$
+AB'=AB+\frac{\partial v_x}{\partial x}\delta_x dt
+$$$$
+AD'=AD+\frac{\partial v_y}{\partial y}\delta_y dt
+$$<p>長方形の面積の相対変化率は</p>
+$$
+\frac{d(\delta S)}{\delta S \cdot dt}=\frac{AB' \cdot CD'-AB \cdot CD}{AB \cdot CD \cdot dt}
+$$<p>高次の微小量を無視すると、</p>
+$$
+\frac{d(\delta S)}{\delta S \cdot dt}=\frac{\partial v_x}{\partial x}+\frac{\partial v_y}{\partial y}
+$$<p>これを三次元空間に拡張すると、同様に</p>
+$$
+\frac{d(\delta V)}{\delta V \cdot dt}=\frac{\partial v_x}{\partial x}+\frac{\partial v_y}{\partial y}+\frac{\partial v_z}{\partial z}
+$$<h2 id="角変形運動">
+<a class="header-anchor" href="#%e8%a7%92%e5%a4%89%e5%bd%a2%e9%81%8b%e5%8b%95"></a>
+角変形運動
+</h2><p>![Pasted image 20240902214219.png][3]</p>
+<p>相対速度 $\frac{\partial v_y}{\partial x}\delta x,\frac{\partial v_x}{\partial y}\delta y$ は、AB辺とAD辺が点Aを中心に回転することを表す。</p>
+<p>反時計回りの回転を正と規定する。</p>
+<p>AB辺の回転角速度</p>
+$$
+\frac{d\alpha_1}{dt}=\frac{\partial v_y}{\partial x}\delta_x / \delta_x=\frac{\partial v_y}{\partial x}
+$$<p>同様に、AD辺の回転角速度は</p>
+$$
+\frac{d \alpha_2}{dt}=-\frac{\partial v_x}{\partial y}
+$$<h3 id="">
+<a class="header-anchor" href="#"></a>
+
+</h3><h2 id="微小領域の--軸周りの回転角速度">
+<a class="header-anchor" href="#%e5%be%ae%e5%b0%8f%e9%a0%98%e5%9f%9f%e3%81%ae--%e8%bb%b8%e5%91%a8%e3%82%8a%e3%81%ae%e5%9b%9e%e8%bb%a2%e8%a7%92%e9%80%9f%e5%ba%a6"></a>
+微小領域の $z$ 軸周りの回転角速度
+</h2><p><strong>定義</strong>：微小領域の $xOy$ 平面への投影において、<strong>互いに垂直な2本の直線</strong>が $z$ 軸周りに回転する角速度の<strong>平均値</strong>。（角速度和の半分）</p>
+$$
+\epsilon_z=\frac{1}{2}(\frac{\partial v_y}{\partial x}-\frac{\partial v_x}{\partial y})
+$$<h3 id="">
+<a class="header-anchor" href="#"></a>
+
+</h3><h2 id="角変形率">
+<a class="header-anchor" href="#%e8%a7%92%e5%a4%89%e5%bd%a2%e7%8e%87"></a>
+角変形率
+</h2><p><strong>定義</strong>：微小要素の $xOy$ 平面への投影において、互いに垂直な2本の直線が<strong>単位時間内</strong>に成す角度の変化量<strong>の半分</strong>。（角速度差の半分）</p>
+$$
+\gamma_z=\frac{1}{2}(\frac{\partial v_y}{\partial x}+\frac{\partial v_x}{\partial y})
+$$<p>三次元空間に拡張すると、流体微小要素の三軸回転角速度と角変形率も同様に求められる。</p>
+<p>略。</p>
+<h2 id="発散度">
+<a class="header-anchor" href="#%e7%99%ba%e6%95%a3%e5%ba%a6"></a>
+発散度
+</h2><p>定義：各速度成分がその成分方向における方向微分の和を速度ベクトルの発散度とする。</p>
+$$
+div \vec{v}=\frac{\partial v_x}{\partial x}+\frac{\partial v_y}{\partial y}+\frac{\partial v_z}{\partial z}
+$$<p>物理的意味：流体微粒子の運動過程における<strong>相対的な体積変化率</strong>を表す。</p>
+<p>==前提条件==：流体の密度が変化しない（流体の運動を非圧縮流れと見なす）。</p>
+<p>一点から発生する体積流量を以下のように定義する。</p>
+$$
+\lim_{\delta V \to 0}\frac{体積流出量-体積流入量}{\delta V \cdot dt}=\frac{\partial v_x}{\partial x}+\frac{\partial v_y}{\partial y}+\frac{\partial v_z}{\partial z}
+$$<p>これは、<strong>単位時間</strong>内における空間の一点での<strong>単位体積</strong>制御体の体積<strong>正味流出量</strong>に等しく、流体微粒子の運動中の体積相対変化率に等しい。</p>
+<h2 id="回転-curl">
+<a class="header-anchor" href="#%e5%9b%9e%e8%bb%a2-curl"></a>
+回転 (curl)
+</h2><p>定義：角速度の2倍。</p>
+$$
+\vec{\omega}=curl \vec{v}=(\frac{\partial v_z}{\partial y}-\frac{\partial v_y}{\partial z})\vec{i}+(\frac{\partial v_x}{\partial z}-\frac{\partial v_z}{\partial x})\vec{j}+(\frac{\partial v_y}{\partial x}-\frac{\partial v_x}{\partial y})\vec{k}
+$$<h2 id="速度ポテンシャル">
+<a class="header-anchor" href="#%e9%80%9f%e5%ba%a6%e3%83%9d%e3%83%86%e3%83%b3%e3%82%b7%e3%83%a3%e3%83%ab"></a>
+速度ポテンシャル
+</h2><p>流体力学において、流体微粒子に回転運動があるかどうかによって、流体運動を以下のように分類できます:</p>
+<ul>
+<li>有回転運動</li>
+<li>無回転運動</li>
+</ul>
+<p>流れを無回転運動と見なす場合、$\omega=0$となり、</p>
+$$
+\begin{cases}
+\frac{\partial v_z}{\partial y}=\frac{\partial v_y}{\partial z} \\
+\frac{\partial v_x}{\partial z}=\frac{\partial v_z}{\partial x} \\
+\frac{\partial v_y}{\partial x}=\frac{\partial v_x}{\partial y} \\
+\end{cases}
+$$<p>上記の方程式系は、$v_xdx+v_ydy+v_zdz$がある関数$\phi(x,y,z)$の全微分を構成するための必要十分条件です。すなわち、</p>
+$$
+d \phi=v_xdx+v_ydy+v_zdz=\frac{\partial \phi}{\partial x}dx+\frac{\partial \phi}{\partial y}dy+\frac{\partial \phi}{\partial z}dz
+$$<p>$\phi$を速度ポテンシャルまたは速度ポテンシャル関数と呼びます。</p>
+$$
+\begin{cases}
+v_x=\frac{\partial \phi}{\partial x}\\
+v_y=\frac{\partial \phi}{\partial y}\\
+v_z=\frac{\partial \phi}{\partial z}\\
+\end{cases}
+$$<p><strong>円柱座標</strong>を使用する場合、</p>
+$$
+\phi=\phi(r,\theta,z)
+$$$$
+\begin{cases}
+v_r=\frac{\partial \phi}{\partial r}\\
+v_\theta=\frac{\partial \phi}{\partial \theta}\\
+v_z=\frac{\partial \phi}{\partial z}\\
+\end{cases}
+$$<hr>
+<h2 id="スカラー">
+<a class="header-anchor" href="#%e3%82%b9%e3%82%ab%e3%83%a9%e3%83%bc"></a>
+スカラー
+</h2><h2 id="圧力">
+<a class="header-anchor" href="#%e5%9c%a7%e5%8a%9b"></a>
+圧力
+</h2><h2 id="密度">
+<a class="header-anchor" href="#%e5%af%86%e5%ba%a6"></a>
+密度
+</h2><h2 id="温度">
+<a class="header-anchor" href="#%e6%b8%a9%e5%ba%a6"></a>
+温度
+</h2><h2 id="ベクトル">
+<a class="header-anchor" href="#%e3%83%99%e3%82%af%e3%83%88%e3%83%ab"></a>
+ベクトル
+</h2><h2 id="流速">
+<a class="header-anchor" href="#%e6%b5%81%e9%80%9f"></a>
+流速
+</h2><h2 id="理想気体の状態方程式">
+<a class="header-anchor" href="#%e7%90%86%e6%83%b3%e6%b0%97%e4%bd%93%e3%81%ae%e7%8a%b6%e6%85%8b%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+理想気体の状態方程式
+</h2>$$
+pV=nRT
+$$<p>$R=8.314J \cdot mol^{-1} \cdot K^{-1}$ は理想気体定数である。</p>
+$$
+p=\frac{n \cdot M}{V}\frac{R}{M} T
+$$$$
+n(物質量) \cdot M(モル質量)=m(質量)
+$$$$
+p=\rho R' T
+$$$$
+R'=\frac{R}{M}
+$$<p>$R'$ は==比気体定数==と呼ばれる。</p>
+<p>理想気体の空気の場合、$R'=287J/(kg \cdot K)$ である。</p>
+<h2 id="空気力学とモーメント">
+<a class="header-anchor" href="#%e7%a9%ba%e6%b0%97%e5%8a%9b%e5%ad%a6%e3%81%a8%e3%83%a2%e3%83%bc%e3%83%a1%e3%83%b3%e3%83%88"></a>
+空気力学とモーメント
+</h2><h2 id="空気動力-合力">
+<a class="header-anchor" href="#%e7%a9%ba%e6%b0%97%e5%8b%95%e5%8a%9b-%e5%90%88%e5%8a%9b"></a>
+空気動力 $R$：合力
+</h2><p><strong>空気が物体に及ぼす力</strong></p>
+<ul>
+<li>圧力 $p$ ：Pressure</li>
+<li>せん断応力 $\tau$ ：Shear stress</li>
+</ul>
+<p>圧力とせん断応力の合力が、空気が物体に及ぼす力、すなわち空気動力となる。</p>
+<p><strong>風軸座標系</strong></p>
+<ul>
+<li>揚力 $L$ ：Lift、垂直成分</li>
+<li>抗力 $D$ ：Drag、水平成分</li>
+</ul>
+<h2 id="自由流フリーストリーム">
+<a class="header-anchor" href="#%e8%87%aa%e7%94%b1%e6%b5%81%e3%83%95%e3%83%aa%e3%83%bc%e3%82%b9%e3%83%88%e3%83%aa%e3%83%bc%e3%83%a0"></a>
+自由流（フリーストリーム）
+</h2>$$
+V_{\infty}
+$$<p>自由流とは、航空機の前方で乱されていない気流、すなわち航空機などの干渉がない場合の空気の自然な流れ現象を指します。</p>
+<p>揚力と抗力の方向は自由流の方向によって決まります。</p>
+<h2 id="迎角アングルオブアタック">
+<a class="header-anchor" href="#%e8%bf%8e%e8%a7%92%e3%82%a2%e3%83%b3%e3%82%b0%e3%83%ab%e3%82%aa%e3%83%96%e3%82%a2%e3%82%bf%e3%83%83%e3%82%af"></a>
+迎角（アングル・オブ・アタック）
+</h2>$$
+\alpha
+$$<p><strong>迎角</strong>（英語：Angle of attack、略称：AOA、一般的に<a href="https://zh.wikipedia.org/wiki/%E5%B8%8C%E8%87%98%E5%AD%97%E6%AF%8D" title="ギリシャ文字">ギリシャ文字</a>αで表記）は、<a href="https://zh.wikipedia.org/wiki/%E7%A9%BA%E6%B0%A3%E5%8B%95%E5%8A%9B%E5%AD%B8" title="空気力学">空気力学</a>の用語で、<a href="https://zh.wikipedia.org/wiki/%E6%A9%9F%E7%BF%BC" title="翼">翼</a>の<a href="https://zh.wikipedia.org/wiki/%E7%BF%BC%E5%BC%A6" title="翼弦">翼弦</a>と<strong>自由流</strong>（または<strong>相対風の方向</strong>）との間の角度を指します。航空機の迎角の場合、定義は機軸と相対風との間の角度となります。翼が<strong>上方</strong>に向いている場合は<strong>正</strong>の迎角、<strong>下方</strong>に向いている場合は<strong>負</strong>の迎角となります。</p>
+<p><strong>体軸座標系</strong></p>
+<ul>
+<li>法線力 $N$：Normal、翼に垂直な方向</li>
+<li>軸力 $A$：Axial、翼に平行な方向</li>
+</ul>
+<h2 id="モーメント-moment">
+<a class="header-anchor" href="#%e3%83%a2%e3%83%bc%e3%83%a1%e3%83%b3%e3%83%88-moment"></a>
+モーメント $M$：Moment
+</h2><p>機首を上げるモーメントを正とし、機首を下げるモーメントを負とする。</p>
+<h2 id="動圧">
+<a class="header-anchor" href="#%e5%8b%95%e5%9c%a7"></a>
+動圧 $q$
+</h2><p>自由流 $V_{\infty},\rho_{\infty}$ によって生成される動圧</p>
+$$
+q_{\infty}=\frac{1}{2}\rho_{\infty}V_{\infty}^2
+$$<p>単位は $Pa$ 、圧力と同じ</p>
+<h2 id="特徴幾何サイズ">
+<a class="header-anchor" href="#%e7%89%b9%e5%be%b4%e5%b9%be%e4%bd%95%e3%82%b5%e3%82%a4%e3%82%ba"></a>
+特徴幾何サイズ $S$
+</h2><p>三次元物体の場合は面積、二次元物体の場合は周長を指します。</p>
+<h2 id="無次元パラメータ">
+<a class="header-anchor" href="#%e7%84%a1%e6%ac%a1%e5%85%83%e3%83%91%e3%83%a9%e3%83%a1%e3%83%bc%e3%82%bf"></a>
+無次元パラメータ
+</h2><p>三次元物体には大文字の $C$ がよく使われ、二次元物体には小文字の $c$ がよく使われます。</p>
+<h2 id="揚力係数">
+<a class="header-anchor" href="#%e6%8f%9a%e5%8a%9b%e4%bf%82%e6%95%b0"></a>
+揚力係数
+</h2>$$
+C_L=\frac{L}{q_{\infty}S}
+$$<h2 id="">
+<a class="header-anchor" href="#"></a>
+
+</h2><h2 id="抗力係数">
+<a class="header-anchor" href="#%e6%8a%97%e5%8a%9b%e4%bf%82%e6%95%b0"></a>
+抗力係数
+</h2>$$
+C_D=\frac{D}{q_{\infty}S}
+$$<h2 id="">
+<a class="header-anchor" href="#"></a>
+
+</h2><h2 id="法線力係数">
+<a class="header-anchor" href="#%e6%b3%95%e7%b7%9a%e5%8a%9b%e4%bf%82%e6%95%b0"></a>
+法線力係数
+</h2>$$
+C_N=\frac{N}{q_{\infty}S}
+$$<h2 id="">
+<a class="header-anchor" href="#"></a>
+
+</h2><h2 id="軸力係数">
+<a class="header-anchor" href="#%e8%bb%b8%e5%8a%9b%e4%bf%82%e6%95%b0"></a>
+軸力係数
+</h2>$$
+C_A=\frac{A}{q_{\infty}S}
+$$<h2 id="">
+<a class="header-anchor" href="#"></a>
+
+</h2><h2 id="空力係数">
+<a class="header-anchor" href="#%e7%a9%ba%e5%8a%9b%e4%bf%82%e6%95%b0"></a>
+空力係数
+</h2>$$
+C_R=\frac{R}{q_{\infty}S}
+$$<h2 id="">
+<a class="header-anchor" href="#"></a>
+
+</h2><h2 id="モーメント係数">
+<a class="header-anchor" href="#%e3%83%a2%e3%83%bc%e3%83%a1%e3%83%b3%e3%83%88%e4%bf%82%e6%95%b0"></a>
+モーメント係数
+</h2>$$
+C_M=\frac{\vec{M}}{\vec{r} \times \vec{q_{\infty}}S}
+$$<h2 id="">
+<a class="header-anchor" href="#"></a>
+
+</h2><h2 id="圧力係数">
+<a class="header-anchor" href="#%e5%9c%a7%e5%8a%9b%e4%bf%82%e6%95%b0"></a>
+圧力係数
+</h2><p>$p$：ある点の静圧</p>
+<p>$p_{\infty}$：自由流の静圧</p>
+$$
+C_p=\frac{p-p_{\infty}}{q_{\infty}}
+$$<h2 id="摩擦力係数">
+<a class="header-anchor" href="#%e6%91%a9%e6%93%a6%e5%8a%9b%e4%bf%82%e6%95%b0"></a>
+摩擦力係数
+</h2><p>$\tau$：ある点での剪断応力、つまり剪断応力の面積に対する微分。次元は圧力と同じ。</p>
+$$
+C_f=\frac{\tau}{q_{\infty}}
+$$<h1 id="二つの中心">
+<a class="header-anchor" href="#%e4%ba%8c%e3%81%a4%e3%81%ae%e4%b8%ad%e5%bf%83"></a>
+二つの中心
+</h1><h2 id="空力中心空力焦点">
+<a class="header-anchor" href="#%e7%a9%ba%e5%8a%9b%e4%b8%ad%e5%bf%83%e7%a9%ba%e5%8a%9b%e7%84%a6%e7%82%b9"></a>
+空力中心（空力焦点）
+</h2><p><strong>空力中心</strong>（英語：aerodynamic center、略称AC）は<a href="https://zh.wikipedia.org/wiki/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6" title="空気力学">空気力学</a>において、<a href="https://zh.wikipedia.org/wiki/%E7%BF%BC%E5%9E%8B" title="翼型">翼型</a>上の固定点を指し、この点を中心としたピッチングモーメントは<a href="https://zh.wikipedia.org/wiki/%E8%BF%8E%E8%A7%92" title="迎え角">迎え角</a>の変化によって変化しない。つまり、</p>
+$$
+\frac{d C_M}{d \alpha}=0
+$$<h2 id="空力中心と圧力中心の違い">
+<a class="header-anchor" href="#%e7%a9%ba%e5%8a%9b%e4%b8%ad%e5%bf%83%e3%81%a8%e5%9c%a7%e5%8a%9b%e4%b8%ad%e5%bf%83%e3%81%ae%e9%81%95%e3%81%84"></a>
+空力中心と圧力中心の違い
+</h2><p>圧力中心は力系を合成した際に<strong>合力モーメントが0</strong>になる特別な点であり、<strong>圧力中心は空力中心の後方</strong>に位置します。一方、空力中心は<strong>合力モーメントが不変</strong>となる点です。</p>
+<p>圧力中心の位置は迎え角の変化に伴って変化します。迎え角が増加すると揚力が増加し、圧力中心は前方に移動します。これにより、圧力中心と空力中心の距離が短縮され、増加した揚力と短縮された腕の長さの積がちょうど不変のモーメントとなります。これはまさに空力中心の定義が要求するものです。</p>
+
+        <hr><p>本文 2024-09-02 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-02</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Physics</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>熱力学と統計物理</title>
+      <link>http://localhost:1313/ja/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</link>
+      <pubDate>Thu, 06 Jun 2024 00:00:59 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</guid>
+      <description><![CDATA[<h1>熱力学と統計物理</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="物理量">
+<a class="header-anchor" href="#%e7%89%a9%e7%90%86%e9%87%8f"></a>
+物理量
+</h1><h2 id="内部エネルギー-u">
+<a class="header-anchor" href="#%e5%86%85%e9%83%a8%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc-u"></a>
+内部エネルギー U
+</h2>$$
+\Delta U=Q+W
+$$<p>
+Qは系が吸収する熱、Wは系が外部に行う仕事</p>
+<h2 id="エントロピー-s">
+<a class="header-anchor" href="#%e3%82%a8%e3%83%b3%e3%83%88%e3%83%ad%e3%83%94%e3%83%bc-s"></a>
+エントロピー S
+</h2><p>エントロピーは、動力学の観点から<strong>仕事ができない</strong>エネルギーの総量を測定するものであり、全体のエントロピーが増加すると、その仕事能力も低下し、エントロピーの尺度はエネルギーが劣化する指標となります。
+==可逆過程==において
+</p>
+$$
+\Delta S=\frac {Q}{T}
+$$<p>
+Q：可逆過程において、システムが等温条件下で吸収する熱量</p>
+<h2 id="エンタルピー-h">
+<a class="header-anchor" href="#%e3%82%a8%e3%83%b3%e3%82%bf%e3%83%ab%e3%83%94%e3%83%bc-h"></a>
+エンタルピー H
+</h2>$$
+H=U+pV
+$$<h2 id="自由エネルギー-f">
+<a class="header-anchor" href="#%e8%87%aa%e7%94%b1%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc-f"></a>
+自由エネルギー F
+</h2>$$
+F=U-TS
+$$<p>
+システムの内部エネルギー - 仕事ができないエネルギー = 仕事ができるエネルギー（自由エネルギー）</p>
+<h2 id="ギブス関数自由エンタルピーg">
+<a class="header-anchor" href="#%e3%82%ae%e3%83%96%e3%82%b9%e9%96%a2%e6%95%b0%e8%87%aa%e7%94%b1%e3%82%a8%e3%83%b3%e3%82%bf%e3%83%ab%e3%83%94%e3%83%bcg"></a>
+ギブス関数（自由エンタルピー）G
+</h2>$$
+G=F+pV=U-TS+pV=H-TS
+$$<h2 id="化学ポテンシャル">
+<a class="header-anchor" href="#%e5%8c%96%e5%ad%a6%e3%83%9d%e3%83%86%e3%83%b3%e3%82%b7%e3%83%a3%e3%83%ab"></a>
+化学ポテンシャル $\mu$
+</h2>$$
+\mu=(\frac{\partial G}{\partial n})_{T,p}=G_m
+$$<p>
+ここで：</p>
+<ul>
+<li>n：物質量（$mol$）</li>
+<li>$G_m$：モルギブズ関数</li>
+</ul>
+<h1 id="方程式">
+<a class="header-anchor" href="#%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+方程式
+</h1><h2 id="状態関数の全微分可逆過程">
+<a class="header-anchor" href="#%e7%8a%b6%e6%85%8b%e9%96%a2%e6%95%b0%e3%81%ae%e5%85%a8%e5%be%ae%e5%88%86%e5%8f%af%e9%80%86%e9%81%8e%e7%a8%8b"></a>
+状態関数の全微分（可逆過程）
+</h2><h3 id="内部エネルギー全微分熱力学基本方程式">
+<a class="header-anchor" href="#%e5%86%85%e9%83%a8%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc%e5%85%a8%e5%be%ae%e5%88%86%e7%86%b1%e5%8a%9b%e5%ad%a6%e5%9f%ba%e6%9c%ac%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+内部エネルギー全微分（熱力学基本方程式）
+</h3>$$
+dU=dQ+dW=TdS-pdV
+$$<p>
+すなわち$U=U(S,V)$
+</p>
+$$
+(\frac{\partial U}{\partial S})_V=T,(\frac{\partial U}{\partial V})_S=-p
+$$<p>
+$\because$ Uの二階偏導関数が等しい
+$\therefore$ <strong>第一マクスウェル関係式</strong>を得る：
+</p>
+$$
+(\frac{\partial T}{\partial V})_S=-(\frac{\partial p}{\partial S})_V
+$$<h3 id="エンタルピー全微分">
+<a class="header-anchor" href="#%e3%82%a8%e3%83%b3%e3%82%bf%e3%83%ab%e3%83%94%e3%83%bc%e5%85%a8%e5%be%ae%e5%88%86"></a>
+エンタルピー全微分
+</h3>$$
+dH=dU+d(pV)=TdS-pdV+pdV+Vdp=TdS+Vdp
+$$<h3 id="自由エネルギー全微分">
+<a class="header-anchor" href="#%e8%87%aa%e7%94%b1%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc%e5%85%a8%e5%be%ae%e5%88%86"></a>
+自由エネルギー全微分
+</h3>$$
+dF=-SdT-pdV
+$$<h3 id="ギブズ関数全微分">
+<a class="header-anchor" href="#%e3%82%ae%e3%83%96%e3%82%ba%e9%96%a2%e6%95%b0%e5%85%a8%e5%be%ae%e5%88%86"></a>
+ギブズ関数全微分
+</h3>$$
+dG=-SdT+Vdp
+$$<h3 id="エントロピー全微分">
+<a class="header-anchor" href="#%e3%82%a8%e3%83%b3%e3%83%88%e3%83%ad%e3%83%94%e3%83%bc%e5%85%a8%e5%be%ae%e5%88%86"></a>
+エントロピー全微分
+</h3>$$
+dS=\frac{dU+pdV}{T}
+$$<h2 id="マクスウェルの関係式">
+<a class="header-anchor" href="#%e3%83%9e%e3%82%af%e3%82%b9%e3%82%a6%e3%82%a7%e3%83%ab%e3%81%ae%e9%96%a2%e4%bf%82%e5%bc%8f"></a>
+マクスウェルの関係式
+</h2><p>マクスウェルの関係式（Maxwell Relations）は、熱力学において状態変数間の関係を記述する重要な方程式です。
+以下に4つのマクスウェルの関係式を示します：</p>
+<ol>
+<li>
+<p><strong>第一マクスウェルの関係式</strong>:
+</p>
+$$
+\left ( \frac{\partial T}{\partial V} \right)_S = - \left ( \frac{\partial P}{\partial S} \right)_V
+$$</li>
+<li>
+<p><strong>第二マクスウェルの関係式</strong>:
+</p>
+$$
+\left ( \frac{\partial T}{\partial P} \right)_S = \left ( \frac{\partial V}{\partial S} \right)_P
+$$</li>
+<li>
+<p><strong>第三マクスウェルの関係式</strong>:
+</p>
+$$
+\left ( \frac{\partial S}{\partial V} \right)_T = \left ( \frac{\partial P}{\partial T} \right)_V
+$$</li>
+<li>
+<p><strong>第四マクスウェルの関係式</strong>:
+</p>
+$$
+\left ( \frac{\partial S}{\partial P} \right)_T = -\left ( \frac{\partial V}{\partial T} \right)_P
+$$<p>
+<strong>推論</strong>：
+</p>
+$$
+C_p-C_V=T(\frac{\partial p}{\partial T})_V(\frac{\partial V}{\partial T})_p
+$$<p>
+理想気体$pV=nRT$ を代入すると
+</p>
+$$
+C_p-C_V=nR,定数となる
+$$</li>
+</ol>
+<h2 id="状態方程式">
+<a class="header-anchor" href="#%e7%8a%b6%e6%85%8b%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+状態方程式
+</h2><p>定義：温度と状態変数との間の関数関係を表す方程式。
+</p>
+$$
+f(p,V,T)=0
+$$<h3 id="理想気体の状態方程式">
+<a class="header-anchor" href="#%e7%90%86%e6%83%b3%e6%b0%97%e4%bd%93%e3%81%ae%e7%8a%b6%e6%85%8b%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+理想気体の状態方程式
+</h3>$$
+pV=nRT=NkT
+$$<ul>
+<li>n：物質量</li>
+<li>R：気体定数</li>
+<li>N：系の全粒子数</li>
+<li>k：ボルツマン定数</li>
+</ul>
+<h3 id="ファンデルワールスの状態方程式">
+<a class="header-anchor" href="#%e3%83%95%e3%82%a1%e3%83%b3%e3%83%87%e3%83%ab%e3%83%af%e3%83%bc%e3%83%ab%e3%82%b9%e3%81%ae%e7%8a%b6%e6%85%8b%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+ファンデルワールスの状態方程式
+</h3>$$
+(p+\frac{an^2}{V^2})(V-nb)=nRT
+$$<ul>
+<li>a、bは定数</li>
+</ul>
+<h2 id="一般的な係数">
+<a class="header-anchor" href="#%e4%b8%80%e8%88%ac%e7%9a%84%e3%81%aa%e4%bf%82%e6%95%b0"></a>
+一般的な係数
+</h2><h3 id="体膨張係数">
+<a class="header-anchor" href="#%e4%bd%93%e8%86%a8%e5%bc%b5%e4%bf%82%e6%95%b0"></a>
+体膨張係数$\alpha$
+</h3>$$
+\alpha=\frac{1}{V}(\frac{\partial V}{\partial T})_p=\frac{1}{T},理想気体
+$$<h3 id="圧力係数">
+<a class="header-anchor" href="#%e5%9c%a7%e5%8a%9b%e4%bf%82%e6%95%b0"></a>
+圧力係数$\beta$
+</h3>$$
+\beta=\frac{1}{V}(\frac{\partial p}{\partial T})_V=\frac{1}{T},理想気体
+$$<h3 id="等温圧縮率">
+<a class="header-anchor" href="#%e7%ad%89%e6%b8%a9%e5%9c%a7%e7%b8%ae%e7%8e%87"></a>
+等温圧縮率$\kappa_T$
+</h3>$$
+\kappa_T=-\frac{1}{V}(\frac{\partial V}{\partial P})_T=\frac{1}{p},理想気体
+$$<h2 id="熱容量c">
+<a class="header-anchor" href="#%e7%86%b1%e5%ae%b9%e9%87%8fc"></a>
+熱容量C
+</h2>$$
+C=\lim_{\Delta T \to 0}\frac{\Delta Q}{\Delta T}
+$$<h3 id="定積熱容量">
+<a class="header-anchor" href="#%e5%ae%9a%e7%a9%8d%e7%86%b1%e5%ae%b9%e9%87%8f"></a>
+定積熱容量$C_V$
+</h3>$$
+C_V=(\frac{\partial U}{\partial T})_V=T(\frac{\partial S}{\partial T})_V
+$$<h3 id="定圧熱容量">
+<a class="header-anchor" href="#%e5%ae%9a%e5%9c%a7%e7%86%b1%e5%ae%b9%e9%87%8f"></a>
+定圧熱容量$C_p$
+</h3>$$
+C_p=(\frac{\partial H}{\partial T})_p=T(\frac{\partial S}{\partial T})_p
+$$<h3 id="多変熱容量">
+<a class="header-anchor" href="#%e5%a4%9a%e5%a4%89%e7%86%b1%e5%ae%b9%e9%87%8f"></a>
+多変熱容量$C_n$
+</h3>$$
+C_n=T(\frac{\partial S}{\partial T})_n
+$$<h2 id="理想気体の断熱方程式">
+<a class="header-anchor" href="#%e7%90%86%e6%83%b3%e6%b0%97%e4%bd%93%e3%81%ae%e6%96%ad%e7%86%b1%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+理想気体の断熱方程式
+</h2><p>$\gamma$：[[#断熱係数]]
+C：定数
+</p>
+$$
+pV^\gamma=C_1
+$$<p>
+</p>
+$$
+TV^{\gamma-1}=C_2
+$$<p>
+</p>
+$$
+P^{1-\gamma}T^\gamma=C_3
+$$<h2 id="熱力学第二法則">
+<a class="header-anchor" href="#%e7%86%b1%e5%8a%9b%e5%ad%a6%e7%ac%ac%e4%ba%8c%e6%b3%95%e5%89%87"></a>
+==熱力学第二法則==
+</h2>$$
+dS\ge \frac{dQ}{T}
+$$<ol>
+<li>二つの断熱線は交わることができない</li>
+<li>T：外界の温度</li>
+<li>その過程が可逆過程である場合に限り、外界の温度=システムの温度=Tとなる</li>
+</ol>
+<h2 id="可逆熱機関の効率">
+<a class="header-anchor" href="#%e5%8f%af%e9%80%86%e7%86%b1%e6%a9%9f%e9%96%a2%e3%81%ae%e5%8a%b9%e7%8e%87"></a>
+可逆熱機関の効率$\eta$
+</h2><p>[[#カルノーの定理]]
+</p>
+$$
+\eta=1-\frac{T_1}{T_2}
+$$<ul>
+<li>$T_2$：高温熱源の温度</li>
+<li>$T_1$：低温熱源の温度</li>
+<li>$0<\eta<1$</li>
+</ul>
+<h2 id="絞り過程におけるエネルギー方程式">
+<a class="header-anchor" href="#%e7%b5%9e%e3%82%8a%e9%81%8e%e7%a8%8b%e3%81%ab%e3%81%8a%e3%81%91%e3%82%8b%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+絞り過程におけるエネルギー方程式
+</h2><p>絞り過程に対して、以下のエネルギー平衡方程式を書くことができます：
+</p>
+$$
+H_1 = H_2
+$$<p>ここで、$H_1$ と $H_2$ はそれぞれ絞り前後のエンタルピーです。
+<strong>証明</strong>：
+システムは断熱的であり、$\Delta U=W$
+$U_2-U_1=p_1V_1-p_2V_2$
+$U_2+p_2V_2=U_1+p_1V_1$
+$H_2=H_1$</p>
+<h2 id="焦湯係数">
+<a class="header-anchor" href="#%e7%84%a6%e6%b9%af%e4%bf%82%e6%95%b0"></a>
+焦湯係数
+</h2><p>[[#絞り過程]]
+</p>
+$$
+\mu=(\frac{\partial T}{\partial p})_H=\frac{V}{C_p}(T\alpha-1)
+$$<h2 id="開いた系の熱力学基本方程式">
+<a class="header-anchor" href="#%e9%96%8b%e3%81%84%e3%81%9f%e7%b3%bb%e3%81%ae%e7%86%b1%e5%8a%9b%e5%ad%a6%e5%9f%ba%e6%9c%ac%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+開いた系の熱力学基本方程式（$+\mu dn$）
+</h2><h3 id="内部エネルギーの全微分">
+<a class="header-anchor" href="#%e5%86%85%e9%83%a8%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc%e3%81%ae%e5%85%a8%e5%be%ae%e5%88%86"></a>
+内部エネルギーの全微分
+</h3>$$
+dU=dQ+dW+\mu dn=TdS-pdV+\mu dn
+$$<h3 id="エンタルピーの全微分">
+<a class="header-anchor" href="#%e3%82%a8%e3%83%b3%e3%82%bf%e3%83%ab%e3%83%94%e3%83%bc%e3%81%ae%e5%85%a8%e5%be%ae%e5%88%86"></a>
+エンタルピーの全微分
+</h3>$$
+dH=dU+d(pV)+\mu dn=TdS+Vdp+\mu dn
+$$<h3 id="自由エネルギーの全微分">
+<a class="header-anchor" href="#%e8%87%aa%e7%94%b1%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc%e3%81%ae%e5%85%a8%e5%be%ae%e5%88%86"></a>
+自由エネルギーの全微分
+</h3>$$
+dF=-SdT-pdV+\mu dn
+$$<h3 id="ギブズ関数の全微分">
+<a class="header-anchor" href="#%e3%82%ae%e3%83%96%e3%82%ba%e9%96%a2%e6%95%b0%e3%81%ae%e5%85%a8%e5%be%ae%e5%88%86"></a>
+ギブズ関数の全微分
+</h3>$$
+dG=-SdT+Vdp+\mu dn
+$$<h3 id="巨熱力ポテンシャル">
+<a class="header-anchor" href="#%e5%b7%a8%e7%86%b1%e5%8a%9b%e3%83%9d%e3%83%86%e3%83%b3%e3%82%b7%e3%83%a3%e3%83%ab"></a>
+巨熱力ポテンシャル
+</h3>$$
+J=-pV
+$$<h2 id="クラペイロンの式">
+<a class="header-anchor" href="#%e3%82%af%e3%83%a9%e3%83%9a%e3%82%a4%e3%83%ad%e3%83%b3%e3%81%ae%e5%bc%8f"></a>
+クラペイロンの式
+</h2>$$
+\frac{dp}{dT}=\frac{S_m^\beta-S_m^\alpha}{V_m^\beta-V_m^\alpha}=\frac{L}{T(V_m^\beta-V_m^\alpha)}=\frac{s^\beta-s^\alpha}{v^\beta-v^\alpha}
+$$<p>
+ここで：</p>
+<ul>
+<li>$L=T(S_m^\beta-S_m^\alpha)$は相転移潜熱。</li>
+<li>$S_m$ はモルエントロピー</li>
+<li>$s$ は比エントロピー（単位質量あたりのエントロピー）</li>
+<li>$v$ は比体積（単位質量あたりの体積）</li>
+</ul>
+<h2 id="エーレンフェストの方程式">
+<a class="header-anchor" href="#%e3%82%a8%e3%83%bc%e3%83%ac%e3%83%b3%e3%83%95%e3%82%a7%e3%82%b9%e3%83%88%e3%81%ae%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+エーレンフェストの方程式
+</h2><p>[[#二次相転移]]において、クラペイロンの式は $\frac{0}{0}$ の不定形となり、ロピタルの定理を適用して分子と分母を $T$ で偏微分すると、
+</p>
+$$
+\frac{d𝑝}{d𝑇}=\frac{\Delta c_𝑝}{𝑇𝑣\Delta\alpha}
+$$<p>
+を得る。また、分子と分母を $𝑝$ で偏微分すると、
+</p>
+$$
+\frac{d𝑝}{d𝑇}=\frac{\Delta\alpha}{\Delta\kappa_T}
+$$<p>
+となる。これら二つの式が<strong>エーレンフェストの方程式</strong>である。</p>
+<h3 id="一次相転移の方程式">
+<a class="header-anchor" href="#%e4%b8%80%e6%ac%a1%e7%9b%b8%e8%bb%a2%e7%a7%bb%e3%81%ae%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+一次相転移の方程式
+</h3><h4 id="式">
+<a class="header-anchor" href="#%e5%bc%8f"></a>
+式
+</h4><p>一次相転移では、転移温度 $T_c$ において、ギブズ自由エネルギー $G$ 自体は連続であるが、温度と圧力に関する一次導関数は不連続性を示す：</p>
+<ul>
+<li>$\left ( \frac{\partial G}{\partial T} \right)_P = -S$</li>
+<li>$\left ( \frac{\partial G}{\partial P} \right)_T = V$</li>
+</ul>
+<p>転移点 $T_c$ において、これらの一次導関数はジャンプする：
+</p>
+$$
+\Delta S = S_2 - S_1 \neq 0
+$$<p>
+</p>
+$$
+\Delta V = V_2 - V_1 \neq 0
+$$<p>
+ここで、$S$ はエントロピー、$V$ は体積であり、添字 1 と 2 は相転移前後の二つの相を表す。</p>
+<h4 id="証明">
+<a class="header-anchor" href="#%e8%a8%bc%e6%98%8e"></a>
+証明
+</h4><p>一次相転移の特徴は、<strong>熱力学ポテンシャル関数の一次導関数</strong>が転移点で<strong>不連続性</strong>を示すことである。エントロピーを例にとる：</p>
+<ol>
+<li><strong>ギブズ自由エネルギーの連続性</strong>：
+転移温度 $T_c$ において、ギブズ自由エネルギー $G$ は連続である：
+$$
+   G_1 (T_c, P) = G_2 (T_c, P)
+   $$</li>
+<li><strong>エントロピーの不連続性</strong>：
+$G$ を温度で偏微分すると、エントロピーの式が得られる：
+$$
+   S = -\left ( \frac{\partial G}{\partial T} \right)_P
+   $$
+$T_c$ において、エントロピーのジャンプは：
+$$
+   \Delta S = S_2 - S_1 = -\left ( \frac{\partial G_2}{\partial T} \right)_P + \left ( \frac{\partial G_1}{\partial T} \right)_P \neq 0
+   $$</li>
+</ol>
+<p>これは、エントロピーが転移点で不連続性を持つことを示している。</p>
+<h3 id="二次相転移の方程式">
+<a class="header-anchor" href="#%e4%ba%8c%e6%ac%a1%e7%9b%b8%e8%bb%a2%e7%a7%bb%e3%81%ae%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+二次相転移の方程式
+</h3><h4 id="式-1">
+<a class="header-anchor" href="#%e5%bc%8f-1"></a>
+式
+</h4><p>二次相転移では、転移温度 $T_c$ において、ギブズ自由エネルギー $G$ およびその一次導関数（エントロピーや体積など）は連続であるが、二次導関数（熱容量、圧縮率、熱膨張係数など）は不連続である：</p>
+<ul>
+<li>$\left ( \frac{\partial^2 G}{\partial T^2} \right)_P = \frac{\partial S}{\partial T} = \frac{C_P}{T}$</li>
+<li>$\left ( \frac{\partial^2 G}{\partial P^2} \right)_T = \frac{\partial V}{\partial P} = -\kappa_T V$</li>
+</ul>
+<p>転移点 $T_c$ において、これらの二次導関数はジャンプする：
+</p>
+$$
+\Delta C_P = C_{P 2} - C_{P 1} \neq 0
+$$<p>
+</p>
+$$
+\Delta \kappa_T = \kappa_{T 2} - \kappa_{T 1} \neq 0
+$$<p>
+ここで、$C_P$ は定圧熱容量、$\kappa_T$ は等温圧縮率である。</p>
+<h4 id="証明-1">
+<a class="header-anchor" href="#%e8%a8%bc%e6%98%8e-1"></a>
+証明
+</h4><p>二次相転移の特徴は、<strong>熱力学ポテンシャル関数の二次導関数</strong>が転移点で<strong>不連続性</strong>を示すことである。熱容量を例にとる：</p>
+<ol>
+<li><strong>エントロピーの連続性</strong>：
+転移温度 $T_c$ において、エントロピー $S$ は連続である：
+$$
+   S_1 (T_c, P) = S_2 (T_c, P)
+   $$</li>
+<li><strong>熱容量の不連続性</strong>：
+エントロピーを温度で偏微分すると、熱容量の式が得られる：
+$$
+   C_P = T \left ( \frac{\partial S}{\partial T} \right)_P
+   $$
+$T_c$ において、熱容量のジャンプは：
+$$
+   \Delta C_P = C_{P 2} - C_{P 1} = T \left ( \left ( \frac{\partial S_2}{\partial T} \right)_P - \left ( \frac{\partial S_1}{\partial T} \right)_P \right) \neq 0
+   $$</li>
+</ol>
+<p>これは、熱容量が転移点で不連続性を持つことを示している。</p>
+<h2 id="多元系ギブズ関数の全微分">
+<a class="header-anchor" href="#%e5%a4%9a%e5%85%83%e7%b3%bb%e3%82%ae%e3%83%96%e3%82%ba%e9%96%a2%e6%95%b0%e3%81%ae%e5%85%a8%e5%be%ae%e5%88%86"></a>
+多元系ギブズ関数の全微分
+</h2>$$
+dG=-SdT+Vdp+\sum_i\mu_i dn_i
+$$<h2 id="ギブスの相律">
+<a class="header-anchor" href="#%e3%82%ae%e3%83%96%e3%82%b9%e3%81%ae%e7%9b%b8%e5%be%8b"></a>
+ギブスの相律
+</h2>$$
+f=k+2-\varphi
+$$<p>
+ここで：</p>
+<ul>
+<li>$f$：多成分複相系の自由度、すなわち独立に変化できる強度変数の数</li>
+<li>$k$：成分の数</li>
+<li>$\varphi$：相の数</li>
+</ul>
+<h2 id="ドブロイの関係">
+<a class="header-anchor" href="#%e3%83%89%e3%83%96%e3%83%ad%e3%82%a4%e3%81%ae%e9%96%a2%e4%bf%82"></a>
+ド・ブロイの関係
+</h2><p>[[#ド・ブロイ波]]
+</p>
+$$
+\begin{cases}
+\varepsilon=\hbar\omega\\
+\vec{p}=\hbar\vec{k}
+\end{cases}
+$$<h2 id="プランク定数">
+<a class="header-anchor" href="#%e3%83%97%e3%83%a9%e3%83%b3%e3%82%af%e5%ae%9a%e6%95%b0"></a>
+プランク定数
+</h2>$$
+\begin{align}
+h & =6.626069934(89)×10^{-34}J\cdot s \\
+& =4.135667662(25)×10^{-15}eV\cdot s
+\end{align}
+$$<p>
+換算プランク定数（ディラック定数）：
+</p>
+$$
+\hbar \equiv \frac{h}{2\pi}=1.054571800(13)\times10^{-34}J\cdot s
+$$<h2 id="不確定性関係">
+<a class="header-anchor" href="#%e4%b8%8d%e7%a2%ba%e5%ae%9a%e6%80%a7%e9%96%a2%e4%bf%82"></a>
+不確定性関係
+</h2>$$
+\Delta q\Delta p\ge h
+$$<p>
+<strong>または</strong>
+</p>
+$$
+\Delta q\Delta p\ge \frac{\hbar}{2}
+$$<p>
+==一般的に==、次のように取る
+</p>
+$$
+\Delta q\Delta p\approx h
+$$<h2 id="三次元自由粒子の量子状態数">
+<a class="header-anchor" href="#%e4%b8%89%e6%ac%a1%e5%85%83%e8%87%aa%e7%94%b1%e7%b2%92%e5%ad%90%e3%81%ae%e9%87%8f%e5%ad%90%e7%8a%b6%e6%85%8b%e6%95%b0"></a>
+三次元自由粒子の量子状態数
+</h2><p>==量子スピンは一時的に考慮しない==</p>
+<blockquote>
+<p>粒子が巨視的な大きさの容器内で運動する場合、運動量値とエネルギー値は<strong>準連続的</strong>である。</p></blockquote>
+<h3 id="直交座標系での運動量表現">
+<a class="header-anchor" href="#%e7%9b%b4%e4%ba%a4%e5%ba%a7%e6%a8%99%e7%b3%bb%e3%81%a7%e3%81%ae%e9%81%8b%e5%8b%95%e9%87%8f%e8%a1%a8%e7%8f%be"></a>
+直交座標系での運動量表現
+</h3><p>体積 $V=L^3$ 内で、$p_x$ から $p_x+dp_x$、$p_y$ から $p_y+dp_y$、$p_z$ から $p_z+dp_z$ の運動量範囲における<strong>自由粒子の量子状態数</strong>を求める。
+解法一：
+[[#三次元自由粒子]]の運動量と量子数の関係から、
+$p_x$ の可能な数は：
+</p>
+$$
+dn_x=\frac{L}{2\pi\hbar}dp_x
+$$<p>
+つまり、$dp_x$ で量子数 $dn_x$ を表現する。
+他の二方向も同様。
+</p>
+$$
+dn_xdn_ydn_z=\frac{V}{h^3}dp_xdp_ydp_z
+$$<p>
+解法二：
+[[#相格]]の定義により、三次元自由粒子の相格の大きさは $\Delta q_1\cdots \Delta q_r\Delta p_1\cdots \Delta p_r\approx h^3$。問題中の $\mu$ 空間の体積は $d\Omega=Vdp_xdp_ydp_z$。
+この体積に収まる相格の数が自由粒子の量子状態数となる。
+</p>
+$$
+dn_xdn_ydn_z=\frac{d\Omega}{h^3}=\frac{Vdp_xdp_ydp_z}{h^3}
+$$<h3 id="球座標系での運動量表現">
+<a class="header-anchor" href="#%e7%90%83%e5%ba%a7%e6%a8%99%e7%b3%bb%e3%81%a7%e3%81%ae%e9%81%8b%e5%8b%95%e9%87%8f%e8%a1%a8%e7%8f%be"></a>
+球座標系での運動量表現
+</h3>$$
+\displaylines{p_x=p\sin \theta \cos \varphi 
+\\p_y=p\sin \theta \sin \varphi 
+\\p_z=p\cos \theta}
+$$<p>
+</p>
+$$
+dp_xdp_ydp_z=p^2\sin \theta dp d\theta d\varphi
+$$<p>
+体積 $V$ 内で、運動量の大きさが $p$ から $p+dp$、方向が $\theta$ から $d\theta$、$\varphi$ から $\varphi+d\varphi$ の範囲にある自由粒子の可能な状態数は
+</p>
+$$
+\frac{Vp^2\sin \theta dp d\theta d\varphi}{h^3}
+$$<p>
+<em>$p,\theta,\varphi$ の三つの量子数があり、三つの自由度に対応する。</em></p>
+<h3 id="エネルギー表現">
+<a class="header-anchor" href="#%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc%e8%a1%a8%e7%8f%be"></a>
+エネルギー表現
+</h3><p>$\theta,\varphi$ について積分（$0<\theta<\pi,0<\varphi<2\pi$）すると：
+</p>
+$$
+\frac{4\pi Vp^2}{h^3}dp
+$$<p>
+この場合、運動量の方向は任意で、自由度は1。
+$\because$ $\varepsilon=\frac{p^2}{2m}$
+$\therefore$ 体積 $V$ 内で、エネルギー $\varepsilon$ から $\varepsilon+d\varepsilon$ の範囲にある自由粒子の可能な量子状態数は
+</p>
+$$
+D(\varepsilon)d\varepsilon=\frac{2\pi V}{h^3}(2m)^{3/2}\varepsilon^{1/2}d\varepsilon
+$$<p>
+ここで、$D(\varepsilon)$ は単位エネルギー間隔あたりの可能な状態数を表し、==状態密度==と呼ばれる。</p>
+<h3 id="量子スピンを考慮する場合">
+<a class="header-anchor" href="#%e9%87%8f%e5%ad%90%e3%82%b9%e3%83%94%e3%83%b3%e3%82%92%e8%80%83%e6%85%ae%e3%81%99%e3%82%8b%e5%a0%b4%e5%90%88"></a>
+量子スピンを考慮する場合
+</h3><p>[[#スピン角運動量]]
+量子状態数=上で求めた運動量の量子状態数 * 粒子のスピンの可能な状態数
+例：粒子のスピン量子数が $\frac{1}{2}$ の場合、$S_z=2s+1=1$、上式の結果は2倍される。</p>
+<h1 id="定義及び定理">
+<a class="header-anchor" href="#%e5%ae%9a%e7%be%a9%e5%8f%8a%e3%81%b3%e5%ae%9a%e7%90%86"></a>
+定義及び定理
+</h1><h2 id="基礎定義">
+<a class="header-anchor" href="#%e5%9f%ba%e7%a4%8e%e5%ae%9a%e7%be%a9"></a>
+基礎定義
+</h2><h3 id="平衡状態">
+<a class="header-anchor" href="#%e5%b9%b3%e8%a1%a1%e7%8a%b6%e6%85%8b"></a>
+平衡状態
+</h3><p>平衡状態の定義は以下の2点を把握する：</p>
+<ol>
+<li>システムと外界との間に<strong>巨視的</strong>なエネルギーや物質の交換がない（<strong>定常状態</strong>とは異なる）。微視的なエネルギーや物質の交換はあり得る。</li>
+<li>システムの各部分の巨視的性質が長時間にわたって変化しない。平衡状態は<strong>熱力学的平衡</strong>であり、<strong>ゆらぎ</strong>が存在する。</li>
+</ol>
+<p><strong>緩和時間</strong>：システムが非平衡状態から平衡状態に回復するのに必要な時間。</p>
+<h3 id="平衡状態の性質を記述する方法巨視的記述">
+<a class="header-anchor" href="#%e5%b9%b3%e8%a1%a1%e7%8a%b6%e6%85%8b%e3%81%ae%e6%80%a7%e8%b3%aa%e3%82%92%e8%a8%98%e8%bf%b0%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95%e5%b7%a8%e8%a6%96%e7%9a%84%e8%a8%98%e8%bf%b0"></a>
+平衡状態の性質を記述する方法：巨視的記述
+</h3><ul>
+<li>状態変数：平衡状態の性質を決定する巨視的変数</li>
+<li>状態関数：状態変数によって決定される巨視的変数</li>
+</ul>
+<h3 id="示量変数と示強変数">
+<a class="header-anchor" href="#%e7%a4%ba%e9%87%8f%e5%a4%89%e6%95%b0%e3%81%a8%e7%a4%ba%e5%bc%b7%e5%a4%89%e6%95%b0"></a>
+示量変数と示強変数
+</h3><p>熱力学において、均一なシステムの<strong>巨視的変数</strong>は2種類に分類できる：示量変数と示強変数。</p>
+<h4 id="示量変数extensive-variables">
+<a class="header-anchor" href="#%e7%a4%ba%e9%87%8f%e5%a4%89%e6%95%b0extensive-variables"></a>
+示量変数（Extensive Variables）
+</h4><blockquote>
+<p>示量変数とは、<strong>システムの規模や大きさに依存する熱力学的変数</strong>である。これらの変数はシステムの大きさに比例して増減する。</p></blockquote>
+<ul>
+<li><strong>質量（Mass）</strong>：システム全体の質量。</li>
+<li><strong>体積（Volume, V）</strong>：システムが占める空間の体積。</li>
+<li><strong>エネルギー（Energy, E）</strong>：内部エネルギー、運動エネルギー、位置エネルギーを含む。</li>
+<li><strong>エントロピー（Entropy, S）</strong>：システムの微視的状態の不確定性と乱雑さを表す。</li>
+<li><strong>粒子数（Number of particles, N）</strong>：システム内の粒子の総数。</li>
+<li><strong>熱量（Heat, Q）</strong>：システムが含むまたは伝達する熱量。</li>
+<li><strong>電荷（Charge, Q）</strong>：システム内の電荷の総量。</li>
+</ul>
+<h4 id="示強変数intensive-variables">
+<a class="header-anchor" href="#%e7%a4%ba%e5%bc%b7%e5%a4%89%e6%95%b0intensive-variables"></a>
+示強変数（Intensive Variables）
+</h4><blockquote>
+<p>示強変数とは、<strong>システムの大きさに依存しない</strong>熱力学的変数であり、これらの変数は<strong>システム内の任意の点で一貫して同じ値</strong>を持ち、システムの規模に依存しない。</p></blockquote>
+<ul>
+<li><strong>温度（Temperature, T）</strong>：システムの熱的状態を表す。</li>
+<li><strong>圧力（Pressure, P）</strong>：システムの単位面積に作用する力。</li>
+<li><strong>化学ポテンシャル（Chemical potential, μ）</strong>：システムに粒子を1つ追加するのに必要な自由エネルギー。</li>
+<li><strong>濃度（Concentration）</strong>：単位体積あたりの粒子数。</li>
+<li><strong>電場（Electric field, E）</strong>：単位電荷に作用する力。</li>
+<li><strong>磁場（Magnetic field, H）</strong>：単位磁気双極子に作用するトルク。</li>
+</ul>
+<h4 id="示量変数と示強変数の関係">
+<a class="header-anchor" href="#%e7%a4%ba%e9%87%8f%e5%a4%89%e6%95%b0%e3%81%a8%e7%a4%ba%e5%bc%b7%e5%a4%89%e6%95%b0%e3%81%ae%e9%96%a2%e4%bf%82"></a>
+示量変数と示強変数の関係
+</h4><p>示量変数と示強変数は密接に関連している。一般的に、<strong>示量変数は示強変数の積分や積によって計算できる</strong>。例えば：</p>
+<ul>
+<li><strong>内部エネルギー</strong>（U）：システムの温度、体積、粒子数によって決定できる。</li>
+<li><strong>体積</strong>：システム内の各微小体積の密度を積分することで計算できる。</li>
+<li><strong>熱量と仕事</strong>：示強変数（温度や圧力）と示量変数（エントロピーや体積変化）の積である。</li>
+</ul>
+<h3 id="温度">
+<a class="header-anchor" href="#%e6%b8%a9%e5%ba%a6"></a>
+温度
+</h3><blockquote>
+<p><strong>熱平衡の法則</strong>：物体AがそれぞれBおよびCと熱平衡にある場合、BとCが熱接触した場合も必ず熱平衡にある。</p></blockquote>
+<ul>
+<li>温度の定義：互いに熱平衡にある物体は、その物体自体の内在的な性質に属する物理量を持っており、それを温度と定義する。</li>
+<li>温度目盛：温度の数値的表現方法</li>
+<li>三要素：温度測定物質の温度測定属性、固定点、目盛り。</li>
+</ul>
+<h3 id="過程の仕事">
+<a class="header-anchor" href="#%e9%81%8e%e7%a8%8b%e3%81%ae%e4%bb%95%e4%ba%8b"></a>
+過程の仕事
+</h3><p><strong>準静的過程</strong>：$W=\int_{V_1}^{V_2}pdV$ 、ここで $V_1$ はシステムの初期体積、$V_2$ はシステムの最終体積。</p>
+<p><strong>可逆過程：散逸のない準静的過程</strong></p>
+<blockquote>
+<p>可逆過程では、外界がシステムに対して行う仕事はシステム自体の状態変数で表現できる。</p></blockquote>
+<p><strong>状態空間：独立な状態変数を座標軸として構成される空間。</strong></p>
+<blockquote>
+<p>状態空間では、1つの点がシステムの1つの平衡状態を表し、1つの曲線が1つの準静的過程を表す。</p></blockquote>
+<p><strong>過程方程式：準静的過程において、独立な状態変数間の関数関係。</strong></p>
+<p>仕事の表現式（可逆過程のみを議論）：</p>
+<ul>
+<li>流体の体積変化過程： −𝑝d𝑉</li>
+<li>表面膜の面積変化過程： 𝜎d𝐴</li>
+<li>細い弾性線の長さ： 𝐹d𝐿</li>
+<li>分極仕事（誘電体の体積変化を無視）：</li>
+<li>磁化仕事（磁性体の体積変化を無視）：</li>
+</ul>
+<p><strong>特殊な非静的過程の仕事</strong>：</p>
+<ul>
+<li>等体積 $𝑊=0$</li>
+<li>等圧 $𝑊=−𝑝 \Delta 𝑉$</li>
+</ul>
+<h2 id="カルノーの定理">
+<a class="header-anchor" href="#%e3%82%ab%e3%83%ab%e3%83%8e%e3%83%bc%e3%81%ae%e5%ae%9a%e7%90%86"></a>
+カルノーの定理
+</h2><p><strong>2つの決まった温度の間で動作するすべての熱機関の中で、可逆熱機関の効率が最も高い。</strong>
+系：2つの可逆熱機関が同じ温度で動作する場合、その効率は等しい。
+[[#可逆熱機関の効率$ eta$]]</p>
+<h2 id="エントロピー増加の原理">
+<a class="header-anchor" href="#%e3%82%a8%e3%83%b3%e3%83%88%e3%83%ad%e3%83%94%e3%83%bc%e5%a2%97%e5%8a%a0%e3%81%ae%e5%8e%9f%e7%90%86"></a>
+エントロピー増加の原理
+</h2><blockquote>
+<p><strong>断熱条件</strong>下では、エントロピーが減少する過程は実現不可能である（エントロピーは決して減少しない）。</p></blockquote>
+<p><strong>証明</strong>：熱力学第二法則より：
+</p>
+$$
+dS\ge \frac{dQ}{T}
+$$<p>
+断熱系では$dQ$=0であるため、$dS\ge 0$となる。</p>
+<p><strong>系</strong>：孤立（断熱）系における<strong>不可逆過程</strong>は常にエントロピーが増加する方向に進行し、すなわち$dS>0$となる。</p>
+<h2 id="絞り過程">
+<a class="header-anchor" href="#%e7%b5%9e%e3%82%8a%e9%81%8e%e7%a8%8b"></a>
+絞り過程
+</h2><p>熱力学において、絞り過程（Throttling Process）は、気体や液体がオリフィス、バルブ、または多孔質プラグを通過する際の挙動を理解するために用いられる一般的な<strong>断熱過程</strong>です。</p>
+<h3 id="絞り過程の特徴">
+<a class="header-anchor" href="#%e7%b5%9e%e3%82%8a%e9%81%8e%e7%a8%8b%e3%81%ae%e7%89%b9%e5%be%b4"></a>
+絞り過程の特徴
+</h3><ol>
+<li><strong>断熱性</strong>：絞り過程は通常、断熱的であると考えられます。これは、流れが急速であるため熱交換の時間が十分にないためです。</li>
+<li><strong>等エンタルピー性</strong>：最も重要な特徴は、絞り過程が等エンタルピー過程であることです。つまり、エンタルピー（Enthalpy，$H$）は絞り前後で変化しません。この特性が絞り過程において主要な役割を果たします。[[#絞り過程におけるエネルギー方程式]]</li>
+<li><strong>不可逆性</strong>：絞り過程は<strong>不可逆過程</strong>であり、系の<strong>エントロピーは通常増加します</strong>。</li>
+<li><strong>圧力低下</strong>：絞り過程において、流体の圧力は著しく低下します。</li>
+</ol>
+<h3 id="エンタルピーと温度圧力の関係">
+<a class="header-anchor" href="#%e3%82%a8%e3%83%b3%e3%82%bf%e3%83%ab%e3%83%94%e3%83%bc%e3%81%a8%e6%b8%a9%e5%ba%a6%e5%9c%a7%e5%8a%9b%e3%81%ae%e9%96%a2%e4%bf%82"></a>
+エンタルピーと温度、圧力の関係
+</h3><p>理想気体の場合、エンタルピーは温度のみの関数であるため、絞り過程では温度が一定に保たれます（ジュール-トムソン効果の特殊な場合）。しかし、実在気体の場合、状況はより複雑で、温度が上昇または低下する可能性があり、それは気体の==ジュール-トムソン係数==（Joule-Thomson coefficient，[[#ジュールトムソン係数]]）に依存します。この係数は以下のように定義されます：
+</p>
+$$
+\mu_{JT} = \left ( \frac{\partial T}{\partial P} \right)_H
+$$<ul>
+<li>$\mu_{JT} > 0$の場合、絞り過程で気体の温度は低下します。</li>
+<li>$\mu_{JT} < 0$の場合、絞り過程で気体の温度は上昇します。</li>
+</ul>
+<h3 id="絞り過程の応用">
+<a class="header-anchor" href="#%e7%b5%9e%e3%82%8a%e9%81%8e%e7%a8%8b%e3%81%ae%e5%bf%9c%e7%94%a8"></a>
+絞り過程の応用
+</h3><p>絞り過程は、多くの産業用途で非常に重要です。例えば：</p>
+<ul>
+<li><strong>冷凍システム</strong>：絞り弁（膨張弁など）を使用して冷媒の温度と圧力を低下させ、冷却効果を実現します。</li>
+<li><strong>ガス分離</strong>：絞りによって特定のガスを液化温度まで冷却し、異なる成分のガスを分離します。</li>
+</ul>
+<h2 id="特性関数">
+<a class="header-anchor" href="#%e7%89%b9%e6%80%a7%e9%96%a2%e6%95%b0"></a>
+特性関数
+</h2><p>特性関数（熱力学ポテンシャル関数または熱力学ポテンシャルとも呼ばれる）は、熱力学系の状態を記述するために使用される関数であり、これらの関数からさまざまな熱力学的性質と関係を導出することができます。
+主な特性関数には、内部エネルギー、ヘルムホルツ自由エネルギー、エンタルピー、ギブズ自由エネルギーの4つがあります。</p>
+<ul>
+<li>内部エネルギー$U(S,V)$：断熱等容系、U は不変</li>
+<li>エンタルピー$H(S,p)$：断熱等圧系、H は不変</li>
+<li>自由エネルギー$F(T,V)$：等温等容、F は不変</li>
+<li>ギブズ関数$G(T,p)$：等温等圧、G は不変</li>
+</ul>
+<h2 id="放射">
+<a class="header-anchor" href="#%e6%94%be%e5%b0%84"></a>
+放射
+</h2><h3 id="平衡放射">
+<a class="header-anchor" href="#%e5%b9%b3%e8%a1%a1%e6%94%be%e5%b0%84"></a>
+平衡放射
+</h3><p>平衡放射（Equilibrium Radiation）とは、<strong>熱力学的平衡</strong>状態にあるシステムの電磁放射特性を指す。この時、システム内の放射と吸収過程が動的平衡に達し、電磁放射のスペクトルと強度はシステムの温度のみによって決定される。</p>
+<h4 id="平衡放射の特徴">
+<a class="header-anchor" href="#%e5%b9%b3%e8%a1%a1%e6%94%be%e5%b0%84%e3%81%ae%e7%89%b9%e5%be%b4"></a>
+平衡放射の特徴
+</h4><ol>
+<li><strong>熱平衡</strong>：
+<ul>
+<li>システムが熱平衡状態にあり、システムの各部分の温度が均一で、正味の熱流動がない。</li>
+</ul>
+</li>
+<li><strong>黒体放射</strong>：
+<ul>
+<li>熱平衡状態では、放射は黒体放射の特性を持つ。黒体放射は、すべての周波数を完全に吸収し再放射する理想化された放射であり、スペクトルは温度のみに依存する。</li>
+</ul>
+</li>
+</ol>
+<h3 id="放射束密度">
+<a class="header-anchor" href="#%e6%94%be%e5%b0%84%e6%9d%9f%e5%af%86%e5%ba%a6"></a>
+放射束密度
+</h3><p>放射束密度（Radiative Flux Density）は、単位時間に単位面積を通過する放射エネルギーを指し、放射出射度または放射強度とも呼ばれる。これは放射場を記述する重要な物理量であり、熱力学、気象学、天文学などの分野で広く応用されている。</p>
+<h4 id="定義">
+<a class="header-anchor" href="#%e5%ae%9a%e7%be%a9"></a>
+定義
+</h4><p>放射束密度Eは以下のように表される：
+</p>
+$$
+E = \frac{d\Phi}{dA}
+$$<p>
+ここで：</p>
+<ul>
+<li>Eは放射束密度で、単位はワット毎平方メートル（$W/m^2$）。</li>
+<li>$d\Phi$ は面積 $dA$ を通過する放射エネルギー束で、単位はワット（$W$）。</li>
+<li>$dA$ は面積で、単位は平方メートル（$m^2$）。</li>
+</ul>
+<p>==または==
+</p>
+$$
+J_u=\frac{c}{4}\frac{U}{V}=\frac{1}{4}cu
+$$<p>
+ここで：</p>
+<ul>
+<li>$c$：光速</li>
+<li>$u$：放射エネルギー密度、$u=\frac{U}{V}$、単位体積あたりの平衡放射エネルギー</li>
+</ul>
+<h4 id="シュテファンボルツマンの法則における応用">
+<a class="header-anchor" href="#%e3%82%b7%e3%83%a5%e3%83%86%e3%83%95%e3%82%a1%e3%83%b3%e3%83%9c%e3%83%ab%e3%83%84%e3%83%9e%e3%83%b3%e3%81%ae%e6%b3%95%e5%89%87%e3%81%ab%e3%81%8a%e3%81%91%e3%82%8b%e5%bf%9c%e7%94%a8"></a>
+シュテファン・ボルツマンの法則における応用
+</h4><p>理想的な黒体の場合、その放射束密度は温度の4乗に比例し、これはシュテファン・ボルツマンの法則によって記述される：
+</p>
+$$
+E = \sigma T^4
+$$<p>
+ここで：</p>
+<ul>
+<li>$E$ は黒体の放射束密度。</li>
+<li>$\sigma$ はシュテファン・ボルツマン定数で、値は $5.67 \times 10^{-8} \, W \, m^{-2} \, K^{-4}$。</li>
+<li>$T$ は黒体の絶対温度で、単位はケルビン（$K$）。</li>
+</ul>
+<h4 id="放射束密度の方向性">
+<a class="header-anchor" href="#%e6%94%be%e5%b0%84%e6%9d%9f%e5%af%86%e5%ba%a6%e3%81%ae%e6%96%b9%e5%90%91%e6%80%a7"></a>
+放射束密度の方向性
+</h4><p>放射束密度はベクトル量であり、その方向性を考慮した場合、放射強度 $I$ と呼ばれ、単位立体角あたりの放射束密度として表される：
+</p>
+$$
+I = \frac{d\Phi}{dA \cos \theta \, d\Omega}
+$$<p>
+ここで：</p>
+<ul>
+<li>$I$ は放射強度で、単位はワット毎平方メートル毎ステラジアン（$W/m^2/sr$）。</li>
+<li>$d\Omega$ は立体角で、単位はステラジアン（sr）。</li>
+<li>$\theta$ は放射方向と法線との間の角度。</li>
+</ul>
+<h3 id="黒体放射空洞放射">
+<a class="header-anchor" href="#%e9%bb%92%e4%bd%93%e6%94%be%e5%b0%84%e7%a9%ba%e6%b4%9e%e6%94%be%e5%b0%84"></a>
+黒体放射（空洞放射）
+</h3><p>黒体放射（Blackbody Radiation）とは、理想化された物体（黒体と呼ばれる）が熱平衡状態で放出する電磁放射を指す。黒体は理想化された概念であり、すべての周波数の電磁波を完全に吸収し、完全に放射する能力を持つ。黒体放射の特性は黒体の温度のみに依存し、その材料や表面特性には依存しない。</p>
+<h4 id="黒体放射の特徴">
+<a class="header-anchor" href="#%e9%bb%92%e4%bd%93%e6%94%be%e5%b0%84%e3%81%ae%e7%89%b9%e5%be%b4"></a>
+黒体放射の特徴
+</h4><ol>
+<li><strong>完全吸収</strong>：
+<ul>
+<li>黒体は、波長や方向に関係なく、入射するすべての電磁放射を完全に吸収する。したがって、黒体はすべての波長で反射や透過を行わない。</li>
+</ul>
+</li>
+<li><strong>完全放射</strong>：
+<ul>
+<li>黒体はあらゆる温度で電磁放射を放出し、すべての波長で放射を行う。この放射は黒体の温度のみによって決定される。</li>
+</ul>
+</li>
+</ol>
+<h4 id="黒体放射の実際の応用">
+<a class="header-anchor" href="#%e9%bb%92%e4%bd%93%e6%94%be%e5%b0%84%e3%81%ae%e5%ae%9f%e9%9a%9b%e3%81%ae%e5%bf%9c%e7%94%a8"></a>
+黒体放射の実際の応用
+</h4><ol>
+<li><strong>宇宙背景放射</strong>：
+<ul>
+<li>宇宙マイクロ波背景放射は、温度2.725 Kの黒体放射に近似され、ビッグバン理論の重要な証拠となっている。</li>
+</ul>
+</li>
+<li><strong>恒星スペクトル</strong>：
+<ul>
+<li>恒星の放射は黒体放射に近似され、恒星のスペクトルを分析することで、その表面温度を推定できる。</li>
+</ul>
+</li>
+<li><strong>赤外線温度測定</strong>：
+<ul>
+<li>黒体放射の原理を利用し、物体が放射する赤外線の強度を測定することで、その表面温度を推定する。</li>
+</ul>
+</li>
+<li><strong>熱画像</strong>：
+<ul>
+<li>熱画像装置は黒体放射の原理を利用し、物体表面が放射する赤外線を検出して温度画像を形成する。</li>
+</ul>
+</li>
+</ol>
+<h2 id="熱力学的平衡の基準">
+<a class="header-anchor" href="#%e7%86%b1%e5%8a%9b%e5%ad%a6%e7%9a%84%e5%b9%b3%e8%a1%a1%e3%81%ae%e5%9f%ba%e6%ba%96"></a>
+熱力学的平衡の基準
+</h2><h3 id="孤立系">
+<a class="header-anchor" href="#%e5%ad%a4%e7%ab%8b%e7%b3%bb"></a>
+孤立系
+</h3><p>孤立（断熱）系では S が増大するか不変であり、平衡状態では$S_\max$となる。
+微小な変動が発生した場合、$\Delta S<0$となり、これを2次のテイラー級数で展開すると$\Delta S=\delta S+\frac{1}{2}\delta^2 S$となる。
+平衡時には、$\delta S=0,\delta^2 S<0$が満たされる。</p>
+<h3 id="等温等容系">
+<a class="header-anchor" href="#%e7%ad%89%e6%b8%a9%e7%ad%89%e5%ae%b9%e7%b3%bb"></a>
+等温等容系
+</h3><p>等温等容系では F が減少するか不変であり、平衡状態では$F_\min$となる。
+微小な変動が発生した場合、$\Delta F>0$となり、これを2次のテイラー級数で展開すると$\Delta F=\delta F+\frac{1}{2}\delta^2 F$となる。
+平衡時には、$\delta F=0,\delta^2 F>0$が満たされる。</p>
+<h3 id="等温等圧系">
+<a class="header-anchor" href="#%e7%ad%89%e6%b8%a9%e7%ad%89%e5%9c%a7%e7%b3%bb"></a>
+等温等圧系
+</h3><p>等温等圧系では G が減少するか不変であり、平衡状態では$G_\min$となる。
+微小な変動が発生した場合、$\Delta G>0$となり、これを2次のテイラー級数で展開すると$\Delta G=\delta G+\frac{1}{2}\delta^2 G$となる。
+平衡時には、$\delta G=0,\delta^2 G>0$が満たされる。</p>
+<h3 id="単一成分二相系の平衡条件">
+<a class="header-anchor" href="#%e5%8d%98%e4%b8%80%e6%88%90%e5%88%86%e4%ba%8c%e7%9b%b8%e7%b3%bb%e3%81%ae%e5%b9%b3%e8%a1%a1%e6%9d%a1%e4%bb%b6"></a>
+単一成分二相系の平衡条件
+</h3>$$
+\begin{cases}
+T^\alpha=T^\beta \\
+p^\alpha=p^\beta \\
+\mu^\alpha=\mu^\beta
+\end{cases}
+$$<h2 id="相転移の分類">
+<a class="header-anchor" href="#%e7%9b%b8%e8%bb%a2%e7%a7%bb%e3%81%ae%e5%88%86%e9%a1%9e"></a>
+相転移の分類
+</h2><p>[[#エーレンフェスト方程式]]
+エーレンフェスト（Paul Ehrenfest）は相転移を分類し、<strong>熱力学ポテンシャル関数の相転移点における連続性と導関数の連続性に基づいて</strong>分類した。
+エーレンフェストは相転移を一次相転移と二次相転移に分類した。</p>
+<h3 id="一次相転移">
+<a class="header-anchor" href="#%e4%b8%80%e6%ac%a1%e7%9b%b8%e8%bb%a2%e7%a7%bb"></a>
+一次相転移
+</h3><blockquote>
+<p>一次相転移（First-order phase transition）とは、相転移過程において、熱力学ポテンシャル関数（例えばギブズ自由エネルギー）の一次導関数（例えばエントロピー、体積）が相転移点で不連続となる現象を指す。</p></blockquote>
+<p>典型的な一次相転移には融解、気化、昇華などがある。
+[[#一次相転移方程式]]</p>
+<h3 id="二次相転移">
+<a class="header-anchor" href="#%e4%ba%8c%e6%ac%a1%e7%9b%b8%e8%bb%a2%e7%a7%bb"></a>
+二次相転移
+</h3><blockquote>
+<p>二次相転移（Second-order phase transition）とは、相転移過程において、熱力学ポテンシャル関数の一次導関数が相転移点で連続であるが、二次導関数に不連続性が存在する現象を指す。</p></blockquote>
+<p>典型的な二次相転移には超伝導体の転移や液晶相転移などがある。
+[[#二次相転移方程式]]</p>
+<h2 id="多元系複相平衡条件">
+<a class="header-anchor" href="#%e5%a4%9a%e5%85%83%e7%b3%bb%e8%a4%87%e7%9b%b8%e5%b9%b3%e8%a1%a1%e6%9d%a1%e4%bb%b6"></a>
+多元系複相平衡条件
+</h2><h3 id="等温等圧システムの平衡条件">
+<a class="header-anchor" href="#%e7%ad%89%e6%b8%a9%e7%ad%89%e5%9c%a7%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%81%ae%e5%b9%b3%e8%a1%a1%e6%9d%a1%e4%bb%b6"></a>
+等温等圧システムの平衡条件
+</h3>$$
+\begin{cases}
+T^\alpha=T^\beta \\
+p^\alpha=p^\beta \\
+\mu_i^\alpha=\mu_i^\beta
+\end{cases}
+$$<h3 id="その他のシステムも同様">
+<a class="header-anchor" href="#%e3%81%9d%e3%81%ae%e4%bb%96%e3%81%ae%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%82%82%e5%90%8c%e6%a7%98"></a>
+その他のシステムも同様
+</h3><h2 id="ギブスのパラドックス">
+<a class="header-anchor" href="#%e3%82%ae%e3%83%96%e3%82%b9%e3%81%ae%e3%83%91%e3%83%a9%e3%83%89%e3%83%83%e3%82%af%e3%82%b9"></a>
+ギブスのパラドックス
+</h2><p><strong>説明</strong>：性質が任意に近い2種類の気体から同種の気体に移行する際、エントロピーの増加が $2nR\ln 2$ から突然0に変化する。<br>
+<strong>原因</strong>：同一粒子は区別できないため。</p>
+<h2 id="熱力学第三法則">
+<a class="header-anchor" href="#%e7%86%b1%e5%8a%9b%e5%ad%a6%e7%ac%ac%e4%b8%89%e6%b3%95%e5%89%87"></a>
+熱力学第三法則
+</h2><h3 id="ネルンストの定理">
+<a class="header-anchor" href="#%e3%83%8d%e3%83%ab%e3%83%b3%e3%82%b9%e3%83%88%e3%81%ae%e5%ae%9a%e7%90%86"></a>
+ネルンストの定理
+</h3><p>凝縮系のエントロピーは等温過程における変化が熱力学温度がゼロに近づくにつれて変化する。
+</p>
+$$
+\lim_{T \to 0}(\Delta S)_T=0
+$$<h3 id="絶対零度到達不能の原理">
+<a class="header-anchor" href="#%e7%b5%b6%e5%af%be%e9%9b%b6%e5%ba%a6%e5%88%b0%e9%81%94%e4%b8%8d%e8%83%bd%e3%81%ae%e5%8e%9f%e7%90%86"></a>
+絶対零度到達不能の原理
+</h3><p><strong>有限のステップ</strong>によって物体を熱力学零度まで冷却することは不可能である。</p>
+<h3 id="推論">
+<a class="header-anchor" href="#%e6%8e%a8%e8%ab%96"></a>
+推論
+</h3><ol>
+<li>$\lim_{T \to 0}C_n=0$ アインシュタインの量子統計は[[#固体]]においてこの推論を証明した。</li>
+<li>$\lim_{T \to 0}\alpha=0,\lim_{T \to 0}\beta=0$</li>
+<li>絶対零度においてエントロピーの値は0となり得る</li>
+</ol>
+<h2 id="粒子の運動状態の古典的記述">
+<a class="header-anchor" href="#%e7%b2%92%e5%ad%90%e3%81%ae%e9%81%8b%e5%8b%95%e7%8a%b6%e6%85%8b%e3%81%ae%e5%8f%a4%e5%85%b8%e7%9a%84%e8%a8%98%e8%bf%b0"></a>
+粒子の運動状態の古典的記述
+</h2><h3 id="空間">
+<a class="header-anchor" href="#%e7%a9%ba%e9%96%93"></a>
+$\mu$空間
+</h3><blockquote>
+<p>位置座標と運動量座標を用いて粒子の力学的運動状態を記述する。$q_1,q_2,...,q_r;p_1,p_2,...,p_r$ の合計 2 r 個の変数を直交座標として構成される 2 r 次元空間を $\mu$ 空間と呼ぶ。</p></blockquote>
+<p><strong>粒子の自由度</strong>：粒子の空間位置==<strong>または</strong>==配置位置を決定するために必要な最小の座標数。</p>
+<h3 id="相格">
+<a class="header-anchor" href="#%e7%9b%b8%e6%a0%bc"></a>
+相格
+</h3><blockquote>
+<p>粒子の運動状態が $\mu$ 空間で占める体積</p></blockquote>
+<p>自由度が $r$ の粒子の場合、相格の大きさは$\Delta q_1\cdots \Delta q_r\Delta p_1\cdots \Delta p_r$
+[[#不確定関係]] $\Delta q_i\Delta p_i\approx h$ を満たす場合、相格の大きさは $\approx h^r$</p>
+<h3 id="自由粒子">
+<a class="header-anchor" href="#%e8%87%aa%e7%94%b1%e7%b2%92%e5%ad%90"></a>
+自由粒子
+</h3><blockquote>
+<p>自由粒子とは、力の作用を受けずに自由運動する粒子である。
+外部場が存在しない場合、理想気体の分子や金属中の自由電子は自由粒子と近似できる。</p></blockquote>
+<p><strong>自由粒子の運動量</strong>：$p_x=m\dot{x}$、粒子のx軸方向の運動量。ここでmは粒子の質量、$\dot{x}$は粒子のx軸方向の速度（位置の時間に対する一次微分）。
+<strong>自由粒子のエネルギー</strong>：
+</p>
+$$
+\varepsilon=\frac{1}{2m}\sum_ip_i^2
+$$<h3 id="線形調和振動子">
+<a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e8%aa%bf%e5%92%8c%e6%8c%af%e5%8b%95%e5%ad%90"></a>
+線形調和振動子
+</h3><blockquote>
+<p>古典力学によれば、質量 $m$ の粒子が弾性力 $F = -Ax$ の作用下で、x軸上を原点付近で単振動を行う場合、これを線形調和振動子と呼ぶ。</p></blockquote>
+<ul>
+<li>振動の角周波数：$$\omega=\sqrt{\frac{A}{m}}$$</li>
+<li>$A$：弾性係数</li>
+</ul>
+<h4 id="自由度1の線形調和振動子のエネルギー">
+<a class="header-anchor" href="#%e8%87%aa%e7%94%b1%e5%ba%a61%e3%81%ae%e7%b7%9a%e5%bd%a2%e8%aa%bf%e5%92%8c%e6%8c%af%e5%8b%95%e5%ad%90%e3%81%ae%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc"></a>
+自由度1の線形調和振動子のエネルギー
+</h4><p>運動エネルギーと位置エネルギーの和
+</p>
+$$
+\varepsilon=\frac{p^2}{2m}+\frac{A}{2}x^2=\frac{p^2}{2m}+\frac{1}{2}m\omega^2x^2
+$$<p>
+楕円方程式の標準形で表記
+</p>
+$$
+\frac{p^2}{2m\varepsilon}+\frac{x^2}{\frac{2\varepsilon}{m\omega^2}}=1
+$$<h3 id="回転子自由度2">
+<a class="header-anchor" href="#%e5%9b%9e%e8%bb%a2%e5%ad%90%e8%87%aa%e7%94%b1%e5%ba%a62"></a>
+回転子（自由度2）
+</h3><blockquote>
+<p>質量 $m$ の質点 $P$ が一定の長さを持つ軽い棒で原点 $O$ に固定されている場合の運動を考える。</p></blockquote>
+<ul>
+<li>直交座標系では、質点の位置は座標 $x,y,z$ で決定される。</li>
+</ul>
+<p>質点のエネルギー（運動エネルギー）：
+</p>
+$$
+\varepsilon=\frac{1}{2}m(\dot{x}^2+\dot{y}^2+\dot{z}^2)
+$$<ul>
+<li>球座標 $r,\theta,\varphi$ を用いて質点の位置を記述：$x=r\sin \theta \cos \varphi,y=r\sin \theta \sin \varphi,z=r\cos \theta$</li>
+</ul>
+<p>質点のエネルギー：
+</p>
+$$
+\begin{align}
+\varepsilon &=\frac{1}{2}m(\dot{r}^2+r^2\dot{\theta}^2+r^2\sin^2\theta\dot{\varphi}^2)\\
+&=\frac{1}{2}m(r^2\dot{\theta}^2+r^2\sin^2\dot{\varphi}^2)
+\end{align}
+$$<ul>
+<li>共役運動量$p_\theta=mr^2\dot{\theta},p_\varphi=mr^2\sin^2\theta \dot{\varphi}$を導入、質点の $O$ に対する慣性モーメント $I$</li>
+<li>$0<\theta<\pi,0<\varphi<2\pi$、自由度2</li>
+</ul>
+$$
+\varepsilon=\frac{1}{2I}(p_\theta^2+\frac{1}{\sin^2\theta}p_\varphi^2)
+$$<h4 id="二原子分子">
+<a class="header-anchor" href="#%e4%ba%8c%e5%8e%9f%e5%ad%90%e5%88%86%e5%ad%90"></a>
+二原子分子
+</h4><blockquote>
+<p>二体問題は一体系に帰着可能。統計物理学では、二原子分子の質量中心周りの回転を回転子と見なす。</p></blockquote>
+<p>古典力学によれば、外力が作用しない場合、回転子の全角運動量 $\vec L=\vec r\times \vec p$ は保存量であり、その大きさと方向は時間とともに変化しない。$\vec r$ は $\vec L$ に垂直であるため、質点の運動は $\vec L$ に垂直な平面内での運動となる。$z$ 軸を $\vec L$ に平行に選ぶと、質点の運動は $xy$ 平面内に限定される。これは$\theta=\frac{\pi}{2},p_\theta=0$ を固定することに相当する。
+このときの粒子のエネルギー：
+</p>
+$$
+\varepsilon=\frac{p_\varphi^2}{2I}=\frac{L^2}{2I}
+$$<p>
+ここで：$L^2=\vec{L}\cdot \vec{L}$
+<strong>この場合、粒子の自由度は1</strong>、すなわち $\varphi$</p>
+<h2 id="粒子の運動状態の量子論的記述">
+<a class="header-anchor" href="#%e7%b2%92%e5%ad%90%e3%81%ae%e9%81%8b%e5%8b%95%e7%8a%b6%e6%85%8b%e3%81%ae%e9%87%8f%e5%ad%90%e8%ab%96%e7%9a%84%e8%a8%98%e8%bf%b0"></a>
+粒子の運動状態の量子論的記述
+</h2><h3 id="ドブロイ波">
+<a class="header-anchor" href="#%e3%83%89%e3%83%96%e3%83%ad%e3%82%a4%e6%b3%a2"></a>
+ド・ブロイ波
+</h3><blockquote>
+<p>微視的粒子（光子、電子、陽子、中性子、さらには原子、分子など）は普遍的に対物二重性を持つ。
+エネルギーが $\varepsilon$、運動量が $\vec{p}$ の自由粒子は、円振動数 $\omega$ 波数ベクトル $\vec{k}$ の平面波と関連付けられ、これをド・ブロイ波と呼ぶ。</p></blockquote>
+<p>[[#ド・ブロイ関係]]</p>
+<h3 id="量子状態">
+<a class="header-anchor" href="#%e9%87%8f%e5%ad%90%e7%8a%b6%e6%85%8b"></a>
+量子状態
+</h3><blockquote>
+<p>量子力学において、微視的粒子の運動状態を量子状態と呼ぶ。
+量子状態は一組の量子数によって特徴付けられ、この<strong>量子数の個数</strong>は粒子の自由度に等しい。</p></blockquote>
+<h3 id="線形調和振動子のエネルギー">
+<a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e8%aa%bf%e5%92%8c%e6%8c%af%e5%8b%95%e5%ad%90%e3%81%ae%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc"></a>
+==線形調和振動子のエネルギー==
+</h3><p>[[#自由度1の線形調和振動子のエネルギー]]
+==量子物理学==において、円振動数 $\omega$ の線形調和振動子の取り得るエネルギー値は：
+</p>
+$$
+\varepsilon_n=\hbar\omega(n+\frac{1}{2}),n=0,1,2,\cdots
+$$<p>
+n は振動子の運動状態とエネルギーを表す量子数で、一つしかない。つまり線形調和振動子の自由度は1である。
+明らかに、$\varepsilon_n$の値は<strong>離散的</strong>である。</p>
+<h3 id="エネルギー準位">
+<a class="header-anchor" href="#%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc%e6%ba%96%e4%bd%8d"></a>
+エネルギー準位
+</h3><blockquote>
+<p>離散的なエネルギーをエネルギー準位と呼ぶ。</p></blockquote>
+<p>$\mu$ 空間においてエネルギーが等しい曲面を==等エネルギー面==と呼び、等エネルギー面間は連続的でないため、各等エネルギー面を<strong>エネルギー準位</strong>と呼ぶ。
+[[#$ mu$空間]]</p>
+<h3 id="回転子のエネルギー">
+<a class="header-anchor" href="#%e5%9b%9e%e8%bb%a2%e5%ad%90%e3%81%ae%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc"></a>
+回転子のエネルギー
+</h3><p>[[#二原子分子]]
+量子物理学において、$L^2$の値は離散的な値のみを取り得る：
+</p>
+$$
+L^2=l(l_1)\hbar^2,l=0,1,2,\cdots
+$$<p>
+一定の $L$ に対して、角運動量の固有方向（$z$ 軸とする）への射影 $L_z$ は離散的な値のみを取り得る：
+</p>
+$$
+L_z=m_l\hbar,m_l=-l,-l+1,\cdots,l
+$$<p>
+明らかに、$m_l$には$2l+1$個の可能な値がある。</p>
+<blockquote>
+<p><strong>自由度2</strong> の回転子の運動状態は $l,m_l$ <strong>二つの量子数</strong>によって特徴付けられる。
+古典論では、運動平面の空間的な向きは任意であるが、量子論では $m_l$ は上記の離散的な値のみを取り得る。これを<strong>空間量子化</strong>と呼ぶ。</p></blockquote>
+<p>したがって、回転子のエネルギーも離散的である：
+</p>
+$$
+\varepsilon_l=\frac{l(l+1)\hbar^2}{2I},l=0,1,2,\cdots
+$$<h3 id="縮重度">
+<a class="header-anchor" href="#%e7%b8%ae%e9%87%8d%e5%ba%a6"></a>
+縮重度$\omega_l$
+</h3><p>$\because$ 観察されるように：エネルギーは量子数 $l$ にのみ依存し、量子状態は $m_l,l$ 二つの量子数に依存する。
+$\therefore$ エネルギー準位$\varepsilon_l$ の量子状態は $2l+1$ 個ある。</p>
+<blockquote>
+<p>一般的に、あるエネルギー準位の量子状態が一つでない場合、そのエネルギー準位は縮退していると呼ばれる。
+あるエネルギー準位の量子状態が一つだけの場合、そのエネルギー準位は非縮退と呼ばれる。
+あるエネルギー準位に k 個の量子状態がある場合、縮重度は k である。</p></blockquote>
+<p>二つの隣接する[[#エネルギー準位]]の間にはいくつかの[[#相格]]が存在し、相格の数がエネルギー準位の<strong>縮重度</strong>となる。</p>
+<h3 id="スピン角運動量">
+<a class="header-anchor" href="#%e3%82%b9%e3%83%94%e3%83%b3%e8%a7%92%e9%81%8b%e5%8b%95%e9%87%8f"></a>
+スピン角運動量
+</h3><blockquote>
+<p>ある基本粒子は固有の角運動量を持ち、これをスピン角運動量$S$と呼ぶ。</p></blockquote>
+$$
+S^2=s(s+1)\hbar^2
+$$<p>
+$s$：==スピン量子数==。整数または半整数であり、粒子の固有の性質で、加算可能である。[[#ボース粒子とフェルミ粒子]]
+スピン角運動量の状態は、スピン角運動量の大きさ（スピン量子数 $s$）およびスピン角運動量の<strong>固有方向</strong>への射影によって決定される。固有方向を $z$ とすると、$S_z$ の取り得る値は
+</p>
+$$
+S_z=m_s\hbar,m_s=s,s-1,\cdots,-s
+$$<p>
+合計$2s+1$個である。</p>
+<h3 id="自由粒子のエネルギー">
+<a class="header-anchor" href="#%e8%87%aa%e7%94%b1%e7%b2%92%e5%ad%90%e3%81%ae%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc"></a>
+自由粒子のエネルギー
+</h3><h4 id="境界条件">
+<a class="header-anchor" href="#%e5%a2%83%e7%95%8c%e6%9d%a1%e4%bb%b6"></a>
+境界条件
+</h4><blockquote>
+<p>粒子の取り得る運動状態を決定するためには、ド・ブロイ波の器壁における境界条件を知る必要がある。
+通常、定在波条件または周期的境界条件が用いられる。</p></blockquote>
+<p><strong>一次元</strong>自由粒子の場合、長さ $L$ の一次元容器中にあるとすると、周期的境界条件は、粒子の取り得る運動状態のド・ブロイ波長 $\lambda$ の整数倍が容器の長さ $L$ に等しいことを要求する。すなわち
+</p>
+$$
+L=\left\vert n_x \right\vert\lambda,\left\vert n_x \right\vert=0,1,2,\cdots
+$$<ul>
+<li>$n_x$：量子数 $n$ の $x$ 方向への射影。一次元自由粒子の場合、量子数は $n_x$ そのものである。</li>
+</ul>
+<h4 id="一次元自由粒子">
+<a class="header-anchor" href="#%e4%b8%80%e6%ac%a1%e5%85%83%e8%87%aa%e7%94%b1%e7%b2%92%e5%ad%90"></a>
+一次元自由粒子
+</h4><ul>
+<li>波数ベクトル $k_x$：
+$$
+k_x=\frac{2\pi}{L}n_x,n_x=0,\pm 1,\pm 2,\cdots
+$$</li>
+<li>運動量 $p_x$：
+$$
+p_x=\frac{2\pi\hbar}{L}n_x,n_x=0,\pm 1,\pm 2,\cdots
+$$</li>
+<li>エネルギー $\varepsilon_{n_x}$
+$$
+\varepsilon_{n_x}=\frac{p_x^2}{2m}=\frac{2\pi^2\hbar^2}{m}\cdot\frac{n_x^2}{L^2},n_x=0,\pm 1,\pm 2,\cdots
+$$</li>
+</ul>
+<h4 id="三次元自由粒子">
+<a class="header-anchor" href="#%e4%b8%89%e6%ac%a1%e5%85%83%e8%87%aa%e7%94%b1%e7%b2%92%e5%ad%90"></a>
+三次元自由粒子
+</h4><ul>
+<li>運動量：
+$$
+\begin{cases}
+p_x=\frac{2\pi\hbar}{L}n_x,n_x=0,\pm 1,\pm 2,\cdots\\
+p_y=\frac{2\pi\hbar}{L}n_y,n_y=0,\pm 1,\pm 2,\cdots\\
+p_z=\frac{2\pi\hbar}{L}n_z,n_z=0,\pm 1,\pm 2,\cdots
+\end{cases}
+$$</li>
+<li>エネルギー：
+$$
+\varepsilon=\frac{1}{2m}(p_x^2+p_y^2+p_z^2)=\frac{2\pi^2\hbar^2}{m}\frac{n_x^2+n_y^2+n_z^2}{L^2}
+$$</li>
+<li>量子数：$n_x,n_y,n_z$ の三つ、つまり自由度は三つである。</li>
+<li>エネルギー準位：$n_x^2+n_y^2+n_z^2$ によって決定される。</li>
+</ul>
+<h2 id="システムの微視的運動状態の記述">
+<a class="header-anchor" href="#%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%81%ae%e5%be%ae%e8%a6%96%e7%9a%84%e9%81%8b%e5%8b%95%e7%8a%b6%e6%85%8b%e3%81%ae%e8%a8%98%e8%bf%b0"></a>
+システムの微視的運動状態の記述
+</h2><h3 id="微視的状態">
+<a class="header-anchor" href="#%e5%be%ae%e8%a6%96%e7%9a%84%e7%8a%b6%e6%85%8b"></a>
+微視的状態
+</h3><blockquote>
+<p>システムの微視的運動状態とは、その力学的運動状態のことである。
+粒子が異なるエネルギー準位の異なる位相セルを占める方法として現れる。</p></blockquote>
+<h3 id="システム">
+<a class="header-anchor" href="#%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0"></a>
+システム
+</h3><p>==全同で近独立な粒子からなるシステムに限定して議論する==</p>
+<ul>
+<li><strong>全同粒子からなるシステム</strong>：全く同じ内在的性質（同じ質量、電荷、スピンなど）を持つ同種の粒子からなるシステム。
+例えば、自由電子からなる自由電子ガス、$^4He$原子からなるヘリウムガスなど。 ^f1b50b</li>
+<li><strong>近独立粒子からなるシステム</strong>：粒子間の相互作用が非常に弱く、相互作用の平均エネルギーが単一粒子の平均エネルギーよりもはるかに小さいため、粒子間の相互作用を無視でき、システム全体のエネルギーを単一粒子のエネルギーの和として表現できる。
+例えば、理想気体からなるシステム。 ^24ebad
+$$
+E=\sum^{N}_{i=1}\varepsilon_i
+$$
+ここで：</li>
+<li>$\varepsilon_i$：第i粒子のエネルギー</li>
+<li>$N$：粒子の総数</li>
+</ul>
+<h3 id="古典力学による記述">
+<a class="header-anchor" href="#%e5%8f%a4%e5%85%b8%e5%8a%9b%e5%ad%a6%e3%81%ab%e3%82%88%e3%82%8b%e8%a8%98%e8%bf%b0"></a>
+古典力学による記述
+</h3><blockquote>
+<p>古典物理学では、全同粒子 [[#^f1b50b]] は区別可能である。
+システムの微視的運動状態を確認するには、各粒子の力学的運動状態（個体量子状態）を確認する必要がある。</p></blockquote>
+<p>変数の数：$2Nr$
+$r$：単一粒子の自由度</p>
+<h3 id="ボソンとフェルミオン">
+<a class="header-anchor" href="#%e3%83%9c%e3%82%bd%e3%83%b3%e3%81%a8%e3%83%95%e3%82%a7%e3%83%ab%e3%83%9f%e3%82%aa%e3%83%b3"></a>
+ボソンとフェルミオン
+</h3><blockquote>
+<p>自然界の微視的粒子は、ボソンとフェルミオンの2種類に分類される。</p></blockquote>
+<p>[[#スピン角運動量]]</p>
+<h4 id="フェルミオン">
+<a class="header-anchor" href="#%e3%83%95%e3%82%a7%e3%83%ab%e3%83%9f%e3%82%aa%e3%83%b3"></a>
+フェルミオン
+</h4><blockquote>
+<p>スピン量子数が半整数</p></blockquote>
+<p>例：電子、陽子、中性子、$\mu$粒子（すべて$\frac{1}{2}$）；$^2H$原子、$^3H$核（$\frac{3}{2}$）など。</p>
+<h4 id="ボソン">
+<a class="header-anchor" href="#%e3%83%9c%e3%82%bd%e3%83%b3"></a>
+ボソン
+</h4><blockquote>
+<p>スピン量子数が整数</p></blockquote>
+<p>例：光子（1）、$\pi$中間子（0）、$^1H$原子（1）、$^4He$原子（4）など。</p>
+<h3 id="パウリの排他原理">
+<a class="header-anchor" href="#%e3%83%91%e3%82%a6%e3%83%aa%e3%81%ae%e6%8e%92%e4%bb%96%e5%8e%9f%e7%90%86"></a>
+パウリの排他原理
+</h3><blockquote>
+<p>複数の全同近独立なフェルミオンを含むシステムでは、1つの個体量子状態に最大1つのフェルミオンしか存在できない。</p></blockquote>
+<h3 id="分布">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83"></a>
+分布
+</h3><blockquote>
+<p>各<strong>エネルギー準位</strong>上の粒子数の集合を分布と呼ぶ。</p></blockquote>
+$$
+\{a_l\}=a_1,a_2,\cdots,a_l,\cdots
+$$<p>
+$a_l$：エネルギー準位$\varepsilon_l$上の粒子数
+以下の条件を満たす：
+</p>
+$$
+\sum_la_l=N,\sum_la_l\varepsilon_l=E
+$$<p>
+1つの分布には多数の可能な微視的状態が含まれ、1つの微視的状態は1つの分布に対応する。</p>
+<h3 id="3種類のシステム">
+<a class="header-anchor" href="#3%e7%a8%ae%e9%a1%9e%e3%81%ae%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0"></a>
+3種類のシステム
+</h3><h4 id="ボルツマンシステム">
+<a class="header-anchor" href="#%e3%83%9c%e3%83%ab%e3%83%84%e3%83%9e%e3%83%b3%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0"></a>
+ボルツマンシステム
+</h4><p>==区別可能==な<strong>全同</strong> [[#^f1b50b]]<strong>近独立粒子</strong>[[#^24ebad]] からなり、1つの個体量子状態に存在する<strong>粒子数に制限がない</strong>システムをボルツマンシステムと呼ぶ。</p>
+<h4 id="ボースシステム">
+<a class="header-anchor" href="#%e3%83%9c%e3%83%bc%e3%82%b9%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0"></a>
+ボースシステム
+</h4><p>ボソンからなるシステムで、パウリの排他原理の制約を受けない。
+複数の<strong>全同近独立</strong>なボソンからなるボースシステムでは、<strong>同じ個体量子状態に存在するボソンの数</strong>に制限はない。</p>
+<h4 id="フェルミシステム">
+<a class="header-anchor" href="#%e3%83%95%e3%82%a7%e3%83%ab%e3%83%9f%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0"></a>
+フェルミシステム
+</h4><p>フェルミオンからなるシステムで、パウリ（Pauli）の排他原理に従う。</p>
+<h3 id="3種類の統計">
+<a class="header-anchor" href="#3%e7%a8%ae%e9%a1%9e%e3%81%ae%e7%b5%b1%e8%a8%88"></a>
+3種類の統計
+</h3><h4 id="ボルツマン統計古典統計">
+<a class="header-anchor" href="#%e3%83%9c%e3%83%ab%e3%83%84%e3%83%9e%e3%83%b3%e7%b5%b1%e8%a8%88%e5%8f%a4%e5%85%b8%e7%b5%b1%e8%a8%88"></a>
+ボルツマン統計（古典統計）
+</h4><p>全同粒子は区別可能で、各位相セルに存在できる粒子数に制限がない。</p>
+<h4 id="ボース統計">
+<a class="header-anchor" href="#%e3%83%9c%e3%83%bc%e3%82%b9%e7%b5%b1%e8%a8%88"></a>
+ボース統計
+</h4><p>全同粒子は区別不可能で、各位相セルに存在できる粒子数に制限がない。</p>
+<h4 id="フェルミ統計">
+<a class="header-anchor" href="#%e3%83%95%e3%82%a7%e3%83%ab%e3%83%9f%e7%b5%b1%e8%a8%88"></a>
+フェルミ統計
+</h4><p>全同粒子は区別不可能で、各位相セルには最大1つの粒子しか存在できない。</p>
+<h3 id="等確率の原理">
+<a class="header-anchor" href="#%e7%ad%89%e7%a2%ba%e7%8e%87%e3%81%ae%e5%8e%9f%e7%90%86"></a>
+等確率の原理
+</h3><blockquote>
+<p><strong>平衡状態</strong>にある<strong>孤立</strong>システムでは、システムのすべての可能な微視的状態が現れる確率は等しい。</p></blockquote>
+<h2 id="最確率分布">
+<a class="header-anchor" href="#%e6%9c%80%e7%a2%ba%e7%8e%87%e5%88%86%e5%b8%83"></a>
+最確率分布
+</h2><blockquote>
+<p>等確率の原理によれば、平衡状態にある孤立系において、微視的状態数が最も多い分布が最も高い確率で現れ、これを<strong>最確率分布</strong>と呼ぶ。</p></blockquote>
+<h3 id="ボルツマン分布">
+<a class="header-anchor" href="#%e3%83%9c%e3%83%ab%e3%83%84%e3%83%9e%e3%83%b3%e5%88%86%e5%b8%83"></a>
+ボルツマン分布
+</h3><blockquote>
+<p>ボルツマン系の粒子の最確率分布は、<strong>マクスウェル-ボルツマン分布</strong>と呼ばれ、略してボルツマン分布ともいう。</p></blockquote>
+<ul>
+<li>近似等式：$\ln m!=m (\ln m-1),m\gg 1$</li>
+<li>$\Omega_{m.B.}$ を $\Omega$ と略記する
+ボルツマン統計において、この分布は最も多くの微視的状態を含み、微視的状態数 $\Omega$ が最大となる。
+$$
+a_l=\omega_le^{-\alpha-\beta\varepsilon_l}=e^{-\alpha-\beta\varepsilon_l}\frac{\Delta\omega_l}{h_0^r}
+$$
+後者は==ボルツマン分布の古典的表現式==である。
+$$
+N=\sum_la_l=\sum_l\omega_le^{-\alpha-\beta\varepsilon_l}=\sum_se^{-\alpha-\beta\varepsilon_s}
+$$
+$$
+E=\sum_l\varepsilon_la_l=\sum_l\omega_l\varepsilon_le^{-\alpha-\beta\varepsilon_l}=\sum_s\varepsilon_se^{-\alpha-\beta\varepsilon_s}
+$$
+$$
+f_s=\frac{a_l}{\omega_l}=e^{-\alpha-\beta\varepsilon_l}
+$$</li>
+<li>$a_l$：エネルギー準位 $\varepsilon_l$ の最確率粒子数（平均粒子数）、条件 $a_l\gg 1$ を満たす必要がある</li>
+<li>$\alpha$：ラグランジュ乗数</li>
+<li>$\beta$：ラグランジュ乗数、通常は実験条件によって決定される</li>
+<li>$\omega_l$：エネルギー準位 $\varepsilon_l$ 上の量子状態数、すなわち縮退度。条件 $\omega_l\gg 1$ を満たす必要がある</li>
+<li>$s$：エネルギー準位 $\varepsilon_l$ 上の一つの量子状態</li>
+<li>$\sum_l$：量子数 $l$ についての和</li>
+<li>$\sum_s$：全ての量子状態についての和</li>
+<li>$f_s$：量子状態 $s$ 上の平均粒子数</li>
+</ul>
+<h3 id="ボース分布">
+<a class="header-anchor" href="#%e3%83%9c%e3%83%bc%e3%82%b9%e5%88%86%e5%b8%83"></a>
+ボース分布
+</h3><blockquote>
+<p>ボース系の粒子の最確率分布は、ボース-アインシュタイン（Einstein）分布と呼ばれ、略してボース分布という。</p></blockquote>
+$$
+a_l=\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}
+$$<p>
+</p>
+$$
+N=\sum_la_l=\sum_l\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}
+$$<p>
+</p>
+$$
+E=\sum_l\varepsilon_la_l=\sum_l\frac{\varepsilon_l\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}
+$$<p>
+</p>
+$$
+F_s=\frac{a_l}{\omega_l}=\frac{1}{e^{\alpha+\beta\varepsilon_l}-1}
+$$<h3 id="フェルミ分布">
+<a class="header-anchor" href="#%e3%83%95%e3%82%a7%e3%83%ab%e3%83%9f%e5%88%86%e5%b8%83"></a>
+フェルミ分布
+</h3><blockquote>
+<p>フェルミ系の最確率分布。</p></blockquote>
+$$
+a_l=\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}+1}
+$$<p>
+</p>
+$$
+N=\sum_la_l=\sum_l\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}+1}
+$$<p>
+</p>
+$$
+E=\sum_l\varepsilon_la_l=\sum_l\frac{\varepsilon_l\omega_l}{e^{\alpha+\beta\varepsilon_l}+1}
+$$<p>
+</p>
+$$
+F_s=\frac{a_l}{\omega_l}=\frac{1}{e^{\alpha+\beta\varepsilon_l}+1}
+$$<h3 id="三つの分布の関係">
+<a class="header-anchor" href="#%e4%b8%89%e3%81%a4%e3%81%ae%e5%88%86%e5%b8%83%e3%81%ae%e9%96%a2%e4%bf%82"></a>
+三つの分布の関係
+</h3><p>$\alpha$ が以下の条件（[[#古典極限条件]]、非縮退性条件）を満たす場合、
+</p>
+$$
+e^\alpha \gg 1
+$$<p>
+ボース分布とフェルミ分布の式における $\pm$ は無視でき、両分布はボルツマン分布に移行する。
+このとき、全ての $l$ に対して、
+</p>
+$$
+\frac{a_l}{\omega_l}\ll 1
+$$<p>
+</p>
+$$
+\Omega_{B.E.}\approx\frac{\Omega_{M.B.}}{N!}\approx\Omega_{F.D.}
+$$<h3 id="局在系">
+<a class="header-anchor" href="#%e5%b1%80%e5%9c%a8%e7%b3%bb"></a>
+局在系
+</h3><ul>
+<li>自然界には、局在した粒子から構成されると見なせる系が存在する。
+例えば、結晶中の原子やイオンは、その平衡位置近傍で微小振動を行っている。</li>
+<li>これらの粒子は、<strong>量子論的な性質としては区別できない</strong>が、その位置によって識別可能であるため、==局在粒子==は区別可能な粒子と見なせる。</li>
+<li>局在粒子から構成される系を<em>局在系</em>と呼ぶ。
+例えば、常磁性固体や核スピン系がこれに該当する。</li>
+</ul>
+<blockquote>
+<p>局在系および古典極限条件を満たすボース（フェルミ）系は、いずれもボルツマン分布に従う。
+ただし、それらの微視的状態数は異なる。</p></blockquote>
+<h2 id="熱力学量の統計的表現">
+<a class="header-anchor" href="#%e7%86%b1%e5%8a%9b%e5%ad%a6%e9%87%8f%e3%81%ae%e7%b5%b1%e8%a8%88%e7%9a%84%e8%a1%a8%e7%8f%be"></a>
+熱力学量の統計的表現
+</h2><h3 id="内部エネルギー">
+<a class="header-anchor" href="#%e5%86%85%e9%83%a8%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc"></a>
+内部エネルギー
+</h3>$$
+U=\sum_la_l\varepsilon_l=\sum_l\varepsilon_l\omega_le^{-\alpha-\beta\varepsilon_l}
+$$<h4 id="粒子分配関数">
+<a class="header-anchor" href="#%e7%b2%92%e5%ad%90%e5%88%86%e9%85%8d%e9%96%a2%e6%95%b0"></a>
+粒子分配関数
+</h4><p>略称分配関数
+</p>
+$$
+Z_1=\sum_l\omega_le^{-\beta\varepsilon_l}=\sum_se^{-\beta\varepsilon_s}
+$$<p>
+<strong>適用範囲：近独立粒子系、粒子が区別可能、各位相格子（量子状態）の粒子収容数に制限なし。</strong></p>
+$$
+N=e^{-\alpha}\sum_l\omega_le^{-\beta\varepsilon_l}=e^{-\alpha}Z_1
+$$<p>上記3式から$\alpha$を消去すると==内部エネルギーの統計的表現==が得られる：
+</p>
+$$
+U=-N\frac{\partial}{\partial\beta}\ln Z_1
+$$<h4 id="内部エネルギー全微分">
+<a class="header-anchor" href="#%e5%86%85%e9%83%a8%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc%e5%85%a8%e5%be%ae%e5%88%86"></a>
+内部エネルギー全微分
+</h4>$$
+dU=\sum_la_ld\varepsilon_l+\sum_l\varepsilon_lda_l
+$$<ul>
+<li>$\sum_la_ld\varepsilon_l$：粒子分布が一定のまま、外部パラメータ変化によるエネルギー準位変化に伴う内部エネルギー変化、すなわち過程における<strong>外界が系に対して行う仕事</strong>。</li>
+<li>$\sum_l\varepsilon_lda_l$：粒子エネルギー準位が一定のまま、粒子分布変化に伴う内部エネルギー変化、すなわち過程における<strong>系が外界から吸収する熱量</strong>。</li>
+<li>無限小の準静的過程では、系が外界から吸収する熱量は<strong>粒子が各エネルギー準位で再分布</strong>することによる内部エネルギー増加に等しい。
+明らかに、熱量には微視的量がなく、熱現象に特有の<strong>巨視的量</strong>である。
+$dQ$は完全微分ではなく単なる<strong>無限小量</strong>である。</li>
+</ul>
+<h3 id="エントロピー">
+<a class="header-anchor" href="#%e3%82%a8%e3%83%b3%e3%83%88%e3%83%ad%e3%83%94%e3%83%bc"></a>
+エントロピー
+</h3>$$
+dS=\frac{1}{T}dQ=\frac{1}{T}(dU-Ydy)
+$$<p>
+</p>
+$$
+\beta(dU-Ydy)=Nd(\ln Z_1-\beta\frac{\partial}{\partial\beta}\ln Z_1)
+$$<p>
+$\beta$は温度の関数であり、
+</p>
+$$
+\beta=\frac{1}{kT}
+$$<p>
+</p>
+$$
+k=R/N_A
+$$<ul>
+<li>$k$：ボルツマン定数、$k=1.381\times10^{-23}J\cdot K^{-1}$</li>
+<li>$N_A$：アボガドロ定数、$N_A=6.022\times10^{23}mol^{-1}$</li>
+<li>$R$：モル気体定数、$R=8.314J\cdot K^{-1}\cdot mol^{-1}$</li>
+</ul>
+$$
+dS=Nkd(\ln Z_1-\beta\frac{\partial}{\partial \beta}\ln Z_1)
+$$<p>
+積分すると：
+</p>
+$$
+S=Nk(\ln Z_1-\beta\frac{\partial}{\partial \beta}\ln Z_1)
+$$<p>
+積分定数は0とする。</p>
+$$
+\ln Z_1=\ln N+\alpha
+$$<p>
+ボルツマン分布から
+</p>
+$$
+a_l=\omega_le^{-\alpha-\beta\varepsilon_l}
+$$<p>
+より
+</p>
+$$
+\alpha+\beta\varepsilon_l=\ln\frac{\omega_l}{\alpha_l}
+$$<p>
+エントロピーを簡略化すると
+</p>
+$$
+\begin{align}
+S&=k(N\ln N+\sum_l(\alpha+\beta\varepsilon_l)a_l)\\
+&=k(N\ln N+\sum_la_l\ln \omega_l-\sum_la_l\ln a_l)\\
+&=k\ln \Omega
+\end{align}
+$$<h3 id="ボルツマン関係">
+<a class="header-anchor" href="#%e3%83%9c%e3%83%ab%e3%83%84%e3%83%9e%e3%83%b3%e9%96%a2%e4%bf%82"></a>
+ボルツマン関係
+</h3>$$
+S=k\ln \Omega
+$$<blockquote>
+<p>ある巨視的状態に対応する微視的状態数が多いほど、その乱雑さは大きく、エントロピーも大きくなる。</p></blockquote>
+<ul>
+<li>粒子が区別可能な系（局在系）では、$\Omega=\Omega_{M.B.}$</li>
+<li>古典的極限条件を満たすボース（フェルミ）系では、$\Omega=\frac{\Omega_{M.B.}}{N!}$</li>
+</ul>
+<h3 id="自由エネルギー">
+<a class="header-anchor" href="#%e8%87%aa%e7%94%b1%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc"></a>
+自由エネルギー
+</h3>$$
+F=
+\begin{cases}
+-NkT\ln Z_1, 局在系\\
+-NkT\ln Z_1+kT\ln N!, 古典的極限条件を満たすボース/フェルミ系
+\end{cases}
+$$<h3 id="理想気体の状態方程式-1">
+<a class="header-anchor" href="#%e7%90%86%e6%83%b3%e6%b0%97%e4%bd%93%e3%81%ae%e7%8a%b6%e6%85%8b%e6%96%b9%e7%a8%8b%e5%bc%8f-1"></a>
+理想気体の状態方程式
+</h3>$$
+p=\frac{N}{\beta}\frac{\partial}{\partial V}\ln Z_1=\frac{NkT}{V}
+$$<h2 id="古典的極限条件">
+<a class="header-anchor" href="#%e5%8f%a4%e5%85%b8%e7%9a%84%e6%a5%b5%e9%99%90%e6%9d%a1%e4%bb%b6"></a>
+古典的極限条件
+</h2><p>[[#三つの分布関係]]
+</p>
+$$
+e^\alpha=\frac{Z_1}{N}=\frac{V}{N}(\frac{2\pi mkT}{h^2})^{\frac{3}{2}}\gg 1
+$$<ol>
+<li>$N/V$ が小さいほど、気体は希薄になる；</li>
+<li>温度 $T$ が高いほど；</li>
+<li>分子の質量 $m$ が大きいほど
+古典的極限条件が満たされやすくなる。
+別の表現：
+$$
+n\lambda^3=e^{-\alpha}\ll 1
+$$</li>
+</ol>
+<h2 id="マクスウェル速度分布則">
+<a class="header-anchor" href="#%e3%83%9e%e3%82%af%e3%82%b9%e3%82%a6%e3%82%a7%e3%83%ab%e9%80%9f%e5%ba%a6%e5%88%86%e5%b8%83%e5%89%87"></a>
+マクスウェル速度分布則
+</h2><p>一般的な場合、<strong>気体は古典的極限条件を満たす</strong>。</p>
+<blockquote>
+<p><strong>ボルツマン分布</strong>に基づいて気体分子の質量中心の並進運動を研究し、気体分子の速度分布則を導出する。</p></blockquote>
+<h3 id="マクスウェル速度分布則-1">
+<a class="header-anchor" href="#%e3%83%9e%e3%82%af%e3%82%b9%e3%82%a6%e3%82%a7%e3%83%ab%e9%80%9f%e5%ba%a6%e5%88%86%e5%b8%83%e5%89%87-1"></a>
+マクスウェル速度分布則
+</h3>$$
+f(v_x,x_y,x_z)dv_xdv_ydv_z=n(\frac{m}{2\pi kT})^{3/2}e^{-\frac{m}{2kT}(v_x^2+v_y^2+v_z^2)}dv_xdv_ydv_z
+$$<p>
+$f(v_x,x_y,x_z)$ は次を満たす
+</p>
+$$
+f(v_x,x_y,x_z)=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(v_x,x_y,x_z)dv_xdv_ydv_z=n
+$$<p>
+$n=\frac{N}{V}$：単位体積あたりの分子数</p>
+<h3 id="マクスウェル速率分布則">
+<a class="header-anchor" href="#%e3%83%9e%e3%82%af%e3%82%b9%e3%82%a6%e3%82%a7%e3%83%ab%e9%80%9f%e7%8e%87%e5%88%86%e5%b8%83%e5%89%87"></a>
+マクスウェル速率分布則
+</h3><p><strong>球極座標</strong>の体積要素 $v^2\sin \theta dv d \theta d \varphi$ で直交座標の体積要素 $dv_xdv_ydv_z$ を置き換え、$\theta,\varphi$ について積分すると、単位体積内で速率が $dv$ の範囲にある分子数は
+</p>
+$$
+f(v)dv=4\pi n(\frac{m}{2\pi kT})^{3/2}e^{-\frac{m}{2kT}v^2}v^2dv
+$$<p>
+上式を気体分子の速率分布と呼ぶ。
+</p>
+$$
+f(v)=4\pi n(\frac{m}{2\pi kT})^{3/2}\int_{0}^{\infty}e^{-\frac{m}{2kT}v^2}v^2dv=n
+$$<h3 id="最確速率">
+<a class="header-anchor" href="#%e6%9c%80%e7%a2%ba%e9%80%9f%e7%8e%87"></a>
+最確速率$v_p$
+</h3><blockquote>
+<p>速率分布関数には極大値があり、速率分布関数が極大値をとる速率を最確速率と呼ぶ。
+速率を等間隔に分割した場合、$v_p$ が含まれる間隔の分子数が最も多い。</p></blockquote>
+$$
+\frac{d}{dv}(e^{-\frac{m}{2kT}v^2}v^2)=0
+$$<p>
+</p>
+$$
+v_p=\sqrt{\frac{2kT}{m}}
+$$<p>
+平均速率 $\overline{v}$：速率 $v$ の平均値
+</p>
+$$
+\overline{v}=4\pi(\frac{m}{2\pi kT})^{3/2}\int_{0}^{\infty}ve^{-\frac{m}{2kT}v^2}v^2dv=\sqrt{\frac{8kT}{\pi m}}
+$$<p>
+二乗平均平方根速率 $v_s$：$v^2$ の平均値の平方根
+</p>
+$$
+v_s^2=\overline{v_2}=4\pi(\frac{m}{2\pi kT})^{3/2}\int_{0}^{\infty}v^2e^{-\frac{m}{2kT}v^2}v^2dv=\frac{3kT}{m}
+$$<p>
+</p>
+$$
+v_s=\sqrt{\frac{3kT}{m}}=\sqrt{\frac{3RT}{M}}
+$$<p>
+$M$：モル質量</p>
+<h2 id="壁衝突数流出">
+<a class="header-anchor" href="#%e5%a3%81%e8%a1%9d%e7%aa%81%e6%95%b0%e6%b5%81%e5%87%ba"></a>
+壁衝突数（流出）
+</h2><blockquote>
+<p>単位時間に単位面積の器壁に衝突する分子数を、壁衝突数と呼ぶ。
+単位時間に器壁の単位面積の穴から逃げる粒子数を、流出と呼ぶ。
+明らかに：壁衝突数＝流出</p></blockquote>
+<p>$dA$ は器壁の微小面積要素で、法線方向は $x$ 軸に沿っている。$d\varGamma dA dt$ は、$dt$ 時間内に $dA$ 面積に衝突し、速度が $dv_xdv_ydv_z$ の範囲内にある分子数を表す。
+</p>
+$$
+d\varGamma dA dt=fv_xdv_xdv_ydv_zdAdt
+$$<p>
+</p>
+$$
+d\varGamma=fv_xdv_xdv_ydv_z
+$$<p>
+速度について積分すると、
+</p>
+$$
+\begin{cases}
+v_x,0\to \infty\\
+v_y,-\infty \to +\infty\\
+v_z,-\infty \to +\infty
+\end{cases}
+$$<p>
+となり、
+</p>
+$$
+\varGamma=n\sqrt{\frac{kT}{2\pi m}}=
+\frac{1}{4}n\overline{v}
+$$<h2 id="エネルギー等分配定理古典統計">
+<a class="header-anchor" href="#%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc%e7%ad%89%e5%88%86%e9%85%8d%e5%ae%9a%e7%90%86%e5%8f%a4%e5%85%b8%e7%b5%b1%e8%a8%88"></a>
+エネルギー等分配定理（古典統計）
+</h2><blockquote>
+<p>温度 $T$ で平衡状態にある<strong>古典系</strong>において、粒子のエネルギー中の各独立な2乗項の<strong>平均値</strong>は $\frac{1}{2}kT$ に等しい。</p></blockquote>
+<h3 id="単原子分子気体">
+<a class="header-anchor" href="#%e5%8d%98%e5%8e%9f%e5%ad%90%e5%88%86%e5%ad%90%e6%b0%97%e4%bd%93"></a>
+単原子分子気体
+</h3>$$
+\varepsilon=\frac{1}{2m}(p_x^2+p_y^2+p_z^2)
+$$<p>
+上式には3つの2乗項があるため、エネルギー等分配定理を適用すると：
+</p>
+$$
+\overline{\varepsilon}=\frac{3}{2}kT
+$$<p>
+したがって、単原子分子<strong>理想気体</strong>の内部エネルギーは
+</p>
+$$
+U=\frac{3}{2}NkT
+$$<p>
+</p>
+$$
+C_V=\frac{3}{2}Nk
+$$<p>
+熱力学公式 $C_p-C_V=Nk$ より定圧熱容量：
+</p>
+$$
+C_p=\frac{5}{2}Nk
+$$<h3 id="断熱係数">
+<a class="header-anchor" href="#%e6%96%ad%e7%86%b1%e4%bf%82%e6%95%b0"></a>
+断熱係数
+</h3>$$
+\gamma=\frac{C_p}{C_V}=\frac{5}{3}=1.667
+$$<p>
+[[#理想気体の断熱方程式]]</p>
+<h3 id="二原子分子気体">
+<a class="header-anchor" href="#%e4%ba%8c%e5%8e%9f%e5%ad%90%e5%88%86%e5%ad%90%e6%b0%97%e4%bd%93"></a>
+二原子分子気体
+</h3><blockquote>
+<p>二原子分子のエネルギーには5つの2乗項がある（分子の3方向の運動量、原子間の運動は回転子に還元可能で2自由度、つまり2つの2乗項）。</p></blockquote>
+$$
+\overline{\varepsilon}=\frac{5}{2}kT
+$$<p>
+</p>
+$$
+U=\frac{5}{2}NkT
+$$<p>
+</p>
+$$
+C_V=\frac{5}{2}Nk
+$$<p>
+</p>
+$$
+C_p=\frac{7}{2}Nk
+$$<p>
+</p>
+$$
+\gamma=\frac{C_p}{C_V}=\frac{7}{5}=1.4
+$$<h3 id="固体">
+<a class="header-anchor" href="#%e5%9b%ba%e4%bd%93"></a>
+固体
+</h3><blockquote>
+<p>固体中の原子はその平衡位置近傍で微小振動を行う。
+各原子の振動は独立な調和振動と仮定する。
+固体原子モデルは<strong>3次元線形振動子</strong>に簡略化される。</p></blockquote>
+<p>原子の<strong>1自由度</strong>あたりのエネルギーは
+</p>
+$$
+\varepsilon=\frac{1}{2m}p^2+\frac{1}{2}m\omega^2q^2
+$$<p>
+計2つの2乗項がある。
+1原子あたりの平均エネルギーは
+</p>
+$$
+\overline{\varepsilon}=3kT
+$$<p>
+固体の内部エネルギーは
+</p>
+$$
+U=3NkT
+$$<p>
+定積熱容量は
+</p>
+$$
+C_V=3Nk
+$$<p>
+実験室では通常 $C_p$ を測定し、熱力学公式
+</p>
+$$
+C_p-C_V=\frac{TV\alpha^2}{\kappa T}
+$$<p>
+から $C_V$ を求める。
+室温および高温領域では $C_V$ は一致するが、<strong>低温領域では固体の熱容量は温度の低下とともに急速に減少し、古典理論では説明できない。</strong>
+[[#絶対零度到達不能原理]]</p>
+<h3 id="金属">
+<a class="header-anchor" href="#%e9%87%91%e5%b1%9e"></a>
+金属
+</h3><p>金属中には自由電子が存在し、エネルギー等分配定理を電子に適用すると、自由電子の熱容量はイオン振動の熱容量と同程度になるはずである。
+しかし実験結果では、$3K$ 以上において自由電子の熱容量はイオン振動の熱容量と比較して無視できるほど小さい。</p>
+<h2 id="局所的古典的極限条件を満たす独立粒子系の量子統計">
+<a class="header-anchor" href="#%e5%b1%80%e6%89%80%e7%9a%84%e5%8f%a4%e5%85%b8%e7%9a%84%e6%a5%b5%e9%99%90%e6%9d%a1%e4%bb%b6%e3%82%92%e6%ba%80%e3%81%9f%e3%81%99%e7%8b%ac%e7%ab%8b%e7%b2%92%e5%ad%90%e7%b3%bb%e3%81%ae%e9%87%8f%e5%ad%90%e7%b5%b1%e8%a8%88"></a>
+局所的/古典的極限条件を満たす独立粒子系の量子統計
+</h2><h3 id="二原子理想気体">
+<a class="header-anchor" href="#%e4%ba%8c%e5%8e%9f%e5%ad%90%e7%90%86%e6%83%b3%e6%b0%97%e4%bd%93"></a>
+二原子理想気体
+</h3><p>理想気体は==非局所系==であり、[[#古典的極限条件]]を満たすためボルツマン分布を用いて議論できる。</p>
+<blockquote>
+<p>ある近似の下で、二原子分子の運動は**並進運動$t$、振動$v$、回転$r$**に分けられる。</p></blockquote>
+$$
+\varepsilon=\varepsilon^t+\varepsilon^v+\varepsilon^r
+$$<p>
+</p>
+$$
+\omega=\omega_t+\omega_v+\omega r
+$$<p>
+</p>
+$$
+Z_1=Z_1^t\cdot Z_1^v \cdot Z_1^r
+$$<p>
+</p>
+$$
+U=-N\frac{\partial}{\partial \beta}\ln Z_1=-N\frac{\partial}{\partial \beta}(\ln Z_1^t+\ln Z_1^v+\ln Z_1^r)=U^t+U^v+U^r
+$$<p>
+</p>
+$$
+C_V=C_V^t+C_V^v+C_V^r
+$$<h4 id="並進エネルギー">
+<a class="header-anchor" href="#%e4%b8%a6%e9%80%b2%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc"></a>
+並進エネルギー
+</h4>$$
+\begin{cases}
+Z_1^t=V(\frac{2\pi m}{h^2\beta})^{3/2}\\
+U^t=\frac{3N}{2\beta}=\frac{3}{2}NkT\\
+C_V^t=\frac{3}{2}Nk
+\end{cases}
+$$<p>
+古典統計のエネルギー等分配則から得られる結果と一致する。</p>
+<h4 id="振動エネルギーと特性温度">
+<a class="header-anchor" href="#%e6%8c%af%e5%8b%95%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc%e3%81%a8%e7%89%b9%e6%80%a7%e6%b8%a9%e5%ba%a6"></a>
+振動エネルギーと特性温度
+</h4>$$
+\begin{cases}
+Z_1^v=\frac{e^{-\frac{\beta\hbar\omega}{2}}}{1-e^{-\beta\hbar\omega}}\\
+U^v=\frac{N\hbar\omega}{2}+\frac{N\hbar\omega}{e^{\beta\hbar\omega}-1}\\
+C_V^v=Nk(\frac{\hbar \omega}{kT})^2\cdot \frac{e^{\hbar \omega /kT}}{(e^{\hbar \omega/kT}-1)^2}
+\end{cases}
+$$<p>$U^v$ ：</p>
+<ul>
+<li>第一項は温度に依存せず、$N$個の振動子の==零点エネルギー==である。</li>
+<li>第二項は温度$T$における$N$個の振動子の==熱励起エネルギー==である。</li>
+</ul>
+<p>==振動特性温度== $\theta_v$ を導入し、
+</p>
+$$
+k\theta_v=\hbar\omega
+$$<p>
+を満たす。これを上の方程式に代入すると、
+</p>
+$$
+\begin{cases}
+U_v=\frac{Nk \theta_v}{e^{\frac{\theta_v}{T}}-1}\\
+C_V^v=Nk(\frac{\theta_v}{T})^2\frac{e^{\frac{\theta_v}{T}}}{(e^{\frac{\theta_v}{T}}-1)^2}
+\end{cases}
+$$<p>
+$\because$ ==二原子分子の特性温度==は $10^3K$ オーダーである。
+$\therefore$ 常温範囲では、$T\ll \theta_v$ である。常温範囲では、振動自由度の熱容量への寄与はほぼゼロである。
+常温範囲では、二原子分子の振動エネルギー準位間隔 $\hbar \omega$ は $kT$ よりもはるかに大きいため、エネルギー準位が離散化されており、振動子はエネルギー $\hbar \omega$ を得なければ励起状態に遷移できない。</p>
+<ul>
+<li>$T \ll \theta_v$ の場合、振動子が $\hbar \omega$ の熱運動エネルギーを得て励起状態に遷移する確率は極めて小さい。したがって、平均的に見て<strong>ほとんど全ての振動子は基底状態に凍結されている</strong>。
+気体の温度が上昇しても、それらはほとんどエネルギーを吸収しない（高エネルギー準位に遷移できない）。これが==常温で振動自由度がエネルギー等分配に寄与しない==理由である。</li>
+<li>$T \gg \theta_v$ の場合、$C_V^v \to Nk$ となる（極限をロピタルの定理で証明可能）。</li>
+</ul>
+<h4 id="回転エネルギー">
+<a class="header-anchor" href="#%e5%9b%9e%e8%bb%a2%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc"></a>
+回転エネルギー
+</h4><p>回転エネルギー準位
+</p>
+$$
+\varepsilon^r=\frac{l(l+1)\hbar^2}{2I},l=0,1,2,\cdots
+$$<p>
+縮退度
+</p>
+$$
+\omega^r=2l+1
+$$<p>
+分配関数
+</p>
+$$
+Z_1^r=\sum_{i=0}^\infty(2l+1)e^{-\beta\frac{l(l+1)\hbar^2}{2I}}
+$$<p>
+回転特性温度
+</p>
+$$
+\theta_r=\frac{\hbar^2}{2Ik}<100K
+$$<p>
+</p>
+$$
+Z_1^r=\sum_{i=0}^{\infty}(2l+1)e^{-l(l+1)\frac{\theta_r}{T}}
+$$<p>
+==常温時== $\frac{\theta_r}{T}\ll 1$ であり、積分すると
+</p>
+$$
+Z_1^r=\frac{2I}{\beta \hbar^2}
+$$<p>
+これより、
+</p>
+$$
+\begin{cases}
+U^r=NkT\\
+C_V^r=Nk
+\end{cases}
+$$<p>古典統計と一致する。</p>
+<h4 id="異核二原子分子">
+<a class="header-anchor" href="#%e7%95%b0%e6%a0%b8%e4%ba%8c%e5%8e%9f%e5%ad%90%e5%88%86%e5%ad%90"></a>
+異核二原子分子
+</h4>$$
+\begin{cases}
+Z_1^t=V(\frac{2\pi m}{h_0^2\beta})^{3/2}\\
+Z_1^v=\frac{2\pi}{h_0\beta \omega}\\
+Z_1^r=\frac{8\pi^2I}{h_0^2\beta}
+\end{cases}
+$$<p>
+</p>
+$$
+\begin{cases}
+C_V^t=\frac{3}{2}Nk\\
+C_V^v=Nk\\
+C_V^r=Nk
+\end{cases}
+$$<h3 id="単原子理想気体">
+<a class="header-anchor" href="#%e5%8d%98%e5%8e%9f%e5%ad%90%e7%90%86%e6%83%b3%e6%b0%97%e4%bd%93"></a>
+単原子理想気体
+</h3><h4 id="エントロピー-1">
+<a class="header-anchor" href="#%e3%82%a8%e3%83%b3%e3%83%88%e3%83%ad%e3%83%94%e3%83%bc-1"></a>
+エントロピー
+</h4><p>==単原子理想気体==
+</p>
+$$
+S=Nk(\ln Z_1-\beta\frac{\partial}{\partial \beta})-k \ln N!
+$$<p>
+近似式 $\ln N!=N(\ln N-1)$ を用いて簡略化すると、
+</p>
+$$
+S=\frac{3}{2}Nk \ln T+Nk \ln\frac{V}{N}+\frac{3}{2}Nk[\frac{5}{3}+\ln(\frac{2\pi mk}{h^2})]
+$$<p>
+このエントロピーは示量変数であり、絶対エントロピーである。</p>
+<h4 id="蒸気圧方程式">
+<a class="header-anchor" href="#%e8%92%b8%e6%b0%97%e5%9c%a7%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+蒸気圧方程式
+</h4><p>サッカー-テトロード（Sackur-Tetrode）の式
+</p>
+$$
+\ln p=-\frac{L}{RT}+\frac{5}{2}\ln T+\frac{5}{2}+\ln[k^5/2(\frac{2\pi m}{h^2})^3/2]
+$$<h4 id="化学ポテンシャル-1">
+<a class="header-anchor" href="#%e5%8c%96%e5%ad%a6%e3%83%9d%e3%83%86%e3%83%b3%e3%82%b7%e3%83%a3%e3%83%ab-1"></a>
+化学ポテンシャル
+</h4>$$
+\begin{align}
+\mu &=(\frac{\partial F}{\partial N})_{T,V}\\
+&=-kT \ln \frac{Z_1}{N}\\
+&=kT \ln[\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2]
+\end{align}
+$$<p>
+$\because$ 理想気体では、$\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2\ll 1$ である。
+$\therefore$ ==理想気体の化学ポテンシャルは負==である。</p>
+<h3 id="固体-1">
+<a class="header-anchor" href="#%e5%9b%ba%e4%bd%93-1"></a>
+固体
+</h3><p>固体中の原子の熱運動は $3N$ 個の振動子の振動と見なせる。<em>アインシュタインはこれら $3N$ 個の振動子の周波数が全て同じであると仮定した。</em> 振動子の円周波数を $\omega$ とすると、振動子のエネルギー準位は
+</p>
+$$
+\varepsilon_n=\hbar \omega(n+\frac{1}{2}),n=0,1,2,\cdots
+$$<p>
+分配関数
+</p>
+$$
+Z_1=\frac{e^{-\frac{\beta\hbar\omega}{2}}}{1-e^{-\beta\hbar\omega}}
+$$<p>
+内部エネルギー
+</p>
+$$
+U=-3N \frac{\partial}{\partial \beta}\ln Z_1=3N \frac{\hbar \omega}{2}+3N\frac{\hbar \omega}{e^{\beta \hbar \omega}-1}
+$$<p>
+熱容量
+</p>
+$$
+C_V=(\frac{\partial U}{\partial T})_V=3Nk(\frac{\hbar \omega}{kT})^2\frac{e^{\frac{\hbar \omega}{kT}}}{(e^{\frac{\hbar \omega}{kT}}-1)^2}
+$$<p>
+==アインシュタイン特性温度== $\theta_E=\frac{\hbar \omega}{k}$ を導入すると、熱容量は以下のように書き換えられる。
+</p>
+$$
+C_V=3Nk(\frac{\theta_E}{T})^2\frac{e^{\frac{\theta_E}{T}}}{(e^{\frac{\theta_E}{T}}-1)^2}
+$$<ul>
+<li>$T \gg \theta_E$ の場合、近似 $e^{\theta_E/T}-1\approx \theta_E/T$ が成り立ち、
+$$
+    C_V=3Nk
+    $$
+となり、エネルギー等分配則の結果と一致する。
+この場合、エネルギー準位間隔は $kT$ よりもはるかに小さく、エネルギーの量子化効果は無視できる。</li>
+<li>$T \ll \theta_E$ の場合、近似 $e^{\frac{\theta_E}{T}}-1 \approx e^{\frac{\theta_E}{T}}$ が成り立ち、
+$$
+    C_V=3Nk(\frac{\theta_E}{T})^2e^{-\frac{\theta_E}{T}}
+    $$
+$T \to 0$ のとき、$C_V \to 0$ となる。
+これは熱力学第三法則[[#系]]を証明している。</li>
+</ul>
+<h2 id="常磁性固体">
+<a class="header-anchor" href="#%e5%b8%b8%e7%a3%81%e6%80%a7%e5%9b%ba%e4%bd%93"></a>
+常磁性固体
+</h2><h2 id="ボースフェルミ系">
+<a class="header-anchor" href="#%e3%83%9c%e3%83%bc%e3%82%b9%e3%83%95%e3%82%a7%e3%83%ab%e3%83%9f%e7%b3%bb"></a>
+ボース/フェルミ系
+</h2><p>[[#ボース系]]，[[#フェルミ系]]。</p>
+<h3 id="ボース系の大分配関数">
+<a class="header-anchor" href="#%e3%83%9c%e3%83%bc%e3%82%b9%e7%b3%bb%e3%81%ae%e5%a4%a7%e5%88%86%e9%85%8d%e9%96%a2%e6%95%b0"></a>
+ボース系の大分配関数
+</h3>$$
+\varXi=\prod_{l}\varXi_l=\prod_{l}(1-e^{-\alpha-\beta \varepsilon_l})^{-\omega_l}
+$$<p>
+</p>
+$$
+\ln \varXi=-\sum_i \omega_l \ln(1-e^{-\alpha-\beta \varepsilon_l})
+$$<h4 id="平均粒子数">
+<a class="header-anchor" href="#%e5%b9%b3%e5%9d%87%e7%b2%92%e5%ad%90%e6%95%b0"></a>
+平均粒子数
+</h4>$$
+\overline{N}=\sum_l \frac{\omega_l}{e^{\alpha+\beta \varepsilon_l}-1}=-\frac{\partial}{\partial \alpha}\ln \varXi
+$$<h4 id="内部エネルギー-1">
+<a class="header-anchor" href="#%e5%86%85%e9%83%a8%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc-1"></a>
+内部エネルギー
+</h4>$$
+U=\sum_l \frac{\varepsilon_l \omega_l}{e^{\alpha+\beta \varepsilon_l}-1}=-\frac{\partial}{\partial \beta}\ln \varXi
+$$<h3 id="フェルミ系の大分配関数">
+<a class="header-anchor" href="#%e3%83%95%e3%82%a7%e3%83%ab%e3%83%9f%e7%b3%bb%e3%81%ae%e5%a4%a7%e5%88%86%e9%85%8d%e9%96%a2%e6%95%b0"></a>
+フェルミ系の大分配関数
+</h3>$$
+\varXi=\prod_{l}\varXi_l=\prod_{l}(1+e^{-\alpha-\beta \varepsilon_l})^{\omega_l}
+$$<p>
+</p>
+$$
+\ln \varXi=\sum_i \omega_l \ln(1+e^{-\alpha-\beta \varepsilon_l})
+$$<h4 id="平均粒子数-1">
+<a class="header-anchor" href="#%e5%b9%b3%e5%9d%87%e7%b2%92%e5%ad%90%e6%95%b0-1"></a>
+平均粒子数
+</h4>$$
+\overline{N}=\sum_l \frac{\omega_l}{e^{\alpha+\beta \varepsilon_l}+1}=-\frac{\partial}{\partial \alpha}\ln \varXi
+$$<h4 id="内部エネルギー-2">
+<a class="header-anchor" href="#%e5%86%85%e9%83%a8%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc-2"></a>
+内部エネルギー
+</h4>$$
+U=\sum_l \frac{\varepsilon_l \omega_l}{e^{\alpha+\beta \varepsilon_l}+1}=-\frac{\partial}{\partial \beta}\ln \varXi
+$$<h3 id="一般化力">
+<a class="header-anchor" href="#%e4%b8%80%e8%88%ac%e5%8c%96%e5%8a%9b"></a>
+一般化力
+</h3>$$
+Y=-\frac{1}{\beta}\frac{\partial}{\partial y}\ln \varXi
+$$<h3 id="状態方程式-1">
+<a class="header-anchor" href="#%e7%8a%b6%e6%85%8b%e6%96%b9%e7%a8%8b%e5%bc%8f-1"></a>
+状態方程式
+</h3>$$
+p=\frac{1}{\beta}\frac{\partial}{\partial V}\ln \varXi
+$$<h3 id="エントロピー-2">
+<a class="header-anchor" href="#%e3%82%a8%e3%83%b3%e3%83%88%e3%83%ad%e3%83%94%e3%83%bc-2"></a>
+エントロピー
+</h3>$$
+\begin{align}
+S &=k(\ln \varXi-\alpha \frac{\partial}{\partial \alpha}\ln \varXi-\beta \frac{\partial}{\partial \beta}\ln \varXi)\\
+&=k(\ln \varXi+\alpha \overline{N}+\beta U)\\
+&=k \ln \Omega
+\end{align}
+$$<h3 id="大熱力学的ポテンシャル">
+<a class="header-anchor" href="#%e5%a4%a7%e7%86%b1%e5%8a%9b%e5%ad%a6%e7%9a%84%e3%83%9d%e3%83%86%e3%83%b3%e3%82%b7%e3%83%a3%e3%83%ab"></a>
+大熱力学的ポテンシャル
+</h3><p>[[#大熱力学的ポテンシャル]]
+</p>
+$$
+J=U-TS-\overline{N}\mu=-kT \ln \varXi
+$$<h3 id="ラグランジュ乗数">
+<a class="header-anchor" href="#%e3%83%a9%e3%82%b0%e3%83%a9%e3%83%b3%e3%82%b8%e3%83%a5%e4%b9%97%e6%95%b0"></a>
+ラグランジュ乗数
+</h3>$$
+\beta=\frac{1}{kT},\alpha=-\frac{\mu}{kT}
+$$<h2 id="ボース-アインシュタイン凝縮">
+<a class="header-anchor" href="#%e3%83%9c%e3%83%bc%e3%82%b9-%e3%82%a2%e3%82%a4%e3%83%b3%e3%82%b7%e3%83%a5%e3%82%bf%e3%82%a4%e3%83%b3%e5%87%9d%e7%b8%ae"></a>
+ボース-アインシュタイン凝縮
+</h2><h3 id="システムの性質">
+<a class="header-anchor" href="#%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%81%ae%e6%80%a7%e8%b3%aa"></a>
+システムの性質
+</h3><blockquote>
+<p>$N$ 個の同一でほぼ独立なボース粒子からなるシステムを考える。温度は $T$、体積は $V$ とする。明確にするため、粒子のスピンはゼロと仮定する。</p></blockquote>
+<p>ボース分布によれば、各エネルギー準位上の粒子数は
+</p>
+$$
+a_l=\frac{\omega_l}{e^{\alpha+\beta \varepsilon_l}-1}=\frac{\omega_l}{e^{\frac{\varepsilon_l-\mu}{kT}}-1}
+$$<p>
+$\because$ エネルギー準位上の粒子数は負の値を取れない
+$\therefore$ 最低エネルギー準位を $\varepsilon_0$ とすると、$\varepsilon_0>\mu$ 。
+最低エネルギー準位が 0 の場合、$\mu<0$ となる。</p>
+<h3 id="化学ポテンシャル-2">
+<a class="header-anchor" href="#%e5%8c%96%e5%ad%a6%e3%83%9d%e3%83%86%e3%83%b3%e3%82%b7%e3%83%a3%e3%83%ab-2"></a>
+化学ポテンシャル
+</h3><p>ボースシステムの化学ポテンシャルは 0 未満であり、化学ポテンシャルは温度の低下とともに上昇する。温度が臨界温度 $T_C$ まで下がると、$\mu \to 0$ となる。
+$T_C$ は以下の式で決定される
+</p>
+$$
+\frac{2\pi}{h^3}(2m)^{3/2}\int_0^{\infty}\frac{\varepsilon^{1/2d \varepsilon}}{e^{\frac{\varepsilon}{kT_C}}-1}=n
+$$<p>
+</p>
+$$
+T_C=\frac{2\pi}{2.612^{2/3}}\frac{\hbar^2}{mk}n^{3/2}
+$$<h3 id="凝縮現象">
+<a class="header-anchor" href="#%e5%87%9d%e7%b8%ae%e7%8f%be%e8%b1%a1"></a>
+凝縮現象
+</h3><p>$T \le T_C$ のとき、最低エネルギー準位 $\varepsilon=0$ に集まる==粒子数密度==は
+</p>
+$$
+n_0(T)=n[1-(\frac{T}{T_C})^{3/2}]
+$$<p>
+<strong>絶対零度</strong>では、粒子は可能な限りエネルギーが最低の状態を占める。<strong>ボース粒子</strong>の場合、一つの量子状態に占めることができる粒子数に制限がないため、絶対零度ではボース粒子はすべて $\varepsilon=0$ の最低エネルギー準位に存在する。
+上式は、</p>
+<blockquote>
+<p>$T < T_C$ のとき、最低エネルギー準位に<strong>巨視的な量</strong>の粒子が凝縮することを示しており、この現象を==ボース-アインシュタイン凝縮==と呼ぶ</p></blockquote>
+$$
+U=0.770NkT(\frac{T}{T_C})^{3/2}
+$$<p>
+</p>
+$$
+C_V=(\frac{\partial U}{\partial T})_V=\frac{5}{2}\frac{U}{T}=1.925Nk(\frac{T}{T_C})^{3/2}
+$$<p>
+$T=T_C$ のとき、$C_V$ は最大値 $1.925Nk$ を取る。
+<strong>温度が十分高い</strong>場合、
+</p>
+$$
+C_V=\frac{3}{2}Nk
+$$<h3 id="理想ボース気体が凝縮を起こす臨界条件">
+<a class="header-anchor" href="#%e7%90%86%e6%83%b3%e3%83%9c%e3%83%bc%e3%82%b9%e6%b0%97%e4%bd%93%e3%81%8c%e5%87%9d%e7%b8%ae%e3%82%92%e8%b5%b7%e3%81%93%e3%81%99%e8%87%a8%e7%95%8c%e6%9d%a1%e4%bb%b6"></a>
+理想ボース気体が凝縮を起こす臨界条件
+</h3>$$
+n(\frac{h}{\sqrt{2\pi mkT_C}})^3=n \lambda^3 \ge 2.612
+$$<p>
+$\lambda$ ：原子の熱波長</p>
+<h2 id="光子気体ボース気体">
+<a class="header-anchor" href="#%e5%85%89%e5%ad%90%e6%b0%97%e4%bd%93%e3%83%9c%e3%83%bc%e3%82%b9%e6%b0%97%e4%bd%93"></a>
+光子気体（ボース気体）
+</h2><blockquote>
+<p>粒子の観点から、空洞内の放射場を<strong>光子気体</strong>と見なすことができる。
+空洞内の放射場は無限の<strong>単色平面波</strong>の重ね合わせに分解できる。</p></blockquote>
+<p>[[#ド・ブロイ関係]]と光子$\omega=ck$より、==光子のエネルギー・運動量関係==を得る
+</p>
+$$
+\varepsilon=cp
+$$<ul>
+<li>光子はボース粒子で、スピン量子数は1であり、平衡状態ではボース分布に従う。</li>
+<li>空洞壁が絶えず光子を放出・吸収するため、光子気体中の光子数は保存されない。ボース分布を導出する際には$E$が一定という条件のみ存在し、$N$が一定という条件は存在しないため、ラグランジュ乗数$\beta$のみを導入する必要がある。$\alpha=0$である。</li>
+</ul>
+<h3 id="光子気体の統計分布">
+<a class="header-anchor" href="#%e5%85%89%e5%ad%90%e6%b0%97%e4%bd%93%e3%81%ae%e7%b5%b1%e8%a8%88%e5%88%86%e5%b8%83"></a>
+光子気体の統計分布
+</h3>$$
+a_l=\frac{\omega_l}{e^{\beta \omega_l}-1}
+$$<h3 id="熱力学ポテンシャル">
+<a class="header-anchor" href="#%e7%86%b1%e5%8a%9b%e5%ad%a6%e3%83%9d%e3%83%86%e3%83%b3%e3%82%b7%e3%83%a3%e3%83%ab"></a>
+熱力学ポテンシャル
+</h3>$$
+\alpha=-\frac{\mu}{kT}=0
+$$<p>
+より、光子気体の熱力学ポテンシャルは$\mu=0$である。</p>
+<h3 id="量子状態数">
+<a class="header-anchor" href="#%e9%87%8f%e5%ad%90%e7%8a%b6%e6%85%8b%e6%95%b0"></a>
+量子状態数
+</h3><p>光子のスピン量子数は1であり、運動量方向へのスピン射影は$\pm \hbar$の2つの値を取り得る。これは左右の円偏光に対応する。光子のスピンに2つの射影があることを考慮し、[[#三次元自由粒子の量子状態数]]における[[#エネルギー表示]]から、</p>
+<blockquote>
+<p>体積$V$の空洞内で、$p$から$p+dp$の運動量範囲において、</p></blockquote>
+<p>光子の量子状態数は
+</p>
+$$
+\Omega=\frac{8\pi V}{h^3}p^2dp
+$$<blockquote>
+<p>体積$V$の空洞内で、$\omega$から$\omega+d \omega$の角周波数範囲において、</p></blockquote>
+<p>光子の量子状態数は
+</p>
+$$
+\Omega=\frac{V}{\pi^2c^3}\omega^2d \omega
+$$<h3 id="内部エネルギー分布関数">
+<a class="header-anchor" href="#%e5%86%85%e9%83%a8%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc%e5%88%86%e5%b8%83%e9%96%a2%e6%95%b0"></a>
+内部エネルギー分布関数
+</h3><blockquote>
+<p>体積$V$の空洞内で、$\omega$から$\omega+d \omega$の角周波数範囲において、</p></blockquote>
+<p>平均光子数
+</p>
+$$
+\overline{N}=\frac{V}{\pi^2c^3}\frac{\omega^2d \omega}{e^{\hbar \omega/kT}-1}
+$$<p>
+放射場の内部エネルギー
+</p>
+$$
+U(\omega,T)d \omega=\overline{N}\hbar \omega=\frac{V}{\pi^2c^3}\frac{\hbar \omega^3}{e^{\hbar \omega/kT}-1}d \omega
+$$<h4 id="レイリージーンズの式">
+<a class="header-anchor" href="#%e3%83%ac%e3%82%a4%e3%83%aa%e3%83%bc%e3%82%b8%e3%83%bc%e3%83%b3%e3%82%ba%e3%81%ae%e5%bc%8f"></a>
+レイリー・ジーンズの式
+</h4><p>$\frac{\hbar \omega}{kT}\ll 1$の低周波数領域では、$e^{\frac{\hbar \omega}{kT}}\approx 1+\frac{\hbar \omega}{kT}$となり、上式は近似的に
+</p>
+$$
+U(\omega,T)d \omega=\frac{V}{\pi^2c^3}\omega^2kTd \omega
+$$<p>
+となる。この式は==レイリー・ジーンズの式==であり、<strong>低周波数では良く一致する</strong>が高周波数では紫外破綻を起こす。</p>
+<h4 id="ウィーンの式">
+<a class="header-anchor" href="#%e3%82%a6%e3%82%a3%e3%83%bc%e3%83%b3%e3%81%ae%e5%bc%8f"></a>
+ウィーンの式
+</h4><p>$\frac{\hbar \omega}{kT}\gg 1$の高周波数領域では、$e^{\frac{\hbar \omega}{kT}}-1\approx e^{\frac{\hbar \omega}{kT}}$となり、上式は近似的に
+</p>
+$$
+U(\omega,T)d \omega=\frac{V}{\pi^2c^3}\hbar \omega^3e^{-\frac{\hbar \omega}{kT}}d \omega
+$$<p>
+となる。この式はウィーンの式と一致し、高周波数では良く一致するが低周波数では一致しない。</p>
+<blockquote>
+<p>体積$V$の空洞内で</p></blockquote>
+<p>平衡放射の内部エネルギーは
+</p>
+$$
+U=\frac{\pi^2k^4}{15c^3\hbar^3}VT^4
+$$<h3 id="大分配関数">
+<a class="header-anchor" href="#%e5%a4%a7%e5%88%86%e9%85%8d%e9%96%a2%e6%95%b0"></a>
+大分配関数
+</h3>$$
+\ln \varXi=\frac{pi^2V}{45c^3}\frac{1}{(\beta \hbar)^3}
+$$<h3 id="光子気体の内部エネルギー">
+<a class="header-anchor" href="#%e5%85%89%e5%ad%90%e6%b0%97%e4%bd%93%e3%81%ae%e5%86%85%e9%83%a8%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc"></a>
+光子気体の内部エネルギー
+</h3>$$
+U=-\frac{\partial}{\partial \beta}\ln \varXi=\frac{\pi^2k^4V}{15c^3\hbar^3}T^4
+$$<p>
+[[#内部エネルギー分布関数]]と一致する</p>
+<h3 id="圧力">
+<a class="header-anchor" href="#%e5%9c%a7%e5%8a%9b"></a>
+圧力
+</h3>$$
+p=-\frac{1}{\beta}\frac{\partial}{\partial V}\ln \varXi=\frac{\pi^2k^4}{45c^3\hbar^3}T^4
+$$<p>
+上記2式を比較すると
+</p>
+$$
+p=\frac{1}{3}\frac{U}{V}
+$$<h3 id="エントロピー-3">
+<a class="header-anchor" href="#%e3%82%a8%e3%83%b3%e3%83%88%e3%83%ad%e3%83%94%e3%83%bc-3"></a>
+エントロピー
+</h3>$$
+S=k(\ln \varXi+\beta U)=\frac{4}{45}\frac{\pi^2k^4}{c^3\hbar^3}T^3V
+$$<p>
+$T \to 0$のとき、$S \to 0$となり、[[#熱力学第三法則]]に合致する</p>
+<h3 id="放射束密度-1">
+<a class="header-anchor" href="#%e6%94%be%e5%b0%84%e6%9d%9f%e5%af%86%e5%ba%a6-1"></a>
+放射束密度
+</h3><p>[[#放射]]で求めた[[#放射束密度]]の式
+</p>
+$$
+J_u=\frac{c}{4}\frac{U}{V}=\frac{1}{4}cu
+$$<p>
+[[#壁衝突数（流出）]]の概念から求めた光子気体の放射束密度
+</p>
+$$
+J_u=\frac{\pi^2k^4}{60c^2\hbar^3}T^4
+$$<h2 id="金属中の自由電子気体フェルミ気体">
+<a class="header-anchor" href="#%e9%87%91%e5%b1%9e%e4%b8%ad%e3%81%ae%e8%87%aa%e7%94%b1%e9%9b%bb%e5%ad%90%e6%b0%97%e4%bd%93%e3%83%95%e3%82%a7%e3%83%ab%e3%83%9f%e6%b0%97%e4%bd%93"></a>
+金属中の自由電子気体（フェルミ気体）
+</h2><blockquote>
+<p>金属中の自由電子は強縮退したフェルミ気体を形成する。</p></blockquote>
+<h3 id="平均電子数">
+<a class="header-anchor" href="#%e5%b9%b3%e5%9d%87%e9%9b%bb%e5%ad%90%e6%95%b0"></a>
+平均電子数
+</h3><p>フェルミ分布によれば、温度 $T$ において、エネルギー $\varepsilon$ の一つの量子状態にある平均電子数は
+</p>
+$$
+f=\frac{1}{e^{\frac{\varepsilon-\mu}{kT}}+1}
+$$<p>
+電子のスピンはその運動量方向への射影に2つの可能な値を持つため、[[#三次元自由粒子の量子状態数]]の[[#エネルギー表示]]によれば、</p>
+<blockquote>
+<p>体積 $V$ 内で、$\varepsilon$ から $\varepsilon+d \varepsilon$ のエネルギー範囲にある電子の量子状態数は</p></blockquote>
+$$
+D(\varepsilon)d\varepsilon=\frac{4\pi V}{h^3}(2m)^{3/2}\varepsilon^{1/2}d\varepsilon
+$$<p>
+したがって、この範囲の平均電子数は
+</p>
+$$
+dN=f \cdot D(\varepsilon)d\varepsilon=\frac{4\pi V}{h^3}(2m)^{3/2}\frac{\varepsilon^{1/2}d\varepsilon}{e^{\frac{\varepsilon-\mu}{kT}}+1}
+$$<h3 id="総電子数">
+<a class="header-anchor" href="#%e7%b7%8f%e9%9b%bb%e5%ad%90%e6%95%b0"></a>
+総電子数
+</h3><p>$d \varepsilon$ について積分すると
+</p>
+$$
+\frac{4\pi V}{h^3}(2m)^{3/2}\int_0^{\infty}\frac{\varepsilon^{1/2}d\varepsilon}{e^{\frac{\varepsilon-\mu}{kT}}+1}=N
+$$<p>
+与えられた電子数 $N$、温度 $T$、体積 $V$ において、上式から化学ポテンシャル $\mu$ を決定できる。</p>
+<h3 id="における系の性質">
+<a class="header-anchor" href="#%e3%81%ab%e3%81%8a%e3%81%91%e3%82%8b%e7%b3%bb%e3%81%ae%e6%80%a7%e8%b3%aa"></a>
+$T=0$ における系の性質
+</h3><h4 id="各量子状態の平均電子数">
+<a class="header-anchor" href="#%e5%90%84%e9%87%8f%e5%ad%90%e7%8a%b6%e6%85%8b%e3%81%ae%e5%b9%b3%e5%9d%87%e9%9b%bb%e5%ad%90%e6%95%b0"></a>
+各量子状態の平均電子数
+</h4>$$
+\begin{cases}
+f=1,\varepsilon<\mu(0)\\
+f=0,\varepsilon>\mu(0)
+\end{cases}
+$$<h4 id="フェルミ準位">
+<a class="header-anchor" href="#%e3%83%95%e3%82%a7%e3%83%ab%e3%83%9f%e6%ba%96%e4%bd%8d"></a>
+フェルミ準位
+</h4><blockquote>
+<p>絶対零度の化学ポテンシャルはフェルミ準位とも呼ばれ、$\mu(0)$ で表され、$T=0$ における化学ポテンシャルである。</p></blockquote>
+$$
+\frac{4\pi V}{h^3}(2m)^{3/2}\int_0^{\mu(0)}\varepsilon^{1/2}d \varepsilon=N
+$$<p>
+から
+</p>
+$$
+\mu(0)=\frac{\hbar^2}{2m}(3\pi^2\frac{N}{V})^{2/3}
+$$<p>
+が得られる。</p>
+<h4 id="フェルミ運動量">
+<a class="header-anchor" href="#%e3%83%95%e3%82%a7%e3%83%ab%e3%83%9f%e9%81%8b%e5%8b%95%e9%87%8f"></a>
+フェルミ運動量
+</h4>$$
+\mu(0)=\frac{p_F^2}{2m}
+$$<p>
+とおくと
+</p>
+$$
+p_F=(3\pi^2n)^{1/3}\hbar
+$$<p>
+この運動量を==フェルミ運動量==と呼ぶ。</p>
+<h4 id="フェルミ速度">
+<a class="header-anchor" href="#%e3%83%95%e3%82%a7%e3%83%ab%e3%83%9f%e9%80%9f%e5%ba%a6"></a>
+フェルミ速度
+</h4>$$
+v_F=\frac{p_F}{m}
+$$<p>
+この速度を==フェルミ速度==と呼ぶ。</p>
+<h4 id="フェルミ温度">
+<a class="header-anchor" href="#%e3%83%95%e3%82%a7%e3%83%ab%e3%83%9f%e6%b8%a9%e5%ba%a6"></a>
+フェルミ温度
+</h4>$$
+kT_F=\mu(0)
+$$<p>
+</p>
+$$
+T_F=\frac{\mu(0)}{k}
+$$<p>
+この温度を==フェルミ温度==と呼ぶ。</p>
+<h4 id="電子気体の内部エネルギー">
+<a class="header-anchor" href="#%e9%9b%bb%e5%ad%90%e6%b0%97%e4%bd%93%e3%81%ae%e5%86%85%e9%83%a8%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc"></a>
+電子気体の内部エネルギー
+</h4>$$
+U(0)=\frac{4\pi V}{h^3}(2m)^{3/2}\int_0^{\mu(0)}\varepsilon^{3/2}d \varepsilon=\frac{3N}{5}\mu(0)
+$$<h4 id="電子の平均エネルギー">
+<a class="header-anchor" href="#%e9%9b%bb%e5%ad%90%e3%81%ae%e5%b9%b3%e5%9d%87%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc"></a>
+電子の平均エネルギー
+</h4>$$
+u(0)=\frac{U(0)}{N}=\frac{3}{5}\mu(0)
+$$<h4 id="電子気体の圧力">
+<a class="header-anchor" href="#%e9%9b%bb%e5%ad%90%e6%b0%97%e4%bd%93%e3%81%ae%e5%9c%a7%e5%8a%9b"></a>
+電子気体の圧力
+</h4>$$
+p(0)=\frac{2}{3}\frac{U(0)}{V}=\frac{2}{5}n \mu(0)
+$$<h3 id="ボース気体とフェルミ気体の--における比較">
+<a class="header-anchor" href="#%e3%83%9c%e3%83%bc%e3%82%b9%e6%b0%97%e4%bd%93%e3%81%a8%e3%83%95%e3%82%a7%e3%83%ab%e3%83%9f%e6%b0%97%e4%bd%93%e3%81%ae--%e3%81%ab%e3%81%8a%e3%81%91%e3%82%8b%e6%af%94%e8%bc%83"></a>
+ボース気体とフェルミ気体の $T=0$ における比較
+</h3><p>理想ボース気体が絶対零度で全ての粒子がエネルギー・運動量ゼロの状態にあり圧力がゼロであるのとは全く異なり、フェルミ気体は絶対零度において非常に高い平均エネルギー・運動量を持ち、大きな圧力を生じる。</p>
+
+        <hr><p>本文 2024-06-06 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-06-06</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Physics</category>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1733 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>Python on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/en/tags/python/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Thu, 15 Feb 2024 11:44:33 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/en/tags/python/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>MicroPython Function Library</title>
+      <link>http://localhost:1313/en/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link>
+      <pubDate>Thu, 15 Feb 2024 11:44:33 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid>
+      <description><![CDATA[<h1>MicroPython Function Library</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="machine---hardware-related-functions">
+<a class="header-anchor" href="#machine---hardware-related-functions"></a>
+Machine - Hardware Related Functions
+</h1><h2 id="pin-class">
+<a class="header-anchor" href="#pin-class"></a>
+Pin Class
+</h2><h3 id="machinepinid-modenone-pullnone-value">
+<a class="header-anchor" href="#machinepinid-modenone-pullnone-value"></a>
+<code>machine.Pin(id, mode=None, pull=None, value)</code>
+</h3><p>Pin object constructor</p>
+<ul>
+<li>id: GPIO number (0-29 for Pico)</li>
+<li>mode: Pin mode, options: <code>None, Pin.IN(0), Pin.OUT(1), Pin.OPEN_DRAIN(2)</code></li>
+<li>pull: Internal pull-up/down resistor (only valid in input mode), options: <code>None, Pin.PULL_UP(1), Pin.DOWN(2)</code></li>
+<li>value: Port value in output or open-drain mode (0 for low, 1 for high)</li>
+</ul>
+<h3 id="pininitmodenone-pullnone">
+<a class="header-anchor" href="#pininitmodenone-pullnone"></a>
+<code>Pin.init(mode=None, pull=None)</code>
+</h3><p>Reinitialize GPIO port</p>
+<h3 id="pinvaluex">
+<a class="header-anchor" href="#pinvaluex"></a>
+<code>Pin.value([x])</code>
+</h3><ul>
+<li>Returns GPIO port value when no parameter is given</li>
+<li>Writes value to GPIO port when parameter 0/1 is provided</li>
+</ul>
+<h3 id="pintoggle">
+<a class="header-anchor" href="#pintoggle"></a>
+<code>Pin.toggle()</code>
+</h3><p>Toggles port state in output or open-drain mode</p>
+<p>Example: LED blinking</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Toggle LED every second</span>
+</span></span></code></pre></div><h3 id="pinirqhandlernone-triggerpinirq_fallingpinirq_rising">
+<a class="header-anchor" href="#pinirqhandlernone-triggerpinirq_fallingpinirq_rising"></a>
+<code>Pin.irq(handler=None, trigger=(Pin.IRQ_FALLING|PIN.IRQ_RISING))</code>
+</h3><p>External interrupt function</p>
+<ul>
+<li>handler: Callback function when interrupt triggers</li>
+<li>trigger: Interrupt trigger condition (edge/level triggered)</li>
+</ul>
+<h3 id="other-functions">
+<a class="header-anchor" href="#other-functions"></a>
+Other Functions
+</h3><p>For output/open-drain mode:</p>
+<ul>
+<li><code>Pin.low(), Pin.off()</code>: Set port to low voltage</li>
+<li><code>Pin.high(), Pin.on()</code>: Set port to high voltage</li>
+</ul>
+<h3 id="example-led-control">
+<a class="header-anchor" href="#example-led-control"></a>
+Example: LED Control
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">utime</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Button on GPIO15, input mode with pull-up</span>
+</span></span><span class="line"><span class="cl"><span class="n">button_num</span> <span class="o">=</span> <span class="mi">15</span>
+</span></span><span class="line"><span class="cl"><span class="n">button</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">button_num</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Onboard LED on GP25, external LED on GP16</span>
+</span></span><span class="line"><span class="cl"><span class="n">led1_num</span> <span class="o">=</span> <span class="mi">25</span>
+</span></span><span class="line"><span class="cl"><span class="n">led2_num</span> <span class="o">=</span> <span class="mi">16</span>
+</span></span><span class="line"><span class="cl"><span class="n">led1</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">led1_num</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">led2</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">led2_num</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led2</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>  <span class="c1"># Turn off external LED</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Check if button pressed (0 when pressed)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Software debounce</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led1</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>  <span class="c1"># Toggle onboard LED</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led2</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>  <span class="c1"># Turn on external LED (GP16 high)</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;The button is pressed.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># Wait while button remains pressed (external LED stays on)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="pwm-class">
+<a class="header-anchor" href="#pwm-class"></a>
+PWM Class
+</h2><h3 id="machinepwmpin">
+<a class="header-anchor" href="#machinepwmpin"></a>
+<code>machine.PWM(pin)</code>
+</h3><p>Reinitialize specified GPIO as PWM output</p>
+<ul>
+<li>pin: Pin class object</li>
+</ul>
+<h3 id="pwmdeinit">
+<a class="header-anchor" href="#pwmdeinit"></a>
+<code>PWM.deinit()</code>
+</h3><p>Deinitialize PWM, stop PWM output</p>
+<h3 id="pwmfreqvalue">
+<a class="header-anchor" href="#pwmfreqvalue"></a>
+<code>PWM.freq([value])</code>
+</h3><p>Set PWM frequency (in Hz), automatically calculates divider and TOP register values</p>
+<h3 id="pwmduty_u16value">
+<a class="header-anchor" href="#pwmduty_u16value"></a>
+<code>PWM.duty_u16([value])</code>
+</h3><p>Set duty cycle</p>
+<ul>
+<li>value: Duty cycle ratio [0,65536], calculates corresponding value for CC register</li>
+</ul>
+<h3 id="pwmduty_nsvalue">
+<a class="header-anchor" href="#pwmduty_nsvalue"></a>
+<code>PWM.duty_ns([value])</code>
+</h3><p>Set high-level duration per cycle in nanoseconds</p>
+<h3 id="example-breathing-led">
+<a class="header-anchor" href="#example-breathing-led"></a>
+Example: Breathing LED
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">led</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>  <span class="c1"># Initialize onboard LED as PWM</span>
+</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Set frequency</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_duty</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Initial value</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_direction</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Step size</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led_duty</span> <span class="o">+=</span> <span class="n">led_direction</span>  <span class="c1"># Increase/decrease duty cycle</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">led_duty</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">:</span>  <span class="c1"># Max</span>
+</span></span><span class="line"><span class="cl">        <span class="n">led_duty</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl">        <span class="n">led_direction</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">led_duty</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Min</span>
+</span></span><span class="line"><span class="cl">        <span class="n">led_duty</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">led_direction</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">led_duty</span> <span class="o">*</span> <span class="mf">655.36</span><span class="p">))</span>  <span class="c1"># Convert ratio to value</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">led_duty</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">led_duty</span><span class="p">)</span>  <span class="c1"># For monitoring</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 2-second cycle</span>
+</span></span></code></pre></div><h2 id="adc-class">
+<a class="header-anchor" href="#adc-class"></a>
+ADC Class
+</h2><h3 id="machineadcid">
+<a class="header-anchor" href="#machineadcid"></a>
+<code>machine.ADC(id)</code>
+</h3><p>Initialize as ADC object</p>
+<ul>
+<li>id: Can be GPIO or ADC channel (GPIO must support ADC when using Pin object)</li>
+<li>Channels 0-3: Pico GPIO 26-29</li>
+<li>Channel 4: Internal temperature sensor</li>
+</ul>
+<h3 id="adcread_u16">
+<a class="header-anchor" href="#adcread_u16"></a>
+<code>ADC.read_u16()</code>
+</h3><p>Read ADC channel value [0,65525]</p>
+
+        <hr><p>本文 2024-02-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-02-15</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Basic Data Structures in Python</title>
+      <link>http://localhost:1313/en/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Sun, 27 Aug 2023 21:40:39 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <description><![CDATA[<h1>Basic Data Structures in Python</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p><strong>elem is the abbreviation of the word &ldquo;element&rdquo;</strong>, representing an indeterminate type in programming definitions, i.e., an abstract data type.</p>
+<h1 id="list">
+<a class="header-anchor" href="#list"></a>
+List
+</h1><h2 id="definition">
+<a class="header-anchor" href="#definition"></a>
+Definition
+</h2><p>A container formed by a sequence of elements arranged in order.</p>
+<ul>
+<li>Elements can be of any type.</li>
+<li>Elements are arranged in a determined order, exhibiting sequentiality.</li>
+</ul>
+<h2 id="creating-a-list">
+<a class="header-anchor" href="#creating-a-list"></a>
+Creating a List
+</h2><h3 id="method-1-create-an-empty-list-instance-and-then-add-elements">
+<a class="header-anchor" href="#method-1-create-an-empty-list-instance-and-then-add-elements"></a>
+Method 1: Create an empty list instance and then add elements
+</h3><ul>
+<li><code>list()</code></li>
+<li><code>.append()</code> method</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">wife</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>  <span class="c1"># Instantiation  </span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">wife</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;Nishimiya Shoko&#34;</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">wife</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;Sakurajima Mai&#34;</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">wife</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;Elysia&#34;</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">wife</span>  
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="s1">&#39;Nishimiya Shoko&#39;</span><span class="p">,</span> <span class="s1">&#39;Sakurajima Mai&#39;</span><span class="p">,</span> <span class="s1">&#39;Elysia&#39;</span><span class="p">]</span>  
+</span></span></code></pre></div><h3 id="method-2-directly-define-and-populate-the-list">
+<a class="header-anchor" href="#method-2-directly-define-and-populate-the-list"></a>
+Method 2: Directly define and populate the list
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">phones</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;Apple&#34;</span><span class="p">,</span> <span class="s2">&#34;Huawei&#34;</span><span class="p">,</span> <span class="s2">&#34;Xiaomi&#34;</span><span class="p">]</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">phones</span>  
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="s1">&#39;Apple&#39;</span><span class="p">,</span> <span class="s1">&#39;Huawei&#39;</span><span class="p">,</span> <span class="s1">&#39;Xiaomi&#39;</span><span class="p">]</span>  
+</span></span></code></pre></div><h2 id="accessing-elements">
+<a class="header-anchor" href="#accessing-elements"></a>
+Accessing Elements
+</h2><ol>
+<li>
+<p><strong>Using Indexing</strong><br>
+Access the (i+1)th element with <code>[i]</code>.</p>
+</li>
+<li>
+<p><strong><code>index()</code> Method</strong><br>
+<code>name.index(x)</code><br>
+Searches for the first element with value <code>x</code> in list <code>name</code> and returns its index.</p>
+</li>
+<li>
+<p><strong><code>count()</code> Method</strong><br>
+<code>name.count(x)</code><br>
+Counts how many elements in list <code>name</code> have the value <code>x</code> and returns the count.</p>
+</li>
+<li>
+<p><strong><code>len()</code> Method</strong><br>
+<code>len(name)</code><br>
+Returns the total number of elements in list <code>name</code>.</p>
+</li>
+</ol>
+<h2 id="adding-elements">
+<a class="header-anchor" href="#adding-elements"></a>
+Adding Elements
+</h2><ol>
+<li>
+<p><strong><code>append()</code> Method</strong><br>
+<code>name.append(x)</code><br>
+Adds element <code>x</code> to the end of <code>name</code>.</p>
+</li>
+<li>
+<p><strong><code>insert()</code> Method</strong><br>
+<code>name.insert(i, x)</code><br>
+Inserts object <code>x</code> at index <code>i</code> in <code>name</code>, shifting subsequent elements backward.</p>
+</li>
+<li>
+<p><strong><code>extend()</code> Method</strong><br>
+<code>name.extend(name2)</code><br>
+Appends list <code>name2</code> to the end of list <code>name</code>.</p>
+</li>
+</ol>
+<h2 id="modifying-elements">
+<a class="header-anchor" href="#modifying-elements"></a>
+Modifying Elements
+</h2><ol>
+<li><strong>Direct Assignment via Index</strong><br>
+Assign a new value to an element using its index.</li>
+</ol>
+<h2 id="deleting-elements">
+<a class="header-anchor" href="#deleting-elements"></a>
+Deleting Elements
+</h2><ol>
+<li>
+<p><strong><code>pop()</code> Method</strong><br>
+<code>name.pop()</code><br>
+Removes the last element by default.<br>
+<code>name.pop(i)</code><br>
+Removes the element at index <code>i</code>, shifting subsequent elements forward.</p>
+</li>
+<li>
+<p><strong><code>remove()</code> Method</strong><br>
+<code>name.remove(x)</code><br>
+Removes the first element with value <code>x</code>, shifting subsequent elements forward.</p>
+</li>
+<li>
+<p><strong><code>clear()</code> Method</strong><br>
+<code>name.clear()</code><br>
+Deletes all elements (empties the list).</p>
+</li>
+<li>
+<p><strong><code>del</code> Statement</strong><br>
+<code>del name[a:b]</code><br>
+Deletes elements with indices in <code>[a, b)</code> (includes <code>a</code>, excludes <code>b</code>).<br>
+<code>del name[:]</code> clears the list.<br>
+<code>del name[i]</code> deletes the element at index <code>i</code>.</p>
+</li>
+</ol>
+<h2 id="reversing-a-list">
+<a class="header-anchor" href="#reversing-a-list"></a>
+Reversing a List
+</h2><ol>
+<li>
+<p><strong><code>reverse()</code> Method</strong><br>
+<code>name.reverse()</code><br>
+Reverses the list in place (last element becomes first, etc.).</p>
+</li>
+<li>
+<p><strong>Slicing Method</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">new_nums</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">new_nums</span>  
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  
+</span></span></code></pre></div><p>The original list <code>nums</code> remains unchanged; a new reversed list <code>new_nums</code> is created.</p>
+</li>
+</ol>
+<h2 id="sorting-a-list">
+<a class="header-anchor" href="#sorting-a-list"></a>
+Sorting a List
+</h2><ol>
+<li><strong><code>sort()</code> Method</strong><br>
+<code>name.sort()</code><br>
+<code>name.sort(cmp=None, key=None, reverse=False)</code>
+<ul>
+<li>Modifies the original list in place (no return value).</li>
+<li><code>cmp</code> is an optional parameter (deprecated in Python 3).</li>
+<li><code>key</code> specifies a function to extract a comparison key from each element.
+<ul>
+<li>Omitted if elements are single-parameter (e.g., numbers or single characters).</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">takeSecond</span><span class="p">(</span><span class="n">elem</span><span class="p">):</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">elem</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  
+</span></span><span class="line"><span class="cl"><span class="n">random</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>  
+</span></span><span class="line"><span class="cl"><span class="n">random</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">takeSecond</span><span class="p">)</span>  <span class="c1"># Sorts by the second element of each tuple.  </span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="c1"># Output: [(4, 1), (2, 2), (1, 3), (3, 4)]  </span>
+</span></span></code></pre></div><ul>
+<li><code>reverse</code>: <code>False</code> for ascending (default), <code>True</code> for descending.</li>
+</ul>
+</li>
+</ol>
+<h1 id="tuple">
+<a class="header-anchor" href="#tuple"></a>
+Tuple
+</h1><h2 id="definition-1">
+<a class="header-anchor" href="#definition-1"></a>
+Definition
+</h2><p>A tuple is an <strong>immutable</strong> sequence of elements, similar to a list but unchangeable.</p>
+<h2 id="creating-a-tuple">
+<a class="header-anchor" href="#creating-a-tuple"></a>
+Creating a Tuple
+</h2><ol>
+<li>Use parentheses <code>()</code> to enclose elements (lists use <code>[]</code>).</li>
+<li>Sometimes tuples can be created without <code>()</code> (not recommended).</li>
+<li><strong>Tuple Comprehension</strong>:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">atuple</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">31</span><span class="p">,</span> <span class="mi">42</span><span class="p">))</span>  
+</span></span></code></pre></div></li>
+<li>For single-element tuples, add a trailing comma <code>,</code> to avoid confusion with non-tuple objects.</li>
+<li><strong>Empty Tuple</strong>:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">()</span>  
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="p">()</span>  
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="tuples-are-immutable">
+<a class="header-anchor" href="#tuples-are-immutable"></a>
+Tuples Are Immutable
+</h2><p>Tuples do not support addition, deletion, or modification of elements.</p>
+<h2 id="converting-between-tuples-and-lists">
+<a class="header-anchor" href="#converting-between-tuples-and-lists"></a>
+Converting Between Tuples and Lists
+</h2><ul>
+<li><strong>Tuple → List</strong>:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">atuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;love&#39;</span><span class="p">,</span> <span class="mf">3.334</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="n">alist</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">atuple</span><span class="p">)</span>  <span class="c1"># Converts to list  </span>
+</span></span></code></pre></div></li>
+<li><strong>List → Tuple</strong>:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.1415</span><span class="p">,</span> <span class="s1">&#39;polaris&#39;</span><span class="p">]</span>  
+</span></span><span class="line"><span class="cl"><span class="n">atuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>  <span class="c1"># Converts to tuple  </span>
+</span></span></code></pre></div></li>
+</ul>
+<h1 id="dictionary-dict">
+<a class="header-anchor" href="#dictionary-dict"></a>
+Dictionary (dict)
+</h1><h2 id="definition-2">
+<a class="header-anchor" href="#definition-2"></a>
+Definition
+</h2><ul>
+<li>A collection of <strong>key-value pairs</strong>.</li>
+<li><strong>Keys</strong> must be hashable (e.g., strings, numbers).
+<ul>
+<li><em>Hash</em>: A process that maps data of arbitrary size to fixed-size values.</li>
+</ul>
+</li>
+<li><strong>Values</strong> can be any object.</li>
+</ul>
+<h2 id="creating-a-dictionary">
+<a class="header-anchor" href="#creating-a-dictionary"></a>
+Creating a Dictionary
+</h2><ol>
+<li>
+<p><strong>Empty Dictionary + Assignment</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;孤筝&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">19</span><span class="p">,</span> <span class="n">hobby</span><span class="o">=</span><span class="s1">&#39;明月栞那&#39;</span><span class="p">)</span>  
+</span></span></code></pre></div><p>(Note: Keys as identifiers do not need quotes.)</p>
+</li>
+<li>
+<p><strong>Direct <code>{}</code> Syntax</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;孤筝&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span> <span class="s1">&#39;hobby&#39;</span><span class="p">:</span> <span class="s1">&#39;明月栞那&#39;</span><span class="p">}</span>  
+</span></span></code></pre></div><p>(Keys as strings require quotes.)</p>
+</li>
+<li>
+<p><strong>From Sequence of Pairs</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">alist</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;孤筝&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">19</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;hobby&#39;</span><span class="p">,</span> <span class="s1">&#39;明月栞那&#39;</span><span class="p">)]</span>  
+</span></span><span class="line"><span class="cl"><span class="n">profile</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>  
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Dictionary Comprehension</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">adict</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">)}</span>  
+</span></span><span class="line"><span class="cl"><span class="c1"># Output: {2: 4, 3: 9, 4: 16, 5: 25}  </span>
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="accessing-elements-1">
+<a class="header-anchor" href="#accessing-elements-1"></a>
+Accessing Elements
+</h2><ol>
+<li>
+<p><strong><code>dict[key]</code></strong>:<br>
+Raises <code>KeyError</code> if the key is missing.</p>
+</li>
+<li>
+<p><strong><code>dict.get(key[, default])</code></strong>:<br>
+Returns <code>default</code> (or <code>None</code>) if the key is missing.<br>
+<em>If the key is absent, it can optionally add the key with the default value.</em></p>
+</li>
+</ol>
+<h2 id="addingmodifying-elements">
+<a class="header-anchor" href="#addingmodifying-elements"></a>
+Adding/Modifying Elements
+</h2><ul>
+<li><strong>Add/Modify</strong>: <code>dict[key] = value</code></li>
+</ul>
+<h2 id="deleting-elements-1">
+<a class="header-anchor" href="#deleting-elements-1"></a>
+Deleting Elements
+</h2><ol>
+<li><strong><code>dict.pop(key)</code></strong>: Removes the key-value pair.</li>
+<li><strong><code>del dict[key]</code></strong>: Deletes the pair.</li>
+</ol>
+<h2 id="other-key-methods">
+<a class="header-anchor" href="#other-key-methods"></a>
+Other Key Methods
+</h2><h3 id="checking-key-existence">
+<a class="header-anchor" href="#checking-key-existence"></a>
+Checking Key Existence
+</h3><ol>
+<li><strong><code>in</code>/<code>not in</code></strong></li>
+<li><strong><code>dict.has_key()</code></strong> (Python 2 only; removed in Python 3).</li>
+</ol>
+<h3 id="setting-default-values">
+<a class="header-anchor" href="#setting-default-values"></a>
+Setting Default Values
+</h3><ol>
+<li><strong>Conditional Check</strong>:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span> <span class="s2">&#34;gender&#34;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">profile</span><span class="p">:</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">profile</span><span class="p">[</span><span class="s2">&#34;gender&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;male&#34;</span>  
+</span></span></code></pre></div></li>
+<li><strong><code>setdefault()</code></strong>:<br>
+<code>dict.setdefault(key, default=None)</code><br>
+Sets <code>default</code> if the key is missing.</li>
+</ol>
+<h1 id="set">
+<a class="header-anchor" href="#set"></a>
+Set
+</h1><h2 id="definition-3">
+<a class="header-anchor" href="#definition-3"></a>
+Definition
+</h2><p>An <strong>unordered</strong> collection of <strong>unique</strong> elements (like a mathematical set).<br>
+<em>Question</em>: If sets are unordered, how are elements ordered when printed/stored?</p>
+<h2 id="creating-a-set">
+<a class="header-anchor" href="#creating-a-set"></a>
+Creating a Set
+</h2><ol>
+<li><strong>Curly Braces <code>{}</code></strong>: Duplicates are automatically removed.</li>
+<li><strong><code>set()</code> Constructor</strong>:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">aset</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1314</span><span class="p">,</span> <span class="s1">&#39;520&#39;</span><span class="p">}</span>  
+</span></span><span class="line"><span class="cl"><span class="n">bset</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>  <span class="c1"># Empty set  </span>
+</span></span><span class="line"><span class="cl"><span class="n">cset</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;love&#39;</span><span class="p">,</span> <span class="s1">&#39;ishimiya&#39;</span><span class="p">])</span>  
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="adding-elements-1">
+<a class="header-anchor" href="#adding-elements-1"></a>
+Adding Elements
+</h2><ol>
+<li>
+<p><strong><code>add()</code></strong>:<br>
+<code>aset.add(elem)</code></p>
+<ul>
+<li>No effect if <code>elem</code> already exists (no error).</li>
+<li><code>elem</code> must be immutable (e.g., numbers, strings).</li>
+</ul>
+</li>
+<li>
+<p><strong><code>update()</code></strong>:<br>
+<code>aset.update(iterable)</code><br>
+Adds elements from any iterable (e.g., list, tuple, dict keys).</p>
+</li>
+</ol>
+<h2 id="deleting-elements-2">
+<a class="header-anchor" href="#deleting-elements-2"></a>
+Deleting Elements
+</h2><ol>
+<li><strong><code>remove()</code></strong>: Raises <code>KeyError</code> if the element is missing.</li>
+<li><strong><code>discard()</code></strong>: No error if the element is missing.</li>
+<li><strong><code>pop()</code></strong>: Randomly removes and returns an element.</li>
+<li><strong><code>clear()</code></strong>: Empties the set.</li>
+</ol>
+<h2 id="set-operations">
+<a class="header-anchor" href="#set-operations"></a>
+Set Operations
+</h2><h3 id="union">
+<a class="header-anchor" href="#union"></a>
+Union
+</h3><p><code>aset.union(bset)</code> or <code>aset | bset</code></p>
+<h3 id="difference">
+<a class="header-anchor" href="#difference"></a>
+Difference
+</h3><p><code>aset.difference(bset)</code> or <code>aset - bset</code></p>
+<h3 id="intersection">
+<a class="header-anchor" href="#intersection"></a>
+Intersection
+</h3><ol>
+<li><strong><code>intersection()</code></strong>: <code>aset.intersection(bset)</code> or <code>aset &amp; bset</code></li>
+<li><strong><code>intersection_update()</code></strong>: Updates <code>aset</code> in place.</li>
+</ol>
+<h3 id="symmetric-difference-non-overlapping-elements">
+<a class="header-anchor" href="#symmetric-difference-non-overlapping-elements"></a>
+Symmetric Difference (Non-Overlapping Elements)
+</h3><ol>
+<li><strong><code>symmetric_difference()</code></strong>: Returns new set.</li>
+<li><strong><code>symmetric_difference_update()</code></strong>: Updates <code>aset</code> in place.</li>
+</ol>
+<h2 id="other-operations">
+<a class="header-anchor" href="#other-operations"></a>
+Other Operations
+</h2><ol>
+<li><strong>Membership Check</strong>: <code>elem in aset</code></li>
+<li><strong>Disjoint Check</strong>: <code>aset.isdisjoint(bset)</code> (True if no common elements).</li>
+<li><strong>Subset Check</strong>: <code>bset.issubset(aset)</code> (True if <code>bset</code> is a subset).</li>
+</ol>
+<h1 id="iterator">
+<a class="header-anchor" href="#iterator"></a>
+Iterator
+</h1><h2 id="iterable-objects">
+<a class="header-anchor" href="#iterable-objects"></a>
+Iterable Objects
+</h2><p>Objects usable in <code>for</code> loops (e.g., lists, tuples).</p>
+<h2 id="iterable-protocol">
+<a class="header-anchor" href="#iterable-protocol"></a>
+Iterable Protocol
+</h2><ol>
+<li><strong>Implements <code>__iter__()</code></strong>: Returns an iterator instance.
+<ul>
+<li><code>isinstance(obj, Iterable)</code> returns <code>True</code>.</li>
+</ul>
+</li>
+<li><strong>Fallback to <code>__getitem__()</code></strong>: If <code>__iter__()</code> is missing, Python checks for <code>__getitem__()</code> to simulate iteration.
+<ul>
+<li><code>isinstance(obj, Iterable)</code> returns <code>False</code> for this case.</li>
+</ul>
+</li>
+</ol>
+<h2 id="iterator-objects">
+<a class="header-anchor" href="#iterator-objects"></a>
+Iterator Objects
+</h2><ul>
+<li>Created via <code>iter(iterable)</code>.</li>
+<li>Elements are accessed using <code>next()</code>, raising <code>StopIteration</code> when exhausted.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;人&#39;</span><span class="p">,</span> <span class="s1">&#39;生&#39;</span><span class="p">,</span> <span class="s1">&#39;若&#39;</span><span class="p">,</span> <span class="s1">&#39;只&#39;</span><span class="p">,</span> <span class="s1">&#39;如&#39;</span><span class="p">,</span> <span class="s1">&#39;初&#39;</span><span class="p">,</span> <span class="s1">&#39;见&#39;</span><span class="p">]</span>  
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">:</span>  
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>  <span class="c1"># Outputs elements sequentially  </span>
+</span></span></code></pre></div><h2 id="iterable-vs-iterator">
+<a class="header-anchor" href="#iterable-vs-iterator"></a>
+Iterable vs. Iterator
+</h2><ul>
+<li><strong>Iterable</strong>: The container (e.g., list).</li>
+<li><strong>Iterator</strong>: The object returned by <code>iter()</code>, enabling element-by-element traversal.</li>
+</ul>
+<h1 id="generator">
+<a class="header-anchor" href="#generator"></a>
+Generator
+</h1><p>A function that produces values lazily (like an iterator), usable in <code>for</code> loops.</p>
+<h2 id="creating-generators">
+<a class="header-anchor" href="#creating-generators"></a>
+Creating Generators
+</h2><h3 id="list-comprehension--generator">
+<a class="header-anchor" href="#list-comprehension--generator"></a>
+List Comprehension → Generator
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>  <span class="c1"># List  </span>
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>    <span class="c1"># Generator  </span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>  <span class="c1"># Output: 0  </span>
+</span></span></code></pre></div><h3 id="yield-keyword">
+<a class="header-anchor" href="#yield-keyword"></a>
+<code>yield</code> Keyword
+</h3><ul>
+<li>Pauses function execution and returns a value.</li>
+<li>Resumes from the paused state on subsequent calls.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generator</span><span class="p">():</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">top</span> <span class="o">=</span> <span class="mi">5</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">top</span><span class="p">:</span>  
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Current value: </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>  
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">i</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">raise</span> <span class="ne">StopIteration</span>  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="o">=</span> <span class="n">generator</span><span class="p">()</span>  
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>  
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>  
+</span></span></code></pre></div><h3 id="key-difference-yield-vs-return">
+<a class="header-anchor" href="#key-difference-yield-vs-return"></a>
+Key Difference: <code>yield</code> vs. <code>return</code>
+</h3><ul>
+<li><code>yield</code> pauses execution; <code>return</code> terminates it.</li>
+<li><code>yield</code> can resume; <code>return</code> cannot.</li>
+</ul>
+
+        <hr><p>本文 2023-08-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-08-27</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Other Python Notes</title>
+      <link>http://localhost:1313/en/post/code/python%E5%85%B6%E4%BB%96%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 27 Jun 2023 00:57:42 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/code/python%E5%85%B6%E4%BB%96%E7%AC%94%E8%AE%B0/</guid>
+      <description><![CDATA[<h1>Other Python Notes</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="comments">
+<a class="header-anchor" href="#comments"></a>
+Comments
+</h1><ul>
+<li>Single-line comment<br>
+<code>#</code> content</li>
+<li>Multi-line comment</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;  
+</span></span></span><span class="line"><span class="cl"><span class="s1">This green section is a comment  
+</span></span></span><span class="line"><span class="cl"><span class="s1">This part is also  
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>  
+</span></span><span class="line"><span class="cl"><span class="n">This</span> <span class="ow">is</span> <span class="n">no</span> <span class="n">longer</span> <span class="n">a</span> <span class="n">comment</span>  
+</span></span><span class="line"><span class="cl"><span class="c1"># Single-line comment  </span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;&#39;&#39;&#39;This is not a comment&#39;&#39;&#39; Will this be printed?&#34;</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;Hello&#39;&#39;&#39;</span><span class="mi">1</span>  
+</span></span><span class="line"><span class="cl"><span class="n">Terminal</span><span class="p">:</span> <span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>  
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;  
+</span></span></span><span class="line"><span class="cl"><span class="s1">Writing like this will cause an error. It seems inserting comments in the middle of code affects execution.  
+</span></span></span><span class="line"><span class="cl"><span class="s1">Multi-line strings can be defined using &#39;&#39;&#39;</span><span class="n">string</span><span class="s1">&#39;&#39;&#39;. The comment is interpreted as an assignment operation, so the above error points to the trailing 1.  
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>  
+</span></span></code></pre></div><h1 id="encoding-format">
+<a class="header-anchor" href="#encoding-format"></a>
+Encoding Format
+</h1><ul>
+<li>In Python 2.x, the default source file encoding is ASCII. If the content contains Chinese characters, the file cannot be read and output correctly without specifying the encoding format. You can add the following code at the beginning of the source file to specify UTF-8 encoding:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># -*- coding: UTF-8 -*-  </span>
+</span></span></code></pre></div><p>In Python 3.x, the default source file encoding is UTF-8. Therefore, when using Python 3.x, specifying the encoding format is usually unnecessary.</p>
+<h1 id="identifiers">
+<a class="header-anchor" href="#identifiers"></a>
+Identifiers
+</h1><ul>
+<li>Identifiers are a universal concept in programming, used to name ==variables, functions, interfaces, classes==, etc.</li>
+<li>Python identifiers are case-sensitive and consist of letters, numbers, and underscores. The first character must be a letter or underscore and cannot start with a number. In Python 3.x, Chinese characters can be used as identifiers.</li>
+<li>Identifiers starting with underscores have special meanings:
+<ul>
+<li>A single underscore prefix (e.g., <code>_name</code>) indicates a class attribute that cannot be accessed directly and requires an interface provided by the class.</li>
+<li>A double underscore prefix (e.g., <code>__age</code>) indicates a private class member.</li>
+<li>Identifiers with double underscores at both ends (e.g., <code>__init__()</code>, the class constructor) represent built-in Python identifiers.</li>
+</ul>
+</li>
+</ul>
+
+        <hr><p>本文 2023-06-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-06-27</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Basic Python Functions</title>
+      <link>http://localhost:1313/en/post/code/python%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Tue, 27 Jun 2023 00:55:01 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/code/python%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/</guid>
+      <description><![CDATA[<h1>Basic Python Functions</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="function-parameter-passing">
+<a class="header-anchor" href="#function-parameter-passing"></a>
+Function Parameter Passing
+</h2><p>In Python, passing parameters to a function is essentially an assignment operation.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arr</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span></code></pre></div><ol>
+<li>First, there are two variables <code>arr</code> and <code>a</code>, and two objects <code>1</code> and <code>2</code>.</li>
+<li><code>a</code> is bound to <code>2</code>, and <code>func(a)</code> assigns the object <code>2</code> bound to <code>a</code> to <code>arr</code>.</li>
+<li>At this point, object <code>1</code> has not been created yet, and object <code>2</code> is labeled with both <code>a</code> and <code>arr</code>.</li>
+<li>The operation <code>arr = 1</code> removes the <code>arr</code> label from <code>2</code>, creates object <code>1</code>, and assigns it to <code>arr</code>.</li>
+<li>Output:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span>
+</span></span></code></pre></div><h2 id="input-and-output">
+<a class="header-anchor" href="#input-and-output"></a>
+Input and Output
+</h2><h3 id="the-print-function">
+<a class="header-anchor" href="#the-print-function"></a>
+The <code>print()</code> Function
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;string&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">string</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;str1&#34;</span><span class="p">,</span> <span class="s2">&#34;str2&#34;</span><span class="p">,</span> <span class="s2">&#34;str3&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">str1</span> <span class="n">str2</span> <span class="n">str3</span>  <span class="c1"># Spaces replace commas</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">**</span> <span class="n">c</span><span class="p">)</span>  <span class="c1"># Computes the value first, then prints</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">/</span> <span class="n">c</span><span class="p">))</span>  <span class="c1"># Executes the sum() function first</span>
+</span></span></code></pre></div><p><strong>Prototype</strong>:<br>
+</p>
+$$print(self, *args, sep=' ', end='\n', file=None)$$<ul>
+<li><code>sep</code> parameter: Separator between multiple outputs (return values). Default is a space, but can be manually set.</li>
+<li><code>end</code> parameter: How to end the print. Default is <code>\n</code> (newline), can be set to <code>' '</code> to avoid line breaks.</li>
+</ul>
+<h3 id="the-input-function">
+<a class="header-anchor" href="#the-input-function"></a>
+The <code>input()</code> Function
+</h3><p><strong>Gets user input and saves it as a string.</strong><br>
+If the input is a number, it can be converted to an integer using <code>int()</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;Please input your age: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Please</span> <span class="nb">input</span> <span class="n">your</span> <span class="n">age</span><span class="p">:</span> <span class="mi">18</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;18&#39;</span>  <span class="c1"># type(age) == &lt;class &#39;str&#39;&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mi">18</span>
+</span></span></code></pre></div><ul>
+<li><code>input()</code> can take a string argument, which is printed as a prompt.</li>
+<li>When using <code>int()</code>, extra spaces can be removed with the <code>strip()</code> method. This also applies when saving string objects.</li>
+<li><code>input()</code> can be used to consume a newline and pause program execution.<br>
+[[Data Types and Operators#String Formatting]]</li>
+</ul>
+<h2 id="utility-functions">
+<a class="header-anchor" href="#utility-functions"></a>
+Utility Functions
+</h2><h3 id="id">
+<a class="header-anchor" href="#id"></a>
+<code>id()</code>
+</h3><p>Example:<br>
+[[Data Types and Operators#Assignment Methods]]<br>
+<code>id(variable_name)</code> returns the memory address of the object bound to the variable.<br>
+If the object bound to the variable changes, the query result changes, but the original object&rsquo;s memory address remains unchanged.</p>
+<h3 id="type">
+<a class="header-anchor" href="#type"></a>
+<code>type()</code>
+</h3><ul>
+<li>With one argument, returns the type of the object.</li>
+<li>With three arguments, returns a new object type:
+<ul>
+<li><code>type(name, bases, dict)</code></li>
+<li><code>name</code> — The name of the class.</li>
+<li><code>bases</code> — A tuple of base classes.</li>
+<li><code>dict</code> — A dictionary, the namespace variables defined within the class.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># One argument example  </span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;int&#39;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;runoob&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;str&#39;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">([</span><span class="mi">2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;list&#39;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;zero&#39;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;dict&#39;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span>  <span class="c1"># Check if types are equal  </span>
+</span></span><span class="line"><span class="cl"><span class="kc">True</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Three arguments  </span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">X</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>     <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">X</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">object</span><span class="p">,),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># Creates a new type X  </span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">X</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">__main__</span><span class="o">.</span><span class="n">X</span><span class="s1">&#39;&gt;</span>
+</span></span></code></pre></div><h3 id="next">
+<a class="header-anchor" href="#next"></a>
+<code>next()</code>
+</h3><p>[[Basic Data Structures#Iterator Objects]]</p>
+<h2 id="string-functions">
+<a class="header-anchor" href="#string-functions"></a>
+String Functions
+</h2><h3 id="built-in-string-methods">
+<a class="header-anchor" href="#built-in-string-methods"></a>
+Built-in String Methods
+</h3><ol>
+<li>Remove leading/trailing spaces or characters: <code>lstrip()</code>, <code>rstrip()</code>, <code>strip()</code></li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;    人生苦短，我用Python。    &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">lstrip</span><span class="p">())</span>  <span class="c1"># Remove left spaces and print  </span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>  <span class="c1"># Remove right spaces and print  </span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>   <span class="c1"># Remove both left and right spaces and print  </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">str_1</span> <span class="o">=</span> <span class="s1">&#39;333与君相别离，不知何日是归期，我如朝露转瞬晞。333&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str_1</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">))</span>  <span class="c1"># Remove all &#39;3&#39; characters from both ends and print  </span>
+</span></span></code></pre></div><p><strong>Note</strong>: These functions essentially return a new substring rather than modifying the original object.<br>
+<code>lstrip()</code> returns a new string with leading spaces or specified characters removed.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;    人生苦短，我用Python。    &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">str</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>  <span class="c1"># Only calls the function without assignment or output  </span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">Output remains:
+</span></span></span><span class="line"><span class="cl"><span class="s1">    人生苦短，我用Python。    
+</span></span></span><span class="line"><span class="cl"><span class="s1">With spaces on both ends, indicating the object is unchanged.
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span></code></pre></div><ol start="2">
+<li>Check if a string starts/ends with a substring: <code>startswith()</code>, <code>endswith()</code><br>
+Returns <code>True</code> if yes, <code>False</code> otherwise.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;山有木兮木有枝，心悦君兮君不知。&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&#34;山&#34;</span><span class="p">))</span>  <span class="c1"># Returns True and prints  </span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;不知&#39;</span><span class="p">))</span>  <span class="c1"># Missing &#39;。&#39;, returns False and prints  </span>
+</span></span></code></pre></div><ol start="3">
+<li>
+<p>Format strings: </p>
+$$f"string content {other_string_variable} string content"$$<p><br>
+Returns the formatted string.<br>
+<a href="">To be filled</a></p>
+</li>
+<li>
+<p>Split strings: <code>split()</code><br>
+Splits a string into substrings using a delimiter (excluded from substrings) and returns a list.</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;根，紧握在地下，叶，相触在云里，每一阵风过，我们都互相致意。&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">strP</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;，&#39;</span><span class="p">)</span>  <span class="c1"># Note Chinese punctuation  </span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>  <span class="c1"># Outputs the original string  </span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">strP</span><span class="p">)</span>  <span class="c1"># Outputs the split string list  </span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">strP</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># Outputs &#34;紧握在地下&#34;  </span>
+</span></span></code></pre></div><h2 id="numeric-functions">
+<a class="header-anchor" href="#numeric-functions"></a>
+Numeric Functions
+</h2><ol>
+<li>Absolute value: <code>abs()</code></li>
+<li>Integer conversion: <code>int()</code></li>
+<li>Rounding (returns integer): <code>round()</code></li>
+<li>Check size or truthiness (Boolean functions): <code>bool()</code><br>
+[[Data Types and Operators#Boolean Values and Null]]</li>
+</ol>
+<h2 id="type-conversion-functions">
+<a class="header-anchor" href="#type-conversion-functions"></a>
+Type Conversion Functions
+</h2><ol>
+<li>$$int(x [, base])$$<br>
+<code>x</code> is the original object, <code>base</code> is optional (default 10 for decimal).</li>
+<li>$$float(x)$$</li>
+<li>$$complex(real[, imag])$$<br>
+<code>real</code> is the real part, <code>imag</code> is the optional imaginary part.</li>
+<li>$$str(x)$$</li>
+<li>$$repr(x)$$<br>
+Converts <code>x</code> to an expression string (readable by the Python interpreter).</li>
+<li>$$chr(x)$$<br>
+Converts an integer to a character.</li>
+<li>$$ord(x)$$<br>
+Converts a character to its integer value.</li>
+<li>$$hex(x)$$<br>
+Converts an integer to a hexadecimal string.</li>
+<li>$$oct(x)$$<br>
+Converts an integer to an octal string.</li>
+<li>$$eval(str)$$<br>
+Evaluates a string as a Python expression and returns an object.</li>
+<li>$$tuple(s)$$<br>
+Converts sequence <code>s</code> to a tuple.</li>
+<li>$$list(s)$$</li>
+<li>$$set(s)$$<br>
+Converts sequence <code>s</code> to a mutable set.</li>
+<li>$$frozenset(s)$$<br>
+Converts sequence <code>s</code> to an immutable set.</li>
+<li>$$dict(d)$$<br>
+Converts a sequence <code>d</code> of (key, value) tuples to a dictionary.</li>
+</ol>
+<h3 id="high-and-low-data-types">
+<a class="header-anchor" href="#high-and-low-data-types"></a>
+High and Low Data Types
+</h3><ol>
+<li>&ldquo;Higher&rdquo; and &ldquo;lower&rdquo; data types refer to precision in implicit type conversion.</li>
+<li>Precision reflects the amount of information a data type can represent.</li>
+<li>Higher types can represent more information (e.g., floats &gt; integers).</li>
+<li>Order: Boolean (<code>bool</code>) &lt; Integer (<code>int</code>) &lt; Float (<code>float</code>) &lt; Complex (<code>complex</code>).</li>
+</ol>
+<h4 id="can-data-types-be-converted-freely">
+<a class="header-anchor" href="#can-data-types-be-converted-freely"></a>
+Can Data Types Be Converted Freely?
+</h4><p>While Python provides functions like <code>int()</code>, <code>float()</code>, <code>str()</code>, etc., not all conversions are possible. It depends on whether the data contains enough information for the target type.</p>
+<p>Examples:</p>
+<ul>
+<li>Integers can be converted to strings (e.g., <code>123</code> → <code>&quot;123&quot;</code>).</li>
+<li>Numeric strings (e.g., <code>&quot;123&quot;</code>) can be converted to integers or floats.</li>
+</ul>
+<p>Exceptions:</p>
+<ul>
+<li>Non-numeric strings (e.g., <code>&quot;Hello&quot;</code>) cannot be converted to numbers.</li>
+<li>Lists or tuples can be converted to sets (if elements are immutable) but not to integers.</li>
+</ul>
+<h2 id="conditional-and-loop-statements">
+<a class="header-anchor" href="#conditional-and-loop-statements"></a>
+Conditional and Loop Statements
+</h2><h3 id="if-elif-else-statements">
+<a class="header-anchor" href="#if-elif-else-statements"></a>
+<code>if</code>, <code>elif</code>, <code>else</code> Statements
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">condition1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Execute if condition1 is True  </span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">condition2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Execute if condition1 is False and condition2 is True  </span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Execute if both conditions are False  </span>
+</span></span></code></pre></div><p>Example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Who are you?&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;How old are you?&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;朱冰倩&#39;</span> <span class="ow">and</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">19</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Daring, long time no see.&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;朱冰倩&#39;</span> <span class="ow">and</span> <span class="n">age</span> <span class="o">==</span> <span class="mi">18</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Thank you for being in my life.&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;こんにちわ。&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>Falsy values: <code>None</code>, empty lists, empty sets, empty dicts, empty tuples, empty strings, <code>0</code>, <code>False</code>.</li>
+<li>Truthy values: Non-empty sequences, non-zero numbers, <code>True</code>.</li>
+</ul>
+<h3 id="for-break-continue-statements">
+<a class="header-anchor" href="#for-break-continue-statements"></a>
+<code>for</code>, <code>break</code>, <code>continue</code> Statements
+</h3><h4 id="basic-loop">
+<a class="header-anchor" href="#basic-loop"></a>
+Basic Loop
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>  <span class="c1"># list, dict, string, tuple, etc.  </span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Code block  </span>
+</span></span></code></pre></div><ul>
+<li><code>for</code> iterates over the sequence, assigning each element to <code>x</code>.</li>
+</ul>
+<h4 id="indexed-loop">
+<a class="header-anchor" href="#indexed-loop"></a>
+Indexed Loop
+</h4><ul>
+<li>Use <code>enumerate()</code> to get both index and value.</li>
+<li><code>enumerate(sequence, [start=0])</code>:
+<ul>
+<li><code>sequence</code>: Iterable object.</li>
+<li><code>start</code>: Optional starting index (default 0).</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">galgames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;咖啡馆&#39;</span><span class="p">,</span> <span class="s1">&#39;千恋万花&#39;</span><span class="p">,</span> <span class="s1">&#39;天使骚骚&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">galgame</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">galgames</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Today, play the </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1">th game: </span><span class="si">{</span><span class="n">galgame</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><p>Output:<br>
+Today, play the 1th game: 咖啡馆.<br>
+Today, play the 2th game: 千恋万花.<br>
+Today, play the 3th game: 天使骚骚.</p>
+<h4 id="break">
+<a class="header-anchor" href="#break"></a>
+<code>break</code>
+</h4><p>Exits the current loop. Different levels of <code>break</code> exit different loops.</p>
+<h4 id="continue">
+<a class="header-anchor" href="#continue"></a>
+<code>continue</code>
+</h4><p>Skips the rest of the loop and proceeds to the next iteration.</p>
+<h4 id="for-else">
+<a class="header-anchor" href="#for-else"></a>
+<code>for-else</code>
+</h4><ul>
+<li>An <code>else</code> block after <code>for</code> executes if the loop completes normally (without <code>break</code>).</li>
+<li><code>continue</code> is considered normal.</li>
+</ul>
+<h3 id="while">
+<a class="header-anchor" href="#while"></a>
+<code>while</code>
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">while</span> <span class="n">condition</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Code block  </span>
+</span></span></code></pre></div><p>Executes the code block while <code>condition</code> is <code>True</code>.<br>
+<strong>Avoid infinite loops by ensuring the condition can be broken or <code>break</code> is triggered.</strong></p>
+<h4 id="while-else">
+<a class="header-anchor" href="#while-else"></a>
+<code>while-else</code>
+</h4><p>Similar to <code>for-else</code>, the <code>else</code> block executes if the loop exits normally (without <code>break</code>).</p>
+
+        <hr><p>本文 2023-06-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-06-27</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Python Data Types and Operators  
+
+### Data Types  
+Python has several built-in data types, categorized as follows:  
+
+1. **Numeric Types**  
+   - `int`: Integer (e.g., `5`, `-3`, `0`)  
+   - `float`: Floating-point number (e.g., `3.14`, `-0.001`, `2.0`)  
+   - `complex`: Complex number (e.g., `1 &#43; 2j`, `3 - 4j`)  
+
+2. **Sequence Types**  
+   - `str`: String (e.g., `&#34;hello&#34;`, `&#39;Python&#39;`)  
+   - `list`: Mutable sequence (e.g., `[1, 2, 3]`, `[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]`)  
+   - `tuple`: Immutable sequence (e.g., `(1, 2, 3)`, `(&#39;x&#39;, &#39;y&#39;, &#39;z&#39;)`)  
+
+3. **Mapping Type**  
+   - `dict`: Key-value pairs (e.g., `{&#39;name&#39;: &#39;Alice&#39;, &#39;age&#39;: 25}`)  
+
+4. **Set Types**  
+   - `set`: Unordered, unique elements (e.g., `{1, 2, 3}`)  
+   - `frozenset`: Immutable set (e.g., `frozenset({1, 2, 3})`)  
+
+5. **Boolean Type**  
+   - `bool`: Logical values (`True` or `False`)  
+
+6. **Binary Types**  
+   - `bytes`: Immutable byte sequence (e.g., `b&#39;hello&#39;`)  
+   - `bytearray`: Mutable byte sequence  
+   - `memoryview`: Memory view of objects  
+
+### Operators  
+Python supports various operators for performing operations on data:  
+
+1. **Arithmetic Operators**  
+   - `&#43;` (Addition)  
+   - `-` (Subtraction)  
+   - `*` (Multiplication)  
+   - `/` (Division)  
+   - `%` (Modulus)  
+   - `**` (Exponentiation)  
+   - `//` (Floor Division)  
+
+2. **Comparison Operators**  
+   - `==` (Equal)  
+   - `!=` (Not Equal)  
+   - `&gt;` (Greater Than)  
+   - `&lt;` (Less Than)  
+   - `&gt;=` (Greater Than or Equal)  
+   - `&lt;=` (Less Than or Equal)  
+
+3. **Logical Operators**  
+   - `and` (Logical AND)  
+   - `or` (Logical OR)  
+   - `not` (Logical NOT)  
+
+4. **Assignment Operators**  
+   - `=` (Assignment)  
+   - `&#43;=`, `-=`, `*=`, `/=`, etc. (Compound Assignment)  
+
+5. **Bitwise Operators**  
+   - `&amp;` (AND)  
+   - `|` (OR)  
+   - `^` (XOR)  
+   - `~` (NOT)  
+   - `&lt;&lt;` (Left Shift)  
+   - `&gt;&gt;` (Right Shift)  
+
+6. **Membership Operators**  
+   - `in` (Checks if a value exists in a sequence)  
+   - `not in` (Checks if a value does not exist in a sequence)  
+
+7. **Identity Operators**  
+   - `is` (Checks if two variables refer to the same object)  
+   - `is not` (Checks if two variables refer to different objects)  
+
+### Example Code  
+```python
+# Numeric operations  
+a = 10  
+b = 3  
+print(a &#43; b)  # Output: 13  
+print(a // b) # Output: 3  
+
+# String operations  
+name = &#34;Python&#34;  
+print(name * 2)  # Output: &#34;PythonPython&#34;  
+
+# List operations  
+numbers = [1, 2, 3]  
+numbers.append(4)  
+print(numbers)  # Output: [1, 2, 3, 4]  
+
+# Dictionary operations  
+person = {&#39;name&#39;: &#39;Alice&#39;, &#39;age&#39;: 25}  
+print(person[&#39;name&#39;])  # Output: &#34;Alice&#34;  
+```  
+
+This covers the fundamental data types and operators in Python. Let me know if you need further clarification!</title>
+      <link>http://localhost:1313/en/post/code/python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/</link>
+      <pubDate>Tue, 27 Jun 2023 00:49:20 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/code/python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/</guid>
+      <description><![CDATA[<h1>Python Data Types and Operators  
+
+### Data Types  
+Python has several built-in data types, categorized as follows:  
+
+1. **Numeric Types**  
+   - `int`: Integer (e.g., `5`, `-3`, `0`)  
+   - `float`: Floating-point number (e.g., `3.14`, `-0.001`, `2.0`)  
+   - `complex`: Complex number (e.g., `1 + 2j`, `3 - 4j`)  
+
+2. **Sequence Types**  
+   - `str`: String (e.g., `"hello"`, `'Python'`)  
+   - `list`: Mutable sequence (e.g., `[1, 2, 3]`, `['a', 'b', 'c']`)  
+   - `tuple`: Immutable sequence (e.g., `(1, 2, 3)`, `('x', 'y', 'z')`)  
+
+3. **Mapping Type**  
+   - `dict`: Key-value pairs (e.g., `{'name': 'Alice', 'age': 25}`)  
+
+4. **Set Types**  
+   - `set`: Unordered, unique elements (e.g., `{1, 2, 3}`)  
+   - `frozenset`: Immutable set (e.g., `frozenset({1, 2, 3})`)  
+
+5. **Boolean Type**  
+   - `bool`: Logical values (`True` or `False`)  
+
+6. **Binary Types**  
+   - `bytes`: Immutable byte sequence (e.g., `b'hello'`)  
+   - `bytearray`: Mutable byte sequence  
+   - `memoryview`: Memory view of objects  
+
+### Operators  
+Python supports various operators for performing operations on data:  
+
+1. **Arithmetic Operators**  
+   - `+` (Addition)  
+   - `-` (Subtraction)  
+   - `*` (Multiplication)  
+   - `/` (Division)  
+   - `%` (Modulus)  
+   - `**` (Exponentiation)  
+   - `//` (Floor Division)  
+
+2. **Comparison Operators**  
+   - `==` (Equal)  
+   - `!=` (Not Equal)  
+   - `>` (Greater Than)  
+   - `<` (Less Than)  
+   - `>=` (Greater Than or Equal)  
+   - `<=` (Less Than or Equal)  
+
+3. **Logical Operators**  
+   - `and` (Logical AND)  
+   - `or` (Logical OR)  
+   - `not` (Logical NOT)  
+
+4. **Assignment Operators**  
+   - `=` (Assignment)  
+   - `+=`, `-=`, `*=`, `/=`, etc. (Compound Assignment)  
+
+5. **Bitwise Operators**  
+   - `&` (AND)  
+   - `|` (OR)  
+   - `^` (XOR)  
+   - `~` (NOT)  
+   - `<<` (Left Shift)  
+   - `>>` (Right Shift)  
+
+6. **Membership Operators**  
+   - `in` (Checks if a value exists in a sequence)  
+   - `not in` (Checks if a value does not exist in a sequence)  
+
+7. **Identity Operators**  
+   - `is` (Checks if two variables refer to the same object)  
+   - `is not` (Checks if two variables refer to different objects)  
+
+### Example Code  
+```python
+# Numeric operations  
+a = 10  
+b = 3  
+print(a + b)  # Output: 13  
+print(a // b) # Output: 3  
+
+# String operations  
+name = "Python"  
+print(name * 2)  # Output: "PythonPython"  
+
+# List operations  
+numbers = [1, 2, 3]  
+numbers.append(4)  
+print(numbers)  # Output: [1, 2, 3, 4]  
+
+# Dictionary operations  
+person = {'name': 'Alice', 'age': 25}  
+print(person['name'])  # Output: "Alice"  
+```  
+
+This covers the fundamental data types and operators in Python. Let me know if you need further clarification!</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="constants-and-variables">
+<a class="header-anchor" href="#constants-and-variables"></a>
+Constants and Variables
+</h2><ul>
+<li>Variables do not require type declaration</li>
+<li>Python uses <code>=</code> for variable assignment and <code>==</code> to compare two values, returning <code>True</code> if equal and <code>False</code> otherwise.</li>
+<li>Variables must be assigned before use (unlike C). A variable is created only after assignment.
+<ul>
+<li>Undefined variable exception:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span>  
+</span></span><span class="line"><span class="cl"><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">File</span> <span class="s2">&#34;&lt;stdin&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;age&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>  
+</span></span></code></pre></div><p>Constants — Immutable Variables<br>
+<strong>Python has no mechanism to ensure variables won&rsquo;t change objects. No error is raised if altered, unlike C&rsquo;s <code>const</code>. Extreme caution is advised.</strong></p>
+<h2 id="assignment-methods">
+<a class="header-anchor" href="#assignment-methods"></a>
+Assignment Methods
+</h2><p>The assignment operator <code>=</code> is <strong>right-associative</strong>.</p>
+<ul>
+<li>Single assignment:
+<ul>
+<li><code>age = 18</code></li>
+</ul>
+</li>
+<li>Batch assignment:
+<ul>
+<li><code>a = b = c = 1</code>
+<ul>
+<li>Unthinkable in C/C++ :(</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Compute then assign:
+<ul>
+<li><code>age = 17 + 1</code></li>
+</ul>
+</li>
+<li>Separate assignment:
+<ul>
+<li><code>a, b, c = 1, 2, 3</code>
+<ul>
+<li><code>a == 1</code>, <code>b == 2</code>, <code>c == 3</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>When we write <code>a = &quot;Jack&quot;</code>, the Python interpreter does two things:</p>
+<ol>
+<li>Creates a string object <code>'Jack'</code> in memory (constant).</li>
+<li>Creates a variable <code>a</code> in memory and points it to <code>'Jack'</code>.</li>
+</ol>
+<p>When you assign variable <code>a</code> to another variable <code>b</code>, this operation <strong>points <code>b</code> to the data <code>a</code> points to</strong>, as shown below:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Jack&#34;</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>  
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;Jack&#39;</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>  
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;Jack&#39;</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">4332916664</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">4332916664</span>  
+</span></span></code></pre></div><p><em><strong>The <code>id()</code> function checks a variable&rsquo;s memory address.</strong></em><br>
+[[Basic Functions#id()]]</p>
+<ul>
+<li>If another value is assigned to <code>a</code>, <code>id(a)</code> changes while <code>id(b)</code> remains the same:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Ross&#34;</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>  
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;Ross&#39;</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="n">Another</span> <span class="n">number</span> <span class="p">(</span><span class="n">different</span> <span class="kn">from</span> <span class="mi">4332916664</span><span class="p">)</span>  
+</span></span></code></pre></div><h2 id="variables-and-objects">
+<a class="header-anchor" href="#variables-and-objects"></a>
+Variables and Objects
+</h2><blockquote>
+<p>In Python, everything is an object: numbers, lists, functions—everything. Variables are references (or labels/names) to objects, and all operations on objects are performed through these references.</p></blockquote>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>  
+</span></span></code></pre></div><ul>
+<li>Here, the number <code>1</code> is the object, and <code>a</code> is the variable (name).</li>
+<li>The assignment <code>=</code> binds a name to an object (labels the object <code>1</code> with <code>a</code>).</li>
+<li>An object can have multiple labels (variables), but a variable can only bind to one object.</li>
+<li><strong>Variables themselves have no type; the type is stored in the object and determined by the object&rsquo;s type.</strong>
+<ul>
+<li>Thus, Python doesn’t require variable type declarations upfront, as it automatically infers the object&rsquo;s data type—a major difference from C/C++.</li>
+</ul>
+</li>
+</ul>
+<h2 id="strings">
+<a class="header-anchor" href="#strings"></a>
+Strings
+</h2><ol>
+<li>Python does not distinguish between single characters and strings.</li>
+<li>Strings can be created with single <code>''</code> or double <code>&quot;&quot;</code> quotes (but not mixed!).</li>
+<li>Triple single or double quotes create multi-line strings:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name_1</span> <span class="o">=</span> <span class="s1">&#39;Jack&#39;</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name_2</span> <span class="o">=</span> <span class="s2">&#34;Rose&#34;</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">sentence_1</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Rose,  
+</span></span></span><span class="line"><span class="cl"><span class="s1">Jack,  
+</span></span></span><span class="line"><span class="cl"><span class="s1">You jump,  
+</span></span></span><span class="line"><span class="cl"><span class="s1">I jump!&#39;&#39;&#39;</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">sentence_2</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;Life is short,  
+</span></span></span><span class="line"><span class="cl"><span class="s2">you need Python.&#34;&#34;&#34;</span>  
+</span></span><span class="line"><span class="cl"><span class="c1"># Works perfectly!  </span>
+</span></span></code></pre></div><ul>
+<li>To include quotes, use the escape character <code>\</code>.<br>
+[[Basic Functions#String Functions]]</li>
+</ul>
+<h3 id="string-formatting">
+<a class="header-anchor" href="#string-formatting"></a>
+String Formatting
+</h3><h4 id="-method">
+<a class="header-anchor" href="#-method"></a>
+% Method
+</h4><p><code>print('My wife is %c, she is %d.' % (name, age))</code></p>
+<ul>
+<li><code>%</code> is followed by a tuple or dict to pass formatted values.</li>
+<li>Placeholder types:<br>
+![[Pasted image 20230628233506.png]]</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Bronya&#39;</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">18</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife`s name is </span><span class="si">%s</span><span class="s1">, she is </span><span class="si">%d</span><span class="s1"> years old.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">))</span>  <span class="c1"># % corresponds to the order in %()  </span>
+</span></span><span class="line"><span class="cl"><span class="n">My</span> <span class="n">wife</span><span class="err">`</span><span class="n">s</span> <span class="n">name</span> <span class="ow">is</span> <span class="n">Bronya</span><span class="p">,</span> <span class="n">she</span> <span class="ow">is</span> <span class="mi">18</span> <span class="n">years</span> <span class="n">old</span><span class="o">.</span>  
+</span></span></code></pre></div><ul>
+<li><strong>Advanced</strong>
+<ul>
+<li><code>%[data name][alignment flag][width].[precision][type]</code></li>
+<li>Data name is used for dict assignment; omit for arrays.</li>
+<li>Alignment flags:
+<ul>
+<li><code>+</code>: Show sign.</li>
+<li><code>-</code>: Left-align.</li>
+<li><code>space</code>: Add a space before positive numbers to align with negatives.</li>
+<li><code>0</code>: Add a zero before positive numbers to align with negatives.</li>
+</ul>
+</li>
+<li>Width: Total length of the formatted string, padded with 0 or space if shorter.</li>
+<li>Precision: Decimal places.</li>
+<li>Type: Placeholder type.</li>
+</ul>
+</li>
+</ul>
+<h4 id="format">
+<a class="header-anchor" href="#format"></a>
+<code>format</code>
+</h4><ul>
+<li>Use <code>{}</code> as placeholders in the string, then append <code>.format()</code> with the variables to fill.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Kiana&#39;</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">18</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">{}</span><span class="s1">, she is </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">))</span>  <span class="c1"># Fill in order  </span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">{1}</span><span class="s1">, she is </span><span class="si">{0}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>  
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;  
+</span></span></span><span class="line"><span class="cl"><span class="s1">Indices can be used inside </span><span class="si">{}</span><span class="s1">.  
+</span></span></span><span class="line"><span class="cl"><span class="s1">Numbers inside </span><span class="si">{}</span><span class="s1"> correspond to .format() tuple/dict indices.  
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">{name}</span><span class="s1">, she is </span><span class="si">{age}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="n">age</span><span class="p">))</span>  <span class="c1"># Or use variable names (mapped by object attributes)  </span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">{name}</span><span class="s1">, she is </span><span class="si">{age}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Kiana&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">18</span><span class="p">))</span>  <span class="c1"># Keyword mapping  </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Kiana&#39;</span><span class="p">,</span> <span class="mi">18</span><span class="p">]</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;My wife is </span><span class="si">{0[0]}</span><span class="s2">, she is </span><span class="si">{0[1]}</span><span class="s2">.&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">list1</span><span class="p">))</span>  <span class="c1"># Dict index mapping  </span>
+</span></span></code></pre></div><ul>
+<li><strong>Advanced</strong>
+<ul>
+<li><code>{:[fill char][alignment][sign flag][#][width][,][.precision][type]}</code></li>
+<li>Fill char: Defaults to space if omitted.</li>
+<li>Alignment:
+<ul>
+<li><code>^</code>: Center.</li>
+<li><code>&lt;</code>: Left-align.</li>
+<li><code>&gt;</code>: Right-align.</li>
+</ul>
+</li>
+<li>Sign flags:
+<ul>
+<li><code>+</code>: Show sign.</li>
+<li><code>space</code>: Add a space before positive numbers to align with negatives.</li>
+</ul>
+</li>
+<li><code>#</code>: Show <code>0b</code>, <code>0o</code>, or <code>0x</code> prefixes for binary, octal, or hexadecimal.</li>
+<li>Width: Total string width.</li>
+<li><code>,</code>: Enable thousand separators.</li>
+<li>Precision: Decimal places.</li>
+<li>Type: Placeholder type.</li>
+</ul>
+</li>
+</ul>
+<h4 id="f-string">
+<a class="header-anchor" href="#f-string"></a>
+f-string
+</h4><p><em><strong>Formatted String Literals (f-strings), supported only in Python 3.6+.</strong></em><br>
+Prefix the string with <code>f</code> to enable f-strings, allowing direct variable use inside <code>{}</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;My wife is </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">, she is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>  
+</span></span></code></pre></div><ul>
+<li>f-strings also support <code>format</code> control parameters:<br>
+<code>{variable:[fill char][alignment][sign flag][#][width][,][.precision][type]}</code></li>
+</ul>
+<h3 id="-slicing">
+<a class="header-anchor" href="#-slicing"></a>
+⭐ Slicing
+</h3><ul>
+<li>Sliceable objects: strings, tuples, lists.<br>
+<code>name[a:b:c]</code></li>
+</ul>
+<ol>
+<li>The interval is <code>[a, b)</code>, including <code>a</code> but excluding <code>b</code>. Omitting <code>a</code> starts from 0; omitting <code>b</code> goes to the end.</li>
+<li><code>c</code> is the step size (defaults to 1 if omitted).<br>
+==When <code>c</code> is negative, slicing goes backward.==</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;polaris&#34;</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>  
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;ol&#39;</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span>  
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;sap&#39;</span>  
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;  
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;ris&#39; takes &#39;s&#39;, &#39;ola&#39; takes &#39;a&#39;, &#39;p&#39; takes &#39;p&#39;  
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;siralop&#39;</span>  
+</span></span><span class="line"><span class="cl"><span class="c1"># String reversal  </span>
+</span></span></code></pre></div><ol start="3">
+<li>Slicing doesn’t modify the original object. Use slicing to create copies:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:]</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">y</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>  
+</span></span></code></pre></div><h2 id="integers-floats-complex-numbers">
+<a class="header-anchor" href="#integers-floats-complex-numbers"></a>
+Integers, Floats, Complex Numbers
+</h2><ol>
+<li>
+<p>Integers (Int)</p>
+<ol>
+<li><code>0x</code> for hexadecimal.</li>
+<li><code>0o</code> for octal.</li>
+</ol>
+</li>
+<li>
+<p>Floats (Float)</p>
+<ol>
+<li>Decimal form.</li>
+<li>Scientific notation, where <code>10</code> is replaced by <code>e</code>.
+<ul>
+<li>e.g., <code>1.23e-6</code>.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Complex Numbers (Complex)</p>
+<ol>
+<li>Real part + imaginary part: <code>a + bj</code>.</li>
+<li><code>complex(a, b)</code>.</li>
+<li>Both <code>a</code> and <code>b</code> are floats.</li>
+</ol>
+</li>
+<li>
+<p>[[Basic Functions#type()]]</p>
+</li>
+<li>
+<p>Floor Division (integer part of division):<br>
+<code>a // b</code></p>
+</li>
+<li>
+<p>Modulo:<br>
+<code>a % b</code></p>
+</li>
+<li>
+<p>Absolute value:</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">//</span> <span class="n">b</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">3</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">1</span>  
+</span></span></code></pre></div><h2 id="boolean-values-and-none">
+<a class="header-anchor" href="#boolean-values-and-none"></a>
+Boolean Values and <code>None</code>
+</h2><ul>
+<li><code>True</code>: Truthy (non-zero values, defaults to <code>1</code>).</li>
+<li><code>False</code>: Falsy (<code>= 0</code>, defaults to <code>0</code>).</li>
+<li><code>None</code>: Null value, not <code>0</code> (integer), and not a Boolean type but <strong><code>NoneType</code></strong>.</li>
+</ul>
+<ol>
+<li>Notes:
+<ul>
+<li>Capitalize the first letter.</li>
+<li>Any computation or expression returning <code>True</code> or <code>False</code> is a Boolean operation, e.g., comparison.</li>
+</ul>
+</li>
+<li>The following evaluate to <code>False</code>:
+<ul>
+<li><code>0</code>, <code>0.0</code>, <code>-0.0</code></li>
+<li><code>None</code></li>
+<li>Empty strings, lists, tuples, dictionaries.</li>
+</ul>
+</li>
+<li>The following evaluate to <code>True</code>:
+<ul>
+<li><code>-1</code>, <code>1</code>, or any non-zero value.</li>
+<li>All non-empty strings, including <code>&quot;False&quot;</code>.</li>
+<li>All non-empty dictionaries, lists, sets, tuples.</li>
+</ul>
+</li>
+<li>Boolean values can be used in arithmetic: <code>True == 1</code>, <code>False == 0</code>.</li>
+</ol>
+<h2 id="boolean-operations">
+<a class="header-anchor" href="#boolean-operations"></a>
+Boolean Operations
+</h2><ol>
+<li>AND (<code>and</code>):
+<ul>
+<li>Only returns <code>True</code> if all operands are <code>True</code>.</li>
+</ul>
+</li>
+<li>OR (<code>or</code>):
+<ul>
+<li>Returns <code>True</code> if at least one operand is <code>True</code>.</li>
+</ul>
+</li>
+<li>NOT (<code>not</code>):
+<ul>
+<li><strong>Unary operator</strong>: Converts <code>True</code> to <code>False</code> and vice versa.</li>
+<li>==Right-associative==.</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">True</span> <span class="ow">and</span> <span class="kc">True</span>  
+</span></span><span class="line"><span class="cl"><span class="kc">True</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">True</span> <span class="ow">and</span> <span class="kc">False</span>  
+</span></span><span class="line"><span class="cl"><span class="kc">False</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">False</span> <span class="ow">and</span> <span class="kc">True</span>  
+</span></span><span class="line"><span class="cl"><span class="kc">False</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">True</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">3</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">3</span>  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span>  
+</span></span><span class="line"><span class="cl"><span class="kc">True</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="kc">True</span>  
+</span></span><span class="line"><span class="cl"><span class="kc">True</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="mi">0</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">0</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">False</span> <span class="ow">or</span> <span class="mi">31</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">31</span>  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="ow">not</span> <span class="mi">3</span>  
+</span></span><span class="line"><span class="cl"><span class="kc">False</span>  
+</span></span></code></pre></div><h2 id="operators">
+<a class="header-anchor" href="#operators"></a>
+Operators
+</h2><p><strong>Python supports the following operators:</strong></p>
+<ul>
+<li>Arithmetic</li>
+<li>Comparison (Relational)</li>
+<li>Assignment</li>
+<li>Logical</li>
+<li>Bitwise</li>
+<li>Membership</li>
+<li>Identity</li>
+<li>Operator Precedence</li>
+</ul>
+<h3 id="arithmetic-operators">
+<a class="header-anchor" href="#arithmetic-operators"></a>
+Arithmetic Operators
+</h3><ul>
+<li><code>**</code>: Exponentiation, <code>x ** y</code> returns <code>x</code> raised to <code>y</code>.<br>
+==Right-associative==.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">256</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">64</span>  
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">256</span>  
+</span></span></code></pre></div><ul>
+<li><code>//</code>: Floor division (returns the integer part of the quotient).</li>
+<li><strong>When mixing integers and floats, integers are converted to floats.</strong></li>
+</ul>
+<h3 id="comparison-operators">
+<a class="header-anchor" href="#comparison-operators"></a>
+Comparison Operators
+</h3><ul>
+<li><code>==</code>: Checks if two <strong>objects</strong> are equal.<br>
+==Python allows chaining comparison operators.==<br>
+<code>a &gt; b == c</code> is equivalent to <code>a &gt; b and b == c</code>.</li>
+</ul>
+<h3 id="assignment-operators">
+<a class="header-anchor" href="#assignment-operators"></a>
+Assignment Operators
+</h3><ul>
+<li><code>**=</code>: Exponentiation assignment, <code>c **= a</code> is <code>c = c ** a</code>.</li>
+<li><code>//=</code>: Floor division assignment, <code>c //= a</code> is <code>c = c // a</code>.</li>
+<li><code>&lt;&lt;=</code>: Left shift assignment, <code>a &lt;&lt;= 2</code> is <code>a = a &lt;&lt; 2</code>.</li>
+<li><code>&gt;&gt;=</code>: Right shift assignment.</li>
+<li><code>&amp;=</code>: Bitwise AND assignment, <code>a &amp;= b</code> is <code>a = a &amp; b</code>.</li>
+<li><code>|=</code>: Bitwise OR assignment.</li>
+<li><code>^=</code>: Bitwise XOR assignment.</li>
+</ul>
+<h3 id="bitwise-operators">
+<a class="header-anchor" href="#bitwise-operators"></a>
+Bitwise Operators
+</h3><ul>
+<li><code>&amp;</code>: Bitwise AND (right-associative).</li>
+<li><code>|</code>: Bitwise OR.</li>
+<li><code>^</code>: Bitwise XOR.</li>
+<li><code>~</code>: Bitwise NOT (right-associative).</li>
+<li><code>&lt;&lt;</code>: Left shift.</li>
+<li><code>&gt;&gt;</code>: Right shift.</li>
+</ul>
+<h3 id="logical-operators">
+<a class="header-anchor" href="#logical-operators"></a>
+Logical Operators
+</h3><ul>
+<li><code>and</code>: Boolean AND.
+<ul>
+<li><code>x and y</code>: Returns <code>False</code> if <code>x</code> is <code>False</code>; otherwise, returns <code>y</code>&rsquo;s evaluated value.</li>
+</ul>
+</li>
+<li><code>or</code>: Boolean OR.
+<ul>
+<li><code>x or y</code>: Returns <code>x</code> if non-zero; otherwise, returns <code>y</code>&rsquo;s evaluated value.</li>
+</ul>
+</li>
+<li><code>not</code>: Boolean NOT.
+<ul>
+<li><code>not x</code>: Returns <code>False</code> if <code>x</code> is <code>True</code>, and vice versa.</li>
+<li>==Right-associative==.</li>
+</ul>
+</li>
+</ul>
+<h3 id="membership-operators">
+<a class="header-anchor" href="#membership-operators"></a>
+Membership Operators
+</h3><ul>
+<li><code>in</code>: <code>x in Y</code> (<code>x</code> is an object/variable, <code>Y</code> is a string/dict/tuple). Returns <code>True</code> if <code>x</code> is found in <code>Y</code>.</li>
+<li><code>not in</code>: <code>x not in Y</code>. Returns <code>True</code> if <code>x</code> is not found.</li>
+</ul>
+<h3 id="identity-operators">
+<a class="header-anchor" href="#identity-operators"></a>
+Identity Operators
+</h3><ul>
+<li><code>is</code>: Checks if two identifiers reference the same object (i.e., identical in essence).
+<ul>
+<li><code>x is y</code>: Returns <code>True</code> if <code>id(x) == id(y)</code>.</li>
+</ul>
+</li>
+<li><code>is not</code>: Returns <code>True</code> if <code>id(x) != id(y)</code>.</li>
+</ul>
+<h3 id="-operator-precedence">
+<a class="header-anchor" href="#-operator-precedence"></a>
+⭐ Operator Precedence
+</h3><ol>
+<li><code>()</code>: Parentheses.</li>
+<li><code>[]</code>: Indexing.</li>
+<li><code>x.attribute</code>: Attribute access.</li>
+<li><code>**</code>: Exponentiation.</li>
+<li><code>~</code>: Bitwise NOT.</li>
+<li><code>+@</code>, <code>-@</code>: Unary plus/minus (sign).
+<ul>
+<li><code>+@</code>, <code>-@</code> are right-associative unary operators.</li>
+</ul>
+</li>
+<li><code>*</code>, <code>/</code>, <code>%</code>, <code>//</code>: Multiplication, division, modulo, floor division.</li>
+<li><code>+</code>, <code>-</code>: Binary addition/subtraction.</li>
+<li><code>&lt;&lt;</code>, <code>&gt;&gt;</code>: Bitwise shifts.</li>
+<li><code>&amp;</code>: Bitwise AND.</li>
+<li><code>^</code>: Bitwise XOR.</li>
+<li><code>|</code>: Bitwise OR.</li>
+<li><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>==</code>, <code>!=</code>: Comparison.</li>
+<li><code>=</code>, <code>+=</code>, <code>-=</code>, etc.: Assignment.</li>
+<li><code>is</code>, <code>is not</code>: Identity.</li>
+<li><code>in</code>, <code>not in</code>: Membership.</li>
+<li><code>not</code>: Logical NOT.</li>
+<li><code>and</code>: Logical AND.</li>
+<li><code>or</code>: Logical OR.</li>
+<li><code>,</code>: Comma operator.</li>
+</ol>
+
+        <hr><p>本文 2023-06-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-06-27</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+  </channel>
+</rss>

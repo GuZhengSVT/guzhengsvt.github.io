@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>Web on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/ja/tags/web/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/ja/tags/web/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>TypechoコメントをWalineにインポート</title>
+      <link>http://localhost:1313/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
+      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
+      <description><![CDATA[<h1>TypechoコメントをWalineにインポート</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p>数日前、ブログの記事をTypechoからHugoに移行しましたが、Front Matterのパラメータ設定や画像リンクの再設定だけでかなりの手間がかかりました。<br>
+ブログの価値は、まず記事そのものにあり、次にコメントです。コメントはブログがインターネットと現実世界に与えた影響を証明し、人と人との交流を記録しています。私的な言い方をすれば、世界中からのコメントは大切な思い出であり、「私」を構成する一部です。<br>
+したがって、元のサイトのコメントを新しいサイトの対応する記事の下にコピーすることは非常に重要です。</p>
+<h2 id="walineの設定">
+<a class="header-anchor" href="#waline%e3%81%ae%e8%a8%ad%e5%ae%9a"></a>
+Walineの設定
+</h2><p>WordpressやTypechoなどの動的ブログと比べて、静的ブログは外部のコメントシステムに依存するしかありません。選択肢は多く、それぞれに長所と短所があります。<a href="https://cloud.tencent.com/developer/article/2196035">この記事</a>を参考にし、各コメントシステムの公式サイトを調べた後、最終的に<a href="https://waline.js.org">Waline</a>を選びました。<br>
+Walineの<a href="https://waline.js.org/guide/get-started/">中国語ドキュメント</a>は内容が充実しており、<a href="https://leancloud.app">LeanCloud</a>データベースと<a href="https://vercel.com/">Vercel</a>サーバーを設定すれば、コメント管理画面<code>https://&lt;あなたのサーバードメイン&gt;/ui/</code>にアクセスできます。初回登録で管理者になり、ここでコメントやユーザーを管理できます。</p>
+<h2 id="typechoコメントのエクスポート">
+<a class="header-anchor" href="#typecho%e3%82%b3%e3%83%a1%e3%83%b3%e3%83%88%e3%81%ae%e3%82%a8%e3%82%af%e3%82%b9%e3%83%9d%e3%83%bc%e3%83%88"></a>
+Typechoコメントのエクスポート
+</h2><p>Typechoは古く、ユーザーが少なく、HexoやWordpressのような活発なコミュニティがありません。インターネット上の資料も少ないです。<br>
+筆者が見つけたのは、<a href="https://imnerd.org">怡红院落</a>氏が書いたTypechoコメントをValineにエクスポートするプラグイン<a href="https://github.com/lizheming/typecho-export-valine">Export2Valine</a>（Walineのドキュメントにも記載されています）だけでした。<br>
+しかし、最後の更新は3年前で、テストしたところ最初のコメントしかインポートできませんでした。エクスポートされたjsonlファイルを見ると、コメントデータは完全にエクスポートされていることが明らかです。</p>
+<p>まず、このプラグインをTypechoにインストールします（プラグインフォルダ名を&quot;Export2Valine&quot;に変更する必要があります！）。</p>
+<p><a href="https://www.imwxz.com/posts/74f52ab0.html">この記事</a>を参考に、このプラグインは長年メンテナンスされていないため、いくつかの変更が必要です。<br>
+プラグインフォルダ内の<code>Action.php</code>を開き、42行目から以下のコードに変更します（親コメントを追跡するため）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$arr</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;objectId&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;QQAvatar&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;comment&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;text&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;insertedAt&#34;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;__type&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;iso&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span>
+</span></span><span class="line"><span class="cl">  <span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;createdAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;updatedAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ip&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;ip&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;link&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;url&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;mail&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;mail&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;nick&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;author&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ua&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;agent&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;url&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;/</span><span class="si">{</span><span class="nv">$slug</span><span class="si">}</span><span class="s2">.html&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;pid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;rid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getRootId</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>他の部分は変更不要です。<br>
+次に、Typechoの管理画面-コントロールパネル-コメントエクスポートで、ダウンロードしたjsonlファイルを開き、先頭の<code>#filetype:JSON-streaming {&quot;type&quot;:&quot;Class&quot;,&quot;class&quot;:&quot;Comment&quot;}\n\n</code>を削除します。<br>
+保存してファイルを閉じ、ファイル拡張子を<code>.json</code>に変更します。</p>
+<h2 id="json形式の修正">
+<a class="header-anchor" href="#json%e5%bd%a2%e5%bc%8f%e3%81%ae%e4%bf%ae%e6%ad%a3"></a>
+json形式の修正
+</h2><p>エクスポートされた<code>jsonl</code>ファイル内の中国語はエスケープされ、1行で表示されるため、見づらい状態です。<br>
+編集可能でインポートしやすい<code>json</code>形式に変換するため、まずエディタの<strong>検索と置換</strong>機能を使用し、<code>}\n{</code>を以下のように置換します：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span></code></pre></div><p>Xcodeの置換では、改行文字は左側の虫眼鏡アイコンをクリックして挿入できます。</p>
+<p>これで、1行に1つのコメントオブジェクトが表示されます。</p>
+<p>同様に、各コメントオブジェクト内のフィールド構造を分離するため、<code>&quot;,&quot;</code>を以下のように置換します：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;</span>
+</span></span></code></pre></div><p>これで、各コメントオブジェクト内に複数のデータが含まれていることがわかります。例えば：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u6d4b\u8bd5\u4e00\u4e0b&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="err">**</span><span class="kc">null</span><span class="err">**</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;4&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u600e\u4e48ip\u4e0d\u5bf9&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="err">**</span><span class="kc">null</span><span class="err">**</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
+</span></span></code></pre></div><h3 id="共通フィールドの説明">
+<a class="header-anchor" href="#%e5%85%b1%e9%80%9a%e3%83%95%e3%82%a3%e3%83%bc%e3%83%ab%e3%83%89%e3%81%ae%e8%aa%ac%e6%98%8e"></a>
+共通フィールドの説明
+</h3><ol>
+<li><strong>objectId</strong>: コメントの一意の識別子（例: &ldquo;4&quot;や&quot;5&rdquo;）</li>
+<li><strong>QQAvatar</strong>: QQアバターのリンク（現在は空文字列）</li>
+<li><strong>comment</strong>: コメント内容（Unicodeエスケープ文字を含む、例: <code>\u600e\u4e48</code>は「どうやって」を意味）</li>
+<li><strong>insertedAt/createdAt/updatedAt</strong>: タイムスタンプ（ISO 8601形式）</li>
+<li><strong>ip</strong>: コメント者のIPアドレス</li>
+<li><strong>link</strong>: コメント者が提供したリンク（nullの場合あり）</li>
+<li><strong>mail</strong>: コメント者のメールアドレス</li>
+<li><strong>nick</strong>: コメント者のニックネーム</li>
+<li><strong>ua</strong>: ユーザーエージェント（ブラウザ/デバイス情報を表示）</li>
+<li><strong>url</strong>: コメントされたページのパス</li>
+</ol>
+<h3 id="特殊フィールド">
+<a class="header-anchor" href="#%e7%89%b9%e6%ae%8a%e3%83%95%e3%82%a3%e3%83%bc%e3%83%ab%e3%83%89"></a>
+特殊フィールド
+</h3><ol start="11">
+<li><strong>pid</strong>: 親コメントID</li>
+<li><strong>rid</strong>: ルートコメントID</li>
+</ol>
+<p><code>&quot;link&quot;</code>の値が<code>null</code>の場合、<code>&quot;link&quot;</code>と<code>&quot;mail&quot;</code>の間に改行がありません。jsonは改行に敏感ではないため、無視できます。<br>
+この時点で、ファイルの先頭と末尾を<code>[ ]</code>で囲み、ファイルを保存します。</p>
+<h2 id="コメント属性の修正">
+<a class="header-anchor" href="#%e3%82%b3%e3%83%a1%e3%83%b3%e3%83%88%e5%b1%9e%e6%80%a7%e3%81%ae%e4%bf%ae%e6%ad%a3"></a>
+コメント属性の修正
+</h2><p>この時点でLeanCloudに直接インポートできますが、まだ修正可能な内容があります。</p>
+<p><code>Export2Valine</code>はコメントに関連する記事のurlを<code>\/slug</code>に設定しています。例えば<code>&quot;url&quot;: &quot;\/Summary-of-the-First-Semester-of-Junior-Year.html&quot;</code>で、<code>\/</code>は<code>/</code>のエスケープです。</p>
+<p>新しいブログの記事とコメントを関連付けるため、urlを新しいブログの記事リンクに手動で変更する必要があります。</p>
+<p>筆者のブログを例にすると、Hugoが生成するウェブサイトのルートディレクトリには<code>zh-cn,zh-tw,en,ja</code>の4つのフォルダ（多言語対応を有効にしている）があり、中国語サイトの記事は<code>/zh-cn/post/記事カテゴリ/</code>にあります。<br>
+筆者はローカルのブログソースファイルで記事をカテゴリごとに異なるフォルダに分類しています。例えば<code>/content/post/Thoughts/最近書いた詩.md</code>はウェブページの相対アドレス<code>zh-cn/post/thoughts/最近書いた詩</code>として生成されます。</p>
+<p>新しいブログの記事がルートディレクトリにあり、名前が変更されていない場合は、urlを変更する必要はありません。<br>
+すべての記事が<code>/post/</code>にある場合は、検索と置換を使用して</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/</span>
+</span></span></code></pre></div><p>を</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/post\/</span>
+</span></span></code></pre></div><p>に置換できます。</p>
+<p>筆者は一時的に</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/post\/</span>
+</span></span></code></pre></div><p>に置換しました。</p>
+<p>同様に、友達リンクやつぶやきなどの独立ページのコメントも、新しいブログの対応するページの相対アドレスに変更する必要があります。
+例えば友達リンクページ</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/links.html</span>
+</span></span></code></pre></div><p>を</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/friend\/</span>
+</span></span></code></pre></div><p>に置換します。</p>
+<p>postや独立ページで大規模に適用できる<em>検索と置換</em>を先に適用しないと、インポート後に一括置換が困難になります。</p>
+<p>検索と置換を使用する際は、できるだけ多くの共通部分を含め、「最大公約数」を見つけて誤った変更を避けてください。<br>
+<em><strong>エスケープ<code>\/</code>に注意!!!</strong></em></p>
+<h2 id="leancloudへのインポート">
+<a class="header-anchor" href="#leancloud%e3%81%b8%e3%81%ae%e3%82%a4%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88"></a>
+LeanCloudへのインポート
+</h2><p>LeanCloudのコントロールパネル-データストレージ-インポート/エクスポートで、修正したjsonファイルを選択し、<code>Class</code>に<code>Comment</code>と入力してインポートします。</p>
+<p><em><strong>注意</strong></em>、もし以前にブログのWalineでテストコメントを投稿したことがある場合、または<code>Comment</code>のインポートを試みたことがある場合、Walineは最初に<code>Comment</code> <code>Class</code>を作成するため、再度インポートしてもデータが正常にインポートされません（LeanCloudは成功を報告しますが、新しいデータはインポートされません）。</p>
+<p>コントロールパネル-構造化データで<code>Comment</code>を選択し、この<code>Class</code>を削除してから再度インポートを試みる必要があります。LeanCloudのページはすぐに更新されない場合があるため、<code>Ctrl+F5</code>でキャッシュをリフレッシュすると表示されます。</p>
+<p>インポートが成功したら、各コメントのurlを個別に設定します。<br>
+例えば筆者のpostは<code>&quot;url&quot;:&quot;\/zh-cn\/post\/記事カテゴリ\/</code>に分類する必要があり、この時点でLeanCloudの<strong>一括操作</strong>と<strong>条件付きフィルタリング</strong>機能を活用します。</p>
+<h2 id="後書き">
+<a class="header-anchor" href="#%e5%be%8c%e6%9b%b8%e3%81%8d"></a>
+後書き
+</h2><p>コメントの整理にはそれほど時間がかかりませんでした。120件のコメントのほとんどは筆者がつぶやきページで自分自身に語りかけたもので、urlを一括修正できました。他人からのコメントはわずか十数件で、数記事に分散していたため、<code>post</code>でフィルタリングして修正するのは簡単でした。これは良いことなのか悪いことなのか（笑）</p>
+<p>独り言であれ、他人からのメッセージであれ、一つ一つが筆者にとって特別な意味を持ち、時間を置いて振り返ると新たな気付きがあります。<br>
+最初に述べたように、これは筆者の成長の軌跡であり、この世に存在する証であり、「私」の一部です。</p>
+<p>そして、親愛なる読者であるあなたは、私に価値を与えてくれる存在です。</p>
+<p>時間があれば、ぜひコメントをください～筆者は本当に長く喜びます（善意のコメントであれば）。</p>
+        <hr><p>本文 2025-04-19 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Hello World</title>
+      <link>http://localhost:1313/ja/post/thoughts/hello-world/</link>
+      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/thoughts/hello-world/</guid>
+      <description><![CDATA[<h1>Hello World</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="20250413">
+<a class="header-anchor" href="#20250413"></a>
+2025.04.13
+</h1><p>二日間かけてようやくHugoブログを構築しました。テーマは<a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu</a>を使用しています。</p>
+<p>以前の<a href="https://guzhengsvt.top/">Typechoブログ</a>のレスポンス速度に満足できず、再度ブログの移行を計画しています。（Typechoは既に軽量ですが、貧弱なクラウドサーバーと帯域幅がアクセスと記事の読み込み速度を大きく制限しています。）</p>
+<p>動的サイトを諦めた後、静的サイトジェネレーターとしてHexo、Hugo、Jekyllなどを検討しました。Hugoを選んだ理由は、そのスローガン <em><strong>The world&rsquo;s fastest framework for building websites</strong></em> にあります。</p>
+<p>この期間を使って、古いブログのコンテンツを少しずつこちらに移行していきます。TypechoからHugoへの移行方法をいくつか調べましたが、ほとんどが古くて使えませんでした（TypechoとPHPが古すぎるのも移行の理由です）。結局、記事をエクスポートし、編集してHugoにインポートするという地道な方法を取ることにしました。</p>
+<p>コメントやつぶやき機能も再現する必要があり、Hugoでは外部のコメントシステムを導入する必要があります。</p>
+<p>さらに、画像の読み込み速度を向上させるために、画像ホスティングサービスを用意し、過去記事の画像リンクを置き換える作業も必要です。</p>
+<p>古いブログに不可逆な影響を与えないように、Hugoは現在GitHub Pagesでホストしています。GitHubは中国国内でのアクセスが不安定なので、コンテンツの移行が完全に終わり、構築が完了したら自分のクラウド仮想ホストにコピーする予定です。</p>
+<p>なんてたくさんの作業があるんだろう、まったく</p>
+<h1 id="テスト">
+<a class="header-anchor" href="#%e3%83%86%e3%82%b9%e3%83%88"></a>
+テスト
+</h1><p>新しいブログのテストです。</p>
+<p>markdown</p>
+<h2 id="セカンドレベル見出し">
+<a class="header-anchor" href="#%e3%82%bb%e3%82%ab%e3%83%b3%e3%83%89%e3%83%ac%e3%83%99%e3%83%ab%e8%a6%8b%e5%87%ba%e3%81%97"></a>
+セカンドレベル見出し
+</h2><h3 id="サードレベル見出し">
+<a class="header-anchor" href="#%e3%82%b5%e3%83%bc%e3%83%89%e3%83%ac%e3%83%99%e3%83%ab%e8%a6%8b%e5%87%ba%e3%81%97"></a>
+サードレベル見出し
+</h3><h4 id="フォースレベル見出し">
+<a class="header-anchor" href="#%e3%83%95%e3%82%a9%e3%83%bc%e3%82%b9%e3%83%ac%e3%83%99%e3%83%ab%e8%a6%8b%e5%87%ba%e3%81%97"></a>
+フォースレベル見出し
+</h4><h5 id="フィフスレベル見出し">
+<a class="header-anchor" href="#%e3%83%95%e3%82%a3%e3%83%95%e3%82%b9%e3%83%ac%e3%83%99%e3%83%ab%e8%a6%8b%e5%87%ba%e3%81%97"></a>
+フィフスレベル見出し
+</h5><h6 id="シックスレベル見出し">
+<a class="header-anchor" href="#%e3%82%b7%e3%83%83%e3%82%af%e3%82%b9%e3%83%ac%e3%83%99%e3%83%ab%e8%a6%8b%e5%87%ba%e3%81%97"></a>
+シックスレベル見出し
+</h6><ol>
+<li>
+<p>リスト項目</p>
+</li>
+<li>
+<p>リスト項目</p>
+</li>
+</ol>
+<ul>
+<li>リスト項目</li>
+</ul>
+<p><del>取り消し線</del></p>
+<p><strong>太字</strong></p>
+<p><em>斜体</em></p>
+<p>KaTexテスト</p>
+<p>$\frac{1}{2}$</p>
+$$
+\frac{520}{1314}
+$$<p>コードテスト</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;hello world&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>アイコン: <!-- raw HTML omitted --><!-- raw HTML omitted --> コーヒー一杯</p>
+
+        <hr><p>本文 2025-04-13 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>新しいドメインの追加</title>
+      <link>http://localhost:1313/ja/post/thoughts/%E6%96%B0%E5%A2%9E%E5%9F%9F%E5%90%8D/</link>
+      <pubDate>Sat, 25 Nov 2023 18:59:05 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/thoughts/%E6%96%B0%E5%A2%9E%E5%9F%9F%E5%90%8D/</guid>
+      <description><![CDATA[<h1>新しいドメインの追加</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p>阿里雲で新しいドメインguzhengsvt.cnを購入しました</p>
+<p>（クーポン利用で初年29元、更新年39元）。
+もともとは微信小程序の一時的な開発用に購入しましたが、結局使わなかったので、自分のブログに解析するしかありませんでした。</p>
+<p>マルチドメインSSL証明書が高すぎるため、<a href="https://www.mfpad.com/">米発</a>のドメインリダイレクトサービスを利用して、guzhengsvt.cnドメインをguzhengsvt.topにリダイレクトしています。</p>
+<p>手元には阿里雲で発行されたtopドメインのSSL証明書があり、24年8月に期限切れとなります。しかし今年11月14日に阿里雲が無料SSL証明書のポリシーを変更し、単一ドメインのSSL証明書は最大3ヶ月分しか申請できなくなりました。新しく購入したcnドメインの証明書は頻繁に更新が必要です（現時点では使っていませんが）。</p>
+<p>ドメイン解析とSSL証明書の申請・設定手順を復習しました。<a href="https://www.vpsor.cn/">硅雲</a>のSSL証明書設定の便利さには感謝しています。
+<del>阿里雲のSSL証明書申請サービスも褒めようと思いましたが、まあ&hellip;</del></p>
+        <hr><p>本文 2023-11-25 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-11-25</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>ブログ構築のまとめ（Hexo&#43;Github版）</title>
+      <link>http://localhost:1313/ja/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo&#43;github%E7%89%88/</link>
+      <pubDate>Sat, 10 Sep 2022 09:30:52 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/ja/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo&#43;github%E7%89%88/</guid>
+      <description><![CDATA[<h1>ブログ構築のまとめ（Hexo+Github版）</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p><strong>初期のサイト構築記録、現在は無効、記念として残す</strong></p>
+<p><a href="https://guzhengsvt.github.io">https://guzhengsvt.github.io</a></p>
+<p>GitHub+Hexoを基盤に構築した個人ブログ、現在主要機能の施工は完了。</p>
+<p>二日間のハードな作業を経て、遂に二年間の夢を実現しました——自分だけの個人サイト（ブログ）を作ることです。この皆が同じことを言い、騒がしい時代において、これはインターネット上の一片の自分だけの土地と言えるでしょう。</p>
+<p>Blogを作る計画は、二年前にネットサーフィンをしてリソースを探している時に、多くの先輩方が作った美しいブログを見て芽生えました。初期段階では基本的に暗中模索で、何も分からず、英語も苦手で、ドメインやサーバーを買うお金もありませんでした。高校三年生の時は学業のため一年間中断し、阿里雲で買ったドメインも期限切れになりました。</p>
+<p>この道のりで助けてくれた人々/プラットフォーム/企業/コミュニティに感謝します。</p>
+<p>以下は謝辞リスト（順不同）：</p>
+<p>特に中国科学技術大学の先輩が、マルチ端末環境下でGit Bushのみが安定して動作する問題を解決してくれたことに感謝；</p>
+<p>GitHubが提供するオープンソースプラットフォームに感謝；</p>
+<p>GitHubと三丰雲が提供する無料サーバーに感謝；</p>
+<p>Fuukei SakurairoとNexTが提供するテーマサポートに感謝；</p>
+<p>mukesが提供するGitインストールチュートリアル（https://blog.csdn.net/mukes）に感謝；</p>
+<p>何欣が提供するHexo環境構築チュートリアル（https://www.simon96.online/）に感謝；</p>
+<p>蜗牛非牛が提供するNextテーマ美化方法（https://blog.csdn.net/qq_34003239?type=blog）に感謝；</p>
+<p>siriyangが提供するGit学習ノート（https://blog.siriyang.cn/）に感謝；</p>
+<p>ookamiAntDが提供するHexo+Github+Codingを基盤にした個人ブログ構築基礎チュートリアル（https://yangbingdong.com/）に感謝；</p>
+<p>reuixiyが提供するHexo + NexT + GitHub Pages超深度最適化チュートリアル（https://io-oi.me/）に感謝。</p>
+<p>一部の参考資料は既に作者が見つからなかったり、作者のブログが様々な理由で閉鎖されていたりして、全てを列挙することができず、申し訳ありません。</p>
+<p>皆さん、私のblogをブックマークし、宣伝してください。今後不定期に以下の内容を含むがこれに限らない更新を行います：</p>
+<p>Blogの機能改善</p>
+<p>個人的なつぶやき/発作</p>
+<p>様々なまじめな・まじめじゃない学習資料</p>
+<p>技術的な攻略</p>
+<p>以前書いた詩や文章</p>
+<p>最後に、皆さん中秋節おめでとうございます、先生方とこれから先生になる学生の皆さん教師節おめでとうございます。</p>
+<p>以上</p>
+<p>2022年9月10日土曜日</p>
+        <hr><p>本文 2022-09-10 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2022-09-10</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+  </channel>
+</rss>

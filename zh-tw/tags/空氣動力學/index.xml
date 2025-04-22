@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>空氣動力學 on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/zh-tw/tags/%E7%A9%BA%E6%B0%A3%E5%8B%95%E5%8A%9B%E5%AD%B8/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>zh-tw</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Mon, 02 Sep 2024 22:13:45 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/zh-tw/tags/%E7%A9%BA%E6%B0%A3%E5%8B%95%E5%8A%9B%E5%AD%B8/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>空氣動力學基礎</title>
+      <link>http://localhost:1313/zh-tw/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 02 Sep 2024 22:13:45 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-tw/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid>
+      <description><![CDATA[<h1>空氣動力學基礎</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="流體靜力學基礎">
+<a class="header-anchor" href="#%e6%b5%81%e9%ab%94%e9%9d%9c%e5%8a%9b%e5%ad%b8%e5%9f%ba%e7%a4%8e"></a>
+流體靜力學基礎
+</h1><h2 id="氣體性質">
+<a class="header-anchor" href="#%e6%b0%a3%e9%ab%94%e6%80%a7%e8%b3%aa"></a>
+氣體性質
+</h2><h3 id="壓縮性">
+<a class="header-anchor" href="#%e5%a3%93%e7%b8%ae%e6%80%a7"></a>
+壓縮性
+</h3><h4 id="體積彈性模數">
+<a class="header-anchor" href="#%e9%ab%94%e7%a9%8d%e5%bd%88%e6%80%a7%e6%a8%a1%e6%95%b8"></a>
+體積彈性模數
+</h4><p>定義：產生單位相對體積變化所需壓強增高</p>
+$$
+E=-\frac{dp}{dV/V}
+$$<p>對於一定質量氣體，體積與密度成反比例關係，即</p>
+$$
+\frac{d \rho}{\rho}=-\frac{dV}{V}
+$$<p>回代得</p>
+$$
+E=\rho \frac{dp}{d \rho}
+$$<p>常溫下水的體積彈性模數：$2.1 \times 10^9N/m^2$</p>
+<p>通常情況下水可視為不可壓縮流體。</p>
+<h3 id="黏性">
+<a class="header-anchor" href="#%e9%bb%8f%e6%80%a7"></a>
+黏性
+</h3><h4 id="牛頓黏性定律">
+<a class="header-anchor" href="#%e7%89%9b%e9%a0%93%e9%bb%8f%e6%80%a7%e5%ae%9a%e5%be%8b"></a>
+牛頓黏性定律
+</h4><p>流體運動所產生的摩擦阻力與接觸面積成正比</p>
+$$
+\tau =\mu \frac{du}{d \vec{n}}
+$$<p>$\tau$ ：摩阻<strong>應力</strong>，單位面積上的摩擦阻力</p>
+<p>$\vec{n}$ ：接觸面法線方向</p>
+<p>$\mu$ ：比例常數，稱為流體的<strong>黏性係數</strong>，單位為 $N \cdot s/m^2$</p>
+<p>$\frac{du}{d \vec{n}}$ ：速度梯度</p>
+<p>不同流體介質黏性係數值各不相同，並且黏性係數隨溫度變化，與壓強基本無關。</p>
+<p>氣體黏性係數隨溫度升高而增大。</p>
+<h4 id="薩特蘭公式">
+<a class="header-anchor" href="#%e8%96%a9%e7%89%b9%e8%98%ad%e5%85%ac%e5%bc%8f"></a>
+薩特蘭公式
+</h4><p>空氣黏性係數隨溫度變化關係，近似公式之一薩特蘭公式</p>
+$$
+\frac{\mu}{\mu_0}=(\frac{T}{288.15})^{1.5}\frac{288.15+C}{T+C}
+$$<p>$\mu_0$ ：溫度為 $288.15K$ 時空氣黏性係數</p>
+<p>$C$ ：常數，值為 $110.4K$</p>
+<h4 id="運動黏性係數">
+<a class="header-anchor" href="#%e9%81%8b%e5%8b%95%e9%bb%8f%e6%80%a7%e4%bf%82%e6%95%b8"></a>
+運動黏性係數
+</h4>$$
+\nu=\frac{\mu}{\rho}
+$$<p>$\nu$ ：運動黏性係數，單位為 $m^2/s$</p>
+<p>$\mu$ ：黏性係數</p>
+<p>$\rho$ ：密度</p>
+<h3 id="傳熱性">
+<a class="header-anchor" href="#%e5%82%b3%e7%86%b1%e6%80%a7"></a>
+傳熱性
+</h3><p>定義：當氣體中沿某一方向存在溫度梯度時，熱量就會由溫度高的地方傳向溫度低的地方，這種性質稱為氣體的傳熱性。</p>
+<p>單位時間內所傳遞熱量與傳熱面積成正比，與沿熱流方向的溫度梯度成正比，即</p>
+$$
+q=-\lambda \frac{\partial T}{\partial \vec{n}}
+$$<p>$q$ ：單位時間通過單位面積熱量，單位 $kJ/(m^2 \cdot s)$</p>
+<p>$\frac{\partial T}{\partial \vec{n}}$ ：溫度梯度，單位為 $K/m$</p>
+<p>$\lambda$ ：導熱係數，單位為 $kJ/(m \cdot K \cdot s)$</p>
+<p>負號表示熱量傳遞方向永遠與溫度梯度方向相反。</p>
+<h2 id="流體分類">
+<a class="header-anchor" href="#%e6%b5%81%e9%ab%94%e5%88%86%e9%a1%9e"></a>
+流體分類
+</h2><h3 id="連續介質假設">
+<a class="header-anchor" href="#%e9%80%a3%e7%ba%8c%e4%bb%8b%e8%b3%aa%e5%81%87%e8%a8%ad"></a>
+連續介質假設
+</h3><h3 id="理想流體">
+<a class="header-anchor" href="#%e7%90%86%e6%83%b3%e6%b5%81%e9%ab%94"></a>
+理想流體
+</h3><p>不考慮黏性，在這種模型中，流體微團不承受黏性力作用。常用於氣體。</p>
+<p>忽略黏性的氣體稱為理想氣體。</p>
+<h4 id="壓強各向同性">
+<a class="header-anchor" href="#%e5%a3%93%e5%bc%b7%e5%90%84%e5%90%91%e5%90%8c%e6%80%a7"></a>
+壓強各向同性
+</h4><p>理想流體內一點處的壓強與受壓面的方位無關，它僅是空間坐標的連續函數。</p>
+<h3 id="不可壓流體">
+<a class="header-anchor" href="#%e4%b8%8d%e5%8f%af%e5%a3%93%e6%b5%81%e9%ab%94"></a>
+不可壓流體
+</h3><p>不考慮氣體壓縮性或彈性，可認為體積彈性模數無窮大，或流體密度為常數。常用於液體。</p>
+<p>求解不可壓流體的流動規律，只需要服從力學定律，不需要考慮熱力學關係。</p>
+<p>對流速較低的氣體，也可按不可壓流體處理流動問題。</p>
+<h3 id="絕熱流體">
+<a class="header-anchor" href="#%e7%b5%95%e7%86%b1%e6%b5%81%e9%ab%94"></a>
+絕熱流體
+</h3><p>不考慮流體傳熱性的模型，即把流體熱導係數看作零。低速流動的空氣一般熱導係數值很小，可視為絕熱。</p>
+<p>不考慮氣體微團之間熱傳導作用的氣體模型稱之為絕熱氣體。</p>
+<h3 id="完全氣體">
+<a class="header-anchor" href="#%e5%ae%8c%e5%85%a8%e6%b0%a3%e9%ab%94"></a>
+完全氣體
+</h3><p>任何狀態下，氣體的壓強、密度和溫度之間都存在一定的函數關係</p>
+$$
+p=p(\rho,T)
+$$<h4 id="完全氣體的狀態方程">
+<a class="header-anchor" href="#%e5%ae%8c%e5%85%a8%e6%b0%a3%e9%ab%94%e7%9a%84%e7%8b%80%e6%85%8b%e6%96%b9%e7%a8%8b"></a>
+完全氣體的狀態方程
+</h4>$$
+p=\frac{\overline{R}}{m}\rho T
+$$<p>$\overline{R}$ ：普適氣體常數，$8315m^2/(s^2 \cdot K)$</p>
+<p>$m$ ：某種氣體相對分子質量</p>
+<p>$R=\frac{\overline{R}}{m}$ 時，</p>
+$$
+p=\rho R T
+$$<p>$R$ 為氣體常數，空氣約為 $287.035m^2/(s^2 \cdot K)$</p>
+<h2 id="流體微團受力">
+<a class="header-anchor" href="#%e6%b5%81%e9%ab%94%e5%be%ae%e5%9c%98%e5%8f%97%e5%8a%9b"></a>
+流體微團受力
+</h2><h3 id="壓力">
+<a class="header-anchor" href="#%e5%a3%93%e5%8a%9b"></a>
+壓力
+</h3><h3 id="切應力摩擦力">
+<a class="header-anchor" href="#%e5%88%87%e6%87%89%e5%8a%9b%e6%91%a9%e6%93%a6%e5%8a%9b"></a>
+切應力（摩擦力）
+</h3><h3 id="徹體力">
+<a class="header-anchor" href="#%e5%be%b9%e9%ab%94%e5%8a%9b"></a>
+徹體力
+</h3><ul>
+<li>重力</li>
+<li>電磁力</li>
+<li>離心力</li>
+</ul>
+<h2 id="靜平衡方程">
+<a class="header-anchor" href="#%e9%9d%9c%e5%b9%b3%e8%a1%a1%e6%96%b9%e7%a8%8b"></a>
+靜平衡方程
+</h2><p>在==靜止流體==中取一點 $P$，壓力為 $p$</p>
+<p>建立笛卡爾坐標系，流體內各點處壓力為</p>
+$$
+p(x,y,z)
+$$<p>以 $P$ 為中心建立各邊平行於坐標軸的長方體，邊長為 $dx,dy,dz$</p>
+<p>觀察 $x$ 軸方向，兩面受壓力大小分別為</p>
+$$
+[p(x_0,y_0,z_0)+(\frac{\partial p}{\partial x})(\frac{dx}{2})]dx dy
+$$$$
+[p(x_0,y_0,z_0)-(\frac{\partial p}{\partial x})(\frac{dx}{2})]dx dy
+$$<p>流體微團 $x$ 軸方向受徹體力為</p>
+$$
+f_x \rho dx dy dz
+$$<p>$f_x$ 為單位質量上所受徹體力在 $x$ 軸方向分力。</p>
+<p>因為是靜止流體，流體微團受力平衡。</p>
+<p>$x$ 軸方向力平衡方程為</p>
+$$
+[p(x_0,y_0,z_0)-(\frac{\partial p}{\partial x})(\frac{dx}{2})]dx dy-[p(x_0,y_0,z_0)+(\frac{\partial p}{\partial x})(\frac{dx}{2})]dx dy+f_x \rho dx dy dz=0
+$$<p>整理得</p>
+$$
+\frac{\partial p}{\partial x}=\rho f_x
+$$$$
+\frac{\partial p}{\partial y}=\rho f_y
+$$$$
+\frac{\partial p}{\partial z}=\rho f_z
+$$<p>$\because$ $p$ 全微分方程為</p>
+$$
+dp=\frac{\partial p}{\partial x}dx+\frac{\partial p}{\partial y}dy+\frac{\partial p}{\partial z}dz
+$$<p>$\therefore$</p>
+$$
+dp=\rho(f_x dx+f_y dy+f_z dz)
+$$<p>設==徹體力位函數==</p>
+$$
+\varOmega=\varOmega(x,y,z)
+$$<p>全微分為</p>
+$$
+d \varOmega=\frac{\partial \varOmega}{\partial x}dx+\frac{\partial \varOmega}{\partial y}dy+\frac{\partial \varOmega}{\partial z}dz
+$$<p>其中 $\frac{\partial \varOmega}{\partial x}=f_x$，$\frac{\partial \varOmega}{\partial y}=f_y$，$\frac{\partial \varOmega}{\partial z}=-f_z$</p>
+<p>由上述關係得到</p>
+$$
+dp=-\rho d \varOmega
+$$<p>兩邊對 $x,y,z$ 三重積分得</p>
+$$
+p=-\rho \varOmega+C(常數)
+$$$$
+C=p+\rho \varOmega
+$$<p>當已知某一點 A 處的壓力 $p_a$ ，兩點處徹體力位函數差 $\varOmega_a-\varOmega$ ，該靜止流體密度 $\rho$ （處處相等）時，已知任一點徹體力位函數 $\varOmega$ 可求得該點壓力</p>
+$$
+p=p_a+\rho (\varOmega_a-\varOmega)
+$$<p><strong>推論：</strong> 流體內等壓面必是徹體力的等位面。</p>
+<h1 id="大氣">
+<a class="header-anchor" href="#%e5%a4%a7%e6%b0%a3"></a>
+大氣
+</h1><h2 id="大氣分層">
+<a class="header-anchor" href="#%e5%a4%a7%e6%b0%a3%e5%88%86%e5%b1%a4"></a>
+大氣分層
+</h2><h3 id="底層大氣">
+<a class="header-anchor" href="#%e5%ba%95%e5%b1%a4%e5%a4%a7%e6%b0%a3"></a>
+底層大氣
+</h3><ul>
+<li>高度：海平面——85 km</li>
+<li>特點：組分均勻，氮氣佔總體積 78.1%，氧氣佔總體積 21%</li>
+</ul>
+<h4 id="對流層">
+<a class="header-anchor" href="#%e5%b0%8d%e6%b5%81%e5%b1%a4"></a>
+對流層
+</h4><ul>
+<li>高度
+<ul>
+<li>赤道：16~18 km</li>
+<li>中緯度地區：10~12 km</li>
+<li>兩極：7~10 km</li>
+</ul>
+</li>
+<li>質量：佔整個大氣質量 75%</li>
+<li>特點：有上下方向流動，有風暴、雷雨現象。隨高度增加，空氣溫度快速下降。</li>
+</ul>
+<h4 id="對流頂層">
+<a class="header-anchor" href="#%e5%b0%8d%e6%b5%81%e9%a0%82%e5%b1%a4"></a>
+對流頂層
+</h4><p>過渡層，厚度數百米到一二千米。</p>
+<h4 id="平流層">
+<a class="header-anchor" href="#%e5%b9%b3%e6%b5%81%e5%b1%a4"></a>
+平流層
+</h4><ul>
+<li>高度：對流層~32 km</li>
+<li>質量：約佔大氣層質量四分之一</li>
+<li>特點：無氣象，空氣水平流動，溫度保持常數（平均約 216.65 K）</li>
+</ul>
+<h4 id="中間大氣層">
+<a class="header-anchor" href="#%e4%b8%ad%e9%96%93%e5%a4%a7%e6%b0%a3%e5%b1%a4"></a>
+中間大氣層
+</h4><ul>
+<li>高度：32~85 km</li>
+<li>質量：1/3000</li>
+<li>溫度：先上升後下降，85 km 處可降到 106 K 以下。</li>
+</ul>
+<h3 id="高層大氣">
+<a class="header-anchor" href="#%e9%ab%98%e5%b1%a4%e5%a4%a7%e6%b0%a3"></a>
+高層大氣
+</h3><ul>
+<li>高度：85 km 以上</li>
+<li>特點：組分不均勻，直接吸收太陽輻射</li>
+</ul>
+<h4 id="高溫層">
+<a class="header-anchor" href="#%e9%ab%98%e6%ba%ab%e5%b1%a4"></a>
+高溫層
+</h4><ul>
+<li>高度：85~500 km</li>
+<li>溫度：隨高度升高溫度上升，500 km 處白天可達 1370 K。</li>
+<li>特點：直接受太陽短波輻射</li>
+</ul>
+<h4 id="外層大氣">
+<a class="header-anchor" href="#%e5%a4%96%e5%b1%a4%e5%a4%a7%e6%b0%a3"></a>
+外層大氣
+</h4><ul>
+<li>高度：500+ km，大氣逐漸與星際空間融合</li>
+<li>質量：$1/10^{11}$</li>
+<li>特點：大氣過於稀薄，不適合用溫度定義。空氣分子可逃逸入太空。</li>
+</ul>
+<h3 id="上層大氣與電離層">
+<a class="header-anchor" href="#%e4%b8%8a%e5%b1%a4%e5%a4%a7%e6%b0%a3%e8%88%87%e9%9b%bb%e9%9b%a2%e5%b1%a4"></a>
+上層大氣與電離層
+</h3><ul>
+<li>上層大氣受太陽短波輻射離解為電子和離子，形成電離層。</li>
+<li>100 km 以上高空中，空氣是良導體。</li>
+<li>150 km 以上，空氣過於稀薄，無法傳遞聲音。</li>
+</ul>
+<h4 id="d-層">
+<a class="header-anchor" href="#d-%e5%b1%a4"></a>
+D 層
+</h4><ul>
+<li>高度：60~80 km</li>
+</ul>
+<h4 id="e-層">
+<a class="header-anchor" href="#e-%e5%b1%a4"></a>
+E 層
+</h4><ul>
+<li>高度：100~120 km</li>
+</ul>
+<h4 id="層">
+<a class="header-anchor" href="#%e5%b1%a4"></a>
+$F_1$ 層
+</h4><ul>
+<li>高度：180~220 km</li>
+</ul>
+<h4 id="層-1">
+<a class="header-anchor" href="#%e5%b1%a4-1"></a>
+$F_2$ 層
+</h4><ul>
+<li>高度：300~350 km</li>
+</ul>
+<h2 id="國際標準大氣">
+<a class="header-anchor" href="#%e5%9c%8b%e9%9a%9b%e6%a8%99%e6%ba%96%e5%a4%a7%e6%b0%a3"></a>
+國際標準大氣
+</h2><p>航空工程中統一的大氣壓強、密度、溫度等參數標準，按中緯度地區全年平均條件統計確定，稱為國際標準大氣。</p>
+<h1 id="流體運動學與動力學基礎">
+<a class="header-anchor" href="#%e6%b5%81%e9%ab%94%e9%81%8b%e5%8b%95%e5%ad%b8%e8%88%87%e5%8b%95%e5%8a%9b%e5%ad%b8%e5%9f%ba%e7%a4%8e"></a>
+流體運動學與動力學基礎
+</h1><h2 id="流場">
+<a class="header-anchor" href="#%e6%b5%81%e5%a0%b4"></a>
+流場
+</h2><p>流場：充滿運動流體的空間</p>
+<p>流動參數：用以表示流體運動特徵的物理量，如速度、密度、壓強等。</p>
+<p>流體力學方法：拉格朗日法，歐拉法</p>
+<h3 id="拉格朗日法">
+<a class="header-anchor" href="#%e6%8b%89%e6%a0%bc%e6%9c%97%e6%97%a5%e6%b3%95"></a>
+拉格朗日法
+</h3><p>著眼於<strong>質點</strong>（運動）</p>
+<ul>
+<li>研究流場各個質點的運動參數隨時間變化規律和運動軌跡。</li>
+<li>綜合所有流體質點運動參數變化從而得到整個流場運動規律。</li>
+</ul>
+<h3 id="歐拉法">
+<a class="header-anchor" href="#%e6%ad%90%e6%8b%89%e6%b3%95"></a>
+歐拉法
+</h3><p>著眼於<strong>空間點</strong>（不動）</p>
+<ul>
+<li>研究流體質點通過空間固定點時，運動參數隨時間變化規律。</li>
+<li>綜合流場中所有空間點處運動參數變化情況，可得到整個流場運動規律。</li>
+</ul>
+<p>歐拉法中，流場運動參數一般是空間點座標和時間的函數。</p>
+<p>以速度為例</p>
+$$
+v=v(x,y,z,t)
+$$<p>四個變量獨立。</p>
+<p>一般三維空間中，建立笛卡爾座標系，將標量參數分解到 $x,y,z$ 軸方向分別分析。</p>
+$$
+v_x=v_x(x,y,z,t)
+$$<p>求導得加速度分量</p>
+$$
+a_x=\frac{d v_x}{dt}=\frac{\partial v_x}{\partial t}+\frac{\partial v_x}{\partial x}\frac{dx}{dt}+\frac{\partial v_x}{\partial y}\frac{dy}{dt}+\frac{\partial v_x}{\partial z}\frac{dz}{dt}
+$$<p>$\because$ $\frac{dx}{dt}=v_x,\frac{dy}{dt}=v_y,\frac{dz}{dt}=v_z$</p>
+<p>$\therefore$</p>
+$$
+a_x=\frac{\partial v_x}{\partial t}+v_x \frac{\partial v_x}{\partial x}+v_y \frac{\partial v_x}{\partial y}+v_z \frac{\partial v_x}{\partial z}
+$$<p>由此可知，加速度是時間和位置的函數</p>
+$$
+a_x=a_x(t,x,y,z)
+$$<h4 id="當地加速度">
+<a class="header-anchor" href="#%e7%95%b6%e5%9c%b0%e5%8a%a0%e9%80%9f%e5%ba%a6"></a>
+當地加速度
+</h4><p>等式右邊第一項表示空間固定點處的流體質點速度隨時間變化率，稱<strong>當地加速度</strong>。（速度與時間關係）</p>
+<p>當地加速度是由流場中速度隨時間的變化性引起的。</p>
+<h4 id="遷移加速度">
+<a class="header-anchor" href="#%e9%81%b7%e7%a7%bb%e5%8a%a0%e9%80%9f%e5%ba%a6"></a>
+遷移加速度
+</h4><p>後三項反映在同一瞬時，流體質點沿速度矢量方向從空間一點運動到相鄰另一點速度變化率，稱為<strong>遷移加速度</strong>。（速度與位移關係）</p>
+<p>遷移加速度是由流場的不均勻性引起的。</p>
+<h4 id="非定常流場">
+<a class="header-anchor" href="#%e9%9d%9e%e5%ae%9a%e5%b8%b8%e6%b5%81%e5%a0%b4"></a>
+非定常流場
+</h4><p>流場中至少存在一<strong>空間點</strong>的物理量隨時間變化。</p>
+<h4 id="定常流場">
+<a class="header-anchor" href="#%e5%ae%9a%e5%b8%b8%e6%b5%81%e5%a0%b4"></a>
+定常流場
+</h4><p>流場中<strong>任意空間點</strong>處的物理量不隨時間變化。</p>
+<h3 id="跡線">
+<a class="header-anchor" href="#%e8%b7%a1%e7%b7%9a"></a>
+跡線
+</h3><p>流場中標定的運動流體質點在一段時間內所經過所有空間點的集合，稱為該流體質點跡線。</p>
+<h3 id="流線">
+<a class="header-anchor" href="#%e6%b5%81%e7%b7%9a"></a>
+流線
+</h3><p>在流場中每一空間點上都<strong>與速度矢量相切</strong>的曲線稱為流線。</p>
+<p>流線是同一時刻不同流體質點所組成的曲線，它給出該時刻不同流體質點的速度方向。</p>
+<p><strong>特點：</strong></p>
+<ul>
+<li>
+<p>在定常流場中各流線不隨時間變化。</p>
+</li>
+<li>
+<p>非定常流場中存在隨時間變化的流線。</p>
+</li>
+<li>
+<p>定常流場中，經過某一空間點的流線，與所有<strong>經過該空間點的流體質點</strong>的跡線重合。</p>
+</li>
+<li>
+<p>一般流線不相交（同一時刻同一空間點不存在兩個速度方向）</p>
+</li>
+<li>
+<p>在速度為 0 的空間點上，流線可以相交。通常稱速度為 0 的空間點為<strong>駐點</strong>。</p>
+</li>
+<li>
+<p>在速度無窮大的空間點上，流線可以相交，通常稱速度無窮大的空間點為<strong>奇點</strong>。</p>
+</li>
+<li>
+<p>流線相切，切點後兩線重合。</p>
+</li>
+<li>
+<p>流場中每一點都有流線通過，所有流線集合稱為<strong>流線譜</strong>或簡稱<strong>流譜</strong>。</p>
+</li>
+</ul>
+<h3 id="流線微分方程">
+<a class="header-anchor" href="#%e6%b5%81%e7%b7%9a%e5%be%ae%e5%88%86%e6%96%b9%e7%a8%8b"></a>
+流線微分方程
+</h3><p>設流線上某點 $M(x,y,z)$ 處速度為 $\vec{v}$ ，$M$ 點流線微段長 $ds$ ，在笛卡爾座標系分解為 $v_x,v_y,v_z$ 和 $dx,dy,dz$ 。</p>
+<p>流線任一點速度方向與流線切線方向相同，則</p>
+$$
+\cos(\vec{v},\vec{i})=\frac{v_x}{v}=\frac{dx}{ds}
+$$<p>$\vec{i}$ 為 $x$ 軸方向單位法向量，$y,z$ 軸同理。</p>
+$$
+\frac{dx}{v_x}=\frac{dy}{v_y}=\frac{dz}{v_z}
+$$<p>上式即為流線的微分方程式。</p>
+<p>已知速度分佈時，可求得流場中通過任一點的流線形狀。</p>
+<h3 id="流管">
+<a class="header-anchor" href="#%e6%b5%81%e7%ae%a1"></a>
+流管
+</h3><p>在流場中一條<strong>不為流線</strong>的<strong>封閉</strong>曲線 C，過 C 上每一點作流線，由這些流線集合構成的管狀曲面稱為流管。</p>
+<h2 id="流體微團運動分析">
+<a class="header-anchor" href="#%e6%b5%81%e9%ab%94%e5%be%ae%e5%9c%98%e9%81%8b%e5%8b%95%e5%88%86%e6%9e%90"></a>
+流體微團運動分析
+</h2><h3 id="運動形式">
+<a class="header-anchor" href="#%e9%81%8b%e5%8b%95%e5%bd%a2%e5%bc%8f"></a>
+運動形式
+</h3><h4 id="剛體運動">
+<a class="header-anchor" href="#%e5%89%9b%e9%ab%94%e9%81%8b%e5%8b%95"></a>
+剛體運動
+</h4><ul>
+<li>平移運動</li>
+<li>繞軸轉動</li>
+</ul>
+<h4 id="流體運動">
+<a class="header-anchor" href="#%e6%b5%81%e9%ab%94%e9%81%8b%e5%8b%95"></a>
+流體運動
+</h4><ul>
+<li>平移運動</li>
+<li>繞軸轉動</li>
+<li>變形運動
+<ul>
+<li>直線變形</li>
+<li>剪切變形</li>
+</ul>
+</li>
+</ul>
+<h3 id="二維分析">
+<a class="header-anchor" href="#%e4%ba%8c%e7%b6%ad%e5%88%86%e6%9e%90"></a>
+二維分析
+</h3><p>![Pasted image 20240902212258.png][1]</p>
+<p>在流場中任取一矩形流體微團 ABCD，其兩邊的邊長分別為 $\delta_x,\delta_y$ ，且均為小量。</p>
+<p>設 $v_x,v_y$ 為 A 點處流體微團分速度，且分速度均為空間點座標的連續函數，則 B, D 點速度可用泰勒級數在 A 點的展開表述。</p>
+<p>$\because$ 流體微團邊長足夠小</p>
+<p>$\therefore$ 二階以上小量可忽略</p>
+$$
+v_{Bx}=v_x+\frac{\partial v_x}{\partial x}\delta_x
+$$$$
+v_{By}=v_y+\frac{\partial v_y}{x}\delta_x
+$$<p>流體微團運動時，除了整體運動，B 相對於 A 點也有運動。</p>
+<p>$x$ 軸方向相對運動速度 $v_{Bx}-v_x=\frac{\partial v_x}{\partial x}\delta_x$ ，$y$ 軸方向同理 $\frac{\partial v_x}{\partial x}\delta_x$ 。</p>
+<p>D 相對於 A 運動速度為 $v_{Dx}-v_x=\frac{\partial v_x}{\partial y}\delta_y,v_{Dy}-v_y=\frac{\partial v_y}{\partial y}\delta_y$ 。</p>
+<h4 id="線變形運動">
+<a class="header-anchor" href="#%e7%b7%9a%e8%ae%8a%e5%bd%a2%e9%81%8b%e5%8b%95"></a>
+線變形運動
+</h4><p>![Pasted image 20240902212840.png][2]</p>
+<p>相對速度 $\frac{\partial v_x}{\partial x}\delta_x$ 和 $\frac{\partial v_y}{\partial y}\delta_y$ 是矩形 ABCD 邊線的直線形變速度，時間 $dt$ 內</p>
+$$
+AB'=AB+\frac{\partial v_x}{\partial x}\delta_x dt
+$$$$
+AD'=AD+\frac{\partial v_y}{\partial y}\delta_y dt
+$$<p>矩形面積相對變化率為</p>
+$$
+\frac{d(\delta S)}{\delta S \cdot dt}=\frac{AB' \cdot CD'-AB \cdot CD}{AB \cdot CD \cdot dt}
+$$<p>略去高階小量後，</p>
+$$
+\frac{d(\delta S)}{\delta S \cdot dt}=\frac{\partial v_x}{\partial x}+\frac{\partial v_y}{\partial y}
+$$<p>拓展到三維空間後，同理可得</p>
+$$
+\frac{d(\delta V)}{\delta V \cdot dt}=\frac{\partial v_x}{\partial x}+\frac{\partial v_y}{\partial y}+\frac{\partial v_z}{\partial z}
+$$<h4 id="角變形運動">
+<a class="header-anchor" href="#%e8%a7%92%e8%ae%8a%e5%bd%a2%e9%81%8b%e5%8b%95"></a>
+角變形運動
+</h4><p>![Pasted image 20240902214219.png][3]</p>
+<p>相對速度 $\frac{\partial v_y}{\partial x}\delta x,\frac{\partial v_x}{\partial y}\delta y$ 表示 AB 邊和 AD 邊繞 A 點的轉動。</p>
+<p>規定逆時針轉動為正，</p>
+<p>AB 邊轉動角速度</p>
+$$
+\frac{d\alpha_1}{dt}=\frac{\partial v_y}{\partial x}\delta_x / \delta_x=\frac{\partial v_y}{\partial x}
+$$<p>同理 AD 邊轉動角速度為</p>
+$$
+\frac{d \alpha_2}{dt}=-\frac{\partial v_x}{\partial y}
+$$<h5 id="微團繞--軸轉動角速度">
+<a class="header-anchor" href="#%e5%be%ae%e5%9c%98%e7%b9%9e--%e8%bb%b8%e8%bd%89%e5%8b%95%e8%a7%92%e9%80%9f%e5%ba%a6"></a>
+微團繞 $z$ 軸轉動角速度
+</h5><p><strong>定義</strong>：微團在 $xOy$ 平面投影中兩條<strong>互相垂直線</strong>繞 $z$ 軸轉動角速度的<strong>平均值</strong>。（角速度和之半）</p>
+$$
+\epsilon_z=\frac{1}{2}(\frac{\partial v_y}{\partial x}-\frac{\partial v_x}{\partial y})
+$$<h5 id="角變形率">
+<a class="header-anchor" href="#%e8%a7%92%e8%ae%8a%e5%bd%a2%e7%8e%87"></a>
+角變形率
+</h5><p><strong>定義</strong>：微團在 $xOy$ 平面投影中兩條互相垂直線在<strong>單位時間內</strong>的夾角變化量<strong>之半</strong>。（角速度差之半）</p>
+$$
+\gamma_z=\frac{1}{2}(\frac{\partial v_y}{\partial x}+\frac{\partial v_x}{\partial y})
+$$<p>拓展到三維空間後，流體微團的三軸轉動角速度和角變形率同理可求。</p>
+<p>略。</p>
+<h3 id="散度">
+<a class="header-anchor" href="#%e6%95%a3%e5%ba%a6"></a>
+散度
+</h3><p>定義：各速度分量在其分量方向上的方向導數之和為速度矢量的三度。</p>
+$$
+div \vec{v}=\frac{\partial v_x}{\partial x}+\frac{\partial v_y}{\partial y}+\frac{\partial v_z}{\partial z}
+$$<p>物理意義：標定流體微團在運動過程中<strong>相對體積變化率</strong>。</p>
+<p>==假設前提==：流體的密度沒有發生變化（流體的運動視為不可壓流）。</p>
+<p>由一點發出的體積流量定義為</p>
+$$
+\lim_{\delta V \to 0}\frac{體積流出量-體積流入量}{\delta V \cdot dt}=\frac{\partial v_x}{\partial x}+\frac{\partial v_y}{\partial y}+\frac{\partial v_z}{\partial z}
+$$<p>等於<strong>單位時間</strong>內空間某一點處，<strong>單位體積</strong>控制體的體積<strong>淨流出量</strong>，等於流體微團在運動中體積相對變化率。</p>
+<h3 id="旋度">
+<a class="header-anchor" href="#%e6%97%8b%e5%ba%a6"></a>
+旋度
+</h3><p>定義：旋轉角速度的兩倍。</p>
+$$
+\vec{\omega}=curl \vec{v}=(\frac{\partial v_z}{\partial y}-\frac{\partial v_y}{\partial z})\vec{i}+(\frac{\partial v_x}{\partial z}-\frac{\partial v_z}{\partial x})\vec{j}+(\frac{\partial v_y}{\partial x}-\frac{\partial v_x}{\partial y})\vec{k}
+$$<h3 id="速度位">
+<a class="header-anchor" href="#%e9%80%9f%e5%ba%a6%e4%bd%8d"></a>
+速度位
+</h3><p>在流體力學中, 可根據流體微團是否有旋轉運動, 而將流體運動分為</p>
+<ul>
+<li>有旋運動</li>
+<li>無旋運動</li>
+</ul>
+<p>當把流動看作無旋運動時，$\omega=0$ ，</p>
+$$
+\begin{cases}
+\frac{\partial v_z}{\partial y}=\frac{\partial v_y}{\partial z} \\
+\frac{\partial v_x}{\partial z}=\frac{\partial v_z}{\partial x} \\
+\frac{\partial v_y}{\partial x}=\frac{\partial v_x}{\partial y} \\
+\end{cases}
+$$<p>上述方程組是 $v_xdx+v_ydy+v_zdz$ 構成某函數 $\phi(x,y,z)$ 全微分的充要條件。即</p>
+$$
+d \phi=v_xdx+v_ydy+v_zdz=\frac{\partial \phi}{\partial x}dx+\frac{\partial \phi}{\partial y}dy+\frac{\partial \phi}{\partial z}dz
+$$<p>$\phi$ 稱為速度位或速度位函數。</p>
+$$
+\begin{cases}
+v_x=\frac{\partial \phi}{\partial x}\\
+v_y=\frac{\partial \phi}{\partial y}\\
+v_z=\frac{\partial \phi}{\partial z}\\
+\end{cases}
+$$<p>使用<strong>柱極座標</strong>時，</p>
+$$
+\phi=\phi(r,\theta,z)
+$$$$
+\begin{cases}
+v_r=\frac{\partial \phi}{\partial r}\\
+v_\theta=\frac{\partial \phi}{\partial \theta}\\
+v_z=\frac{\partial \phi}{\partial z}\\
+\end{cases}
+$$<hr>
+<h2 id="應力-單位面積上的力稱為應力">
+<a class="header-anchor" href="#%e6%87%89%e5%8a%9b-%e5%96%ae%e4%bd%8d%e9%9d%a2%e7%a9%8d%e4%b8%8a%e7%9a%84%e5%8a%9b%e7%a8%b1%e7%82%ba%e6%87%89%e5%8a%9b"></a>
+應力 ：單位面積上的力稱為應力
+</h2><h2 id="純量">
+<a class="header-anchor" href="#%e7%b4%94%e9%87%8f"></a>
+純量
+</h2><h3 id="壓力-1">
+<a class="header-anchor" href="#%e5%a3%93%e5%8a%9b-1"></a>
+壓力
+</h3><h3 id="密度">
+<a class="header-anchor" href="#%e5%af%86%e5%ba%a6"></a>
+密度
+</h3><h3 id="溫度">
+<a class="header-anchor" href="#%e6%ba%ab%e5%ba%a6"></a>
+溫度
+</h3><h3 id="黏性係數">
+<a class="header-anchor" href="#%e9%bb%8f%e6%80%a7%e4%bf%82%e6%95%b8"></a>
+黏性係數
+</h3><h2 id="向量">
+<a class="header-anchor" href="#%e5%90%91%e9%87%8f"></a>
+向量
+</h2><h3 id="流動速度">
+<a class="header-anchor" href="#%e6%b5%81%e5%8b%95%e9%80%9f%e5%ba%a6"></a>
+流動速度
+</h3><h3 id="剪應力">
+<a class="header-anchor" href="#%e5%89%aa%e6%87%89%e5%8a%9b"></a>
+剪應力
+</h3><h2 id="理想氣體狀態方程式">
+<a class="header-anchor" href="#%e7%90%86%e6%83%b3%e6%b0%a3%e9%ab%94%e7%8b%80%e6%85%8b%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+理想氣體狀態方程式
+</h2>$$
+pV=nRT
+$$<p>$R=8.314J \cdot mol^{-1} \cdot K^{-1}$ 為理想莫耳氣體常數。</p>
+$$
+p=\frac{n \cdot M}{V}\frac{R}{M} T
+$$$$
+n(物質的量) \cdot M(莫耳質量)=m(質量)
+$$$$
+p=\rho R' T
+$$$$
+R'=\frac{R}{M}
+$$<p>$R'$ 為==比氣體常數==。</p>
+<p>理想空氣 $R'=287J/(kg \cdot K)$</p>
+<h2 id="空氣動力及力矩">
+<a class="header-anchor" href="#%e7%a9%ba%e6%b0%a3%e5%8b%95%e5%8a%9b%e5%8f%8a%e5%8a%9b%e7%9f%a9"></a>
+空氣動力及力矩
+</h2><h3 id="空氣動力-resultant">
+<a class="header-anchor" href="#%e7%a9%ba%e6%b0%a3%e5%8b%95%e5%8a%9b-resultant"></a>
+空氣動力 $R$：Resultant
+</h3><p><strong>空氣對物體的力</strong></p>
+<ul>
+<li>壓力 $p$ ：Pressure</li>
+<li>剪應力 $\tau$ ：Shear stress</li>
+</ul>
+<p>壓力與剪應力的合力即為空氣對物體作用力，空氣動力。</p>
+<p><strong>風軸系</strong></p>
+<ul>
+<li>升力 $L$ ：Lift，豎直分力</li>
+<li>阻力 $D$ ：Drag，水平分力</li>
+</ul>
+<h3 id="自由來流自由流">
+<a class="header-anchor" href="#%e8%87%aa%e7%94%b1%e4%be%86%e6%b5%81%e8%87%aa%e7%94%b1%e6%b5%81"></a>
+自由來流（自由流）
+</h3>$$
+V_{\infty}
+$$<p>自由流是指飛機前未經擾動的來流，也即沒有飛機等干擾時，空氣的自然流動現象。</p>
+<p>升力與阻力的方向由自由來流方向決定。</p>
+<h3 id="迎角攻角">
+<a class="header-anchor" href="#%e8%bf%8e%e8%a7%92%e6%94%bb%e8%a7%92"></a>
+迎角（攻角）
+</h3>$$
+\alpha
+$$<p><strong>迎角</strong>（英語：Angle of attack，縮寫為AOA，常用<a href="https://zh.wikipedia.org/wiki/%E5%B8%8C%E8%87%98%E5%AD%97%E6%AF%8D" title="希臘字母">希臘字母</a>α表示）為<a href="https://zh.wikipedia.org/wiki/%E7%A9%BA%E6%B0%A3%E5%8B%95%E5%8A%9B%E5%AD%B8" title="空氣動力學">空氣動力學</a>名詞，為<a href="https://zh.wikipedia.org/wiki/%E6%A9%9F%E7%BF%BC" title="機翼">機翼</a>之<a href="https://zh.wikipedia.org/wiki/%E7%BF%BC%E5%BC%A6" title="翼弦">翼弦</a>與<strong>自由流</strong>（或是<strong>相對風流</strong>的方向）之夾角；如為飛機迎角，定義則為機軸對相對風流之夾角。當機翼向<strong>上</strong>為<strong>正</strong>迎角，向<strong>下</strong>則為<strong>負</strong>迎角。</p>
+<p><strong>體軸系</strong></p>
+<ul>
+<li>法向力 $N$：Normal，垂直於機翼方向</li>
+<li>軸向力 $A$：Axial，平行於機翼方向</li>
+</ul>
+<h3 id="力矩-moment">
+<a class="header-anchor" href="#%e5%8a%9b%e7%9f%a9-moment"></a>
+力矩 $M$：Moment
+</h3><p>讓飛機抬頭的力矩為正，讓飛機低頭力矩為負。</p>
+<h3 id="動壓">
+<a class="header-anchor" href="#%e5%8b%95%e5%a3%93"></a>
+動壓 $q$
+</h3><p>自由來流 $V_{\infty},\rho_{\infty}$ 產生的動壓</p>
+$$
+q_{\infty}=\frac{1}{2}\rho_{\infty}V_{\infty}^2
+$$<p>單位為 $Pa$ ，同壓強</p>
+<h3 id="特徵幾何尺寸">
+<a class="header-anchor" href="#%e7%89%b9%e5%be%b5%e5%b9%be%e4%bd%95%e5%b0%ba%e5%af%b8"></a>
+特徵幾何尺寸 $S$
+</h3><p>對三維物體來說是面積，對二位物體來說是周長。</p>
+<h3 id="無量綱參數">
+<a class="header-anchor" href="#%e7%84%a1%e9%87%8f%e7%b6%b1%e5%8f%83%e6%95%b8"></a>
+無量綱參數
+</h3><p>三維物體常用大寫 $C$ ，二維物體常用小寫 $c$ 。</p>
+<h4 id="升力係數">
+<a class="header-anchor" href="#%e5%8d%87%e5%8a%9b%e4%bf%82%e6%95%b8"></a>
+升力係數
+</h4>$$
+C_L=\frac{L}{q_{\infty}S}
+$$<h4 id="阻力係數">
+<a class="header-anchor" href="#%e9%98%bb%e5%8a%9b%e4%bf%82%e6%95%b8"></a>
+阻力係數
+</h4>$$
+C_D=\frac{D}{q_{\infty}S}
+$$<h4 id="法向力係數">
+<a class="header-anchor" href="#%e6%b3%95%e5%90%91%e5%8a%9b%e4%bf%82%e6%95%b8"></a>
+法向力係數
+</h4>$$
+C_N=\frac{N}{q_{\infty}S}
+$$<h4 id="軸向力係數">
+<a class="header-anchor" href="#%e8%bb%b8%e5%90%91%e5%8a%9b%e4%bf%82%e6%95%b8"></a>
+軸向力係數
+</h4>$$
+C_A=\frac{A}{q_{\infty}S}
+$$<h4 id="空氣動力係數">
+<a class="header-anchor" href="#%e7%a9%ba%e6%b0%a3%e5%8b%95%e5%8a%9b%e4%bf%82%e6%95%b8"></a>
+空氣動力係數
+</h4>$$
+C_R=\frac{R}{q_{\infty}S}
+$$<h4 id="力矩係數">
+<a class="header-anchor" href="#%e5%8a%9b%e7%9f%a9%e4%bf%82%e6%95%b8"></a>
+力矩係數
+</h4>$$
+C_M=\frac{\vec{M}}{\vec{r} \times \vec{q_{\infty}}S}
+$$<h4 id="壓力係數">
+<a class="header-anchor" href="#%e5%a3%93%e5%8a%9b%e4%bf%82%e6%95%b8"></a>
+壓力係數
+</h4><p>$p$：某點靜壓</p>
+<p>$p_{\infty}$：自由來流靜壓</p>
+$$
+C_p=\frac{p-p_{\infty}}{q_{\infty}}
+$$<h4 id="摩擦力係數">
+<a class="header-anchor" href="#%e6%91%a9%e6%93%a6%e5%8a%9b%e4%bf%82%e6%95%b8"></a>
+摩擦力係數
+</h4><p>$\tau$：某點剪應力，即剪應力對面積導數。量綱同壓強。</p>
+$$
+C_f=\frac{\tau}{q_{\infty}}
+$$<h1 id="兩個中心">
+<a class="header-anchor" href="#%e5%85%a9%e5%80%8b%e4%b8%ad%e5%bf%83"></a>
+兩個中心
+</h1><h2 id="壓力中心壓心">
+<a class="header-anchor" href="#%e5%a3%93%e5%8a%9b%e4%b8%ad%e5%bf%83%e5%a3%93%e5%bf%83"></a>
+壓力中心（壓心）
+</h2><p>壓力中心（Pressure Center）：流體中的平面或曲面所受流體壓力的合力的作用線同該平面或曲面的交點。空氣動力 $R$ 對此點力矩為 $\vec{0}$。</p>
+<h2 id="空氣動力中心氣動中心焦點">
+<a class="header-anchor" href="#%e7%a9%ba%e6%b0%a3%e5%8b%95%e5%8a%9b%e4%b8%ad%e5%bf%83%e6%b0%a3%e5%8b%95%e4%b8%ad%e5%bf%83%e7%84%a6%e9%bb%9e"></a>
+空氣動力中心（氣動中心，焦點）
+</h2><p><strong>空氣動力中心</strong>（英語：aerodynamic center，簡稱 AC）在<a href="https://zh.wikipedia.org/wiki/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6" title="空氣動力學">空氣動力學</a> 中是指<a href="https://zh.wikipedia.org/wiki/%E7%BF%BC%E5%9E%8B" title="翼型">翼型</a> 上的一個定點，繞該點的俯仰力矩不隨<a href="https://zh.wikipedia.org/wiki/%E8%BF%8E%E8%A7%92" title="迎角">迎角</a> 的改變而變化，即</p>
+$$
+\frac{d C_M}{d \alpha}=0
+$$<h2 id="氣動中心與壓力中心的區別">
+<a class="header-anchor" href="#%e6%b0%a3%e5%8b%95%e4%b8%ad%e5%bf%83%e8%88%87%e5%a3%93%e5%8a%9b%e4%b8%ad%e5%bf%83%e7%9a%84%e5%8d%80%e5%88%a5"></a>
+氣動中心與壓力中心的區別
+</h2><p>壓力中心是力系合成到一個特殊點時，使得這個點的<strong>合力矩為0</strong>的點，<strong>壓力中心在氣動中心的後面</strong>；而氣動中心是使得<strong>合力矩不變</strong>的點。</p>
+<p>壓力中心的位置隨著迎角的改變而改變，當迎角增大，升力增大，壓力中心前移，這同時使得壓力中心與氣動中心的距離縮短，增大的升力與縮短力臂乘積剛好是不變的力矩，這也正是氣動中心的定義所要求的。</p>
+
+        <hr><p>本文 2024-09-02 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-02</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Physics</category>
+      
+    </item>
+    
+  </channel>
+</rss>

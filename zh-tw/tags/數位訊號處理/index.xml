@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>數位訊號處理 on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/zh-tw/tags/%E6%95%B8%E4%BD%8D%E8%A8%8A%E8%99%9F%E8%99%95%E7%90%86/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>zh-tw</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Wed, 04 Sep 2024 23:44:15 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/zh-tw/tags/%E6%95%B8%E4%BD%8D%E8%A8%8A%E8%99%9F%E8%99%95%E7%90%86/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>數位訊號處理</title>
+      <link>http://localhost:1313/zh-tw/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link>
+      <pubDate>Wed, 04 Sep 2024 23:44:15 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-tw/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid>
+      <description><![CDATA[<h1>數位訊號處理</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="數位訊號處理基本概念">
+<a class="header-anchor" href="#%e6%95%b8%e4%bd%8d%e8%a8%8a%e8%99%9f%e8%99%95%e7%90%86%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5"></a>
+數位訊號處理基本概念
+</h1><h2 id="信號分類">
+<a class="header-anchor" href="#%e4%bf%a1%e8%99%9f%e5%88%86%e9%a1%9e"></a>
+信號分類
+</h2><ol>
+<li>連續信號：即模擬信號，時域連續信號。</li>
+<li>時域離散信號：幅度取值連續，時間取值離散。</li>
+<li>幅度離散信號：幅度取值離散，時間取值連續。</li>
+<li>數位信號：幅度和時間都取離散值。</li>
+</ol>
+<h3 id="區別">
+<a class="header-anchor" href="#%e5%8d%80%e5%88%a5"></a>
+區別
+</h3><p>時域離散信號和數位信號之間的差別，僅在於數位信號存在量化誤差。</p>
+<h2 id="數位訊號處理實現方法">
+<a class="header-anchor" href="#%e6%95%b8%e4%bd%8d%e8%a8%8a%e8%99%9f%e8%99%95%e7%90%86%e5%af%a6%e7%8f%be%e6%96%b9%e6%b3%95"></a>
+數位訊號處理實現方法
+</h2><p>數位訊號處理的主要對象是<strong>數位訊號</strong>，且是採用<strong>數值運算</strong>的方法達到處理目的的。</p>
+<h3 id="軟體實現">
+<a class="header-anchor" href="#%e8%bb%9f%e9%ab%94%e5%af%a6%e7%8f%be"></a>
+軟體實現
+</h3><p>按原理和演算法，編寫程式在通用電腦實現。</p>
+<ul>
+<li>優點：靈活</li>
+<li>缺點：運算速度慢，難以達到即時處理效果。</li>
+<li>適合演算法研究和模擬。</li>
+</ul>
+<h3 id="硬體實現">
+<a class="header-anchor" href="#%e7%a1%ac%e9%ab%94%e5%af%a6%e7%8f%be"></a>
+硬體實現
+</h3><p>按照具體的要求和演算法，設計硬體結構圖，用乘法器、加法器、延時器、控制器、記憶體以及輸入輸出介面等基本部件實現。</p>
+<ul>
+<li>優點：運算速度快，可即時處理</li>
+<li>缺點：不靈活</li>
+</ul>
+<p>硬體實現指的是選用合適的 DSP 晶片，配有適合晶片語言及任務要求的軟體，實現某種訊號處理功能的一種方法。</p>
+<h3 id="專用晶片">
+<a class="header-anchor" href="#%e5%b0%88%e7%94%a8%e6%99%b6%e7%89%87"></a>
+專用晶片
+</h3><p>採用專用的 <strong>數位訊號處理晶片（DSP 晶片）</strong> 是目前發展最快、應用最廣的一種方法。因為 DSP 晶片比通用單晶片有更為突出的優點，它結合了數位訊號處理的特點，<strong>內部配有乘法器和累加器</strong>，結構上採用了流水線工作方式以及平行結構、多匯流排，且配有適合數位訊號處理的指令，是一類可實現高速運算的微處理器。</p>
+<p>對於更高速的即時系統，DSP 的速度也不滿足要求時，應採用可程式超大型元件（FPGA）或開發專用晶片來實現。</p>
+<h2 id="數位訊號處理特點">
+<a class="header-anchor" href="#%e6%95%b8%e4%bd%8d%e8%a8%8a%e8%99%9f%e8%99%95%e7%90%86%e7%89%b9%e9%bb%9e"></a>
+數位訊號處理特點
+</h2><p>相較於類比訊號處理，數位訊號處理具有以下特點：</p>
+<ol>
+<li>靈活性</li>
+<li>高精度和高穩定性</li>
+<li>便於大規模集成</li>
+<li>可以實現類比系統無法實現的諸多功能，如儲存、複雜變換和運算。</li>
+</ol>
+<h2 id="信號維度">
+<a class="header-anchor" href="#%e4%bf%a1%e8%99%9f%e7%b6%ad%e5%ba%a6"></a>
+信號維度
+</h2><p>信號通常是一個自變數或幾個自變數的函數。
+如果僅有一個自變數，則稱為一維信號；如果有兩個以上的自變數，則稱為多維信號。</p>
+<h1 id="時域離散信號與系統">
+<a class="header-anchor" href="#%e6%99%82%e5%9f%9f%e9%9b%a2%e6%95%a3%e4%bf%a1%e8%99%9f%e8%88%87%e7%b3%bb%e7%b5%b1"></a>
+時域離散信號與系統
+</h1><h2 id="時域離散信號">
+<a class="header-anchor" href="#%e6%99%82%e5%9f%9f%e9%9b%a2%e6%95%a3%e4%bf%a1%e8%99%9f"></a>
+時域離散信號
+</h2><p>實際中遇到的信號一般是模擬信號，對它進行<strong>等間隔採樣</strong>便可以得到時域離散信號。</p>
+<p>模擬信號 $x_a(t)$ ，離散時間點 $t_n$ 。
+均勻採樣（等間隔採樣）時，採樣間隔 $T$ ，$t_n=nT$
+</p>
+$$
+x(n)=x_a(t)|_{t=nT}=x_a(nT),- \infty<n<\infty
+$$<p>
+$x(n)$ 稱為時域離散信號，$n$ 取整數，得到序列
+</p>
+$$
+x(n)=\{\cdots ,x_a(-2T),x_a(-T),x_a(0),x_a(T),x_a(2T),\cdots \}
+$$<p>
+時域離散信號也稱序列。</p>
+<h3 id="序列表示方法">
+<a class="header-anchor" href="#%e5%ba%8f%e5%88%97%e8%a1%a8%e7%a4%ba%e6%96%b9%e6%b3%95"></a>
+序列表示方法
+</h3><h4 id="集合符號">
+<a class="header-anchor" href="#%e9%9b%86%e5%90%88%e7%ac%a6%e8%99%9f"></a>
+集合符號
+</h4><p>數的集合用集合符號 $\{\cdot \}$ 表示，時域離散信號可表示為有序的數的集合。
+集合中有下劃線的元素表示 $n=0$ 時刻的採樣值。</p>
+<h4 id="公式表示">
+<a class="header-anchor" href="#%e5%85%ac%e5%bc%8f%e8%a1%a8%e7%a4%ba"></a>
+公式表示
+</h4><p>範例:</p>
+$$
+x(n)=a^{|n|},0<a<1,-\infty<n<\infty
+$$<h4 id="圖形表示">
+<a class="header-anchor" href="#%e5%9c%96%e5%bd%a2%e8%a1%a8%e7%a4%ba"></a>
+圖形表示
+</h4><p>橫坐標為 $n$ ，縱坐標為 $x$ 的值，豎線頂端加黑點。</p>
+<h3 id="常用典型序列">
+<a class="header-anchor" href="#%e5%b8%b8%e7%94%a8%e5%85%b8%e5%9e%8b%e5%ba%8f%e5%88%97"></a>
+常用典型序列
+</h3><h4 id="單位脈衝序列">
+<a class="header-anchor" href="#%e5%96%ae%e4%bd%8d%e8%84%88%e8%a1%9d%e5%ba%8f%e5%88%97"></a>
+單位脈衝序列 $\delta(n)$
+</h4>$$
+\delta(n)=
+\begin{cases}
+1 & n=0\\
+0 & n \ne 0\\
+\end{cases}
+$$<p>
+也稱單位採樣序列，不同於單位衝激信號 $\delta(t)$ 。</p>
+<h4 id="單位階躍序列">
+<a class="header-anchor" href="#%e5%96%ae%e4%bd%8d%e9%9a%8e%e8%ba%8d%e5%ba%8f%e5%88%97"></a>
+單位階躍序列 $u(n)$
+</h4>$$
+u(n)=
+\begin{cases}
+1 & n \ge 0\\
+0 & n < 0\\
+\end{cases}
+$$$$
+\delta(n)=u(n)-u(n-1)
+$$<p>
+</p>
+$$
+u(n)=\sum^{\infty}_{k=0}\delta(n-k)
+$$<h4 id="矩形序列">
+<a class="header-anchor" href="#%e7%9f%a9%e5%bd%a2%e5%ba%8f%e5%88%97"></a>
+矩形序列 $R_N(n)$
+</h4>$$
+R_N(n)=
+\begin{cases}
+1 & 0 \le n \le N-1\\
+0 & Others
+\end{cases}
+$$<p>
+$N$ 稱為矩形序列長度，矩形序列可用單位階躍序列表示。
+</p>
+$$
+R_N(n)=u(n)-u(n-N)
+$$<h4 id="實指數序列">
+<a class="header-anchor" href="#%e5%af%a6%e6%8c%87%e6%95%b8%e5%ba%8f%e5%88%97"></a>
+實指數序列
+</h4>$$
+x(n)=a^n u(n),a 為實數
+$$<ul>
+<li>$|a|<1$ 時稱 $x(n)$ 為收斂序列</li>
+<li>$|a|>1$ 時稱 $x(n)$ 為發散序列</li>
+</ul>
+<h4 id="正弦序列">
+<a class="header-anchor" href="#%e6%ad%a3%e5%bc%a6%e5%ba%8f%e5%88%97"></a>
+正弦序列
+</h4>$$
+x(n)=\sin (\omega n)
+$$<p>
+$\omega$ 稱為正弦序列的<strong>數字域頻率（數字頻率）</strong>，單位為弧度 $rad$ ，表示序列變化速率（相鄰兩個序列值之間相位變化的弧度數）。</p>
+<p><strong>模擬角頻率 $\varOmega$</strong>，若正弦序列由模擬信號 $x_a(t)=\sin (\varOmega t)$ 採樣得到
+</p>
+$$
+x(n)=x_a(t)|_{t=nT}=\sin (\varOmega nT)=\sin (\omega n)
+$$<p>
+則得到數字頻率與模擬角頻率的關係
+</p>
+$$
+\omega=\varOmega T
+$$<p>
+採樣頻率 $F_s=\frac{1}{T}$ ，因此
+</p>
+$$
+\omega=\frac{\varOmega}{F_s}
+$$<p>
+<em>數字域頻率是模擬角頻率對採樣頻率的歸一化頻率。</em></p>
+<h4 id="複指數序列">
+<a class="header-anchor" href="#%e8%a4%87%e6%8c%87%e6%95%b8%e5%ba%8f%e5%88%97"></a>
+複指數序列
+</h4>$$
+x(n)=e^{(\sigma+j \omega_0)n}=\cos(\omega_0 n)+j \sin(\omega_0 n)
+$$<p>
+因為 $n$ 取整數，所以正弦序列和複指數序列都以 $2 \pi$ 為周期。</p>
+<h4 id="周期序列">
+<a class="header-anchor" href="#%e5%91%a8%e6%9c%9f%e5%ba%8f%e5%88%97"></a>
+周期序列
+</h4><p>如果對所有 $n$ 存在一個<strong>最小的正整數</strong> $N$，使下面等式成立：
+</p>
+$$
+x(n)=x(n+N),-\infty<n<\infty
+$$<p>
+則稱序列 $x(n)$ 為周期性序列，周期為 $N$ 。</p>
+<h3 id="序列運算">
+<a class="header-anchor" href="#%e5%ba%8f%e5%88%97%e9%81%8b%e7%ae%97"></a>
+序列運算
+</h3><p>簡單</p>
+<h4 id="加法和乘法">
+<a class="header-anchor" href="#%e5%8a%a0%e6%b3%95%e5%92%8c%e4%b9%98%e6%b3%95"></a>
+加法和乘法
+</h4><h4 id="位移翻轉尺度變換">
+<a class="header-anchor" href="#%e4%bd%8d%e7%a7%bb%e7%bf%bb%e8%bd%89%e5%b0%ba%e5%ba%a6%e8%ae%8a%e6%8f%9b"></a>
+位移、翻轉、尺度變換
+</h4><h2 id="離散時域系統">
+<a class="header-anchor" href="#%e9%9b%a2%e6%95%a3%e6%99%82%e5%9f%9f%e7%b3%bb%e7%b5%b1"></a>
+離散時域系統
+</h2><p>系統輸入為 $x(n)$ ，輸出為 $y(n)$ ，運算關係用 $T[\cdot]$ 表示。
+</p>
+$$
+y(n)=T[x(n)]
+$$<h3 id="線性系統">
+<a class="header-anchor" href="#%e7%b7%9a%e6%80%a7%e7%b3%bb%e7%b5%b1"></a>
+線性系統
+</h3><p>系統的輸入、輸出之間滿足線性疊加原理的系統稱為線性系統。</p>
+<h4 id="可加性">
+<a class="header-anchor" href="#%e5%8f%af%e5%8a%a0%e6%80%a7"></a>
+可加性
+</h4>$$
+y_1(n)=T[x_1(n)],y_2(n)=T[x_2(n)]
+$$<p>
+</p>
+$$
+T[x_1(n)+x_2(n)]=y_1(n)+y_2(n)
+$$<h4 id="齊次性比例性">
+<a class="header-anchor" href="#%e9%bd%8a%e6%ac%a1%e6%80%a7%e6%af%94%e4%be%8b%e6%80%a7"></a>
+齊次性（比例性）
+</h4>$$
+T[a \times x(n)]=a \times y(n)
+$$<h3 id="時不變系統">
+<a class="header-anchor" href="#%e6%99%82%e4%b8%8d%e8%ae%8a%e7%b3%bb%e7%b5%b1"></a>
+時不變系統
+</h3><p>如果系統對輸入信號的運算關係 $T[\cdot]$ 在整個運算過程中不隨時間變化，或者說系統對於輸入信號的響應與信號加於系統的時間無關，則這種系統稱為時不變系統。
+</p>
+$$
+y(n)=T[x(n)]
+$$<p>
+</p>
+$$
+y(n-n_0)=T[x(n-n_0)]
+$$<h3 id="線性時不變系統特點">
+<a class="header-anchor" href="#%e7%b7%9a%e6%80%a7%e6%99%82%e4%b8%8d%e8%ae%8a%e7%b3%bb%e7%b5%b1%e7%89%b9%e9%bb%9e"></a>
+線性時不變系統特點
+</h3><p>完全響應=零輸入響應+零狀態響應</p>
+<h4 id="單位脈衝響應">
+<a class="header-anchor" href="#%e5%96%ae%e4%bd%8d%e8%84%88%e8%a1%9d%e9%9f%bf%e6%87%89"></a>
+單位脈衝響應
+</h4><p>初始狀態為 0（無零輸入響應）
+</p>
+$$
+h(n)=T[\delta(n)]
+$$<p>
+</p>
+$$
+x(n)=\sum^{\infty}_{m=-\infty}x(m)\delta(n-m)
+$$<p>
+</p>
+$$
+\begin{align}
+y(n)
+&=T[x(n)]\\
+&=T[\sum^{\infty}_{m=-\infty}x(m)\delta(n-m)]\\
+&=\sum^{\infty}_{m=-\infty}x(m)T[\delta(n-m)]\\
+&=\sum^{\infty}_{m=-\infty}x(m)h(n-m)\\
+&=x(n)*h(n)
+\end{align}
+$$<p>
+卷積相關知識見《信號與系統》</p>
+<h3 id="系統因果性">
+<a class="header-anchor" href="#%e7%b3%bb%e7%b5%b1%e5%9b%a0%e6%9e%9c%e6%80%a7"></a>
+系統因果性
+</h3><p>定義：如果系統 $n$ 時刻的輸出只取決於 $n$ 時刻以及 $n$ 時刻以前的輸入序列，而和 $n$ 時刻以後的輸入序列無關，則稱該系統具有因果性質，或稱該系統為因果系統。</p>
+<p>==充要條件==：系統單位脈衝響應滿足下式
+</p>
+$$
+h(n)=0 \quad n<0
+$$<h3 id="系統穩定性">
+<a class="header-anchor" href="#%e7%b3%bb%e7%b5%b1%e7%a9%a9%e5%ae%9a%e6%80%a7"></a>
+系統穩定性
+</h3><p>定義：如果對有界輸入，系統產生的輸出也是<strong>有界</strong>的，則稱該系統具有穩定性，或稱該系統為穩定系統。
+==充要條件==：系統的單位脈衝響應絕對可和。
+</p>
+$$
+\sum^{\infty}_{m=-\infty}|h(n)|<\infty
+$$<h3 id="線性常係數差分方程">
+<a class="header-anchor" href="#%e7%b7%9a%e6%80%a7%e5%b8%b8%e4%bf%82%e6%95%b8%e5%b7%ae%e5%88%86%e6%96%b9%e7%a8%8b"></a>
+線性常係數差分方程
+</h3>
+        <hr><p>本文 2024-09-04 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-04</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Physics</category>
+      
+    </item>
+    
+  </channel>
+</rss>

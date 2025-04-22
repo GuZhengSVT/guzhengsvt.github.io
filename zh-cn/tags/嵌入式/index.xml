@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>嵌入式 on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/zh-cn/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Thu, 15 Feb 2024 11:44:33 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/zh-cn/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>MicroPython函数库</title>
+      <link>http://localhost:1313/zh-cn/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link>
+      <pubDate>Thu, 15 Feb 2024 11:44:33 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid>
+      <description><![CDATA[<h1>MicroPython函数库</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="machine-与硬件相关功能">
+<a class="header-anchor" href="#machine-%e4%b8%8e%e7%a1%ac%e4%bb%b6%e7%9b%b8%e5%85%b3%e5%8a%9f%e8%83%bd"></a>
+machine-与硬件相关功能
+</h1><h2 id="pin类">
+<a class="header-anchor" href="#pin%e7%b1%bb"></a>
+Pin类
+</h2><h3 id="machinepinidmodenonepullnonevalue">
+<a class="header-anchor" href="#machinepinidmodenonepullnonevalue"></a>
+<code>machine.Pin(id,mode=None,pull=None,value)</code>
+</h3><p>Pin对象构造函数</p>
+<ul>
+<li>id：GPIO编号，对于Pico为0-29</li>
+<li>mode：模式，可选<code>None，Pin.IN(0),Pin.OUT(1),Pin.OPEN_DRAIN(2)</code></li>
+<li>pull：使用内部上下拉电阻，仅在输入模式下有效，可选<code>None,Pin.PULL_UP(1),Pin.DOWN(2)</code></li>
+<li>value：输出或开漏模式下端口值，0为低电位，1为高电位</li>
+</ul>
+<h3 id="pininitmodenonepullnone">
+<a class="header-anchor" href="#pininitmodenonepullnone"></a>
+<code>Pin.init(mode=None,pull=None)</code>
+</h3><p>重新初始化GPIO口</p>
+<h3 id="pinvaluex">
+<a class="header-anchor" href="#pinvaluex"></a>
+<code>Pin.value([x])</code>
+</h3><ul>
+<li>不填参数时返回GPIO端口数值</li>
+<li>填参数0、1时将参数写入GPIO端口</li>
+</ul>
+<h3 id="pintoggle">
+<a class="header-anchor" href="#pintoggle"></a>
+<code>Pin.toggle()</code>
+</h3><p>输出或开漏模式下将端口设置翻转
+eg.LED闪烁</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="c1">#每秒反转一次灯亮/暗</span>
+</span></span></code></pre></div><h3 id="pinirqhandlernonetriggerpinirq_fallingpinirq_rising">
+<a class="header-anchor" href="#pinirqhandlernonetriggerpinirq_fallingpinirq_rising"></a>
+<code>Pin.irq(handler=None,trigger=(Pin.IRQ_FALLING|PIN.IRQ_RISING))</code>
+</h3><p>外部中断函数</p>
+<ul>
+<li>handler：中断触发回调函数</li>
+<li>trigger：中断触发条件（边缘触发/电平触发）</li>
+</ul>
+<h3 id="others">
+<a class="header-anchor" href="#others"></a>
+others
+</h3><p>以下函数适用于输出/开漏模式：</p>
+<ul>
+<li><code>Pin.low(),Pin.off()</code>将端口设置为低电压。</li>
+<li><code>Pin.high(),Pin.on()</code>将端口设置为高电压。</li>
+</ul>
+<h3 id="eg-点灯">
+<a class="header-anchor" href="#eg-%e7%82%b9%e7%81%af"></a>
+eg. 点灯
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">utime</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#将按钮接入GPIO15,设置为输入模式，内部上拉</span>
+</span></span><span class="line"><span class="cl"><span class="n">button_num</span><span class="o">=</span><span class="mi">15</span>
+</span></span><span class="line"><span class="cl"><span class="n">button</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">button_num</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#GP25为板载LED，外设LED接入GP16</span>
+</span></span><span class="line"><span class="cl"><span class="n">led1_num</span><span class="o">=</span><span class="mi">25</span>
+</span></span><span class="line"><span class="cl"><span class="n">led2_num</span><span class="o">=</span><span class="mi">16</span>
+</span></span><span class="line"><span class="cl"><span class="n">led1</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">led1_num</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">led2</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">led2_num</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led2</span><span class="o">.</span><span class="n">off</span><span class="p">()</span><span class="c1">#开始关外设LED</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span><span class="c1">#判断按钮是否按下，按下为0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span><span class="c1">#软件消抖</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led1</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span><span class="c1">#板载LED翻转</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led2</span><span class="o">.</span><span class="n">on</span><span class="p">()</span><span class="c1">#外设LED亮（GP16高电平）</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;The button is pressed.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#按钮处于按下状态则等待变化（外设LED仍亮）</span>
+</span></span><span class="line"><span class="cl">                <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="pwm类">
+<a class="header-anchor" href="#pwm%e7%b1%bb"></a>
+PWM类
+</h2><h3 id="machinepwmpin">
+<a class="header-anchor" href="#machinepwmpin"></a>
+<code>machine.PWM(pin)</code>
+</h3><p>指定GPIO重新初始化为PWM输出。
+pin为Pin类对象</p>
+<h3 id="pwmdeinit">
+<a class="header-anchor" href="#pwmdeinit"></a>
+<code>PWM.deinit()</code>
+</h3><p>PWM反初始化，停止PWM输出。</p>
+<h3 id="pwmfreqvalue">
+<a class="header-anchor" href="#pwmfreqvalue"></a>
+<code>PWM.freq([value])</code>
+</h3><p>设置PWM频率（单位$Hz$），自动计算分频器参数与TOP寄存器参数。</p>
+<h3 id="pwmduty_u16value">
+<a class="header-anchor" href="#pwmduty_u16value"></a>
+`PWM.duty_u16([value])
+</h3><p>设置占空比。
+value占空比比例在[0,65536]，据此计算出对应数值赋给CC寄存器。</p>
+<h3 id="pwmduty_nsvalue">
+<a class="header-anchor" href="#pwmduty_nsvalue"></a>
+<code>PWM.duty_ns([value])</code>
+</h3><p>设置一个周期高电平时长，单位为ns。</p>
+<h3 id="eg-呼吸灯">
+<a class="header-anchor" href="#eg-%e5%91%bc%e5%90%b8%e7%81%af"></a>
+eg. 呼吸灯
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span><span class="n">PWM</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">=</span><span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span><span class="c1">#初始化板载LED为PWM对象</span>
+</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="c1">#设置频率</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_duty</span><span class="o">=</span><span class="mi">0</span><span class="c1">#初始值</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_direction</span><span class="o">=</span><span class="mi">1</span><span class="c1">#步长</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led_duty</span><span class="o">+=</span><span class="n">led_direction</span><span class="c1">#增大/减小占空比比值</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">led_duty</span><span class="o">&gt;=</span><span class="mi">100</span><span class="p">:</span><span class="c1">#满</span>
+</span></span><span class="line"><span class="cl">        <span class="n">led_duty</span><span class="o">=</span><span class="mi">100</span>
+</span></span><span class="line"><span class="cl">        <span class="n">led_direction</span><span class="o">=-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">led_duty</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">:</span><span class="c1">#归零</span>
+</span></span><span class="line"><span class="cl">        <span class="n">led_duty</span><span class="o">=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">led_direction</span><span class="o">=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">led_duty</span><span class="o">*</span><span class="mf">655.36</span><span class="p">))</span><span class="c1">#占空比数值转换</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">led_duty</span><span class="o">%</span><span class="mi">5</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">led_duty</span><span class="p">)</span><span class="c1">#便于绘图观察</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#周期2S</span>
+</span></span></code></pre></div><h2 id="adc类">
+<a class="header-anchor" href="#adc%e7%b1%bb"></a>
+ADC类
+</h2><h3 id="machineadcid">
+<a class="header-anchor" href="#machineadcid"></a>
+<code>machine.ADC(id)</code>
+</h3><p>初始化为ADC对象，id可为GPIO或ADC通道。使用Pin对象时GPIO需要支持ADC。
+0-3为Pico GPIO通道26-29，4为片内温度传感器通道。</p>
+<h3 id="adcread_u16">
+<a class="header-anchor" href="#adcread_u16"></a>
+<code>ADC.read_u16()</code>
+</h3><p>读取对应通道ADC返回读取值[0,65525]。</p>
+
+        <hr><p>本文 2024-02-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-02-15</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Code</category>
+      
+    </item>
+    
+  </channel>
+</rss>

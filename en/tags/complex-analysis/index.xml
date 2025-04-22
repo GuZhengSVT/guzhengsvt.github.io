@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>Complex Analysis on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/en/tags/complex-analysis/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Wed, 20 Dec 2023 08:54:33 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/en/tags/complex-analysis/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>The Relationship Between the Residue Theorem and Laurent Series, Higher-Order Derivative Formulas, and Cauchy&#39;s Integral Formula</title>
+      <link>http://localhost:1313/en/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link>
+      <pubDate>Wed, 20 Dec 2023 08:54:33 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid>
+      <description><![CDATA[<h1>The Relationship Between the Residue Theorem and Laurent Series, Higher-Order Derivative Formulas, and Cauchy's Integral Formula</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h3 id="1-residue-theorem">
+<a class="header-anchor" href="#1-residue-theorem"></a>
+1. Residue Theorem
+</h3><p>The Residue Theorem is a pivotal result in complex function theory, built upon the concept of residues. Its core idea states that if a function is analytic everywhere on and within a closed contour enclosing isolated singularities, the integral around the contour equals the sum of the residues at those singularities.</p>
+<h3 id="2-laurent-series">
+<a class="header-anchor" href="#2-laurent-series"></a>
+2. Laurent Series
+</h3><p>A Laurent series is an expansion of a complex function into an infinite series, including both positive and negative powers. Specifically, a complex function in an annular region can be expressed as:<br>
+</p>
+$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<p>Here, \( c_n \) are the coefficients, and \( z_0 \) is the expansion point.</p>
+<h3 id="3-higher-order-derivative-formula">
+<a class="header-anchor" href="#3-higher-order-derivative-formula"></a>
+3. Higher-Order Derivative Formula
+</h3><p>The higher-order derivative formula for complex functions resembles that of real functions but requires careful consideration in the complex plane. If a function is analytic at a point, its higher-order derivatives at that point can be obtained by term-wise differentiation of its power series.</p>
+<h3 id="4-cauchys-integral-formula">
+<a class="header-anchor" href="#4-cauchys-integral-formula"></a>
+4. Cauchy&rsquo;s Integral Formula
+</h3><p>Cauchy&rsquo;s Integral Formula is a fundamental result in complex analysis, establishing a relationship between an analytic function and its integral over a contour. Specifically, if \( f(z) \) is analytic inside and on a simple closed contour \( C \), then for any point \( z_0 \) inside \( C \):</p>
+$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$<h3 id="relationships-and-connections">
+<a class="header-anchor" href="#relationships-and-connections"></a>
+Relationships and Connections
+</h3><ol>
+<li>
+<p><strong>Residue Theorem and Laurent Series</strong>:<br>
+The Residue Theorem computes integrals over closed contours, while the Laurent series helps analyze the behavior of functions near singularities, facilitating residue calculation.</p>
+</li>
+<li>
+<p><strong>Residue Theorem and Higher-Order Derivatives</strong>:<br>
+The Residue Theorem can derive higher-order derivatives by term-wise differentiation of the Laurent series expansion around singularities.</p>
+</li>
+<li>
+<p><strong>Residue Theorem and Cauchy&rsquo;s Integral Formula</strong>:<br>
+Cauchy&rsquo;s Integral Formula evaluates contour integrals, while the Residue Theorem is a special case where the contour encloses finitely many isolated singularities.</p>
+</li>
+</ol>
+<hr>
+<h3 id="1-proof-of-the-residue-theorem-via-laurent-series">
+<a class="header-anchor" href="#1-proof-of-the-residue-theorem-via-laurent-series"></a>
+1. Proof of the Residue Theorem via Laurent Series
+</h3><h4 id="residue-theorem">
+<a class="header-anchor" href="#residue-theorem"></a>
+Residue Theorem:
+</h4><p>If \( f(z) \) is analytic everywhere inside and on a closed contour \( C \) except for isolated singularities, then:<br>
+</p>
+$$\oint_C f(z) \, dz = 2\pi i \cdot \sum \text{Res}(f, z_k)$$<h4 id="laurent-series-expansion">
+<a class="header-anchor" href="#laurent-series-expansion"></a>
+Laurent Series Expansion:
+</h4>$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<h4 id="proof-steps">
+<a class="header-anchor" href="#proof-steps"></a>
+Proof Steps:
+</h4><ol>
+<li>
+<p><strong>Laurent Series Expansion</strong>:<br>
+Expand \( f(z) \) around \( z_0 \):<br>
+</p>
+$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$</li>
+<li>
+<p><strong>Integral Computation</strong>:<br>
+Integrate term-wise over \( C \):<br>
+</p>
+$$\oint_C f(z) \, dz = \oint_C \left( \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n \right) dz$$</li>
+<li>
+<p><strong>Interchange Sum and Integral</strong>:<br>
+By uniform convergence:<br>
+</p>
+$$\oint_C f(z) \, dz = \sum_{n=-\infty}^{\infty} c_n \oint_C (z - z_0)^n \, dz$$</li>
+<li>
+<p><strong>Residue Extraction</strong>:<br>
+For \( n \neq -1 \), \( \oint_C (z - z_0)^n \, dz = 0 \). Only \( n = -1 \) contributes:<br>
+</p>
+$$\oint_C f(z) \, dz = 2\pi i \cdot c_{-1}$$</li>
+<li>
+<p><strong>Conclusion</strong>:<br>
+The residue \( \text{Res}(f, z_0) = c_{-1} \), yielding:<br>
+</p>
+$$\oint_C f(z) \, dz = 2\pi i \cdot \text{Res}(f, z_0)$$</li>
+</ol>
+<hr>
+<h3 id="2-deriving-the-higher-order-derivative-formula-from-the-residue-theorem">
+<a class="header-anchor" href="#2-deriving-the-higher-order-derivative-formula-from-the-residue-theorem"></a>
+2. Deriving the Higher-Order Derivative Formula from the Residue Theorem
+</h3><h4 id="residue-theorem-1">
+<a class="header-anchor" href="#residue-theorem-1"></a>
+Residue Theorem:
+</h4>$$\oint_C f(z) \, dz = 2\pi i \cdot \text{Res}(f, z_0)$$<h4 id="higher-order-derivative-formula">
+<a class="header-anchor" href="#higher-order-derivative-formula"></a>
+Higher-Order Derivative Formula:
+</h4><p>For \( f(z) \) analytic at \( z_0 \), the \( n \)-th derivative is:<br>
+</p>
+$$f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} \, dz$$<h4 id="proof-steps-1">
+<a class="header-anchor" href="#proof-steps-1"></a>
+Proof Steps:
+</h4><ol>
+<li>
+<p><strong>Residue Theorem Setup</strong>:<br>
+Consider \( g(z) = \frac{f(z)}{(z - z_0)^{n+1}} \). Its residue at \( z_0 \) is:<br>
+</p>
+$$\text{Res}(g, z_0) = \frac{f^{(n)}(z_0)}{n!}$$</li>
+<li>
+<p><strong>Apply Residue Theorem to \( g(z) \)</strong>:<br>
+</p>
+$$\oint_C \frac{f(z)}{(z - z_0)^{n+1}} \, dz = 2\pi i \cdot \text{Res}(g, z_0) = 2\pi i \cdot \frac{f^{(n)}(z_0)}{n!}$$</li>
+<li>
+<p><strong>Solve for \( f^{(n)}(z_0) \)</strong>:<br>
+</p>
+$$f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} \, dz$$</li>
+</ol>
+<hr>
+<h3 id="3-proving-cauchys-integral-formula-via-the-residue-theorem">
+<a class="header-anchor" href="#3-proving-cauchys-integral-formula-via-the-residue-theorem"></a>
+3. Proving Cauchy&rsquo;s Integral Formula via the Residue Theorem
+</h3><h4 id="residue-theorem-2">
+<a class="header-anchor" href="#residue-theorem-2"></a>
+Residue Theorem:
+</h4>$$\oint_C f(z) \, dz = 2\pi i \cdot \text{Res}(f, z_0)$$<h4 id="cauchys-integral-formula">
+<a class="header-anchor" href="#cauchys-integral-formula"></a>
+Cauchy&rsquo;s Integral Formula:
+</h4>$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$<h4 id="proof-steps-2">
+<a class="header-anchor" href="#proof-steps-2"></a>
+Proof Steps:
+</h4><ol>
+<li>
+<p><strong>Identify the Residue</strong>:<br>
+For \( g(z) = \frac{f(z)}{z - z_0} \), the residue at \( z_0 \) is \( \text{Res}(g, z_0) = f(z_0) \).</p>
+</li>
+<li>
+<p><strong>Apply the Residue Theorem</strong>:<br>
+</p>
+$$\oint_C \frac{f(z)}{z - z_0} \, dz = 2\pi i \cdot \text{Res}(g, z_0) = 2\pi i \cdot f(z_0)$$</li>
+<li>
+<p><strong>Solve for \( f(z_0) \)</strong>:<br>
+</p>
+$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
+</ol>
+
+        <hr><p>本文 2023-12-20 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-20</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Math</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Complex Analysis</title>
+      <link>http://localhost:1313/en/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Fri, 17 Nov 2023 19:42:47 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid>
+      <description><![CDATA[<h1>Complex Analysis</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="complex-numbers">
+<a class="header-anchor" href="#complex-numbers"></a>
+Complex Numbers
+</h1><ol>
+<li>Representation of complex numbers: $$z = r\cdot e^{i\theta} = r(\cos\theta +i\cdot \sin\theta)$$</li>
+<li>Elementary functions
+<ol>
+<li>Exponential function: $e^z = e^x(\cos y + i \sin y)$
+<ol>
+<li>$e^z$ is merely shorthand for $\exp z$ and does not imply exponentiation.</li>
+<li>$|e^z| = e^x$, $\text{Arg}(e^z) = y + 2k\pi$</li>
+</ol>
+</li>
+<li>Logarithmic function: $\text{Ln}\,z = \ln|r| + i\,\text{Arg}\,z$
+<ol>
+<li>The function is analytic everywhere except at the origin and the negative real axis, and $(\text{Ln}\,z)' = \frac{1}{z}$.</li>
+</ol>
+</li>
+<li>Trigonometric functions
+<ol>
+<li>$\cos z = \frac{e^{iz} + e^{-iz}}{2}$, $\sin z = \frac{e^{iz} - e^{-iz}}{2i}$</li>
+<li>$\text{ch}\,z = \frac{e^z + e^{-z}}{2}$, $\text{sh}\,z = \frac{e^z - e^{-z}}{2}$</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="analytic-functions">
+<a class="header-anchor" href="#analytic-functions"></a>
+Analytic Functions
+</h1><ol>
+<li>Definition of differentiability:<br>
+$$\lim_{\Delta z \to 0} \frac{f(z_0 + \Delta z) - f(z_0)}{\Delta z} \text{ exists, then } f(z) \text{ is differentiable at } z_0.$$</li>
+<li>Definition of analyticity:<br>
+$$f(z) \text{ is analytic at } z_0 \text{ if it is differentiable at } z_0 \text{ and in some neighborhood of } z_0.$$<br>
+Corollary: The sum, difference, product, and quotient of analytic functions are also analytic. The composition of analytic functions is analytic.</li>
+<li>Necessary and sufficient conditions for differentiability and analyticity:<br>
+$u(x, y)$ and $v(x, y)$ are differentiable and satisfy the <strong>Cauchy-Riemann equations</strong>:<br>
+$$\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}.$$<br>
+If either condition fails, the function is neither differentiable nor analytic.<br>
+Corollary:<br>
+$$f'(z) = \frac{\partial u}{\partial x} + i \frac{\partial v}{\partial x} = \frac{1}{i} \frac{\partial u}{\partial y} + \frac{\partial v}{\partial y}.$$</li>
+</ol>
+<h1 id="complex-integration">
+<a class="header-anchor" href="#complex-integration"></a>
+Complex Integration
+</h1><p><strong>Key Formula</strong><br>
+</p>
+$$\oint_{|z - z_0| = r} \frac{1}{(z - z_0)^n} dz = \begin{cases}  
+2\pi i, & n = 1 \\  
+0, & n \neq 1  
+\end{cases}$$<ol>
+<li>Cauchy-Goursat Theorem<br>
+For a <strong>simply connected, analytic</strong> region, the integral over any closed contour is zero:<br>
+$$\oint_C f(z) dz = 0.$$</li>
+<li>Composite Contour Theorem—Extension to <strong>multiply connected</strong> regions<br>
+Let $C$ be a simple closed curve in an analytic, multiply connected region, and $C_1, C_2, \dots, C_n$ be simple closed curves inside $C$ with the same orientation. Then:<br>
+$$\oint_C f(z) dz = \sum_{k=1}^n \oint_{C_k} f(z) dz.$$</li>
+<li>Cauchy Integral Formula—Expressing the value of a function inside a contour in terms of its boundary values<br>
+If $f(z)$ is analytic in a region $D$ and $C$ is a positively oriented simple closed curve in $D$:<br>
+$$2\pi i \cdot f(z_0) = \oint_C \frac{f(z)}{z - z_0} dz.$$</li>
+<li>Generalized Cauchy Integral Formula—Using higher-order derivatives to compute integrals<br>
+$$f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} dz.$$</li>
+</ol>
+<h1 id="series">
+<a class="header-anchor" href="#series"></a>
+Series
+</h1><h2 id="power-series">
+<a class="header-anchor" href="#power-series"></a>
+Power Series
+</h2><ol>
+<li>Two properties of analytic functions
+<ol>
+<li>Analytic functions have derivatives of all orders.</li>
+<li>Every analytic function can be represented by a power series.</li>
+</ol>
+</li>
+<li>Taylor expansion:<br>
+$$f(z) = \sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!} z^n.$$</li>
+<li>Methods for finding Taylor expansions [[Advanced Mathematics#Expansion of Functions into Power Series]]</li>
+</ol>
+<h2 id="laurent-series">
+<a class="header-anchor" href="#laurent-series"></a>
+Laurent Series
+</h2><ol>
+<li>Bilateral power series
+<ol>
+<li>The region of convergence is an annulus $R_1 < |z - z_0| < R_2$.</li>
+</ol>
+</li>
+<li>Laurent expansion:<br>
+$$f(z) = \sum_{n=-\infty}^\infty c_n (z - z_0)^n, \quad c_n = \frac{1}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} dz.$$<br>
+Corollary: When $n = -1$, $c_{-1} \cdot 2\pi i = \oint_C f(z) dz$.</li>
+<li>Methods for finding Laurent expansions
+<ol>
+<li>Compute $c_n$ directly using the definition (rarely used).</li>
+<li>Use algebraic operations or substitutions to transform the Laurent series into the <strong>form and convergence domain</strong> of a Taylor series.</li>
+</ol>
+</li>
+</ol>
+<h1 id="residues">
+<a class="header-anchor" href="#residues"></a>
+Residues
+</h1><h2 id="isolated-singularities">
+<a class="header-anchor" href="#isolated-singularities"></a>
+Isolated Singularities
+</h2><ol>
+<li>Definition: $f(z)$ is not analytic at $z_0$ but is analytic in some punctured neighborhood of $z_0$.</li>
+<li>Classification of isolated singularities (based on negative power terms in the Laurent series)
+<ol>
+<li>Removable singularity: No negative power terms. As $z \to z_0$, $f(z)$ approaches a finite limit.</li>
+<li>Pole: Finite number of negative power terms (if there are $m$ such terms, $z_0$ is called an $m$-th order pole). As $z \to z_0$, $f(z) \to \infty$.</li>
+<li>Essential singularity: Infinite number of negative power terms. The limit of $f(z)$ does not exist.</li>
+</ol>
+</li>
+<li>Relationship between poles and zeros
+<ol>
+<li>Definition of zeros: For a non-zero analytic function $f(z)$, if it can be expressed as $f(z) = (z - z_0)^m \varphi(z)$, then $z_0$ is called an $m$-th order zero of $f(z)$.<br>
+Necessary and sufficient condition: $f^{(n)}(z_0) = 0$ for $n < m$, and $f^{(m)}(z_0) \neq 0$.</li>
+<li>If $z_0$ is an $m$-th order zero of $f(z)$, then $z_0$ is an $m$-th order pole of $\frac{1}{f(z)}$.</li>
+</ol>
+</li>
+</ol>
+<h2 id="residues-1">
+<a class="header-anchor" href="#residues-1"></a>
+Residues
+</h2><ol>
+<li>Definition:<br>
+$$\text{Res}[f(z), z_0] = c_{-1} = \frac{1}{2\pi i} \oint_C f(z) dz.$$</li>
+<li>Rules for computing residues
+<ol>
+<li>If $z_0$ is a simple pole of $f(z)$:<br>
+$$\text{Res}[f(z), z_0] = \lim_{z \to z_0} (z - z_0) f(z).$$</li>
+<li>If $z_0$ is an $m$-th order pole of $f(z)$:<br>
+$$\text{Res}[f(z), z_0] = \frac{1}{(m-1)!} \lim_{z \to z_0} \frac{d^{m-1}}{dz^{m-1}} \left( (z - z_0)^m f(z) \right).$$</li>
+<li>If $f(z) = \frac{P(z)}{Q(z)}$, where $P(z_0) \neq 0$, $Q(z_0) = 0$, and $Q'(z_0) \neq 0$:<br>
+$$\text{Res}[f(z), z_0] = \frac{P(z_0)}{Q'(z_0)}.$$</li>
+<li></li>
+</ol>
+</li>
+</ol>
+$$\text{Res}[f(z), \infty] = -\text{Res}\left[ f\left( \frac{1}{z} \right) \cdot \frac{1}{z^2}, 0 \right].$$
+        <hr><p>本文 2023-11-17 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-11-17</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Math</category>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1660 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>孤筝の温暖小家</title>
+    <link>http://localhost:1313/zh-cn/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/zh-cn/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Typecho评论导入Waline</title>
+      <link>http://localhost:1313/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
+      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
+      <description><![CDATA[<h1>Typecho评论导入Waline</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p>前两天把博客文章从 Typecho 迁移到 Hugo，光是设置 Front Matter 参数和重新配置图片链接就费了很大功夫。<br>
+一个博客的价值，首先是文章，紧接着就是评论。评论证明博客在互联网和真实世界产生的影响，承载了人与人之间的交互关系。私心一点地说，五湖四海的评论是重要的回忆，是构成“我”的一部分。<br>
+所以，将原站评论 copy 到新站的对应文章下是很有必要的。</p>
+<h2 id="配置-waline">
+<a class="header-anchor" href="#%e9%85%8d%e7%bd%ae-waline"></a>
+配置 Waline
+</h2><p>相比于 Wordpress、Typecho 等动态博客，静态博客只能外挂评论系统，选择众多，各有优劣。在参考了<a href="https://cloud.tencent.com/developer/article/2196035">这篇文章</a>和查阅各个评论系统官网后，我最终选择<a href="https://waline.js.org">Waline</a>。<br>
+Waline 的<a href="https://waline.js.org/guide/get-started/">中文文档</a>内容翔实，设置<a href="https://leancloud.app">LeanCloud</a>数据库和<a href="https://vercel.com/">Vercel</a> 服务端后即可进入评论管理后台 <code>https://&lt;你的服务端域名&gt;/ui/</code> 。首次注册成为管理员，在这里可以管理评论和用户。</p>
+<h2 id="导出-typecho-评论">
+<a class="header-anchor" href="#%e5%af%bc%e5%87%ba-typecho-%e8%af%84%e8%ae%ba"></a>
+导出 Typecho 评论
+</h2><p>Typecho 太老了，用户少，不如 Hexo、Wordpress 等社区活跃，互联网上资料也很少。<br>
+笔者仅找到大佬<a href="https://imnerd.org">怡红院落</a>写的一个 Typecho 导出评论到 Valine 的插件 <a href="https://github.com/lizheming/typecho-export-valine">Export2Valine</a>（也是 Waline 文档中的）。<br>
+但上次更新是三年前，经测试已经失效，仅能导入第一条评论。查看导出的 jsonl 文件，显然评论数据都已经完全导出。</p>
+<p>先将该插件安装到 Typecho （注意更改插件文件夹名称为 &ldquo;Export2Valine&rdquo; ！）。</p>
+<p>参考<a href="https://www.imwxz.com/posts/74f52ab0.html">这一篇</a> Typecho 迁移到 Hexo 的文章，该插件年久失修，需要作一些更改。<br>
+找到插件文件夹下的 <code>Action.php</code> ，第 42 行开始改成如下代码（追踪父评论）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$arr</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;objectId&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;QQAvatar&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;comment&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;text&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;insertedAt&#34;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;__type&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;iso&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span>
+</span></span><span class="line"><span class="cl">  <span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;createdAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;updatedAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ip&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;ip&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;link&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;url&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;mail&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;mail&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;nick&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;author&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ua&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;agent&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;url&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;/</span><span class="si">{</span><span class="nv">$slug</span><span class="si">}</span><span class="s2">.html&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;pid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;rid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getRootId</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>其他部分不用修改。<br>
+接着在 Typecho 后台-控制台-评论导出，打开下载的 jsonl 文件，删除开头的 <code>#filetype:JSON-streaming {&quot;type&quot;:&quot;Class&quot;,&quot;class&quot;:&quot;Comment&quot;}\n\n</code> 。<br>
+保存后关闭文件，将文件拓展名改为 <code>.json</code> 。</p>
+<h2 id="修正-json-格式">
+<a class="header-anchor" href="#%e4%bf%ae%e6%ad%a3-json-%e6%a0%bc%e5%bc%8f"></a>
+修正 json 格式
+</h2><p>导出文件 <code>jsonl</code> 内中文都用转义，只有一行，看起来一团乱麻。<br>
+为转化成便于阅读、编辑与导入的 <code>json</code> 格式，我们先利用编辑器的<strong>查找与替换</strong>功能，将 <code>}\n{</code> 替换为</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span></code></pre></div><p>Xcode 的替换，换行符可以点击左侧小放大镜标选择插入。</p>
+<p>此时每行一个评论对象。</p>
+<p>同样，将各个评论对象内的字段结构分开，将 <code>&quot;,&quot;</code> 替换为</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;</span>
+</span></span></code></pre></div><p>此时，我们可以看出每个评论对象内包含多个数据，形似</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u6d4b\u8bd5\u4e00\u4e0b&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="err">**</span><span class="kc">null</span><span class="err">**</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;4&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u600e\u4e48ip\u4e0d\u5bf9&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="err">**</span><span class="kc">null</span><span class="err">**</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
+</span></span></code></pre></div><h3 id="公共字段说明">
+<a class="header-anchor" href="#%e5%85%ac%e5%85%b1%e5%ad%97%e6%ae%b5%e8%af%b4%e6%98%8e"></a>
+公共字段说明
+</h3><ol>
+<li><strong>objectId</strong>: 评论的唯一标识符（如 &ldquo;4&rdquo; 和 &ldquo;5&rdquo;）</li>
+<li><strong>QQAvatar</strong>: QQ头像链接（当前为空字符串）</li>
+<li><strong>comment</strong>: 评论内容（包含 Unicode 转义字符，如 <code>\u600e\u4e48</code> 表示&quot;怎么&quot;）</li>
+<li><strong>insertedAt/createdAt/updatedAt</strong>: 时间戳（ISO 8601 格式）</li>
+<li><strong>ip</strong>: 评论者的 IP 地址</li>
+<li><strong>link</strong>: 评论者提供的链接（可能为 null）</li>
+<li><strong>mail</strong>: 评论者的邮箱地址</li>
+<li><strong>nick</strong>: 评论者昵称</li>
+<li><strong>ua</strong>: 用户代理（显示浏览器/设备信息）</li>
+<li><strong>url</strong>: 被评论的页面路径</li>
+</ol>
+<h3 id="特殊字段">
+<a class="header-anchor" href="#%e7%89%b9%e6%ae%8a%e5%ad%97%e6%ae%b5"></a>
+特殊字段
+</h3><ol start="11">
+<li><strong>pid</strong>: 父评论 ID</li>
+<li><strong>rid</strong>: 根评论 ID</li>
+</ol>
+<p>如果 <code>&quot;link&quot;</code> 值为 <code>null</code> ，则 <code>&quot;link&quot;</code> 与 <code>&quot;mail&quot;</code> 间没有换行。json 对换行不敏感，所以可以不管。<br>
+此时在文件首尾用 <code>[ ]</code> 将内容包裹起来，保存文件。</p>
+<h2 id="修改评论属性">
+<a class="header-anchor" href="#%e4%bf%ae%e6%94%b9%e8%af%84%e8%ae%ba%e5%b1%9e%e6%80%a7"></a>
+修改评论属性
+</h2><p>此时可以直接导入 LeanCloud 了，但尚有内容可以修改。</p>
+<p><code>Export2Valine</code> 将评论关联文章的 url 设置为 <code>\/slug</code> ，比如 <code>&quot;url&quot;: &quot;\/Summary-of-the-First-Semester-of-Junior-Year.html&quot;</code> ，其中 <code>\/</code> 是转义 <code>/</code> 。</p>
+<p>想要把评论与新博客的文章联系起来，需要手动修改 url 为新博客的文章链接。</p>
+<p>以笔者该博客为例，Hugo 生成的网站根目录下有 <code>zh-cn,zh-tw,en,ja</code> 四个文件夹（开启了多语言），中文站的文章在 <code>/zh-cn/post/文章分类/</code> 下。<br>
+笔者在本地博客源文件就将文章按分类放入不同文件夹，比如 <code>/content/post/Thoughts/最近写的诗.md</code> 生成网页相对地址为 <code>zh-cn/post/thoughts/最近写的诗</code> 。</p>
+<p>如果你的新博客文章在根目录且名称未更改，那自然不用修改 url。<br>
+若都在 <code>/post/</code> 下，可以使用查找与替换将</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/</span>
+</span></span></code></pre></div><p>替换为</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/post\/</span>
+</span></span></code></pre></div><p>笔者是暂时替换为</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/post\/</span>
+</span></span></code></pre></div><p>同样，友链、说说之类的独立页面评论也应修改为新博客对应页面相对地址。
+比如友链页面</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/links.html</span>
+</span></span></code></pre></div><p>替换为</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/friend\/</span>
+</span></span></code></pre></div><p>将 post 和独立页面中可以大规模应用<em>查找替换</em>的 url 先替换，否则导入后难以大批量替换。</p>
+<p>使用查找与替换时，尽量多包裹共同内容，找“最大公约数”，避免错误修改。<br>
+<em><strong>注意转义 <code>\/</code> !!!</strong></em></p>
+<h2 id="导入-leancloud">
+<a class="header-anchor" href="#%e5%af%bc%e5%85%a5-leancloud"></a>
+导入 LeanCloud
+</h2><p>在 LeanCloud 控制台-数据存储-导入导出，选择修改好的 json 文件，<code>Class</code> 填写 <code>Comment</code> ，导入。</p>
+<p><em><strong>注意</strong></em>，如果你之前在博客 Waline 发过测试评论，或曾尝试过导入 <code>Comment</code>，Waline 会先创建 <code>Comment</code> <code>Class</code> ，再导入就无法成功导入数据（LeanCloud 会提示成功，但没有新数据导入）。</p>
+<p>只能先在控制台-结构化数据，选择 <code>Comment</code> 并删除该 <code>Class</code>，再次尝试导入。LeanCloud 页面可能不会及时刷新结果，<code>Ctrl+F5</code> 刷新缓存就有了。</p>
+<p>导入成功后，再针对每个评论 url 进行单独设置。<br>
+比如笔者的 post 需要一个个归类到 <code>&quot;url&quot;:&quot;\/zh-cn\/post\/文章分类\/</code> 下，此时善用 LeanCloud <strong>批量操作</strong>和<strong>按条件过滤</strong>功能。</p>
+<h2 id="后记">
+<a class="header-anchor" href="#%e5%90%8e%e8%ae%b0"></a>
+后记
+</h2><p>评论的整理并没有耽误笔者太长时间，120 条评论大部分是笔者自己在说说页面的自言自语，所以 url 可以批量修正。仅有的十几条他人评论分布在寥寥三五个文章中，通过 <code>post</code> 筛选修改起来很快。不知道是好事还是坏事呢（笑）</p>
+<p>自言自语也好，他人的留言也好，每一条于笔者都有着非同寻常的意义，隔一段时间回看就会有新的感受。<br>
+如最开始所言，这是笔者的成长轨迹，是笔者存活于世的证明，是“我”的一部分。</p>
+<p>而你，我亲爱的读者，是你赋予我价值。</p>
+<p>有空的话请多多评论吧～笔者真的会开心很久的说（如果评论善意的话）。</p>
+        <hr><p>本文 2025-04-19 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Hugo博客常用资料</title>
+      <link>http://localhost:1313/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link>
+      <pubDate>Tue, 15 Apr 2025 16:42:35 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid>
+      <description><![CDATA[<h1>Hugo博客常用资料</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="hugo-常用命令">
+<a class="header-anchor" href="#hugo-%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4"></a>
+Hugo 常用命令
+</h1><table>
+  <thead>
+      <tr>
+          <th>命令</th>
+          <th>作用</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>hugo version</code></td>
+          <td>查看版本</td>
+          <td>显示当前 Hugo 安装版本</td>
+      </tr>
+      <tr>
+          <td><code>hugo new site &lt;项目名&gt;</code></td>
+          <td>创建新站点</td>
+          <td>会生成 Hugo 的目录结构</td>
+      </tr>
+      <tr>
+          <td><code>hugo new post/&lt;文件名.md&gt;</code></td>
+          <td>创建新文章</td>
+          <td>会在 <code>content/post/</code> 下生成文章并附带默认 Front Matter</td>
+      </tr>
+      <tr>
+          <td><code>hugo server</code></td>
+          <td>启动本地服务</td>
+          <td>启动本地预览，默认地址 <code>http://localhost:1313</code></td>
+      </tr>
+      <tr>
+          <td><code>hugo server -D</code></td>
+          <td>启动并显示草稿</td>
+          <td><code>-D</code> 参数显示 <code>draft: true</code> 的文章</td>
+      </tr>
+      <tr>
+          <td><code>hugo</code></td>
+          <td>构建网站</td>
+          <td>将 Markdown 内容生成静态文件到 <code>public/</code> 目录</td>
+      </tr>
+      <tr>
+          <td><code>hugo -D &lt;输出目录&gt;</code></td>
+          <td>构建包含草稿</td>
+          <td>用于发布前的全站构建（含草稿）</td>
+      </tr>
+      <tr>
+          <td><code>hugo --minify</code></td>
+          <td>压缩构建文件</td>
+          <td>构建时压缩 HTML/CSS/JS，减小体积</td>
+      </tr>
+      <tr>
+          <td><code>hugo config</code></td>
+          <td>查看配置信息</td>
+          <td>显示当前站点的配置信息</td>
+      </tr>
+      <tr>
+          <td><code>hugo list drafts</code></td>
+          <td>列出草稿</td>
+          <td>查看所有设置了 <code>draft: true</code> 的文章</td>
+      </tr>
+      <tr>
+          <td><code>hugo list future</code></td>
+          <td>列出未来发布的文章</td>
+          <td><code>date</code> 设置在当前时间之后的文章</td>
+      </tr>
+      <tr>
+          <td><code>hugo list expired</code></td>
+          <td>列出过期文章</td>
+          <td><code>expiryDate</code> 已过期的文章</td>
+      </tr>
+      <tr>
+          <td><code>hugo --gc</code></td>
+          <td>垃圾回收</td>
+          <td>清理过时资源，如缩略图缓存</td>
+      </tr>
+  </tbody>
+</table>
+<h1 id="reimu-主题-icon_font">
+<a class="header-anchor" href="#reimu-%e4%b8%bb%e9%a2%98-icon_font"></a>
+reimu 主题 icon_font
+</h1><table>
+  <thead>
+      <tr>
+          <th>图标类名</th>
+          <th>十六进制编号</th>
+          <th>中文含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>.tag-wrap</code> / <code>.article-tag-list-link</code></td>
+          <td><code>\e622</code></td>
+          <td>标签</td>
+      </tr>
+      <tr>
+          <td><code>.category-wrap</code> / <code>.article-category-link</code></td>
+          <td><code>\e604</code></td>
+          <td>分类</td>
+      </tr>
+      <tr>
+          <td><code>.article-date-link</code></td>
+          <td><code>\e606</code></td>
+          <td>日期</td>
+      </tr>
+      <tr>
+          <td><code>.article-comment-link</code></td>
+          <td><code>\e608</code></td>
+          <td>评论</td>
+      </tr>
+      <tr>
+          <td><code>.icon-copyright</code></td>
+          <td><code>\e60a</code></td>
+          <td>版权</td>
+      </tr>
+      <tr>
+          <td><code>.icon-brush</code></td>
+          <td><code>\e618</code></td>
+          <td>画笔 / 美化</td>
+      </tr>
+      <tr>
+          <td><code>.icon-coffee</code></td>
+          <td><code>\e607</code></td>
+          <td>咖啡</td>
+      </tr>
+      <tr>
+          <td><code>.icon-eye</code></td>
+          <td><code>\e60f</code></td>
+          <td>观看 / 浏览</td>
+      </tr>
+      <tr>
+          <td><code>.icon-user</code></td>
+          <td><code>\e628</code></td>
+          <td>用户</td>
+      </tr>
+      <tr>
+          <td><code>#main-nav-toggle</code></td>
+          <td><code>\e62f</code></td>
+          <td>导航菜单切换</td>
+      </tr>
+      <tr>
+          <td><code>#nav-rss-link</code></td>
+          <td><code>\e61f</code></td>
+          <td>RSS订阅</td>
+      </tr>
+      <tr>
+          <td><code>#nav-search-btn</code> / <code>.reimu-search-input-icon</code></td>
+          <td><code>\e631</code></td>
+          <td>搜索按钮</td>
+      </tr>
+      <tr>
+          <td><code>#nav-sun-btn</code></td>
+          <td><code>\e621</code></td>
+          <td>太阳图标（亮色主题）</td>
+      </tr>
+      <tr>
+          <td><code>#nav-moon-btn</code></td>
+          <td><code>\e617</code></td>
+          <td>月亮图标（暗色主题）</td>
+      </tr>
+      <tr>
+          <td><code>#nav-circle-half-stroke-btn</code></td>
+          <td><code>\e641</code></td>
+          <td>半圆（主题切换）</td>
+      </tr>
+      <tr>
+          <td><code>.icon-copy</code></td>
+          <td><code>\e60c</code></td>
+          <td>复制</td>
+      </tr>
+      <tr>
+          <td><code>.icon-chevron-down</code></td>
+          <td><code>\e609</code></td>
+          <td>下箭头</td>
+      </tr>
+      <tr>
+          <td><code>.icon-check</code></td>
+          <td><code>\e636</code></td>
+          <td>勾 / 确认</td>
+      </tr>
+      <tr>
+          <td><code>.icon-times</code></td>
+          <td><code>\e637</code></td>
+          <td>叉 / 关闭</td>
+      </tr>
+      <tr>
+          <td><code>.icon-calendar</code></td>
+          <td><code>\e605</code></td>
+          <td>日历</td>
+      </tr>
+      <tr>
+          <td><code>.icon-pencil</code></td>
+          <td><code>\e61b</code></td>
+          <td>铅笔 / 编辑</td>
+      </tr>
+      <tr>
+          <td><code>.icon-clock</code></td>
+          <td><code>\e613</code></td>
+          <td>时钟</td>
+      </tr>
+      <tr>
+          <td><code>.post-sticky</code></td>
+          <td><code>\e627</code></td>
+          <td>置顶</td>
+      </tr>
+      <tr>
+          <td><code>.reimu-popup .popup-btn-close</code></td>
+          <td><code>\e626</code></td>
+          <td>弹窗关闭</td>
+      </tr>
+      <tr>
+          <td><code>.ais-pagination--item__previous</code></td>
+          <td><code>\e601</code></td>
+          <td>上一页</td>
+      </tr>
+      <tr>
+          <td><code>.ais-pagination--item__next</code></td>
+          <td><code>\e630</code></td>
+          <td>下一页</td>
+      </tr>
+      <tr>
+          <td><code>.icon-github</code></td>
+          <td><code>\e619</code></td>
+          <td>GitHub图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-google</code></td>
+          <td><code>\e611</code></td>
+          <td>Google图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-facebook</code></td>
+          <td><code>\e60e</code></td>
+          <td>Facebook图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-twitter</code></td>
+          <td><code>\e62a</code></td>
+          <td>Twitter图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-instagram</code></td>
+          <td><code>\e615</code></td>
+          <td>Instagram图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-linkedin</code></td>
+          <td><code>\e614</code></td>
+          <td>LinkedIn图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-pinterest</code></td>
+          <td><code>\e61a</code></td>
+          <td>Pinterest图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-youtube</code></td>
+          <td><code>\e62d</code></td>
+          <td>YouTube图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-vimeo</code></td>
+          <td><code>\e629</code></td>
+          <td>Vimeo图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-flickr</code></td>
+          <td><code>\e612</code></td>
+          <td>Flickr图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-dribbble</code></td>
+          <td><code>\e610</code></td>
+          <td>Dribbble图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-behance</code></td>
+          <td><code>\e602</code></td>
+          <td>Behance图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-bilibili</code></td>
+          <td><code>\e603</code></td>
+          <td>哔哩哔哩图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-weibo</code></td>
+          <td><code>\e62c</code></td>
+          <td>微博图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-zhihu</code></td>
+          <td><code>\e62e</code></td>
+          <td>知乎图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-reddit</code></td>
+          <td><code>\e61c</code></td>
+          <td>Reddit图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-tumblr</code></td>
+          <td><code>\e625</code></td>
+          <td>Tumblr图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-medium</code></td>
+          <td><code>\e616</code></td>
+          <td>Medium图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-deviantart</code></td>
+          <td><code>\e60b</code></td>
+          <td>DeviantArt图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-stackoverflow</code></td>
+          <td><code>\e620</code></td>
+          <td>StackOverflow图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-keybase</code></td>
+          <td><code>\e61e</code></td>
+          <td>Keybase图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-telegram</code></td>
+          <td><code>\e623</code></td>
+          <td>Telegram图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-discord</code></td>
+          <td><code>\e60d</code></td>
+          <td>Discord图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-steam</code></td>
+          <td><code>\e624</code></td>
+          <td>Steam图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-email</code></td>
+          <td><code>\e63c</code></td>
+          <td>邮件</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-toc-btn</code></td>
+          <td><code>\e633</code></td>
+          <td>目录按钮</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-common-btn</code></td>
+          <td><code>\e632</code></td>
+          <td>侧边通用按钮</td>
+      </tr>
+      <tr>
+          <td><code>.sidebar-top .arrow-up</code></td>
+          <td><code>\e634</code></td>
+          <td>向上箭头</td>
+      </tr>
+      <tr>
+          <td><code>.icon-link</code></td>
+          <td><code>\e639</code></td>
+          <td>链接</td>
+      </tr>
+      <tr>
+          <td><code>.icon-globe</code></td>
+          <td><code>\e638</code></td>
+          <td>地球 / 多语言</td>
+      </tr>
+      <tr>
+          <td><code>.icon-creative-commons</code></td>
+          <td><code>\e63a</code></td>
+          <td>创用CC授权</td>
+      </tr>
+      <tr>
+          <td><code>.icon-taichi</code></td>
+          <td><code>\e62b</code></td>
+          <td>太极（暗黑模式）</td>
+      </tr>
+      <tr>
+          <td><code>.icon-weixin</code></td>
+          <td><code>\e640</code></td>
+          <td>微信图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-qq</code></td>
+          <td><code>\e63e</code></td>
+          <td>QQ图标</td>
+      </tr>
+      <tr>
+          <td><code>.icon-image</code></td>
+          <td><code>\e63f</code></td>
+          <td>图片图标</td>
+      </tr>
+  </tbody>
+</table>
+
+        <hr><p>本文 2025-04-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>OtherNotes</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Hello World</title>
+      <link>http://localhost:1313/zh-cn/post/thoughts/hello-world/</link>
+      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/thoughts/hello-world/</guid>
+      <description><![CDATA[<h1>Hello World</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="20250413">
+<a class="header-anchor" href="#20250413"></a>
+2025.04.13
+</h1><p>捣鼓两天终于搭好了Hugo博客，主题是<a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu</a>。</p>
+<p>对于原来的<a href="https://guzhengsvt.top/">Typecho博客</a>响应速度不满意，我计划再次迁移博客。（尽管Typecho已经很轻量了，垃圾的云服务器及带宽严重限制了访问和文章加载速度。）</p>
+<p>放弃动态后，能考虑静态无非Hexo、Hugo、Jekyll等。选择Hugo，无非是因为它的口号 <em><strong>The world’s fastest framework for building websites</strong></em> 。</p>
+<p>这段时间慢慢把老博客的内容搬到这里来。找了些Typecho to Hugo的方法，大多年久失修不能用了（Typecho和PHP太老了，这也是我转向的原因）。还得用笨办法，一点点把文章导出，再编辑导入Hugo。</p>
+<p>评论和说说也得想办法复刻，Hugo得外挂评论系统。</p>
+<p>然后为了加快图片访问速度，得整个图床，再把之前文章的图片链接替换。</p>
+<p>为了不对老博客产生不可逆影响，Hugo目前放在GitHub Pages托管。而GitHub在国内访问不稳定，等搬完内容完全搭建好了再copy到自己云虚拟主机。</p>
+<p>怎么这么多事啊woc</p>
+<h1 id="test">
+<a class="header-anchor" href="#test"></a>
+Test
+</h1><p>测试一下新博客。</p>
+<p>markdown</p>
+<h2 id="二级标题">
+<a class="header-anchor" href="#%e4%ba%8c%e7%ba%a7%e6%a0%87%e9%a2%98"></a>
+二级标题
+</h2><h3 id="三级标题">
+<a class="header-anchor" href="#%e4%b8%89%e7%ba%a7%e6%a0%87%e9%a2%98"></a>
+三级标题
+</h3><h4 id="四级标题">
+<a class="header-anchor" href="#%e5%9b%9b%e7%ba%a7%e6%a0%87%e9%a2%98"></a>
+四级标题
+</h4><h5 id="五级标题">
+<a class="header-anchor" href="#%e4%ba%94%e7%ba%a7%e6%a0%87%e9%a2%98"></a>
+五级标题
+</h5><h6 id="六级标题">
+<a class="header-anchor" href="#%e5%85%ad%e7%ba%a7%e6%a0%87%e9%a2%98"></a>
+六级标题
+</h6><ol>
+<li>
+<p>分条</p>
+</li>
+<li>
+<p>分条</p>
+</li>
+</ol>
+<ul>
+<li>分条</li>
+</ul>
+<p><del>删除线</del></p>
+<p><strong>加粗</strong></p>
+<p><em>斜体</em></p>
+<p>KaTex test</p>
+<p>$\frac{1}{2}$</p>
+$$
+\frac{520}{1314}
+$$<p>code test</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;hello world&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>icon: <!-- raw HTML omitted --><!-- raw HTML omitted --> 一杯咖啡</p>
+
+        <hr><p>本文 2025-04-13 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>大三上总结</title>
+      <link>http://localhost:1313/zh-cn/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Tue, 28 Jan 2025 19:46:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid>
+      <description><![CDATA[<h1>大三上总结</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="关于期末考试">
+<a class="header-anchor" href="#%e5%85%b3%e4%ba%8e%e6%9c%9f%e6%9c%ab%e8%80%83%e8%af%95"></a>
+关于期末考试
+</h2><p>于学生，一个学期最重要的似乎莫过于成绩了。秉持着临阵磨枪的<del>优良传统</del>，期末半个月几乎每日狂学（当然偶有偷懒的时候<del>怎么十六周还做实验啊我操</del>）。好歹是没有挂科，虽然分数不高但也满意（一天学完空气动力学70+什么实力我不说）。
+于是又要“下定决心”说“下学期我一定好好学”这样唬人的假话了hhh
+不过确实该学了，不然如何博士毕业呢？</p>
+<h2 id="关于读博">
+<a class="header-anchor" href="#%e5%85%b3%e4%ba%8e%e8%af%bb%e5%8d%9a"></a>
+关于读博
+</h2><p>我选择进入钱班本博通道，不是为了4+3提前毕业（虽然也没有这实力），也不是为了把握机会追求一个能带来更高薪、更高“社会地位”的学位。我想，当年将“Doctor”翻译成“博士”的人，想强调的是其背负“博学博闻”的名声，而不是其他。
+虽说“劝人读博天打雷劈”，延毕郁郁比比皆是，我还是想试试做一些亲手创造的，前无古人的成果。不为“帽子”，不为“山头”，只是为着于人民有利，为人类有益。
+就像我之前说的，</p>
+<blockquote>
+<p>我对物质的要求仅是养活一家老小，以目前的情况看不难做到。但我对本科阶段的学识不满意，学四年似乎还没入门。
+守着前贤几十几百年前就探索出来的知识生活在日新月异的新时代？放弃接触最前沿的学问安于养家糊口？我做不到。
+鄙人不才或许一生在学术上难有建树，但绝不能舍弃人类开拓创新的勇气。至少要做个站在最前面的见证者，见证一代代人冲击物质与精神的桎梏，见证文明走出温和的摇篮，走向未知的深空。
+我无法割舍获取新知的快感，
+因为我已经触碰过天空了。</p></blockquote>
+<p>今日的大话说的够多了，打心底我也不觉得自己真有改变些什么的能力，大抵最后碌碌无为成为灌水勉强毕业的学术垃圾。
+但总归是要试试的，是要去做的，因为山就在那里。</p>
+<h2 id="关于家庭">
+<a class="header-anchor" href="#%e5%85%b3%e4%ba%8e%e5%ae%b6%e5%ba%ad"></a>
+关于家庭
+</h2><p>说完严肃的话题，该聊些轻松的。
+八月母亲在武汉同济手术，我去陪了半个月<del>实在是没好意思说是照顾</del>，切除子宫后修养两个月，精神好些。然后又去早起晚归工作了，唉。
+家里并无太多牵挂，一切如常。
+有点想念冬日里奶奶煮的鸡蛋糖水。</p>
+<h2 id="关于朋友">
+<a class="header-anchor" href="#%e5%85%b3%e4%ba%8e%e6%9c%8b%e5%8f%8b"></a>
+关于朋友
+</h2><p>在学校的日子一如往常，除了一个电赛并无太多波澜。朋友们还是老样子，喜欢的人过得很好，大家各有各的生活。
+<strong>天之涯，地之角，知交半零落。</strong></p>
+<h2 id="关于匈牙利之行">
+<a class="header-anchor" href="#%e5%85%b3%e4%ba%8e%e5%8c%88%e7%89%99%e5%88%a9%e4%b9%8b%e8%a1%8c"></a>
+关于匈牙利之行
+</h2><p>报名了空间院寒假的欧布达大学访学项目，来这儿待了两周，准备回去了。
+学些没什么用的AI应用，确实和我未来的学习没多大关系，也不指望真学到什么屠龙术。
+刚来的几天白人饭很难吃，完全无法想象这儿人怎么活下去的。后面伙食渐渐好起来了，去本地的地道馆子吃了goulash（一种牛肉疙瘩汤，加了土豆胡萝卜之类的），确实好吃。这里的猪肘子更是一绝，大份又好吃<del>但为什么翻译过来是趾关节？</del>
+牛排就算了，默认五分熟不到，切不动嚼不烂。最常见的干巴面包也不行，蔬菜沙拉石中石。
+另一个印象深的是厕所，目前所有见过的厕所都干净得很，有人定期打扫放卫生纸，洗手用的清洁剂、烘干器和擦手纸一应俱全（omg），宿舍的厕所甚至有冲洗马桶用的花洒喷头和泡洁厕灵里的马桶刷子。所有水龙头都24h冷热水供应，暖气遍布以至于室内常常太热。
+唯一遗憾的是几乎没有公厕，有些地方厕所收费。
+唉，发达国家有钱，资源使劲造。一想到国内许多北方村民冬天没钱买暖气，南方许多人夏天开不起空调，我就心里难受。
+世界上受苦受难的人太多了，同志仍需努力。</p>
+<p>买了些地道东西带回去，但怕有朋友先看见破坏神秘感，就不说了。</p>
+<h2 id="尾言">
+<a class="header-anchor" href="#%e5%b0%be%e8%a8%80"></a>
+尾言
+</h2><p>明天回国过年，心里十分想念。
+剩余一半的寒假应该好好学一下《通信原理》（也许会，也许不会）。
+祝新年快乐，岁岁平安。
+2025.1.24</p>
+
+        <hr><p>本文 2025-01-28 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-01-28</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>东方红</title>
+      <link>http://localhost:1313/zh-cn/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</link>
+      <pubDate>Thu, 26 Dec 2024 00:16:35 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</guid>
+      <description><![CDATA[<h1>东方红</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h3 id="东方红">
+<a class="header-anchor" href="#%e4%b8%9c%e6%96%b9%e7%ba%a2"></a>
+东方红
+</h3><p><strong>中流击水声远空，但闻江水夜夜隆。</strong></p>
+<p><strong>人皆旭日岂年少，万里河山万里红。</strong></p>
+<p>2024.12.26<br>
+于西安</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/12/1795319606.jpeg" alt="IMG_0434.jpeg"></p>
+
+        <hr><p>本文 2024-12-26 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-12-26</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Poetry</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>因为春天来过</title>
+      <link>http://localhost:1313/zh-cn/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</link>
+      <pubDate>Wed, 13 Nov 2024 22:07:40 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</guid>
+      <description><![CDATA[<h1>因为春天来过</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h3 id="谨以此诗献给我生命中那颗polaris">
+<a class="header-anchor" href="#%e8%b0%a8%e4%bb%a5%e6%ad%a4%e8%af%97%e7%8c%ae%e7%bb%99%e6%88%91%e7%94%9f%e5%91%bd%e4%b8%ad%e9%82%a3%e9%a2%97polaris"></a>
+——谨以此诗，献给我生命中那颗Polaris
+</h3><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/11/1787644976.jpg" alt="IMG_4884.jpg"></p>
+<p><strong>一位可爱的旅人途经一片无人欣赏的风景，她带来这异域的暖风吹过干涸的田野，拂过树梢又在湖面荡漾出波光粼粼。<br>
+果树们纷纷为这美人倾倒，急急忙忙开花又结果；林中的鸟儿四处寻觅为数不多的花枝，编成花环戴在她头上。<br>
+旅人漫步于这落英缤纷，盛情难却，摘下几个鲜红的果实；又不好意思一味索取，便掏出口袋里所有鲜花的种子，播撒在所有龟裂的地皮。<br>
+唯有田野荒芜，他羞涩又内疚——有什么可以拿出来献给这位可爱的姑娘吗？<br>
+他使出吃奶的力气催促花种们快快长大，希望能让她看到田野里盛放的鲜花。<br>
+可旅人注定不会在这儿久留——这里的风景确实很好，树和鸟儿都很殷勤，只是，这里不是一个适合当家的地方。<br>
+旅人走了，果树、鸟儿、田野都有些不舍。<br>
+田野的花儿还是没有送出去，可能下一位旅人到来就能看到一座美丽的花园吧。<br>
+但大家并不为此感到悲伤，<br>
+因为春天来过。</strong></p>
+<p><strong>冬去春来，秋去冬来。<br>
+果实变成小小的果树，雏鸟刚刚学会飞翔；年轮缠上树干，夏雨将羽翼洗的锃亮。<br>
+田野悉心照料的花园里，最后一朵菊花开过了花期，空杆叶随寒风摆动。<br>
+这片土地不再荒芜，过去的几个季节，旅人带来的种子抽芽破土而出，按商量好的花期依次向世界展示她们的美丽。饮晨露，沐朝阳，舞清风，枕月光。<br>
+春天，田野用栀子花和山楂花做了一顶纯白的花环，像旅人的白裙子一样美。<br>
+夏天，田野用紫薇和木槿做了一个花篮，可惜木槿朝开暮落，像旅人匆匆离开。<br>
+秋天，田野想用桂花和菱叶菊铺一张花床，秋风却不解风情一次次卷走了桂香。<br>
+鲜花们带着使命畅享短暂的生命，在尘土中准备下一次远航。<br>
+旅人再也没有回来，她不知道自己随手洒下的种子已然长成一片花园，而田野也始终没有机会献上他的礼装。<br>
+冬去春来，秋去冬来。<br>
+田野期待一场雪，给底下的花种盖上温暖的被子。若是来年旅人再次来到这世外桃源，这花园可配得上那可爱的姑娘。<br>
+初冬的细雨里，他悄然睡下，梦到十月最后一批蒲公英乘风出发，快要追上旅人的双颊。<br>
+“你不害怕花种撑不过冬天吗？”树和鸟儿这样问田野，此刻的田野又变得光秃秃空无一物。<br>
+“没关系，我已经见过春天了。”<br>
+因为春天来过。</strong></p>
+        <hr><p>本文 2024-11-13 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-11-13</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Poetry</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>晋南行五首</title>
+      <link>http://localhost:1313/zh-cn/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</link>
+      <pubDate>Tue, 08 Oct 2024 15:47:32 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</guid>
+      <description><![CDATA[<h1>晋南行五首</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="序">
+<a class="header-anchor" href="#%e5%ba%8f"></a>
+序
+</h2><p>　　国庆随《黑神话·悟空》游山西，历晋南晋城、临汾、运城三市，作诗词五首，简记之。
+　　</p>
+<h2 id="晋南行其一">
+<a class="header-anchor" href="#%e6%99%8b%e5%8d%97%e8%a1%8c%e5%85%b6%e4%b8%80"></a>
+晋南行·其一
+</h2><p><strong>门掩残塑去，檐出金铎来。<br>
+点染翠林乱，泼墨碧裙开。<br>
+新枝攀朽木，老壮携幼孩。<br>
+徽因应有泪，千年可留白？</strong></p>
+<p><strong>孤筝<br>
+2024.10.2<br>
+晋城玉皇庙、府城关帝庙、青莲寺</strong></p>
+<p>　　玉皇庙二十八星宿等殿均禁闪光灯，佛像隐于铁栅栏后，许些漆迹剥落，乃至缺首断足。令人遗憾。<br>
+　　府城关帝庙中塑像几乎都是现代新作，手艺拙劣叫人倒胃口。倒是建筑值得一看。<br>
+　　青莲寺山高路远，沿途风景极好，秋日山青水碧，少许红黄阔叶点缀其间，万里无云，是锦绣福地。<br>
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/4175125506.jpg" alt="IMG_0808 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/2744194162.jpg" alt="IMG_0836 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/4200527731.jpg" alt="IMG_1026 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/126764360.jpg" alt="IMG_0915 (1).JPG"></p>
+<h2 id="晋南行其二">
+<a class="header-anchor" href="#%e6%99%8b%e5%8d%97%e8%a1%8c%e5%85%b6%e4%ba%8c"></a>
+晋南行·其二
+</h2><p><strong>倦起青帝未点班，急腾晨雾破晓寒。<br>
+才渡人海窥佛面，又登林云访伽蓝。<br>
+九尊金身九菡萏，三进相门三净坛。<br>
+未及鳞霞收暮色，已是轻骑跃重山。</strong></p>
+<p><strong>孤筝<br>
+2024.10.3<br>
+晋城开化寺、铁佛寺、定林寺</strong></p>
+<p>　　大早上赶公交到高平，先逛开化寺，再回铁佛寺。铁佛寺新开放不久，人满为患，又深居小村小院。排队一小时余，得窥佛面两分钟。幸而排队遇一家三口，父母开明，不拒二次元和游戏。唉，神仙父母无处寻也。（女儿双马尾好可爱wwww）<br>
+　　定林寺莲花藻井亦是近期才重新开放，有幸遇上，确实好看。
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/438599092.jpg" alt="IMG_0998 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/1955933777.jpg" alt="IMG_1044 (1).JPG"></p>
+<h2 id="晋南行其三">
+<a class="header-anchor" href="#%e6%99%8b%e5%8d%97%e8%a1%8c%e5%85%b6%e4%b8%89"></a>
+晋南行·其三
+</h2><h3 id="水调歌头">
+<a class="header-anchor" href="#%e6%b0%b4%e8%b0%83%e6%ad%8c%e5%a4%b4"></a>
+水调歌头
+</h3><p>**　　宝相食香禄，石碑浸风尘。敢问座下丘列，诵经可达神？已削青丝断欲，又弃酒肉濯宇，笑面谨藏嗔。空识五蕴律，不解无明身。<br>
+　　假金铙，修禅庙，弄愚生。诳语功德，却效如来释大乘。许利好收虔众，劝善难得信笃，八戒误沙门。司磬称富贵，伪佛度俗僧。**</p>
+<p><strong>孤筝<br>
+2024.10.4<br>
+临汾小西天</strong></p>
+<p>八戒：一戒杀生，二戒偷盗，三戒淫，四戒妄语，五戒饮酒，六戒着香华，七戒坐卧高广大床，八戒非时食。<br>
+黄眉：不杀生，仇恨永无止息；不偷盗，强弱如我何异；不邪淫，一切有情皆孽；不妄语，梦幻泡影空虚；不馋酒，忧怖涨落无常；不耽乐，芳华刹那而已；不贪眠，苦苦不得解脱；不纵欲，诸行了无生趣。</p>
+<p>　　小西天下寺没啥看头，都是些求财求子的善男信女烧香拜佛。那尼姑（？存疑）坐一旁敲磬看跪拜，口中不停说包佑日入一个亿一千万什么的，讽刺至极。<br>
+　　上寺大雄宝殿内悬塑，规格规模具是惊人。可惜人太多了没多少时间细看。我去晚了没拿到山西官方通关信物明信片，略有遗憾。<br>
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/837638753.jpg" alt="IMG_1144 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/377169443.jpg" alt="IMG_1929 (1).JPG"></p>
+<h2 id="晋南行其四">
+<a class="header-anchor" href="#%e6%99%8b%e5%8d%97%e8%a1%8c%e5%85%b6%e5%9b%9b"></a>
+晋南行·其四
+</h2><p><strong>古刹踞平阳，三震隐佛光。<br>
+巍巍琉璃塔，缈缈罗汉堂。<br>
+求经凭功禄，祈雨赖人王。<br>
+一藏传东土，贞观起盛唐。</strong></p>
+<p><strong>孤筝<br>
+2024.10.6<br>
+临汾广胜寺</strong></p>
+<p>　　洪洞县广胜寺，下寺有雨神庙，左右满壁画，保存不甚完好。殿内光线阴暗，看不真切。左右偏房有官方扫描件，色彩鲜明，神采俱备，可称佳品。<br>
+　　上寺重看飞虹塔，宝塔遍身琉璃。仅开放一层，内里无甚可观之处。<br>
+　　后院天中天殿有三尊大佛，高十余尺，身形秀丽，是为一绝。<br>
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/2152415040.jpg" alt="IMG_1956 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/270551755.jpg" alt="IMG_1985 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/4038570737.jpg" alt="IMG_2006 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/193997803.jpg" alt="IMG_2037 (2).JPG"></p>
+<h2 id="晋南行其五">
+<a class="header-anchor" href="#%e6%99%8b%e5%8d%97%e8%a1%8c%e5%85%b6%e4%ba%94"></a>
+晋南行·其五
+</h2><h3 id="鹳雀楼幸遇未陶然有寄">
+<a class="header-anchor" href="#%e9%b9%b3%e9%9b%80%e6%a5%bc%e5%b9%b8%e9%81%87%e6%9c%aa%e9%99%b6%e7%84%b6%e6%9c%89%e5%af%84"></a>
+鹳雀楼幸遇未陶然有寄
+</h3><p><strong>生来不是酒中仙，落墨皴眉把字研。<br>
+鹳雀楼上斗之涣，太行山下思教员。<br>
+君作人间逍遥客，我困象塔长少年。<br>
+或历天地无存所，且将诗债换酒钱。</strong></p>
+<p><strong>孤筝<br>
+2024.10.6<br>
+运城永乐宫、广仁王庙、鹳雀楼、关帝庙</strong></p>
+<p>　　运城跟团游，时间紧地点多，都没来得及细看。至鹳雀楼时，观一小摊书“卖原创诗集”大字。逛毕新楼，回看诗集，久震余惊。未陶然受大理女诗人影响重走文学路，我也曾写过不少诗，多是闲来拙笔，倒也未想过以此为生计。<br>
+　　高中将作诗、摘诗的底稿送出，分手后，再也没怎么写过诗了。一是沉迷游戏现实，没读什么书，既无诗才也无勤心，落笔干涩终不满意。二是心境迷蒙，顾当世如雾里看花，既无透劲亦无清明，活得浑浑噩噩。三是久居象塔经历平平，无喜无悲，难有诗情。<br>
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/3184801327.jpg" alt="IMG_2131 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/1585398490.jpg" alt="IMG_2134 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/3750612929.jpg" alt="IMG_2158 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/3048377807.jpg" alt="IMG_2214 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/1157009.jpg" alt="IMG_2233 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/343590413.jpg" alt="IMG_2234 (1).JPG">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/915481746.jpg" alt="IMG_2235 (1).JPG"></p>
+<h2 id="后记">
+<a class="header-anchor" href="#%e5%90%8e%e8%ae%b0"></a>
+后记
+</h2><p>晋南三城各有特色。<br>
+晋城繁华，公交发达，有专线通往各个景点。初到市区，一路灯火通明。<br>
+临汾奇异，连客运站周围都黑的很，景点离城区远且没有公交专线，包车花费较大；公共厕所有特色，我骑青桔电动车打卡二十余，无一相同。<br>
+运城热闹，主路也好小路也罢，商铺小店小摊挤满了，听说还有南北两集市（运城包子好吃，小馆实诚）。<br>
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/3704126306.jpg" alt="IMG_2091.JPG"></p>
+        <hr><p>本文 2024-10-08 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-10-08</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Poetry</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>中秋，给家人打个电话吧</title>
+      <link>http://localhost:1313/zh-cn/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</link>
+      <pubDate>Sun, 15 Sep 2024 22:35:40 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</guid>
+      <description><![CDATA[<h1>中秋，给家人打个电话吧</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <blockquote>
+<p>“妈妈这个世界真的会有女孩喜欢我吗？”<br>
+“当然啦第一次见你我也才20多岁。”</p></blockquote>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2045946501&auto=0&height=66"></iframe>
+
+
+<p>中秋节将近，给家人打个电话吧。</p>
+<blockquote>
+<p>人有悲欢离合，月有阴晴圆缺，此事古难全。<br>
+但愿人长久，千里共婵娟。</p></blockquote>
+<p>但愿人长久，但愿人长久，但愿人长久。</p>
+        <hr><p>本文 2024-09-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-15</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>概率论与数理统计</title>
+      <link>http://localhost:1313/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link>
+      <pubDate>Tue, 10 Sep 2024 01:14:05 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid>
+      <description><![CDATA[<h1>概率论与数理统计</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="前言">
+<a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
+前言
+</h2><h3 id="第一版前言">
+<a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e7%89%88%e5%89%8d%e8%a8%80"></a>
+第一版前言
+</h3><p>[[2024-09-14]] 今天补考终于结束了，听说正考直接放原卷，这几天刷了三套网上得来的“西电原卷”（21 年和两套 23 年）。上午刷的 21 年题，下午 $\frac{1}{4}$ 是一个字不改的原题，我都看笑了。
+戴浩当年说尽力给钱班找最好的老师，现在看来数统院没人了？讲课不行可以说是重心不在教学、天赋不在教书；出套卷子直接搬旧题，还是近几年的，题也没审错漏百出，给我气笑了。
+自己出的卷子毫无含金量，自己也不做做看。这是态度问题。
+你电期末考试放水挺好的，但不要总是拿老本糊弄人。对学生大谈创新，对自己能混就行。这不是做学术的态度，更不是教书应有的态度。</p>
+<p>概率论就此告一段落，这两天反复看笔记刷题订正不少错误，也明晰了这门课的知识结构。虽然内容仍然偏少，但作为期末复习的材料大抵足够，这版就作为终版吧（大概）。
+中秋继续整理电动力学和数字信号处理。</p>
+<h3 id="第二版前言">
+<a class="header-anchor" href="#%e7%ac%ac%e4%ba%8c%e7%89%88%e5%89%8d%e8%a8%80"></a>
+第二版前言
+</h3><blockquote>
+<p>Nothing is final!!!
+——钱学森</p></blockquote>
+<p>补充了分布函数左右连续问题，看来这门课离 final 还有很远……</p>
+<h2 id="事件运算转逻辑运算">
+<a class="header-anchor" href="#%e4%ba%8b%e4%bb%b6%e8%bf%90%e7%ae%97%e8%bd%ac%e9%80%bb%e8%be%91%e8%bf%90%e7%ae%97"></a>
+事件运算转逻辑运算
+</h2><ul>
+<li>$A \cup B=A+B$</li>
+<li>$A \cap B=A \cdot B$</li>
+<li>$A-B=A \bar{B}$
+$A$ 事件发生 $B$ 事件不发生，由韦恩图易证。
+可以将 $-B$ 理解为 $\cdot (-B)$ ，$-B$ 即为 $\bar{B}$</li>
+<li>若 $A \subset B$ ，$A \cup B=B,A \cap B=A$</li>
+</ul>
+<p>事件运算转逻辑运算后，大部分法则共通。
+运用数电中学到的逻辑函数运算与化简，可将复杂事件运算化简。
+Tips：卡诺图</p>
+<h2 id="四大事件概率公式">
+<a class="header-anchor" href="#%e5%9b%9b%e5%a4%a7%e4%ba%8b%e4%bb%b6%e6%a6%82%e7%8e%87%e5%85%ac%e5%bc%8f"></a>
+四大事件概率公式
+</h2>$$
+\begin{cases}
+P(A+B)=P(A)+P(B)-P(AB)\\
+P(A-B)=P(A)-P(AB)=P(A \bar{B})\\
+P(AB)=P(B) \cdot P(A|B)=P(A) \cdot P(B|A)\\
+P(A|B)=\frac{P(AB)}{P(B)}\\
+\end{cases}
+$$<h3 id="推论">
+<a class="header-anchor" href="#%e6%8e%a8%e8%ae%ba"></a>
+推论
+</h3><p>$P(A+B+C)$ ，将 $A+B$ 看成一个事件，运用上面的加法公式，两次拆分得到：
+</p>
+$$
+P(A+B+C)=P(A)+P(B)+P(C)-P(AB)-P(AC)-P(BC)+P(ABC)
+$$<p>
+更多和事件概率可依此递推得到。</p>
+<p>对立事件：$A$ 不发生的概率，韦恩图一目了然。
+</p>
+$$
+P(\bar{A})=P(1 \cdot \bar{A})=P(1-A)=P(1)-P(1 \cdot A)=1-P(A)
+$$<h2 id="非负性与规范性">
+<a class="header-anchor" href="#%e9%9d%9e%e8%b4%9f%e6%80%a7%e4%b8%8e%e8%a7%84%e8%8c%83%e6%80%a7"></a>
+非负性与规范性
+</h2><p>非负性：对于任意事件 $A$ ，$0 \le P(A) \le 1$ 。
+规范性：对于总事件 $\Omega$ ，$P(\Omega)=1$ 。</p>
+<h2 id="相互独立">
+<a class="header-anchor" href="#%e7%9b%b8%e4%ba%92%e7%8b%ac%e7%ab%8b"></a>
+相互独立
+</h2>$$
+\begin{cases}
+P(AB)=P(A) \cdot P(B)\\
+P(A|B)=P(A)
+\end{cases}
+$$<p>
+独立必相互独立。</p>
+<h2 id="古典概型">
+<a class="header-anchor" href="#%e5%8f%a4%e5%85%b8%e6%a6%82%e5%9e%8b"></a>
+古典概型
+</h2><blockquote>
+<p>各基本事件发生概率相等。</p></blockquote>
+<p>Eg. 抛硬币，掷骰子……
+</p>
+$$
+P(A)=\frac{A包含基本事件数}{\Omega 中基本事件数}
+$$<p>
+古典条件概率公式
+</p>
+$$
+P(B|A)=\frac{P(AB)}{P(A)}=\frac{同时在A,B中的基本事件数}{A包含基本事件数}
+$$<h2 id="伯努利概型二项分布">
+<a class="header-anchor" href="#%e4%bc%af%e5%8a%aa%e5%88%a9%e6%a6%82%e5%9e%8b%e4%ba%8c%e9%a1%b9%e5%88%86%e5%b8%83"></a>
+伯努利概型（二项分布）
+</h2><blockquote>
+<p>$n$ 次独立实验，每次实验只有 $A,\bar{A}$ 两种结果。</p></blockquote>
+<p>$X \sim B(n,p)$
+</p>
+$$
+P_n(k)=C_n^kp^k(1-p)^{n-k}
+$$<p>
+其中，$p=P(A),1-p=P(\bar{A})$</p>
+<h2 id="几何概型">
+<a class="header-anchor" href="#%e5%87%a0%e4%bd%95%e6%a6%82%e5%9e%8b"></a>
+几何概型
+</h2><p>事件 <em>所占线/面/体积</em> 部分与整个 <em>线/面/体</em> 的 <em>长度/面积/体积</em> 比值。
+当事件所占空间维度低于总事件空间 $\Omega$ 维度时，该事件概率恒为 0 。
+==Warning==：事件概率为 0 不代表一定不发生。
+Eg：随机选中圆内某点，选中任意点概率为 0，但都可能发生。</p>
+<h2 id="均匀分布">
+<a class="header-anchor" href="#%e5%9d%87%e5%8c%80%e5%88%86%e5%b8%83"></a>
+均匀分布
+</h2><p>$x \sim U(a,b)$
+近似为几何分布中的线性分布，各点处概率密度：
+</p>
+$$
+f(x)=
+\begin{cases}
+0,x \le a\\
+\frac{1}{b-a},a < x \le b\\
+0,x>b\\
+\end{cases}
+$$<p>分布函数：
+</p>
+$$
+F(x)=
+\begin{cases}
+0,x \le a\\
+\frac{x-a}{b-a},a<x \le b\\
+1,x>b\\
+\end{cases}
+$$<h2 id="指数分布">
+<a class="header-anchor" href="#%e6%8c%87%e6%95%b0%e5%88%86%e5%b8%83"></a>
+指数分布
+</h2><p>$x \sim E(\lambda)$</p>
+<h3 id="概率密度">
+<a class="header-anchor" href="#%e6%a6%82%e7%8e%87%e5%af%86%e5%ba%a6"></a>
+概率密度
+</h3>$$
+f(x)=
+\begin{cases}
+\lambda e^{-\lambda x},x>0\\
+0,x \le 0\\
+\end{cases}
+$$<h3 id="分布函数">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e5%87%bd%e6%95%b0"></a>
+分布函数
+</h3>$$
+F(x)=
+\begin{cases}
+1-e^{-\lambda x},x \ge 0\\
+0,x<0\\
+\end{cases}
+$$<h2 id="泊松分布">
+<a class="header-anchor" href="#%e6%b3%8a%e6%9d%be%e5%88%86%e5%b8%83"></a>
+泊松分布
+</h2><p>$X \sim \pi(\lambda)$
+</p>
+$$
+P(X=k)=\frac{e^{-\lambda}\lambda^k}{k!}
+$$<h2 id="正态分布">
+<a class="header-anchor" href="#%e6%ad%a3%e6%80%81%e5%88%86%e5%b8%83"></a>
+正态分布
+</h2><p>$x \sim N(\mu,\sigma^2)$</p>
+<h3 id="概率密度-1">
+<a class="header-anchor" href="#%e6%a6%82%e7%8e%87%e5%af%86%e5%ba%a6-1"></a>
+概率密度
+</h3>$$
+f(x)=\frac{1}{\sqrt{2 \pi} \sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}},x \in R,\sigma>0
+$$<h3 id="分布函数-1">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e5%87%bd%e6%95%b0-1"></a>
+分布函数
+</h3>$$
+F(x)=\int^{x}_{-\infty}f(t)dt
+$$<p>
+显然，$F(\mu)=\frac{1}{2}$ ，即 $P(x \le \mu)=P(x>\mu)=\frac{1}{2}$ 。</p>
+<h3 id="标准正态分布">
+<a class="header-anchor" href="#%e6%a0%87%e5%87%86%e6%ad%a3%e6%80%81%e5%88%86%e5%b8%83"></a>
+标准正态分布
+</h3><p>当 $\mu=0,\sigma=1$ 时，此分布为标准正态分布。
+</p>
+$$
+\varphi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
+$$<p>
+</p>
+$$
+\varPhi(x)=\int^{x}_{-\infty}\varphi(t)dt
+$$<h3 id="推论-1">
+<a class="header-anchor" href="#%e6%8e%a8%e8%ae%ba-1"></a>
+推论
+</h3>$$
+\varPhi(-x)=1-\varPhi(x)
+$$<p>
+</p>
+$$
+F(x)=\varPhi(\frac{x-\mu}{\sigma})
+$$<p>
+正态分布标准化：
+</p>
+$$
+X \sim N(\mu,\sigma^2),Z=\frac{X-\mu}{\sigma}\sim N(0,1)
+$$<h2 id="全概率公式">
+<a class="header-anchor" href="#%e5%85%a8%e6%a6%82%e7%8e%87%e5%85%ac%e5%bc%8f"></a>
+全概率公式
+</h2><h3 id="完备事件组">
+<a class="header-anchor" href="#%e5%ae%8c%e5%a4%87%e4%ba%8b%e4%bb%b6%e7%bb%84"></a>
+完备事件组
+</h3>$$
+\begin{cases}
+B_1 \cup B_2 \cup B_3 \cup \cdots \cup B_n=\Omega\\
+B_i \cap B_j=\varnothing,i \ne j,1 \le i \le n,1 \le j \le n\\
+\end{cases}
+$$<p>
+称 $B_1,B_2,B_3,\cdots B_n$ 构成 $\Omega$ 的一个完备事件组。</p>
+<h3 id="全概率公式-1">
+<a class="header-anchor" href="#%e5%85%a8%e6%a6%82%e7%8e%87%e5%85%ac%e5%bc%8f-1"></a>
+全概率公式
+</h3>$$
+\begin{align}
+P(A)
+&=P(AB_1 \cup AB_2 \cup \cdots \cup AB_n)\\
+&=P(AB_1)+P(AB_2)+\cdots +P(AB_n)\\
+&=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+\cdots +P(B_n)P(A|B_n)\\
+\end{align}
+$$<h3 id="贝叶斯公式">
+<a class="header-anchor" href="#%e8%b4%9d%e5%8f%b6%e6%96%af%e5%85%ac%e5%bc%8f"></a>
+贝叶斯公式
+</h3>$$
+P(B_1|A)=\frac{P(AB_1)}{P(A)}=\frac{P(B_1)P(A|B_1)}{P(A)}
+$$<h2 id="一维离散型随机变量">
+<a class="header-anchor" href="#%e4%b8%80%e7%bb%b4%e7%a6%bb%e6%95%a3%e5%9e%8b%e9%9a%8f%e6%9c%ba%e5%8f%98%e9%87%8f"></a>
+一维离散型随机变量
+</h2><h3 id="分布律">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e5%be%8b"></a>
+分布律
+</h3>$$
+P(X=x_i)=p_i=\frac{X=x_i情况数}{总情况数},i=1,2,\cdots 
+$$<h3 id="分布函数-2">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e5%87%bd%e6%95%b0-2"></a>
+分布函数
+</h3>$$
+F(x)=\sum_{x_i<x}p_i,x \in R
+$$<h2 id="一维连续型随机变量">
+<a class="header-anchor" href="#%e4%b8%80%e7%bb%b4%e8%bf%9e%e7%bb%ad%e5%9e%8b%e9%9a%8f%e6%9c%ba%e5%8f%98%e9%87%8f"></a>
+一维连续型随机变量
+</h2><h3 id="概率密度-2">
+<a class="header-anchor" href="#%e6%a6%82%e7%8e%87%e5%af%86%e5%ba%a6-2"></a>
+概率密度
+</h3>$$
+f(x)=F'(x)
+$$<h3 id="分布函数-3">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e5%87%bd%e6%95%b0-3"></a>
+分布函数
+</h3>$$
+F(x)=\int_{-\infty}^xf(t)dt
+$$<h3 id="区间概率">
+<a class="header-anchor" href="#%e5%8c%ba%e9%97%b4%e6%a6%82%e7%8e%87"></a>
+区间概率
+</h3>$$
+P(a<x \le b)=\int_a^bf(x)dx=F(b)-F(a)
+$$<p>$\because$ $P(x=a)=0,a \in R$
+$\therefore$ 区间两边等号随意取</p>
+<h3 id="规范性">
+<a class="header-anchor" href="#%e8%a7%84%e8%8c%83%e6%80%a7"></a>
+规范性
+</h3>$$
+F(\infty)=\int^{\infty}_{-\infty}f(x)dx=1
+$$$$
+F(-\infty)=0
+$$<h2 id="二维离散型随机变量">
+<a class="header-anchor" href="#%e4%ba%8c%e7%bb%b4%e7%a6%bb%e6%95%a3%e5%9e%8b%e9%9a%8f%e6%9c%ba%e5%8f%98%e9%87%8f"></a>
+二维离散型随机变量
+</h2><h3 id="联合分布律">
+<a class="header-anchor" href="#%e8%81%94%e5%90%88%e5%88%86%e5%b8%83%e5%be%8b"></a>
+联合分布律
+</h3><p>$P(X=x_i,Y=y_j)$
+将 X，Y 可能取值列二维表，填入对应概率。</p>
+<h3 id="边缘分布律">
+<a class="header-anchor" href="#%e8%be%b9%e7%bc%98%e5%88%86%e5%b8%83%e5%be%8b"></a>
+边缘分布律
+</h3><p>$P(X=x_i),P(Y=y_j)$
+将联合分布律的行/列相加，得到 $f_Y(x),f_X(y)$</p>
+<h3 id="条件分布">
+<a class="header-anchor" href="#%e6%9d%a1%e4%bb%b6%e5%88%86%e5%b8%83"></a>
+条件分布
+</h3><p>$P(X=x_i|Y=y_j),P(Y=y_i|X=x_j)$
+联合分布率每行/列除以该行/列对应的边缘分布律。
+即每行/列的联合分布率化为<strong>成比例项</strong>，各项和为 1。</p>
+<h3 id="两变量独立性">
+<a class="header-anchor" href="#%e4%b8%a4%e5%8f%98%e9%87%8f%e7%8b%ac%e7%ab%8b%e6%80%a7"></a>
+两变量独立性
+</h3><p>==此处的独立性指的是线性无关，不代表完全独立无关。==
+将联合分布表写成矩阵 $\vec{A}$ ，当 $\det \vec{A}=0$ 时 X 与 Y 独立。
+Or：联合分布表各行/列成比例时 X 与 Y 独立。
+Or：联合分布率 $\ne$ 边缘分布率乘积，即 $P(X=x_i,Y=y_j)\ne P(X=x_i)P(Y=y_j)$ 时，X 与 Y 不相互独立。</p>
+<h2 id="二位连续性随机变量">
+<a class="header-anchor" href="#%e4%ba%8c%e4%bd%8d%e8%bf%9e%e7%bb%ad%e6%80%a7%e9%9a%8f%e6%9c%ba%e5%8f%98%e9%87%8f"></a>
+二位连续性随机变量
+</h2><h3 id="联合密度函数">
+<a class="header-anchor" href="#%e8%81%94%e5%90%88%e5%af%86%e5%ba%a6%e5%87%bd%e6%95%b0"></a>
+联合密度函数
+</h3>$$
+f(x,y)
+$$<h3 id="规范性-1">
+<a class="header-anchor" href="#%e8%a7%84%e8%8c%83%e6%80%a7-1"></a>
+规范性
+</h3>$$
+\int^{\infty}_{-\infty}\int^{\infty}_{-\infty}f(x,y)dxdy=1
+$$<h3 id="边缘密度函数">
+<a class="header-anchor" href="#%e8%be%b9%e7%bc%98%e5%af%86%e5%ba%a6%e5%87%bd%e6%95%b0"></a>
+边缘密度函数
+</h3>$$
+f_X(x)=\int^{\infty}_{-\infty}f(x,y)dy
+$$<p>
+</p>
+$$
+f_Y(y)=\int^{\infty}_{-\infty}f(x,y)dx
+$$<h3 id="条件密度">
+<a class="header-anchor" href="#%e6%9d%a1%e4%bb%b6%e5%af%86%e5%ba%a6"></a>
+条件密度
+</h3>$$
+f_{Y|X}(y|x)=\frac{f(x,y)}{f_X(x)}
+$$<h3 id="独立性">
+<a class="header-anchor" href="#%e7%8b%ac%e7%ab%8b%e6%80%a7"></a>
+独立性
+</h3>$$
+f(x,y)=f_X(x)f_Y(y)
+$$<p>
+满足以上条件时，X 与 Y 相互独立。</p>
+<h3 id="分布函数-4">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e5%87%bd%e6%95%b0-4"></a>
+分布函数
+</h3><p>设 $Z=X-Y$ ，
+</p>
+$$
+\begin{align}
+F_Z(z)
+&=P(Z<z)\\
+&=P(X-Y<z)\\
+&=P(X<Y+z)\\
+&=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
+\end{align}
+$$<p>
+即分布函数 $F_Z(z)=\iint_Df(x,y)dxdy$ 。由分布函数求导得概率密度函数 $f_Z(z)$ 。
+==Warning==：$F_Z(z)$ 满足规范性。</p>
+<h2 id="期望与方差">
+<a class="header-anchor" href="#%e6%9c%9f%e6%9c%9b%e4%b8%8e%e6%96%b9%e5%b7%ae"></a>
+期望与方差
+</h2><h3 id="关系式">
+<a class="header-anchor" href="#%e5%85%b3%e7%b3%bb%e5%bc%8f"></a>
+关系式
+</h3>$$
+DX=EX^2-(EX)^2
+$$<p>
+</p>
+$$
+D(cX)=c^2DX
+$$<p>
+</p>
+$$
+D(X+Y)=D(X)+D(Y)+2Cov(X,Y)
+$$<p>
+X 与 Y 相互独立时 $Cov(X,Y)=0$ 。</p>
+<h3 id="常见期望与方差">
+<a class="header-anchor" href="#%e5%b8%b8%e8%a7%81%e6%9c%9f%e6%9c%9b%e4%b8%8e%e6%96%b9%e5%b7%ae"></a>
+常见期望与方差
+</h3><h4 id="分布">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83"></a>
+$(0,1)$ 分布
+</h4>$$
+EX=p,DX=p(1-p)
+$$<h4 id="二项分布">
+<a class="header-anchor" href="#%e4%ba%8c%e9%a1%b9%e5%88%86%e5%b8%83"></a>
+$B(n,p)$ 二项分布
+</h4>$$
+EX=np,DX=np(1-p)
+$$<h4 id="均匀分布-1">
+<a class="header-anchor" href="#%e5%9d%87%e5%8c%80%e5%88%86%e5%b8%83-1"></a>
+$U(a,b)$ 均匀分布
+</h4>$$
+EX=\frac{a+b}{2},DX=\frac{(b-a)^2}{12}
+$$<h4 id="指数分布-1">
+<a class="header-anchor" href="#%e6%8c%87%e6%95%b0%e5%88%86%e5%b8%83-1"></a>
+$E(\lambda)$ 指数分布
+</h4>$$
+EX=\frac{1}{\lambda},DX=\frac{1}{\lambda^2}
+$$<h4 id="泊松分布-1">
+<a class="header-anchor" href="#%e6%b3%8a%e6%9d%be%e5%88%86%e5%b8%83-1"></a>
+$P(\lambda)$ 泊松分布
+</h4>$$
+EX=\lambda,DX=\lambda
+$$<h4 id="正态分布-1">
+<a class="header-anchor" href="#%e6%ad%a3%e6%80%81%e5%88%86%e5%b8%83-1"></a>
+$N(\mu,\sigma^2)$ 正态分布
+</h4>$$
+EX=\mu,DX=\sigma^2
+$$<h2 id="协方差与相关系数">
+<a class="header-anchor" href="#%e5%8d%8f%e6%96%b9%e5%b7%ae%e4%b8%8e%e7%9b%b8%e5%85%b3%e7%b3%bb%e6%95%b0"></a>
+协方差与相关系数
+</h2><h3 id="协方差">
+<a class="header-anchor" href="#%e5%8d%8f%e6%96%b9%e5%b7%ae"></a>
+协方差
+</h3>$$
+Cov(X,Y)=E(XY)-E(X)E(Y)
+$$<p>
+显然，$X=Y$ 时，$Cov(X,X)=DX$ 。
+</p>
+$$
+Cov(X+Y,Z)=Cov(X,Z)+Cov(Y,Z)
+$$<p>
+</p>
+$$
+Cov(X-Y,Z)=Cov(X,Z)+Cov(-Y,Z)=Cov(X,Z)-Cov(Y,Z)
+$$<h3 id="相关系数">
+<a class="header-anchor" href="#%e7%9b%b8%e5%85%b3%e7%b3%bb%e6%95%b0"></a>
+相关系数
+</h3>$$
+\rho_{XY}=\frac{Cov(X,Y)}{\sqrt{DX \cdot DY}}
+$$<p>
+$|\rho|$ 越大，相关性越强。
+$Y=X$ 时，$X$ 与 $X$ 相关性最强，得到 $\rho=1$ 。
+$Y=-X$ 时，$-X$ 与 $X$ 相关性最强，得到 $\rho=-1$ 。
+显然 $|\rho| \le 1$ 。
+$\rho=0$ 时 $X$ 与 $Y$ 不相关。
+==Warning==：不相关 $\nRightarrow$ 独立，独立 $\Rightarrow$ 不相关。</p>
+<h2 id="切比雪夫不等式估计概率">
+<a class="header-anchor" href="#%e5%88%87%e6%af%94%e9%9b%aa%e5%a4%ab%e4%b8%8d%e7%ad%89%e5%bc%8f%e4%bc%b0%e8%ae%a1%e6%a6%82%e7%8e%87"></a>
+切比雪夫不等式估计概率
+</h2>$$
+P(|X-EX|\ge \varepsilon)\le \frac{DX}{\varepsilon^2}
+$$<h2 id="中心极限定理">
+<a class="header-anchor" href="#%e4%b8%ad%e5%bf%83%e6%9e%81%e9%99%90%e5%ae%9a%e7%90%86"></a>
+中心极限定理
+</h2><p>大量独立变量同分布，可近似为正态分布。
+若 $x_1,x_2,\cdots,x_n$ 独立且同分布，则
+</p>
+$$
+\sum_{i=1}^nx_i \sim N(\sum^{n}_{i=1}E(x_i),\sum^{n}_{i=1}D(x_i))
+$$<h2 id="三大分布">
+<a class="header-anchor" href="#%e4%b8%89%e5%a4%a7%e5%88%86%e5%b8%83"></a>
+三大分布
+</h2><h3 id="卡方分布">
+<a class="header-anchor" href="#%e5%8d%a1%e6%96%b9%e5%88%86%e5%b8%83"></a>
+$\chi^2$ （卡方）分布
+</h3>$$
+X=x_1^2+x_2^2+\cdots +x_n^2 \sim \chi^2(n),x_i \sim N(0,1)且相互独立
+$$<p>
+上 $\alpha$ 分位点 $\chi^2_\alpha(n)$
+密度函数在第一象限</p>
+<h3 id="分布-1">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83-1"></a>
+$t$ 分布
+</h3>$$
+X=\frac{x_1}{\sqrt{x_2/n}}\sim t(n),x_1 \sim N(0,1),x_2 \sim \chi^2(n),x_1与x_2相互独立
+$$<p>
+上 $\alpha$ 分位点 $t_\alpha(n)$
+密度函数形似正态分布，左右对称</p>
+<h3 id="分布-2">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83-2"></a>
+$F$ 分布
+</h3>$$
+X=\frac{x_1/n_1}{x_2/n_2} \sim F(n_1,n_2),x_1 \sim \chi^2(n_1),x_2 \sim \chi^2(n_2),x_1与x_2相互独立
+$$<p>
+上 $\alpha$ 分位点 $F_\alpha(n_1,n_2)$
+密度函数在第一象限</p>
+<h2 id="估计法">
+<a class="header-anchor" href="#%e4%bc%b0%e8%ae%a1%e6%b3%95"></a>
+估计法
+</h2><p>简单随机样本相互独立且同分布时，估计未知参数。</p>
+<h3 id="矩估计法">
+<a class="header-anchor" href="#%e7%9f%a9%e4%bc%b0%e8%ae%a1%e6%b3%95"></a>
+矩估计法
+</h3><p>样本量较大时，将样本近似为平均分布，样本均值替代总体均值（总体矩=样本矩）。</p>
+<ol>
+<li>根据所给分布律/密度函数求出期望 $EX$ （一阶总体矩）</li>
+<li>根据所给样本求样本均值 $\bar{X}$ （一阶样本矩）</li>
+<li>令 $EX=\bar{X}$ 解出 $\theta_0$ 即为 $\hat{\theta}$</li>
+</ol>
+<h3 id="最大似然估计法">
+<a class="header-anchor" href="#%e6%9c%80%e5%a4%a7%e4%bc%bc%e7%84%b6%e4%bc%b0%e8%ae%a1%e6%b3%95"></a>
+最大似然估计法
+</h3><p>估计值使得样本发生概率最大。
+样本似然函数：
+</p>
+$$
+L(x_1,x_2,\cdots,x_n;\theta)=
+\begin{cases}
+P(X=x_1)P(X=x_2)\cdots P(X=x_n),离散型\\
+f(x_1;\theta)f(x_2;\theta)\cdots f(x_n;\theta),连续型\\
+\end{cases}
+$$<p>
+求 $L$ 最大值，即求导得其驻点。因连乘求导繁琐，先将其化为对数形式后对未知参数 $\theta$ 求导。
+</p>
+$$
+(\ln L)'=
+\begin{cases}
+(\ln P_1+\ln P_2+\cdots +\ln P_n)',离散型\\
+[\ln f(x_1;\theta)+\ln f(x_2;\theta)+\cdots +\ln f(x_n;\theta)]',连续型\\
+\end{cases}
+=0
+$$<p>
+解出驻点 $\theta_0$ ，即为估计值 $\hat{\theta}$ 。</p>
+<h2 id="无偏性与有效性">
+<a class="header-anchor" href="#%e6%97%a0%e5%81%8f%e6%80%a7%e4%b8%8e%e6%9c%89%e6%95%88%e6%80%a7"></a>
+无偏性与有效性
+</h2><p>若 $E(\hat{\theta})=\theta$ ，则称 $\hat{\theta}$ 为 $\theta$ 的无偏估计。
+若 $\hat{\theta_1},\hat{\theta_2}$ 均为无偏估计，且 $D(\hat{\theta_1})<\hat{\theta_2}$ ，则称 $\hat{\theta_1}$ 比 $\hat{\theta_2}$ 更有效。</p>
+<h2 id="区间估计">
+<a class="header-anchor" href="#%e5%8c%ba%e9%97%b4%e4%bc%b0%e8%ae%a1"></a>
+区间估计
+</h2><p>$X \sim N(\mu,\sigma^2)$ ，通常将给定的 $\bar{X}=\mu,S=\sigma$ 。
+置信度：$1-\alpha$ ，通常 $\alpha=5\%$ 。</p>
+<h3 id="求--置信区间">
+<a class="header-anchor" href="#%e6%b1%82--%e7%bd%ae%e4%bf%a1%e5%8c%ba%e9%97%b4"></a>
+求 $\mu$ 置信区间
+</h3><h4 id="已知">
+<a class="header-anchor" href="#%e5%b7%b2%e7%9f%a5"></a>
+$\sigma^2$ 已知
+</h4><p>枢轴量（标准化）：
+</p>
+$$
+\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\sim N(0,1)
+$$<p>
+</p>
+$$
+\mu \in (\bar{x}-\frac{\sigma}{\sqrt{n}}\mu_{\frac{\alpha}{2}},\bar{x}+\frac{\sigma}{\sqrt{n}}\mu_{\frac{\alpha}{2}})
+$$<h4 id="未知">
+<a class="header-anchor" href="#%e6%9c%aa%e7%9f%a5"></a>
+$\sigma^2$ 未知
+</h4><p>枢轴量：
+</p>
+$$
+\frac{\bar{X}-\mu}{S/\sqrt{n}}\sim t(n-1)
+$$<p>
+</p>
+$$
+\mu \in (\bar{x}-\frac{S}{\sqrt{n}}t_{\frac{\alpha}{2}}(n-1),\bar{x}+\frac{S}{\sqrt{n}}t_{\frac{\alpha}{2}}(n-1))
+$$<h3 id="求--置信区间-1">
+<a class="header-anchor" href="#%e6%b1%82--%e7%bd%ae%e4%bf%a1%e5%8c%ba%e9%97%b4-1"></a>
+求 $\sigma^2$ 置信区间
+</h3><p>通常 $\mu$ 未知。
+枢轴量：
+</p>
+$$
+\frac{(n-1)S^2}{\sigma^2}\sim \chi^2(n-1)
+$$<p>
+</p>
+$$
+\sigma^2 \in (\frac{(n-1)S^2}{\chi^2_{\frac{\alpha}{2}}(n-1)},\frac{(n-1)S^2}{\chi^2_{1-\frac{\alpha}{2}}(n-1)})
+$$<h2 id="假设检验">
+<a class="header-anchor" href="#%e5%81%87%e8%ae%be%e6%a3%80%e9%aa%8c"></a>
+假设检验
+</h2><p>一般取 $\alpha=5\%$</p>
+<h3 id="检验">
+<a class="header-anchor" href="#%e6%a3%80%e9%aa%8c"></a>
+$\mu$ 检验
+</h3><ol>
+<li>提出假设 $H_0:\mu=\mu_0,H_1:\mu \ne \mu_0$</li>
+<li>选择检验统计量（枢轴量）
+<ul>
+<li>$\sigma^2$ 已知，选择 $\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\sim N(0,1)$ ，为 U 检验</li>
+<li>$\sigma^2$ 未知，选择 $\frac{\bar{X}-\mu}{S/\sqrt{n}}\sim t(n-1)$ ，为 T 检验</li>
+</ul>
+</li>
+<li>根据选择的枢轴量求得拒绝域
+$W=(-\infty,-\mu_{\frac{\alpha}{2}})\cup (\mu_{\frac{\alpha}{2}},\infty)$
+$W=(-\infty,-t_{\frac{\alpha}{2}}(n-1))\cup (t_{\frac{\alpha}{2}}(n-1),\infty)$</li>
+<li>若根据 $\bar{X}$ 计算所得枢轴量在 $W$ 内，假设 $H_0$ 不成立。</li>
+</ol>
+<h3 id="检验-1">
+<a class="header-anchor" href="#%e6%a3%80%e9%aa%8c-1"></a>
+$\sigma^2$ 检验
+</h3>$$
+S=\sqrt{S^2}=\sqrt{\frac{1}{n-1}\sum^{n}_{i=1}(x_i-\bar{X})}
+$$<ol>
+<li>提出假设 $H_0:\sigma^2=\sigma_0^2,H_1:\sigma^2 \ne \sigma_0^2$</li>
+<li>选择检验统计量
+$\frac{(n-1)S^2}{\sigma^2}\sim \chi^2(n-1)$ ，为$\chi^2$ 检验</li>
+<li>求得拒绝域
+$W=(0,\chi^2_{1-\frac{\alpha}{2}}(n-1)) \cup (\chi^2_{\frac{\alpha}{2}}(n-1),\infty)$</li>
+<li>若根据 $S$ 计算所得枢轴量在 $W$ 内，假设 $H_0$ 不成立。</li>
+</ol>
+<h2 id="补充">
+<a class="header-anchor" href="#%e8%a1%a5%e5%85%85"></a>
+补充
+</h2><h3 id="分布函数-5">
+<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e5%87%bd%e6%95%b0-5"></a>
+分布函数
+</h3><p>对于连续型随机变量，分布函数连续。
+对于离散型随机变量，由于不同教材对分布函数定义不同，有左连续或右连续情况。</p>
+<h4 id="左连续">
+<a class="header-anchor" href="#%e5%b7%a6%e8%bf%9e%e7%bb%ad"></a>
+左连续
+</h4>$$
+F(x)=P(X<x)
+$$<p>
+在此定义下
+</p>
+$$
+F(x)=F(x^-)=F(x-0)=P(X<x)
+$$<p>
+</p>
+$$
+F(x^+)=F(x+0)=P(X<x)+P(X=x)
+$$<p>
+当 $P(X=x)\ne 0$ 时，显然 $F(x^+)>F(x)=F(x^-)$ ，此时分布函数左连续而右不连续。</p>
+<h4 id="右连续">
+<a class="header-anchor" href="#%e5%8f%b3%e8%bf%9e%e7%bb%ad"></a>
+右连续
+</h4>$$
+F(x)=P(X \le x)
+$$<p>
+在此定义下
+</p>
+$$
+F(x)=F(x^+)=F(x+0)=P(X \le x)
+$$<p>
+</p>
+$$
+F(x^-)=F(x-0)=P(X \le x)-P(X=x)
+$$<p>
+当 $P(X=x)\ne 0$ 时，显然 $F(x^+)=F(x)>F(x^-)$ ，此时分布函数右连续而左不连续。</p>
+<h4 id="抛硬币举例">
+<a class="header-anchor" href="#%e6%8a%9b%e7%a1%ac%e5%b8%81%e4%b8%be%e4%be%8b"></a>
+抛硬币举例
+</h4><p>抛一次硬币，正面计 1，反面计 0 。
+X 是一维离散型随机变量
+</p>
+$$
+\begin{cases}
+P(x=0)=0.5\\
+P(x=1)=0.5\\
+P(x=others)=0\\
+\end{cases}
+$$<p>
+由此得
+</p>
+$$
+\begin{cases}
+P(x<0)=0\\
+P(0 \le x < 1)=0.5\\
+P(x \ge 1)=1\\
+\end{cases}
+$$<p>
+当设分布函数为 $F(x)=P(X<x)$ 时，
+</p>
+$$
+F(x)=
+\begin{cases}
+0, & x \le 0\\
+0.5, & 0 < x \le 1\\
+1, & x>1\\
+\end{cases}
+$$<p>
+$F(0^-)=F(0)=0$，$F(0^+)=0.5$，$x=0$ 是间断点，左连续而右不连续。</p>
+
+        <hr><p>本文 2024-09-10 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-10</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Math</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>凭栏静听潇潇雨，故国人民有所思。</title>
+      <link>http://localhost:1313/zh-cn/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</link>
+      <pubDate>Mon, 09 Sep 2024 17:54:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-cn/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</guid>
+      <description><![CDATA[<h1>凭栏静听潇潇雨，故国人民有所思。</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p>“我有一个梦，也许有一天，灿烂的阳光能照进黑暗森林。”</p>
+<p>这时，这里的太阳却在落下去，现在只在远山露出顶端的一点，像山顶上镶嵌着的一块光灿灿的宝石。孩子已经跑远，同草地一起沐浴在金色的晚霞之中。</p>
+<p>太阳快落下去了，你们的孩子居然不害怕？</p>
+<p>“当然不害怕，她知道明天太阳还会升起来的。”</p>
+<p>晚安。
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2683784600.jpg" alt="毛1.JPG"></p>
+        <hr><p>本文 2024-09-09 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-09</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+  </channel>
+</rss>

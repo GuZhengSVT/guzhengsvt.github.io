@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>Minutes on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/en/tags/minutes/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Sun, 13 Apr 2025 11:00:00 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/en/tags/minutes/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Hello World</title>
+      <link>http://localhost:1313/en/post/thoughts/hello-world/</link>
+      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/thoughts/hello-world/</guid>
+      <description><![CDATA[<h1>Hello World</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="20250413">
+<a class="header-anchor" href="#20250413"></a>
+2025.04.13
+</h1><p>After two days of tinkering, I finally set up my Hugo blog using the <a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu</a> theme.</p>
+<p>Unsatisfied with the response speed of my previous <a href="https://guzhengsvt.top/">Typecho blog</a>, I decided to migrate my blog again. (Although Typecho is already quite lightweight, the poor cloud server and bandwidth severely limited access and article loading speeds.)</p>
+<p>After abandoning dynamic solutions, the static options available were essentially Hexo, Hugo, Jekyll, etc. I chose Hugo simply because of its slogan: <em><strong>The world’s fastest framework for building websites</strong></em>.</p>
+<p>I’ll gradually move the content from my old blog over here during this time. I looked up some Typecho-to-Hugo conversion methods, but most were outdated and unusable (Typecho and PHP are too old, which is another reason for my switch). I’ll have to resort to the tedious method of manually exporting articles, editing them, and importing them into Hugo.</p>
+<p>I also need to figure out how to replicate comments and &ldquo;shuoshuo&rdquo; (microblogging). Hugo requires an external commenting system.</p>
+<p>Then, to speed up image loading, I’ll need to set up an image hosting service and replace the image links in previous articles.</p>
+<p>To avoid irreversible impacts on the old blog, Hugo is currently hosted on GitHub Pages. However, GitHub is unstable in China, so once I’ve fully migrated the content and completed the setup, I’ll copy it to my cloud virtual host.</p>
+<p>Why is there so much to do? Damn.</p>
+<h1 id="test">
+<a class="header-anchor" href="#test"></a>
+Test
+</h1><p>Testing the new blog.</p>
+<p>markdown</p>
+<h2 id="level-2-heading">
+<a class="header-anchor" href="#level-2-heading"></a>
+Level 2 Heading
+</h2><h3 id="level-3-heading">
+<a class="header-anchor" href="#level-3-heading"></a>
+Level 3 Heading
+</h3><h4 id="level-4-heading">
+<a class="header-anchor" href="#level-4-heading"></a>
+Level 4 Heading
+</h4><h5 id="level-5-heading">
+<a class="header-anchor" href="#level-5-heading"></a>
+Level 5 Heading
+</h5><h6 id="level-6-heading">
+<a class="header-anchor" href="#level-6-heading"></a>
+Level 6 Heading
+</h6><ol>
+<li>Item</li>
+<li>Item</li>
+</ol>
+<ul>
+<li>Item</li>
+</ul>
+<p><del>Strikethrough</del></p>
+<p><strong>Bold</strong></p>
+<p><em>Italic</em></p>
+<p>KaTex test</p>
+<p>$\frac{1}{2}$</p>
+$$
+\frac{520}{1314}
+$$<p>code test</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;hello world&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>icon: <!-- raw HTML omitted --><!-- raw HTML omitted --> A cup of coffee</p>
+
+        <hr><p>本文 2025-04-13 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Summary of the Second Semester of Sophomore Year</title>
+      <link>http://localhost:1313/en/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Thu, 27 Jun 2024 01:14:14 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</guid>
+      <description><![CDATA[<h1>Summary of the Second Semester of Sophomore Year</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p><strong>Prologue:</strong></p>
+<blockquote>
+<p>I mistook the morning probability theory exam for an afternoon one, slept soundly till eleven, and woke up cheerfully ordering a plate of Kung Pao chicken rice.<br>
+And then quietly perished&hellip;</p></blockquote>
+<p>It’s probably over now—sophomore year, grad school recommendations, all of it. Stories often end with accidents, as if only the unexpected can leave a lasting impression on both the actors and the audience.</p>
+<p>A year in Qian’s Class has indeed brought more challenges. Every early morning rush to an 8 a.m. class while my roommates slept, every late-night return from the lab to find them gaming—it made my teeth itch with frustration.<br>
+Was it worth it?<br>
+I have no regrets.</p>
+<p>Though my advice to underclassmen is always a straightforward &ldquo;don’t do it,&rdquo; I don’t regret joining Qian’s Class. To get closer to aerospace, I decisively transferred from the School of Mechanical and Electrical Engineering to Qian’s Class. The moment I filled out the application, I knew what was coming: more courses, more work, cutthroat academics, fewer credits, less funding, and a brutal grad school recommendation process. The cautionary posts from the previous class on Zhihu didn’t deter me, just as I can’t deter the freshmen of ’23.</p>
+<p>Out here in the Chang’an campus, far from the city center, the thick cotton-like clouds by day and the countless stars at night are far more captivating than words like &ldquo;competitions&rdquo; or &ldquo;grad recommendations.&rdquo; Freed from the anxiety over credits and recommendations, I feel much lighter.</p>
+<p>There’s nothing to lament. Compared to building an aviation industry from scratch in the early days of New China, grad school exams aren’t even a setback. The road may be winding, but you just keep walking.</p>
+<p>Fortunately, I’ve mastered most of this semester’s coursework. Probability theory, which I missed, remains a gap, but I’ll fill it through practice. Knowledge gained means these six months weren’t wasted.</p>
+<blockquote>
+<p>&ldquo;The path not taken always seems more alluring, but I believe the one I chose was always the right one.&rdquo;<br>
+&ldquo;Schools are places for teaching and nurturing, not for fighting over grades. What makes a university &lsquo;great&rsquo;? Great learning, great wisdom, great vision.&rdquo;</p></blockquote>
+<p>Words I wrote a year ago, a constant reminder to myself. Don’t lose sight of what matters, don’t be blinded by worldly illusions. Where to go? Toward aerospace, toward the people, toward communism.<br>
+<strong>Smooth out the bumps to forge a broad road; after conquering hardships, set forth again.</strong></p>
+<p>Though I often wonder if it’s the late-night probability theory notes that scrambled my brain, I’ll keep sharing them. They might not help my peers much, but they could benefit those who come after—a small contribution to the spread of knowledge and cultural communism.</p>
+
+        <hr><p>本文 2024-06-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-06-27</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>A Little Note on Life</title>
+      <link>http://localhost:1313/en/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</link>
+      <pubDate>Mon, 06 May 2024 18:12:51 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</guid>
+      <description><![CDATA[<h1>A Little Note on Life</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h3 id="alive">
+<a class="header-anchor" href="#alive"></a>
+Alive
+</h3><p>There was no holiday during the May Day break. I just finished the university-level electronic design competition, and although the results weren’t great, I learned a lot.</p>
+<p>On the fourth night, I pulled an all-nighter. By five or six in the morning, the sun rose, and the few groups of students who had also stayed up all night in the lab took photos to commemorate the moment. It’s rare to see the sunrise at Xidian University. The fifth floor of Building F offers an open view, with distant high-rises and the campus greenery all bathed in the unique beauty of the morning sun and the relief of finishing work. I started sleeping yesterday afternoon and didn’t wake up until eight the next morning, ready to start a new week of classes. Though well-rested and refreshed, I still felt exhausted after a full day of lectures.</p>
+<p>The small path to Building C was unusually beautiful today. It’s early summer—no melancholy of spring flowers withering and falling, no scorching heat or torrential rain of midsummer, just pure, pleasant weather, neither too hot nor too cold, with air quality that hasn’t hit hazardous levels (Xi’an’s AQI often exceeds 500). No flowers, just green leaves, plain yet delightful.</p>
+<p>I envy the little grass and shrubs by the roadside, quietly curling up undisturbed. No 8:55 AM classes, no homework, no mandatory lectures or competitions—they just stand there. <em><strong>No one scolds the grass for lacking leaves in winter or for attracting too many mosquitoes in summer, but I’m different.</strong></em></p>
+<p>The life of grass is fragile. It dies in winter, or some bored person might step on it or yank it out. I’m different. It’s hard for me to die by accident; under normal circumstances, I’ll have to endure decades more suffering in this world. Comparatively, a life that could end at any moment but is free from hardship seems much more comfortable—no worries, every extra second is a bonus, and death doesn’t matter.</p>
+<blockquote>
+<p>“What if you also lived in fear of death every day?”<br>
+“Then I’d cherish my time and live more passionately.”<br>
+“So you wouldn’t choose to die.”</p></blockquote>
+<p><strong>Yes, I’m just too comfortable being alive—mediocre because I can’t die.</strong></p>
+<h3 id="philosophy">
+<a class="header-anchor" href="#philosophy"></a>
+Philosophy
+</h3><p>My first philosophical reflections began in middle school. Back then, I read a lot of orthodox sci-fi literature and was also obsessed with web novels (QQ Reading +笔趣阁, totaling around 2,400+ hours). I was awed by grand narratives and moved by lofty morals. I oscillated between pessimistic resignation under <strong>metaphysical materialism</strong> and reckless idealism under <strong>idealism</strong>. These were my two ways of coping with setbacks, or rather, two modes of thought. For future planning, I vaguely explored <strong>longtermism</strong> and <strong>communism</strong>, not yet clear about the distinctions—firmly believing in the importance of scientific progress while also hoping for a world where everyone lives happily, free from oppression.</p>
+<p>Many of those thoughts, principles, and philosophies were born in the bathroom stall. <em><strong>In that squalid square meter, the greatest thinker strolled through his palace of philosophy, portraits of past sages hanging on the walls.</strong></em></p>
+<blockquote>
+<p>“If Qin Shi Huang had abandoned the Great Wall, how many common people would have lived better lives! The same logic applies to rockets—they drain resources that should go toward public welfare.”<br>
+“If the wall hadn’t been built 3,000 years ago, the world would have one less wonder today, and foreign invasions might have claimed even more lives.<br>
+If we don’t develop space exploration now, how will future generations judge us for sacrificing the infinite cosmos for petty short-term gains?”</p></blockquote>
+<p>In high school, I read more traditional literature, but it only refined my intellect and literary skills without sparking deeper, more fundamental reflections.</p>
+<p>Sadly, I gradually lost the ability to read deeply. After skimming a few books on communism, I became convinced it was the way forward; watching a few progressive videos gave me a fleeting burst of motivation. In university, I rarely read poetry or books, and my writing lost its spark. The words I penned now embarrass even me. Immersed in the internet, I didn’t notice myself becoming frivolous, tainted by a hint of cynicism.</p>
+<p>Can I still read long articles? Can I still pause to reflect while reading? I don’t know. In this era of bite-sized content, firing up <em>Battlefield</em> for a quick match seems more gratifying than reading. I no longer have uninterrupted time to savor a good book. The little energy I have left demands a quick hit of stimulation, not a scalding cup of tea that requires patience to cool.</p>
+<h3 id="longing-in-familiarity">
+<a class="header-anchor" href="#longing-in-familiarity"></a>
+Longing in Familiarity
+</h3><p>After class in the afternoon, I walked back to my dorm under dappled sunlight. An unnamed bird hopped from the roadside to a low branch, then to a higher one as I approached. Once again, I felt the beauty of this small campus. Xidian is like a <strong>plain but enduringly attractive</strong> girl—unremarkable at first glance, even a bit dowdy. But after two years, I’ve begun to appreciate its quiet beauty, where everything is just right.</p>
+<p>I’ve also grown accustomed to Xi’an, this western metropolis. When complaining, I call it <em><strong>Xi’an</strong></em>; when praising, I elegantly dub it <em><strong>Chang’an</strong></em>. As for the Chang’an District, it bears no resemblance to the prosperity of its namesake.</p>
+<p>Though most Chinese megacities are nearly identical, Chang’an is still lovely. It has everything you’d expect, with street food stalls exuding warmth and a sense of “lived-in vibrancy.” Most places are clean, crowds are manageable, traffic is usually smooth, and prices are reasonable—<strong>“moderation,”</strong> Chang’an’s way of hosting guests, and also the ruler’s way of governing.</p>
+<h3 id="people-change">
+<a class="header-anchor" href="#people-change"></a>
+People Change
+</h3><blockquote>
+<p>“No man ever steps in the same river twice.”<br>
+—Heraclitus</p></blockquote>
+<p>Everything changes, and I often notice how others change. Some improve (rarely), some I once admired become detestable, some unique individuals turn mundane, and most simply grow unfamiliar. From my perspective, the old world slowly morphs into something I either resent or miss, but I rarely recognize my own transformation.</p>
+<p>During my phase of pursuing absolute morality, I was practically a saint (and also a libertine). Now, I’ve become much more “normal.” I no longer pick up every piece of trash on the street (though I might still right a toppled bike). I used to silently thank every hardworking person I saw, and I still often do. As for this “decline in moral standards,” my current self can “accept” it, and perhaps my past self would “forgive” it too.</p>
+<p><strong>What I can’t accept is how I’m becoming vulgar.</strong></p>
+<p>I once believed I was special, both in thought and action—partly due to precociousness, partly because of <strong>a teenager’s craving for attention.</strong></p>
+<blockquote>
+<p>Just as everyone cringes at their old QQ posts and social media updates, the cringeworthy, edgy words of youth expose our younger selves in a self-centered world where everyone is the most unique.</p></blockquote>
+<p>Yet even now, I still think the <strong>past me</strong> was special, at least unique, unlike anyone else.</p>
+<p>Lately, though, the differences are shrinking. I see myself becoming more and more like those around me—an average student at an average university, rushing to 8 AM classes on an empty stomach, zoning out in lectures, gaming after class, scrolling the internet, or occasionally indulging in minor melancholia.</p>
+<p>I never thought I’d remain unique forever. While others fantasized about Tsinghua or Peking University, I knew I’d end up ordinary, just like everyone else—working hard to support a family, growing rigid in thought, clinging to outdated tastes, even criticizing new trends. I’m not afraid of mediocrity; we’ll all become mediocre.</p>
+<p><em><strong>What’s terrifying isn’t mediocrity—it’s vulgarity.</strong></em></p>
+<p>Since losing everyone I could rely on last year, I’ve had no idea what to pursue.</p>
+<p><strong>For grand ideals and the suffering of distant strangers?</strong> These matter, of course, but they’re too far removed, both in time and space. The ideals are so vague—what can I even do? Even if I study hard and join the aerospace industry, I’ll likely just become a standardized screw, stuck in place, replaceable by anyone. What’s the meaning of my existence?</p>
+<p><strong>For a happy family?</strong> Clearly, no one likes me now, and chances are slim that anyone ever will. If all I need to do is support my parents and myself, graduating and earning an average salary would suffice. No marriage, no mortgage—8,000 RMB a month would leave me comfortable, even with savings. So why should I strive now?</p>
+<p><strong>Forgive me for being mundane, but living requires finding some meaning—otherwise, I might as well be roadside grass, ready to die at any moment.</strong> No one needs me to live for them, and I don’t crave material excess. I’ve completely lost my direction.</p>
+<p>“Maybe slacking off isn’t so bad.” With that mindset, I’ve lost all motivation to improve. I don’t want to learn new things, not even the coursework. I go through the motions, appearing alive but devoid of vitality. <strong>I’ve become unbearably vulgar.</strong></p>
+<p>At least I’ve grown used to being alone—enough to keep me from dying.</p>
+<p>During dinner, I thought about a lot, planning to write it all down for my blog. But when I opened Obsidian, I realized it wasn’t installed on my new laptop. After downloading it, tweaking settings, and fiddling with themes, I forgot what I wanted to write. All I remember is eating stir-fried potatoes with cured meat.</p>
+<blockquote>
+<p>Perhaps life is like a plate of mediocre stir-fried potatoes with cured meat.<br>
+Therein lies the truth,<br>
+But words fail me now.</p></blockquote>
+        <hr><p>本文 2024-05-06 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-05-06</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>2023 Year in Review</title>
+      <link>http://localhost:1313/en/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Fri, 05 Jan 2024 17:00:44 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</guid>
+      <description><![CDATA[<h1>2023 Year in Review</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p><strong>Tags: Slacking off, Mediocrity, Daydreaming, Escapism, Solitude, Certainty</strong></p>
+<p>The semester has ended, and the year is drawing to a close.</p>
+<p>In the first half of the year, I was in a complete state of slacking off—my Steam playtime for Battlefield games speaks for itself. Unsurprisingly, my grades were terrible, and I nearly failed my finals.</p>
+<p>During the summer, I planned to tutor to earn some money, hoping to save up for an astronomical telescope. But life had other plans—too many unexpected expenses left me with little savings. Still, I took the chance to reconnect with a few old friends. As cliché as it sounds, the farther I go, the more I cherish the warmth and kindness of those familiar faces.</p>
+<p>In the second half of the year, I officially joined the Qian Xuesen Space Science Honors Program.</p>
+<p>Unique engineering math analysis, even more challenging advanced physics (T), theoretical mechanics, and a second attempt at complex analysis—which I barely scraped through the first time. Every day, I struggled to keep up with assignments, labs, and extracurriculars. On the surface, it seemed like I had turned things around, trading aimlessness for productive busyness. But in reality, I knew I wasn’t truly engaged. At first, I was enthusiastic and attentive in class, but soon I slipped back into old habits—skimming through thousands of words on Zhihu during lectures instead of paying attention.</p>
+<p>I had plenty of free time outside class, but most of it was fragmented, and I wasted it. If I didn’t have lab work in the evening, I’d order takeout (yes, I ate more takeout than cafeteria food this semester) and lie in bed. Often, I wasn’t even sleeping—just avoiding responsibilities and learning nothing, telling myself that resting would make me more efficient later.</p>
+<p>This semester, I barely played games. At least, whenever I had free time, I didn’t feel like gaming. I told myself not to slack off, but not playing games seemed to be my limit—I never had the discipline to proactively study. So I lied to myself, pretending that not gaming meant I was trying. In truth, most of my time was spent daydreaming, accomplishing nothing.</p>
+<p><strong>I often escape—whether from studying or life itself.</strong></p>
+<p>I leave assignments until the deadline, always believing I can finish them on time. When it’s time to eat, I can’t be bothered to dress properly and queue in the cafeteria, so I order from a familiar takeout place and shuffle downstairs in slippers when the notification arrives. I won’t cut my hair until it’s unbearable, reassuring myself that I’m too busy with school to care.</p>
+<p>I once kept up a morning routine for over a month, but after a couple of forced late nights, I gave up entirely. For 8:30 AM classes, my alarm was set for 7:50. I skipped breakfast for months, ordering takeout at 11:15 during the second half of class so I could pick it up right after.</p>
+<p>Lights out at 11:30 PM, but I’d still lie awake in bed, scrolling through social media and forums until guilt forced me to put my phone down and sleep.</p>
+<p>I’ve grown used to sleeping with earplugs. It’s not particularly noisy around me, but I feel uneasy without them—any small sound grabs my attention. Too sensitive.</p>
+<p>In this class of high achievers, I’m near the bottom. I can’t fully detach myself from worldly concerns—grades, rankings, grad school admissions, my future. I want a better life but refuse to work for it; I crave love but hesitate to take the next step. Isn’t that just pathetic?</p>
+<p><strong>I hate this version of myself, yet I lack the real motivation to change.</strong></p>
+<p>This year’s reflection might sound too negative, but given my current mindset, it’s hard to look back with much fondness. I’m not blaming my past self—I just resent that, despite growing older, I haven’t matured. I still lack clear goals, still waver in my dreams.</p>
+<p>Yet, somehow, life hasn’t strayed too far off course.</p>
+<p>I’ve firmly chosen aerospace and taken a small step forward. The second half of the year was slightly more purposeful than the first. A minor emotional setback made me less eager to settle down. I’ve been disappointed in my country and its people time and again, yet hope still flickers. I’ve lost much, but I still cling to a shred of attachment to this world.</p>
+<p>I often feel cursed, wondering if some karmic debt from a past life haunts me. I’ve committed no great sins in this one (though I can’t claim any great virtues either), yet in matters of family, love, opportunities, and future prospects, I always seem to draw the short straw. Last night, I dreamed my parents scolded me so harshly I cried—the bitterness lingered even after waking.</p>
+<p>Still, I’m <strong>alive</strong>.</p>
+<p>Staying alive is hard, but despite my bad luck, I’m still here.</p>
+<p>Maybe I’ll indulge in a little baseless hope—things will get better.</p>
+<p>Good morning, good night. Peace, year after year.</p>
+        <hr><p>本文 2024-01-05 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-01-05</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Independence and Mutual Independence</title>
+      <link>http://localhost:1313/en/post/thoughts/%E7%8B%AC%E7%AB%8B%E4%B8%8E%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B/</link>
+      <pubDate>Fri, 15 Dec 2023 00:21:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/thoughts/%E7%8B%AC%E7%AB%8B%E4%B8%8E%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B/</guid>
+      <description><![CDATA[<h1>Independence and Mutual Independence</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h2 id="when-i-did-something-wrong-it-didnt-feel-irrevocable-at-the-time">
+<a class="header-anchor" href="#when-i-did-something-wrong-it-didnt-feel-irrevocable-at-the-time"></a>
+When I did something wrong, it didn&rsquo;t feel irrevocable at the time.
+</h2><p>Eighteen years of wandering taught me that nothing is worth regretting—all outcomes, good or bad, are merely inevitable steps in the process of growth. In other words, they are <strong>predestined</strong>, they are &ldquo;meant to be.&rdquo;</p>
+<p>Until something truly irreversible and unbearably painful happens, the pride of independence becomes a fleeting anesthetic; its only effect is to amplify the pain when you glance back unexpectedly.</p>
+<h2 id="the-more-i-try-to-remove-this-thorn-the-deeper-it-burrows">
+<a class="header-anchor" href="#the-more-i-try-to-remove-this-thorn-the-deeper-it-burrows"></a>
+The more I try to remove this thorn, the deeper it burrows.
+</h2><p>The more I scrutinize the cause and effect, the more regret and fantasies mercilessly invade my mind. The stubbornness of youth retreats step by step, leaving the gates of cowardice wide open—turns out there is no such thing as &ldquo;no regrets,&rdquo; only wounds that haven’t struck deep enough. Shatter this irreplaceable thing, and watch what replaces it!</p>
+<p>&ldquo;If only I had… back then.&quot;—Over time, even such wistful fantasies vanish, leaving only hollow remorse to fill hollow memories, like an abandoned lighthouse that never guided anyone to light.</p>
+<h2 id="whats-the-use-of-regret-now">
+<a class="header-anchor" href="#whats-the-use-of-regret-now"></a>
+What’s the use of regret now?
+</h2><p>Time won’t reverse, and what’s lost is lost. All I can do is deceive myself, labeling this thorn as <strong>&ldquo;one of the inevitable setbacks in the journey of growth.&rdquo;</strong></p>
+<blockquote>
+<p>So-called independence is merely getting used to a thorn lodged in your flesh—like wearing glasses long enough that you no longer feel them.<br>
+— Lone Kite</p></blockquote>
+<p>Looking back from the other side of time, I wholeheartedly believe that nothing was ever right or wrong, just inevitable—no regrets, no illusions.</p>
+<p>And since independence must be mutual, </p>
+$$Pr(A∩B)=Pr(A)×Pr(B)$$<p>, surely the other person must also be able to smile while telling the story by now.</p>
+<p><strong>Still, I sometimes wonder what the scenery would be like on that untouched path, free from footprints.</strong></p>
+
+        <hr><p>本文 2023-12-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-15</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>2022 Year in Review</title>
+      <link>http://localhost:1313/en/post/thoughts/2022%E5%B9%B4%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sun, 01 Jan 2023 17:47:38 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/thoughts/2022%E5%B9%B4%E6%80%BB%E7%BB%93/</guid>
+      <description><![CDATA[<h1>2022 Year in Review</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p>Another year has passed in the blink of an eye.</p>
+<p>I quietly turned eighteen, crossed the so-called &ldquo;single-plank bridge&rdquo; of the college entrance exams, and stepped into the &ldquo;long-awaited&rdquo; university. Having walked such a long road, I eventually realized that all the mountains and rivers were just ordinary after all. No earth-shattering events—just peaceful days that, upon closer reflection, smell like the warm belly of an orange tabby cat basking in sunlight. Ah, this year has been somewhat of a daze.</p>
+<p>I used to be a philosopher, constantly fiddling with ideas, spirits, and critiques, pondering human meaning, value, pursuit, and purpose. But I don’t do that anymore—I’ve learned silence instead. Scrolling forums, playing games, binge-watching videos, becoming a drunkard in the age of entertainment. Who even has the energy or ability to distinguish truth from falsehood these days? The pig that stands out is the first to be slaughtered—better to be a breeding pig. Life, after all, is just a game, a fleeting pleasure.</p>
+<p>Through the seasons, I lost dozens of friends, faced a few disappointments, gained a few new friends, and found a bit of poetry. The world is terrifyingly vast, dark, and empty. Smiling faces are everywhere—some genuine, some fake—but not a single one belongs solely to me. Most faces are hidden behind thick layers of masks, leaving no chance for connection. Confused and constrained, I’m like a fish in the city’s pond. Whether choking back sobs or weeping softly, it all dissolves into bubbles. Human connections—ah, crowds are the loneliest places of all. People are born as islands, and no depth of longing can fill the chasm between them.</p>
+<p>Here I go again, spouting strange words. Anyway, this year has been quite happy—I’ve never been one to deny the past.</p>
+<p>Watched a few movies, read a few books (though not many), truly got into galgames, listened to a lot of music, and wandered into the world of folk songs. Just trivial little things, hardly worth mentioning. Only when gilded by the glow of memory will they shine.</p>
+<p>For the new year, I hope my family stays healthy and my grandmother lives a little longer. As for me, I’ll keep striving, improving, and making the most of my dwindling youth. Life is as fleeting as a mayfly’s—I dare not ask for academic success or wealth anymore. But love? I hope it lasts.</p>
+        <hr><p>本文 2023-01-01 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-01-01</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>Blog Setup Summary (Hexo &#43; GitHub Version)</title>
+      <link>http://localhost:1313/en/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo&#43;github%E7%89%88/</link>
+      <pubDate>Sat, 10 Sep 2022 09:30:52 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/en/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo&#43;github%E7%89%88/</guid>
+      <description><![CDATA[<h1>Blog Setup Summary (Hexo + GitHub Version)</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <p><strong>Early Website Record (Inactive, Preserved for Commemoration)</strong></p>
+<p><a href="https://guzhengsvt.github.io">https://guzhengsvt.github.io</a></p>
+<p>A personal blog built with GitHub+Hexo. The main functionalities have been completed.</p>
+<p>After two days of intense work, I’ve finally realized a two-year dream—creating my own personal website (blog). In this noisy era of conformity and silence, this serves as a small piece of internet territory I can call my own.</p>
+<p>The idea of building a blog originated two years ago when I stumbled upon beautifully crafted blogs by experts while surfing the web for resources. In the early stages, I was groping in the dark—knowing nothing, with poor English skills, and no money to buy a domain or server. Due to academic pressures in my senior year of high school, the project was paused for a year, and the domain I bought on Alibaba Cloud even expired.</p>
+<p>I’m grateful to all the individuals, platforms, companies, and communities who helped me along the way.</p>
+<p>Here’s the acknowledgments list (in no particular order):</p>
+<p>Special thanks to the expert from USTC for helping me troubleshoot the issue where only Git Bash could reliably control operations across multiple terminals;</p>
+<p>Thanks to GitHub for providing an open-source platform;</p>
+<p>Thanks to GitHub and Sanfengyun for offering free servers;</p>
+<p>Thanks to Fuukei Sakurairo and NexT for theme support;</p>
+<p>Thanks to mukes for the Git installation tutorial (<a href="https://blog.csdn.net/mukes%29;">https://blog.csdn.net/mukes);</a></p>
+<p>Thanks to He Xin for the Hexo environment setup guide (<a href="https://www.simon96.online/%29;">https://www.simon96.online/);</a></p>
+<p>Thanks to Snail Not Ox for the NexT theme beautification methods (<a href="https://blog.csdn.net/qq_34003239?type=blog%29;">https://blog.csdn.net/qq_34003239?type=blog);</a></p>
+<p>Thanks to siriyang for the Git study notes (<a href="https://blog.siriyang.cn/%29;">https://blog.siriyang.cn/);</a></p>
+<p>Thanks to ookamiAntD for the foundational tutorial on building a personal blog with Hexo+Github+Coding (<a href="https://yangbingdong.com/%29;">https://yangbingdong.com/);</a></p>
+<p>Thanks to reuixiy for the in-depth optimization guide for Hexo + NexT + GitHub Pages (<a href="https://io-oi.me/%29">https://io-oi.me/)</a>.</p>
+<p>Some references could no longer be traced to their authors, or the authors’ blogs were closed for various reasons. I apologize for not listing them all.</p>
+<p>Feel free to bookmark and share my blog. I’ll update it periodically with content including but not limited to:</p>
+<p>Improvements to the blog’s functionalities</p>
+<p>Personal musings/rants</p>
+<p>All kinds of serious and not-so-serious learning materials</p>
+<p>Technical guides</p>
+<p>Poems and articles I’ve written in the past</p>
+<p>Lastly, happy Mid-Autumn Festival to everyone, and happy Teachers’ Day to all educators and those who aspire to become teachers.</p>
+<p>That’s all.</p>
+<p>Saturday, September 10, 2022</p>
+        <hr><p>本文 2022-09-10 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2022-09-10</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+  </channel>
+</rss>

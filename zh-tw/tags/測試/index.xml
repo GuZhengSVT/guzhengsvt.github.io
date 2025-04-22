@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel><title>測試 on 孤筝の温暖小家</title>
+    <link>http://localhost:1313/zh-tw/tags/%E6%B8%AC%E8%A9%A6/</link>
+    <description>Recent content from 孤筝の温暖小家</description>
+    <generator>Hugo</generator>
+    <language>zh-tw</language>
+    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
+    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
+    
+    <copyright>All website licensed under CC BY 4.0</copyright>
+    
+    <lastBuildDate>Sun, 13 Apr 2025 11:00:00 +0800</lastBuildDate>
+    
+    <atom:link href="http://localhost:1313/zh-tw/tags/%E6%B8%AC%E8%A9%A6/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+    
+      
+    
+    
+    
+    <item>
+      <title>哈囉世界</title>
+      <link>http://localhost:1313/zh-tw/post/thoughts/hello-world/</link>
+      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
+      <guid>http://localhost:1313/zh-tw/post/thoughts/hello-world/</guid>
+      <description><![CDATA[<h1>哈囉世界</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+          <h1 id="20250413">
+<a class="header-anchor" href="#20250413"></a>
+2025.04.13
+</h1><p>折騰了兩天終於搭好了Hugo博客，主題是<a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu</a>。</p>
+<p>對於原來的<a href="https://guzhengsvt.top/">Typecho博客</a>響應速度不滿意，我計劃再次遷移博客。（儘管Typecho已經很輕量了，垃圾的雲伺服器及頻寬嚴重限制了訪問和文章加載速度。）</p>
+<p>放棄動態後，能考慮靜態無非Hexo、Hugo、Jekyll等。選擇Hugo，無非是因為它的口號 <em><strong>The world’s fastest framework for building websites</strong></em> 。</p>
+<p>這段時間慢慢把老博客的內容搬到這裡來。找了些Typecho to Hugo的方法，大多年久失修不能用了（Typecho和PHP太老了，這也是我轉向的原因）。還得用笨辦法，一點點把文章導出，再編輯導入Hugo。</p>
+<p>評論和說說也得想辦法復刻，Hugo得外掛評論系統。</p>
+<p>然後為了加快圖片訪問速度，得整個圖床，再把之前文章的圖片連結替換。</p>
+<p>為了不對老博客產生不可逆影響，Hugo目前放在GitHub Pages託管。而GitHub在國內訪問不穩定，等搬完內容完全搭建好了再copy到自己雲虛擬主機。</p>
+<p>怎麼這麼多事啊woc</p>
+<h1 id="test">
+<a class="header-anchor" href="#test"></a>
+Test
+</h1><p>測試一下新博客。</p>
+<p>markdown</p>
+<h2 id="二級標題">
+<a class="header-anchor" href="#%e4%ba%8c%e7%b4%9a%e6%a8%99%e9%a1%8c"></a>
+二級標題
+</h2><h3 id="三級標題">
+<a class="header-anchor" href="#%e4%b8%89%e7%b4%9a%e6%a8%99%e9%a1%8c"></a>
+三級標題
+</h3><h4 id="四級標題">
+<a class="header-anchor" href="#%e5%9b%9b%e7%b4%9a%e6%a8%99%e9%a1%8c"></a>
+四級標題
+</h4><h5 id="五級標題">
+<a class="header-anchor" href="#%e4%ba%94%e7%b4%9a%e6%a8%99%e9%a1%8c"></a>
+五級標題
+</h5><h6 id="六級標題">
+<a class="header-anchor" href="#%e5%85%ad%e7%b4%9a%e6%a8%99%e9%a1%8c"></a>
+六級標題
+</h6><ol>
+<li>
+<p>分條</p>
+</li>
+<li>
+<p>分條</p>
+</li>
+</ol>
+<ul>
+<li>分條</li>
+</ul>
+<p><del>刪除線</del></p>
+<p><strong>加粗</strong></p>
+<p><em>斜體</em></p>
+<p>KaTex test</p>
+<p>$\frac{1}{2}$</p>
+$$
+\frac{520}{1314}
+$$<p>code test</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;hello world&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>icon: <!-- raw HTML omitted --><!-- raw HTML omitted --> 一杯咖啡</p>
+
+        <hr><p>本文 2025-04-13 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>All website licensed under CC BY 4.0</p>]]>
+      </description>
+        <category>Thoughts</category>
+      
+    </item>
+    
+  </channel>
+</rss>
