@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>Thoughts on 孤筝の温暖小家</title>
-    <link>http://localhost:1313/ja/categories/thoughts/</link>
+  <channel>
+    <title>Thoughts on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.cn/ja/categories/thoughts/</link>
     <description>Recent content from 孤筝の温暖小家</description>
     <generator>Hugo</generator>
     <language>ja</language>
+    
     <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
     <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
     
-    <copyright>All website licensed under CC BY 4.0</copyright>
+    <copyright>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</copyright>
     
     <lastBuildDate>Sun, 13 Apr 2025 11:00:00 +0800</lastBuildDate>
     
-    <atom:link href="http://localhost:1313/ja/categories/thoughts/index.xml" rel="self" type="application/rss&#43;xml" />
     
+    <atom:link href="https://guzhengsvt.cn/ja/categories/thoughts/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
     
       
+      
+      
     
-    
-    
+
     <item>
       <title>Hello World</title>
-      <link>http://localhost:1313/ja/post/thoughts/hello-world/</link>
-      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/thoughts/hello-world/</guid>
-      <description><![CDATA[<h1>Hello World</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/thoughts/hello-world/</link>
+      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/thoughts/hello-world/</guid>
+      <description>
+        <![CDATA[<h1>Hello World</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <h1 id="20250413">
 <a class="header-anchor" href="#20250413"></a>
 2025.04.13
@@ -78,23 +86,28 @@ $$<p>コードテスト</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;hello world&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>アイコン: <!-- raw HTML omitted --><!-- raw HTML omitted --> コーヒー一杯</p>
 
-        <hr><p>本文 2025-04-13 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2025-04-13に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-04-13です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>大学3年前期のまとめ</title>
-      <link>http://localhost:1313/ja/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Tue, 28 Jan 2025 19:46:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid>
-      <description><![CDATA[<h1>大学3年前期のまとめ</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Tue, 28 Jan 2025 19:46:04 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid>
+      <description>
+        <![CDATA[<h1>大学3年前期のまとめ</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <h2 id="期末試験について">
 <a class="header-anchor" href="#%e6%9c%9f%e6%9c%ab%e8%a9%a6%e9%a8%93%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6"></a>
 期末試験について
@@ -147,23 +160,28 @@ $$<p>コードテスト</p>
 新年の幸せと平安を祈る。
 2025年1月24日</p>
 
-        <hr><p>本文 2025-01-28 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-01-28</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2025-01-28に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-01-28です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>中秋、家族に電話をかけよう</title>
-      <link>http://localhost:1313/ja/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</link>
-      <pubDate>Sun, 15 Sep 2024 22:35:40 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</guid>
-      <description><![CDATA[<h1>中秋、家族に電話をかけよう</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</link>
+      <pubDate>Sun, 15 Sep 2024 22:35:40 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</guid>
+      <description>
+        <![CDATA[<h1>中秋、家族に電話をかけよう</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <blockquote>
 <p>「ママ、この世界に本当に私を好きになってくれる女の子はいるの？」<br>
 「もちろんよ、初めてあなたに会った時、私もまだ20代だったもの」</p></blockquote>
@@ -176,46 +194,56 @@ $$<p>コードテスト</p>
 <p>人に悲歓離合あり、月に陰晴円缺あり、此事古より全からず。<br>
 ただ願わくは人長久に、千里共に婵娟を。</p></blockquote>
 <p>ただ願わくは人長久に、ただ願わくは人長久に、ただ願わくは人長久に。</p>
-        <hr><p>本文 2024-09-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-15</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2024-09-15に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-09-15です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>欄干に寄りて瀟瀟たる雨を静かに聴く、故国の人民思うことあり。</title>
-      <link>http://localhost:1313/ja/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</link>
-      <pubDate>Mon, 09 Sep 2024 17:54:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</guid>
-      <description><![CDATA[<h1>欄干に寄りて瀟瀟たる雨を静かに聴く、故国の人民思うことあり。</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</link>
+      <pubDate>Mon, 09 Sep 2024 17:54:04 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</guid>
+      <description>
+        <![CDATA[<h1>欄干に寄りて瀟瀟たる雨を静かに聴く、故国の人民思うことあり。</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <p>「私には夢がある。いつかきらめく陽光が暗い森に差し込む日が来るかもしれないという夢だ。」</p>
 <p>その時、ここの太陽は沈みかけていた。今は遠くの山の頂上にほんの少しだけ顔を出し、山頂に嵌め込まれた輝く宝石のようだった。子供はもう遠くへ走り去り、草原と共に金色の夕焼けに包まれていた。</p>
 <p>太陽が沈もうとしているのに、あなたたちの子供は怖がらないのか？</p>
 <p>「もちろん怖がらないわ。明日も太陽は昇ると知っているから」</p>
 <p>おやすみなさい。
 <img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2683784600.jpg" alt="毛1.JPG"></p>
-        <hr><p>本文 2024-09-09 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-09</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2024-09-09に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-09-09です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>日々の一片</title>
-      <link>http://localhost:1313/ja/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</link>
-      <pubDate>Sun, 04 Aug 2024 00:02:00 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</guid>
-      <description><![CDATA[<h1>日々の一片</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</link>
+      <pubDate>Sun, 04 Aug 2024 00:02:00 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</guid>
+      <description>
+        <![CDATA[<h1>日々の一片</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <p>前回の更新は一ヶ月前で、忙しかったわけではない（忙しい時もあったが）。ただ、身不由己で、世事は予測不能で、文章を書く気になれなかった。</p>
 <h2 id="千里の道北風が旅人の衣を吹く">
 <a class="header-anchor" href="#%e5%8d%83%e9%87%8c%e3%81%ae%e9%81%93%e5%8c%97%e9%a2%a8%e3%81%8c%e6%97%85%e4%ba%ba%e3%81%ae%e8%a1%a3%e3%82%92%e5%90%b9%e3%81%8f"></a>
@@ -282,23 +310,28 @@ $$<p>コードテスト</p>
 <p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/08/3364523607.png" alt="fuguang.png"></p>
 <p>おやすみなさい</p>
 
-        <hr><p>本文 2024-08-04 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-08-04</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2024-08-04に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-08-04です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>大学2年生後期学期のまとめ</title>
-      <link>http://localhost:1313/ja/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Thu, 27 Jun 2024 01:14:14 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</guid>
-      <description><![CDATA[<h1>大学2年生後期学期のまとめ</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Thu, 27 Jun 2024 01:14:14 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</guid>
+      <description>
+        <![CDATA[<h1>大学2年生後期学期のまとめ</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <p><strong>前日までのあらすじ：</strong></p>
 <blockquote>
 <p>確率論の試験が午後だと思い込んでいて、11時までぐっすり寝てしまい、目覚めてから宮保鶏丁の弁当を注文。<br>
@@ -318,23 +351,28 @@ $$<p>コードテスト</p>
 <strong>凹凸のある道を踏み固めて大道とし、困難と戦い終えたらまた出発する。</strong></p>
 <p>確率論のノートを徹夜でまとめたせいで頭が混乱したのかもしれないが、今後もノートは公開していくつもりだ。同期には役立たないかもしれないが、後輩たちのためになるだろう。知識の普及と文化的共有へのささやかな貢献だ。</p>
 
-        <hr><p>本文 2024-06-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-06-27</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2024-06-27に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-06-27です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>放蕩息子の回心</title>
-      <link>http://localhost:1313/ja/post/thoughts/%E6%B5%AA%E5%AD%90%E5%9B%9E%E5%A4%B4/</link>
-      <pubDate>Fri, 24 May 2024 18:42:50 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/thoughts/%E6%B5%AA%E5%AD%90%E5%9B%9E%E5%A4%B4/</guid>
-      <description><![CDATA[<h1>放蕩息子の回心</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/thoughts/%E6%B5%AA%E5%AD%90%E5%9B%9E%E5%A4%B4/</link>
+      <pubDate>Fri, 24 May 2024 18:42:50 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/thoughts/%E6%B5%AA%E5%AD%90%E5%9B%9E%E5%A4%B4/</guid>
+      <description>
+        <![CDATA[<h1>放蕩息子の回心</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <p>最近西安の気温がますます高くなり、5月末にはすでに36℃に達しました。~~12月にはどれほど暑くなるか想像もつきません。~~7月の電子設計競技の省大会と可能性のある夏休みの社会実践活動のため、夏休みは学校に残ることを考えています。冬のように集中宿泊にならないことを願っています（夏は集中暖房が必要ないのでコスト削減のためにはならないでしょう）。これまでは試験が終わるとすぐに帰省していましたが、内陸都市の真夏は千湖の省よりもずっと暑いだろうと思います。</p>
 <p>暑い夏と言えば、故郷の竹製の寝台を思い出し、古い家の赤いレンガと天井扇風機を思い出し、緑色の甘い瓜と白くて柔らかいマスクメロンを思い出し、家の前にあった解体時に切られてしまった古い桃の木を思い出し、子どもの頃から夏になると私のために瓜を切ってくれた祖母を思い出します……</p>
 <p>ここ数週間の忙しさが終わり、週末が近づいていますが、振り返ってみても何か意味のあることをしたか思い出せません。提出期限が迫っている課題があればそれをこなし、期限がまだ先ならば『Battlefield 1』の世界に現実逃避していました。実験があれば文句を言いながらG614まで自転車で行き、よく2本の壊れた信号線にイライラさせられました。それと、今週の体育の期末テストで鉄棒を36秒間ぶら下がったことはとても自慢です（笑）</p>
@@ -358,23 +396,28 @@ $$<p>コードテスト</p>
 <p>まず体系的に確率論を速習し、それからデジタル回路の予習をします。信号処理と熱力学は難易度が高いので、授業が終わってから集中して取り組むべきです。2回目の数値解析テストの日程が発表されたら、適当な時期に予習します。前回は3時間の速習でうまくいきました。模擬電子回路は中程度の難易度なので、普段の授業で解決できます。6月初めには電子設計競技の校際大会もありますが、本当に時間がないので適当に済ませます。</p>
 <p>時間がなく課題が多いので、借りを返し始めなければなりません。</p>
 
-        <hr><p>本文 2024-05-24 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-05-24</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2024-05-24に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-05-24です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>生活の断片</title>
-      <link>http://localhost:1313/ja/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</link>
-      <pubDate>Mon, 06 May 2024 18:12:51 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</guid>
-      <description><![CDATA[<h1>生活の断片</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</link>
+      <pubDate>Mon, 06 May 2024 18:12:51 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</guid>
+      <description>
+        <![CDATA[<h1>生活の断片</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <h3 id="生きる">
 <a class="header-anchor" href="#%e7%94%9f%e3%81%8d%e3%82%8b"></a>
 生きる
@@ -433,23 +476,28 @@ $$<p>コードテスト</p>
 <p>人生は味気ないジャガイモと燻製肉の炒め物なのか、<br>
 此の中に真意有り、<br>
 弁ぜんと欲して已に言を忘る。</p></blockquote>
-        <hr><p>本文 2024-05-06 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-05-06</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2024-05-06に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-05-06です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>新装PC</title>
-      <link>http://localhost:1313/ja/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</link>
-      <pubDate>Mon, 29 Apr 2024 16:30:10 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</guid>
-      <description><![CDATA[<h1>新装PC</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</link>
+      <pubDate>Mon, 29 Apr 2024 16:30:10 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</guid>
+      <description>
+        <![CDATA[<h1>新装PC</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <p>今年の誕生日に新しいデスクトップPCを自作しました</p>
 <p>。4年前の9700KF+1660Sの性能ではもう少し物足りなく、1080P 60Hzのモニターも満足できませんでした。
 古い本体とモニターを売り、貯金を合わせて何とか予算を確保しました。</p>
@@ -497,23 +545,28 @@ $$<p>コードテスト</p>
 ゲーム専用として使います（</li>
 </ol>
 <p>ps.桜瞳花嫁カードは本当に美しいですね、香りまでするなんて&hellip;</p>
-        <hr><p>本文 2024-04-29 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-04-29</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2024-04-29に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-04-29です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>2023年まとめ</title>
-      <link>http://localhost:1313/ja/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Fri, 05 Jan 2024 17:00:44 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</guid>
-      <description><![CDATA[<h1>2023年まとめ</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Fri, 05 Jan 2024 17:00:44 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</guid>
+      <description>
+        <![CDATA[<h1>2023年まとめ</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <p><strong>タグ: サボり、平凡、夢想、逃避、孤独、確信</strong></p>
 <p>学期末を迎え、年の瀬が迫っている。
 上半期は完全にサボり状態で、Steamの戦地ゲームのプレイ時間を見れば毎日ゲームをしていたことがわかる。だから、期末試験で危うく落第しそうになったり成績が悪かったりしたのも当然の結果だった。
@@ -537,8 +590,10 @@ $$<p>コードテスト</p>
 生きることは難しいことだ。幸い、運が悪くてもまだ生きていられる。
 たまには根拠のない希望も持とう。きっと良くなる。
 おはよう、おやすみ。歳歳平安（毎年平穏でありますように）。</p>
-        <hr><p>本文 2024-01-05 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-01-05</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2024-01-05に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-01-05です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>

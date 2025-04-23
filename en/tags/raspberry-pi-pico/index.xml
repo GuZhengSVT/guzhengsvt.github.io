@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>Raspberry Pi Pico on 孤筝の温暖小家</title>
-    <link>http://localhost:1313/en/tags/raspberry-pi-pico/</link>
+  <channel>
+    <title>Raspberry Pi Pico on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.cn/en/tags/raspberry-pi-pico/</link>
     <description>Recent content from 孤筝の温暖小家</description>
     <generator>Hugo</generator>
     <language>en</language>
+    
     <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
     <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
     
-    <copyright>All website licensed under CC BY 4.0</copyright>
+    <copyright>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</copyright>
     
     <lastBuildDate>Thu, 15 Feb 2024 11:44:33 +0800</lastBuildDate>
     
-    <atom:link href="http://localhost:1313/en/tags/raspberry-pi-pico/index.xml" rel="self" type="application/rss&#43;xml" />
     
+    <atom:link href="https://guzhengsvt.cn/en/tags/raspberry-pi-pico/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
     
       
+      
+      
     
-    
-    
+
     <item>
       <title>MicroPython Function Library</title>
-      <link>http://localhost:1313/en/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link>
-      <pubDate>Thu, 15 Feb 2024 11:44:33 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid>
-      <description><![CDATA[<h1>MicroPython Function Library</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link>
+      <pubDate>Thu, 15 Feb 2024 11:44:33 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid>
+      <description>
+        <![CDATA[<h1>MicroPython Function Library</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <h1 id="machine---hardware-related-functions">
 <a class="header-anchor" href="#machine---hardware-related-functions"></a>
 Machine - Hardware Related Functions
@@ -177,8 +185,10 @@ ADC Class
 <code>ADC.read_u16()</code>
 </h3><p>Read ADC channel value [0,65525]</p>
 
-        <hr><p>本文 2024-02-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-02-15</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2024-02-15 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-02-15</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Code</category>
       
     </item>

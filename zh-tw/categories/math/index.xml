@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>Math on 孤筝の温暖小家</title>
-    <link>http://localhost:1313/zh-tw/categories/math/</link>
+  <channel>
+    <title>Math on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.cn/zh-tw/categories/math/</link>
     <description>Recent content from 孤筝の温暖小家</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
+    
     <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
     <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
     
-    <copyright>All website licensed under CC BY 4.0</copyright>
+    <copyright>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</copyright>
     
     <lastBuildDate>Tue, 10 Sep 2024 01:14:05 +0800</lastBuildDate>
     
-    <atom:link href="http://localhost:1313/zh-tw/categories/math/index.xml" rel="self" type="application/rss&#43;xml" />
     
+    <atom:link href="https://guzhengsvt.cn/zh-tw/categories/math/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
     
       
+      
+      
     
-    
-    
+
     <item>
       <title>機率論與數理統計</title>
-      <link>http://localhost:1313/zh-tw/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link>
-      <pubDate>Tue, 10 Sep 2024 01:14:05 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-tw/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid>
-      <description><![CDATA[<h1>機率論與數理統計</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-tw/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link>
+      <pubDate>Tue, 10 Sep 2024 01:14:05 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-tw/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid>
+      <description>
+        <![CDATA[<h1>機率論與數理統計</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <h2 id="前言">
 <a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
 前言
@@ -180,23 +188,28 @@ $$<h2 id="泊松分佈">
 $$
 P(X=k)=\frac{e^{-\lambda}\lambda^k}{k!}
 $$
-        <hr><p>本文 2024-09-10 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-10</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2024-09-10 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2024-09-10</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
       </description>
+      
         <category>Math</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>實數建立讀書報告</title>
-      <link>http://localhost:1313/zh-tw/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</link>
-      <pubDate>Wed, 27 Dec 2023 21:40:17 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-tw/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</guid>
-      <description><![CDATA[<h1>實數建立讀書報告</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-tw/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</link>
+      <pubDate>Wed, 27 Dec 2023 21:40:17 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-tw/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</guid>
+      <description>
+        <![CDATA[<h1>實數建立讀書報告</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <h1 id="實數基礎讀書報告">
 <a class="header-anchor" href="#%e5%af%a6%e6%95%b8%e5%9f%ba%e7%a4%8e%e8%ae%80%e6%9b%b8%e5%a0%b1%e5%91%8a"></a>
 實數基礎讀書報告
@@ -550,23 +563,28 @@ $$
 </h2><p>透過研讀實數建立的相關書籍，我的數學觀念得到了顯著的拓展。更加深入了解了實數的構建過程，包括從有理數到無理數的引入，以及確界原理等方法的闡釋證明。這使我對實數的概念有了更為清晰和深刻的認識，意識到實數的引入是為了彌補有理數的不足，使數學體系更為完備。</p>
 <p>在深入學習極限和連續性的過程中，我深感這是一種深邃而富有美感的思想。極限的引入不僅為理解數列和函數的趨勢提供了有效的工具，也是實數系統中的核心思想之一。連續性的概念則使得實數軸上函數變化的漸進平滑，這種連續性貫穿於整個數學分析。</p>
 
-        <hr><p>本文 2023-12-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-27</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2023-12-27 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2023-12-27</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
       </description>
+      
         <category>Math</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>留數定理與洛朗級數、高階導數公式和柯西積分公式之間的關係或聯繫</title>
-      <link>http://localhost:1313/zh-tw/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link>
-      <pubDate>Wed, 20 Dec 2023 08:54:33 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-tw/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid>
-      <description><![CDATA[<h1>留數定理與洛朗級數、高階導數公式和柯西積分公式之間的關係或聯繫</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-tw/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link>
+      <pubDate>Wed, 20 Dec 2023 08:54:33 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-tw/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid>
+      <description>
+        <![CDATA[<h1>留數定理與洛朗級數、高階導數公式和柯西積分公式之間的關係或聯繫</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <h3 id="1-留數定理residue-theorem">
 <a class="header-anchor" href="#1-%e7%95%99%e6%95%b8%e5%ae%9a%e7%90%86residue-theorem"></a>
 1. 留數定理（Residue Theorem）：
@@ -733,23 +751,28 @@ $$f(z_0) = c_{-1}$$</li>
 $$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
 </ol>
 
-        <hr><p>本文 2023-12-20 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-20</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2023-12-20 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2023-12-20</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
       </description>
+      
         <category>Math</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>複變函數</title>
-      <link>http://localhost:1313/zh-tw/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link>
-      <pubDate>Fri, 17 Nov 2023 19:42:47 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-tw/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid>
-      <description><![CDATA[<h1>複變函數</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-tw/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Fri, 17 Nov 2023 19:42:47 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-tw/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid>
+      <description>
+        <![CDATA[<h1>複變函數</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <h1 id="複數">
 <a class="header-anchor" href="#%e8%a4%87%e6%95%b8"></a>
 複數
@@ -877,8 +900,10 @@ $$f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}dz$$</li>
 </li>
 </ol>
 
-        <hr><p>本文 2023-11-17 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-11-17</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2023-11-17 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2023-11-17</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
       </description>
+      
         <category>Math</category>
       
     </item>

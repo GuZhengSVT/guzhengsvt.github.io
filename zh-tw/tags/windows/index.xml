@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>Windows on 孤筝の温暖小家</title>
-    <link>http://localhost:1313/zh-tw/tags/windows/</link>
+  <channel>
+    <title>Windows on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.cn/zh-tw/tags/windows/</link>
     <description>Recent content from 孤筝の温暖小家</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
+    
     <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
     <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
     
-    <copyright>All website licensed under CC BY 4.0</copyright>
+    <copyright>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</copyright>
     
     <lastBuildDate>Sat, 07 Sep 2024 21:12:17 +0800</lastBuildDate>
     
-    <atom:link href="http://localhost:1313/zh-tw/tags/windows/index.xml" rel="self" type="application/rss&#43;xml" />
     
+    <atom:link href="https://guzhengsvt.cn/zh-tw/tags/windows/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
     
       
+      
+      
     
-    
-    
+
     <item>
       <title>Windows美化歷程</title>
-      <link>http://localhost:1313/zh-tw/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link>
-      <pubDate>Sat, 07 Sep 2024 21:12:17 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-tw/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid>
-      <description><![CDATA[<h1>Windows美化歷程</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-tw/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link>
+      <pubDate>Sat, 07 Sep 2024 21:12:17 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-tw/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid>
+      <description>
+        <![CDATA[<h1>Windows美化歷程</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <h2 id="前言">
 <a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
 前言
@@ -275,23 +283,28 @@ Sapphire
 <li>蔚藍檔案千年游標，簡約可愛，在用。
 GitHub項目地址：<a href="https://github.com/makipom/BlueArchive-Cursors">BlueArchive-Cursors</a></li>
 </ol>
-        <hr><p>本文 2024-09-07 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-07</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2024-09-07 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2024-09-07</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
       </description>
+      
         <category>OtherNotes</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>自動撥號上網與工作排程器</title>
-      <link>http://localhost:1313/zh-tw/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</link>
-      <pubDate>Wed, 12 Jun 2024 19:34:52 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-tw/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</guid>
-      <description><![CDATA[<h1>自動撥號上網與工作排程器</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-tw/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Wed, 12 Jun 2024 19:34:52 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-tw/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</guid>
+      <description>
+        <![CDATA[<h1>自動撥號上網與工作排程器</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <h2 id="破事水">
 <a class="header-anchor" href="#%e7%a0%b4%e4%ba%8b%e6%b0%b4"></a>
 破事水
@@ -322,8 +335,10 @@ GitHub項目地址：<a href="https://github.com/makipom/BlueArchive-Cursors">Bl
 轉到操作-&gt;新增-&gt;啟動程式-&gt;瀏覽找到你剛寫的bat程式選中-&gt;確認</p>
 <p>確認（此時會要求輸入Windows系統登入的微軟帳號密碼，不是PIN，總是出錯建議檢查一般頁面裡的用戶帳戶是否匹配。）</p>
 
-        <hr><p>本文 2024-06-12 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-06-12</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2024-06-12 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2024-06-12</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
       </description>
+      
         <category>OtherNotes</category>
       
     </item>

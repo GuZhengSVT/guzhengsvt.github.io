@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>Thoughts on 孤筝の温暖小家</title>
-    <link>http://localhost:1313/en/categories/thoughts/</link>
+  <channel>
+    <title>Thoughts on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.cn/en/categories/thoughts/</link>
     <description>Recent content from 孤筝の温暖小家</description>
     <generator>Hugo</generator>
     <language>en</language>
+    
     <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
     <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
     
-    <copyright>All website licensed under CC BY 4.0</copyright>
+    <copyright>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</copyright>
     
     <lastBuildDate>Sun, 13 Apr 2025 11:00:00 +0800</lastBuildDate>
     
-    <atom:link href="http://localhost:1313/en/categories/thoughts/index.xml" rel="self" type="application/rss&#43;xml" />
     
+    <atom:link href="https://guzhengsvt.cn/en/categories/thoughts/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
     
       
+      
+      
     
-    
-    
+
     <item>
       <title>Hello World</title>
-      <link>http://localhost:1313/en/post/thoughts/hello-world/</link>
-      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/hello-world/</guid>
-      <description><![CDATA[<h1>Hello World</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/hello-world/</link>
+      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/hello-world/</guid>
+      <description>
+        <![CDATA[<h1>Hello World</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <h1 id="20250413">
 <a class="header-anchor" href="#20250413"></a>
 2025.04.13
@@ -74,23 +82,28 @@ $$<p>code test</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;hello world&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>icon: <!-- raw HTML omitted --><!-- raw HTML omitted --> A cup of coffee</p>
 
-        <hr><p>本文 2025-04-13 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2025-04-13 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-04-13</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Summary of the First Semester of Junior Year</title>
-      <link>http://localhost:1313/en/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Tue, 28 Jan 2025 19:46:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid>
-      <description><![CDATA[<h1>Summary of the First Semester of Junior Year</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Tue, 28 Jan 2025 19:46:04 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid>
+      <description>
+        <![CDATA[<h1>Summary of the First Semester of Junior Year</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <h2 id="about-final-exams">
 <a class="header-anchor" href="#about-final-exams"></a>
 About Final Exams
@@ -143,23 +156,28 @@ The remaining half of winter break <em>should</em> be spent studying <em>Princip
 Wishing you a happy New Year, peace and prosperity in the years to come.</p>
 <p>Jan 24, 2025</p>
 
-        <hr><p>本文 2025-01-28 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-01-28</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2025-01-28 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-01-28</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Mid-Autumn Festival, give your family a call.</title>
-      <link>http://localhost:1313/en/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</link>
-      <pubDate>Sun, 15 Sep 2024 22:35:40 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</guid>
-      <description><![CDATA[<h1>Mid-Autumn Festival, give your family a call.</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</link>
+      <pubDate>Sun, 15 Sep 2024 22:35:40 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</guid>
+      <description>
+        <![CDATA[<h1>Mid-Autumn Festival, give your family a call.</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <blockquote>
 <p>&ldquo;Mom, will there really be girls who like me in this world?&rdquo;<br>
 &ldquo;Of course! When I first met you, I was only in my twenties too.&rdquo;</p></blockquote>
@@ -178,46 +196,56 @@ Though miles apart, we&rsquo;ll share the beauty she displays.</p></blockquote>
 May we all be blessed with longevity.<br>
 May we all be blessed with longevity.</p>
 <p>(Note: The classical Chinese poem is rendered in Xu Yuanchong&rsquo;s renowned English translation, preserving both the lyrical beauty and philosophical depth of Su Shi&rsquo;s original work. The repetition of &ldquo;longevity&rdquo; mirrors the original text&rsquo;s emphasis while adapting to English poetic conventions.)</p>
-        <hr><p>本文 2024-09-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-15</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2024-09-15 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-09-15</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Leaning on railings, I hear the rain rushing; For my homeland my heart is aching.</title>
-      <link>http://localhost:1313/en/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</link>
-      <pubDate>Mon, 09 Sep 2024 17:54:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</guid>
-      <description><![CDATA[<h1>Leaning on railings, I hear the rain rushing; For my homeland my heart is aching.</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</link>
+      <pubDate>Mon, 09 Sep 2024 17:54:04 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</guid>
+      <description>
+        <![CDATA[<h1>Leaning on railings, I hear the rain rushing; For my homeland my heart is aching.</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <p>&ldquo;I have a dream that one day, the brilliant sunlight will pierce through the dark forest.&rdquo;</p>
 <p>But here, the sun was setting, now only revealing the tip of its crown above the distant mountains, like a dazzling gem embedded in the peaks. The child had already run far ahead, bathed together with the grassland in the golden hues of twilight.</p>
 <p>The sun is about to set, and your child isn’t afraid?</p>
 <p>&ldquo;Of course not. She knows the sun will rise again tomorrow.&rdquo;</p>
 <p>Good night.<br>
 <img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2683784600.jpg" alt="Mao1.JPG"></p>
-        <hr><p>本文 2024-09-09 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-09</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2024-09-09 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-09-09</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Send One Each Day</title>
-      <link>http://localhost:1313/en/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</link>
-      <pubDate>Sun, 04 Aug 2024 00:02:00 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</guid>
-      <description><![CDATA[<h1>Send One Each Day</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</link>
+      <pubDate>Sun, 04 Aug 2024 00:02:00 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</guid>
+      <description>
+        <![CDATA[<h1>Send One Each Day</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <p>The last update was a month ago—not because I was particularly busy (though there were indeed hectic moments). It’s just that life is unpredictable, and I found myself with little motivation to write.</p>
 <h2 id="a-thousand-miles-away-the-northern-wind-blows-against-my-clothes">
 <a class="header-anchor" href="#a-thousand-miles-away-the-northern-wind-blows-against-my-clothes"></a>
@@ -286,23 +314,28 @@ But Chang’an has no flavor quite like this.</p></blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/08/3364523607.png" alt="fuguang.png"></p>
 <p>Good night.</p>
 
-        <hr><p>本文 2024-08-04 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-08-04</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2024-08-04 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-08-04</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Summary of the Second Semester of Sophomore Year</title>
-      <link>http://localhost:1313/en/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Thu, 27 Jun 2024 01:14:14 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</guid>
-      <description><![CDATA[<h1>Summary of the Second Semester of Sophomore Year</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Thu, 27 Jun 2024 01:14:14 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</guid>
+      <description>
+        <![CDATA[<h1>Summary of the Second Semester of Sophomore Year</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <p><strong>Prologue:</strong></p>
 <blockquote>
 <p>I mistook the morning probability theory exam for an afternoon one, slept soundly till eleven, and woke up cheerfully ordering a plate of Kung Pao chicken rice.<br>
@@ -322,23 +355,28 @@ I have no regrets.</p>
 <strong>Smooth out the bumps to forge a broad road; after conquering hardships, set forth again.</strong></p>
 <p>Though I often wonder if it’s the late-night probability theory notes that scrambled my brain, I’ll keep sharing them. They might not help my peers much, but they could benefit those who come after—a small contribution to the spread of knowledge and cultural communism.</p>
 
-        <hr><p>本文 2024-06-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-06-27</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2024-06-27 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-06-27</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>The prodigal son returns</title>
-      <link>http://localhost:1313/en/post/thoughts/%E6%B5%AA%E5%AD%90%E5%9B%9E%E5%A4%B4/</link>
-      <pubDate>Fri, 24 May 2024 18:42:50 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/%E6%B5%AA%E5%AD%90%E5%9B%9E%E5%A4%B4/</guid>
-      <description><![CDATA[<h1>The prodigal son returns</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/%E6%B5%AA%E5%AD%90%E5%9B%9E%E5%A4%B4/</link>
+      <pubDate>Fri, 24 May 2024 18:42:50 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/%E6%B5%AA%E5%AD%90%E5%9B%9E%E5%A4%B4/</guid>
+      <description>
+        <![CDATA[<h1>The prodigal son returns</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <p>The temperatures in Xi&rsquo;an have been climbing higher lately, hitting 36°C by the end of May. <del>I can&rsquo;t even imagine how hot it&rsquo;ll be by December.</del> Due to the provincial electronics competition in July and possible summer social practice, I&rsquo;m considering staying on campus for the break. I hope they won’t make us consolidate dorms like they did in winter (summer doesn’t require centralized heating to cut costs, so it shouldn’t happen, right?). In previous years, I’d head home right after exams, but I suspect inland cities in midsummer are much hotter than my home province with its thousand lakes.</p>
 <p>Mentioning scorching summers brings to mind the bamboo bed at home, the red bricks and ceiling fans of the old house, the crisp green melons and fragrant white muskmelons, the old peach tree in front of the house that was cut down during renovations, and my grandma, who’s been slicing melons for me every summer since I was little…</p>
 <p>With the busyness of the past few weeks winding down and the weekend approaching, I tried hard to recall what meaningful things I’d done—but nothing came to mind. When assignments were due, I rushed through them; if deadlines were far off, I piled them up and escaped into <em>Battlefield 1</em>. When labs rolled around, I’d grumble my way to G614 on my bike, often getting frustrated by two faulty signal cables. Oh, and this week, I scored 36 seconds on the horizontal bar for my PE final—pretty proud of that one ().</p>
@@ -362,23 +400,28 @@ I have no regrets.</p>
 <p>I’ll speedrun probability theory systematically, then preview digital circuits. Signals and thermodynamics are tough, so I’ll focus on them after classes end. Once the second numerical analysis test date is announced, I’ll cram accordingly—last time, a three-hour crash course worked well. Analog circuits are moderately difficult, so I’ll handle them during lectures. Early June also has the intercollegiate electronics competition, but with no time to spare, I’ll just wing it.</p>
 <p>Time’s tight, tasks are heavy—it’s time to pay my dues.</p>
 
-        <hr><p>本文 2024-05-24 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-05-24</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2024-05-24 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-05-24</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>A Little Note on Life</title>
-      <link>http://localhost:1313/en/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</link>
-      <pubDate>Mon, 06 May 2024 18:12:51 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</guid>
-      <description><![CDATA[<h1>A Little Note on Life</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</link>
+      <pubDate>Mon, 06 May 2024 18:12:51 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</guid>
+      <description>
+        <![CDATA[<h1>A Little Note on Life</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <h3 id="alive">
 <a class="header-anchor" href="#alive"></a>
 Alive
@@ -437,23 +480,28 @@ People Change
 <p>Perhaps life is like a plate of mediocre stir-fried potatoes with cured meat.<br>
 Therein lies the truth,<br>
 But words fail me now.</p></blockquote>
-        <hr><p>本文 2024-05-06 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-05-06</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2024-05-06 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-05-06</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Newly assembled computer</title>
-      <link>http://localhost:1313/en/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</link>
-      <pubDate>Mon, 29 Apr 2024 16:30:10 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</guid>
-      <description><![CDATA[<h1>Newly assembled computer</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</link>
+      <pubDate>Mon, 29 Apr 2024 16:30:10 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</guid>
+      <description>
+        <![CDATA[<h1>Newly assembled computer</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <p>This year, I treated myself to a new desktop PC for my birthday</p>
 <p>. My old setup from four years ago—a 9700KF paired with a 1660S—was no longer cutting it, and the 1080P 60Hz monitor had become underwhelming.</p>
 <p>After selling the old PC and monitor, plus dipping into my savings, I barely managed to scrape together enough for the upgrade.</p>
@@ -505,23 +553,28 @@ Assembly
 </ul>
 <p>So, I’ll stick to gaming with this beast (and admire the Sakura Blossom Bride GPU’s beauty—yes, it <em>actually</em> smells nice, hehe).</p>
 <p>P.S. The Sakura Blossom Bride card is <em>gorgeous</em>&hellip; and it genuinely has a fragrance. Hehehe.</p>
-        <hr><p>本文 2024-04-29 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-04-29</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2024-04-29 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-04-29</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>2023 Year in Review</title>
-      <link>http://localhost:1313/en/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Fri, 05 Jan 2024 17:00:44 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</guid>
-      <description><![CDATA[<h1>2023 Year in Review</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Fri, 05 Jan 2024 17:00:44 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</guid>
+      <description>
+        <![CDATA[<h1>2023 Year in Review</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <p><strong>Tags: Slacking off, Mediocrity, Daydreaming, Escapism, Solitude, Certainty</strong></p>
 <p>The semester has ended, and the year is drawing to a close.</p>
 <p>In the first half of the year, I was in a complete state of slacking off—my Steam playtime for Battlefield games speaks for itself. Unsurprisingly, my grades were terrible, and I nearly failed my finals.</p>
@@ -545,8 +598,10 @@ Assembly
 <p>Staying alive is hard, but despite my bad luck, I’m still here.</p>
 <p>Maybe I’ll indulge in a little baseless hope—things will get better.</p>
 <p>Good morning, good night. Peace, year after year.</p>
-        <hr><p>本文 2024-01-05 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-01-05</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2024-01-05 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-01-05</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>

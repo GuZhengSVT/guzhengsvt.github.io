@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>Aerodynamics on 孤筝の温暖小家</title>
-    <link>http://localhost:1313/en/tags/aerodynamics/</link>
+  <channel>
+    <title>Aerodynamics on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.cn/en/tags/aerodynamics/</link>
     <description>Recent content from 孤筝の温暖小家</description>
     <generator>Hugo</generator>
     <language>en</language>
+    
     <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
     <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
     
-    <copyright>All website licensed under CC BY 4.0</copyright>
+    <copyright>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</copyright>
     
     <lastBuildDate>Mon, 02 Sep 2024 22:13:45 +0800</lastBuildDate>
     
-    <atom:link href="http://localhost:1313/en/tags/aerodynamics/index.xml" rel="self" type="application/rss&#43;xml" />
     
+    <atom:link href="https://guzhengsvt.cn/en/tags/aerodynamics/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
     
       
+      
+      
     
-    
-    
+
     <item>
       <title>Fundamentals of Aerodynamics</title>
-      <link>http://localhost:1313/en/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link>
-      <pubDate>Mon, 02 Sep 2024 22:13:45 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid>
-      <description><![CDATA[<h1>Fundamentals of Aerodynamics</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 02 Sep 2024 22:13:45 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid>
+      <description>
+        <![CDATA[<h1>Fundamentals of Aerodynamics</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <h1 id="fundamentals-of-hydrostatics">
 <a class="header-anchor" href="#fundamentals-of-hydrostatics"></a>
 Fundamentals of Hydrostatics
@@ -760,8 +768,10 @@ The Difference Between Aerodynamic Center and Center of Pressure
 </h2><p>The center of pressure is a special point where the force system is synthesized, resulting in <strong>zero net moment</strong> at that point, <strong>with the center of pressure located behind the aerodynamic center</strong>. On the other hand, the aerodynamic center is the point where <strong>the net moment remains unchanged</strong>.</p>
 <p>The position of the center of pressure changes with variations in the angle of attack. As the angle of attack increases, the lift increases, causing the center of pressure to move forward. This simultaneously reduces the distance between the center of pressure and the aerodynamic center. The increased lift multiplied by the shortened moment arm precisely equals the unchanged moment, which is exactly what the definition of the aerodynamic center requires.</p>
 
-        <hr><p>本文 2024-09-02 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-02</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2024-09-02 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-09-02</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Physics</category>
       
     </item>

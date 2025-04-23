@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>Web on 孤筝の温暖小家</title>
-    <link>http://localhost:1313/zh-cn/tags/web/</link>
+  <channel>
+    <title>Web on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.cn/zh-cn/tags/web/</link>
     <description>Recent content from 孤筝の温暖小家</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
+    
     <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
     <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
     
-    <copyright>All website licensed under CC BY 4.0</copyright>
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
     <lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate>
     
-    <atom:link href="http://localhost:1313/zh-cn/tags/web/index.xml" rel="self" type="application/rss&#43;xml" />
     
+    <atom:link href="https://guzhengsvt.cn/zh-cn/tags/web/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
     
       
+      
+      
     
-    
-    
+
     <item>
       <title>Typecho评论导入Waline</title>
-      <link>http://localhost:1313/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
-      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
-      <description><![CDATA[<h1>Typecho评论导入Waline</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
+      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-cn/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
+      <description>
+        <![CDATA[<h1>Typecho评论导入Waline</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <p>前两天把博客文章从 Typecho 迁移到 Hugo，光是设置 Front Matter 参数和重新配置图片链接就费了很大功夫。<br>
 一个博客的价值，首先是文章，紧接着就是评论。评论证明博客在互联网和真实世界产生的影响，承载了人与人之间的交互关系。私心一点地说，五湖四海的评论是重要的回忆，是构成“我”的一部分。<br>
 所以，将原站评论 copy 到新站的对应文章下是很有必要的。</p>
@@ -187,23 +195,28 @@ Waline 的<a href="https://waline.js.org/guide/get-started/">中文文档</a>内
 如最开始所言，这是笔者的成长轨迹，是笔者存活于世的证明，是“我”的一部分。</p>
 <p>而你，我亲爱的读者，是你赋予我价值。</p>
 <p>有空的话请多多评论吧～笔者真的会开心很久的说（如果评论善意的话）。</p>
-        <hr><p>本文 2025-04-19 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2025-04-19 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</p>]]>
       </description>
+      
         <category>OtherNotes</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Hello World</title>
-      <link>http://localhost:1313/zh-cn/post/thoughts/hello-world/</link>
-      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-cn/post/thoughts/hello-world/</guid>
-      <description><![CDATA[<h1>Hello World</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-cn/post/thoughts/hello-world/</link>
+      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-cn/post/thoughts/hello-world/</guid>
+      <description>
+        <![CDATA[<h1>Hello World</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <h1 id="20250413">
 <a class="header-anchor" href="#20250413"></a>
 2025.04.13
@@ -257,23 +270,28 @@ $$<p>code test</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;hello world&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>icon: <!-- raw HTML omitted --><!-- raw HTML omitted --> 一杯咖啡</p>
 
-        <hr><p>本文 2025-04-13 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2025-04-13 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>新增域名</title>
-      <link>http://localhost:1313/zh-cn/post/thoughts/%E6%96%B0%E5%A2%9E%E5%9F%9F%E5%90%8D/</link>
-      <pubDate>Sat, 25 Nov 2023 18:59:05 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-cn/post/thoughts/%E6%96%B0%E5%A2%9E%E5%9F%9F%E5%90%8D/</guid>
-      <description><![CDATA[<h1>新增域名</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-cn/post/thoughts/%E6%96%B0%E5%A2%9E%E5%9F%9F%E5%90%8D/</link>
+      <pubDate>Sat, 25 Nov 2023 18:59:05 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-cn/post/thoughts/%E6%96%B0%E5%A2%9E%E5%9F%9F%E5%90%8D/</guid>
+      <description>
+        <![CDATA[<h1>新增域名</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <p>在阿里云买了新域名guzhengsvt.cn</p>
 <p>（用券首年29￥，续费每年39￥）。
 本来是想用来临时开发微信小程序用的，没用上，只好解析到自己博客了。</p>
@@ -281,23 +299,28 @@ $$<p>code test</p>
 <p>手头有阿里云签的top SSL证书，24年8月到期；结果今年11月14日阿里云改了免费SSL证书政策，一次最多申请3个月的单域名SSL证书，新买的cn域名证书还得常常续时长（虽然目前也用不上就是了）。</p>
 <p>复习了一遍域名解析和SSL证书申请及配置步骤，还得感谢<a href="https://www.vpsor.cn/">硅云</a>SSL证书配置之方便。
 <del>本来也想夸夸阿里云SSL证书申请服务的但是emmm</del></p>
-        <hr><p>本文 2023-11-25 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-11-25</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2023-11-25 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2023-11-25</p><p>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Blog建成总结(Hexo&#43;Github版）</title>
-      <link>http://localhost:1313/zh-cn/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo&#43;github%E7%89%88/</link>
-      <pubDate>Sat, 10 Sep 2022 09:30:52 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-cn/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo&#43;github%E7%89%88/</guid>
-      <description><![CDATA[<h1>Blog建成总结(Hexo+Github版）</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-cn/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo&#43;github%E7%89%88/</link>
+      <pubDate>Sat, 10 Sep 2022 09:30:52 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-cn/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo&#43;github%E7%89%88/</guid>
+      <description>
+        <![CDATA[<h1>Blog建成总结(Hexo+Github版）</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <p><strong>早期建站记录，已失效，仅作纪念</strong></p>
 <p><a href="https://guzhengsvt.github.io">https://guzhengsvt.github.io</a></p>
 <p>基于GitHub+Hexo搭建的个人博客，目前已完成主要功能的施工。</p>
@@ -325,8 +348,10 @@ $$<p>code test</p>
 <p>最后，祝大家中秋节快乐，祝老师们和即将成为老师的同学们教师节快乐。</p>
 <p>以上</p>
 <p>2022年9月10日星期六</p>
-        <hr><p>本文 2022-09-10 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2022-09-10</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2022-09-10 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2022-09-10</p><p>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>

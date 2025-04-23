@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>空気力学 on 孤筝の温暖小家</title>
-    <link>http://localhost:1313/ja/tags/%E7%A9%BA%E6%B0%97%E5%8A%9B%E5%AD%A6/</link>
+  <channel>
+    <title>空気力学 on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.cn/ja/tags/%E7%A9%BA%E6%B0%97%E5%8A%9B%E5%AD%A6/</link>
     <description>Recent content from 孤筝の温暖小家</description>
     <generator>Hugo</generator>
     <language>ja</language>
+    
     <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
     <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
     
-    <copyright>All website licensed under CC BY 4.0</copyright>
+    <copyright>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</copyright>
     
     <lastBuildDate>Mon, 02 Sep 2024 22:13:45 +0800</lastBuildDate>
     
-    <atom:link href="http://localhost:1313/ja/tags/%E7%A9%BA%E6%B0%97%E5%8A%9B%E5%AD%A6/index.xml" rel="self" type="application/rss&#43;xml" />
     
+    <atom:link href="https://guzhengsvt.cn/ja/tags/%E7%A9%BA%E6%B0%97%E5%8A%9B%E5%AD%A6/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
     
       
+      
+      
     
-    
-    
+
     <item>
       <title>空気力学の基礎</title>
-      <link>http://localhost:1313/ja/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link>
-      <pubDate>Mon, 02 Sep 2024 22:13:45 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid>
-      <description><![CDATA[<h1>空気力学の基礎</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 02 Sep 2024 22:13:45 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid>
+      <description>
+        <![CDATA[<h1>空気力学の基礎</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <h1 id="流体静力学の基礎">
 <a class="header-anchor" href="#%e6%b5%81%e4%bd%93%e9%9d%99%e5%8a%9b%e5%ad%a6%e3%81%ae%e5%9f%ba%e7%a4%8e"></a>
 流体静力学の基礎
@@ -808,8 +816,10 @@ $$<h2 id="空力中心と圧力中心の違い">
 </h2><p>圧力中心は力系を合成した際に<strong>合力モーメントが0</strong>になる特別な点であり、<strong>圧力中心は空力中心の後方</strong>に位置します。一方、空力中心は<strong>合力モーメントが不変</strong>となる点です。</p>
 <p>圧力中心の位置は迎え角の変化に伴って変化します。迎え角が増加すると揚力が増加し、圧力中心は前方に移動します。これにより、圧力中心と空力中心の距離が短縮され、増加した揚力と短縮された腕の長さの積がちょうど不変のモーメントとなります。これはまさに空力中心の定義が要求するものです。</p>
 
-        <hr><p>本文 2024-09-02 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-02</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2024-09-02に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-09-02です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>Physics</category>
       
     </item>

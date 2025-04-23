@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>OtherNotes on 孤筝の温暖小家</title>
-    <link>http://localhost:1313/ja/categories/othernotes/</link>
+  <channel>
+    <title>OtherNotes on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.cn/ja/categories/othernotes/</link>
     <description>Recent content from 孤筝の温暖小家</description>
     <generator>Hugo</generator>
     <language>ja</language>
+    
     <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
     <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
     
-    <copyright>All website licensed under CC BY 4.0</copyright>
+    <copyright>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</copyright>
     
     <lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate>
     
-    <atom:link href="http://localhost:1313/ja/categories/othernotes/index.xml" rel="self" type="application/rss&#43;xml" />
     
+    <atom:link href="https://guzhengsvt.cn/ja/categories/othernotes/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
     
       
+      
+      
     
-    
-    
+
     <item>
       <title>TypechoコメントをWalineにインポート</title>
-      <link>http://localhost:1313/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
-      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
-      <description><![CDATA[<h1>TypechoコメントをWalineにインポート</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
+      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
+      <description>
+        <![CDATA[<h1>TypechoコメントをWalineにインポート</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <p>数日前、ブログの記事をTypechoからHugoに移行しましたが、Front Matterのパラメータ設定や画像リンクの再設定だけでかなりの手間がかかりました。<br>
 ブログの価値は、まず記事そのものにあり、次にコメントです。コメントはブログがインターネットと現実世界に与えた影響を証明し、人と人との交流を記録しています。私的な言い方をすれば、世界中からのコメントは大切な思い出であり、「私」を構成する一部です。<br>
 したがって、元のサイトのコメントを新しいサイトの対応する記事の下にコピーすることは非常に重要です。</p>
@@ -190,23 +198,28 @@ LeanCloudへのインポート
 最初に述べたように、これは筆者の成長の軌跡であり、この世に存在する証であり、「私」の一部です。</p>
 <p>そして、親愛なる読者であるあなたは、私に価値を与えてくれる存在です。</p>
 <p>時間があれば、ぜひコメントをください～筆者は本当に長く喜びます（善意のコメントであれば）。</p>
-        <hr><p>本文 2025-04-19 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2025-04-19に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-04-19です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>OtherNotes</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Hugoブログよく使う資料</title>
-      <link>http://localhost:1313/ja/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link>
-      <pubDate>Tue, 15 Apr 2025 16:42:35 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid>
-      <description><![CDATA[<h1>Hugoブログよく使う資料</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link>
+      <pubDate>Tue, 15 Apr 2025 16:42:35 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid>
+      <description>
+        <![CDATA[<h1>Hugoブログよく使う資料</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <h1 id="reimuテーマ-icon_font">
 <a class="header-anchor" href="#reimu%e3%83%86%e3%83%bc%e3%83%9e-icon_font"></a>
 reimuテーマ icon_font
@@ -603,23 +616,28 @@ reimuテーマ icon_font
   </tbody>
 </table>
 
-        <hr><p>本文 2025-04-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2025-04-15に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-04-15です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>OtherNotes</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Windows美化の軌跡</title>
-      <link>http://localhost:1313/ja/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link>
-      <pubDate>Sat, 07 Sep 2024 21:12:17 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid>
-      <description><![CDATA[<h1>Windows美化の軌跡</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link>
+      <pubDate>Sat, 07 Sep 2024 21:12:17 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid>
+      <description>
+        <![CDATA[<h1>Windows美化の軌跡</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <h2 id="はじめに">
 <a class="header-anchor" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab"></a>
 はじめに
@@ -817,23 +835,28 @@ Steam（評価分かれ）：<a href="https://store.steampowered.com/app/1694750
 <li>背景設定：ファイルエクスプローラー、スタートメニュー、システム設定の<strong>背景画像</strong>をカスタマイズ</li>
 <li>色設定：ファイルエクスプローラーの配色（タイトル、グループ、ヘッダー、詳細、ハードディスク進捗バー）、丸みを</li>
 </ul>
-        <hr><p>本文 2024-09-07 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-07</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2024-09-07に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-09-07です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>OtherNotes</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>自動ダイヤルアップ接続とタスクスケジューラ</title>
-      <link>http://localhost:1313/ja/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</link>
-      <pubDate>Wed, 12 Jun 2024 19:34:52 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</guid>
-      <description><![CDATA[<h1>自動ダイヤルアップ接続とタスクスケジューラ</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Wed, 12 Jun 2024 19:34:52 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</guid>
+      <description>
+        <![CDATA[<h1>自動ダイヤルアップ接続とタスクスケジューラ</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <h2 id="くだらないこと水">
 <a class="header-anchor" href="#%e3%81%8f%e3%81%a0%e3%82%89%e3%81%aa%e3%81%84%e3%81%93%e3%81%a8%e6%b0%b4"></a>
 くだらないこと水
@@ -864,23 +887,28 @@ Steam（評価分かれ）：<a href="https://store.steampowered.com/app/1694750
 操作タブ→新規→プログラム開始→作成したbatファイルを選択→OK</p>
 <p>OK（この時Windowsログイン用のMicrosoftアカウントパスワードが要求されます。PINではありません。エラーが続く場合は全般タブのユーザーアカウントが一致しているか確認してください。）</p>
 
-        <hr><p>本文 2024-06-12 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-06-12</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2024-06-12に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-06-12です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>OtherNotes</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Obsidian基礎</title>
-      <link>http://localhost:1313/ja/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</link>
-      <pubDate>Tue, 27 Jun 2023 00:41:26 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</guid>
-      <description><![CDATA[<h1>Obsidian基礎</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Tue, 27 Jun 2023 00:41:26 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/othernotes/obsidian%E5%9F%BA%E7%A1%80/</guid>
+      <description>
+        <![CDATA[<h1>Obsidian基礎</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <h1 id="インターフェース">
 <a class="header-anchor" href="#%e3%82%a4%e3%83%b3%e3%82%bf%e3%83%bc%e3%83%95%e3%82%a7%e3%83%bc%e3%82%b9"></a>
 インターフェース
@@ -1064,8 +1092,10 @@ $$\ 引用元$$<p>
 </ol>
 </div>
 
-        <hr><p>本文 2023-06-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-06-27</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2023-06-27に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-06-27です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>OtherNotes</category>
       
     </item>

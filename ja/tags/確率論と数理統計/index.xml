@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>確率論と数理統計 on 孤筝の温暖小家</title>
-    <link>http://localhost:1313/ja/tags/%E7%A2%BA%E7%8E%87%E8%AB%96%E3%81%A8%E6%95%B0%E7%90%86%E7%B5%B1%E8%A8%88/</link>
+  <channel>
+    <title>確率論と数理統計 on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.cn/ja/tags/%E7%A2%BA%E7%8E%87%E8%AB%96%E3%81%A8%E6%95%B0%E7%90%86%E7%B5%B1%E8%A8%88/</link>
     <description>Recent content from 孤筝の温暖小家</description>
     <generator>Hugo</generator>
     <language>ja</language>
+    
     <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
     <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
     
-    <copyright>All website licensed under CC BY 4.0</copyright>
+    <copyright>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</copyright>
     
     <lastBuildDate>Tue, 10 Sep 2024 01:14:05 +0800</lastBuildDate>
     
-    <atom:link href="http://localhost:1313/ja/tags/%E7%A2%BA%E7%8E%87%E8%AB%96%E3%81%A8%E6%95%B0%E7%90%86%E7%B5%B1%E8%A8%88/index.xml" rel="self" type="application/rss&#43;xml" />
     
+    <atom:link href="https://guzhengsvt.cn/ja/tags/%E7%A2%BA%E7%8E%87%E8%AB%96%E3%81%A8%E6%95%B0%E7%90%86%E7%B5%B1%E8%A8%88/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
     
       
+      
+      
     
-    
-    
+
     <item>
       <title>確率論と数理統計</title>
-      <link>http://localhost:1313/ja/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link>
-      <pubDate>Tue, 10 Sep 2024 01:14:05 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid>
-      <description><![CDATA[<h1>確率論と数理統計</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link>
+      <pubDate>Tue, 10 Sep 2024 01:14:05 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid>
+      <description>
+        <![CDATA[<h1>確率論と数理統計</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <h2 id="序文">
 <a class="header-anchor" href="#%e5%ba%8f%e6%96%87"></a>
 序文
@@ -525,8 +533,10 @@ $$<p>
 不偏性と有効性
 </h2><p>$E(\hat{\theta})=\theta$の場合、$\hat{\theta}$</p>
 
-        <hr><p>本文 2024-09-10 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-10</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2024-09-10に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-09-10です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>Math</category>
       
     </item>

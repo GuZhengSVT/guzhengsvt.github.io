@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>Thoughts on 孤筝の温暖小家</title>
-    <link>http://localhost:1313/zh-tw/categories/thoughts/</link>
+  <channel>
+    <title>Thoughts on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.cn/zh-tw/categories/thoughts/</link>
     <description>Recent content from 孤筝の温暖小家</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
+    
     <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
     <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
     
-    <copyright>All website licensed under CC BY 4.0</copyright>
+    <copyright>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</copyright>
     
     <lastBuildDate>Sun, 13 Apr 2025 11:00:00 +0800</lastBuildDate>
     
-    <atom:link href="http://localhost:1313/zh-tw/categories/thoughts/index.xml" rel="self" type="application/rss&#43;xml" />
     
+    <atom:link href="https://guzhengsvt.cn/zh-tw/categories/thoughts/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
     
       
+      
+      
     
-    
-    
+
     <item>
       <title>哈囉世界</title>
-      <link>http://localhost:1313/zh-tw/post/thoughts/hello-world/</link>
-      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-tw/post/thoughts/hello-world/</guid>
-      <description><![CDATA[<h1>哈囉世界</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-tw/post/thoughts/hello-world/</link>
+      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-tw/post/thoughts/hello-world/</guid>
+      <description>
+        <![CDATA[<h1>哈囉世界</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <h1 id="20250413">
 <a class="header-anchor" href="#20250413"></a>
 2025.04.13
@@ -78,23 +86,28 @@ $$<p>code test</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;hello world&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>icon: <!-- raw HTML omitted --><!-- raw HTML omitted --> 一杯咖啡</p>
 
-        <hr><p>本文 2025-04-13 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2025-04-13 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2025-04-13</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>大三上學期總結</title>
-      <link>http://localhost:1313/zh-tw/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Tue, 28 Jan 2025 19:46:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-tw/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid>
-      <description><![CDATA[<h1>大三上學期總結</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-tw/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Tue, 28 Jan 2025 19:46:04 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-tw/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid>
+      <description>
+        <![CDATA[<h1>大三上學期總結</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <h2 id="關於期末考試">
 <a class="header-anchor" href="#%e9%97%9c%e6%96%bc%e6%9c%9f%e6%9c%ab%e8%80%83%e8%a9%a6"></a>
 關於期末考試
@@ -147,23 +160,28 @@ $$<p>code test</p>
 祝新年快樂，歲歲平安。
 2025.1.24</p>
 
-        <hr><p>本文 2025-01-28 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-01-28</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2025-01-28 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2025-01-28</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>中秋，給家人打個電話吧</title>
-      <link>http://localhost:1313/zh-tw/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</link>
-      <pubDate>Sun, 15 Sep 2024 22:35:40 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-tw/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</guid>
-      <description><![CDATA[<h1>中秋，給家人打個電話吧</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-tw/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</link>
+      <pubDate>Sun, 15 Sep 2024 22:35:40 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-tw/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</guid>
+      <description>
+        <![CDATA[<h1>中秋，給家人打個電話吧</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <blockquote>
 <p>「媽媽這個世界真的會有女孩喜歡我嗎？」<br>
 「當然啦第一次見你我也才20多歲。」</p></blockquote>
@@ -176,46 +194,56 @@ $$<p>code test</p>
 <p>人有悲歡離合，月有陰晴圓缺，此事古難全。<br>
 但願人長久，千里共嬋娟。</p></blockquote>
 <p>但願人長久，但願人長久，但願人長久。</p>
-        <hr><p>本文 2024-09-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-15</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2024-09-15 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2024-09-15</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>憑欄靜聽瀟瀟雨，故國人民有所思。</title>
-      <link>http://localhost:1313/zh-tw/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</link>
-      <pubDate>Mon, 09 Sep 2024 17:54:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-tw/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</guid>
-      <description><![CDATA[<h1>憑欄靜聽瀟瀟雨，故國人民有所思。</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-tw/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</link>
+      <pubDate>Mon, 09 Sep 2024 17:54:04 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-tw/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</guid>
+      <description>
+        <![CDATA[<h1>憑欄靜聽瀟瀟雨，故國人民有所思。</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <p>「我有一個夢，也許有一天，燦爛的陽光能照進黑暗森林。」</p>
 <p>這時，這裡的太陽卻在落下去，現在只在遠山露出頂端的一點，像山頂上鑲嵌著的一塊光燦燦的寶石。孩子已經跑遠，同草地一起沐浴在金色的晚霞之中。</p>
 <p>太陽快落下去了，你們的孩子居然不害怕？</p>
 <p>「當然不害怕，她知道明天太陽還會升起來的。」</p>
 <p>晚安。
 <img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2683784600.jpg" alt="毛1.JPG"></p>
-        <hr><p>本文 2024-09-09 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-09</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2024-09-09 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2024-09-09</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>日寄其一</title>
-      <link>http://localhost:1313/zh-tw/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</link>
-      <pubDate>Sun, 04 Aug 2024 00:02:00 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-tw/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</guid>
-      <description><![CDATA[<h1>日寄其一</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-tw/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</link>
+      <pubDate>Sun, 04 Aug 2024 00:02:00 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-tw/post/thoughts/%E6%97%A5%E5%AF%84%E5%85%B6%E4%B8%80/</guid>
+      <description>
+        <![CDATA[<h1>日寄其一</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <p>上次更新是一個月前，倒不是多忙（雖然確實有忙的時候）。只是身不由己，世事難料，無心碼字。</p>
 <h2 id="路千里朔風吹客衣">
 <a class="header-anchor" href="#%e8%b7%af%e5%8d%83%e9%87%8c%e6%9c%94%e9%a2%a8%e5%90%b9%e5%ae%a2%e8%a1%a3"></a>
@@ -282,23 +310,28 @@ $$<p>code test</p>
 <p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/08/3364523607.png" alt="fuguang.png"></p>
 <p>晚安</p>
 
-        <hr><p>本文 2024-08-04 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-08-04</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2024-08-04 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2024-08-04</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>大二下學期總結</title>
-      <link>http://localhost:1313/zh-tw/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Thu, 27 Jun 2024 01:14:14 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-tw/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</guid>
-      <description><![CDATA[<h1>大二下學期總結</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-tw/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Thu, 27 Jun 2024 01:14:14 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-tw/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</guid>
+      <description>
+        <![CDATA[<h1>大二下學期總結</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <p><strong>前情提要：</strong></p>
 <blockquote>
 <p>概率論上午考記成下午了，一覺睡到十一點，醒來美滋滋點一份宮保雞丁飯。<br>
@@ -318,23 +351,28 @@ $$<p>code test</p>
 <strong>踏平坎坷成大道，鬥罷艱險又出發。</strong></p>
 <p>雖然總是懷疑是因為熬夜肝概率論筆記讓我昏了頭，但是以後筆記還是會發的。同屆同學未必用得上，倒是可以遺澤後人，算是為知識傳播和文化共產做一點貢獻。</p>
 
-        <hr><p>本文 2024-06-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-06-27</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2024-06-27 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2024-06-27</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>浪子回頭</title>
-      <link>http://localhost:1313/zh-tw/post/thoughts/%E6%B5%AA%E5%AD%90%E5%9B%9E%E5%A4%B4/</link>
-      <pubDate>Fri, 24 May 2024 18:42:50 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-tw/post/thoughts/%E6%B5%AA%E5%AD%90%E5%9B%9E%E5%A4%B4/</guid>
-      <description><![CDATA[<h1>浪子回頭</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-tw/post/thoughts/%E6%B5%AA%E5%AD%90%E5%9B%9E%E5%A4%B4/</link>
+      <pubDate>Fri, 24 May 2024 18:42:50 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-tw/post/thoughts/%E6%B5%AA%E5%AD%90%E5%9B%9E%E5%A4%B4/</guid>
+      <description>
+        <![CDATA[<h1>浪子回頭</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <p>近日西安氣溫越發高了，五月末便已來到36℃，~~等到十二月有多熱我都不敢想。~~因為七月的電賽省賽和可能的暑期社會實踐，考慮暑假留校，希望不要和冬天一樣集中住宿（夏天不需要集中供暖節省成本應該不會吧）。以往都是考完就回家，想來內陸城市盛夏會比千湖之省熱很多。</p>
 <p>一說起炎夏，便想到老家的竹榻，便想到老屋的紅磚和吊扇，便想到青綠的甜瓜和白嫩的香瓜，便想到門前那棵拆家砍掉的老桃樹，便想到從小到大一直在夏天為我切瓜的奶奶……</p>
 <p>結束前幾週的忙碌，週末在即，努力回顧卻是想不起來做過些什麼有意義的事。有作業即將截止便應付作業，截止還早便堆著在一戰世界裡逃避現實。實驗來了便滿口抱怨地騎車到G614，時常被兩根壞掉的信號線整紅溫。還有，這週體育期末測單槓拉了36秒非常驕傲（）</p>
@@ -358,23 +396,28 @@ $$<p>code test</p>
 <p>先系統性地速成概率論，接著預習數電。信號和熱力學難度頗高，應該集中在課程結束後攻堅。第二次數值分析測試時間公布後擇機預習，上次三小時速成課體感良好。模電難度中等，可以平時課上解決掉。六月初還有電賽校際聯賽，實在是沒有時間，隨便應付一下了事。</p>
 <p>時間緊任務重，要開始還債了。</p>
 
-        <hr><p>本文 2024-05-24 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-05-24</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2024-05-24 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2024-05-24</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>生活小記</title>
-      <link>http://localhost:1313/zh-tw/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</link>
-      <pubDate>Mon, 06 May 2024 18:12:51 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-tw/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</guid>
-      <description><![CDATA[<h1>生活小記</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-tw/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</link>
+      <pubDate>Mon, 06 May 2024 18:12:51 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-tw/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</guid>
+      <description>
+        <![CDATA[<h1>生活小記</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <h3 id="活著">
 <a class="header-anchor" href="#%e6%b4%bb%e8%91%97"></a>
 活著
@@ -433,23 +476,28 @@ People Change
 <p>是否人生是一盤味道一般的土豆片炒臘肉，<br>
 此中有真意，<br>
 欲辨已忘言。</p></blockquote>
-        <hr><p>本文 2024-05-06 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-05-06</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2024-05-06 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2024-05-06</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>新組裝電腦</title>
-      <link>http://localhost:1313/zh-tw/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</link>
-      <pubDate>Mon, 29 Apr 2024 16:30:10 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-tw/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</guid>
-      <description><![CDATA[<h1>新組裝電腦</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-tw/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</link>
+      <pubDate>Mon, 29 Apr 2024 16:30:10 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-tw/post/thoughts/%E6%96%B0%E8%A3%85%E7%94%B5%E8%84%91/</guid>
+      <description>
+        <![CDATA[<h1>新組裝電腦</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <p>今年生日給自己新配了一台桌上型電腦</p>
 <p>，原來那台4年前的9700KF+1660S性能不太夠用了，1080P 60Hz的螢幕也難以讓人滿意。
 賣了舊主機舊顯示器，加上小金庫的錢勉強湊夠了預算。</p>
@@ -497,23 +545,28 @@ People Change
 還是老老實實拿來打遊戲吧（</li>
 </ol>
 <p>ps.櫻瞳花嫁卡真好看嘿嘿嘿，真的有香味嘿嘿嘿</p>
-        <hr><p>本文 2024-04-29 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-04-29</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2024-04-29 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2024-04-29</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>2023年總結</title>
-      <link>http://localhost:1313/zh-tw/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Fri, 05 Jan 2024 17:00:44 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-tw/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</guid>
-      <description><![CDATA[<h1>2023年總結</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-tw/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Fri, 05 Jan 2024 17:00:44 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-tw/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</guid>
+      <description>
+        <![CDATA[<h1>2023年總結</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <p><strong>標籤：擺爛，庸碌，神遊，逃避，獨處，確定</strong></p>
 <p>學期已末，年關將近。
 上半年處於完完全全的擺爛狀態，看steam戰地遊戲時長就知道每天打遊戲。所以期末險些掛科成績差也是意料之中。
@@ -537,8 +590,10 @@ People Change
 活著是件很難的事，好在我運氣雖差卻還能活著。
 偶爾也給自己一點無根的希望吧，都會好起來的。
 早安晚安，歲歲平安。</p>
-        <hr><p>本文 2024-01-05 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-01-05</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2024-01-05 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2024-01-05</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>

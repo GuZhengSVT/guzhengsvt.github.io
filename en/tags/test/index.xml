@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>Test on 孤筝の温暖小家</title>
-    <link>http://localhost:1313/en/tags/test/</link>
+  <channel>
+    <title>Test on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.cn/en/tags/test/</link>
     <description>Recent content from 孤筝の温暖小家</description>
     <generator>Hugo</generator>
     <language>en</language>
+    
     <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
     <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
     
-    <copyright>All website licensed under CC BY 4.0</copyright>
+    <copyright>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</copyright>
     
     <lastBuildDate>Sun, 13 Apr 2025 11:00:00 +0800</lastBuildDate>
     
-    <atom:link href="http://localhost:1313/en/tags/test/index.xml" rel="self" type="application/rss&#43;xml" />
     
+    <atom:link href="https://guzhengsvt.cn/en/tags/test/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
     
       
+      
+      
     
-    
-    
+
     <item>
       <title>Hello World</title>
-      <link>http://localhost:1313/en/post/thoughts/hello-world/</link>
-      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/hello-world/</guid>
-      <description><![CDATA[<h1>Hello World</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/hello-world/</link>
+      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/hello-world/</guid>
+      <description>
+        <![CDATA[<h1>Hello World</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <h1 id="20250413">
 <a class="header-anchor" href="#20250413"></a>
 2025.04.13
@@ -74,8 +82,10 @@ $$<p>code test</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;hello world&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>icon: <!-- raw HTML omitted --><!-- raw HTML omitted --> A cup of coffee</p>
 
-        <hr><p>本文 2025-04-13 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2025-04-13 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-04-13</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>

@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>番劇 on 孤筝の温暖小家</title>
-    <link>http://localhost:1313/zh-tw/tags/%E7%95%AA%E5%8A%87/</link>
+  <channel>
+    <title>番劇 on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.cn/zh-tw/tags/%E7%95%AA%E5%8A%87/</link>
     <description>Recent content from 孤筝の温暖小家</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
+    
     <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
     <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
     
-    <copyright>All website licensed under CC BY 4.0</copyright>
+    <copyright>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</copyright>
     
     <lastBuildDate>Mon, 02 Jan 2023 23:18:44 +0800</lastBuildDate>
     
-    <atom:link href="http://localhost:1313/zh-tw/tags/%E7%95%AA%E5%8A%87/index.xml" rel="self" type="application/rss&#43;xml" />
     
+    <atom:link href="https://guzhengsvt.cn/zh-tw/tags/%E7%95%AA%E5%8A%87/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
     
       
+      
+      
     
-    
-    
+
     <item>
       <title>《我的三體 章北海傳》與《三體》動畫</title>
-      <link>http://localhost:1313/zh-tw/post/review/%E6%88%91%E7%9A%84%E4%B8%89%E4%BD%93-%E7%AB%A0%E5%8C%97%E6%B5%B7%E4%BC%A0%E4%B8%8E%E4%B8%89%E4%BD%93%E5%8A%A8%E7%94%BB/</link>
-      <pubDate>Mon, 02 Jan 2023 23:18:44 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-tw/post/review/%E6%88%91%E7%9A%84%E4%B8%89%E4%BD%93-%E7%AB%A0%E5%8C%97%E6%B5%B7%E4%BC%A0%E4%B8%8E%E4%B8%89%E4%BD%93%E5%8A%A8%E7%94%BB/</guid>
-      <description><![CDATA[<h1>《我的三體 章北海傳》與《三體》動畫</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-tw/post/review/%E6%88%91%E7%9A%84%E4%B8%89%E4%BD%93-%E7%AB%A0%E5%8C%97%E6%B5%B7%E4%BC%A0%E4%B8%8E%E4%B8%89%E4%BD%93%E5%8A%A8%E7%94%BB/</link>
+      <pubDate>Mon, 02 Jan 2023 23:18:44 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-tw/post/review/%E6%88%91%E7%9A%84%E4%B8%89%E4%BD%93-%E7%AB%A0%E5%8C%97%E6%B5%B7%E4%BC%A0%E4%B8%8E%E4%B8%89%E4%BD%93%E5%8A%A8%E7%94%BB/</guid>
+      <description>
+        <![CDATA[<h1>《我的三體 章北海傳》與《三體》動畫</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <p>看太多答辯後，去二刷《章北海傳》洗洗眼睛。</p>
 <p>其實我不建議科幻小說動畫化從《三體》開始，IP太大，吃不下。現在國內做科幻的就只知道死抓著一個劉慈欣薅，依我看，有著成熟愛情片製作經驗的國內影視圈完全可以從何夕入手嘛。<br>
 頂級的資金投入，超長製作時間，做出這麼個答辯，實在是狠狠打擊了中國科幻產業。<br>
@@ -33,8 +41,10 @@
 中國科幻，任重道遠。</p>
 <p>永別啊，我曾凝望，曾是航向的日出，陌路殘燭。</p>
 <p>嘿嘿，東方延緒，我的東方延緒，嘿嘿（對方塊人也能發電，不愧是我?）</p>
-        <hr><p>本文 2023-01-02 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-01-02</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2023-01-02 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2023-01-02</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
       </description>
+      
         <category>Review</category>
       
     </item>

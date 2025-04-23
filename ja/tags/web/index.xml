@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>Web on 孤筝の温暖小家</title>
-    <link>http://localhost:1313/ja/tags/web/</link>
+  <channel>
+    <title>Web on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.cn/ja/tags/web/</link>
     <description>Recent content from 孤筝の温暖小家</description>
     <generator>Hugo</generator>
     <language>ja</language>
+    
     <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
     <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
     
-    <copyright>All website licensed under CC BY 4.0</copyright>
+    <copyright>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</copyright>
     
     <lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate>
     
-    <atom:link href="http://localhost:1313/ja/tags/web/index.xml" rel="self" type="application/rss&#43;xml" />
     
+    <atom:link href="https://guzhengsvt.cn/ja/tags/web/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
     
       
+      
+      
     
-    
-    
+
     <item>
       <title>TypechoコメントをWalineにインポート</title>
-      <link>http://localhost:1313/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
-      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
-      <description><![CDATA[<h1>TypechoコメントをWalineにインポート</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
+      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
+      <description>
+        <![CDATA[<h1>TypechoコメントをWalineにインポート</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <p>数日前、ブログの記事をTypechoからHugoに移行しましたが、Front Matterのパラメータ設定や画像リンクの再設定だけでかなりの手間がかかりました。<br>
 ブログの価値は、まず記事そのものにあり、次にコメントです。コメントはブログがインターネットと現実世界に与えた影響を証明し、人と人との交流を記録しています。私的な言い方をすれば、世界中からのコメントは大切な思い出であり、「私」を構成する一部です。<br>
 したがって、元のサイトのコメントを新しいサイトの対応する記事の下にコピーすることは非常に重要です。</p>
@@ -190,23 +198,28 @@ LeanCloudへのインポート
 最初に述べたように、これは筆者の成長の軌跡であり、この世に存在する証であり、「私」の一部です。</p>
 <p>そして、親愛なる読者であるあなたは、私に価値を与えてくれる存在です。</p>
 <p>時間があれば、ぜひコメントをください～筆者は本当に長く喜びます（善意のコメントであれば）。</p>
-        <hr><p>本文 2025-04-19 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2025-04-19に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-04-19です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>OtherNotes</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Hello World</title>
-      <link>http://localhost:1313/ja/post/thoughts/hello-world/</link>
-      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/thoughts/hello-world/</guid>
-      <description><![CDATA[<h1>Hello World</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/thoughts/hello-world/</link>
+      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/thoughts/hello-world/</guid>
+      <description>
+        <![CDATA[<h1>Hello World</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <h1 id="20250413">
 <a class="header-anchor" href="#20250413"></a>
 2025.04.13
@@ -260,23 +273,28 @@ $$<p>コードテスト</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;hello world&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>アイコン: <!-- raw HTML omitted --><!-- raw HTML omitted --> コーヒー一杯</p>
 
-        <hr><p>本文 2025-04-13 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2025-04-13に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-04-13です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>新しいドメインの追加</title>
-      <link>http://localhost:1313/ja/post/thoughts/%E6%96%B0%E5%A2%9E%E5%9F%9F%E5%90%8D/</link>
-      <pubDate>Sat, 25 Nov 2023 18:59:05 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/thoughts/%E6%96%B0%E5%A2%9E%E5%9F%9F%E5%90%8D/</guid>
-      <description><![CDATA[<h1>新しいドメインの追加</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/thoughts/%E6%96%B0%E5%A2%9E%E5%9F%9F%E5%90%8D/</link>
+      <pubDate>Sat, 25 Nov 2023 18:59:05 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/thoughts/%E6%96%B0%E5%A2%9E%E5%9F%9F%E5%90%8D/</guid>
+      <description>
+        <![CDATA[<h1>新しいドメインの追加</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <p>阿里雲で新しいドメインguzhengsvt.cnを購入しました</p>
 <p>（クーポン利用で初年29元、更新年39元）。
 もともとは微信小程序の一時的な開発用に購入しましたが、結局使わなかったので、自分のブログに解析するしかありませんでした。</p>
@@ -284,23 +302,28 @@ $$<p>コードテスト</p>
 <p>手元には阿里雲で発行されたtopドメインのSSL証明書があり、24年8月に期限切れとなります。しかし今年11月14日に阿里雲が無料SSL証明書のポリシーを変更し、単一ドメインのSSL証明書は最大3ヶ月分しか申請できなくなりました。新しく購入したcnドメインの証明書は頻繁に更新が必要です（現時点では使っていませんが）。</p>
 <p>ドメイン解析とSSL証明書の申請・設定手順を復習しました。<a href="https://www.vpsor.cn/">硅雲</a>のSSL証明書設定の便利さには感謝しています。
 <del>阿里雲のSSL証明書申請サービスも褒めようと思いましたが、まあ&hellip;</del></p>
-        <hr><p>本文 2023-11-25 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-11-25</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2023-11-25に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-11-25です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>ブログ構築のまとめ（Hexo&#43;Github版）</title>
-      <link>http://localhost:1313/ja/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo&#43;github%E7%89%88/</link>
-      <pubDate>Sat, 10 Sep 2022 09:30:52 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo&#43;github%E7%89%88/</guid>
-      <description><![CDATA[<h1>ブログ構築のまとめ（Hexo+Github版）</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo&#43;github%E7%89%88/</link>
+      <pubDate>Sat, 10 Sep 2022 09:30:52 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo&#43;github%E7%89%88/</guid>
+      <description>
+        <![CDATA[<h1>ブログ構築のまとめ（Hexo+Github版）</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <p><strong>初期のサイト構築記録、現在は無効、記念として残す</strong></p>
 <p><a href="https://guzhengsvt.github.io">https://guzhengsvt.github.io</a></p>
 <p>GitHub+Hexoを基盤に構築した個人ブログ、現在主要機能の施工は完了。</p>
@@ -328,8 +351,10 @@ $$<p>コードテスト</p>
 <p>最後に、皆さん中秋節おめでとうございます、先生方とこれから先生になる学生の皆さん教師節おめでとうございます。</p>
 <p>以上</p>
 <p>2022年9月10日土曜日</p>
-        <hr><p>本文 2022-09-10 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2022-09-10</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2022-09-10に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2022-09-10です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>

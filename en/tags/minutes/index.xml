@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>Minutes on 孤筝の温暖小家</title>
-    <link>http://localhost:1313/en/tags/minutes/</link>
+  <channel>
+    <title>Minutes on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.cn/en/tags/minutes/</link>
     <description>Recent content from 孤筝の温暖小家</description>
     <generator>Hugo</generator>
     <language>en</language>
+    
     <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
     <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
     
-    <copyright>All website licensed under CC BY 4.0</copyright>
+    <copyright>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</copyright>
     
     <lastBuildDate>Sun, 13 Apr 2025 11:00:00 +0800</lastBuildDate>
     
-    <atom:link href="http://localhost:1313/en/tags/minutes/index.xml" rel="self" type="application/rss&#43;xml" />
     
+    <atom:link href="https://guzhengsvt.cn/en/tags/minutes/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
     
       
+      
+      
     
-    
-    
+
     <item>
       <title>Hello World</title>
-      <link>http://localhost:1313/en/post/thoughts/hello-world/</link>
-      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/hello-world/</guid>
-      <description><![CDATA[<h1>Hello World</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/hello-world/</link>
+      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/hello-world/</guid>
+      <description>
+        <![CDATA[<h1>Hello World</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <h1 id="20250413">
 <a class="header-anchor" href="#20250413"></a>
 2025.04.13
@@ -74,23 +82,28 @@ $$<p>code test</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;hello world&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>icon: <!-- raw HTML omitted --><!-- raw HTML omitted --> A cup of coffee</p>
 
-        <hr><p>本文 2025-04-13 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2025-04-13 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-04-13</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Summary of the Second Semester of Sophomore Year</title>
-      <link>http://localhost:1313/en/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Thu, 27 Jun 2024 01:14:14 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</guid>
-      <description><![CDATA[<h1>Summary of the Second Semester of Sophomore Year</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Thu, 27 Jun 2024 01:14:14 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/</guid>
+      <description>
+        <![CDATA[<h1>Summary of the Second Semester of Sophomore Year</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <p><strong>Prologue:</strong></p>
 <blockquote>
 <p>I mistook the morning probability theory exam for an afternoon one, slept soundly till eleven, and woke up cheerfully ordering a plate of Kung Pao chicken rice.<br>
@@ -110,23 +123,28 @@ I have no regrets.</p>
 <strong>Smooth out the bumps to forge a broad road; after conquering hardships, set forth again.</strong></p>
 <p>Though I often wonder if it’s the late-night probability theory notes that scrambled my brain, I’ll keep sharing them. They might not help my peers much, but they could benefit those who come after—a small contribution to the spread of knowledge and cultural communism.</p>
 
-        <hr><p>本文 2024-06-27 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-06-27</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2024-06-27 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-06-27</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>A Little Note on Life</title>
-      <link>http://localhost:1313/en/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</link>
-      <pubDate>Mon, 06 May 2024 18:12:51 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</guid>
-      <description><![CDATA[<h1>A Little Note on Life</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</link>
+      <pubDate>Mon, 06 May 2024 18:12:51 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</guid>
+      <description>
+        <![CDATA[<h1>A Little Note on Life</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <h3 id="alive">
 <a class="header-anchor" href="#alive"></a>
 Alive
@@ -185,23 +203,28 @@ People Change
 <p>Perhaps life is like a plate of mediocre stir-fried potatoes with cured meat.<br>
 Therein lies the truth,<br>
 But words fail me now.</p></blockquote>
-        <hr><p>本文 2024-05-06 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-05-06</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2024-05-06 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-05-06</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>2023 Year in Review</title>
-      <link>http://localhost:1313/en/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Fri, 05 Jan 2024 17:00:44 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</guid>
-      <description><![CDATA[<h1>2023 Year in Review</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Fri, 05 Jan 2024 17:00:44 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/2023%E5%B9%B4%E6%80%BB%E7%BB%93/</guid>
+      <description>
+        <![CDATA[<h1>2023 Year in Review</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <p><strong>Tags: Slacking off, Mediocrity, Daydreaming, Escapism, Solitude, Certainty</strong></p>
 <p>The semester has ended, and the year is drawing to a close.</p>
 <p>In the first half of the year, I was in a complete state of slacking off—my Steam playtime for Battlefield games speaks for itself. Unsurprisingly, my grades were terrible, and I nearly failed my finals.</p>
@@ -225,23 +248,28 @@ But words fail me now.</p></blockquote>
 <p>Staying alive is hard, but despite my bad luck, I’m still here.</p>
 <p>Maybe I’ll indulge in a little baseless hope—things will get better.</p>
 <p>Good morning, good night. Peace, year after year.</p>
-        <hr><p>本文 2024-01-05 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-01-05</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2024-01-05 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-01-05</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Independence and Mutual Independence</title>
-      <link>http://localhost:1313/en/post/thoughts/%E7%8B%AC%E7%AB%8B%E4%B8%8E%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B/</link>
-      <pubDate>Fri, 15 Dec 2023 00:21:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/%E7%8B%AC%E7%AB%8B%E4%B8%8E%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B/</guid>
-      <description><![CDATA[<h1>Independence and Mutual Independence</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/%E7%8B%AC%E7%AB%8B%E4%B8%8E%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B/</link>
+      <pubDate>Fri, 15 Dec 2023 00:21:04 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/%E7%8B%AC%E7%AB%8B%E4%B8%8E%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B/</guid>
+      <description>
+        <![CDATA[<h1>Independence and Mutual Independence</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <h2 id="when-i-did-something-wrong-it-didnt-feel-irrevocable-at-the-time">
 <a class="header-anchor" href="#when-i-did-something-wrong-it-didnt-feel-irrevocable-at-the-time"></a>
 When I did something wrong, it didn&rsquo;t feel irrevocable at the time.
@@ -264,23 +292,28 @@ What’s the use of regret now?
 $$Pr(A∩B)=Pr(A)×Pr(B)$$<p>, surely the other person must also be able to smile while telling the story by now.</p>
 <p><strong>Still, I sometimes wonder what the scenery would be like on that untouched path, free from footprints.</strong></p>
 
-        <hr><p>本文 2023-12-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-12-15</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2023-12-15 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-12-15</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>2022 Year in Review</title>
-      <link>http://localhost:1313/en/post/thoughts/2022%E5%B9%B4%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Sun, 01 Jan 2023 17:47:38 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/2022%E5%B9%B4%E6%80%BB%E7%BB%93/</guid>
-      <description><![CDATA[<h1>2022 Year in Review</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/2022%E5%B9%B4%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sun, 01 Jan 2023 17:47:38 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/2022%E5%B9%B4%E6%80%BB%E7%BB%93/</guid>
+      <description>
+        <![CDATA[<h1>2022 Year in Review</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <p>Another year has passed in the blink of an eye.</p>
 <p>I quietly turned eighteen, crossed the so-called &ldquo;single-plank bridge&rdquo; of the college entrance exams, and stepped into the &ldquo;long-awaited&rdquo; university. Having walked such a long road, I eventually realized that all the mountains and rivers were just ordinary after all. No earth-shattering events—just peaceful days that, upon closer reflection, smell like the warm belly of an orange tabby cat basking in sunlight. Ah, this year has been somewhat of a daze.</p>
 <p>I used to be a philosopher, constantly fiddling with ideas, spirits, and critiques, pondering human meaning, value, pursuit, and purpose. But I don’t do that anymore—I’ve learned silence instead. Scrolling forums, playing games, binge-watching videos, becoming a drunkard in the age of entertainment. Who even has the energy or ability to distinguish truth from falsehood these days? The pig that stands out is the first to be slaughtered—better to be a breeding pig. Life, after all, is just a game, a fleeting pleasure.</p>
@@ -288,23 +321,28 @@ $$Pr(A∩B)=Pr(A)×Pr(B)$$<p>, surely the other person must also be able to smil
 <p>Here I go again, spouting strange words. Anyway, this year has been quite happy—I’ve never been one to deny the past.</p>
 <p>Watched a few movies, read a few books (though not many), truly got into galgames, listened to a lot of music, and wandered into the world of folk songs. Just trivial little things, hardly worth mentioning. Only when gilded by the glow of memory will they shine.</p>
 <p>For the new year, I hope my family stays healthy and my grandmother lives a little longer. As for me, I’ll keep striving, improving, and making the most of my dwindling youth. Life is as fleeting as a mayfly’s—I dare not ask for academic success or wealth anymore. But love? I hope it lasts.</p>
-        <hr><p>本文 2023-01-01 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-01-01</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2023-01-01 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-01-01</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Blog Setup Summary (Hexo &#43; GitHub Version)</title>
-      <link>http://localhost:1313/en/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo&#43;github%E7%89%88/</link>
-      <pubDate>Sat, 10 Sep 2022 09:30:52 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo&#43;github%E7%89%88/</guid>
-      <description><![CDATA[<h1>Blog Setup Summary (Hexo + GitHub Version)</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo&#43;github%E7%89%88/</link>
+      <pubDate>Sat, 10 Sep 2022 09:30:52 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo&#43;github%E7%89%88/</guid>
+      <description>
+        <![CDATA[<h1>Blog Setup Summary (Hexo + GitHub Version)</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <p><strong>Early Website Record (Inactive, Preserved for Commemoration)</strong></p>
 <p><a href="https://guzhengsvt.github.io">https://guzhengsvt.github.io</a></p>
 <p>A personal blog built with GitHub+Hexo. The main functionalities have been completed.</p>
@@ -332,8 +370,10 @@ $$Pr(A∩B)=Pr(A)×Pr(B)$$<p>, surely the other person must also be able to smil
 <p>Lastly, happy Mid-Autumn Festival to everyone, and happy Teachers’ Day to all educators and those who aspire to become teachers.</p>
 <p>That’s all.</p>
 <p>Saturday, September 10, 2022</p>
-        <hr><p>本文 2022-09-10 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2022-09-10</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2022-09-10 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2022-09-10</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>

@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>覚書 on 孤筝の温暖小家</title>
-    <link>http://localhost:1313/ja/tags/%E8%A6%9A%E6%9B%B8/</link>
+  <channel>
+    <title>覚書 on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.cn/ja/tags/%E8%A6%9A%E6%9B%B8/</link>
     <description>Recent content from 孤筝の温暖小家</description>
     <generator>Hugo</generator>
     <language>ja</language>
+    
     <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
     <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
     
-    <copyright>All website licensed under CC BY 4.0</copyright>
+    <copyright>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</copyright>
     
     <lastBuildDate>Mon, 06 May 2024 18:12:51 +0800</lastBuildDate>
     
-    <atom:link href="http://localhost:1313/ja/tags/%E8%A6%9A%E6%9B%B8/index.xml" rel="self" type="application/rss&#43;xml" />
     
+    <atom:link href="https://guzhengsvt.cn/ja/tags/%E8%A6%9A%E6%9B%B8/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
     
       
+      
+      
     
-    
-    
+
     <item>
       <title>生活の断片</title>
-      <link>http://localhost:1313/ja/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</link>
-      <pubDate>Mon, 06 May 2024 18:12:51 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/ja/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</guid>
-      <description><![CDATA[<h1>生活の断片</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/ja/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</link>
+      <pubDate>Mon, 06 May 2024 18:12:51 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/ja/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</guid>
+      <description>
+        <![CDATA[<h1>生活の断片</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        
           <h3 id="生きる">
 <a class="header-anchor" href="#%e7%94%9f%e3%81%8d%e3%82%8b"></a>
 生きる
@@ -83,8 +91,10 @@
 <p>人生は味気ないジャガイモと燻製肉の炒め物なのか、<br>
 此の中に真意有り、<br>
 弁ぜんと欲して已に言を忘る。</p></blockquote>
-        <hr><p>本文 2024-05-06 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-05-06</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>この記事は2024-05-06に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-05-06です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>

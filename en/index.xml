@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>孤筝の温暖小家</title>
-    <link>http://localhost:1313/en/</link>
+  <channel>
+    <title>孤筝の温暖小家</title>
+    <link>https://guzhengsvt.cn/en/</link>
     <description>Recent content from 孤筝の温暖小家</description>
     <generator>Hugo</generator>
     <language>en</language>
+    
     <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
     <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
     
-    <copyright>All website licensed under CC BY 4.0</copyright>
+    <copyright>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</copyright>
     
     <lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate>
     
-    <atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss&#43;xml" />
     
+    <atom:link href="https://guzhengsvt.cn/en/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
     
       
+      
+      
     
-    
-    
+
     <item>
       <title>Typecho Comments Import to Waline</title>
-      <link>http://localhost:1313/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
-      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
-      <description><![CDATA[<h1>Typecho Comments Import to Waline</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
+      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
+      <description>
+        <![CDATA[<h1>Typecho Comments Import to Waline</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <p>A couple of days ago, I migrated my blog posts from Typecho to Hugo. Just setting up the Front Matter parameters and reconfiguring image links took considerable effort.<br>
 The value of a blog lies first in its articles, followed closely by its comments. Comments are proof that the blog has made an impact in both the digital and real worlds, carrying the interactions between people. More personally, comments from all corners of the globe are precious memories and a part of what makes &ldquo;me&rdquo;.<br>
 Thus, it&rsquo;s essential to copy the original comments to the corresponding articles on the new site.</p>
@@ -166,23 +174,28 @@ Afterword
 As I said at the beginning, they&rsquo;re traces of my growth, proof of my existence, and part of &ldquo;me&rdquo;.</p>
 <p>And you, dear reader, are the one who gives me value.</p>
 <p>If you have time, please leave a comment—it’ll genuinely make my day (as long as it’s kind, of course).</p>
-        <hr><p>本文 2025-04-19 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-19</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2025-04-19 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-04-19</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>OtherNotes</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Common Hugo Blog Resources</title>
-      <link>http://localhost:1313/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link>
-      <pubDate>Tue, 15 Apr 2025 16:42:35 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid>
-      <description><![CDATA[<h1>Common Hugo Blog Resources</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link>
+      <pubDate>Tue, 15 Apr 2025 16:42:35 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid>
+      <description>
+        <![CDATA[<h1>Common Hugo Blog Resources</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <h1 id="hugo-common-commands">
 <a class="header-anchor" href="#hugo-common-commands"></a>
 Hugo Common Commands
@@ -582,23 +595,28 @@ reimu Theme icon_font
   </tbody>
 </table>
 
-        <hr><p>本文 2025-04-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-15</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2025-04-15 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-04-15</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>OtherNotes</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Hello World</title>
-      <link>http://localhost:1313/en/post/thoughts/hello-world/</link>
-      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/hello-world/</guid>
-      <description><![CDATA[<h1>Hello World</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/hello-world/</link>
+      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/hello-world/</guid>
+      <description>
+        <![CDATA[<h1>Hello World</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <h1 id="20250413">
 <a class="header-anchor" href="#20250413"></a>
 2025.04.13
@@ -648,23 +666,28 @@ $$<p>code test</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;hello world&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>icon: <!-- raw HTML omitted --><!-- raw HTML omitted --> A cup of coffee</p>
 
-        <hr><p>本文 2025-04-13 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-04-13</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2025-04-13 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-04-13</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Summary of the First Semester of Junior Year</title>
-      <link>http://localhost:1313/en/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Tue, 28 Jan 2025 19:46:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid>
-      <description><![CDATA[<h1>Summary of the First Semester of Junior Year</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Tue, 28 Jan 2025 19:46:04 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid>
+      <description>
+        <![CDATA[<h1>Summary of the First Semester of Junior Year</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <h2 id="about-final-exams">
 <a class="header-anchor" href="#about-final-exams"></a>
 About Final Exams
@@ -717,23 +740,28 @@ The remaining half of winter break <em>should</em> be spent studying <em>Princip
 Wishing you a happy New Year, peace and prosperity in the years to come.</p>
 <p>Jan 24, 2025</p>
 
-        <hr><p>本文 2025-01-28 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2025-01-28</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2025-01-28 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-01-28</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>The East is Red</title>
-      <link>http://localhost:1313/en/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</link>
-      <pubDate>Thu, 26 Dec 2024 00:16:35 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</guid>
-      <description><![CDATA[<h1>The East is Red</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</link>
+      <pubDate>Thu, 26 Dec 2024 00:16:35 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</guid>
+      <description>
+        <![CDATA[<h1>The East is Red</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <h3 id="the-east-is-red">
 <a class="header-anchor" href="#the-east-is-red"></a>
 The East is Red
@@ -743,23 +771,28 @@ The East is Red
 Xi’an</p>
 <p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/12/1795319606.jpeg" alt="IMG_0434.jpeg"></p>
 
-        <hr><p>本文 2024-12-26 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-12-26</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2024-12-26 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-12-26</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Poetry</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Because spring once came</title>
-      <link>http://localhost:1313/en/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</link>
-      <pubDate>Wed, 13 Nov 2024 22:07:40 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</guid>
-      <description><![CDATA[<h1>Because spring once came</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</link>
+      <pubDate>Wed, 13 Nov 2024 22:07:40 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</guid>
+      <description>
+        <![CDATA[<h1>Because spring once came</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <h3 id="this-poem-is-dedicated-to-the-polaris-in-my-life">
 <a class="header-anchor" href="#this-poem-is-dedicated-to-the-polaris-in-my-life"></a>
 ——This poem is dedicated to the Polaris in my life
@@ -789,23 +822,28 @@ In the drizzle of early winter, it drifted into sleep, dreaming of October’s l
 “Aren’t you afraid the seeds won’t survive the cold?” asked the trees and birds, as the field lay bare once more.<br>
 “It’s alright. I’ve seen spring.”<br>
 For spring had come.</strong></p>
-        <hr><p>本文 2024-11-13 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-11-13</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2024-11-13 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-11-13</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Poetry</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Five Poems from a Journey to Southern Shanxi</title>
-      <link>http://localhost:1313/en/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</link>
-      <pubDate>Tue, 08 Oct 2024 15:47:32 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</guid>
-      <description><![CDATA[<h1>Five Poems from a Journey to Southern Shanxi</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</link>
+      <pubDate>Tue, 08 Oct 2024 15:47:32 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</guid>
+      <description>
+        <![CDATA[<h1>Five Poems from a Journey to Southern Shanxi</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <h2 id="preface">
 <a class="header-anchor" href="#preface"></a>
 Preface
@@ -935,23 +973,28 @@ Jincheng is bustling, with efficient buses and dedicated routes to attractions. 
 Linfen is peculiar—even areas around the bus station are dark, and distant sites lack dedicated transit, making private hires costly. Its public toilets are uniquely varied—I biked past twenty-plus on shared e-scooters, no two alike.<br>
 Yuncheng thrives—shops and stalls pack main roads and alleys, with rumors of north-south markets (and delicious, honest-to-goodness buns).</p>
 <p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/3704126306.jpg" alt="IMG_2091.JPG"></p>
-        <hr><p>本文 2024-10-08 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-10-08</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2024-10-08 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-10-08</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Poetry</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Mid-Autumn Festival, give your family a call.</title>
-      <link>http://localhost:1313/en/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</link>
-      <pubDate>Sun, 15 Sep 2024 22:35:40 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</guid>
-      <description><![CDATA[<h1>Mid-Autumn Festival, give your family a call.</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</link>
+      <pubDate>Sun, 15 Sep 2024 22:35:40 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</guid>
+      <description>
+        <![CDATA[<h1>Mid-Autumn Festival, give your family a call.</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <blockquote>
 <p>&ldquo;Mom, will there really be girls who like me in this world?&rdquo;<br>
 &ldquo;Of course! When I first met you, I was only in my twenties too.&rdquo;</p></blockquote>
@@ -970,23 +1013,28 @@ Though miles apart, we&rsquo;ll share the beauty she displays.</p></blockquote>
 May we all be blessed with longevity.<br>
 May we all be blessed with longevity.</p>
 <p>(Note: The classical Chinese poem is rendered in Xu Yuanchong&rsquo;s renowned English translation, preserving both the lyrical beauty and philosophical depth of Su Shi&rsquo;s original work. The repetition of &ldquo;longevity&rdquo; mirrors the original text&rsquo;s emphasis while adapting to English poetic conventions.)</p>
-        <hr><p>本文 2024-09-15 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-15</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2024-09-15 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-09-15</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Probability Theory and Mathematical Statistics</title>
-      <link>http://localhost:1313/en/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link>
-      <pubDate>Tue, 10 Sep 2024 01:14:05 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid>
-      <description><![CDATA[<h1>Probability Theory and Mathematical Statistics</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link>
+      <pubDate>Tue, 10 Sep 2024 01:14:05 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid>
+      <description>
+        <![CDATA[<h1>Probability Theory and Mathematical Statistics</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <h2 id="preface">
 <a class="header-anchor" href="#preface"></a>
 Preface
@@ -1662,31 +1710,38 @@ Here:</p>
 <li>At $x=0$, there is a discontinuity point where the function is <strong>left-continuous but not right-continuous</strong>.</li>
 </ul>
 
-        <hr><p>本文 2024-09-10 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-10</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2024-09-10 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-09-10</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Math</category>
       
     </item>
     
-    
+      
+      
       
     
-    
-    
+
     <item>
       <title>Leaning on railings, I hear the rain rushing; For my homeland my heart is aching.</title>
-      <link>http://localhost:1313/en/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</link>
-      <pubDate>Mon, 09 Sep 2024 17:54:04 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/en/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</guid>
-      <description><![CDATA[<h1>Leaning on railings, I hear the rain rushing; For my homeland my heart is aching.</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/en/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</link>
+      <pubDate>Mon, 09 Sep 2024 17:54:04 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/en/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</guid>
+      <description>
+        <![CDATA[<h1>Leaning on railings, I hear the rain rushing; For my homeland my heart is aching.</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        
           <p>&ldquo;I have a dream that one day, the brilliant sunlight will pierce through the dark forest.&rdquo;</p>
 <p>But here, the sun was setting, now only revealing the tip of its crown above the distant mountains, like a dazzling gem embedded in the peaks. The child had already run far ahead, bathed together with the grassland in the golden hues of twilight.</p>
 <p>The sun is about to set, and your child isn’t afraid?</p>
 <p>&ldquo;Of course not. She knows the sun will rise again tomorrow.&rdquo;</p>
 <p>Good night.<br>
 <img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2683784600.jpg" alt="Mao1.JPG"></p>
-        <hr><p>本文 2024-09-09 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2024-09-09</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>Published on 2024-09-09 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-09-09</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
       </description>
+      
         <category>Thoughts</category>
       
     </item>

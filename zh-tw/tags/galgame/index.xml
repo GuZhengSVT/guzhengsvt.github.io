@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel><title>Galgame on 孤筝の温暖小家</title>
-    <link>http://localhost:1313/zh-tw/tags/galgame/</link>
+  <channel>
+    <title>Galgame on 孤筝の温暖小家</title>
+    <link>https://guzhengsvt.cn/zh-tw/tags/galgame/</link>
     <description>Recent content from 孤筝の温暖小家</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
+    
     <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
     <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
     
-    <copyright>All website licensed under CC BY 4.0</copyright>
+    <copyright>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</copyright>
     
     <lastBuildDate>Tue, 28 Nov 2023 21:20:18 +0800</lastBuildDate>
     
-    <atom:link href="http://localhost:1313/zh-tw/tags/galgame/index.xml" rel="self" type="application/rss&#43;xml" />
     
+    <atom:link href="https://guzhengsvt.cn/zh-tw/tags/galgame/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
     
       
+      
+      
     
-    
-    
+
     <item>
       <title>我為什麼玩Galgame及Eden*簡評（部分劇透）</title>
-      <link>http://localhost:1313/zh-tw/post/game/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E7%8E%A9galgame%E5%8F%8Aeden%E7%AE%80%E8%AF%84%E9%83%A8%E5%88%86%E5%89%A7%E9%80%8F/</link>
-      <pubDate>Tue, 28 Nov 2023 21:20:18 &#43;0800</pubDate><author>lvbowen040427@163.com (孤筝)</author>
-      <guid>http://localhost:1313/zh-tw/post/game/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E7%8E%A9galgame%E5%8F%8Aeden%E7%AE%80%E8%AF%84%E9%83%A8%E5%88%86%E5%89%A7%E9%80%8F/</guid>
-      <description><![CDATA[<h1>我為什麼玩Galgame及Eden*簡評（部分劇透）</h1><p>作者: 孤筝 (lvbowen040427@163.com)</p>
+      <link>https://guzhengsvt.cn/zh-tw/post/game/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E7%8E%A9galgame%E5%8F%8Aeden%E7%AE%80%E8%AF%84%E9%83%A8%E5%88%86%E5%89%A7%E9%80%8F/</link>
+      <pubDate>Tue, 28 Nov 2023 21:20:18 &#43;0800</pubDate>
+      <author>lvbowen040427@163.com (孤筝)</author>
+      <guid>https://guzhengsvt.cn/zh-tw/post/game/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E7%8E%A9galgame%E5%8F%8Aeden%E7%AE%80%E8%AF%84%E9%83%A8%E5%88%86%E5%89%A7%E9%80%8F/</guid>
+      <description>
+        <![CDATA[<h1>我為什麼玩Galgame及Eden*簡評（部分劇透）</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
           <p>他們只是這顆星球上的兩個人。</p>
 <p>今天凌晨推完Eden*，早上醒來後就一直迷迷糊糊的，一半是因為沒睡好，一半是因為後勁太強。</p>
 <p>課沒怎麼聽進去，下午上完體育課洗個澡睡覺，即使很疲憊躺了一個小時也沒睡著，天門的<em>Sion</em>在腦海中盤旋，一幅幅畫面像是存檔點一樣在眼前閃現。</p>
@@ -52,8 +60,10 @@
 <p>回過頭來再看，Eden* 這般平淡的劇情真的好嗎？很多人已經吹過，想來不需要我再添拙筆。多年之後，我或許會忘記詩音等人的名字，卻無法忘記，</p>
 <blockquote>
 <p>They Were Only Two, On The Planet.</p></blockquote>
-        <hr><p>本文 2023-11-28 首发于 <a href='http://localhost:1313/'>孤筝の温暖小家</a>，最后修改于 2023-11-28</p><p>All website licensed under CC BY 4.0</p>]]>
+        
+        <hr><p>本文 2023-11-28 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2023-11-28</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
       </description>
+      
         <category>Game</category>
       
     </item>
