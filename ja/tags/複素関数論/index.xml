@@ -1,37 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>複素関数論 on 孤筝の温暖小家</title>
-    <link>https://guzhengsvt.cn/ja/tags/%E8%A4%87%E7%B4%A0%E9%96%A2%E6%95%B0%E8%AB%96/</link>
-    <description>Recent content from 孤筝の温暖小家</description>
-    <generator>Hugo</generator>
-    <language>ja</language>
-    
-    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
-    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
-    
-    <copyright>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</copyright>
-    
-    <lastBuildDate>Fri, 17 Nov 2023 19:42:47 +0800</lastBuildDate>
-    
-    
-    <atom:link href="https://guzhengsvt.cn/ja/tags/%E8%A4%87%E7%B4%A0%E9%96%A2%E6%95%B0%E8%AB%96/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-
-    
-      
-      
-      
-    
-
-    <item>
-      <title>複素関数論</title>
-      <link>https://guzhengsvt.cn/ja/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link>
-      <pubDate>Fri, 17 Nov 2023 19:42:47 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/ja/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid>
-      <description>
-        <![CDATA[<h1>複素関数論</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>複素関数論 on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/ja/tags/%E8%A4%87%E7%B4%A0%E9%96%A2%E6%95%B0%E8%AB%96/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>ja</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</copyright><lastBuildDate>Fri, 17 Nov 2023 19:42:47 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/ja/tags/%E8%A4%87%E7%B4%A0%E9%96%A2%E6%95%B0%E8%AB%96/index.xml" rel="self" type="application/rss+xml"/><item><title>複素関数論</title><link>https://guzhengsvt.cn/ja/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link><pubDate>Fri, 17 Nov 2023 19:42:47 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid><description>
+<![CDATA[<h1>複素関数論</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
         
           <h1 id="複素数">
 <a class="header-anchor" href="#%e8%a4%87%e7%b4%a0%e6%95%b0"></a>
@@ -161,12 +129,4 @@ $$f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}dz$$</li>
 </ol>
 
         
-        <hr><p>この記事は2023-11-17に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-11-17です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
-      </description>
-      
-        <category>Math</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+        <hr><p>この記事は2023-11-17に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-11-17です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]></description><category>Math</category></item></channel></rss>

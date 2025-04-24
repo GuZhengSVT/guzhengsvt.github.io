@@ -1,37 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Math on 孤筝の温暖小家</title>
-    <link>https://guzhengsvt.cn/ja/tags/math/</link>
-    <description>Recent content from 孤筝の温暖小家</description>
-    <generator>Hugo</generator>
-    <language>ja</language>
-    
-    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
-    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
-    
-    <copyright>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</copyright>
-    
-    <lastBuildDate>Tue, 10 Sep 2024 01:14:05 +0800</lastBuildDate>
-    
-    
-    <atom:link href="https://guzhengsvt.cn/ja/tags/math/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-
-    
-      
-      
-      
-    
-
-    <item>
-      <title>確率論と数理統計</title>
-      <link>https://guzhengsvt.cn/ja/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link>
-      <pubDate>Tue, 10 Sep 2024 01:14:05 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/ja/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid>
-      <description>
-        <![CDATA[<h1>確率論と数理統計</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Math on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/ja/tags/math/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>ja</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</copyright><lastBuildDate>Tue, 10 Sep 2024 01:14:05 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/ja/tags/math/index.xml" rel="self" type="application/rss+xml"/><item><title>確率論と数理統計</title><link>https://guzhengsvt.cn/ja/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><pubDate>Tue, 10 Sep 2024 01:14:05 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid><description>
+<![CDATA[<h1>確率論と数理統計</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
         
           <h2 id="序文">
 <a class="header-anchor" href="#%e5%ba%8f%e6%96%87"></a>
@@ -534,26 +502,8 @@ $$<p>
 </h2><p>$E(\hat{\theta})=\theta$の場合、$\hat{\theta}$</p>
 
         
-        <hr><p>この記事は2024-09-10に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-09-10です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
-      </description>
-      
-        <category>Math</category>
-      
-    </item>
-    
-      
-      
-      
-    
-
-    <item>
-      <title>実数の構成に関する読書レポート</title>
-      <link>https://guzhengsvt.cn/ja/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</link>
-      <pubDate>Wed, 27 Dec 2023 21:40:17 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/ja/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</guid>
-      <description>
-        <![CDATA[<h1>実数の構成に関する読書レポート</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        <hr><p>この記事は2024-09-10に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-09-10です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]></description><category>Math</category></item><item><title>実数の構成に関する読書レポート</title><link>https://guzhengsvt.cn/ja/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</link><pubDate>Wed, 27 Dec 2023 21:40:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</guid><description>
+<![CDATA[<h1>実数の構成に関する読書レポート</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
         
           <h1 id="実数の基礎に関するブックレポート">
 <a class="header-anchor" href="#%e5%ae%9f%e6%95%b0%e3%81%ae%e5%9f%ba%e7%a4%8e%e3%81%ab%e9%96%a2%e3%81%99%e3%82%8b%e3%83%96%e3%83%83%e3%82%af%e3%83%ac%e3%83%9d%e3%83%bc%e3%83%88"></a>
@@ -919,26 +869,8 @@ $M$ の上限が $S$ の上限であることの証明：
 <p>極限と連続性を深く学ぶ過程で、これは非常に深遠で美しい思想であると強く感じました。極限の導入は、数列や関数の傾向を理解するための有効なツールを提供するだけでなく、実数システムの中核的な思想の一つでもあります。連続性の概念は、実数直線上での関数の変化が漸進的で滑らかであることを可能にし、この連続性は数学解析全体に貫かれています。</p>
 
         
-        <hr><p>この記事は2023-12-27に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-12-27です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
-      </description>
-      
-        <category>Math</category>
-      
-    </item>
-    
-      
-      
-      
-    
-
-    <item>
-      <title>留数定理とローラン級数、高階導関数公式およびコーシー積分公式の関係または関連性</title>
-      <link>https://guzhengsvt.cn/ja/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link>
-      <pubDate>Wed, 20 Dec 2023 08:54:33 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/ja/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid>
-      <description>
-        <![CDATA[<h1>留数定理とローラン級数、高階導関数公式およびコーシー積分公式の関係または関連性</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        <hr><p>この記事は2023-12-27に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-12-27です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]></description><category>Math</category></item><item><title>留数定理とローラン級数、高階導関数公式およびコーシー積分公式の関係または関連性</title><link>https://guzhengsvt.cn/ja/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link><pubDate>Wed, 20 Dec 2023 08:54:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid><description>
+<![CDATA[<h1>留数定理とローラン級数、高階導関数公式およびコーシー積分公式の関係または関連性</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
         
           <h3 id="1-留数定理residue-theorem">
 <a class="header-anchor" href="#1-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86residue-theorem"></a>
@@ -1107,26 +1039,8 @@ $$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
 </ol>
 
         
-        <hr><p>この記事は2023-12-20に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-12-20です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
-      </description>
-      
-        <category>Math</category>
-      
-    </item>
-    
-      
-      
-      
-    
-
-    <item>
-      <title>複素関数論</title>
-      <link>https://guzhengsvt.cn/ja/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link>
-      <pubDate>Fri, 17 Nov 2023 19:42:47 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/ja/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid>
-      <description>
-        <![CDATA[<h1>複素関数論</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        <hr><p>この記事は2023-12-20に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-12-20です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]></description><category>Math</category></item><item><title>複素関数論</title><link>https://guzhengsvt.cn/ja/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link><pubDate>Fri, 17 Nov 2023 19:42:47 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid><description>
+<![CDATA[<h1>複素関数論</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
         
           <h1 id="複素数">
 <a class="header-anchor" href="#%e8%a4%87%e7%b4%a0%e6%95%b0"></a>
@@ -1256,12 +1170,4 @@ $$f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}dz$$</li>
 </ol>
 
         
-        <hr><p>この記事は2023-11-17に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-11-17です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
-      </description>
-      
-        <category>Math</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+        <hr><p>この記事は2023-11-17に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-11-17です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]></description><category>Math</category></item></channel></rss>

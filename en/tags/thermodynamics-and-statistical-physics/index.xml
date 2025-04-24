@@ -1,37 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Thermodynamics and Statistical Physics on 孤筝の温暖小家</title>
-    <link>https://guzhengsvt.cn/en/tags/thermodynamics-and-statistical-physics/</link>
-    <description>Recent content from 孤筝の温暖小家</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    
-    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
-    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
-    
-    <copyright>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</copyright>
-    
-    <lastBuildDate>Thu, 06 Jun 2024 00:00:59 +0800</lastBuildDate>
-    
-    
-    <atom:link href="https://guzhengsvt.cn/en/tags/thermodynamics-and-statistical-physics/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-
-    
-      
-      
-      
-    
-
-    <item>
-      <title>Thermodynamics and Statistical Physics</title>
-      <link>https://guzhengsvt.cn/en/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</link>
-      <pubDate>Thu, 06 Jun 2024 00:00:59 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/en/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</guid>
-      <description>
-        <![CDATA[<h1>Thermodynamics and Statistical Physics</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Thermodynamics and Statistical Physics on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/en/tags/thermodynamics-and-statistical-physics/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</copyright><lastBuildDate>Thu, 06 Jun 2024 00:00:59 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/en/tags/thermodynamics-and-statistical-physics/index.xml" rel="self" type="application/rss+xml"/><item><title>Thermodynamics and Statistical Physics</title><link>https://guzhengsvt.cn/en/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</link><pubDate>Thu, 06 Jun 2024 00:00:59 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</guid><description>
+<![CDATA[<h1>Thermodynamics and Statistical Physics</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
         
           <h1 id="physical-quantities">
 <a class="header-anchor" href="#physical-quantities"></a>
@@ -2298,12 +2266,4 @@ Comparison of Bose and Fermi Gases at $T=0$
 </h2><p>In stark contrast to an ideal Bose gas, where all particles occupy the zero-energy, zero-momentum ground state with zero pressure at absolute zero temperature, a Fermi gas possesses extremely high average energy and momentum, generating substantial pressure at absolute zero.</p>
 
         
-        <hr><p>Published on 2024-06-06 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-06-06</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
-      </description>
-      
-        <category>Physics</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+        <hr><p>Published on 2024-06-06 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-06-06</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]></description><category>Physics</category></item></channel></rss>

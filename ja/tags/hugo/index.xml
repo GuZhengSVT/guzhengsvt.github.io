@@ -1,37 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Hugo on 孤筝の温暖小家</title>
-    <link>https://guzhengsvt.cn/ja/tags/hugo/</link>
-    <description>Recent content from 孤筝の温暖小家</description>
-    <generator>Hugo</generator>
-    <language>ja</language>
-    
-    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
-    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
-    
-    <copyright>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</copyright>
-    
-    <lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate>
-    
-    
-    <atom:link href="https://guzhengsvt.cn/ja/tags/hugo/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-
-    
-      
-      
-      
-    
-
-    <item>
-      <title>TypechoコメントをWalineにインポート</title>
-      <link>https://guzhengsvt.cn/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
-      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
-      <description>
-        <![CDATA[<h1>TypechoコメントをWalineにインポート</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/ja/tags/hugo/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>ja</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</copyright><lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/ja/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>TypechoコメントをWalineにインポート</title><link>https://guzhengsvt.cn/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description>
+<![CDATA[<h1>TypechoコメントをWalineにインポート</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
         
           <p>数日前、ブログの記事をTypechoからHugoに移行しましたが、Front Matterのパラメータ設定や画像リンクの再設定だけでかなりの手間がかかりました。<br>
 ブログの価値は、まず記事そのものにあり、次にコメントです。コメントはブログがインターネットと現実世界に与えた影響を証明し、人と人との交流を記録しています。私的な言い方をすれば、世界中からのコメントは大切な思い出であり、「私」を構成する一部です。<br>
@@ -199,26 +167,8 @@ LeanCloudへのインポート
 <p>そして、親愛なる読者であるあなたは、私に価値を与えてくれる存在です。</p>
 <p>時間があれば、ぜひコメントをください～筆者は本当に長く喜びます（善意のコメントであれば）。</p>
         
-        <hr><p>この記事は2025-04-19に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-04-19です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
-      </description>
-      
-        <category>OtherNotes</category>
-      
-    </item>
-    
-      
-      
-      
-    
-
-    <item>
-      <title>Hugoブログよく使う資料</title>
-      <link>https://guzhengsvt.cn/ja/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link>
-      <pubDate>Tue, 15 Apr 2025 16:42:35 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/ja/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid>
-      <description>
-        <![CDATA[<h1>Hugoブログよく使う資料</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        <hr><p>この記事は2025-04-19に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-04-19です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]></description><category>OtherNotes</category></item><item><title>Hugoブログよく使う資料</title><link>https://guzhengsvt.cn/ja/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link><pubDate>Tue, 15 Apr 2025 16:42:35 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid><description>
+<![CDATA[<h1>Hugoブログよく使う資料</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
         
           <h1 id="reimuテーマ-icon_font">
 <a class="header-anchor" href="#reimu%e3%83%86%e3%83%bc%e3%83%9e-icon_font"></a>
@@ -617,12 +567,4 @@ reimuテーマ icon_font
 </table>
 
         
-        <hr><p>この記事は2025-04-15に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-04-15です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
-      </description>
-      
-        <category>OtherNotes</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+        <hr><p>この記事は2025-04-15に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-04-15です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]></description><category>OtherNotes</category></item></channel></rss>

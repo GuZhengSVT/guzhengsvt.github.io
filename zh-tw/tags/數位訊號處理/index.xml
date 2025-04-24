@@ -1,37 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>數位訊號處理 on 孤筝の温暖小家</title>
-    <link>https://guzhengsvt.cn/zh-tw/tags/%E6%95%B8%E4%BD%8D%E8%A8%8A%E8%99%9F%E8%99%95%E7%90%86/</link>
-    <description>Recent content from 孤筝の温暖小家</description>
-    <generator>Hugo</generator>
-    <language>zh-tw</language>
-    
-    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
-    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
-    
-    <copyright>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</copyright>
-    
-    <lastBuildDate>Wed, 04 Sep 2024 23:44:15 +0800</lastBuildDate>
-    
-    
-    <atom:link href="https://guzhengsvt.cn/zh-tw/tags/%E6%95%B8%E4%BD%8D%E8%A8%8A%E8%99%9F%E8%99%95%E7%90%86/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-
-    
-      
-      
-      
-    
-
-    <item>
-      <title>數位訊號處理</title>
-      <link>https://guzhengsvt.cn/zh-tw/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link>
-      <pubDate>Wed, 04 Sep 2024 23:44:15 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/zh-tw/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid>
-      <description>
-        <![CDATA[<h1>數位訊號處理</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>數位訊號處理 on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-tw/tags/%E6%95%B8%E4%BD%8D%E8%A8%8A%E8%99%9F%E8%99%95%E7%90%86/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-tw</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</copyright><lastBuildDate>Wed, 04 Sep 2024 23:44:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-tw/tags/%E6%95%B8%E4%BD%8D%E8%A8%8A%E8%99%9F%E8%99%95%E7%90%86/index.xml" rel="self" type="application/rss+xml"/><item><title>數位訊號處理</title><link>https://guzhengsvt.cn/zh-tw/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link><pubDate>Wed, 04 Sep 2024 23:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid><description>
+<![CDATA[<h1>數位訊號處理</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h1 id="數位訊號處理基本概念">
 <a class="header-anchor" href="#%e6%95%b8%e4%bd%8d%e8%a8%8a%e8%99%9f%e8%99%95%e7%90%86%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5"></a>
@@ -314,12 +282,4 @@ $$<h3 id="線性常係數差分方程">
 線性常係數差分方程
 </h3>
         
-        <hr><p>本文 2024-09-04 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2024-09-04</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
-      </description>
-      
-        <category>Physics</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+        <hr><p>本文 2024-09-04 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2024-09-04</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]></description><category>Physics</category></item></channel></rss>

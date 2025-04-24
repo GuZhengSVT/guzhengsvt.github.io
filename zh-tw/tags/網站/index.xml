@@ -1,37 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>網站 on 孤筝の温暖小家</title>
-    <link>https://guzhengsvt.cn/zh-tw/tags/%E7%B6%B2%E7%AB%99/</link>
-    <description>Recent content from 孤筝の温暖小家</description>
-    <generator>Hugo</generator>
-    <language>zh-tw</language>
-    
-    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
-    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
-    
-    <copyright>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</copyright>
-    
-    <lastBuildDate>Sat, 25 Nov 2023 18:59:05 +0800</lastBuildDate>
-    
-    
-    <atom:link href="https://guzhengsvt.cn/zh-tw/tags/%E7%B6%B2%E7%AB%99/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-
-    
-      
-      
-      
-    
-
-    <item>
-      <title>新增網域名稱</title>
-      <link>https://guzhengsvt.cn/zh-tw/post/thoughts/%E6%96%B0%E5%A2%9E%E5%9F%9F%E5%90%8D/</link>
-      <pubDate>Sat, 25 Nov 2023 18:59:05 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/zh-tw/post/thoughts/%E6%96%B0%E5%A2%9E%E5%9F%9F%E5%90%8D/</guid>
-      <description>
-        <![CDATA[<h1>新增網域名稱</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>網站 on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-tw/tags/%E7%B6%B2%E7%AB%99/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-tw</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</copyright><lastBuildDate>Sat, 25 Nov 2023 18:59:05 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-tw/tags/%E7%B6%B2%E7%AB%99/index.xml" rel="self" type="application/rss+xml"/><item><title>新增網域名稱</title><link>https://guzhengsvt.cn/zh-tw/post/thoughts/%E6%96%B0%E5%A2%9E%E5%9F%9F%E5%90%8D/</link><pubDate>Sat, 25 Nov 2023 18:59:05 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/thoughts/%E6%96%B0%E5%A2%9E%E5%9F%9F%E5%90%8D/</guid><description>
+<![CDATA[<h1>新增網域名稱</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <p>在阿里雲買了新域名guzhengsvt.cn</p>
 <p>（用券首年29￥，續費每年39￥）。
@@ -41,12 +9,4 @@
 <p>複習了一遍域名解析和SSL證書申請及配置步驟，還得感謝<a href="https://www.vpsor.cn/">硅雲</a>SSL證書配置之方便。
 <del>本來也想誇誇阿里雲SSL證書申請服務的但是emmm</del></p>
         
-        <hr><p>本文 2023-11-25 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2023-11-25</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
-      </description>
-      
-        <category>Thoughts</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+        <hr><p>本文 2023-11-25 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2023-11-25</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]></description><category>Thoughts</category></item></channel></rss>

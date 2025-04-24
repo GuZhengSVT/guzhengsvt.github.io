@@ -1,37 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>物理 on 孤筝の温暖小家</title>
-    <link>https://guzhengsvt.cn/zh-tw/tags/%E7%89%A9%E7%90%86/</link>
-    <description>Recent content from 孤筝の温暖小家</description>
-    <generator>Hugo</generator>
-    <language>zh-tw</language>
-    
-    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
-    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
-    
-    <copyright>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</copyright>
-    
-    <lastBuildDate>Mon, 02 Sep 2024 22:13:45 +0800</lastBuildDate>
-    
-    
-    <atom:link href="https://guzhengsvt.cn/zh-tw/tags/%E7%89%A9%E7%90%86/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-
-    
-      
-      
-      
-    
-
-    <item>
-      <title>空氣動力學基礎</title>
-      <link>https://guzhengsvt.cn/zh-tw/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link>
-      <pubDate>Mon, 02 Sep 2024 22:13:45 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/zh-tw/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid>
-      <description>
-        <![CDATA[<h1>空氣動力學基礎</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>物理 on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-tw/tags/%E7%89%A9%E7%90%86/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-tw</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</copyright><lastBuildDate>Mon, 02 Sep 2024 22:13:45 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-tw/tags/%E7%89%A9%E7%90%86/index.xml" rel="self" type="application/rss+xml"/><item><title>空氣動力學基礎</title><link>https://guzhengsvt.cn/zh-tw/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link><pubDate>Mon, 02 Sep 2024 22:13:45 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid><description>
+<![CDATA[<h1>空氣動力學基礎</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h1 id="流體靜力學基礎">
 <a class="header-anchor" href="#%e6%b5%81%e9%ab%94%e9%9d%9c%e5%8a%9b%e5%ad%b8%e5%9f%ba%e7%a4%8e"></a>
@@ -728,26 +696,8 @@ $$<h2 id="氣動中心與壓力中心的區別">
 <p>壓力中心的位置隨著迎角的改變而改變，當迎角增大，升力增大，壓力中心前移，這同時使得壓力中心與氣動中心的距離縮短，增大的升力與縮短力臂乘積剛好是不變的力矩，這也正是氣動中心的定義所要求的。</p>
 
         
-        <hr><p>本文 2024-09-02 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2024-09-02</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
-      </description>
-      
-        <category>Physics</category>
-      
-    </item>
-    
-      
-      
-      
-    
-
-    <item>
-      <title>熱力學與統計物理</title>
-      <link>https://guzhengsvt.cn/zh-tw/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</link>
-      <pubDate>Thu, 06 Jun 2024 00:00:59 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/zh-tw/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</guid>
-      <description>
-        <![CDATA[<h1>熱力學與統計物理</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        <hr><p>本文 2024-09-02 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2024-09-02</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]></description><category>Physics</category></item><item><title>熱力學與統計物理</title><link>https://guzhengsvt.cn/zh-tw/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</link><pubDate>Thu, 06 Jun 2024 00:00:59 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</guid><description>
+<![CDATA[<h1>熱力學與統計物理</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h1 id="物理量">
 <a class="header-anchor" href="#%e7%89%a9%e7%90%86%e9%87%8f"></a>
@@ -2962,12 +2912,4 @@ $$<h3 id="玻色氣體與費米氣體在--下比較">
 </h3><p>與理想玻色氣體在絕對零度下粒子全部處於能量、動量為零的狀態且壓強為零完全不同，費米氣體在絕對零度下具有很高的平均能量、動量，並產生很大的壓強。</p>
 
         
-        <hr><p>本文 2024-06-06 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2024-06-06</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
-      </description>
-      
-        <category>Physics</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+        <hr><p>本文 2024-06-06 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2024-06-06</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]></description><category>Physics</category></item></channel></rss>

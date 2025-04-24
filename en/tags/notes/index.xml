@@ -1,37 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Notes on 孤筝の温暖小家</title>
-    <link>https://guzhengsvt.cn/en/tags/notes/</link>
-    <description>Recent content from 孤筝の温暖小家</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    
-    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
-    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
-    
-    <copyright>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</copyright>
-    
-    <lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate>
-    
-    
-    <atom:link href="https://guzhengsvt.cn/en/tags/notes/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-
-    
-      
-      
-      
-    
-
-    <item>
-      <title>Typecho Comments Import to Waline</title>
-      <link>https://guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
-      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
-      <description>
-        <![CDATA[<h1>Typecho Comments Import to Waline</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Notes on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/en/tags/notes/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</copyright><lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/en/tags/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Typecho Comments Import to Waline</title><link>https://guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description>
+<![CDATA[<h1>Typecho Comments Import to Waline</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
         
           <p>A couple of days ago, I migrated my blog posts from Typecho to Hugo. Just setting up the Front Matter parameters and reconfiguring image links took considerable effort.<br>
 The value of a blog lies first in its articles, followed closely by its comments. Comments are proof that the blog has made an impact in both the digital and real worlds, carrying the interactions between people. More personally, comments from all corners of the globe are precious memories and a part of what makes &ldquo;me&rdquo;.<br>
@@ -175,26 +143,8 @@ As I said at the beginning, they&rsquo;re traces of my growth, proof of my exist
 <p>And you, dear reader, are the one who gives me value.</p>
 <p>If you have time, please leave a comment—it’ll genuinely make my day (as long as it’s kind, of course).</p>
         
-        <hr><p>Published on 2025-04-19 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-04-19</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
-      </description>
-      
-        <category>OtherNotes</category>
-      
-    </item>
-    
-      
-      
-      
-    
-
-    <item>
-      <title>Common Hugo Blog Resources</title>
-      <link>https://guzhengsvt.cn/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link>
-      <pubDate>Tue, 15 Apr 2025 16:42:35 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid>
-      <description>
-        <![CDATA[<h1>Common Hugo Blog Resources</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>Published on 2025-04-19 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-04-19</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]></description><category>OtherNotes</category></item><item><title>Common Hugo Blog Resources</title><link>https://guzhengsvt.cn/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link><pubDate>Tue, 15 Apr 2025 16:42:35 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid><description>
+<![CDATA[<h1>Common Hugo Blog Resources</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
         
           <h1 id="hugo-common-commands">
 <a class="header-anchor" href="#hugo-common-commands"></a>
@@ -596,26 +546,8 @@ reimu Theme icon_font
 </table>
 
         
-        <hr><p>Published on 2025-04-15 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-04-15</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
-      </description>
-      
-        <category>OtherNotes</category>
-      
-    </item>
-    
-      
-      
-      
-    
-
-    <item>
-      <title>Probability Theory and Mathematical Statistics</title>
-      <link>https://guzhengsvt.cn/en/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link>
-      <pubDate>Tue, 10 Sep 2024 01:14:05 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/en/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid>
-      <description>
-        <![CDATA[<h1>Probability Theory and Mathematical Statistics</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>Published on 2025-04-15 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-04-15</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]></description><category>OtherNotes</category></item><item><title>Probability Theory and Mathematical Statistics</title><link>https://guzhengsvt.cn/en/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><pubDate>Tue, 10 Sep 2024 01:14:05 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid><description>
+<![CDATA[<h1>Probability Theory and Mathematical Statistics</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
         
           <h2 id="preface">
 <a class="header-anchor" href="#preface"></a>
@@ -1293,26 +1225,8 @@ Here:</p>
 </ul>
 
         
-        <hr><p>Published on 2024-09-10 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-09-10</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
-      </description>
-      
-        <category>Math</category>
-      
-    </item>
-    
-      
-      
-      
-    
-
-    <item>
-      <title>Windows Customization Journey</title>
-      <link>https://guzhengsvt.cn/en/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link>
-      <pubDate>Sat, 07 Sep 2024 21:12:17 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/en/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid>
-      <description>
-        <![CDATA[<h1>Windows Customization Journey</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>Published on 2024-09-10 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-09-10</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]></description><category>Math</category></item><item><title>Windows Customization Journey</title><link>https://guzhengsvt.cn/en/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link><pubDate>Sat, 07 Sep 2024 21:12:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid><description>
+<![CDATA[<h1>Windows Customization Journey</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
         
           <h2 id="preface">
 <a class="header-anchor" href="#preface"></a>
@@ -1558,26 +1472,8 @@ Cursor Customization
 GitHub: <a href="https://github.com/makipom/BlueArchive-Cursors">BlueArchive-Cursors</a></li>
 </ol>
         
-        <hr><p>Published on 2024-09-07 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-09-07</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
-      </description>
-      
-        <category>OtherNotes</category>
-      
-    </item>
-    
-      
-      
-      
-    
-
-    <item>
-      <title>Digital Signal Processing</title>
-      <link>https://guzhengsvt.cn/en/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link>
-      <pubDate>Wed, 04 Sep 2024 23:44:15 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/en/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid>
-      <description>
-        <![CDATA[<h1>Digital Signal Processing</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>Published on 2024-09-07 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-09-07</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]></description><category>OtherNotes</category></item><item><title>Digital Signal Processing</title><link>https://guzhengsvt.cn/en/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link><pubDate>Wed, 04 Sep 2024 23:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid><description>
+<![CDATA[<h1>Digital Signal Processing</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
         
           <h1 id="fundamental-concepts-of-digital-signal-processing">
 <a class="header-anchor" href="#fundamental-concepts-of-digital-signal-processing"></a>
@@ -1876,26 +1772,8 @@ $$<h3 id="linear-constant-coefficient-difference-equations">
 Linear Constant-Coefficient Difference Equations
 </h3>
         
-        <hr><p>Published on 2024-09-04 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-09-04</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
-      </description>
-      
-        <category>Physics</category>
-      
-    </item>
-    
-      
-      
-      
-    
-
-    <item>
-      <title>Fundamentals of Aerodynamics</title>
-      <link>https://guzhengsvt.cn/en/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link>
-      <pubDate>Mon, 02 Sep 2024 22:13:45 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/en/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid>
-      <description>
-        <![CDATA[<h1>Fundamentals of Aerodynamics</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>Published on 2024-09-04 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-09-04</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]></description><category>Physics</category></item><item><title>Fundamentals of Aerodynamics</title><link>https://guzhengsvt.cn/en/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</link><pubDate>Mon, 02 Sep 2024 22:13:45 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/physics/%E7%A9%BA%E6%B0%94%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid><description>
+<![CDATA[<h1>Fundamentals of Aerodynamics</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
         
           <h1 id="fundamentals-of-hydrostatics">
 <a class="header-anchor" href="#fundamentals-of-hydrostatics"></a>
@@ -2633,26 +2511,8 @@ The Difference Between Aerodynamic Center and Center of Pressure
 <p>The position of the center of pressure changes with variations in the angle of attack. As the angle of attack increases, the lift increases, causing the center of pressure to move forward. This simultaneously reduces the distance between the center of pressure and the aerodynamic center. The increased lift multiplied by the shortened moment arm precisely equals the unchanged moment, which is exactly what the definition of the aerodynamic center requires.</p>
 
         
-        <hr><p>Published on 2024-09-02 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-09-02</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
-      </description>
-      
-        <category>Physics</category>
-      
-    </item>
-    
-      
-      
-      
-    
-
-    <item>
-      <title>Automatic Dial-up Internet Connection and Task Scheduler</title>
-      <link>https://guzhengsvt.cn/en/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</link>
-      <pubDate>Wed, 12 Jun 2024 19:34:52 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/en/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</guid>
-      <description>
-        <![CDATA[<h1>Automatic Dial-up Internet Connection and Task Scheduler</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>Published on 2024-09-02 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-09-02</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]></description><category>Physics</category></item><item><title>Automatic Dial-up Internet Connection and Task Scheduler</title><link>https://guzhengsvt.cn/en/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</link><pubDate>Wed, 12 Jun 2024 19:34:52 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E4%B8%8E%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F/</guid><description>
+<![CDATA[<h1>Automatic Dial-up Internet Connection and Task Scheduler</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
         
           <h2 id="annoying-network-shenanigans">
 <a class="header-anchor" href="#annoying-network-shenanigans"></a>
@@ -2708,26 +2568,8 @@ Auto-Dial on Boot &amp; Reconnect
 <p>Confirm (requires entering your Microsoft account password, not PIN. If errors persist, check the &ldquo;General&rdquo; tab for correct user account matching.)</p>
 
         
-        <hr><p>Published on 2024-06-12 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-06-12</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
-      </description>
-      
-        <category>OtherNotes</category>
-      
-    </item>
-    
-      
-      
-      
-    
-
-    <item>
-      <title>Thermodynamics and Statistical Physics</title>
-      <link>https://guzhengsvt.cn/en/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</link>
-      <pubDate>Thu, 06 Jun 2024 00:00:59 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/en/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</guid>
-      <description>
-        <![CDATA[<h1>Thermodynamics and Statistical Physics</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>Published on 2024-06-12 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-06-12</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]></description><category>OtherNotes</category></item><item><title>Thermodynamics and Statistical Physics</title><link>https://guzhengsvt.cn/en/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</link><pubDate>Thu, 06 Jun 2024 00:00:59 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</guid><description>
+<![CDATA[<h1>Thermodynamics and Statistical Physics</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
         
           <h1 id="physical-quantities">
 <a class="header-anchor" href="#physical-quantities"></a>
@@ -4994,26 +4836,8 @@ Comparison of Bose and Fermi Gases at $T=0$
 </h2><p>In stark contrast to an ideal Bose gas, where all particles occupy the zero-energy, zero-momentum ground state with zero pressure at absolute zero temperature, a Fermi gas possesses extremely high average energy and momentum, generating substantial pressure at absolute zero.</p>
 
         
-        <hr><p>Published on 2024-06-06 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-06-06</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
-      </description>
-      
-        <category>Physics</category>
-      
-    </item>
-    
-      
-      
-      
-    
-
-    <item>
-      <title>Real Number Construction Reading Report</title>
-      <link>https://guzhengsvt.cn/en/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</link>
-      <pubDate>Wed, 27 Dec 2023 21:40:17 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/en/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</guid>
-      <description>
-        <![CDATA[<h1>Real Number Construction Reading Report</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>Published on 2024-06-06 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-06-06</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]></description><category>Physics</category></item><item><title>Real Number Construction Reading Report</title><link>https://guzhengsvt.cn/en/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</link><pubDate>Wed, 27 Dec 2023 21:40:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</guid><description>
+<![CDATA[<h1>Real Number Construction Reading Report</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
         
           <h1 id="foundations-of-real-numbers-book-report">
 <a class="header-anchor" href="#foundations-of-real-numbers-book-report"></a>
@@ -5240,26 +5064,8 @@ Extreme Value Theorem:
 <p>The concepts of limits and continuity reveal a profound and elegant aspect of mathematics. Limits provide tools for analyzing trends, while continuity ensures smooth transitions in functions, forming the backbone of mathematical analysis.</p>
 
         
-        <hr><p>Published on 2023-12-27 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-12-27</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
-      </description>
-      
-        <category>Math</category>
-      
-    </item>
-    
-      
-      
-      
-    
-
-    <item>
-      <title>The Relationship Between the Residue Theorem and Laurent Series, Higher-Order Derivative Formulas, and Cauchy&#39;s Integral Formula</title>
-      <link>https://guzhengsvt.cn/en/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link>
-      <pubDate>Wed, 20 Dec 2023 08:54:33 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/en/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid>
-      <description>
-        <![CDATA[<h1>The Relationship Between the Residue Theorem and Laurent Series, Higher-Order Derivative Formulas, and Cauchy's Integral Formula</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
+        <hr><p>Published on 2023-12-27 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-12-27</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]></description><category>Math</category></item><item><title>The Relationship Between the Residue Theorem and Laurent Series, Higher-Order Derivative Formulas, and Cauchy's Integral Formula</title><link>https://guzhengsvt.cn/en/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link><pubDate>Wed, 20 Dec 2023 08:54:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid><description>
+<![CDATA[<h1>The Relationship Between the Residue Theorem and Laurent Series, Higher-Order Derivative Formulas, and Cauchy's Integral Formula</h1><p>Author: 孤筝 (lvbowen040427@163.com)</p>
         
           <h3 id="1-residue-theorem">
 <a class="header-anchor" href="#1-residue-theorem"></a>
@@ -5397,12 +5203,4 @@ $$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
 </ol>
 
         
-        <hr><p>Published on 2023-12-20 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-12-20</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]>
-      </description>
-      
-        <category>Math</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+        <hr><p>Published on 2023-12-20 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-12-20</p><p>Unless otherwise stated, all posts on this blog are licensed under the BY-NC-SA license. Please credit the source when reposting!</p>]]></description><category>Math</category></item></channel></rss>

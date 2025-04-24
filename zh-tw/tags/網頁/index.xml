@@ -1,37 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>網頁 on 孤筝の温暖小家</title>
-    <link>https://guzhengsvt.cn/zh-tw/tags/%E7%B6%B2%E9%A0%81/</link>
-    <description>Recent content from 孤筝の温暖小家</description>
-    <generator>Hugo</generator>
-    <language>zh-tw</language>
-    
-    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
-    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
-    
-    <copyright>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</copyright>
-    
-    <lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate>
-    
-    
-    <atom:link href="https://guzhengsvt.cn/zh-tw/tags/%E7%B6%B2%E9%A0%81/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-
-    
-      
-      
-      
-    
-
-    <item>
-      <title>Typecho評論匯入Waline</title>
-      <link>https://guzhengsvt.cn/zh-tw/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link>
-      <pubDate>Sat, 19 Apr 2025 16:56:24 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/zh-tw/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid>
-      <description>
-        <![CDATA[<h1>Typecho評論匯入Waline</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>網頁 on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-tw/tags/%E7%B6%B2%E9%A0%81/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-tw</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</copyright><lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-tw/tags/%E7%B6%B2%E9%A0%81/index.xml" rel="self" type="application/rss+xml"/><item><title>Typecho評論匯入Waline</title><link>https://guzhengsvt.cn/zh-tw/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description>
+<![CDATA[<h1>Typecho評論匯入Waline</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <p>前兩天把部落格文章從 Typecho 遷移到 Hugo，光是設定 Front Matter 參數和重新配置圖片連結就費了很大功夫。<br>
 一個部落格的價值，首先是文章，緊接著就是評論。評論證明部落格在網際網路和真實世界產生的影響，承載了人與人之間的交互關係。私心一點地說，五湖四海的評論是重要的回憶，是構成「我」的一部分。<br>
@@ -196,26 +164,8 @@ Waline 的<a href="https://waline.js.org/guide/get-started/">中文文檔</a>內
 <p>而你，我親愛的讀者，是你賦予我價值。</p>
 <p>有空的話請多多評論吧～筆者真的會開心很久的說（如果評論善意的話）。</p>
         
-        <hr><p>本文 2025-04-19 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2025-04-19</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
-      </description>
-      
-        <category>OtherNotes</category>
-      
-    </item>
-    
-      
-      
-      
-    
-
-    <item>
-      <title>哈囉世界</title>
-      <link>https://guzhengsvt.cn/zh-tw/post/thoughts/hello-world/</link>
-      <pubDate>Sun, 13 Apr 2025 11:00:00 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/zh-tw/post/thoughts/hello-world/</guid>
-      <description>
-        <![CDATA[<h1>哈囉世界</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        <hr><p>本文 2025-04-19 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2025-04-19</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]></description><category>OtherNotes</category></item><item><title>哈囉世界</title><link>https://guzhengsvt.cn/zh-tw/post/thoughts/hello-world/</link><pubDate>Sun, 13 Apr 2025 11:00:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/thoughts/hello-world/</guid><description>
+<![CDATA[<h1>哈囉世界</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h1 id="20250413">
 <a class="header-anchor" href="#20250413"></a>
@@ -271,26 +221,8 @@ $$<p>code test</p>
 </span></span></code></pre></div><p>icon: <!-- raw HTML omitted --><!-- raw HTML omitted --> 一杯咖啡</p>
 
         
-        <hr><p>本文 2025-04-13 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2025-04-13</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
-      </description>
-      
-        <category>Thoughts</category>
-      
-    </item>
-    
-      
-      
-      
-    
-
-    <item>
-      <title>部落格建置總結(Hexo&#43;Github版）</title>
-      <link>https://guzhengsvt.cn/zh-tw/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo&#43;github%E7%89%88/</link>
-      <pubDate>Sat, 10 Sep 2022 09:30:52 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/zh-tw/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo&#43;github%E7%89%88/</guid>
-      <description>
-        <![CDATA[<h1>部落格建置總結(Hexo+Github版）</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        <hr><p>本文 2025-04-13 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2025-04-13</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]></description><category>Thoughts</category></item><item><title>部落格建置總結(Hexo+Github版）</title><link>https://guzhengsvt.cn/zh-tw/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo+github%E7%89%88/</link><pubDate>Sat, 10 Sep 2022 09:30:52 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/thoughts/blog%E5%BB%BA%E6%88%90%E6%80%BB%E7%BB%93hexo+github%E7%89%88/</guid><description>
+<![CDATA[<h1>部落格建置總結(Hexo+Github版）</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <p><strong>早期建站記錄，已失效，僅作紀念</strong></p>
 <p><a href="https://guzhengsvt.github.io">https://guzhengsvt.github.io</a></p>
@@ -320,12 +252,4 @@ $$<p>code test</p>
 <p>以上</p>
 <p>2022年9月10日星期六</p>
         
-        <hr><p>本文 2022-09-10 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2022-09-10</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]>
-      </description>
-      
-        <category>Thoughts</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+        <hr><p>本文 2022-09-10 首發於 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於 2022-09-10</p><p>本部落格所有文章除特別聲明外，皆採用 BY-NC-SA 授權條款。轉載請註明出處！</p>]]></description><category>Thoughts</category></item></channel></rss>

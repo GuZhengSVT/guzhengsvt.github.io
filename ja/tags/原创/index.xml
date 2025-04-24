@@ -1,37 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>原创 on 孤筝の温暖小家</title>
-    <link>https://guzhengsvt.cn/ja/tags/%E5%8E%9F%E5%88%9B/</link>
-    <description>Recent content from 孤筝の温暖小家</description>
-    <generator>Hugo</generator>
-    <language>ja</language>
-    
-    <managingEditor>lvbowen040427@163.com (孤筝)</managingEditor>
-    <webMaster>lvbowen040427@163.com (孤筝)</webMaster>
-    
-    <copyright>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</copyright>
-    
-    <lastBuildDate>Tue, 12 Dec 2023 14:56:33 +0800</lastBuildDate>
-    
-    
-    <atom:link href="https://guzhengsvt.cn/ja/tags/%E5%8E%9F%E5%88%9B/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-
-    
-      
-      
-      
-    
-
-    <item>
-      <title>データ構造実機実験レポート6——前順序・後順序による二分木のスレッド化、グラフの隣接行列と隣接リストの格納</title>
-      <link>https://guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8/</link>
-      <pubDate>Tue, 12 Dec 2023 14:56:33 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8/</guid>
-      <description>
-        <![CDATA[<h1>データ構造実機実験レポート6——前順序・後順序による二分木のスレッド化、グラフの隣接行列と隣接リストの格納</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>原创 on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/ja/tags/%E5%8E%9F%E5%88%9B/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>ja</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</copyright><lastBuildDate>Tue, 12 Dec 2023 14:56:33 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/ja/tags/%E5%8E%9F%E5%88%9B/index.xml" rel="self" type="application/rss+xml"/><item><title>データ構造実機実験レポート6——前順序・後順序による二分木のスレッド化、グラフの隣接行列と隣接リストの格納</title><link>https://guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8/</link><pubDate>Tue, 12 Dec 2023 14:56:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8/</guid><description>
+<![CDATA[<h1>データ構造実機実験レポート6——前順序・後順序による二分木のスレッド化、グラフの隣接行列と隣接リストの格納</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
         
           <h1 id="前順序後順序による二分木のスレッド化">
 <a class="header-anchor" href="#%e5%89%8d%e9%a0%86%e5%ba%8f%e5%be%8c%e9%a0%86%e5%ba%8f%e3%81%ab%e3%82%88%e3%82%8b%e4%ba%8c%e5%88%86%e6%9c%a8%e3%81%ae%e3%82%b9%e3%83%ac%e3%83%83%e3%83%89%e5%8c%96"></a>
@@ -293,26 +261,8 @@ f. ソースコード
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
         
-        <hr><p>この記事は2023-12-12に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-12-12です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
-      </description>
-      
-        <category>Code</category>
-      
-    </item>
-    
-      
-      
-      
-    
-
-    <item>
-      <title>Pythonの基本データ構造</title>
-      <link>https://guzhengsvt.cn/ja/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
-      <pubDate>Sun, 27 Aug 2023 21:40:39 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/ja/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
-      <description>
-        <![CDATA[<h1>Pythonの基本データ構造</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        <hr><p>この記事は2023-12-12に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-12-12です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]></description><category>Code</category></item><item><title>Pythonの基本データ構造</title><link>https://guzhengsvt.cn/ja/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link><pubDate>Sun, 27 Aug 2023 21:40:39 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid><description>
+<![CDATA[<h1>Pythonの基本データ構造</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
         
           <p><strong>elemは単語element（要素）の略称</strong>であり、プログラムの定義では不確定な型、つまり抽象的なデータ型を表します。</p>
 <h1 id="リスト">
@@ -876,26 +826,8 @@ yield
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>
 </span></span></code></pre></div>
         
-        <hr><p>この記事は2023-08-27に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-08-27です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
-      </description>
-      
-        <category>Code</category>
-      
-    </item>
-    
-      
-      
-      
-    
-
-    <item>
-      <title>Python基礎関数</title>
-      <link>https://guzhengsvt.cn/ja/post/code/python%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/</link>
-      <pubDate>Tue, 27 Jun 2023 00:55:01 &#43;0800</pubDate>
-      <author>lvbowen040427@163.com (孤筝)</author>
-      <guid>https://guzhengsvt.cn/ja/post/code/python%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/</guid>
-      <description>
-        <![CDATA[<h1>Python基礎関数</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
+        <hr><p>この記事は2023-08-27に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-08-27です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]></description><category>Code</category></item><item><title>Python基礎関数</title><link>https://guzhengsvt.cn/ja/post/code/python%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/</link><pubDate>Tue, 27 Jun 2023 00:55:01 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/code/python%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/</guid><description>
+<![CDATA[<h1>Python基礎関数</h1><p>著者：孤筝（lvbowen040427@163.com）</p>
         
           <h2 id="関数の引数渡し">
 <a class="header-anchor" href="#%e9%96%a2%e6%95%b0%e3%81%ae%e5%bc%95%e6%95%b0%e6%b8%a1%e3%81%97"></a>
@@ -1221,12 +1153,4 @@ while-else
 </h4><p>for-elseと同様、breakで中断されずにwhileループが終了した場合、後続のelse分岐を実行；異常終了した場合elseは実行されない</p>
 
         
-        <hr><p>この記事は2023-06-27に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-06-27です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]>
-      </description>
-      
-        <category>Code</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+        <hr><p>この記事は2023-06-27に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-06-27です</p><p>特別な記載がない限り、このブログのすべての記事は BY-NC-SA ライセンスの下で提供されています。転載の際は出典を明記してください！</p>]]></description><category>Code</category></item></channel></rss>
