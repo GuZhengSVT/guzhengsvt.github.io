@@ -227,7 +227,7 @@ Laurent Series
 </h2><ol>
 <li>Bilateral power series
 <ol>
-<li>The region of convergence is an annulus $R_1 < |z - z_0| < R_2$.</li>
+<li>The region of convergence is an annulus $R_1  \lt  |z - z_0|  \lt  R_2$.</li>
 </ol>
 </li>
 <li>Laurent expansion:<br>
@@ -258,7 +258,7 @@ Isolated Singularities
 <li>Relationship between poles and zeros
 <ol>
 <li>Definition of zeros: For a non-zero analytic function $f(z)$, if it can be expressed as $f(z) = (z - z_0)^m \varphi(z)$, then $z_0$ is called an $m$-th order zero of $f(z)$.<br>
-Necessary and sufficient condition: $f^{(n)}(z_0) = 0$ for $n < m$, and $f^{(m)}(z_0) \neq 0$.</li>
+Necessary and sufficient condition: $f^{(n)}(z_0) = 0$ for $n  \lt  m$, and $f^{(m)}(z_0) \neq 0$.</li>
 <li>If $z_0$ is an $m$-th order zero of $f(z)$, then $z_0$ is an $m$-th order pole of $\frac{1}{f(z)}$.</li>
 </ol>
 </li>

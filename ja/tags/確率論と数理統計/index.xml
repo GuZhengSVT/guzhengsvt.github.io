@@ -113,8 +113,8 @@ $$
 f(x)=
 \begin{cases}
 0,x \le a\\
-\frac{1}{b-a},a < x \le b\\
-0,x>b\\
+\frac{1}{b-a},a  \lt  x \le b\\
+0,x \gt b\\
 \end{cases}
 $$<p>分布関数：
 </p>
@@ -122,8 +122,8 @@ $$
 F(x)=
 \begin{cases}
 0,x \le a\\
-\frac{x-a}{b-a},a<x \le b\\
-1,x>b\\
+\frac{x-a}{b-a},a \lt x \le b\\
+1,x \gt b\\
 \end{cases}
 $$<h2 id="指数分布">
 <a class="header-anchor" href="#%e6%8c%87%e6%95%b0%e5%88%86%e5%b8%83"></a>
@@ -135,7 +135,7 @@ $$<h2 id="指数分布">
 </h3>$$
 f(x)=
 \begin{cases}
-\lambda e^{-\lambda x},x>0\\
+\lambda e^{-\lambda x},x \gt 0\\
 0,x \le 0\\
 \end{cases}
 $$<h3 id="分布関数">
@@ -145,7 +145,7 @@ $$<h3 id="分布関数">
 F(x)=
 \begin{cases}
 1-e^{-\lambda x},x \ge 0\\
-0,x<0\\
+0,x \lt 0\\
 \end{cases}
 $$<h2 id="ポアソン分布">
 <a class="header-anchor" href="#%e3%83%9d%e3%82%a2%e3%82%bd%e3%83%b3%e5%88%86%e5%b8%83"></a>
@@ -162,14 +162,14 @@ $$<h2 id="正規分布">
 <a class="header-anchor" href="#%e7%a2%ba%e7%8e%87%e5%af%86%e5%ba%a6-1"></a>
 確率密度
 </h3>$$
-f(x)=\frac{1}{\sqrt{2 \pi} \sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}},x \in R,\sigma>0
+f(x)=\frac{1}{\sqrt{2 \pi} \sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}},x \in R,\sigma \gt 0
 $$<h3 id="分布関数-1">
 <a class="header-anchor" href="#%e5%88%86%e5%b8%83%e9%96%a2%e6%95%b0-1"></a>
 分布関数
 </h3>$$
 F(x)=\int^{x}_{-\infty}f(t)dt
 $$<p>
-明らかに、$F(\mu)=\frac{1}{2}$、すなわち$P(x \le \mu)=P(x>\mu)=\frac{1}{2}$。</p>
+明らかに、$F(\mu)=\frac{1}{2}$、すなわち$P(x \le \mu)=P(x \gt \mu)=\frac{1}{2}$。</p>
 <h3 id="標準正規分布">
 <a class="header-anchor" href="#%e6%a8%99%e6%ba%96%e6%ad%a3%e8%a6%8f%e5%88%86%e5%b8%83"></a>
 標準正規分布
@@ -235,7 +235,7 @@ $$<h3 id="分布関数-2">
 <a class="header-anchor" href="#%e5%88%86%e5%b8%83%e9%96%a2%e6%95%b0-2"></a>
 分布関数
 </h3>$$
-F(x)=\sum_{x_i<x}p_i,x \in R
+F(x)=\sum_{x_i \lt x}p_i,x \in R
 $$<h2 id="一次元連続確率変数">
 <a class="header-anchor" href="#%e4%b8%80%e6%ac%a1%e5%85%83%e9%80%a3%e7%b6%9a%e7%a2%ba%e7%8e%87%e5%a4%89%e6%95%b0"></a>
 一次元連続確率変数
@@ -253,7 +253,7 @@ $$<h3 id="区間確率">
 <a class="header-anchor" href="#%e5%8c%ba%e9%96%93%e7%a2%ba%e7%8e%87"></a>
 区間確率
 </h3>$$
-P(a<x \le b)=\int_a^bf(x)dx=F(b)-F(a)
+P(a \lt x \le b)=\int_a^bf(x)dx=F(b)-F(a)
 $$<p>$\because$ $P(x=a)=0,a \in R$
 $\therefore$ 区間の両端の等号は任意</p>
 <h3 id="規格化">
@@ -331,9 +331,9 @@ $$<p>
 $$
 \begin{align}
 F_Z(z)
-&=P(Z<z)\\
-&=P(X-Y<z)\\
-&=P(X<Y+z)\\
+&=P(Z \lt z)\\
+&=P(X-Y \lt z)\\
+&=P(X \lt Y+z)\\
 &=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
 \end{align}
 $$<p>

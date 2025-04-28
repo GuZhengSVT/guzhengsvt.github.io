@@ -78,7 +78,7 @@ Discrete-Time Signals
 With uniform sampling interval \( T \), \( t_n = nT \):<br>
 </p>
 $$
-x(n) = x_a(t) \big|_{t=nT} = x_a(nT), \quad -\infty < n < \infty  
+x(n) = x_a(t) \big|_{t=nT} = x_a(nT), \quad -\infty  \lt  n  \lt  \infty  
 $$<p><br>
 Here, \( x(n) \) is called a <strong>discrete-time signal</strong>, where \( n \) is an integer, forming a sequence:<br>
 </p>
@@ -100,7 +100,7 @@ Formula Representation
 </h4><p>Example:<br>
 </p>
 $$
-x(n) = a^{|n|}, \quad 0 < a < 1, \quad -\infty < n < \infty  
+x(n) = a^{|n|}, \quad 0  \lt  a  \lt  1, \quad -\infty  \lt  n  \lt  \infty  
 $$<h4 id="graphical-representation">
 <a class="header-anchor" href="#graphical-representation"></a>
 Graphical Representation
@@ -126,7 +126,7 @@ Unit Step Sequence \( u(n) \)
 u(n) = 
 \begin{cases} 
 1 & n \geq 0 \\
-0 & n < 0 
+0 & n  \lt  0 
 \end{cases}  
 $$<p><br>
 Relationships:<br>
@@ -157,8 +157,8 @@ Real Exponential Sequence
 </h4>$$
 x(n) = a^n u(n), \quad a \text{ is a real number}  
 $$<ul>
-<li><strong>Convergent sequence</strong>: \( |a| < 1 \)</li>
-<li><strong>Divergent sequence</strong>: \( |a| > 1 \)</li>
+<li><strong>Convergent sequence</strong>: \( |a|  \lt  1 \)</li>
+<li><strong>Divergent sequence</strong>: \( |a|  \gt  1 \)</li>
 </ul>
 <h4 id="sinusoidal-sequence">
 <a class="header-anchor" href="#sinusoidal-sequence"></a>
@@ -197,7 +197,7 @@ Periodic Sequence
 </h4><p>If for all \( n \), there exists a <strong>smallest positive integer</strong> \( N \) such that:<br>
 </p>
 $$
-x(n) = x(n + N), \quad -\infty < n < \infty  
+x(n) = x(n + N), \quad -\infty  \lt  n  \lt  \infty  
 $$<p><br>
 then the sequence \( x(n) \) is <strong>periodic</strong> with period \( N \).</p>
 <h3 id="sequence-operations">
@@ -283,7 +283,7 @@ Causality of Systems
 The unit impulse response satisfies:<br>
 </p>
 $$
-h(n) = 0 \quad \text{for} \quad n < 0  
+h(n) = 0 \quad \text{for} \quad n  \lt  0  
 $$<h3 id="stability-of-systems">
 <a class="header-anchor" href="#stability-of-systems"></a>
 Stability of Systems
@@ -292,7 +292,7 @@ Stability of Systems
 The unit impulse response is absolutely summable:<br>
 </p>
 $$
-\sum_{m=-\infty}^{\infty} |h(n)| < \infty  
+\sum_{m=-\infty}^{\infty} |h(n)|  \lt  \infty  
 $$<h3 id="linear-constant-coefficient-difference-equations">
 <a class="header-anchor" href="#linear-constant-coefficient-difference-equations"></a>
 Linear Constant-Coefficient Difference Equations

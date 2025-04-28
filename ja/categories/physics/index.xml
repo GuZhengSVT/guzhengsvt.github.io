@@ -70,7 +70,7 @@
 均一サンプリング（等間隔サンプリング）の場合、サンプリング間隔 $T$ 、$t_n=nT$
 </p>
 $$
-x(n)=x_a(t)|_{t=nT}=x_a(nT),- \infty<n<\infty
+x(n)=x_a(t)|_{t=nT}=x_a(nT),- \infty \lt n \lt \infty
 $$<p>
 $x(n)$ を時間領域離散信号と呼び、$n$ を整数とすると、次のようなシーケンスが得られる。
 </p>
@@ -91,7 +91,7 @@ $$<p>
 数式表現
 </h4><p>例:</p>
 $$
-x(n)=a^{|n|},0<a<1,-\infty<n<\infty
+x(n)=a^{|n|},0 \lt a \lt 1,-\infty \lt n \lt \infty
 $$<h4 id="グラフ表現">
 <a class="header-anchor" href="#%e3%82%b0%e3%83%a9%e3%83%95%e8%a1%a8%e7%8f%be"></a>
 グラフ表現
@@ -117,7 +117,7 @@ $$<p>
 u(n)=
 \begin{cases}
 1 & n \ge 0\\
-0 & n < 0\\
+0 & n  \lt  0\\
 \end{cases}
 $$$$
 \delta(n)=u(n)-u(n-1)
@@ -145,8 +145,8 @@ $$<h4 id="実指数シーケンス">
 </h4>$$
 x(n)=a^n u(n),a は実数
 $$<ul>
-<li>$|a|<1$ の場合、$x(n)$ を収束シーケンスと呼ぶ</li>
-<li>$|a|>1$ の場合、$x(n)$ を発散シーケンスと呼ぶ</li>
+<li>$|a| \lt 1$ の場合、$x(n)$ を収束シーケンスと呼ぶ</li>
+<li>$|a| \gt 1$ の場合、$x(n)$ を発散シーケンスと呼ぶ</li>
 </ul>
 <h4 id="正弦波シーケンス">
 <a class="header-anchor" href="#%e6%ad%a3%e5%bc%a6%e6%b3%a2%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9"></a>
@@ -184,7 +184,7 @@ $n$ が整数であるため、正弦波シーケンスと複素指数シーケ�
 </h4><p>すべての $n$ に対して、<strong>最小の正の整数</strong> $N$ が存在し、次の等式が成り立つ場合：
 </p>
 $$
-x(n)=x(n+N),-\infty<n<\infty
+x(n)=x(n+N),-\infty \lt n \lt \infty
 $$<p>
 シーケンス $x(n)$ を周期的シーケンスと呼び、周期を $N$ とする。</p>
 <h3 id="シーケンスの演算">
@@ -268,7 +268,7 @@ $$<p>
 <p>==必要十分条件==：システムの単位インパルス応答が次の式を満たす
 </p>
 $$
-h(n)=0 \quad n<0
+h(n)=0 \quad n \lt 0
 $$<h3 id="システムの安定性">
 <a class="header-anchor" href="#%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%81%ae%e5%ae%89%e5%ae%9a%e6%80%a7"></a>
 システムの安定性
@@ -276,7 +276,7 @@ $$<h3 id="システムの安定性">
 ==必要十分条件==：システムの単位インパルス応答が絶対可和である。
 </p>
 $$
-\sum^{\infty}_{m=-\infty}|h(n)|<\infty
+\sum^{\infty}_{m=-\infty}|h(n)| \lt \infty
 $$<h3 id="線形定係数差分方程式">
 <a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e5%ae%9a%e4%bf%82%e6%95%b0%e5%b7%ae%e5%88%86%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
 線形定係数差分方程式
@@ -1303,7 +1303,7 @@ $$
 $$<ul>
 <li>$T_2$：高温熱源の温度</li>
 <li>$T_1$：低温熱源の温度</li>
-<li>$0<\eta<1$</li>
+<li>$0 \lt \eta \lt 1$</li>
 </ul>
 <h2 id="絞り過程におけるエネルギー方程式">
 <a class="header-anchor" href="#%e7%b5%9e%e3%82%8a%e9%81%8e%e7%a8%8b%e3%81%ab%e3%81%8a%e3%81%91%e3%82%8b%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
@@ -1569,7 +1569,7 @@ $$<p>
 <h3 id="エネルギー表現">
 <a class="header-anchor" href="#%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc%e8%a1%a8%e7%8f%be"></a>
 エネルギー表現
-</h3><p>$\theta,\varphi$ について積分（$0<\theta<\pi,0<\varphi<2\pi$）すると：
+</h3><p>$\theta,\varphi$ について積分（$0 \lt \theta \lt \pi,0 \lt \varphi \lt 2\pi$）すると：
 </p>
 $$
 \frac{4\pi Vp^2}{h^3}dp
@@ -1701,7 +1701,7 @@ $$
 dS\ge \frac{dQ}{T}
 $$<p>
 断熱系では$dQ$=0であるため、$dS\ge 0$となる。</p>
-<p><strong>系</strong>：孤立（断熱）系における<strong>不可逆過程</strong>は常にエントロピーが増加する方向に進行し、すなわち$dS>0$となる。</p>
+<p><strong>系</strong>：孤立（断熱）系における<strong>不可逆過程</strong>は常にエントロピーが増加する方向に進行し、すなわち$dS \gt 0$となる。</p>
 <h2 id="絞り過程">
 <a class="header-anchor" href="#%e7%b5%9e%e3%82%8a%e9%81%8e%e7%a8%8b"></a>
 絞り過程
@@ -1723,8 +1723,8 @@ $$<p>
 $$
 \mu_{JT} = \left ( \frac{\partial T}{\partial P} \right)_H
 $$<ul>
-<li>$\mu_{JT} > 0$の場合、絞り過程で気体の温度は低下します。</li>
-<li>$\mu_{JT} < 0$の場合、絞り過程で気体の温度は上昇します。</li>
+<li>$\mu_{JT}  \gt  0$の場合、絞り過程で気体の温度は低下します。</li>
+<li>$\mu_{JT}  \lt  0$の場合、絞り過程で気体の温度は上昇します。</li>
 </ul>
 <h3 id="絞り過程の応用">
 <a class="header-anchor" href="#%e7%b5%9e%e3%82%8a%e9%81%8e%e7%a8%8b%e3%81%ae%e5%bf%9c%e7%94%a8"></a>
@@ -1874,20 +1874,20 @@ $$<p>
 <a class="header-anchor" href="#%e5%ad%a4%e7%ab%8b%e7%b3%bb"></a>
 孤立系
 </h3><p>孤立（断熱）系では S が増大するか不変であり、平衡状態では$S_\max$となる。
-微小な変動が発生した場合、$\Delta S<0$となり、これを2次のテイラー級数で展開すると$\Delta S=\delta S+\frac{1}{2}\delta^2 S$となる。
-平衡時には、$\delta S=0,\delta^2 S<0$が満たされる。</p>
+微小な変動が発生した場合、$\Delta S \lt 0$となり、これを2次のテイラー級数で展開すると$\Delta S=\delta S+\frac{1}{2}\delta^2 S$となる。
+平衡時には、$\delta S=0,\delta^2 S \lt 0$が満たされる。</p>
 <h3 id="等温等容系">
 <a class="header-anchor" href="#%e7%ad%89%e6%b8%a9%e7%ad%89%e5%ae%b9%e7%b3%bb"></a>
 等温等容系
 </h3><p>等温等容系では F が減少するか不変であり、平衡状態では$F_\min$となる。
-微小な変動が発生した場合、$\Delta F>0$となり、これを2次のテイラー級数で展開すると$\Delta F=\delta F+\frac{1}{2}\delta^2 F$となる。
-平衡時には、$\delta F=0,\delta^2 F>0$が満たされる。</p>
+微小な変動が発生した場合、$\Delta F \gt 0$となり、これを2次のテイラー級数で展開すると$\Delta F=\delta F+\frac{1}{2}\delta^2 F$となる。
+平衡時には、$\delta F=0,\delta^2 F \gt 0$が満たされる。</p>
 <h3 id="等温等圧系">
 <a class="header-anchor" href="#%e7%ad%89%e6%b8%a9%e7%ad%89%e5%9c%a7%e7%b3%bb"></a>
 等温等圧系
 </h3><p>等温等圧系では G が減少するか不変であり、平衡状態では$G_\min$となる。
-微小な変動が発生した場合、$\Delta G>0$となり、これを2次のテイラー級数で展開すると$\Delta G=\delta G+\frac{1}{2}\delta^2 G$となる。
-平衡時には、$\delta G=0,\delta^2 G>0$が満たされる。</p>
+微小な変動が発生した場合、$\Delta G \gt 0$となり、これを2次のテイラー級数で展開すると$\Delta G=\delta G+\frac{1}{2}\delta^2 G$となる。
+平衡時には、$\delta G=0,\delta^2 G \gt 0$が満たされる。</p>
 <h3 id="単一成分二相系の平衡条件">
 <a class="header-anchor" href="#%e5%8d%98%e4%b8%80%e6%88%90%e5%88%86%e4%ba%8c%e7%9b%b8%e7%b3%bb%e3%81%ae%e5%b9%b3%e8%a1%a1%e6%9d%a1%e4%bb%b6"></a>
 単一成分二相系の平衡条件
@@ -2031,7 +2031,7 @@ $$
 \end{align}
 $$<ul>
 <li>共役運動量$p_\theta=mr^2\dot{\theta},p_\varphi=mr^2\sin^2\theta \dot{\varphi}$を導入、質点の $O$ に対する慣性モーメント $I$</li>
-<li>$0<\theta<\pi,0<\varphi<2\pi$、自由度2</li>
+<li>$0 \lt \theta \lt \pi,0 \lt \varphi \lt 2\pi$、自由度2</li>
 </ul>
 $$
 \varepsilon=\frac{1}{2I}(p_\theta^2+\frac{1}{\sin^2\theta}p_\varphi^2)
@@ -2804,7 +2804,7 @@ $$<p>
 回転特性温度
 </p>
 $$
-\theta_r=\frac{\hbar^2}{2Ik}<100K
+\theta_r=\frac{\hbar^2}{2Ik} \lt 100K
 $$<p>
 </p>
 $$
@@ -3007,8 +3007,8 @@ $$
 a_l=\frac{\omega_l}{e^{\alpha+\beta \varepsilon_l}-1}=\frac{\omega_l}{e^{\frac{\varepsilon_l-\mu}{kT}}-1}
 $$<p>
 $\because$ エネルギー準位上の粒子数は負の値を取れない
-$\therefore$ 最低エネルギー準位を $\varepsilon_0$ とすると、$\varepsilon_0>\mu$ 。
-最低エネルギー準位が 0 の場合、$\mu<0$ となる。</p>
+$\therefore$ 最低エネルギー準位を $\varepsilon_0$ とすると、$\varepsilon_0 \gt \mu$ 。
+最低エネルギー準位が 0 の場合、$\mu \lt 0$ となる。</p>
 <h3 id="化学ポテンシャル-2">
 <a class="header-anchor" href="#%e5%8c%96%e5%ad%a6%e3%83%9d%e3%83%86%e3%83%b3%e3%82%b7%e3%83%a3%e3%83%ab-2"></a>
 化学ポテンシャル
@@ -3032,7 +3032,7 @@ $$<p>
 <strong>絶対零度</strong>では、粒子は可能な限りエネルギーが最低の状態を占める。<strong>ボース粒子</strong>の場合、一つの量子状態に占めることができる粒子数に制限がないため、絶対零度ではボース粒子はすべて $\varepsilon=0$ の最低エネルギー準位に存在する。
 上式は、</p>
 <blockquote>
-<p>$T < T_C$ のとき、最低エネルギー準位に<strong>巨視的な量</strong>の粒子が凝縮することを示しており、この現象を==ボース-アインシュタイン凝縮==と呼ぶ</p></blockquote>
+<p>$T  \lt  T_C$ のとき、最低エネルギー準位に<strong>巨視的な量</strong>の粒子が凝縮することを示しており、この現象を==ボース-アインシュタイン凝縮==と呼ぶ</p></blockquote>
 $$
 U=0.770NkT(\frac{T}{T_C})^{3/2}
 $$<p>
@@ -3213,8 +3213,8 @@ $T=0$ における系の性質
 各量子状態の平均電子数
 </h4>$$
 \begin{cases}
-f=1,\varepsilon<\mu(0)\\
-f=0,\varepsilon>\mu(0)
+f=1,\varepsilon \lt \mu(0)\\
+f=0,\varepsilon \gt \mu(0)
 \end{cases}
 $$<h4 id="フェルミ準位">
 <a class="header-anchor" href="#%e3%83%95%e3%82%a7%e3%83%ab%e3%83%9f%e6%ba%96%e4%bd%8d"></a>

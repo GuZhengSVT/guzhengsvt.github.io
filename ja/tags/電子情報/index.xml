@@ -70,7 +70,7 @@
 均一サンプリング（等間隔サンプリング）の場合、サンプリング間隔 $T$ 、$t_n=nT$
 </p>
 $$
-x(n)=x_a(t)|_{t=nT}=x_a(nT),- \infty<n<\infty
+x(n)=x_a(t)|_{t=nT}=x_a(nT),- \infty \lt n \lt \infty
 $$<p>
 $x(n)$ を時間領域離散信号と呼び、$n$ を整数とすると、次のようなシーケンスが得られる。
 </p>
@@ -91,7 +91,7 @@ $$<p>
 数式表現
 </h4><p>例:</p>
 $$
-x(n)=a^{|n|},0<a<1,-\infty<n<\infty
+x(n)=a^{|n|},0 \lt a \lt 1,-\infty \lt n \lt \infty
 $$<h4 id="グラフ表現">
 <a class="header-anchor" href="#%e3%82%b0%e3%83%a9%e3%83%95%e8%a1%a8%e7%8f%be"></a>
 グラフ表現
@@ -117,7 +117,7 @@ $$<p>
 u(n)=
 \begin{cases}
 1 & n \ge 0\\
-0 & n < 0\\
+0 & n  \lt  0\\
 \end{cases}
 $$$$
 \delta(n)=u(n)-u(n-1)
@@ -145,8 +145,8 @@ $$<h4 id="実指数シーケンス">
 </h4>$$
 x(n)=a^n u(n),a は実数
 $$<ul>
-<li>$|a|<1$ の場合、$x(n)$ を収束シーケンスと呼ぶ</li>
-<li>$|a|>1$ の場合、$x(n)$ を発散シーケンスと呼ぶ</li>
+<li>$|a| \lt 1$ の場合、$x(n)$ を収束シーケンスと呼ぶ</li>
+<li>$|a| \gt 1$ の場合、$x(n)$ を発散シーケンスと呼ぶ</li>
 </ul>
 <h4 id="正弦波シーケンス">
 <a class="header-anchor" href="#%e6%ad%a3%e5%bc%a6%e6%b3%a2%e3%82%b7%e3%83%bc%e3%82%b1%e3%83%b3%e3%82%b9"></a>
@@ -184,7 +184,7 @@ $n$ が整数であるため、正弦波シーケンスと複素指数シーケ�
 </h4><p>すべての $n$ に対して、<strong>最小の正の整数</strong> $N$ が存在し、次の等式が成り立つ場合：
 </p>
 $$
-x(n)=x(n+N),-\infty<n<\infty
+x(n)=x(n+N),-\infty \lt n \lt \infty
 $$<p>
 シーケンス $x(n)$ を周期的シーケンスと呼び、周期を $N$ とする。</p>
 <h3 id="シーケンスの演算">
@@ -268,7 +268,7 @@ $$<p>
 <p>==必要十分条件==：システムの単位インパルス応答が次の式を満たす
 </p>
 $$
-h(n)=0 \quad n<0
+h(n)=0 \quad n \lt 0
 $$<h3 id="システムの安定性">
 <a class="header-anchor" href="#%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%81%ae%e5%ae%89%e5%ae%9a%e6%80%a7"></a>
 システムの安定性
@@ -276,7 +276,7 @@ $$<h3 id="システムの安定性">
 ==必要十分条件==：システムの単位インパルス応答が絶対可和である。
 </p>
 $$
-\sum^{\infty}_{m=-\infty}|h(n)|<\infty
+\sum^{\infty}_{m=-\infty}|h(n)| \lt \infty
 $$<h3 id="線形定係数差分方程式">
 <a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e5%ae%9a%e4%bf%82%e6%95%b0%e5%b7%ae%e5%88%86%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
 線形定係数差分方程式

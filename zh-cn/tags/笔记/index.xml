@@ -677,23 +677,21 @@ Eg：随机选中圆内某点，选中任意点概率为 0，但都可能发生�
 <a class="header-anchor" href="#%e5%9d%87%e5%8c%80%e5%88%86%e5%b8%83"></a>
 均匀分布
 </h2><p>$x \sim U(a,b)$
-近似为几何分布中的线性分布，各点处概率密度：
-</p>
+近似为几何分布中的线性分布，各点处概率密度：</p>
 $$
 f(x)=
 \begin{cases}
 0,x \le a\\
-\frac{1}{b-a},a < x \le b\\
-0,x>b\\
+\frac{1}{b-a},a \lt x \le b\\
+0,x \gt b\\
 \end{cases}
-$$<p>分布函数：
-</p>
+$$<p>分布函数：</p>
 $$
 F(x)=
 \begin{cases}
 0,x \le a\\
-\frac{x-a}{b-a},a<x \le b\\
-1,x>b\\
+\frac{x-a}{b-a},a \lt x \le b\\
+1,x \gt b\\
 \end{cases}
 $$<h2 id="指数分布">
 <a class="header-anchor" href="#%e6%8c%87%e6%95%b0%e5%88%86%e5%b8%83"></a>
@@ -705,7 +703,7 @@ $$<h2 id="指数分布">
 </h3>$$
 f(x)=
 \begin{cases}
-\lambda e^{-\lambda x},x>0\\
+\lambda e^{-\lambda x},x \gt 0\\
 0,x \le 0\\
 \end{cases}
 $$<h3 id="分布函数">
@@ -715,7 +713,7 @@ $$<h3 id="分布函数">
 F(x)=
 \begin{cases}
 1-e^{-\lambda x},x \ge 0\\
-0,x<0\\
+0,x \lt 0\\
 \end{cases}
 $$<h2 id="泊松分布">
 <a class="header-anchor" href="#%e6%b3%8a%e6%9d%be%e5%88%86%e5%b8%83"></a>
@@ -732,14 +730,14 @@ $$<h2 id="正态分布">
 <a class="header-anchor" href="#%e6%a6%82%e7%8e%87%e5%af%86%e5%ba%a6-1"></a>
 概率密度
 </h3>$$
-f(x)=\frac{1}{\sqrt{2 \pi} \sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}},x \in R,\sigma>0
+f(x)=\frac{1}{\sqrt{2 \pi} \sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}},x \in R,\sigma \gt 0
 $$<h3 id="分布函数-1">
 <a class="header-anchor" href="#%e5%88%86%e5%b8%83%e5%87%bd%e6%95%b0-1"></a>
 分布函数
 </h3>$$
 F(x)=\int^{x}_{-\infty}f(t)dt
 $$<p>
-显然，$F(\mu)=\frac{1}{2}$ ，即 $P(x \le \mu)=P(x>\mu)=\frac{1}{2}$ 。</p>
+显然，$F(\mu)=\frac{1}{2}$ ，即 $P(x \le \mu)=P(x \gt \mu)=\frac{1}{2}$ 。</p>
 <h3 id="标准正态分布">
 <a class="header-anchor" href="#%e6%a0%87%e5%87%86%e6%ad%a3%e6%80%81%e5%88%86%e5%b8%83"></a>
 标准正态分布
@@ -805,7 +803,7 @@ $$<h3 id="分布函数-2">
 <a class="header-anchor" href="#%e5%88%86%e5%b8%83%e5%87%bd%e6%95%b0-2"></a>
 分布函数
 </h3>$$
-F(x)=\sum_{x_i<x}p_i,x \in R
+F(x)=\sum_{x_i \lt x}p_i,x \in R
 $$<h2 id="一维连续型随机变量">
 <a class="header-anchor" href="#%e4%b8%80%e7%bb%b4%e8%bf%9e%e7%bb%ad%e5%9e%8b%e9%9a%8f%e6%9c%ba%e5%8f%98%e9%87%8f"></a>
 一维连续型随机变量
@@ -823,7 +821,7 @@ $$<h3 id="区间概率">
 <a class="header-anchor" href="#%e5%8c%ba%e9%97%b4%e6%a6%82%e7%8e%87"></a>
 区间概率
 </h3>$$
-P(a<x \le b)=\int_a^bf(x)dx=F(b)-F(a)
+P(a \lt x \le b)=\int_a^bf(x)dx=F(b)-F(a)
 $$<p>$\because$ $P(x=a)=0,a \in R$
 $\therefore$ 区间两边等号随意取</p>
 <h3 id="规范性">
@@ -901,9 +899,9 @@ $$<p>
 $$
 \begin{align}
 F_Z(z)
-&=P(Z<z)\\
-&=P(X-Y<z)\\
-&=P(X<Y+z)\\
+&=P(Z \lt z)\\
+&=P(X-Y \lt z)\\
+&=P(X \lt Y+z)\\
 &=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
 \end{align}
 $$<p>
@@ -1070,7 +1068,7 @@ $$<p>
 <a class="header-anchor" href="#%e6%97%a0%e5%81%8f%e6%80%a7%e4%b8%8e%e6%9c%89%e6%95%88%e6%80%a7"></a>
 无偏性与有效性
 </h2><p>若 $E(\hat{\theta})=\theta$ ，则称 $\hat{\theta}$ 为 $\theta$ 的无偏估计。
-若 $\hat{\theta_1},\hat{\theta_2}$ 均为无偏估计，且 $D(\hat{\theta_1})<\hat{\theta_2}$ ，则称 $\hat{\theta_1}$ 比 $\hat{\theta_2}$ 更有效。</p>
+若 $\hat{\theta_1},\hat{\theta_2}$ 均为无偏估计，且 $D(\hat{\theta_1}) \lt \hat{\theta_2}$ ，则称 $\hat{\theta_1}$ 比 $\hat{\theta_2}$ 更有效。</p>
 <h2 id="区间估计">
 <a class="header-anchor" href="#%e5%8c%ba%e9%97%b4%e4%bc%b0%e8%ae%a1"></a>
 区间估计
@@ -1158,18 +1156,18 @@ $W=(0,\chi^2_{1-\frac{\alpha}{2}}(n-1)) \cup (\chi^2_{\frac{\alpha}{2}}(n-1),\in
 <a class="header-anchor" href="#%e5%b7%a6%e8%bf%9e%e7%bb%ad"></a>
 左连续
 </h4>$$
-F(x)=P(X<x)
+F(x)=P(X \lt x)
 $$<p>
 在此定义下
 </p>
 $$
-F(x)=F(x^-)=F(x-0)=P(X<x)
+F(x)=F(x^-)=F(x-0)=P(X \lt x)
 $$<p>
 </p>
 $$
-F(x^+)=F(x+0)=P(X<x)+P(X=x)
+F(x^+)=F(x+0)=P(X \lt x)+P(X=x)
 $$<p>
-当 $P(X=x)\ne 0$ 时，显然 $F(x^+)>F(x)=F(x^-)$ ，此时分布函数左连续而右不连续。</p>
+当 $P(X=x)\ne 0$ 时，显然 $F(x^+) \gt F(x)=F(x^-)$ ，此时分布函数左连续而右不连续。</p>
 <h4 id="右连续">
 <a class="header-anchor" href="#%e5%8f%b3%e8%bf%9e%e7%bb%ad"></a>
 右连续
@@ -1185,7 +1183,7 @@ $$<p>
 $$
 F(x^-)=F(x-0)=P(X \le x)-P(X=x)
 $$<p>
-当 $P(X=x)\ne 0$ 时，显然 $F(x^+)=F(x)>F(x^-)$ ，此时分布函数右连续而左不连续。</p>
+当 $P(X=x)\ne 0$ 时，显然 $F(x^+)=F(x) \gt F(x^-)$ ，此时分布函数右连续而左不连续。</p>
 <h4 id="抛硬币举例">
 <a class="header-anchor" href="#%e6%8a%9b%e7%a1%ac%e5%b8%81%e4%b8%be%e4%be%8b"></a>
 抛硬币举例
@@ -1203,19 +1201,19 @@ $$<p>
 </p>
 $$
 \begin{cases}
-P(x<0)=0\\
-P(0 \le x < 1)=0.5\\
+P(x \lt 0)=0\\
+P(0 \le x  \lt  1)=0.5\\
 P(x \ge 1)=1\\
 \end{cases}
 $$<p>
-当设分布函数为 $F(x)=P(X<x)$ 时，
+当设分布函数为 $F(x)=P(X \lt x)$ 时，
 </p>
 $$
 F(x)=
 \begin{cases}
 0, & x \le 0\\
-0.5, & 0 < x \le 1\\
-1, & x>1\\
+0.5, & 0  \lt  x \le 1\\
+1, & x \gt 1\\
 \end{cases}
 $$<p>
 $F(0^-)=F(0)=0$，$F(0^+)=0.5$，$x=0$ 是间断点，左连续而右不连续。</p>
@@ -1547,7 +1545,7 @@ GitHub项目地址：<a href="https://github.com/makipom/BlueArchive-Cursors">Bl
 均匀采样（等间隔采样）时，采样间隔 $T$ ，$t_n=nT$
 </p>
 $$
-x(n)=x_a(t)|_{t=nT}=x_a(nT),- \infty<n<\infty
+x(n)=x_a(t)|_{t=nT}=x_a(nT),- \infty \lt n \lt \infty
 $$<p>
 $x(n)$ 称为时域离散信号，$n$ 取整数，得到序列
 </p>
@@ -1568,7 +1566,7 @@ $$<p>
 公式表示
 </h4><p>Example:</p>
 $$
-x(n)=a^{|n|},0<a<1,-\infty<n<\infty
+x(n)=a^{|n|},0 \lt a \lt 1,-\infty \lt n \lt \infty
 $$<h4 id="图形表示">
 <a class="header-anchor" href="#%e5%9b%be%e5%bd%a2%e8%a1%a8%e7%a4%ba"></a>
 图形表示
@@ -1594,7 +1592,7 @@ $$<p>
 u(n)=
 \begin{cases}
 1 & n \ge 0\\
-0 & n < 0\\
+0 & n  \lt  0\\
 \end{cases}
 $$$$
 \delta(n)=u(n)-u(n-1)
@@ -1622,8 +1620,8 @@ $$<h4 id="实指数序列">
 </h4>$$
 x(n)=a^n u(n),a 为实数
 $$<ul>
-<li>$|a|<1$ 时称 $x(n)$ 为收敛序列</li>
-<li>$|a|>1$ 时称 $x(n)$ 为发散序列</li>
+<li>$|a| \lt 1$ 时称 $x(n)$ 为收敛序列</li>
+<li>$|a| \gt 1$ 时称 $x(n)$ 为发散序列</li>
 </ul>
 <h4 id="正弦序列">
 <a class="header-anchor" href="#%e6%ad%a3%e5%bc%a6%e5%ba%8f%e5%88%97"></a>
@@ -1661,7 +1659,7 @@ $$<p>
 </h4><p>如果对所有 $n$ 存在一个<strong>最小的正整数</strong> $N$，使下面等式成立：
 </p>
 $$
-x(n)=x(n+N),-\infty<n<\infty
+x(n)=x(n+N),-\infty \lt n \lt \infty
 $$<p>
 则称序列 $x(n)$ 为周期性序列，周期为 $N$ 。</p>
 <h3 id="序列运算">
@@ -1745,7 +1743,7 @@ $$<p>
 <p>==充要条件==：系统单位脉冲响应满足下式
 </p>
 $$
-h(n)=0 \quad n<0
+h(n)=0 \quad n \lt 0
 $$<h3 id="系统稳定性">
 <a class="header-anchor" href="#%e7%b3%bb%e7%bb%9f%e7%a8%b3%e5%ae%9a%e6%80%a7"></a>
 系统稳定性
@@ -1753,7 +1751,7 @@ $$<h3 id="系统稳定性">
 ==充要条件==：系统的单位脉冲响应绝对可和。
 </p>
 $$
-\sum^{\infty}_{m=-\infty}|h(n)|<\infty
+\sum^{\infty}_{m=-\infty}|h(n)| \lt \infty
 $$<h3 id="线性常系数差分方程">
 <a class="header-anchor" href="#%e7%ba%bf%e6%80%a7%e5%b8%b8%e7%b3%bb%e6%95%b0%e5%b7%ae%e5%88%86%e6%96%b9%e7%a8%8b"></a>
 线性常系数差分方程
@@ -2728,7 +2726,7 @@ $$
 $$<ul>
 <li>$T_2$：高温热源温度</li>
 <li>$T_1$：低温热源温度</li>
-<li>$0<\eta<1$</li>
+<li>$0 \lt \eta \lt 1$</li>
 </ul>
 <h2 id="节流过程中的能量方程">
 <a class="header-anchor" href="#%e8%8a%82%e6%b5%81%e8%bf%87%e7%a8%8b%e4%b8%ad%e7%9a%84%e8%83%bd%e9%87%8f%e6%96%b9%e7%a8%8b"></a>
@@ -2994,7 +2992,7 @@ $$<p>
 <h3 id="能量表征">
 <a class="header-anchor" href="#%e8%83%bd%e9%87%8f%e8%a1%a8%e5%be%81"></a>
 能量表征
-</h3><p>对 $\theta,\varphi$ 积分（$0<\theta<\pi,0<\varphi<2\pi$）得：
+</h3><p>对 $\theta,\varphi$ 积分（$0 \lt \theta \lt \pi,0 \lt \varphi \lt 2\pi$）得：
 </p>
 $$
 \frac{4\pi Vp^2}{h^3}dp
@@ -3126,7 +3124,7 @@ $$
 dS\ge \frac{dQ}{T}
 $$<p>
 绝热系统$dQ$=0，则$dS\ge 0$</p>
-<p><strong>推论</strong>：孤立（绝热）系统<strong>不可逆过程</strong>总是朝着熵增加的方向进行，即$dS>0$。</p>
+<p><strong>推论</strong>：孤立（绝热）系统<strong>不可逆过程</strong>总是朝着熵增加的方向进行，即$dS \gt 0$。</p>
 <h2 id="节流过程">
 <a class="header-anchor" href="#%e8%8a%82%e6%b5%81%e8%bf%87%e7%a8%8b"></a>
 节流过程
@@ -3148,8 +3146,8 @@ $$<p>
 $$
 \mu_{JT} = \left ( \frac{\partial T}{\partial P} \right)_H
 $$<ul>
-<li>如果 $\mu_{JT} > 0$，气体温度在节流过程中下降。</li>
-<li>如果 $\mu_{JT} < 0$，气体温度在节流过程中上升。</li>
+<li>如果 $\mu_{JT}  \gt  0$，气体温度在节流过程中下降。</li>
+<li>如果 $\mu_{JT}  \lt  0$，气体温度在节流过程中上升。</li>
 </ul>
 <h3 id="节流过程的应用">
 <a class="header-anchor" href="#%e8%8a%82%e6%b5%81%e8%bf%87%e7%a8%8b%e7%9a%84%e5%ba%94%e7%94%a8"></a>
@@ -3299,20 +3297,20 @@ $$<p>
 <a class="header-anchor" href="#%e5%ad%a4%e7%ab%8b%e7%b3%bb%e7%bb%9f"></a>
 孤立系统
 </h3><p>孤立（绝热）系统 S 增大或不变，平衡态时$S_\max$。
-若发生微动，$\Delta S<0$，将其展开为二阶泰勒级数$\Delta S=\delta S+\frac{1}{2}\delta^2 S$
-平衡时，满足$\delta S=0,\delta^2 S<0$</p>
+若发生微动，$\Delta S \lt 0$，将其展开为二阶泰勒级数$\Delta S=\delta S+\frac{1}{2}\delta^2 S$
+平衡时，满足$\delta S=0,\delta^2 S \lt 0$</p>
 <h3 id="等温等容系统">
 <a class="header-anchor" href="#%e7%ad%89%e6%b8%a9%e7%ad%89%e5%ae%b9%e7%b3%bb%e7%bb%9f"></a>
 等温等容系统
 </h3><p>等温等容系统 F 减小或不变，平衡态时$F_\min$。
-若发生微动，$\Delta F>0$，将其展开为二阶泰勒级数$\Delta F=\delta F+\frac{1}{2}\delta^2 F$
-平衡时，满足$\delta F=0,\delta^2 F>0$</p>
+若发生微动，$\Delta F \gt 0$，将其展开为二阶泰勒级数$\Delta F=\delta F+\frac{1}{2}\delta^2 F$
+平衡时，满足$\delta F=0,\delta^2 F \gt 0$</p>
 <h3 id="等温等压系统">
 <a class="header-anchor" href="#%e7%ad%89%e6%b8%a9%e7%ad%89%e5%8e%8b%e7%b3%bb%e7%bb%9f"></a>
 等温等压系统
 </h3><p>等温等压系统 G 减小或不变，平衡态时$G_\min$。
-若发生微动，$\Delta G>0$，将其展开为二阶泰勒级数$\Delta G=\delta G+\frac{1}{2}\delta^2 G$
-平衡时，满足$\delta G=0,\delta^2 G>0$</p>
+若发生微动，$\Delta G \gt 0$，将其展开为二阶泰勒级数$\Delta G=\delta G+\frac{1}{2}\delta^2 G$
+平衡时，满足$\delta G=0,\delta^2 G \gt 0$</p>
 <h3 id="单元两相系平衡条件">
 <a class="header-anchor" href="#%e5%8d%95%e5%85%83%e4%b8%a4%e7%9b%b8%e7%b3%bb%e5%b9%b3%e8%a1%a1%e6%9d%a1%e4%bb%b6"></a>
 单元两相系平衡条件
@@ -3456,7 +3454,7 @@ $$
 \end{align}
 $$<ul>
 <li>引入共轭动量$p_\theta=mr^2\dot{\theta},p_\varphi=mr^2\sin^2\theta \dot{\varphi}$，质点对 $O$ 转动惯量 $I$</li>
-<li>$0<\theta<\pi,0<\varphi<2\pi$，两个自由度</li>
+<li>$0 \lt \theta \lt \pi,0 \lt \varphi \lt 2\pi$，两个自由度</li>
 </ul>
 $$
 \varepsilon=\frac{1}{2I}(p_\theta^2+\frac{1}{\sin^2\theta}p_\varphi^2)
@@ -4229,7 +4227,7 @@ $$<p>
 转动特征温度
 </p>
 $$
-\theta_r=\frac{\hbar^2}{2Ik}<100K
+\theta_r=\frac{\hbar^2}{2Ik} \lt 100K
 $$<p>
 </p>
 $$
@@ -4432,8 +4430,8 @@ $$
 a_l=\frac{\omega_l}{e^{\alpha+\beta \varepsilon_l}-1}=\frac{\omega_l}{e^{\frac{\varepsilon_l-\mu}{kT}}-1}
 $$<p>
 $\because$ 能级上粒子数不能取负值
-$\therefore$ 以 $\varepsilon_0$ 表示最低能级，$\varepsilon_0>\mu$ 。
-若最低能级为 0，则 $\mu<0$。</p>
+$\therefore$ 以 $\varepsilon_0$ 表示最低能级，$\varepsilon_0 \gt \mu$ 。
+若最低能级为 0，则 $\mu \lt 0$。</p>
 <h3 id="化学势-2">
 <a class="header-anchor" href="#%e5%8c%96%e5%ad%a6%e5%8a%bf-2"></a>
 化学势
@@ -4457,7 +4455,7 @@ $$<p>
 在<strong>绝对零度</strong>下，粒子将尽可能占据能量最低的状态。对于<strong>玻色子</strong>，一个量子态所能容纳的粒子数目不受限制，因此在绝对零度下，玻色粒子将<strong>全部</strong>处在 $\varepsilon=0$ 的最低能级。
 上式表明，</p>
 <blockquote>
-<p>在 $T < T_C$ 时，就有<strong>宏观量级</strong>粒子在最低能级凝聚，这一现象称为==玻色-爱因斯坦凝聚==</p></blockquote>
+<p>在 $T  \lt  T_C$ 时，就有<strong>宏观量级</strong>粒子在最低能级凝聚，这一现象称为==玻色-爱因斯坦凝聚==</p></blockquote>
 $$
 U=0.770NkT(\frac{T}{T_C})^{3/2}
 $$<p>
@@ -4640,8 +4638,8 @@ $T=0$ 时系统性质
 每个量子态平均电子数
 </h4>$$
 \begin{cases}
-f=1,\varepsilon<\mu(0)\\
-f=0,\varepsilon>\mu(0)
+f=1,\varepsilon \lt \mu(0)\\
+f=0,\varepsilon \gt \mu(0)
 \end{cases}
 $$<h4 id="费米能级">
 <a class="header-anchor" href="#%e8%b4%b9%e7%b1%b3%e8%83%bd%e7%ba%a7"></a>
@@ -4803,11 +4801,11 @@ Real Number Foundation Book Report
 </h5><h6 id="上确界的存在">
 <a class="header-anchor" href="#%e4%b8%8a%e7%a1%ae%e7%95%8c%e7%9a%84%e5%ad%98%e5%9c%a8"></a>
 上确界的存在：
-</h6><p>对于实数集合 $S$，如果存在一个实数 $M$，使得 $M$ 是 $S$ 的上界，而且对于任意小于 $M$ 的实数 $m$，存在 $S$ 中的元素 $s$，使得 $m < s$，则称 $M$ 是 $S$ 的上确界。</p>
+</h6><p>对于实数集合 $S$，如果存在一个实数 $M$，使得 $M$ 是 $S$ 的上界，而且对于任意小于 $M$ 的实数 $m$，存在 $S$ 中的元素 $s$，使得 $m  \lt  s$，则称 $M$ 是 $S$ 的上确界。</p>
 <h6 id="例子">
 <a class="header-anchor" href="#%e4%be%8b%e5%ad%90"></a>
 例子：
-</h6><p>考虑集合 $S = \{ x \in \mathbb{R} \mid 0 < x < 1 \}$，即 $S$ 包含所有在开区间 $(0, 1)$ 中的实数。这个集合的上确界是1。</p>
+</h6><p>考虑集合 $S = \{ x \in \mathbb{R} \mid 0  \lt  x  \lt  1 \}$，即 $S$ 包含所有在开区间 $(0, 1)$ 中的实数。这个集合的上确界是1。</p>
 <h5 id="实数的完备性">
 <a class="header-anchor" href="#%e5%ae%9e%e6%95%b0%e7%9a%84%e5%ae%8c%e5%a4%87%e6%80%a7"></a>
 实数的完备性：
@@ -4844,7 +4842,7 @@ Real Number Foundation Book Report
 <h6 id="证明--的上确界即为--的上确界">
 <a class="header-anchor" href="#%e8%af%81%e6%98%8e--%e7%9a%84%e4%b8%8a%e7%a1%ae%e7%95%8c%e5%8d%b3%e4%b8%ba--%e7%9a%84%e4%b8%8a%e7%a1%ae%e7%95%8c"></a>
 证明 $M$ 的上确界即为 $S$ 的上确界：
-</h6><p>设 $L$ 是 $M$ 的上确界，由 $M$ 的定义，对于任何小于 $L$ 的实数 $m$，存在 $M' \in M$ 使得 $m < M'$。由 $M'$ 是 $S$ 的上界，可知 $m$ 也是 $S$ 的上界。</p>
+</h6><p>设 $L$ 是 $M$ 的上确界，由 $M$ 的定义，对于任何小于 $L$ 的实数 $m$，存在 $M' \in M$ 使得 $m  \lt  M'$。由 $M'$ 是 $S$ 的上界，可知 $m$ 也是 $S$ 的上界。</p>
 <h6 id="结论">
 <a class="header-anchor" href="#%e7%bb%93%e8%ae%ba"></a>
 结论：
@@ -4862,9 +4860,9 @@ Real Number Foundation Book Report
 <li><strong>存在上确界：</strong> 由于序列有上界，根据实数的确界性质，存在上确界 $L = \sup\{a_n\}$。即 $L$ 是集合 $\{a_n\}$ 的上确界。</li>
 <li><strong>证明 $L$ 是序列的极限：</strong>
 <ul>
-<li>对于任意小的正实数 $\varepsilon > 0$，由上确界的定义，存在某个序列元素 $a_N$，使得 $L - \varepsilon < a_N \leq L$。</li>
-<li>由序列的单调性，对于所有 $n \geq N$，有 $L - \varepsilon < a_N \leq a_n \leq L$。</li>
-<li>因此，$L - \varepsilon < a_n < L + \varepsilon$ 对于所有 $n \geq N$ 都成立。</li>
+<li>对于任意小的正实数 $\varepsilon \gt 0$，由上确界的定义，存在某个序列元素 $a_N$，使得 $L - \varepsilon  \lt  a_N \leq L$。</li>
+<li>由序列的单调性，对于所有 $n \geq N$，有 $L - \varepsilon  \lt  a_N \leq a_n \leq L$。</li>
+<li>因此，$L - \varepsilon  \lt  a_n  \lt  L + \varepsilon$ 对于所有 $n \geq N$ 都成立。</li>
 <li>由极限的定义，$\lim_{n \to \infty} a_n = L$。
 通过单调有界定理，我们证明了任何单调递增有上界（或单调递减有下界）的实数序列都有极限。这一结论是实数完备性的关键，确保了实数轴上的任何非空有上界的数集都有上确界，从而实数轴是完备的。</li>
 </ul>
@@ -4926,7 +4924,7 @@ Real Number Foundation Book Report
 柯西收敛准则
 </h4><p>柯西收敛准则（Cauchy Convergence Criterion）是实数序列收敛性的一个重要准则。该准则基于柯西列的概念，指出如果一个实数序列是柯西列，那么它是收敛的。</p>
 <p><strong>柯西收敛准则的陈述：</strong> 一个实数序列是收敛的充分必要条件是它是柯西列。
-<strong>柯西列的定义：</strong> 对于任意给定的正实数 $\varepsilon$，存在一个正整数 $N$，对于所有的 $n, m \geq N$，都有 $|a_n - a_m| < \varepsilon$。</p>
+<strong>柯西列的定义：</strong> 对于任意给定的正实数 $\varepsilon$，存在一个正整数 $N$，对于所有的 $n, m \geq N$，都有 $|a_n - a_m|  \lt  \varepsilon$。</p>
 <p>简而言之，柯西列是指序列中的元素随着序号的增加而趋于无穷接近，任何两项之间的差异趋于零。</p>
 <p>柯西收敛准则的重要性在于它提供了一种用序列内元素之间的差异来判断序列收敛性的方法。当一个序列满足柯西收敛准则时，我们可以断定该序列是收敛的，即存在一个<strong>实数极限</strong>。
 需要注意的是，柯西收敛准则<strong>对于实数序列成立</strong>，但在更一般的度量空间（metric space）中，柯西收敛准则仅是收敛的<strong>充分</strong>条件，不一定是必要条件。
@@ -4953,10 +4951,10 @@ Real Number Foundation Book Report
 </ul>
 </li>
 <li><strong>分配律：</strong> 乘法对加法的分配律是实数代数结构中一个重要的性质，即对于任意实数 $a$、$b$ 和 $c$，有 $a \cdot (b + c) = a \cdot b + a \cdot c$ 和 $(a + b) \cdot c = a \cdot c + b \cdot c$。</li>
-<li><strong>序关系：</strong> 实数集合上定义了大小关系，通常用符号 $<$ 表示。大小关系满足以下性质：
+<li><strong>序关系：</strong> 实数集合上定义了大小关系，通常用符号 $ \lt $ 表示。大小关系满足以下性质：
 <ul>
-<li><strong>反对称性：</strong> 对于任意实数 $a$ 和 $b$，如果 $a < b$，则不可能有 $b < a$。</li>
-<li><strong>传递性：</strong> 对于任意实数 $a$、$b$ 和 $c$，如果 $a < b$ 且 $b < c$，则必有 $a < c$。</li>
+<li><strong>反对称性：</strong> 对于任意实数 $a$ 和 $b$，如果 $a  \lt  b$，则不可能有 $b  \lt  a$。</li>
+<li><strong>传递性：</strong> 对于任意实数 $a$、$b$ 和 $c$，如果 $a  \lt  b$ 且 $b  \lt  c$，则必有 $a  \lt  c$。</li>
 </ul>
 </li>
 </ol>

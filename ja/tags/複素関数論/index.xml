@@ -78,7 +78,7 @@ $$f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}dz$$</li>
 </h2><ol>
 <li>双方向冪級数
 <ol>
-<li>収束域は環状領域$R_1<|z-z_0|<R_2$</li>
+<li>収束域は環状領域$R_1 \lt |z-z_0| \lt R_2$</li>
 </ol>
 </li>
 <li>ローラン展開:$$f(z) = \sum_{n=-\infty}^{\infty}c_n(z-z_0)^n,c_n=\frac{1}{2\pi i}\cdot \oint_{C}\frac{f(z)}{(z-z_0)^{n+1}}dz$$
@@ -108,7 +108,7 @@ $$f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}dz$$</li>
 <li>極と零点の関係
 <ol>
 <li>零点の定義：恒等的に零でない解析関数$f(z)$が$f(z) = (z-z_0)^m\varphi(z)$と表現できる場合、$z_0$を$f(z)$のm位の零点と呼ぶ。
-必要十分条件：$f^{(n)}(z_0) = 0,(n<m)\quad f^{(m)}\ne 0$</li>
+必要十分条件：$f^{(n)}(z_0) = 0,(n \lt m)\quad f^{(m)}\ne 0$</li>
 <li>$z_0$が$f(z)$のm位の零点である場合、$z_0$は$\frac{1}{f(z)}$のm位の極である。</li>
 </ol>
 </li>

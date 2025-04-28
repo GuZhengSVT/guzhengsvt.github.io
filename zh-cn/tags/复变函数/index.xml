@@ -248,7 +248,7 @@ $$f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}dz$$</li>
 </h2><ol>
 <li>双边幂级数
 <ol>
-<li>收敛域是圆环域$R_1<|z-z_0|<R_2$</li>
+<li>收敛域是圆环域$R_1 \lt |z-z_0| \lt R_2$</li>
 </ol>
 </li>
 <li>洛朗展开:$$f(z) = \sum_{n=-\infty}^{\infty}c_n(z-z_0)^n,c_n=\frac{1}{2\pi i}\cdot \oint_{C}\frac{f(z)}{(z-z_0)^{n+1}}dz$$
@@ -278,7 +278,7 @@ $$f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}dz$$</li>
 <li>极点和零点的关系
 <ol>
 <li>零点的定义：不恒等于零的解析函数$f(z)$,如果能表示成$f(z) = (z-z_0)^m\varphi(z)$,$则称z_0为f(z)的m级零点$.
-充要条件是：$f^{(n)}(z_0) = 0,(n<m)\quad f^{(m)}\ne 0$</li>
+充要条件是：$f^{(n)}(z_0) = 0,(n \lt m)\quad f^{(m)}\ne 0$</li>
 <li>如果$z_0为f(z)的m级零点$，$则称z_0为\frac{1}{f(z)}的m级极点$.</li>
 </ol>
 </li>

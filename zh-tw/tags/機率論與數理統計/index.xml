@@ -114,8 +114,8 @@ $$
 f(x)=
 \begin{cases}
 0,x \le a\\
-\frac{1}{b-a},a < x \le b\\
-0,x>b\\
+\frac{1}{b-a},a  \lt  x \le b\\
+0,x \gt b\\
 \end{cases}
 $$<p>分佈函數：
 </p>
@@ -123,8 +123,8 @@ $$
 F(x)=
 \begin{cases}
 0,x \le a\\
-\frac{x-a}{b-a},a<x \le b\\
-1,x>b\\
+\frac{x-a}{b-a},a \lt x \le b\\
+1,x \gt b\\
 \end{cases}
 $$<h2 id="指數分佈">
 <a class="header-anchor" href="#%e6%8c%87%e6%95%b8%e5%88%86%e4%bd%88"></a>
@@ -136,7 +136,7 @@ $$<h2 id="指數分佈">
 </h3>$$
 f(x)=
 \begin{cases}
-\lambda e^{-\lambda x},x>0\\
+\lambda e^{-\lambda x},x \gt 0\\
 0,x \le 0\\
 \end{cases}
 $$<h3 id="分佈函數">
@@ -146,7 +146,7 @@ $$<h3 id="分佈函數">
 F(x)=
 \begin{cases}
 1-e^{-\lambda x},x \ge 0\\
-0,x<0\\
+0,x \lt 0\\
 \end{cases}
 $$<h2 id="泊松分佈">
 <a class="header-anchor" href="#%e6%b3%8a%e6%9d%be%e5%88%86%e4%bd%88"></a>

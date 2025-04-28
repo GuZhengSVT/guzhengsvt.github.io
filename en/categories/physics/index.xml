@@ -78,7 +78,7 @@ Discrete-Time Signals
 With uniform sampling interval \( T \), \( t_n = nT \):<br>
 </p>
 $$
-x(n) = x_a(t) \big|_{t=nT} = x_a(nT), \quad -\infty < n < \infty  
+x(n) = x_a(t) \big|_{t=nT} = x_a(nT), \quad -\infty  \lt  n  \lt  \infty  
 $$<p><br>
 Here, \( x(n) \) is called a <strong>discrete-time signal</strong>, where \( n \) is an integer, forming a sequence:<br>
 </p>
@@ -100,7 +100,7 @@ Formula Representation
 </h4><p>Example:<br>
 </p>
 $$
-x(n) = a^{|n|}, \quad 0 < a < 1, \quad -\infty < n < \infty  
+x(n) = a^{|n|}, \quad 0  \lt  a  \lt  1, \quad -\infty  \lt  n  \lt  \infty  
 $$<h4 id="graphical-representation">
 <a class="header-anchor" href="#graphical-representation"></a>
 Graphical Representation
@@ -126,7 +126,7 @@ Unit Step Sequence \( u(n) \)
 u(n) = 
 \begin{cases} 
 1 & n \geq 0 \\
-0 & n < 0 
+0 & n  \lt  0 
 \end{cases}  
 $$<p><br>
 Relationships:<br>
@@ -157,8 +157,8 @@ Real Exponential Sequence
 </h4>$$
 x(n) = a^n u(n), \quad a \text{ is a real number}  
 $$<ul>
-<li><strong>Convergent sequence</strong>: \( |a| < 1 \)</li>
-<li><strong>Divergent sequence</strong>: \( |a| > 1 \)</li>
+<li><strong>Convergent sequence</strong>: \( |a|  \lt  1 \)</li>
+<li><strong>Divergent sequence</strong>: \( |a|  \gt  1 \)</li>
 </ul>
 <h4 id="sinusoidal-sequence">
 <a class="header-anchor" href="#sinusoidal-sequence"></a>
@@ -197,7 +197,7 @@ Periodic Sequence
 </h4><p>If for all \( n \), there exists a <strong>smallest positive integer</strong> \( N \) such that:<br>
 </p>
 $$
-x(n) = x(n + N), \quad -\infty < n < \infty  
+x(n) = x(n + N), \quad -\infty  \lt  n  \lt  \infty  
 $$<p><br>
 then the sequence \( x(n) \) is <strong>periodic</strong> with period \( N \).</p>
 <h3 id="sequence-operations">
@@ -283,7 +283,7 @@ Causality of Systems
 The unit impulse response satisfies:<br>
 </p>
 $$
-h(n) = 0 \quad \text{for} \quad n < 0  
+h(n) = 0 \quad \text{for} \quad n  \lt  0  
 $$<h3 id="stability-of-systems">
 <a class="header-anchor" href="#stability-of-systems"></a>
 Stability of Systems
@@ -292,7 +292,7 @@ Stability of Systems
 The unit impulse response is absolutely summable:<br>
 </p>
 $$
-\sum_{m=-\infty}^{\infty} |h(n)| < \infty  
+\sum_{m=-\infty}^{\infty} |h(n)|  \lt  \infty  
 $$<h3 id="linear-constant-coefficient-difference-equations">
 <a class="header-anchor" href="#linear-constant-coefficient-difference-equations"></a>
 Linear Constant-Coefficient Difference Equations
@@ -1275,7 +1275,7 @@ $$
 $$<ul>
 <li>$T_2$: Temperature of the high-temperature heat reservoir</li>
 <li>$T_1$: Temperature of the low-temperature heat reservoir</li>
-<li>$0<\eta<1$</li>
+<li>$0 \lt \eta \lt 1$</li>
 </ul>
 <h2 id="energy-equation-in-throttling-process">
 <a class="header-anchor" href="#energy-equation-in-throttling-process"></a>
@@ -1546,7 +1546,7 @@ $$<p>
 <h2 id="energy-representation">
 <a class="header-anchor" href="#energy-representation"></a>
 Energy Representation
-</h2><p>Integrating over $\theta,\varphi$ ($0<\theta<\pi,0<\varphi<2\pi$) gives:
+</h2><p>Integrating over $\theta,\varphi$ ($0 \lt \theta \lt \pi,0 \lt \varphi \lt 2\pi$) gives:
 </p>
 $$
 \frac{4\pi Vp^2}{h^3}dp
@@ -1681,7 +1681,7 @@ $$
 dS\ge \frac{dQ}{T}
 $$<p>
 For an adiabatic system, $dQ$=0, thus $dS\ge 0$.</p>
-<p><strong>Corollary</strong>: In an isolated (adiabatic) system, <strong>irreversible processes</strong> always proceed in the direction of increasing entropy, i.e., $dS>0$.</p>
+<p><strong>Corollary</strong>: In an isolated (adiabatic) system, <strong>irreversible processes</strong> always proceed in the direction of increasing entropy, i.e., $dS \gt 0$.</p>
 <h2 id="throttling-process">
 <a class="header-anchor" href="#throttling-process"></a>
 Throttling Process
@@ -1703,8 +1703,8 @@ Relationship Between Enthalpy, Temperature, and Pressure
 $$
 \mu_{JT} = \left ( \frac{\partial T}{\partial P} \right)_H
 $$<ul>
-<li>If $\mu_{JT} > 0$, the gas temperature decreases during throttling.</li>
-<li>If $\mu_{JT} < 0$, the gas temperature increases during throttling.</li>
+<li>If $\mu_{JT}  \gt  0$, the gas temperature decreases during throttling.</li>
+<li>If $\mu_{JT}  \lt  0$, the gas temperature increases during throttling.</li>
 </ul>
 <h2 id="applications-of-throttling-process">
 <a class="header-anchor" href="#applications-of-throttling-process"></a>
@@ -1857,19 +1857,19 @@ Criteria for Thermodynamic Equilibrium
 <a class="header-anchor" href="#isolated-system"></a>
 Isolated System
 </h2><p>For an isolated (adiabatic) system, S increases or remains constant, reaching $S_\max$ at equilibrium.
-If a small disturbance occurs, $\Delta S<0$, expand it to a second-order Taylor series $\Delta S=\delta S+\frac{1}{2}\delta^2 S$
-At equilibrium, the conditions $\delta S=0,\delta^2 S<0$ must be satisfied.</p>
+If a small disturbance occurs, $\Delta S \lt 0$, expand it to a second-order Taylor series $\Delta S=\delta S+\frac{1}{2}\delta^2 S$
+At equilibrium, the conditions $\delta S=0,\delta^2 S \lt 0$ must be satisfied.</p>
 <h2 id="isothermal-isochoric-system">
 <a class="header-anchor" href="#isothermal-isochoric-system"></a>
 Isothermal-Isochoric System
 </h2><p>等温等容系统 F decreases or remains constant, reaching $F_\min$ at equilibrium.
-If a small disturbance occurs, $\Delta F>0$, which can be expanded as a second-order Taylor series $\Delta F=\delta F+\frac{1}{2}\delta^2 F$.
-At equilibrium, the conditions $\delta F=0,\delta^2 F>0$ are satisfied.</p>
+If a small disturbance occurs, $\Delta F \gt 0$, which can be expanded as a second-order Taylor series $\Delta F=\delta F+\frac{1}{2}\delta^2 F$.
+At equilibrium, the conditions $\delta F=0,\delta^2 F \gt 0$ are satisfied.</p>
 <h2 id="isothermal-isobaric-system">
 <a class="header-anchor" href="#isothermal-isobaric-system"></a>
 Isothermal-Isobaric System
 </h2><p>In an isothermal-isobaric system, G decreases or remains constant, reaching $G_\min$ at equilibrium.
-If a slight perturbation occurs, $\Delta G>0$, which can be expanded as a second-order Taylor series: $\Delta G=\delta G+\frac{1}{2}\delta^2 G$.
+If a slight perturbation occurs, $\Delta G \gt 0$, which can be expanded as a second-order Taylor series: $\Delta G=\delta G+\frac{1}{2}\delta^2 G$.
 At equilibrium, the conditions $\delta G=0$ and $\delta^2 G>0$ must be satisfied.</p>
 <h2 id="equilibrium-conditions-for-two-phase-systems-in-a-unit">
 <a class="header-anchor" href="#equilibrium-conditions-for-two-phase-systems-in-a-unit"></a>
@@ -2014,7 +2014,7 @@ $$
 \end{align}
 $$<ul>
 <li>Introducing conjugate momenta \( p_\theta = mr^2\dot{\theta}, p_\varphi = mr^2\sin^2\theta \dot{\varphi} \), and the moment of inertia \( I \) of the particle relative to \( O \).</li>
-<li>\( 0 < \theta < \pi, 0 < \varphi < 2\pi \), two degrees of freedom.</li>
+<li>\( 0  \lt  \theta  \lt  \pi, 0  \lt  \varphi  \lt  2\pi \), two degrees of freedom.</li>
 </ul>
 $$
 \varepsilon=\frac{1}{2I}(p_\theta^2+\frac{1}{\sin^2\theta}p_\varphi^2)
@@ -2805,7 +2805,7 @@ $$<p>
 Characteristic rotational temperature
 </p>
 $$
-\theta_r=\frac{\hbar^2}{2Ik}<100K
+\theta_r=\frac{\hbar^2}{2Ik} \lt 100K
 $$<p>
 </p>
 $$
@@ -3018,8 +3018,8 @@ $$
 a_l=\frac{\omega_l}{e^{\alpha+\beta \varepsilon_l}-1}=\frac{\omega_l}{e^{\frac{\varepsilon_l-\mu}{kT}}-1}
 $$<p>
 $\because$ The number of particles in an energy level cannot be negative,
-$\therefore$ Let $\varepsilon_0$ denote the lowest energy level, $\varepsilon_0>\mu$.
-If the lowest energy level is 0, then $\mu<0$.</p>
+$\therefore$ Let $\varepsilon_0$ denote the lowest energy level, $\varepsilon_0 \gt \mu$.
+If the lowest energy level is 0, then $\mu \lt 0$.</p>
 <h2 id="chemical-potential-2">
 <a class="header-anchor" href="#chemical-potential-2"></a>
 Chemical Potential
@@ -3043,7 +3043,7 @@ $$<p>
 At <strong>absolute zero</strong>, particles will occupy the lowest energy states as much as possible. For <strong>bosons</strong>, the number of particles that can occupy a single quantum state is unrestricted. Therefore, at absolute zero, all bosonic particles will be in the lowest energy level $\varepsilon=0$.</p>
 <p>The above equation shows that:</p>
 <blockquote>
-<p>When $T < T_C$, a <strong>macroscopic number</strong> of particles condense into the lowest energy level. This phenomenon is called ==Bose-Einstein condensation==.</p></blockquote>
+<p>When $T  \lt  T_C$, a <strong>macroscopic number</strong> of particles condense into the lowest energy level. This phenomenon is called ==Bose-Einstein condensation==.</p></blockquote>
 $$
 U=0.770NkT(\frac{T}{T_C})^{3/2}
 $$<p>
@@ -3229,8 +3229,8 @@ System Properties at $T=0$
 Average Electron Number per Quantum State
 </h2>$$
 \begin{cases}
-f=1,\varepsilon<\mu(0)\\
-f=0,\varepsilon>\mu(0)
+f=1,\varepsilon \lt \mu(0)\\
+f=0,\varepsilon \gt \mu(0)
 \end{cases}
 $$<h2 id="fermi-level">
 <a class="header-anchor" href="#fermi-level"></a>

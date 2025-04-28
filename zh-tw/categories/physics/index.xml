@@ -70,7 +70,7 @@
 均勻採樣（等間隔採樣）時，採樣間隔 $T$ ，$t_n=nT$
 </p>
 $$
-x(n)=x_a(t)|_{t=nT}=x_a(nT),- \infty<n<\infty
+x(n)=x_a(t)|_{t=nT}=x_a(nT),- \infty \lt n \lt \infty
 $$<p>
 $x(n)$ 稱為時域離散信號，$n$ 取整數，得到序列
 </p>
@@ -91,7 +91,7 @@ $$<p>
 公式表示
 </h4><p>範例:</p>
 $$
-x(n)=a^{|n|},0<a<1,-\infty<n<\infty
+x(n)=a^{|n|},0 \lt a \lt 1,-\infty \lt n \lt \infty
 $$<h4 id="圖形表示">
 <a class="header-anchor" href="#%e5%9c%96%e5%bd%a2%e8%a1%a8%e7%a4%ba"></a>
 圖形表示
@@ -117,7 +117,7 @@ $$<p>
 u(n)=
 \begin{cases}
 1 & n \ge 0\\
-0 & n < 0\\
+0 & n  \lt  0\\
 \end{cases}
 $$$$
 \delta(n)=u(n)-u(n-1)
@@ -145,8 +145,8 @@ $$<h4 id="實指數序列">
 </h4>$$
 x(n)=a^n u(n),a 為實數
 $$<ul>
-<li>$|a|<1$ 時稱 $x(n)$ 為收斂序列</li>
-<li>$|a|>1$ 時稱 $x(n)$ 為發散序列</li>
+<li>$|a| \lt 1$ 時稱 $x(n)$ 為收斂序列</li>
+<li>$|a| \gt 1$ 時稱 $x(n)$ 為發散序列</li>
 </ul>
 <h4 id="正弦序列">
 <a class="header-anchor" href="#%e6%ad%a3%e5%bc%a6%e5%ba%8f%e5%88%97"></a>
@@ -184,7 +184,7 @@ $$<p>
 </h4><p>如果對所有 $n$ 存在一個<strong>最小的正整數</strong> $N$，使下面等式成立：
 </p>
 $$
-x(n)=x(n+N),-\infty<n<\infty
+x(n)=x(n+N),-\infty \lt n \lt \infty
 $$<p>
 則稱序列 $x(n)$ 為周期性序列，周期為 $N$ 。</p>
 <h3 id="序列運算">
@@ -268,7 +268,7 @@ $$<p>
 <p>==充要條件==：系統單位脈衝響應滿足下式
 </p>
 $$
-h(n)=0 \quad n<0
+h(n)=0 \quad n \lt 0
 $$<h3 id="系統穩定性">
 <a class="header-anchor" href="#%e7%b3%bb%e7%b5%b1%e7%a9%a9%e5%ae%9a%e6%80%a7"></a>
 系統穩定性
@@ -276,7 +276,7 @@ $$<h3 id="系統穩定性">
 ==充要條件==：系統的單位脈衝響應絕對可和。
 </p>
 $$
-\sum^{\infty}_{m=-\infty}|h(n)|<\infty
+\sum^{\infty}_{m=-\infty}|h(n)| \lt \infty
 $$<h3 id="線性常係數差分方程">
 <a class="header-anchor" href="#%e7%b7%9a%e6%80%a7%e5%b8%b8%e4%bf%82%e6%95%b8%e5%b7%ae%e5%88%86%e6%96%b9%e7%a8%8b"></a>
 線性常係數差分方程
@@ -1214,7 +1214,7 @@ $$
 $$<ul>
 <li>$T_2$：高溫熱源溫度</li>
 <li>$T_1$：低溫熱源溫度</li>
-<li>$0<\eta<1$</li>
+<li>$0 \lt \eta \lt 1$</li>
 </ul>
 <h2 id="節流過程中的能量方程">
 <a class="header-anchor" href="#%e7%af%80%e6%b5%81%e9%81%8e%e7%a8%8b%e4%b8%ad%e7%9a%84%e8%83%bd%e9%87%8f%e6%96%b9%e7%a8%8b"></a>
@@ -1480,7 +1480,7 @@ $$<p>
 <h3 id="能量表徵">
 <a class="header-anchor" href="#%e8%83%bd%e9%87%8f%e8%a1%a8%e5%be%b5"></a>
 能量表徵
-</h3><p>對 $\theta,\varphi$ 積分（$0<\theta<\pi,0<\varphi<2\pi$）得：
+</h3><p>對 $\theta,\varphi$ 積分（$0 \lt \theta \lt \pi,0 \lt \varphi \lt 2\pi$）得：
 </p>
 $$
 \frac{4\pi Vp^2}{h^3}dp
@@ -1612,7 +1612,7 @@ $$
 dS\ge \frac{dQ}{T}
 $$<p>
 絕熱系統$dQ$=0，則$dS\ge 0$</p>
-<p><strong>推論</strong>：孤立（絕熱）系統<strong>不可逆過程</strong>總是朝著熵增加的方向進行，即$dS>0$。</p>
+<p><strong>推論</strong>：孤立（絕熱）系統<strong>不可逆過程</strong>總是朝著熵增加的方向進行，即$dS \gt 0$。</p>
 <h2 id="節流過程">
 <a class="header-anchor" href="#%e7%af%80%e6%b5%81%e9%81%8e%e7%a8%8b"></a>
 節流過程
@@ -1634,8 +1634,8 @@ $$<p>
 $$
 \mu_{JT} = \left ( \frac{\partial T}{\partial P} \right)_H
 $$<ul>
-<li>如果 $\mu_{JT} > 0$，氣體溫度在節流過程中下降。</li>
-<li>如果 $\mu_{JT} < 0$，氣體溫度在節流過程中上升。</li>
+<li>如果 $\mu_{JT}  \gt  0$，氣體溫度在節流過程中下降。</li>
+<li>如果 $\mu_{JT}  \lt  0$，氣體溫度在節流過程中上升。</li>
 </ul>
 <h3 id="節流過程的應用">
 <a class="header-anchor" href="#%e7%af%80%e6%b5%81%e9%81%8e%e7%a8%8b%e7%9a%84%e6%87%89%e7%94%a8"></a>
@@ -1785,20 +1785,20 @@ $$<p>
 <a class="header-anchor" href="#%e5%ad%a4%e7%ab%8b%e7%b3%bb%e7%b5%b1"></a>
 孤立系統
 </h3><p>孤立（絕熱）系統 S 增大或不變，平衡態時$S_\max$。
-若發生微動，$\Delta S<0$，將其展開為二階泰勒級數$\Delta S=\delta S+\frac{1}{2}\delta^2 S$
-平衡時，滿足$\delta S=0,\delta^2 S<0$</p>
+若發生微動，$\Delta S \lt 0$，將其展開為二階泰勒級數$\Delta S=\delta S+\frac{1}{2}\delta^2 S$
+平衡時，滿足$\delta S=0,\delta^2 S \lt 0$</p>
 <h3 id="等溫等容系統">
 <a class="header-anchor" href="#%e7%ad%89%e6%ba%ab%e7%ad%89%e5%ae%b9%e7%b3%bb%e7%b5%b1"></a>
 等溫等容系統
 </h3><p>等溫等容系統 F 減小或不變，平衡態時$F_\min$。
-若發生微動，$\Delta F>0$，將其展開為二階泰勒級數$\Delta F=\delta F+\frac{1}{2}\delta^2 F$
-平衡時，滿足$\delta F=0,\delta^2 F>0$</p>
+若發生微動，$\Delta F \gt 0$，將其展開為二階泰勒級數$\Delta F=\delta F+\frac{1}{2}\delta^2 F$
+平衡時，滿足$\delta F=0,\delta^2 F \gt 0$</p>
 <h3 id="等溫等壓系統">
 <a class="header-anchor" href="#%e7%ad%89%e6%ba%ab%e7%ad%89%e5%a3%93%e7%b3%bb%e7%b5%b1"></a>
 等溫等壓系統
 </h3><p>等溫等壓系統 G 減小或不變，平衡態時$G_\min$。
-若發生微動，$\Delta G>0$，將其展開為二階泰勒級數$\Delta G=\delta G+\frac{1}{2}\delta^2 G$
-平衡時，滿足$\delta G=0,\delta^2 G>0$</p>
+若發生微動，$\Delta G \gt 0$，將其展開為二階泰勒級數$\Delta G=\delta G+\frac{1}{2}\delta^2 G$
+平衡時，滿足$\delta G=0,\delta^2 G \gt 0$</p>
 <h3 id="單元兩相系平衡條件">
 <a class="header-anchor" href="#%e5%96%ae%e5%85%83%e5%85%a9%e7%9b%b8%e7%b3%bb%e5%b9%b3%e8%a1%a1%e6%a2%9d%e4%bb%b6"></a>
 單元兩相系平衡條件
@@ -1942,7 +1942,7 @@ $$
 \end{align}
 $$<ul>
 <li>引入共軛動量$p_\theta=mr^2\dot{\theta},p_\varphi=mr^2\sin^2\theta \dot{\varphi}$，質點對 $O$ 轉動慣量 $I$</li>
-<li>$0<\theta<\pi,0<\varphi<2\pi$，兩個自由度</li>
+<li>$0 \lt \theta \lt \pi,0 \lt \varphi \lt 2\pi$，兩個自由度</li>
 </ul>
 $$
 \varepsilon=\frac{1}{2I}(p_\theta^2+\frac{1}{\sin^2\theta}p_\varphi^2)
@@ -2715,7 +2715,7 @@ $$<p>
 轉動特徵溫度
 </p>
 $$
-\theta_r=\frac{\hbar^2}{2Ik}<100K
+\theta_r=\frac{\hbar^2}{2Ik} \lt 100K
 $$<p>
 </p>
 $$
@@ -2918,8 +2918,8 @@ $$
 a_l=\frac{\omega_l}{e^{\alpha+\beta \varepsilon_l}-1}=\frac{\omega_l}{e^{\frac{\varepsilon_l-\mu}{kT}}-1}
 $$<p>
 $\because$ 能級上粒子數不能取負值
-$\therefore$ 以 $\varepsilon_0$ 表示最低能級，$\varepsilon_0>\mu$ 。
-若最低能級為 0，則 $\mu<0$。</p>
+$\therefore$ 以 $\varepsilon_0$ 表示最低能級，$\varepsilon_0 \gt \mu$ 。
+若最低能級為 0，則 $\mu \lt 0$。</p>
 <h3 id="化學勢-2">
 <a class="header-anchor" href="#%e5%8c%96%e5%ad%b8%e5%8b%a2-2"></a>
 化學勢
@@ -2943,7 +2943,7 @@ $$<p>
 在<strong>絕對零度</strong>下，粒子將盡可能佔據能量最低的狀態。對於<strong>玻色子</strong>，一個量子態所能容納的粒子數目不受限制，因此在絕對零度下，玻色粒子將<strong>全部</strong>處在 $\varepsilon=0$ 的最低能級。
 上式表明，</p>
 <blockquote>
-<p>在 $T < T_C$ 時，就有<strong>宏觀量級</strong>粒子在最低能級凝聚，這一現象稱為==玻色-愛因斯坦凝聚==</p></blockquote>
+<p>在 $T  \lt  T_C$ 時，就有<strong>宏觀量級</strong>粒子在最低能級凝聚，這一現象稱為==玻色-愛因斯坦凝聚==</p></blockquote>
 $$
 U=0.770NkT(\frac{T}{T_C})^{3/2}
 $$<p>
@@ -3126,8 +3126,8 @@ $T=0$ 時系統性質
 每個量子態平均電子數
 </h4>$$
 \begin{cases}
-f=1,\varepsilon<\mu(0)\\
-f=0,\varepsilon>\mu(0)
+f=1,\varepsilon \lt \mu(0)\\
+f=0,\varepsilon \gt \mu(0)
 \end{cases}
 $$<h4 id="費米能級">
 <a class="header-anchor" href="#%e8%b2%bb%e7%b1%b3%e8%83%bd%e7%b4%9a"></a>
