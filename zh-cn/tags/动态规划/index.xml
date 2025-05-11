@@ -404,17 +404,17 @@ $$<ul>
 <a class="header-anchor" href="#%e5%af%b9%e7%a7%b0%e5%bd%a2%e5%bc%8f"></a>
 对称形式
 </h3><p>原问题
+</p>
 $$
 \begin{cases}
-\min f=\vec{c^T}\vec{x}\</p>
-<p>\text{s.t.}
+\min f=\vec{c^T}\vec{x}\\
+\text{s.t.}
 \begin{cases}
-\vec{A}\vec{x} \ge \vec{b}\
+\vec{A}\vec{x} \ge \vec{b}\\
 \vec{x} \ge \vec{0}
 \end{cases}
 \end{cases}
-$$</p>
-<p>对偶问题
+$$<p>对偶问题
 </p>
 $$
 \begin{cases}
@@ -436,17 +436,17 @@ $$<p>对应关系：</p>
 <a class="header-anchor" href="#%e9%9d%9e%e5%af%b9%e7%a7%b0%e5%bd%a2%e5%bc%8f"></a>
 非对称形式
 </h3><p>原问题
+</p>
 $$
 \begin{cases}
-\min f=\vec{c^T}\vec{x}\</p>
-<p>\text{s.t.}
+\min f=\vec{c^T}\vec{x}\\
+\text{s.t.}
 \begin{cases}
-\vec{A}\vec{x} = \vec{b}\
+\vec{A}\vec{x} = \vec{b}\\
 \vec{x} \ge \vec{0}
 \end{cases}
 \end{cases}
-$$</p>
-<p>对偶问题
+$$<p>对偶问题
 </p>
 $$
 \begin{cases}
@@ -500,4 +500,4 @@ $$<h3 id="一般情形">
 灵敏度分析
 </h1>
         
-        <hr><p>本文 2025-05-10 首发于 <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于 2025-05-10</p><p>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</p>]]></description><category>Math</category></item></channel></rss>
+        <hr><p>本文2025-05-10首发于<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于2025-05-10</p><p>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</p>]]></description><category>Math</category></item></channel></rss>
