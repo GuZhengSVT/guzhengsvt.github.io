@@ -17,7 +17,8 @@
 第二版序文
 </h3><blockquote>
 <p>何事も最終などない!!!
-——銭学森</p></blockquote>
+——銭学森</p>
+</blockquote>
 <p>分布関数の左右連続性について補足した。この科目がfinalになるにはまだ遠いようだ&hellip;</p>
 <h2 id="事象演算から論理演算への変換">
 <a class="header-anchor" href="#%e4%ba%8b%e8%b1%a1%e6%bc%94%e7%ae%97%e3%81%8b%e3%82%89%e8%ab%96%e7%90%86%e6%bc%94%e7%ae%97%e3%81%b8%e3%81%ae%e5%a4%89%e6%8f%9b"></a>
@@ -75,7 +76,8 @@ $$<p>
 <a class="header-anchor" href="#%e5%8f%a4%e5%85%b8%e7%9a%84%e7%a2%ba%e7%8e%87%e3%83%a2%e3%83%87%e3%83%ab"></a>
 古典的確率モデル
 </h2><blockquote>
-<p>各基本事象の発生確率が等しい。</p></blockquote>
+<p>各基本事象の発生確率が等しい。</p>
+</blockquote>
 <p>例：コイン投げ、サイコロ振り……
 </p>
 $$
@@ -89,7 +91,8 @@ $$<h2 id="ベルヌーイ試行二項分布">
 <a class="header-anchor" href="#%e3%83%99%e3%83%ab%e3%83%8c%e3%83%bc%e3%82%a4%e8%a9%a6%e8%a1%8c%e4%ba%8c%e9%a0%85%e5%88%86%e5%b8%83"></a>
 ベルヌーイ試行（二項分布）
 </h2><blockquote>
-<p>$n$回の独立試行で、各試行の結果は$A,\bar{A}$の2通り。</p></blockquote>
+<p>$n$回の独立試行で、各試行の結果は$A,\bar{A}$の2通り。</p>
+</blockquote>
 <p>$X \sim B(n,p)$
 </p>
 $$

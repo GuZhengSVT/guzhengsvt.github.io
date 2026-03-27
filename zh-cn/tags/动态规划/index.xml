@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>动态规划 on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-cn/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Sat, 10 May 2025 18:48:10 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-cn/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.xml" rel="self" type="application/rss+xml"/><item><title>最优化理论与方法</title><link>https://guzhengsvt.cn/zh-cn/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</link><pubDate>Sat, 10 May 2025 18:48:10 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>动态规划 on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-cn/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Sat, 10 May 2025 18:48:10 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-cn/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.xml" rel="self" type="application/rss+xml"/><item><title>最优化理论与方法</title><link>https://guzhengsvt.cn/zh-cn/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</link><pubDate>Sat, 10 May 2025 18:48:10 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</guid><description>
 <![CDATA[<h1>最优化理论与方法</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h1 id="最优化问题">
@@ -186,6 +186,7 @@ $$<p>
 </h3><ul>
 <li>目标函数：$\max z=\sum^{n}_{j=1}c_jx_j=CX$</li>
 <li>系数矩阵：
+
 $$
 A=
 \begin{bmatrix}
@@ -198,12 +199,14 @@ $$</li>
 <li>资源向量：$b=\begin{bmatrix} b_1\\ \vdots \\ b_m\\ \end{bmatrix}$</li>
 <li>决策变量向量：$X=(x_1,x_2,\cdots , x_n)^T$</li>
 <li>约束条件：
+
 $$
 \begin{cases}
 \sum^{n}_{j=1}a_{ij}x_j=b_i,&i=1,2,\cdots,m\\
 x_j \ge 0,& j=1,2,\cdots,n\\
 \end{cases}
 $$
+
 $$
 \begin{cases}
 AX=b\\

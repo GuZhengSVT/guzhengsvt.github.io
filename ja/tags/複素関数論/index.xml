@@ -5,7 +5,8 @@
 <a class="header-anchor" href="#%e8%a4%87%e7%b4%a0%e6%95%b0"></a>
 複素数
 </h1><ol>
-<li>複素数の表現形式：$$z = r\cdot e^{i\theta} = r(cos\theta +i\cdot sin\theta)$$</li>
+<li>複素数の表現形式：
+$$z = r\cdot e^{i\theta} = r(cos\theta +i\cdot sin\theta)$$</li>
 <li>いくつかの初等関数
 <ol>
 <li>指数関数：$e^z = e^x(cosy+isiny)$
@@ -32,10 +33,13 @@
 <a class="header-anchor" href="#%e8%a7%a3%e6%9e%90%e9%96%a2%e6%95%b0"></a>
 解析関数
 </h1><ol>
-<li>微分可能の定義：$$\lim_{\Delta z \to 0} \frac{f(z_0+\Delta z)-f(z_0)}{\Delta z} 極限が存在する場合、f(z)はz_0で微分可能であるという$$</li>
-<li>解析の定義：$$関数f(z)がz_0及びz_0の近傍で至るところ微分可能である場合、f(z)はz_0で解析的であるという$$
+<li>微分可能の定義：
+$$\lim_{\Delta z \to 0} \frac{f(z_0+\Delta z)-f(z_0)}{\Delta z} 極限が存在する場合、f(z)はz_0で微分可能であるという$$</li>
+<li>解析の定義：
+$$関数f(z)がz_0及びz_0の近傍で至るところ微分可能である場合、f(z)はz_0で解析的であるという$$
 推論：解析関数の和、差、積、商も解析関数であり、解析関数の合成も解析関数である。</li>
-<li>微分可能、解析の必要十分条件：$u(x),v(x)が微分可能$であり、<strong>コーシー・リーマンの方程式</strong>$$\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y} ,\frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x} $$を満たすこと。一つでも満たさない場合、微分可能でも解析的でもない。
+<li>微分可能、解析の必要十分条件：$u(x),v(x)が微分可能$であり、<strong>コーシー・リーマンの方程式</strong>
+$$\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y} ,\frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x} $$を満たすこと。一つでも満たさない場合、微分可能でも解析的でもない。
 推論：$f'(z) = \frac{\partial u}{\partial x}+i\frac{\partial v}{\partial x}=\frac{1}{i}\frac{\partial u}{\partial y}+\frac{\partial v}{\partial y}$</li>
 </ol>
 <h1 id="複素関数の積分">
@@ -48,12 +52,16 @@ $$\oint_{|z-z_0|=r}\frac{1}{(z-z_0)^n}dz=\begin{cases}
 \text 0,\quad n\neq 1
 \end{cases} $$<ol>
 <li>コーシー・グーサの基本定理
-<strong>解析的で単連結</strong>な領域内の任意の閉曲線積分の値は0、すなわち$$\oint_{C}^{}f{(z)}dz = 0$$</li>
+<strong>解析的で単連結</strong>な領域内の任意の閉曲線積分の値は0、すなわち
+$$\oint_{C}^{}f{(z)}dz = 0$$</li>
 <li>複合閉路定理——コーシーの積分定理を<strong>多連結</strong>に拡張
-Cを解析的で多連結な領域内の単純閉曲線とし、$C_1,C_2 \cdots C_n$をC内の同方向の単純閉曲線とすると、$$\oint_{C}^{}f{(z)}dz = \sum_{k=1}^{n} \oint_{C_k}f(z)dz $$</li>
+Cを解析的で多連結な領域内の単純閉曲線とし、$C_1,C_2 \cdots C_n$をC内の同方向の単純閉曲線とすると、
+$$\oint_{C}^{}f{(z)}dz = \sum_{k=1}^{n} \oint_{C_k}f(z)dz $$</li>
 <li>コーシーの積分公式——曲線C内部の任意の点の値をその境界の値で表現</li>
-<li>$f(z)$が領域D内で解析的で、CがD内の正方向の単純閉曲線の場合$$2\pi i\cdot f(z_0) = \oint_{c} \frac{f(z)}{z-z_0}dx$$</li>
+<li>$f(z)$が領域D内で解析的で、CがD内の正方向の単純閉曲線の場合
+$$2\pi i\cdot f(z_0) = \oint_{c} \frac{f(z)}{z-z_0}dx$$</li>
 <li>コーシーの積分公式の高次拡張——関数の高次導関数を用いて積分を求める
+
 $$f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}dz$$</li>
 </ol>
 <h1 id="級数">
@@ -81,7 +89,8 @@ $$f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}dz$$</li>
 <li>収束域は環状領域$R_1 \lt |z-z_0| \lt R_2$</li>
 </ol>
 </li>
-<li>ローラン展開:$$f(z) = \sum_{n=-\infty}^{\infty}c_n(z-z_0)^n,c_n=\frac{1}{2\pi i}\cdot \oint_{C}\frac{f(z)}{(z-z_0)^{n+1}}dz$$
+<li>ローラン展開:
+$$f(z) = \sum_{n=-\infty}^{\infty}c_n(z-z_0)^n,c_n=\frac{1}{2\pi i}\cdot \oint_{C}\frac{f(z)}{(z-z_0)^{n+1}}dz$$
 推論：$n$が$-1$の場合、$c_{-1}\cdot 2\pi i=\oint_Cf(z)dz$</li>
 <li>ローラン展開を求める方法
 <ol>
@@ -117,13 +126,18 @@ $$f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}dz$$</li>
 <a class="header-anchor" href="#%e7%95%99%e6%95%b0-1"></a>
 留数
 </h2><ol>
-<li>定義：$$Res[f(z),z_0]=c_{-1} = \frac{1}{2\pi i}\oint_C f(z)d_z$$</li>
+<li>定義：
+$$Res[f(z),z_0]=c_{-1} = \frac{1}{2\pi i}\oint_C f(z)d_z$$</li>
 <li>留数の計算規則
 <ol>
-<li>$z_0$が$f(z)$の1位の極である場合$$Res[f(z),z_0]=\lim_{z\to z_0}(z-z_0)f(z)$$</li>
-<li>$z_0$が$f(z)$のm位の極である場合$$Res[f(z),z_0]=\frac{1}{(m-1)!}\lim_{z\to z_0}\frac{d^{m-1}}{dz^{m-1}}(z-z_0)^mf(z)$$</li>
-<li>$f(z)=\frac{P(z)}{Q(z)},かつP(z_0)\ne0,Q(z_0) =0,Q'(z_0)\ne0$の場合$$Res[f(z),z_0]=\frac{P(z_0)}{Q'(z_0)}$$</li>
-<li>$$Res[f(z),\infty]=-Res[f(\frac{1}{z})\cdot\frac{1}{z^2},0]$$</li>
+<li>$z_0$が$f(z)$の1位の極である場合
+$$Res[f(z),z_0]=\lim_{z\to z_0}(z-z_0)f(z)$$</li>
+<li>$z_0$が$f(z)$のm位の極である場合
+$$Res[f(z),z_0]=\frac{1}{(m-1)!}\lim_{z\to z_0}\frac{d^{m-1}}{dz^{m-1}}(z-z_0)^mf(z)$$</li>
+<li>$f(z)=\frac{P(z)}{Q(z)},かつP(z_0)\ne0,Q(z_0) =0,Q'(z_0)\ne0$の場合
+$$Res[f(z),z_0]=\frac{P(z_0)}{Q'(z_0)}$$</li>
+<li>
+$$Res[f(z),\infty]=-Res[f(\frac{1}{z})\cdot\frac{1}{z^2},0]$$</li>
 </ol>
 </li>
 </ol>

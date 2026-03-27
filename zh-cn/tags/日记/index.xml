@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>日记 on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-cn/tags/%E6%97%A5%E8%AE%B0/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Mon, 01 Sep 2025 22:44:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-cn/tags/%E6%97%A5%E8%AE%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>考研日记001</title><link>https://guzhengsvt.cn/zh-cn/post/diary/diary-001-of-postgraduate-entrance-examination/</link><pubDate>Mon, 01 Sep 2025 22:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/diary/diary-001-of-postgraduate-entrance-examination/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>日记 on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-cn/tags/%E6%97%A5%E8%AE%B0/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Mon, 01 Sep 2025 22:44:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-cn/tags/%E6%97%A5%E8%AE%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>考研日记001</title><link>https://guzhengsvt.cn/zh-cn/post/diary/diary-001-of-postgraduate-entrance-examination/</link><pubDate>Mon, 01 Sep 2025 22:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/diary/diary-001-of-postgraduate-entrance-examination/</guid><description>
 <![CDATA[<h1>考研日记001</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h2 id="前言">
@@ -69,10 +69,12 @@ $$</li>
 <p>无穷大与无界变量关系：</p>
 <ul>
 <li>无穷大指数列趋于无穷（任选一数，存在无穷子项大于该数）
+
 $$
 \forall M \gt 0 ,\exist N \gt 0,当 n \gt N时,恒有\left\vert x_n \right\vert \gt M
 $$</li>
 <li>无界变量，指任选一数，数列存在一数大于该数
+
 $$
 \forall M \gt 0 ,\exist N \gt 0,使得\left\vert x_N \right\vert \gt M
 $$</li>

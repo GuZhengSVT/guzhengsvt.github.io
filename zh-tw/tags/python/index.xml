@@ -186,12 +186,15 @@ ADC類
 <li>使用索引
 用$[i]$查看第i+1個元素</li>
 <li>index()方法
+
 $$name.index(x)$$
 在list name中查找第一個值為x的元素，返回其索引</li>
 <li>count()方法
+
 $$name.count(x)$$
 在list name中查看有幾個元素為x，返回個數</li>
 <li>len()方法
+
 $$name.len()$$
 查找list name中元素總個數，返回個數</li>
 </ol>
@@ -200,12 +203,15 @@ $$name.len()$$
 新增元素
 </h2><ol>
 <li>append()方法
+
 $$name.append(x)$$
 向name末尾添加元素x</li>
 <li>insert()方法
+
 $$name.insert(i,x)$$
 將物件x插入name索引為i處，原來i以及i後面的元素順位後移</li>
 <li>extend()方法
+
 $$name.extend(name2)$$
 將list name2接在list name後面</li>
 </ol>
@@ -220,20 +226,26 @@ $$name.extend(name2)$$
 刪除元素
 </h2><ol>
 <li>pop()方法
+
 $$name.pop()$$
 預設刪除list最後一個元素
+
 $$name.pop(i)$$
 刪除索引為i的元素，後面的元素順位前移</li>
 <li>remove()方法
+
 $$name.remove(x)$$
 刪除第一個值為x的元素，後面的元素順位前移</li>
 <li>clear()方法
+
 $$name.clear()$$
 刪除所有元素（清空list）</li>
 <li>del<strong>語句</strong>
+
 $$del\ name[a:b]$$
 刪除del索引$[a,b)$的元素，包括a不包括b
 $del\ name[:]$表示清空list
+
 $$del\ name[i]$$
 刪除索引為i的元素</li>
 </ol>
@@ -242,6 +254,7 @@ $$del\ name[i]$$
 反轉列表
 </h2><ol>
 <li>reverse()方法
+
 $$name.reverse()$$
 將列表name反轉，最後一個元素變為第一個元素以此類推。</li>
 <li>切片法</li>
@@ -256,7 +269,9 @@ $$name.reverse()$$
 列表排序
 </h2><ol>
 <li>sort()方法
+
 $$name.sort()$$
+
 $$name.sort(cmp=None,key=None,reverse=False)$$</li>
 </ol>
 <ul>
@@ -384,7 +399,8 @@ hash是一種壓縮映射。</li>
 <a class="header-anchor" href="#%e6%9f%a5%e7%9c%8b%e5%85%83%e7%b4%a0-1"></a>
 查看元素
 </h2><ol>
-<li>使用$$dict[key]$$
+<li>使用
+$$dict[key]$$
 dict為字典名稱，key為鍵
 key不存在時報錯KeyValue</li>
 <li>$dict.get(key[,value])$
@@ -407,6 +423,7 @@ key為新增鍵，value為對應值</p>
 <li>$dict.pop(key)$
 dict為字典名稱，key為鍵，字串需帶引號</li>
 <li>del函數
+
 $$del\ dict[key]$$
 dict為字典名稱</li>
 </ol>
@@ -434,6 +451,7 @@ dict為字典名稱</li>
 </span></span><span class="line"><span class="cl">    <span class="n">profile</span><span class="p">[</span><span class="s2">&#34;gender&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;male&#34;</span>
 </span></span></code></pre></div><ol start="2">
 <li>$setdefault()$方法
+
 $$dict.setdefault(key,default=None)$$
 default為key不存在時設置的值，預設為None</li>
 </ol>
@@ -534,6 +552,7 @@ ElemType必須為一個序列（string，list，tuple，dict，set等）</p>
 </span></span></code></pre></div><ol start="4">
 <li>$.clear()$
 清空集合中元素
+
 $$set.clear()$$</li>
 </ol>
 <h2 id="修改元素-2">
@@ -572,14 +591,20 @@ $$aset\ -\ bset$$<h3 id="交集">
 交集
 </h3><ol>
 <li>使用$intersection$函數求交集：找出==同時存在於集合A和B==中的元素並返回集合C。
+
 $$aset.intersection(bset)$$
-或$$bset.intersection(aset)$$
+或
+$$bset.intersection(aset)$$
 等價於
+
 $$aset\ \&\ bset$$
+
 $$bset\ \&\ aset$$</li>
 <li>使用$intersection\_update$函數求交集：找出交集並賦給aset，不會返回交集。
+
 $$aset.intersection\_update()$$</li>
 <li>使用$\&$，返回交集不改變aset、bset
+
 $$aset\ \&\ bset$$</li>
 </ol>
 <h3 id="不重合集">
@@ -587,8 +612,10 @@ $$aset\ \&\ bset$$</li>
 不重合集
 </h3><ol>
 <li>$symmetric\_difference$函數，返回不重合集
+
 $$aset.symmetric\_difference(bset)$$</li>
 <li>使用$symmetric\_difference\_update$函數，將不重合集返回aset
+
 $$aset.symmetric\_difference\_update(bset)$$</li>
 </ol>
 <h2 id="其他">
@@ -596,11 +623,14 @@ $$aset.symmetric\_difference\_update(bset)$$</li>
 其他
 </h2><ol>
 <li>判斷set是否含有某元素，用in
+
 $$print(elem\ in\ aset)$$</li>
 <li>判斷兩set是否有相同元素
+
 $$aset.isdisjoint(bset)$$
 如果有相同元素則返回False</li>
 <li>判斷bset是否為aset子集
+
 $$bset.issubset(aset)$$
 若<strong>bset為aset子集</strong>則返回True</li>
 </ol>
@@ -922,12 +952,16 @@ $$f"字串內容{其他字串變數名}字串內容"$$<p>
 數值處理函數
 </h2><ol>
 <li>絕對值
+
 $$abs()$$</li>
 <li>取整
+
 $$int()$$</li>
 <li>四捨五入（返回整數）
+
 $$round()$$</li>
 <li>判斷大小、真假（布林函數）
+
 $$bool()$$
 [[數據類型及運算符#布林值與空值]]</li>
 </ol>
@@ -935,32 +969,47 @@ $$bool()$$
 <a class="header-anchor" href="#%e8%b3%87%e6%96%99%e9%a1%9e%e5%9e%8b%e8%bd%89%e6%8f%9b%e5%87%bd%e6%95%b8"></a>
 資料類型轉換函數
 </h2><ol>
-<li>$$int(x [,base])$$
+<li>
+$$int(x [,base])$$
 x為原對象，base為可選參數，默認為10表示十進制</li>
-<li>$$float(x)$$</li>
-<li>$$complex(real[,imag])$$
+<li>
+$$float(x)$$</li>
+<li>
+$$complex(real[,imag])$$
 real為實部，imag為可選的虛部參數</li>
-<li>$$str(x)$$</li>
-<li>$$repr(x)$$
+<li>
+$$str(x)$$</li>
+<li>
+$$repr(x)$$
 將對象x轉化為表達式字符串（python解釋器能夠讀取的形式）</li>
-<li>$$chr(x)$$
+<li>
+$$chr(x)$$
 將一個整數轉換為一個字符</li>
-<li>$$ord(x)$$
+<li>
+$$ord(x)$$
 將一個字符轉換為它的整數值</li>
-<li>$$hex(x)$$
+<li>
+$$hex(x)$$
 將一個整數x轉換為其十六進制形式的<strong>字符串</strong></li>
-<li>$$oct(x)$$
+<li>
+$$oct(x)$$
 將一個整數x轉換為其八進制形式==字符串==</li>
-<li>$$eval(str)$$
+<li>
+$$eval(str)$$
 用來計算在字符串中的有效Python表達式,並返回一個對象</li>
-<li>$$tuple(s)$$
+<li>
+$$tuple(s)$$
 將序列s轉化為元組返回</li>
-<li>$$list(s)$$</li>
-<li>$$set(s)$$
+<li>
+$$list(s)$$</li>
+<li>
+$$set(s)$$
 將序列s轉換為可變集合</li>
-<li>$$frozenset(s)$$
+<li>
+$$frozenset(s)$$
 將序列s轉換為不可變集合</li>
-<li>$$dict(d)$$
+<li>
+$$dict(d)$$
 將(key,value)形式元組序列d轉換為一個dict</li>
 </ol>
 <h3 id="數據類型高低之分">
@@ -1042,8 +1091,8 @@ $for,break,continue$語句
 <li>Python 2.3. 以上版本可用，2.6添加 start 參數。</li>
 </ul>
 </li>
-<li>$$enumerate(sequence,[start=0])$$
-<ul>
+<li>
+$$enumerate(sequence,[start=0])$$<ul>
 <li>sequence：可迭代對象</li>
 <li>可選參數start：下標起始位置值，默認為0</li>
 </ul>
@@ -1171,7 +1220,8 @@ while-else
 <a class="header-anchor" href="#%e8%ae%8a%e6%95%b8%e8%88%87%e5%b0%8d%e8%b1%a1"></a>
 變數與對象
 </h2><blockquote>
-<p>Python中一切皆為對象，數字是對象，列表是對象，函數也是對象，任何東西都是對象。而變數是對象的一個引用（也可以稱為標籤或者名字），對象的操作都是通過引用來完成的。</p></blockquote>
+<p>Python中一切皆為對象，數字是對象，列表是對象，函數也是對象，任何東西都是對象。而變數是對象的一個引用（也可以稱為標籤或者名字），對象的操作都是通過引用來完成的。</p>
+</blockquote>
 <p>例如</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
 </span></span></code></pre></div><ul>
@@ -1223,7 +1273,8 @@ while-else
 </span></span></code></pre></div><ul>
 <li><strong>進階</strong>
 <ul>
-<li>$$\%[數據名稱][對齊標誌][寬度].[精度][類型]$$</li>
+<li>
+$$\%[數據名稱][對齊標誌][寬度].[精度][類型]$$</li>
 <li>數據名稱用於dict賦值，若為數組則不需填寫</li>
 <li>對齊標誌
 <ul>
@@ -1261,7 +1312,8 @@ format
 </span></span></code></pre></div><ul>
 <li><strong>進階</strong>
 <ul>
-<li>$$\{:[填充字符][對齊方式][符號標誌][\#][寬度][,][.精度][類型]\}$$</li>
+<li>
+$$\{:[填充字符][對齊方式][符號標誌][\#][寬度][,][.精度][類型]\}$$</li>
 <li>填充字符：不寫默認用space填充</li>
 <li>對齊方式
 <ul>
@@ -1292,6 +1344,7 @@ f-string
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;My wife is </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">,she is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
 </span></span></code></pre></div><ul>
 <li>f-string同樣支持format格式控制參數
+
 $$\{變數名:[填充字符][對齊方式][符號標誌][\#][寬度][,][.精度][類型]\}$$</li>
 </ul>
 <h3 id="切片">
@@ -1299,6 +1352,7 @@ $$\{變數名:[填充字符][對齊方式][符號標誌][\#][寬度][,][.精度]
 ⭐切片
 </h3><ul>
 <li>可切片對象：字串，元組，列表
+
 $$name[a:b:c]$$</li>
 </ul>
 <ol>
@@ -1467,22 +1521,29 @@ $$a\%b$$</li>
 </h3><ul>
 <li>$==$：比較兩<strong>對象</strong>是否相等
 ==python比較運算符可以連用==
+
 $$a>b==c等價於a>b\ and\ b==c$$</li>
 </ul>
 <h3 id="賦值運算符">
 <a class="header-anchor" href="#%e8%b3%a6%e5%80%bc%e9%81%8b%e7%ae%97%e7%ac%a6"></a>
 賦值運算符
 </h3><ul>
-<li>$**=$：冪賦值運算符，$$c**=a等價於c=c**a$$</li>
-<li>$//=$：取整除賦值運算符，$$c//=a等價於c=c//a$$</li>
+<li>$**=$：冪賦值運算符，
+$$c**=a等價於c=c**a$$</li>
+<li>$//=$：取整除賦值運算符，
+$$c//=a等價於c=c//a$$</li>
 <li>&laquo;=：左移賦值
+
 $$a<<=2等價於a=a<<2$$</li>
 <li>
 <blockquote>
 <blockquote>
-<p>=：右移賦值</p></blockquote></blockquote>
+<p>=：右移賦值</p>
+</blockquote>
+</blockquote>
 </li>
 <li>&amp;=：按位與賦值
+
 $$a\&=b等價於a=a\&b$$</li>
 <li>|=：按位或賦值</li>
 <li>^=：按位異或賦值</li>

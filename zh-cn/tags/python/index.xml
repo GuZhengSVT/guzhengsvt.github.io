@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-cn/tags/python/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Thu, 15 Feb 2024 11:44:33 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-cn/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>MicroPython函数库</title><link>https://guzhengsvt.cn/zh-cn/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link><pubDate>Thu, 15 Feb 2024 11:44:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-cn/tags/python/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Thu, 15 Feb 2024 11:44:33 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-cn/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>MicroPython函数库</title><link>https://guzhengsvt.cn/zh-cn/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link><pubDate>Thu, 15 Feb 2024 11:44:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid><description>
 <![CDATA[<h1>MicroPython函数库</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h1 id="machine-与硬件相关功能">
@@ -186,12 +186,15 @@ list
 <li>使用索引
 用$[i]$查看第i+1个元素</li>
 <li>index()方法
+
 $$name.index(x)$$
 在list name中查找第一个值为x的元素，返回其索引</li>
 <li>count()方法
+
 $$name.count(x)$$
 在list name中查看有几个元素为x，返回个数</li>
 <li>len()方法
+
 $$name.len()$$
 查找list name中元素总个数，返回个数</li>
 </ol>
@@ -200,12 +203,15 @@ $$name.len()$$
 新增元素
 </h2><ol>
 <li>append()方法
+
 $$name.append(x)$$
 向name末尾添加元素x</li>
 <li>insert()方法
+
 $$name.insert(i,x)$$
 将对象x插入name索引为i处，原来i以及i后面的元素顺位后移</li>
 <li>extend()方法
+
 $$name.extend(name2)$$
 将list name2接在list name 后面</li>
 </ol>
@@ -220,20 +226,26 @@ $$name.extend(name2)$$
 删除元素
 </h2><ol>
 <li>pop()方法
+
 $$name.pop()$$
 默认删除list最后一个元素
+
 $$name.pop(i)$$
 删除索引为i的元素，后面的元素顺位前移</li>
 <li>remove()方法
+
 $$name.remove(x)$$
 删除第一个值为x的元素，后面的元素顺位前移</li>
 <li>clear()方法
+
 $$name.clear()$$
 删除所有元素（清空list）</li>
 <li>del<strong>语句</strong>
+
 $$del\ name[a:b]$$
 删除del索引$[a,b)$的元素，包括a不包括b
 $del\ name[:]$表示清空list
+
 $$del\ name[i]$$
 删除索引为i的元素</li>
 </ol>
@@ -242,6 +254,7 @@ $$del\ name[i]$$
 反转列表
 </h2><ol>
 <li>reverse()方法
+
 $$name.reverse()$$
 将列表name反转，最后一个元素变为第一个元素以此推类。</li>
 <li>切片法</li>
@@ -256,7 +269,9 @@ $$name.reverse()$$
 列表排序
 </h2><ol>
 <li>sort()方法
+
 $$name.sort()$$
+
 $$name.sort(cmp=None,key=None,reverse=False)$$</li>
 </ol>
 <ul>
@@ -384,7 +399,8 @@ hash是一种压缩映射。</li>
 <a class="header-anchor" href="#%e6%9f%a5%e7%9c%8b%e5%85%83%e7%b4%a0-1"></a>
 查看元素
 </h2><ol>
-<li>使用$$dict[key]$$
+<li>使用
+$$dict[key]$$
 dict为字典名，key为键
 key不存在时报错KeyValue</li>
 <li>$dict.get(key[,value])$
@@ -407,6 +423,7 @@ key为新增键，value为对应值</p>
 <li>$dict.pop(key)$
 dict为字典名，key为键，字符串需带引号</li>
 <li>del函数
+
 $$del\ dict[key]$$
 dict为字典名</li>
 </ol>
@@ -434,6 +451,7 @@ dict为字典名</li>
 </span></span><span class="line"><span class="cl">    <span class="n">profile</span><span class="p">[</span><span class="s2">&#34;gender&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;male&#34;</span>
 </span></span></code></pre></div><ol start="2">
 <li>$setdefault()$方法
+
 $$dict.setdefault(key,default=None)$$
 default为key不存在时设置的值，默认为None</li>
 </ol>
@@ -534,6 +552,7 @@ ElemType必须为一个序列（string，list，tuple，dict，set等）</p>
 </span></span></code></pre></div><ol start="4">
 <li>$.clear()$
 清空集合中元素
+
 $$set.clear()$$</li>
 </ol>
 <h2 id="修改元素-2">
@@ -572,14 +591,20 @@ $$aset\ -\ bset$$<h3 id="交集">
 交集
 </h3><ol>
 <li>使用$intersection$函数求交集：找出==同时存在于集合A和B==中的元素并返回集合C。
+
 $$aset.intersection(bset)$$
-或$$bset.intersection(aset)$$
+或
+$$bset.intersection(aset)$$
 等价于
+
 $$aset\ \&\ bset$$
+
 $$bset\ \&\ aset$$</li>
 <li>使用$intersection\_update$函数求交集：找出交集并赋给aset，不会返回交集。
+
 $$aset.intersection\_update()$$</li>
 <li>使用$\&$，返回交集不改变aset、bset
+
 $$aset\ \&\ bset$$</li>
 </ol>
 <h3 id="不重合集">
@@ -587,8 +612,10 @@ $$aset\ \&\ bset$$</li>
 不重合集
 </h3><ol>
 <li>$symmetric\_difference$函数，返回不重合集
+
 $$aset.symmetric\_difference(bset)$$</li>
 <li>使用$symmetric\_difference\_update$函数，将不重合集返回aset
+
 $$aset.symmetric\_difference\_update(bset)$$</li>
 </ol>
 <h2 id="others">
@@ -596,11 +623,14 @@ $$aset.symmetric\_difference\_update(bset)$$</li>
 others
 </h2><ol>
 <li>判断set是否含有某元素，用in
+
 $$print(elem\ in\ aset)$$</li>
 <li>判断两set是否有相同元素
+
 $$aset.isdisjoint(bset)$$
 如果有相同元素则返回False</li>
 <li>判断bset是否为aset子集
+
 $$bset.issubset(aset)$$
 若<strong>bset为aset子集</strong>则返回True</li>
 </ol>
@@ -920,12 +950,16 @@ $$f"字符串内容{其他字符串变量名}字符串内容"$$<p>
 数值处理函数
 </h2><ol>
 <li>绝对值
+
 $$abs()$$</li>
 <li>取整
+
 $$int()$$</li>
 <li>四舍五入（返回整数）
+
 $$round()$$</li>
 <li>判断大小、真假（布尔函数）
+
 $$bool()$$
 [[数据类型及运算符#布尔值与空值]]</li>
 </ol>
@@ -933,32 +967,47 @@ $$bool()$$
 <a class="header-anchor" href="#%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b%e8%bd%ac%e6%8d%a2%e5%87%bd%e6%95%b0"></a>
 数据类型转换函数
 </h2><ol>
-<li>$$int(x [,base])$$
+<li>
+$$int(x [,base])$$
 x为原对象，base为可选参数，默认为10表示十进制</li>
-<li>$$float(x)$$</li>
-<li>$$complex(real[,imag])$$
+<li>
+$$float(x)$$</li>
+<li>
+$$complex(real[,imag])$$
 real为实部，imag为可选的虚部参数</li>
-<li>$$str(x)$$</li>
-<li>$$repr(x)$$
+<li>
+$$str(x)$$</li>
+<li>
+$$repr(x)$$
 将对象x转化为表达式字符串（python解释器能够读取的形式）</li>
-<li>$$chr(x)$$
+<li>
+$$chr(x)$$
 将一个整数转换为一个字符</li>
-<li>$$ord(x)$$
+<li>
+$$ord(x)$$
 将一个字符转换为它的整数值</li>
-<li>$$hex(x)$$
+<li>
+$$hex(x)$$
 将一个整数x转换为其十六进制形式的<strong>字符串</strong></li>
-<li>$$oct(x)$$
+<li>
+$$oct(x)$$
 将一个整数x转换为其八进制形式==字符串==</li>
-<li>$$eval(str)$$
+<li>
+$$eval(str)$$
 用来计算在字符串中的有效Python表达式,并返回一个对象</li>
-<li>$$tuple(s)$$
+<li>
+$$tuple(s)$$
 将序列s转化为元组返回</li>
-<li>$$list(s)$$</li>
-<li>$$set(s)$$
+<li>
+$$list(s)$$</li>
+<li>
+$$set(s)$$
 将序列s转换为可变集合</li>
-<li>$$frozenset(s)$$
+<li>
+$$frozenset(s)$$
 将序列s转换为不可变集合</li>
-<li>$$dict(d)$$
+<li>
+$$dict(d)$$
 将(key,value)形式元组序列d转换为一个dict</li>
 </ol>
 <h3 id="数据类型高低之分">
@@ -1040,8 +1089,8 @@ $for,break,continue$语句
 <li>Python 2.3. 以上版本可用，2.6添加 start 参数。</li>
 </ul>
 </li>
-<li>$$enumerate(sequence,[start=0])$$
-<ul>
+<li>
+$$enumerate(sequence,[start=0])$$<ul>
 <li>sequence：可迭代对象</li>
 <li>可选参数start：下标起始位置值，默认为0</li>
 </ul>
@@ -1169,7 +1218,8 @@ while-else
 <a class="header-anchor" href="#%e5%8f%98%e9%87%8f%e4%b8%8e%e5%af%b9%e8%b1%a1"></a>
 变量与对象
 </h2><blockquote>
-<p>Python中一切皆为对象，数字是对象，列表是对象，函数也是对象，任何东西都是对象。而变量是对象的一个引用（也可以称为标签或者名字），对象的操作都是通过引用来完成的。</p></blockquote>
+<p>Python中一切皆为对象，数字是对象，列表是对象，函数也是对象，任何东西都是对象。而变量是对象的一个引用（也可以称为标签或者名字），对象的操作都是通过引用来完成的。</p>
+</blockquote>
 <p>例如</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
 </span></span></code></pre></div><ul>
@@ -1221,7 +1271,8 @@ while-else
 </span></span></code></pre></div><ul>
 <li><strong>进阶</strong>
 <ul>
-<li>$$\%[数据名称][对齐标志][宽度].[精度][类型]$$</li>
+<li>
+$$\%[数据名称][对齐标志][宽度].[精度][类型]$$</li>
 <li>数据名称用于dict赋值，若为数组则不需填写</li>
 <li>对齐标志
 <ul>
@@ -1259,7 +1310,8 @@ format
 </span></span></code></pre></div><ul>
 <li><strong>进阶</strong>
 <ul>
-<li>$$\{:[填充字符][对齐方式][符号标志][\#][宽度][,][.精度][类型]\}$$</li>
+<li>
+$$\{:[填充字符][对齐方式][符号标志][\#][宽度][,][.精度][类型]\}$$</li>
 <li>填充字符：不写默认用space填充</li>
 <li>对齐方式
 <ul>
@@ -1290,6 +1342,7 @@ f-string
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;My wife is </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">,she is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
 </span></span></code></pre></div><ul>
 <li>f-string同样支持format格式控制参数
+
 $$\{变量名:[填充字符][对齐方式][符号标志][\#][宽度][,][.精度][类型]\}$$</li>
 </ul>
 <h3 id="切片">
@@ -1297,6 +1350,7 @@ $$\{变量名:[填充字符][对齐方式][符号标志][\#][宽度][,][.精度]
 ⭐切片
 </h3><ul>
 <li>可切片对象：字符串，元组，列表
+
 $$name[a:b:c]$$</li>
 </ul>
 <ol>
@@ -1465,22 +1519,29 @@ $$a\%b$$</li>
 </h3><ul>
 <li>$==$：比较两<strong>对象</strong>是否相等
 ==python比较运算符可以连用==
+
 $$a>b==c等价于a>b\ and\ b==c$$</li>
 </ul>
 <h3 id="赋值运算符">
 <a class="header-anchor" href="#%e8%b5%8b%e5%80%bc%e8%bf%90%e7%ae%97%e7%ac%a6"></a>
 赋值运算符
 </h3><ul>
-<li>$**=$：幂赋值运算符，$$c**=a等价于c=c**a$$</li>
-<li>$//=$：取整除赋值运算符，$$c//=a等价于c=c//a$$</li>
+<li>$**=$：幂赋值运算符，
+$$c**=a等价于c=c**a$$</li>
+<li>$//=$：取整除赋值运算符，
+$$c//=a等价于c=c//a$$</li>
 <li>&laquo;=：左移赋值
+
 $$a<<=2等价于a=a<<2$$</li>
 <li>
 <blockquote>
 <blockquote>
-<p>=：右移赋值</p></blockquote></blockquote>
+<p>=：右移赋值</p>
+</blockquote>
+</blockquote>
 </li>
 <li>&amp;=：按位与赋值
+
 $$a\&=b等价于a=a\&b$$</li>
 <li>|=：按位或赋值</li>
 <li>^=：按位异或赋值</li>

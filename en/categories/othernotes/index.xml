@@ -933,11 +933,13 @@ Lists
 <a class="header-anchor" href="#images"></a>
 Images
 </h1><ul>
-<li>$$![Engelbart](image_URL)$$</li>
+<li>
+$$![Engelbart](image_URL)$$</li>
 <li>![[Pasted image 20230625203344.png]]</li>
 <li>Adjust width
 <ul>
-<li>$$![Engelbart|100](image_link)$$</li>
+<li>
+$$![Engelbart|100](image_link)$$</li>
 <li>![[Pasted image 20230625203536.png]]</li>
 </ul>
 </li>
@@ -976,6 +978,7 @@ Example:<br>
 Here, <code>path</code> requires absolute file path.</p>
 <ul>
 <li><em>Open vault (folder only, no specific file)</em><br>
+
 $$[name](obsidian://open?vault=vault_name/vault_ID)$$<br>
 <a href="#ZgotmplZ">Open Notes Folder</a></li>
 <li><em>Open Calculus under Math folder (<strong>.md</strong> extension optional)</em><br>
@@ -1005,7 +1008,8 @@ Example:</p>
 </ul>
 <blockquote>
 <p>Time is a one-way journey; both good and bad are scenery.<br>
-\ — &ldquo;Time Thief&rdquo; by Jin Wenqi</p></blockquote>
+\ — &ldquo;Time Thief&rdquo; by Jin Wenqi</p>
+</blockquote>
 <ul>
 <li>
 <p>Inline code<br>
@@ -1017,7 +1021,7 @@ Example:</p>
 </li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include&lt;stdc++.h&gt;  
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>  
+</span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>  
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>  
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>  
 </span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="n">b</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">b</span><span class="o">++</span><span class="p">){</span>  

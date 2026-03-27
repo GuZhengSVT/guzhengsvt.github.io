@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OtherNotes on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-cn/categories/othernotes/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Tue, 11 Nov 2025 18:44:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-cn/categories/othernotes/index.xml" rel="self" type="application/rss+xml"/><item><title>从零入门业余无线电之路</title><link>https://guzhengsvt.cn/zh-cn/post/othernotes/the-path-to-amateur-radio-from-scratch/</link><pubDate>Tue, 03 Jun 2025 20:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/othernotes/the-path-to-amateur-radio-from-scratch/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OtherNotes on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-cn/categories/othernotes/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Tue, 11 Nov 2025 18:44:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-cn/categories/othernotes/index.xml" rel="self" type="application/rss+xml"/><item><title>从零入门业余无线电之路</title><link>https://guzhengsvt.cn/zh-cn/post/othernotes/the-path-to-amateur-radio-from-scratch/</link><pubDate>Tue, 03 Jun 2025 20:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/othernotes/the-path-to-amateur-radio-from-scratch/</guid><description>
 <![CDATA[<h1>从零入门业余无线电之路</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h2 id="取得a类操作证">
@@ -300,7 +300,8 @@ NAS会员单卖差评😡</p>
 </ul>
 <blockquote>
 <p>Qui aimes-tu le mieux, homme énigmatique, dis?<br>
-谜一样的人啊，说吧，你最爱的人是谁？</p></blockquote>
+谜一样的人啊，说吧，你最爱的人是谁？</p>
+</blockquote>
 <p>我在这一句后加了ITU、CQ分区和梅登海德网格，尽量选用手写体并拉伸透视效果，使得文字看起来是手写在窗上的。</p>
 <ul>
 <li>背面除了常规的通联必填信息，还加上了个人博客的二维码，背景照片是BA官方做的Noa视频截图。</li>
@@ -343,7 +344,8 @@ NAS会员单卖差评😡</p>
 <blockquote>
 <p>三年以来，在人民解放战争和人民革命中牺牲的人民英雄们永垂不朽！<br>
 三十年以来，在人民解放战争和人民革命中牺牲的人民英雄们永垂不朽！<br>
-由此上溯到一千八百四十年，从那时起，为了反对内外敌人，争取民族独立和人民自由幸福，在历次斗争中牺牲的人民英雄们永垂不朽！</p></blockquote>
+由此上溯到一千八百四十年，从那时起，为了反对内外敌人，争取民族独立和人民自由幸福，在历次斗争中牺牲的人民英雄们永垂不朽！</p>
+</blockquote>
 <p>今日，东方红卫星仍然在轨，守望沧海变桑田。</p>
 <h3 id="印刷批次-1">
 <a class="header-anchor" href="#%e5%8d%b0%e5%88%b7%e6%89%b9%e6%ac%a1-1"></a>
@@ -1306,11 +1308,13 @@ obsidian help
 <a class="header-anchor" href="#%e5%9b%be%e7%89%87"></a>
 图片
 </h1><ul>
-<li>$$![Engelbart](图片网址)$$</li>
+<li>
+$$![Engelbart](图片网址)$$</li>
 <li>![[Pasted image 20230625203344.png]]</li>
 <li>调整宽度
 <ul>
-<li>$$![Engelbart|100](图片链接)$$</li>
+<li>
+$$![Engelbart|100](图片链接)$$</li>
 <li>![[Pasted image 20230625203536.png]]</li>
 </ul>
 </li>
@@ -1349,6 +1353,7 @@ $$[标注的笔记名，想给的代号](obsidian://open?path=笔记绝对路径
 其中，path接文件绝对路径</p>
 <ul>
 <li><em>打开某库，不打开具体文件只打开文件夹不显示效果</em>
+
 $$[name](obsidian://open?vault=库文件夹名称/库ID)$$
 <a href="#ZgotmplZ">打开笔记文件夹</a></li>
 <li><em>打开Math文件夹下的高数，<strong>.md</strong>拓展名可不写</em>
@@ -1378,7 +1383,8 @@ eg</p>
 </ul>
 <blockquote>
 <p>时间是一场有去无回的旅行，好的坏的都是风景。
-\ ——《岁月神偷》金玟岐</p></blockquote>
+\ ——《岁月神偷》金玟岐</p>
+</blockquote>
 <ul>
 <li>
 <p>行内代码
@@ -1390,7 +1396,7 @@ eg</p>
 </li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include&lt;stdc++.h&gt;
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="n">b</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">b</span><span class="o">++</span><span class="p">){</span>

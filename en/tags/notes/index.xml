@@ -566,7 +566,8 @@ I&rsquo;ll continue organizing Electrodynamics and Digital Signal Processing dur
 Second Edition Preface
 </h3><blockquote>
 <p>Nothing is final!!!
-——Qian Xuesen</p></blockquote>
+——Qian Xuesen</p>
+</blockquote>
 <p>Added content on the left/right continuity of distribution functions. It seems this course is far from final&hellip;</p>
 <h2 id="event-operations-to-logical-operations">
 <a class="header-anchor" href="#event-operations-to-logical-operations"></a>
@@ -624,7 +625,8 @@ Independence implies mutual independence.</p>
 <a class="header-anchor" href="#classical-probability-model"></a>
 Classical Probability Model
 </h2><blockquote>
-<p>All elementary events have equal probability.</p></blockquote>
+<p>All elementary events have equal probability.</p>
+</blockquote>
 <p>Eg. Coin toss, dice roll&hellip;
 </p>
 $$
@@ -638,7 +640,8 @@ $$<h2 id="bernoulli-trials-binomial-distribution">
 <a class="header-anchor" href="#bernoulli-trials-binomial-distribution"></a>
 Bernoulli Trials (Binomial Distribution)
 </h2><blockquote>
-<p>$n$ independent trials, each with only two outcomes: $A$ or $\bar{A}$.</p></blockquote>
+<p>$n$ independent trials, each with only two outcomes: $A$ or $\bar{A}$.</p>
+</blockquote>
 <p>$X \sim B(n,p)$
 </p>
 $$
@@ -2914,15 +2917,18 @@ Proof
 <ol>
 <li><strong>Continuity of Gibbs Free Energy</strong>:
 At the transition temperature $T_c$, the Gibbs free energy $G$ is continuous:
+
 $$
    G_1 (T_c, P) = G_2 (T_c, P)
    $$</li>
 <li><strong>Discontinuity of Entropy</strong>:
 Taking the partial derivative of $G$ with respect to temperature yields the expression for entropy:
+
 $$
    S = -\left ( \frac{\partial G}{\partial T} \right)_P
    $$
 At $T_c$, the jump in entropy is:
+
 $$
    \Delta S = S_2 - S_1 = -\left ( \frac{\partial G_2}{\partial T} \right)_P + \left ( \frac{\partial G_1}{\partial T} \right)_P \neq 0
    $$</li>
@@ -2959,15 +2965,18 @@ Proof
 <ol>
 <li><strong>Continuity of Entropy</strong>:
 At the phase transition temperature $T_c$, the entropy $S$ is continuous:
+
 $$
    S_1 (T_c, P) = S_2 (T_c, P)
    $$</li>
 <li><strong>Discontinuity of Heat Capacity</strong>:
 Taking the partial derivative of entropy with respect to temperature yields the expression for heat capacity:
+
 $$
    C_P = T \left ( \frac{\partial S}{\partial T} \right)_P
    $$
 At $T_c$, the jump in heat capacity is:
+
 $$
    \Delta C_P = C_{P 2} - C_{P 1} = T \left ( \left ( \frac{\partial S_2}{\partial T} \right)_P - \left ( \frac{\partial S_1}{\partial T} \right)_P \right) \neq 0
    $$</li>
@@ -3033,7 +3042,8 @@ $$<h2 id="three-dimensional-free-particle-quantum-state-count">
 Three-Dimensional Free Particle Quantum State Count
 </h2><p>==Temporarily disregarding quantum spin==</p>
 <blockquote>
-<p>When particles move within a macroscopically sized container, their momentum and energy values are <strong>quasi-continuous</strong>.</p></blockquote>
+<p>When particles move within a macroscopically sized container, their momentum and energy values are <strong>quasi-continuous</strong>.</p>
+</blockquote>
 <h2 id="cartesian-momentum-representation">
 <a class="header-anchor" href="#cartesian-momentum-representation"></a>
 Cartesian Momentum Representation
@@ -3129,7 +3139,8 @@ Extensive and Intensive Quantities
 <a class="header-anchor" href="#%e5%b9%bf%e5%bb%b6%e9%87%8fextensive-variables"></a>
 广延量（Extensive Variables）
 </h2><blockquote>
-<p>广延量是指<strong>依赖于系统规模或大小的热力学变量</strong>。这些变量随着系统的大小成比例地增加或减少。</p></blockquote>
+<p>广延量是指<strong>依赖于系统规模或大小的热力学变量</strong>。这些变量随着系统的大小成比例地增加或减少。</p>
+</blockquote>
 <ul>
 <li><strong>质量（Mass）</strong>：整个系统的质量。</li>
 <li><strong>体积（Volume, V）</strong>：系统占据的空间体积。</li>
@@ -3143,7 +3154,8 @@ Extensive and Intensive Quantities
 <a class="header-anchor" href="#%e5%bc%ba%e5%ba%a6%e9%87%8fintensive-variables"></a>
 强度量（Intensive Variables）
 </h2><blockquote>
-<p>强度量是指<strong>与系统的大小无关</strong>的热力学变量，这些变量<strong>在系统内的任一点都保持一致</strong>，不随系统规模而变化。</p></blockquote>
+<p>强度量是指<strong>与系统的大小无关</strong>的热力学变量，这些变量<strong>在系统内的任一点都保持一致</strong>，不随系统规模而变化。</p>
+</blockquote>
 <ul>
 <li><strong>温度（Temperature, T）</strong>：表示系统的热状态。</li>
 <li><strong>压强（Pressure, P）</strong>：系统单位面积上所受的力。</li>
@@ -3165,7 +3177,8 @@ The Relationship Between Extensive and Intensive Quantities
 <a class="header-anchor" href="#temperature"></a>
 Temperature
 </h2><blockquote>
-<p><strong>Law of Thermal Equilibrium</strong>: If object A is in thermal equilibrium with objects B and C respectively, then B and C must also be in thermal equilibrium when they are in thermal contact.</p></blockquote>
+<p><strong>Law of Thermal Equilibrium</strong>: If object A is in thermal equilibrium with objects B and C respectively, then B and C must also be in thermal equilibrium when they are in thermal contact.</p>
+</blockquote>
 <ul>
 <li>Definition of temperature: Objects in mutual thermal equilibrium must possess a physical quantity intrinsic to the object itself, which is defined as temperature.</li>
 <li>Temperature scale: A numerical representation method for temperature.</li>
@@ -3177,10 +3190,12 @@ Work in Thermodynamic Processes
 </h2><p><strong>Quasi-static process</strong>: $W=\int_{V_1}^{V_2}pdV$, where $V_1$ is the initial volume of the system and $V_2$ is the final volume.</p>
 <p><strong>Reversible process: A quasi-static process without dissipation</strong></p>
 <blockquote>
-<p>In a reversible process, the work done by the surroundings on the system can be expressed using the system&rsquo;s state parameters.</p></blockquote>
+<p>In a reversible process, the work done by the surroundings on the system can be expressed using the system&rsquo;s state parameters.</p>
+</blockquote>
 <p><strong>State space: A space constructed with independent state parameters as coordinate axes.</strong></p>
 <blockquote>
-<p>In state space, a point represents an equilibrium state of the system, and a curve represents a quasi-static process.</p></blockquote>
+<p>In state space, a point represents an equilibrium state of the system, and a curve represents a quasi-static process.</p>
+</blockquote>
 <p><strong>Process equation: The functional relationship between independent state parameters during a quasi-static process.</strong></p>
 <p>Expressions for work (considering only reversible processes):</p>
 <ul>
@@ -3205,7 +3220,8 @@ Corollary: If two reversible heat engines operate at the same temperatures, thei
 <a class="header-anchor" href="#principle-of-entropy-increase"></a>
 Principle of Entropy Increase
 </h2><blockquote>
-<p>Under <strong>adiabatic conditions</strong>, processes that decrease entropy are impossible (entropy never decreases).</p></blockquote>
+<p>Under <strong>adiabatic conditions</strong>, processes that decrease entropy are impossible (entropy never decreases).</p>
+</blockquote>
 <p><strong>Proof</strong>: From the second law of thermodynamics:
 </p>
 $$
@@ -3421,14 +3437,16 @@ Ehrenfest categorized phase transitions into first-order and second-order phase 
 <a class="header-anchor" href="#first-order-phase-transition"></a>
 First-Order Phase Transition
 </h2><blockquote>
-<p>A first-order phase transition refers to a phase transition where the first derivatives of the thermodynamic potential (such as Gibbs free energy), like entropy and volume, are discontinuous at the transition point.</p></blockquote>
+<p>A first-order phase transition refers to a phase transition where the first derivatives of the thermodynamic potential (such as Gibbs free energy), like entropy and volume, are discontinuous at the transition point.</p>
+</blockquote>
 <p>Typical first-order phase transitions include melting, vaporization, and sublimation.
 [[#First-Order Phase Transition Equations]]</p>
 <h2 id="second-order-phase-transition">
 <a class="header-anchor" href="#second-order-phase-transition"></a>
 Second-order Phase Transition
 </h2><blockquote>
-<p>A second-order phase transition refers to a phase transition process where the first derivative of the thermodynamic potential function is continuous at the transition point, but its second derivative exhibits discontinuity.</p></blockquote>
+<p>A second-order phase transition refers to a phase transition process where the first derivative of the thermodynamic potential function is continuous at the transition point, but its second derivative exhibits discontinuity.</p>
+</blockquote>
 <p>Typical second-order phase transitions include the transition of superconductors and liquid crystal phase transitions.<br>
 [[#Second-order Phase Transition Equations]]</p>
 <h2 id="multicomponent-system-phase-equilibrium-conditions">
@@ -3480,13 +3498,15 @@ Classical Description of Particle Motion States
 <a class="header-anchor" href="#space"></a>
 $\mu$ Space
 </h2><blockquote>
-<p>Describes the mechanical motion state of particles using position and momentum coordinates. The $2r$ variables $q_1,q_2,...,q_r;p_1,p_2,...,p_r$ form a $2r$-dimensional space with Cartesian coordinates, known as $\mu$ space.</p></blockquote>
+<p>Describes the mechanical motion state of particles using position and momentum coordinates. The $2r$ variables $q_1,q_2,...,q_r;p_1,p_2,...,p_r$ form a $2r$-dimensional space with Cartesian coordinates, known as $\mu$ space.</p>
+</blockquote>
 <p><strong>Degrees of Freedom of a Particle</strong>: The minimum number of coordinates required to determine the spatial position <strong>or</strong> configuration position of a particle.</p>
 <h2 id="phase-cell">
 <a class="header-anchor" href="#phase-cell"></a>
 Phase Cell
 </h2><blockquote>
-<p>The volume of a particle&rsquo;s motion state in $\mu$ space</p></blockquote>
+<p>The volume of a particle&rsquo;s motion state in $\mu$ space</p>
+</blockquote>
 <p>For a particle with $r$ degrees of freedom, the size of the phase cell is $\Delta q_1\cdots \Delta q_r\Delta p_1\cdots \Delta p_r$
 When it satisfies the [[#Uncertainty Relation]] $\Delta q_i\Delta p_i\approx h$, the size of the phase cell $\approx h^r$</p>
 <h2 id="free-particle">
@@ -3494,7 +3514,8 @@ When it satisfies the [[#Uncertainty Relation]] $\Delta q_i\Delta p_i\approx h$,
 Free Particle
 </h2><blockquote>
 <p>A free particle is a particle that moves freely without the influence of any force.
-In the absence of an external field, molecules of an ideal gas or free electrons in a metal can be approximately regarded as free particles.</p></blockquote>
+In the absence of an external field, molecules of an ideal gas or free electrons in a metal can be approximately regarded as free particles.</p>
+</blockquote>
 <p><strong>Momentum of a free particle</strong>: $p_x=m\dot{x}$, the momentum of the particle in the x-axis direction. Here, m is the mass of the particle, and $\dot{x}$ is the velocity of the particle in the x-axis direction (the first derivative of position with respect to time).
 <strong>Energy of a free particle</strong>:
 </p>
@@ -3504,9 +3525,11 @@ $$<h2 id="linear-harmonic-oscillator">
 <a class="header-anchor" href="#linear-harmonic-oscillator"></a>
 Linear Harmonic Oscillator
 </h2><blockquote>
-<p>Classical mechanics tells us that a particle with mass $m$ under the action of an elastic force $F = -Ax$ will perform simple harmonic motion along the $x$-axis near the origin, known as a linear harmonic oscillator.</p></blockquote>
+<p>Classical mechanics tells us that a particle with mass $m$ under the action of an elastic force $F = -Ax$ will perform simple harmonic motion along the $x$-axis near the origin, known as a linear harmonic oscillator.</p>
+</blockquote>
 <ul>
-<li>Angular frequency of oscillation: $$\omega=\sqrt{\frac{A}{m}}$$</li>
+<li>Angular frequency of oscillation:
+$$\omega=\sqrt{\frac{A}{m}}$$</li>
 <li>$A$: Elastic coefficient</li>
 </ul>
 <h2 id="energy-of-a-linear-harmonic-oscillator-with-one-degree-of-freedom">
@@ -3525,7 +3548,8 @@ $$<h2 id="rotor-degree-of-freedom-2">
 <a class="header-anchor" href="#rotor-degree-of-freedom-2"></a>
 Rotor (Degree of Freedom: 2)
 </h2><blockquote>
-<p>Consider the motion of a particle \( P \) with mass \( m \) attached to the origin \( O \) by a light rod of fixed length.</p></blockquote>
+<p>Consider the motion of a particle \( P \) with mass \( m \) attached to the origin \( O \) by a light rod of fixed length.</p>
+</blockquote>
 <ul>
 <li>In Cartesian coordinates, the position of the particle is determined by coordinates \( x, y, z \).</li>
 </ul>
@@ -3553,7 +3577,8 @@ $$<h2 id="diatomic-molecules">
 <a class="header-anchor" href="#diatomic-molecules"></a>
 Diatomic Molecules
 </h2><blockquote>
-<p>The two-body problem can be reduced to a single-body problem. In statistical physics, the rotation of a diatomic molecule about its center of mass is treated as a rotor.</p></blockquote>
+<p>The two-body problem can be reduced to a single-body problem. In statistical physics, the rotation of a diatomic molecule about its center of mass is treated as a rotor.</p>
+</blockquote>
 <p>According to classical mechanics, in the absence of external forces, the total angular momentum of the rotor $\vec L=\vec r\times \vec p$ is a conserved quantity, meaning neither its magnitude nor direction changes over time. Since $\vec r$ is perpendicular to $\vec L$, the motion of the particle lies in a plane perpendicular to $\vec L$. If we choose the $z$-axis to be parallel to $\vec L$, the particle&rsquo;s motion must lie within the $xy$-plane. This is equivalent to fixing $\theta=\frac{\pi}{2}, p_\theta=0$.</p>
 <p>The particle&rsquo;s energy in this case is:
 </p>
@@ -3570,14 +3595,16 @@ Quantum Description of Particle Motion States
 de Broglie Wave
 </h2><blockquote>
 <p>Microscopic particles (photons, electrons, protons, neutrons, and even atoms, molecules, etc.) universally exhibit wave-particle duality.
-A free particle with energy $\varepsilon$ and momentum $\vec{p}$ is associated with a plane wave of circular frequency $\omega$ and wave vector $\vec{k}$, known as the de Broglie wave.</p></blockquote>
+A free particle with energy $\varepsilon$ and momentum $\vec{p}$ is associated with a plane wave of circular frequency $\omega$ and wave vector $\vec{k}$, known as the de Broglie wave.</p>
+</blockquote>
 <p>[[#de Broglie Relations]]</p>
 <h2 id="quantum-state">
 <a class="header-anchor" href="#quantum-state"></a>
 Quantum State
 </h2><blockquote>
 <p>In quantum mechanics, the motion state of microscopic particles is called the quantum state.
-The quantum state is characterized by a set of quantum numbers, and the <strong>number of quantum numbers</strong> is equal to the degrees of freedom of the particle.</p></blockquote>
+The quantum state is characterized by a set of quantum numbers, and the <strong>number of quantum numbers</strong> is equal to the degrees of freedom of the particle.</p>
+</blockquote>
 <h1 id="">
 <a class="header-anchor" href="#"></a>
 
@@ -3596,7 +3623,8 @@ Clearly, the values of $\varepsilon_n$ are <strong>discrete</strong>.</p>
 <a class="header-anchor" href="#energy-levels"></a>
 Energy Levels
 </h2><blockquote>
-<p>Discrete energies are called energy levels.</p></blockquote>
+<p>Discrete energies are called energy levels.</p>
+</blockquote>
 <p>In $\mu$ space, surfaces with equal energy are called ==equipotential surfaces==. Since these surfaces are discontinuous, each equipotential surface is referred to as an <strong>energy level</strong>.
 [[#$ mu$ space]]</p>
 <h2 id="rotor-energy">
@@ -3616,7 +3644,8 @@ $$<p>
 Clearly, there are $2l+1$ possible values for $m_l$.</p>
 <blockquote>
 <p>A rotor&rsquo;s motion state with <strong>2 degrees of freedom</strong> is characterized by <strong>two quantum numbers</strong> $l,m_l$.
-In classical theory, the spatial orientation of the motion plane is arbitrary, whereas in quantum theory, $m_l$ can only take the above discrete values, known as <strong>spatial quantization</strong>.</p></blockquote>
+In classical theory, the spatial orientation of the motion plane is arbitrary, whereas in quantum theory, $m_l$ can only take the above discrete values, known as <strong>spatial quantization</strong>.</p>
+</blockquote>
 <p>Thus, the rotor&rsquo;s energy is also quantized:
 </p>
 $$
@@ -3629,13 +3658,15 @@ $\therefore$ There are $2l+1$ quantum states for the energy level $\varepsilon_l
 <blockquote>
 <p>Generally speaking, if a given energy level has more than one quantum state, it is called degenerate.
 If an energy level has only one quantum state, it is called non-degenerate.
-If an energy level has k quantum states, its degeneracy is k.</p></blockquote>
+If an energy level has k quantum states, its degeneracy is k.</p>
+</blockquote>
 <p>Between two adjacent [[#Energy Levels]], there are several [[#Phase Cells]], and the number of phase cells is the <strong>degeneracy</strong> of the energy level.</p>
 <h2 id="spin-angular-momentum">
 <a class="header-anchor" href="#spin-angular-momentum"></a>
 Spin Angular Momentum
 </h2><blockquote>
-<p>Certain fundamental particles possess intrinsic angular momentum, known as spin angular momentum $S$.</p></blockquote>
+<p>Certain fundamental particles possess intrinsic angular momentum, known as spin angular momentum $S$.</p>
+</blockquote>
 $$
 S^2=s(s+1)\hbar^2
 $$<p>
@@ -3657,7 +3688,8 @@ Energy of Free Particles
 Boundary Conditions
 </h2><blockquote>
 <p>To determine the possible states of motion of a particle, it is necessary to know the boundary conditions of the de Broglie wave at the container walls.
-Typically, standing wave conditions or periodic boundary conditions are employed.</p></blockquote>
+Typically, standing wave conditions or periodic boundary conditions are employed.</p>
+</blockquote>
 <p>For a <strong>one-dimensional</strong> free particle in a container of length $L$, the periodic boundary condition requires that the possible states of motion must satisfy that an integer multiple of the de Broglie wavelength $\lambda$ equals the container length $L$. That is,
 </p>
 $$
@@ -3670,14 +3702,17 @@ $$<ul>
 One-Dimensional Free Particle
 </h2><ul>
 <li>Wave vector $k_x$:
+
 $$
 k_x=\frac{2\pi}{L}n_x,n_x=0,\pm 1,\pm 2,\cdots
 $$</li>
 <li>Momentum $p_x$:
+
 $$
 p_x=\frac{2\pi\hbar}{L}n_x,n_x=0,\pm 1,\pm 2,\cdots
 $$</li>
 <li>Energy $\varepsilon_{n_x}$
+
 $$
 \varepsilon_{n_x}=\frac{p_x^2}{2m}=\frac{2\pi^2\hbar^2}{m}\cdot\frac{n_x^2}{L^2},n_x=0,\pm 1,\pm 2,\cdots
 $$</li>
@@ -3687,6 +3722,7 @@ $$</li>
 Three-Dimensional Free Particle
 </h2><ul>
 <li>Momentum:
+
 $$
 \begin{cases}
 p_x=\frac{2\pi\hbar}{L}n_x,n_x=0,\pm 1,\pm 2,\cdots\\
@@ -3695,6 +3731,7 @@ p_z=\frac{2\pi\hbar}{L}n_z,n_z=0,\pm 1,\pm 2,\cdots
 \end{cases}
 $$</li>
 <li>Energy:
+
 $$
 \varepsilon=\frac{1}{2m}(p_x^2+p_y^2+p_z^2)=\frac{2\pi^2\hbar^2}{m}\frac{n_x^2+n_y^2+n_z^2}{L^2}
 $$</li>
@@ -3709,7 +3746,8 @@ Description of the Microscopic Motion States of a System
 Microstates
 </h2><blockquote>
 <p>The microscopic state of a system is its mechanical motion state.<br>
-It manifests as different occupation patterns where particles occupy different energy levels and phase cells.</p></blockquote>
+It manifests as different occupation patterns where particles occupy different energy levels and phase cells.</p>
+</blockquote>
 <h2 id="system">
 <a class="header-anchor" href="#system"></a>
 System
@@ -3719,6 +3757,7 @@ System
 Examples include a free electron gas composed of free electrons, helium gas composed of $^4He$ atoms, etc. ^f1b50b</li>
 <li><strong>System composed of nearly independent particles</strong>: The interaction between particles is very weak, and the average energy of interaction is much smaller than the average energy of a single particle, so the interaction between particles can be ignored, and the total energy of the system can be expressed as the sum of the energies of individual particles.
 Examples include systems composed of ideal gases. ^24ebad
+
 $$
 E=\sum^{N}_{i=1}\varepsilon_i
 $$
@@ -3731,14 +3770,16 @@ Where:</li>
 Classical Mechanics Description
 </h2><blockquote>
 <p>In classical physics, identical particles [[#^f1b50b]] are distinguishable.
-Determining the microscopic state of motion of a system requires determining the mechanical state of motion (individual quantum state) of each particle.</p></blockquote>
+Determining the microscopic state of motion of a system requires determining the mechanical state of motion (individual quantum state) of each particle.</p>
+</blockquote>
 <p>Number of variables: $2Nr$<br>
 $r$: degrees of freedom of a single particle</p>
 <h2 id="bosons-and-fermions">
 <a class="header-anchor" href="#bosons-and-fermions"></a>
 Bosons and Fermions
 </h2><blockquote>
-<p>In nature, microscopic particles can be divided into two categories, known as bosons and fermions.</p></blockquote>
+<p>In nature, microscopic particles can be divided into two categories, known as bosons and fermions.</p>
+</blockquote>
 <p>[[#Spin Angular Momentum]]</p>
 <h2 id="">
 <a class="header-anchor" href="#"></a>
@@ -3747,24 +3788,28 @@ Bosons and Fermions
 <a class="header-anchor" href="#fermion"></a>
 Fermion
 </h2><blockquote>
-<p>Spin quantum number is a half-integer</p></blockquote>
+<p>Spin quantum number is a half-integer</p>
+</blockquote>
 <p>Examples: electron, proton, neutron, $\mu$ meson (all with $\frac{1}{2}$ spin); $^2H$ atom, $^3H$ nucleus (with $\frac{3}{2}$ spin), etc.</p>
 <h2 id="boson">
 <a class="header-anchor" href="#boson"></a>
 Boson
 </h2><blockquote>
-<p>Spin quantum number is an integer</p></blockquote>
+<p>Spin quantum number is an integer</p>
+</blockquote>
 <p>Examples: photon (1), $\pi$ meson (0), $^1H$ atom (1), $^4He$ atom (4), etc.</p>
 <h2 id="pauli-exclusion-principle">
 <a class="header-anchor" href="#pauli-exclusion-principle"></a>
 Pauli Exclusion Principle
 </h2><blockquote>
-<p>In a system containing multiple identical and nearly independent fermions, an individual quantum state can accommodate at most one fermion.</p></blockquote>
+<p>In a system containing multiple identical and nearly independent fermions, an individual quantum state can accommodate at most one fermion.</p>
+</blockquote>
 <h2 id="distribution">
 <a class="header-anchor" href="#distribution"></a>
 Distribution
 </h2><blockquote>
-<p>A set composed of the number of particles at each <strong>energy level</strong>, this set is called a distribution.</p></blockquote>
+<p>A set composed of the number of particles at each <strong>energy level</strong>, this set is called a distribution.</p>
+</blockquote>
 $$
 \{a_l\}=a_1,a_2,\cdots,a_l,\cdots
 $$<p>
@@ -3816,31 +3861,38 @@ Fermi Statistics
 <a class="header-anchor" href="#principle-of-equal-probability"></a>
 Principle of Equal Probability
 </h2><blockquote>
-<p>For an <strong>isolated</strong> system in <strong>equilibrium</strong>, all possible microstates of the system are equally probable.</p></blockquote>
+<p>For an <strong>isolated</strong> system in <strong>equilibrium</strong>, all possible microstates of the system are equally probable.</p>
+</blockquote>
 <h2 id="most-probable-distribution">
 <a class="header-anchor" href="#most-probable-distribution"></a>
 Most Probable Distribution
 </h2><blockquote>
-<p>According to the principle of equal a priori probabilities, for an isolated system in equilibrium, the distribution with the greatest number of microscopic states has the highest probability of occurrence, known as the most probable distribution.</p></blockquote>
+<p>According to the principle of equal a priori probabilities, for an isolated system in equilibrium, the distribution with the greatest number of microscopic states has the highest probability of occurrence, known as the most probable distribution.</p>
+</blockquote>
 <h2 id="boltzmann-distribution">
 <a class="header-anchor" href="#boltzmann-distribution"></a>
 Boltzmann Distribution
 </h2><blockquote>
-<p>The most probable distribution of particles in a Boltzmann system is called the <strong>Maxwell-Boltzmann distribution</strong>, or simply the Boltzmann distribution.</p></blockquote>
+<p>The most probable distribution of particles in a Boltzmann system is called the <strong>Maxwell-Boltzmann distribution</strong>, or simply the Boltzmann distribution.</p>
+</blockquote>
 <ul>
 <li>Approximate equation: $\ln m!=m (\ln m-1),m\gg 1$</li>
 <li>Denote $\Omega_{m.B.}$ as $\Omega$<br>
 Under Boltzmann statistics, this distribution contains the most microstates, with the maximum number of microstates $\Omega$.<br>
+
 $$
 a_l=\omega_le^{-\alpha-\beta\varepsilon_l}=e^{-\alpha-\beta\varepsilon_l}\frac{\Delta\omega_l}{h_0^r}
 $$<br>
 The latter is the ==classical expression of the Boltzmann distribution==.<br>
+
 $$
 N=\sum_la_l=\sum_l\omega_le^{-\alpha-\beta\varepsilon_l}=\sum_se^{-\alpha-\beta\varepsilon_s}
 $$<br>
+
 $$
 E=\sum_l\varepsilon_la_l=\sum_l\omega_l\varepsilon_le^{-\alpha-\beta\varepsilon_l}=\sum_s\varepsilon_se^{-\alpha-\beta\varepsilon_s}
 $$<br>
+
 $$
 f_s=\frac{a_l}{\omega_l}=e^{-\alpha-\beta\varepsilon_l}
 $$</li>
@@ -3857,7 +3909,8 @@ $$</li>
 <a class="header-anchor" href="#bose-distribution"></a>
 Bose Distribution
 </h2><blockquote>
-<p>The most probable distribution of particles in a Bose system is called the Bose-Einstein distribution, abbreviated as the Bose distribution.</p></blockquote>
+<p>The most probable distribution of particles in a Bose system is called the Bose-Einstein distribution, abbreviated as the Bose distribution.</p>
+</blockquote>
 $$
 a_l=\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}
 $$<p>
@@ -3876,7 +3929,8 @@ $$<h2 id="fermi-distribution">
 <a class="header-anchor" href="#fermi-distribution"></a>
 Fermi Distribution
 </h2><blockquote>
-<p>The most probable distribution of a Fermi system.</p></blockquote>
+<p>The most probable distribution of a Fermi system.</p>
+</blockquote>
 $$
 a_l=\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}+1}
 $$<p>
@@ -3920,7 +3974,8 @@ Examples include paramagnetic solids and nuclear spin systems.</li>
 </ul>
 <blockquote>
 <p>Localized systems and Bose (Fermi) systems that satisfy classical limit conditions both obey the Boltzmann distribution.
-However, their microscopic state numbers are different.</p></blockquote>
+However, their microscopic state numbers are different.</p>
+</blockquote>
 <h2 id="statistical-expressions-of-thermodynamic-quantities">
 <a class="header-anchor" href="#statistical-expressions-of-thermodynamic-quantities"></a>
 Statistical Expressions of Thermodynamic Quantities
@@ -4018,7 +4073,8 @@ Boltzmann Relation
 </h2>$$
 S=k\ln \Omega
 $$<blockquote>
-<p>The more microstates a macrostate corresponds to, the greater its disorder and the larger its entropy.</p></blockquote>
+<p>The more microstates a macrostate corresponds to, the greater its disorder and the larger its entropy.</p>
+</blockquote>
 <ul>
 <li>For distinguishable particle systems (localized systems), $\Omega=\Omega_{M.B.}$</li>
 <li>For Bose (Fermi) systems satisfying the classical limit condition, $\Omega=\frac{\Omega_{M.B.}}{N!}$</li>
@@ -4050,6 +4106,7 @@ $$<ol>
 <li>The larger the molecular mass $m$
 The easier it is to satisfy the classical limit conditions.
 Another expression:
+
 $$
 n\lambda^3=e^{-\alpha}\ll 1
 $$</li>
@@ -4059,7 +4116,8 @@ $$</li>
 Maxwell&rsquo;s Velocity Distribution Law
 </h2><p>Under general conditions, <strong>gases satisfy the classical limit condition</strong>.</p>
 <blockquote>
-<p>Based on the <strong>Boltzmann distribution</strong>, the translational motion of the center of mass of gas molecules is studied, and the velocity distribution law of gas molecules is derived.</p></blockquote>
+<p>Based on the <strong>Boltzmann distribution</strong>, the translational motion of the center of mass of gas molecules is studied, and the velocity distribution law of gas molecules is derived.</p>
+</blockquote>
 <h2 id="maxwell-velocity-distribution-law">
 <a class="header-anchor" href="#maxwell-velocity-distribution-law"></a>
 Maxwell Velocity Distribution Law
@@ -4089,7 +4147,8 @@ $$<h2 id="most-probable-speed">
 Most Probable Speed $v_p$
 </h2><blockquote>
 <p>The speed distribution function has a maximum value. The speed at which the speed distribution function reaches its maximum is called the most probable speed.
-If the speed is divided into equal intervals, the interval containing $v_p$ has the highest number of molecules.</p></blockquote>
+If the speed is divided into equal intervals, the interval containing $v_p$ has the highest number of molecules.</p>
+</blockquote>
 $$
 \frac{d}{dv}(e^{-\frac{m}{2kT}v^2}v^2)=0
 $$<p>
@@ -4118,7 +4177,8 @@ Wall Collision Number (Effusion)
 </h2><blockquote>
 <p>The number of molecules colliding with a unit area of the container wall per unit time is called the wall collision number.
 The number of particles escaping per unit time through a unit area hole in the container wall is called effusion.
-Clearly: Wall collision number = Effusion</p></blockquote>
+Clearly: Wall collision number = Effusion</p>
+</blockquote>
 <p>$dA$ is an infinitesimal area element on the container wall, with its normal direction along the $x$-axis. Let $d\varGamma dA dt$ represent the number of molecules that collide with area $dA$ within time $dt$, with velocities in the range $dv_xdv_ydv_z$.
 </p>
 $$
@@ -4146,7 +4206,8 @@ $$<h2 id="equipartition-theorem-classical-statistics">
 <a class="header-anchor" href="#equipartition-theorem-classical-statistics"></a>
 Equipartition Theorem (Classical Statistics)
 </h2><blockquote>
-<p>For a <strong>classical system</strong> in equilibrium at temperature $T$, the <strong>average value</strong> of each independent quadratic term in the particle energy equals $\frac{1}{2}kT$.</p></blockquote>
+<p>For a <strong>classical system</strong> in equilibrium at temperature $T$, the <strong>average value</strong> of each independent quadratic term in the particle energy equals $\frac{1}{2}kT$.</p>
+</blockquote>
 <h2 id="monatomic-ideal-gas">
 <a class="header-anchor" href="#monatomic-ideal-gas"></a>
 Monatomic Ideal Gas
@@ -4182,7 +4243,8 @@ $$<p>
 <a class="header-anchor" href="#diatomic-molecular-gas"></a>
 Diatomic Molecular Gas
 </h2><blockquote>
-<p>The energy of a diatomic molecule has five quadratic terms (momentum in three directions of the molecule, the motion between the two atoms can be reduced to a rotor, two degrees of freedom, i.e., two quadratic terms).</p></blockquote>
+<p>The energy of a diatomic molecule has five quadratic terms (momentum in three directions of the molecule, the motion between the two atoms can be reduced to a rotor, two degrees of freedom, i.e., two quadratic terms).</p>
+</blockquote>
 $$
 \overline{\varepsilon}=\frac{5}{2}kT
 $$<p>
@@ -4207,7 +4269,8 @@ Solids
 </h2><blockquote>
 <p>Atoms in a solid can undergo small vibrations around their equilibrium positions.
 Assuming each atom&rsquo;s vibration is an independent simple harmonic motion,
-the atomic model of a solid simplifies to a <strong>three-dimensional linear oscillator</strong>.</p></blockquote>
+the atomic model of a solid simplifies to a <strong>three-dimensional linear oscillator</strong>.</p>
+</blockquote>
 <p>The energy of an atom in <strong>one degree of freedom</strong> is:
 </p>
 $$
@@ -4250,7 +4313,8 @@ Quantum Statistics of Localized/Nearly Independent Particle Systems Satisfying C
 Diatomic Ideal Gas
 </h2><p>An ideal gas is a ==non-localized system==. Since it satisfies the [[#Classical Limit Condition]], it can be discussed using the Boltzmann distribution.</p>
 <blockquote>
-<p>Under certain approximations, the motion of diatomic molecules can be divided into <strong>translation $t$, vibration $v$, and rotation $r$</strong>.</p></blockquote>
+<p>Under certain approximations, the motion of diatomic molecules can be divided into <strong>translation $t$, vibration $v$, and rotation $r$</strong>.</p>
+</blockquote>
 $$
 \varepsilon=\varepsilon^t+\varepsilon^v+\varepsilon^r
 $$<p>
@@ -4440,12 +4504,14 @@ $$
 C_V=3Nk(\frac{\theta_E}{T})^2\frac{e^{\frac{\theta_E}{T}}}{(e^{\frac{\theta_E}{T}}-1)^2}
 $$<ul>
 <li>When $T \gg \theta_E$, the approximation $e^{\theta_E/T}-1\approx \theta_E/T$ can be made, yielding
+
 $$
     C_V=3Nk
     $$
 which is consistent with the result from the equipartition theorem.
 At this point, the energy level spacing is much smaller than $kT$, and the quantization effect can be ignored.</li>
 <li>When $T \ll \theta_E$, the approximation $e^{\frac{\theta_E}{T}}-1 \approx e^{\frac{\theta_E}{T}}$ holds,
+
 $$
     C_V=3Nk(\frac{\theta_E}{T})^2e^{-\frac{\theta_E}{T}}
     $$
@@ -4542,7 +4608,8 @@ tags:
 <a class="header-anchor" href="#system-properties"></a>
 System Properties
 </h2><blockquote>
-<p>Consider a system composed of $N$ identical, nearly independent bosons, with temperature $T$ and volume $V$. For clarity, assume the particles have zero spin.</p></blockquote>
+<p>Consider a system composed of $N$ identical, nearly independent bosons, with temperature $T$ and volume $V$. For clarity, assume the particles have zero spin.</p>
+</blockquote>
 <p>According to the Bose distribution, the number of particles in each energy level is
 </p>
 $$
@@ -4574,7 +4641,8 @@ $$<p>
 At <strong>absolute zero</strong>, particles will occupy the lowest energy states as much as possible. For <strong>bosons</strong>, the number of particles that can occupy a single quantum state is unrestricted. Therefore, at absolute zero, all bosonic particles will be in the lowest energy level $\varepsilon=0$.</p>
 <p>The above equation shows that:</p>
 <blockquote>
-<p>When $T  \lt  T_C$, a <strong>macroscopic number</strong> of particles condense into the lowest energy level. This phenomenon is called ==Bose-Einstein condensation==.</p></blockquote>
+<p>When $T  \lt  T_C$, a <strong>macroscopic number</strong> of particles condense into the lowest energy level. This phenomenon is called ==Bose-Einstein condensation==.</p>
+</blockquote>
 $$
 U=0.770NkT(\frac{T}{T_C})^{3/2}
 $$<p>
@@ -4599,7 +4667,8 @@ $\lambda$: thermal de Broglie wavelength of atoms</p>
 Photon Gas (Bose Gas)
 </h2><blockquote>
 <p>From the particle perspective, the radiation field inside an empty cavity can be regarded as a <strong>photon gas</strong>.
-The radiation field inside the empty cavity can be decomposed into the superposition of infinitely many <strong>monochromatic plane waves</strong>.</p></blockquote>
+The radiation field inside the empty cavity can be decomposed into the superposition of infinitely many <strong>monochromatic plane waves</strong>.</p>
+</blockquote>
 <p>Based on the [[#de Broglie relations]], and the photon $\omega=ck$, we obtain the ==energy-momentum relation for photons==
 </p>
 $$
@@ -4627,13 +4696,15 @@ we obtain the thermodynamic potential of the photon gas as $\mu=0$.</p>
 Number of Quantum States
 </h2><p>The spin quantum number of a photon is 1, and its spin projection along the momentum direction can take two possible values, $\pm \hbar$, corresponding to left and right circular polarization. Considering that the photon spin has 2 projections, as shown in the [[#Energy Representation]] section of [[#Number of Quantum States for a Three-Dimensional Free Particle]],</p>
 <blockquote>
-<p>Within a cavity of volume $V$, in the momentum range from $p$ to $p+dp$,</p></blockquote>
+<p>Within a cavity of volume $V$, in the momentum range from $p$ to $p+dp$,</p>
+</blockquote>
 <p>the number of quantum states for photons is
 </p>
 $$
 \Omega=\frac{8\pi V}{h^3}p^2dp
 $$<blockquote>
-<p>Within a cavity of volume $V$, in the angular frequency range from $\omega$ to $\omega+d \omega$,</p></blockquote>
+<p>Within a cavity of volume $V$, in the angular frequency range from $\omega$ to $\omega+d \omega$,</p>
+</blockquote>
 <p>the number of quantum states for photons is
 </p>
 $$
@@ -4642,7 +4713,8 @@ $$<h2 id="energy-distribution-function">
 <a class="header-anchor" href="#energy-distribution-function"></a>
 Energy Distribution Function
 </h2><blockquote>
-<p>In a cavity of volume $V$, within the frequency range from $\omega$ to $\omega+d \omega$,</p></blockquote>
+<p>In a cavity of volume $V$, within the frequency range from $\omega$ to $\omega+d \omega$,</p>
+</blockquote>
 <p>The average number of photons
 </p>
 $$
@@ -4674,7 +4746,8 @@ U(\omega,T)d \omega=\frac{V}{\pi^2c^3}\hbar \omega^3e^{-\frac{\hbar \omega}{kT}}
 $$<p>
 This formula matches Wien&rsquo;s Law, providing good agreement at high frequencies but poor agreement at low frequencies.</p>
 <blockquote>
-<p>Inside a cavity of volume $V$</p></blockquote>
+<p>Inside a cavity of volume $V$</p>
+</blockquote>
 <p>The internal energy of equilibrium radiation is
 </p>
 $$
@@ -4724,7 +4797,8 @@ $$<h2 id="free-electron-gas-in-metals-fermi-gas">
 <a class="header-anchor" href="#free-electron-gas-in-metals-fermi-gas"></a>
 Free Electron Gas in Metals (Fermi Gas)
 </h2><blockquote>
-<p>The free electrons in metals form a highly degenerate Fermi gas.</p></blockquote>
+<p>The free electrons in metals form a highly degenerate Fermi gas.</p>
+</blockquote>
 <h2 id="average-electron-number">
 <a class="header-anchor" href="#average-electron-number"></a>
 Average Electron Number
@@ -4735,7 +4809,8 @@ f=\frac{1}{e^{\frac{\varepsilon-\mu}{kT}}+1}
 $$<p>
 The electron spin has 2 possible projections along its momentum direction. Based on the [[#Energy Representation]] in [[#Three-Dimensional Free Particle Quantum State Number]],</p>
 <blockquote>
-<p>Within volume $V$, the number of electron quantum states in the energy range from $\varepsilon$ to $\varepsilon+d \varepsilon$ is:</p></blockquote>
+<p>Within volume $V$, the number of electron quantum states in the energy range from $\varepsilon$ to $\varepsilon+d \varepsilon$ is:</p>
+</blockquote>
 $$
 D(\varepsilon)d\varepsilon=\frac{4\pi V}{h^3}(2m)^{3/2}\varepsilon^{1/2}d\varepsilon
 $$<p>
@@ -4767,7 +4842,8 @@ $$<h2 id="fermi-level">
 <a class="header-anchor" href="#fermi-level"></a>
 Fermi Level
 </h2><blockquote>
-<p>The chemical potential at zero temperature is also known as the Fermi level, $\mu(0)$, which is the chemical potential when $T=0$.</p></blockquote>
+<p>The chemical potential at zero temperature is also known as the Fermi level, $\mu(0)$, which is the chemical potential when $T=0$.</p>
+</blockquote>
 <p>From
 </p>
 $$

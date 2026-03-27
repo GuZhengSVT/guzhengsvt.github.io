@@ -583,7 +583,8 @@ $$<p>code test</p>
 守著前賢幾十幾百年前就探索出來的知識生活在日新月異的新時代？放棄接觸最前沿的學問安於養家糊口？我做不到。
 鄙人不才或許一生在學術上難有建樹，但絕不能捨棄人類開拓創新的勇氣。至少要做個站在最前面的見證者，見證一代代人衝擊物質與精神的桎梏，見證文明走出溫和的搖籃，走向未知的深空。
 我無法割捨獲取新知的快感，
-因為我已經觸碰過天空了。</p></blockquote>
+因為我已經觸碰過天空了。</p>
+</blockquote>
 <p>今日的大話說得夠多了，打心底我也不覺得自己真有改變些什麼的能力，大抵最後碌碌無為成為灌水勉強畢業的學術垃圾。
 但總歸是要試試的，是要去做的，因為山就在那裡。</p>
 <h2 id="關於家庭">
@@ -774,7 +775,8 @@ $$<p>code test</p>
         
           <blockquote>
 <p>「媽媽這個世界真的會有女孩喜歡我嗎？」<br>
-「當然啦第一次見你我也才20多歲。」</p></blockquote>
+「當然啦第一次見你我也才20多歲。」</p>
+</blockquote>
 
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2045946501&auto=0&height=66"></iframe>
 
@@ -782,7 +784,8 @@ $$<p>code test</p>
 <p>中秋節將近，給家人打個電話吧。</p>
 <blockquote>
 <p>人有悲歡離合，月有陰晴圓缺，此事古難全。<br>
-但願人長久，千里共嬋娟。</p></blockquote>
+但願人長久，千里共嬋娟。</p>
+</blockquote>
 <p>但願人長久，但願人長久，但願人長久。</p>
         
         <hr><p>本文2024-09-15首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2024-09-15</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Thoughts</category></item><item><title>機率論與數理統計</title><link>https://guzhengsvt.cn/zh-tw/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><pubDate>Tue, 10 Sep 2024 01:14:05 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid><description>
@@ -805,7 +808,8 @@ $$<p>code test</p>
 第二版前言
 </h3><blockquote>
 <p>Nothing is final!!!
-——錢學森</p></blockquote>
+——錢學森</p>
+</blockquote>
 <p>補充了分佈函數左右連續問題，看來這門課離 final 還有很遠……</p>
 <h2 id="事件運算轉邏輯運算">
 <a class="header-anchor" href="#%e4%ba%8b%e4%bb%b6%e9%81%8b%e7%ae%97%e8%bd%89%e9%82%8f%e8%bc%af%e9%81%8b%e7%ae%97"></a>
@@ -863,7 +867,8 @@ $$<p>
 <a class="header-anchor" href="#%e5%8f%a4%e5%85%b8%e6%a6%82%e5%9e%8b"></a>
 古典概型
 </h2><blockquote>
-<p>各基本事件發生概率相等。</p></blockquote>
+<p>各基本事件發生概率相等。</p>
+</blockquote>
 <p>Eg. 拋硬幣，擲骰子……
 </p>
 $$
@@ -877,7 +882,8 @@ $$<h2 id="伯努利概型二項分佈">
 <a class="header-anchor" href="#%e4%bc%af%e5%8a%aa%e5%88%a9%e6%a6%82%e5%9e%8b%e4%ba%8c%e9%a0%85%e5%88%86%e4%bd%88"></a>
 伯努利概型（二項分佈）
 </h2><blockquote>
-<p>$n$ 次獨立實驗，每次實驗只有 $A,\bar{A}$ 兩種結果。</p></blockquote>
+<p>$n$ 次獨立實驗，每次實驗只有 $A,\bar{A}$ 兩種結果。</p>
+</blockquote>
 <p>$X \sim B(n,p)$
 </p>
 $$

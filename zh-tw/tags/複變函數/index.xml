@@ -175,7 +175,8 @@ $$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
 <a class="header-anchor" href="#%e8%a4%87%e6%95%b8"></a>
 複數
 </h1><ol>
-<li>複數的表達形式：$$z = r\cdot e^{i\theta} = r(cos\theta +i\cdot sin\theta)$$</li>
+<li>複數的表達形式：
+$$z = r\cdot e^{i\theta} = r(cos\theta +i\cdot sin\theta)$$</li>
 <li>幾種初等函數
 <ol>
 <li>指數函數：$e^z = e^x(cosy+isiny)$
@@ -202,10 +203,13 @@ $$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
 <a class="header-anchor" href="#%e8%a7%a3%e6%9e%90%e5%87%bd%e6%95%b8"></a>
 解析函數
 </h1><ol>
-<li>可導的定義：$$\lim_{\Delta z \to 0} \frac{f(z_0+\Delta z)-f(z_0)}{\Delta z} 極限存在，就稱f(z)在z_0可導$$</li>
-<li>解析的定義：$$函數f(z)在z_0及z_0的鄰域內處處可導，就稱f(z)在z_0處解析$$
+<li>可導的定義：
+$$\lim_{\Delta z \to 0} \frac{f(z_0+\Delta z)-f(z_0)}{\Delta z} 極限存在，就稱f(z)在z_0可導$$</li>
+<li>解析的定義：
+$$函數f(z)在z_0及z_0的鄰域內處處可導，就稱f(z)在z_0處解析$$
 推論：解析函數的和、差、積、商也是解析函數，解析函數的複合也是解析函數。</li>
-<li>可導、解析的充要條件：$u(x),v(x)可微$，並且滿足<strong>柯西-黎曼方程</strong>$$\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y} ,\frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x} $$若有一個不滿足，則既不可導也不解析。
+<li>可導、解析的充要條件：$u(x),v(x)可微$，並且滿足<strong>柯西-黎曼方程</strong>
+$$\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y} ,\frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x} $$若有一個不滿足，則既不可導也不解析。
 推論：$f'(z) = \frac{\partial u}{\partial x}+i\frac{\partial v}{\partial x}=\frac{1}{i}\frac{\partial u}{\partial y}+\frac{\partial v}{\partial y}$</li>
 </ol>
 <h1 id="複變函數的積分">
@@ -218,12 +222,16 @@ $$\oint_{|z-z_0|=r}\frac{1}{(z-z_0)^n}dz=\begin{cases}
 \text 0,\quad n\neq 1
 \end{cases} $$<ol>
 <li>柯西-古薩基本定理
-在<strong>解析，單連通</strong>的區域內的任意閉合曲線積分值為0，即$$\oint_{C}^{}f{(z)}dz = 0$$</li>
+在<strong>解析，單連通</strong>的區域內的任意閉合曲線積分值為0，即
+$$\oint_{C}^{}f{(z)}dz = 0$$</li>
 <li>複合閉路定理——柯西積分定理向<strong>多連通</strong>推廣
-C為解析、多連通區域內的簡單閉曲線，$C_1,C_2 \cdots C_n$為C內同向的簡單閉曲線，$$\oint_{C}^{}f{(z)}dz = \sum_{k=1}^{n} \oint_{C_k}f(z)dz $$</li>
+C為解析、多連通區域內的簡單閉曲線，$C_1,C_2 \cdots C_n$為C內同向的簡單閉曲線，
+$$\oint_{C}^{}f{(z)}dz = \sum_{k=1}^{n} \oint_{C_k}f(z)dz $$</li>
 <li>柯西積分公式——將曲線C內部任意一點的值用它邊界的值來表示</li>
-<li>$f(z)$在區域D內解析，C為D內一條正向簡單閉曲線$$2\pi i\cdot f(z_0) = \oint_{c} \frac{f(z)}{z-z_0}dx$$</li>
+<li>$f(z)$在區域D內解析，C為D內一條正向簡單閉曲線
+$$2\pi i\cdot f(z_0) = \oint_{c} \frac{f(z)}{z-z_0}dx$$</li>
 <li>柯西積分公式的高階推廣——用函數的高階導數來求積分
+
 $$f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}dz$$</li>
 </ol>
 <h1 id="級數">
@@ -251,7 +259,8 @@ $$f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}dz$$</li>
 <li>收斂域是圓環域$R_1 \lt |z-z_0| \lt R_2$</li>
 </ol>
 </li>
-<li>洛朗展開:$$f(z) = \sum_{n=-\infty}^{\infty}c_n(z-z_0)^n,c_n=\frac{1}{2\pi i}\cdot \oint_{C}\frac{f(z)}{(z-z_0)^{n+1}}dz$$
+<li>洛朗展開:
+$$f(z) = \sum_{n=-\infty}^{\infty}c_n(z-z_0)^n,c_n=\frac{1}{2\pi i}\cdot \oint_{C}\frac{f(z)}{(z-z_0)^{n+1}}dz$$
 推論：當$n$取$-1$時，$c_{-1}\cdot 2\pi i=\oint_Cf(z)dz$</li>
 <li>求洛朗展開的方法
 <ol>
@@ -287,13 +296,18 @@ $$f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}dz$$</li>
 <a class="header-anchor" href="#%e7%95%99%e6%95%b8-1"></a>
 留數
 </h2><ol>
-<li>定義：$$Res[f(z),z_0]=c_{-1} = \frac{1}{2\pi i}\oint_C f(z)d_z$$</li>
+<li>定義：
+$$Res[f(z),z_0]=c_{-1} = \frac{1}{2\pi i}\oint_C f(z)d_z$$</li>
 <li>留數的計算法則
 <ol>
-<li>如果$z_0為f(z)的一級極點$$$Res[f(z),z_0]=\lim_{z\to z_0}(z-z_0)f(z)$$</li>
-<li>如果$z_0為f(z)的m級極點$$$Res[f(z),z_0]=\frac{1}{(m-1)!}\lim_{z\to z_0}\frac{d^{m-1}}{dz^{m-1}}(z-z_0)^mf(z)$$</li>
-<li>如果$f(z)=\frac{P(z)}{Q(z)},且P(z_0)\ne0,Q(z_0) =0,Q'(z_0)\ne0$$$Res[f(z),z_0]=\frac{P(z_0)}{Q'(z_0)}$$</li>
-<li>$$Res[f(z),\infty]=-Res[f(\frac{1}{z})\cdot\frac{1}{z^2},0]$$</li>
+<li>如果$z_0為f(z)的一級極點$
+$$Res[f(z),z_0]=\lim_{z\to z_0}(z-z_0)f(z)$$</li>
+<li>如果$z_0為f(z)的m級極點$
+$$Res[f(z),z_0]=\frac{1}{(m-1)!}\lim_{z\to z_0}\frac{d^{m-1}}{dz^{m-1}}(z-z_0)^mf(z)$$</li>
+<li>如果$f(z)=\frac{P(z)}{Q(z)},且P(z_0)\ne0,Q(z_0) =0,Q'(z_0)\ne0$
+$$Res[f(z),z_0]=\frac{P(z_0)}{Q'(z_0)}$$</li>
+<li>
+$$Res[f(z),\infty]=-Res[f(\frac{1}{z})\cdot\frac{1}{z^2},0]$$</li>
 </ol>
 </li>
 </ol>

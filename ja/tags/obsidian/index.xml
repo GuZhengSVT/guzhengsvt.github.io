@@ -80,11 +80,13 @@ obsidian help
 <a class="header-anchor" href="#%e7%94%bb%e5%83%8f"></a>
 画像
 </h1><ul>
-<li>$$![Engelbart](画像URL)$$</li>
+<li>
+$$![Engelbart](画像URL)$$</li>
 <li>![[Pasted image 20230625203344.png]]</li>
 <li>幅の調整
 <ul>
-<li>$$![Engelbart|100](画像リンク)$$</li>
+<li>
+$$![Engelbart|100](画像リンク)$$</li>
 <li>![[Pasted image 20230625203536.png]]</li>
 </ul>
 </li>
@@ -123,6 +125,7 @@ $$[注釈付きノート名、任意の識別子](obsidian://open?path=ノート
 pathにはファイルの絶対パスを指定</p>
 <ul>
 <li><em>特定のライブラリを開く、具体的なファイルを開かずフォルダのみ表示</em>
+
 $$[name](obsidian://open?vault=ライブラリフォルダ名/ライブラリID)$$
 <a href="#ZgotmplZ">笔记フォルダを開く</a></li>
 <li><em>Mathフォルダ内の高等数学を開く、<strong>.md</strong>拡張子は省略可能</em>
@@ -152,7 +155,8 @@ $$\ 引用元$$<p>
 </ul>
 <blockquote>
 <p>時間は一方通行の旅、良いも悪いも全て風景。
-\ ——『歳月神偷』金玟岐</p></blockquote>
+\ ——『歳月神偷』金玟岐</p>
+</blockquote>
 <ul>
 <li>
 <p>インラインコード
@@ -164,7 +168,7 @@ $$\ 引用元$$<p>
 </li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include&lt;stdc++.h&gt;
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="n">b</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">b</span><span class="o">++</span><span class="p">){</span>

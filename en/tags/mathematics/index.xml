@@ -18,7 +18,8 @@ I&rsquo;ll continue organizing Electrodynamics and Digital Signal Processing dur
 Second Edition Preface
 </h3><blockquote>
 <p>Nothing is final!!!
-——Qian Xuesen</p></blockquote>
+——Qian Xuesen</p>
+</blockquote>
 <p>Added content on the left/right continuity of distribution functions. It seems this course is far from final&hellip;</p>
 <h2 id="event-operations-to-logical-operations">
 <a class="header-anchor" href="#event-operations-to-logical-operations"></a>
@@ -76,7 +77,8 @@ Independence implies mutual independence.</p>
 <a class="header-anchor" href="#classical-probability-model"></a>
 Classical Probability Model
 </h2><blockquote>
-<p>All elementary events have equal probability.</p></blockquote>
+<p>All elementary events have equal probability.</p>
+</blockquote>
 <p>Eg. Coin toss, dice roll&hellip;
 </p>
 $$
@@ -90,7 +92,8 @@ $$<h2 id="bernoulli-trials-binomial-distribution">
 <a class="header-anchor" href="#bernoulli-trials-binomial-distribution"></a>
 Bernoulli Trials (Binomial Distribution)
 </h2><blockquote>
-<p>$n$ independent trials, each with only two outcomes: $A$ or $\bar{A}$.</p></blockquote>
+<p>$n$ independent trials, each with only two outcomes: $A$ or $\bar{A}$.</p>
+</blockquote>
 <p>$X \sim B(n,p)$
 </p>
 $$
@@ -1051,7 +1054,8 @@ $$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
 <a class="header-anchor" href="#complex-numbers"></a>
 Complex Numbers
 </h1><ol>
-<li>Representation of complex numbers: $$z = r\cdot e^{i\theta} = r(\cos\theta +i\cdot \sin\theta)$$</li>
+<li>Representation of complex numbers:
+$$z = r\cdot e^{i\theta} = r(\cos\theta +i\cdot \sin\theta)$$</li>
 <li>Elementary functions
 <ol>
 <li>Exponential function: $e^z = e^x(\cos y + i \sin y)$
@@ -1079,15 +1083,19 @@ Complex Numbers
 Analytic Functions
 </h1><ol>
 <li>Definition of differentiability:<br>
+
 $$\lim_{\Delta z \to 0} \frac{f(z_0 + \Delta z) - f(z_0)}{\Delta z} \text{ exists, then } f(z) \text{ is differentiable at } z_0.$$</li>
 <li>Definition of analyticity:<br>
+
 $$f(z) \text{ is analytic at } z_0 \text{ if it is differentiable at } z_0 \text{ and in some neighborhood of } z_0.$$<br>
 Corollary: The sum, difference, product, and quotient of analytic functions are also analytic. The composition of analytic functions is analytic.</li>
 <li>Necessary and sufficient conditions for differentiability and analyticity:<br>
 $u(x, y)$ and $v(x, y)$ are differentiable and satisfy the <strong>Cauchy-Riemann equations</strong>:<br>
+
 $$\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}.$$<br>
 If either condition fails, the function is neither differentiable nor analytic.<br>
 Corollary:<br>
+
 $$f'(z) = \frac{\partial u}{\partial x} + i \frac{\partial v}{\partial x} = \frac{1}{i} \frac{\partial u}{\partial y} + \frac{\partial v}{\partial y}.$$</li>
 </ol>
 <h1 id="complex-integration">
@@ -1101,14 +1109,18 @@ $$\oint_{|z - z_0| = r} \frac{1}{(z - z_0)^n} dz = \begin{cases}
 \end{cases}$$<ol>
 <li>Cauchy-Goursat Theorem<br>
 For a <strong>simply connected, analytic</strong> region, the integral over any closed contour is zero:<br>
+
 $$\oint_C f(z) dz = 0.$$</li>
 <li>Composite Contour Theorem—Extension to <strong>multiply connected</strong> regions<br>
 Let $C$ be a simple closed curve in an analytic, multiply connected region, and $C_1, C_2, \dots, C_n$ be simple closed curves inside $C$ with the same orientation. Then:<br>
+
 $$\oint_C f(z) dz = \sum_{k=1}^n \oint_{C_k} f(z) dz.$$</li>
 <li>Cauchy Integral Formula—Expressing the value of a function inside a contour in terms of its boundary values<br>
 If $f(z)$ is analytic in a region $D$ and $C$ is a positively oriented simple closed curve in $D$:<br>
+
 $$2\pi i \cdot f(z_0) = \oint_C \frac{f(z)}{z - z_0} dz.$$</li>
 <li>Generalized Cauchy Integral Formula—Using higher-order derivatives to compute integrals<br>
+
 $$f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} dz.$$</li>
 </ol>
 <h1 id="series">
@@ -1125,6 +1137,7 @@ Power Series
 </ol>
 </li>
 <li>Taylor expansion:<br>
+
 $$f(z) = \sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!} z^n.$$</li>
 <li>Methods for finding Taylor expansions [[Advanced Mathematics#Expansion of Functions into Power Series]]</li>
 </ol>
@@ -1138,6 +1151,7 @@ Laurent Series
 </ol>
 </li>
 <li>Laurent expansion:<br>
+
 $$f(z) = \sum_{n=-\infty}^\infty c_n (z - z_0)^n, \quad c_n = \frac{1}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} dz.$$<br>
 Corollary: When $n = -1$, $c_{-1} \cdot 2\pi i = \oint_C f(z) dz$.</li>
 <li>Methods for finding Laurent expansions
@@ -1175,14 +1189,18 @@ Necessary and sufficient condition: $f^{(n)}(z_0) = 0$ for $n  \lt  m$, and $f^{
 Residues
 </h2><ol>
 <li>Definition:<br>
+
 $$\text{Res}[f(z), z_0] = c_{-1} = \frac{1}{2\pi i} \oint_C f(z) dz.$$</li>
 <li>Rules for computing residues
 <ol>
 <li>If $z_0$ is a simple pole of $f(z)$:<br>
+
 $$\text{Res}[f(z), z_0] = \lim_{z \to z_0} (z - z_0) f(z).$$</li>
 <li>If $z_0$ is an $m$-th order pole of $f(z)$:<br>
+
 $$\text{Res}[f(z), z_0] = \frac{1}{(m-1)!} \lim_{z \to z_0} \frac{d^{m-1}}{dz^{m-1}} \left( (z - z_0)^m f(z) \right).$$</li>
 <li>If $f(z) = \frac{P(z)}{Q(z)}$, where $P(z_0) \neq 0$, $Q(z_0) = 0$, and $Q'(z_0) \neq 0$:<br>
+
 $$\text{Res}[f(z), z_0] = \frac{P(z_0)}{Q'(z_0)}.$$</li>
 <li></li>
 </ol>

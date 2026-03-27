@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>概率论与数理统计 on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-cn/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-cn</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Tue, 10 Sep 2024 01:14:05 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-cn/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/index.xml" rel="self" type="application/rss+xml"/><item><title>概率论与数理统计</title><link>https://guzhengsvt.cn/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><pubDate>Tue, 10 Sep 2024 01:14:05 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>概率论与数理统计 on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-cn/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Tue, 10 Sep 2024 01:14:05 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-cn/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/index.xml" rel="self" type="application/rss+xml"/><item><title>概率论与数理统计</title><link>https://guzhengsvt.cn/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><pubDate>Tue, 10 Sep 2024 01:14:05 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-cn/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid><description>
 <![CDATA[<h1>概率论与数理统计</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h2 id="前言">
@@ -18,7 +18,8 @@
 第二版前言
 </h3><blockquote>
 <p>Nothing is final!!!
-——钱学森</p></blockquote>
+——钱学森</p>
+</blockquote>
 <p>补充了分布函数左右连续问题，看来这门课离 final 还有很远……</p>
 <h2 id="事件运算转逻辑运算">
 <a class="header-anchor" href="#%e4%ba%8b%e4%bb%b6%e8%bf%90%e7%ae%97%e8%bd%ac%e9%80%bb%e8%be%91%e8%bf%90%e7%ae%97"></a>
@@ -76,7 +77,8 @@ $$<p>
 <a class="header-anchor" href="#%e5%8f%a4%e5%85%b8%e6%a6%82%e5%9e%8b"></a>
 古典概型
 </h2><blockquote>
-<p>各基本事件发生概率相等。</p></blockquote>
+<p>各基本事件发生概率相等。</p>
+</blockquote>
 <p>Eg. 抛硬币，掷骰子……
 </p>
 $$
@@ -90,7 +92,8 @@ $$<h2 id="伯努利概型二项分布">
 <a class="header-anchor" href="#%e4%bc%af%e5%8a%aa%e5%88%a9%e6%a6%82%e5%9e%8b%e4%ba%8c%e9%a1%b9%e5%88%86%e5%b8%83"></a>
 伯努利概型（二项分布）
 </h2><blockquote>
-<p>$n$ 次独立实验，每次实验只有 $A,\bar{A}$ 两种结果。</p></blockquote>
+<p>$n$ 次独立实验，每次实验只有 $A,\bar{A}$ 两种结果。</p>
+</blockquote>
 <p>$X \sim B(n,p)$
 </p>
 $$

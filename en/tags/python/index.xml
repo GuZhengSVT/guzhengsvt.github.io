@@ -823,32 +823,47 @@ Numeric Functions
 <a class="header-anchor" href="#type-conversion-functions"></a>
 Type Conversion Functions
 </h2><ol>
-<li>$$int(x [, base])$$<br>
+<li>
+$$int(x [, base])$$<br>
 <code>x</code> is the original object, <code>base</code> is optional (default 10 for decimal).</li>
-<li>$$float(x)$$</li>
-<li>$$complex(real[, imag])$$<br>
+<li>
+$$float(x)$$</li>
+<li>
+$$complex(real[, imag])$$<br>
 <code>real</code> is the real part, <code>imag</code> is the optional imaginary part.</li>
-<li>$$str(x)$$</li>
-<li>$$repr(x)$$<br>
+<li>
+$$str(x)$$</li>
+<li>
+$$repr(x)$$<br>
 Converts <code>x</code> to an expression string (readable by the Python interpreter).</li>
-<li>$$chr(x)$$<br>
+<li>
+$$chr(x)$$<br>
 Converts an integer to a character.</li>
-<li>$$ord(x)$$<br>
+<li>
+$$ord(x)$$<br>
 Converts a character to its integer value.</li>
-<li>$$hex(x)$$<br>
+<li>
+$$hex(x)$$<br>
 Converts an integer to a hexadecimal string.</li>
-<li>$$oct(x)$$<br>
+<li>
+$$oct(x)$$<br>
 Converts an integer to an octal string.</li>
-<li>$$eval(str)$$<br>
+<li>
+$$eval(str)$$<br>
 Evaluates a string as a Python expression and returns an object.</li>
-<li>$$tuple(s)$$<br>
+<li>
+$$tuple(s)$$<br>
 Converts sequence <code>s</code> to a tuple.</li>
-<li>$$list(s)$$</li>
-<li>$$set(s)$$<br>
+<li>
+$$list(s)$$</li>
+<li>
+$$set(s)$$<br>
 Converts sequence <code>s</code> to a mutable set.</li>
-<li>$$frozenset(s)$$<br>
+<li>
+$$frozenset(s)$$<br>
 Converts sequence <code>s</code> to an immutable set.</li>
-<li>$$dict(d)$$<br>
+<li>
+$$dict(d)$$<br>
 Converts a sequence <code>d</code> of (key, value) tuples to a dictionary.</li>
 </ol>
 <h3 id="high-and-low-data-types">
@@ -992,9 +1007,9 @@ Python supports various operators for performing operations on data:
 2. **Comparison Operators**
 - `==` (Equal)
 - `!=` (Not Equal)
-- `>` (Greater Than)
+- `&gt;` (Greater Than)
 - `&lt;` (Less Than)
-- `>=` (Greater Than or Equal)
+- `&gt;=` (Greater Than or Equal)
 - `&lt;=` (Less Than or Equal)
 3. **Logical Operators**
 - `and` (Logical AND)
@@ -1009,7 +1024,7 @@ Python supports various operators for performing operations on data:
 - `^` (XOR)
 - `~` (NOT)
 - `&lt;&lt;` (Left Shift)
-- `>>` (Right Shift)
+- `&gt;&gt;` (Right Shift)
 6. **Membership Operators**
 - `in` (Checks if a value exists in a sequence)
 - `not in` (Checks if a value does not exist in a sequence)
@@ -1216,7 +1231,8 @@ Assignment Methods
 <a class="header-anchor" href="#variables-and-objects"></a>
 Variables and Objects
 </h2><blockquote>
-<p>In Python, everything is an object: numbers, lists, functions—everything. Variables are references (or labels/names) to objects, and all operations on objects are performed through these references.</p></blockquote>
+<p>In Python, everything is an object: numbers, lists, functions—everything. Variables are references (or labels/names) to objects, and all operations on objects are performed through these references.</p>
+</blockquote>
 <p>For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>  
 </span></span></code></pre></div><ul>

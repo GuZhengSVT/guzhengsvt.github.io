@@ -877,11 +877,13 @@ obsidian help
 <a class="header-anchor" href="#%e5%9c%96%e7%89%87"></a>
 圖片
 </h1><ul>
-<li>$$![Engelbart](圖片網址)$$</li>
+<li>
+$$![Engelbart](圖片網址)$$</li>
 <li>![[Pasted image 20230625203344.png]]</li>
 <li>調整寬度
 <ul>
-<li>$$![Engelbart|100](圖片連結)$$</li>
+<li>
+$$![Engelbart|100](圖片連結)$$</li>
 <li>![[Pasted image 20230625203536.png]]</li>
 </ul>
 </li>
@@ -920,6 +922,7 @@ $$[標註的筆記名，想給的代號](obsidian://open?path=筆記絕對路徑
 其中，path接檔案絕對路徑</p>
 <ul>
 <li><em>打開某庫，不打開具體檔案只打開資料夾不顯示效果</em>
+
 $$[name](obsidian://open?vault=庫資料夾名稱/庫ID)$$
 <a href="#ZgotmplZ">打開筆記資料夾</a></li>
 <li><em>打開Math資料夾下的高數，<strong>.md</strong>副檔名可不寫</em>
@@ -949,7 +952,8 @@ eg</p>
 </ul>
 <blockquote>
 <p>時間是一場有去無回的旅行，好的壞的都是風景。
-\ ——《歲月神偷》金玟岐</p></blockquote>
+\ ——《歲月神偷》金玟岐</p>
+</blockquote>
 <ul>
 <li>
 <p>行內程式碼
@@ -961,7 +965,7 @@ eg</p>
 </li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include&lt;stdc++.h&gt;
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="n">b</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">b</span><span class="o">++</span><span class="p">){</span>

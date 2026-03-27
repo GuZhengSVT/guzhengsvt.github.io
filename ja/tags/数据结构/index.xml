@@ -14,34 +14,34 @@ b. アルゴリズム設計
 </h2><p>私たちのアルゴリズムはまず二分木を作成し、その後それをスレッド化します。スレッド化のプロセスは再帰関数によって実装され、この関数は各ノードを走査し、その左右の子ノードが存在するかどうかをチェックします。存在しない場合、その左/右ポインタを前/次のノードに指向させます。最後に、スレッド化が成功したかどうかを確認するため、中間順走査を行います。</p>
 <p>以下はスレッド化のコードスニペットです：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// スレッドを作成する関数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">createThread</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">createThread</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// ノードが空の場合、直接戻る
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="n">createThread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span> <span class="c1">// 左部分木を再帰的に処理
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 左子ノードが空の場合、左ポインタを前のノードに指向させ、左スレッドフラグを1に設定
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 左子ノードが空の場合、左ポインタを前のノードに指向させ、左スレッドフラグを1に設定
+</span></span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">-&gt;</span><span class="n">ltag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">pre</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">pre</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 前のノードの右子ノードが空の場合、その右ポインタを現在のノードに指向させ、右スレッドフラグを1に設定
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">rtag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="n">pre</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span> <span class="c1">// 前のノードを更新
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">createThread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span> <span class="c1">// 右部分木を再帰的に処理
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></span><span class="line"><span class="cl">    <span class="n">createThread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span> <span class="c1">// 右部分木を再帰的に処理
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="c-データ構造設計">
 <a class="header-anchor" href="#c-%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88"></a>
 c. データ構造設計
 </h2><p>二分木のノードを表現するために、構造体を使用します。この構造体には、データフィールドと2つのポインタフィールドが含まれており、それぞれ左子ノードと右子ノードを指します。さらに、左右のポインタがスレッド化されているかどうかを示す2つのマークフィールドを追加しました。</p>
 <p>以下はデータ構造のコードスニペットです：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 二分木ノードの構造体を定義
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span> <span class="c1">// ノードのデータ
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Node</span><span class="o">*</span> <span class="n">left</span><span class="p">;</span> <span class="c1">// 左子ノード
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Node</span><span class="o">*</span> <span class="n">right</span><span class="p">;</span> <span class="c1">// 右子ノード
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">ltag</span><span class="p">,</span> <span class="n">rtag</span><span class="p">;</span> <span class="c1">// 左右スレッドマーク
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></span><span class="line"><span class="cl">    <span class="n">Node</span><span class="o">*</span> <span class="n">left</span><span class="p">;</span> <span class="c1">// 左子ノード
+</span></span></span><span class="line"><span class="cl">    <span class="n">Node</span><span class="o">*</span> <span class="n">right</span><span class="p">;</span> <span class="c1">// 右子ノード
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">ltag</span><span class="p">,</span> <span class="n">rtag</span><span class="p">;</span> <span class="c1">// 左右スレッドマーク
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></div><h2 id="d-デバッグプロセス">
 <a class="header-anchor" href="#d-%e3%83%87%e3%83%90%e3%83%83%e3%82%b0%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9"></a>
 d. デバッグプロセス
@@ -49,16 +49,16 @@ d. デバッグプロセス
 <p>以下はデバッグプロセスのコードスニペットです：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// 二分木を作成
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Node</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">,</span> <span class="n">n3</span><span class="p">,</span> <span class="n">n4</span><span class="p">,</span> <span class="n">n5</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">    <span class="n">Node</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">,</span> <span class="n">n3</span><span class="p">,</span> <span class="n">n4</span><span class="p">,</span> <span class="n">n5</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">n1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
 </span></span><span class="line"><span class="cl">    <span class="n">n2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n4</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
 </span></span><span class="line"><span class="cl">    <span class="n">n3</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
 </span></span><span class="line"><span class="cl">    <span class="n">n4</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
 </span></span><span class="line"><span class="cl">    <span class="n">n5</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// 二分木をスレッド化
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">createThread</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n1</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">    <span class="n">createThread</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n1</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// スレッド化された二分木を中順走査
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">inOrder</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n1</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">    <span class="n">inOrder</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n1</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="e-出力結果">
@@ -69,64 +69,64 @@ e. 出力結果
 <a class="header-anchor" href="#f-%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89"></a>
 f. ソースコード
 </h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// 二分木ノードの構造体を定義
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span> <span class="c1">// ノードのデータ
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Node</span><span class="o">*</span> <span class="n">left</span><span class="p">;</span> <span class="c1">// 左子ノード
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Node</span><span class="o">*</span> <span class="n">right</span><span class="p">;</span> <span class="c1">// 右子ノード
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">ltag</span><span class="p">,</span> <span class="n">rtag</span><span class="p">;</span> <span class="c1">// 左右のスレッドマーク
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></span><span class="line"><span class="cl">    <span class="n">Node</span><span class="o">*</span> <span class="n">left</span><span class="p">;</span> <span class="c1">// 左子ノード
+</span></span></span><span class="line"><span class="cl">    <span class="n">Node</span><span class="o">*</span> <span class="n">right</span><span class="p">;</span> <span class="c1">// 右子ノード
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">ltag</span><span class="p">,</span> <span class="n">rtag</span><span class="p">;</span> <span class="c1">// 左右のスレッドマーク
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// 前のノードを保存するためのグローバル変数preを定義
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Node</span><span class="o">*</span> <span class="n">pre</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="n">Node</span><span class="o">*</span> <span class="n">pre</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// スレッドを作成する関数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">createThread</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">createThread</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// ノードが空の場合、直接戻る
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="n">createThread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span> <span class="c1">// 左部分木を再帰的に処理
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 左子ノードが空の場合、左ポインタを前のノードに指向し、左スレッドマークを1に設定
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 左子ノードが空の場合、左ポインタを前のノードに指向し、左スレッドマークを1に設定
+</span></span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">-&gt;</span><span class="n">ltag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">pre</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">pre</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 前のノードの右子ノードが空の場合、その右ポインタを現在のノードに指向し、右スレッドマークを1に設定
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">rtag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="n">pre</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span> <span class="c1">// 前のノードを更新
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">createThread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span> <span class="c1">// 右部分木を再帰的に処理
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></span><span class="line"><span class="cl">    <span class="n">createThread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span> <span class="c1">// 右部分木を再帰的に処理
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// スレッド二分木を中順走査する関数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">inOrder</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">inOrder</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">ltag</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 最も左のノードを見つける
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">            <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span> <span class="c1">// ノードデータを出力
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">while</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">rtag</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 右ポインタがスレッドの場合、直接後続ノードにジャンプ
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">rtag</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 右ポインタがスレッドの場合、直接後続ノードにジャンプ
+</span></span></span><span class="line"><span class="cl">            <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span> <span class="c1">// 右部分木を処理
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// 二分木を作成
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Node</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">,</span> <span class="n">n3</span><span class="p">,</span> <span class="n">n4</span><span class="p">,</span> <span class="n">n5</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">    <span class="n">Node</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">,</span> <span class="n">n3</span><span class="p">,</span> <span class="n">n4</span><span class="p">,</span> <span class="n">n5</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">n1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
 </span></span><span class="line"><span class="cl">    <span class="n">n2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n4</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
 </span></span><span class="line"><span class="cl">    <span class="n">n3</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
 </span></span><span class="line"><span class="cl">    <span class="n">n4</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
 </span></span><span class="line"><span class="cl">    <span class="n">n5</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// 二分木をスレッド化
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">createThread</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n1</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">    <span class="n">createThread</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n1</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// スレッド二分木を中順走査
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">inOrder</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n1</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">    <span class="n">inOrder</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n1</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h1 id="グラフの隣接行列と隣接リストの記憶">
@@ -196,7 +196,7 @@ f. ソースコード
 隣接行列による格納
 </h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;
 </span></span></span><span class="line"><span class="cl"><span class="cp">#define MAX 20
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">adj</span><span class="p">[</span><span class="n">MAX</span><span class="p">][</span><span class="n">MAX</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
@@ -228,7 +228,7 @@ f. ソースコード
 隣接リストによる格納
 </h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include&lt;list&gt;
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Graph</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">V</span><span class="p">;</span>

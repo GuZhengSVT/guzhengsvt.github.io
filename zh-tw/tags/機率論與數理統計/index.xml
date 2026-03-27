@@ -18,7 +18,8 @@
 第二版前言
 </h3><blockquote>
 <p>Nothing is final!!!
-——錢學森</p></blockquote>
+——錢學森</p>
+</blockquote>
 <p>補充了分佈函數左右連續問題，看來這門課離 final 還有很遠……</p>
 <h2 id="事件運算轉邏輯運算">
 <a class="header-anchor" href="#%e4%ba%8b%e4%bb%b6%e9%81%8b%e7%ae%97%e8%bd%89%e9%82%8f%e8%bc%af%e9%81%8b%e7%ae%97"></a>
@@ -76,7 +77,8 @@ $$<p>
 <a class="header-anchor" href="#%e5%8f%a4%e5%85%b8%e6%a6%82%e5%9e%8b"></a>
 古典概型
 </h2><blockquote>
-<p>各基本事件發生概率相等。</p></blockquote>
+<p>各基本事件發生概率相等。</p>
+</blockquote>
 <p>Eg. 拋硬幣，擲骰子……
 </p>
 $$
@@ -90,7 +92,8 @@ $$<h2 id="伯努利概型二項分佈">
 <a class="header-anchor" href="#%e4%bc%af%e5%8a%aa%e5%88%a9%e6%a6%82%e5%9e%8b%e4%ba%8c%e9%a0%85%e5%88%86%e4%bd%88"></a>
 伯努利概型（二項分佈）
 </h2><blockquote>
-<p>$n$ 次獨立實驗，每次實驗只有 $A,\bar{A}$ 兩種結果。</p></blockquote>
+<p>$n$ 次獨立實驗，每次實驗只有 $A,\bar{A}$ 兩種結果。</p>
+</blockquote>
 <p>$X \sim B(n,p)$
 </p>
 $$
