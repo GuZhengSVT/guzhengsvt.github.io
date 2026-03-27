@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>業餘無線電 on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-tw/tags/%E6%A5%AD%E9%A4%98%E7%84%A1%E7%B7%9A%E9%9B%BB/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-tw</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</copyright><lastBuildDate>Tue, 11 Nov 2025 18:44:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-tw/tags/%E6%A5%AD%E9%A4%98%E7%84%A1%E7%B7%9A%E9%9B%BB/index.xml" rel="self" type="application/rss+xml"/><item><title>從零入門業餘無線電之路</title><link>https://guzhengsvt.cn/zh-tw/post/othernotes/the-path-to-amateur-radio-from-scratch/</link><pubDate>Tue, 03 Jun 2025 20:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/othernotes/the-path-to-amateur-radio-from-scratch/</guid><description>
+<![CDATA[<h1>從零入門業餘無線電之路</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <h2 id="取得-a-類操作證">
+<a class="header-anchor" href="#%e5%8f%96%e5%be%97-a-%e9%a1%9e%e6%93%8d%e4%bd%9c%e8%ad%89"></a>
+取得 A 類操作證
+</h2><p>去年（2024）我在西安考到了 A 證，買了泉盛 UV-K6 手台，第一次正式收到業餘無線電通話是在西電海八宿舍陽台的 $483.100 \text{MHz}$。由於當時還沒有呼號，發射屬於非法，所以既沒有聊天，也沒有留下通聯記錄。</p>
+<p>A 證考試本身並不難，最難的是搶到考試名額。西安這邊最近大概半年才有一次 A 證考試，每次一開放預約基本就是手慢無，而且報名系統還老出問題。真有心想考的話，建議先關注戶籍地或常住地的無線電學會，找那種辦考頻率高、名額多、辦證也快的地方去預約。</p>
+<p>如果只是想快速拿下 A 證，其實提前留個三天左右刷題就很穩了，實際上一天都夠。可以用智譜 app、HAM 小程式之類的平台刷題或模擬考，建議先過一遍這篇 2018 年的<a href="https://www.jimmytian.com/archives/crac-aro-licence-a-review-guide.html">博文</a>。</p>
+<p><strong>==Waring==</strong>：2025 年題庫已經換新，上面提到的那篇博文可能不再完全適用。不過拿來先熟悉題型還是有幫助的。</p>
+<h2 id="取得呼號和電台執照">
+<a class="header-anchor" href="#%e5%8f%96%e5%be%97%e5%91%bc%e8%99%9f%e5%92%8c%e9%9b%bb%e5%8f%b0%e5%9f%b7%e7%85%a7"></a>
+取得呼號和電台執照
+</h2><p>考到操作證之後，就可以購買或自製設備，申請設台並取得呼號了。剛入門時我選了圈內很熱門的 5 W 手台泉盛 UV-K6，全新大概一百多塊，對入門來說應該夠用。等考到 B 證之後，再去買更好的設備和天線玩短波。</p>
+<p>西安這地方，行政效率是真的慢。我三月初去學會申請設台，直到五月底才收到電台執照，前後差不多拖了三個月。<br>
+看執照上的蓋章日期，其實 5 月 8 日就已經批下來了，不知道為什麼能拖這麼久，硬是要一個月才發一批。</p>
+<p>有了呼號，就能合法 RTT；有了電台執照，就能用自己報備過的設備在合法頻段內收發。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E7%94%B5%E5%8F%B0%E6%89%A7%E7%85%A7-%E6%AD%A3%E9%9D%A2.jpeg" alt="電台執照-正面.jpeg"></p>
+<h2 id="關於-qsl-卡片和呼號章設計">
+<a class="header-anchor" href="#%e9%97%9c%e6%96%bc-qsl-%e5%8d%a1%e7%89%87%e5%92%8c%e5%91%bc%e8%99%9f%e7%ab%a0%e8%a8%ad%e8%a8%88"></a>
+關於 QSL 卡片和呼號章設計
+</h2><p>嚴格來說，QSL 卡片和呼號章屬於業餘無線電文化的一部分，並不是必需品。不過既然入了這個圈子，做一張有意義或好看的 QSL 卡片、做一枚呼號章，對自己和對方來說都更方便留下通聯紀錄與紀念。</p>
+<p>這兩樣東西的設計，自然也有一些約定俗成的「行業規範」。</p>
+<h3 id="qsl-卡片">
+<a class="header-anchor" href="#qsl-%e5%8d%a1%e7%89%87"></a>
+QSL 卡片
+</h3><p>QSL 卡片為了方便郵寄，通常做成明信片大小，也就是 $14 \text{cm} \times 9 \text{cm}$。實際印刷時還要裁切，所以需要預留一些出血。比如 BG9GXM 的淘寶店就建議我把畫布設成 $14.4\text{cm} \times 9.4\text{cm}$，四周再留 $3 \text{mm}$ 的裁切線，內容部分（背景圖除外）都要放在裁切線裡面。</p>
+<p>我用的是免費開源繪圖軟體 Krita，多數人大概還是會用 Photoshop。輸出成 psd 檔也方便店家協助修改。</p>
+<p>QSL 卡片可以是單面、雙面，甚至折疊式，只要必要資訊寫完整就行。可以先參考 HamCQ 社群的 <a href="https://forum.hamcq.cn/qslCardShow">QSL卡片展</a> ，以及下面幾篇文章：</p>
+<ul>
+<li><a href="https://forum.hamcq.cn/d/1882">设计自己的 QSL 卡片 —— 来自广告从业者的分享 - HamCQ 社区</a></li>
+<li><a href="https://www.hellocq.net/forum/read.php?tid=207871">哈罗CQ火腿社区 - QSL卡展板 - QSL卡片制作【新手必看Q&amp;A】</a></li>
+<li><a href="https://forum.hamcq.cn/d/418">分享一版自己设计的 QSL 卡片背面模板 - HamCQ 社区</a></li>
+</ul>
+<p>或者直接去問淘寶店 BG9GXM 的久美印業。我第一次就是在這家印卡，印刷品質不錯，溝通也很耐心。</p>
+<p>下面是我設計的第一款 QSL 卡片：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/QSL-%E6%A0%87-1.jpeg" alt="QSL-标-1.jpeg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/QSL-%E6%A0%87-2.jpeg" alt="QSL-标-2.jpeg"></p>
+<p>問題：</p>
+<ol>
+<li>正面 BA 式呼號 Logo 縮得太小，黑色部分得仔細看才看得清，之後應該注意擺放位置，最好和背景形成反差。</li>
+<li>窗戶上的文字原本想做成 Noa 手寫在玻璃上的效果，但字體不夠像手寫體，Krita 裡也沒找到更合適的，下次得改。</li>
+<li>背面一加背景之後，印卡就只能選雙面銅版紙或高價藝術紙。銅版紙吸油不吸墨，一般中性筆很難寫。實際測試下來，原子筆效果倒是不錯，寫完馬上擦也不太會糊。</li>
+<li>背面背景的不透明度設成 80% 還是太高，下次應該試試 60%。實際印出來後，黑色小字不太好讀。</li>
+<li>“To Radio:” 後面預留的書寫高度不夠，和上面的白邊、下面的表格距離都太近。</li>
+<li>$300 \text{g}$ 名片用銅版紙還是太軟，應該換硬一點的卡紙。</li>
+</ol>
+<h3 id="呼號章與眼球章">
+<a class="header-anchor" href="#%e5%91%bc%e8%99%9f%e7%ab%a0%e8%88%87%e7%9c%bc%e7%90%83%e7%ab%a0"></a>
+呼號章與眼球章
+</h3><p>一般訂製印章店做的章直徑大概在 $40 \text{mm}$ 左右。若要自己設計，就直接開一個 $40\text{mm} \times 40\text{mm}$ 的畫布，剩下的內容可以參考現成的各類呼號章樣式。當然，做呼號章也不一定非得用 PS 類軟體，做向量圖可能還有更順手的工具。<a href="https://forum.hamcq.cn/d/5865">使用 Visio 制作呼号章的手把手教学 - HamCQ 社区</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E5%91%BC%E5%8F%B7%E7%AB%A0.png" alt="呼号章.png"></p>
+<p>上面這枚就是我自己設計的呼號章，裡面加了這些元素：</p>
+<ol>
+<li>外圈齒輪裝飾，代表工人，也帶一點工科意味。</li>
+<li>中英文的「中國業餘無線電台」、呼號，以及英文字樣 &ldquo;Shaan Xi&rdquo; 標註陝西省。</li>
+<li>五角星裝飾。</li>
+<li>電台本體與螢幕上的電波、北斗衛星（打衛星玩法）、代表火箭與飛機等飛行器的箭頭（航空頻段）、地面信號站（架天線）、信號圖標（空間電波）。</li>
+</ol>
+<p>我自己平常比較關注航太，所以對這個箭頭元素特別有感情。我們學院以及學院科協的徽標裡也都用了箭頭。其實原本還想再加幾顆星星表示星空，但轉念一想，如果以後我真的也走上打飛機，也就是收聽機場塔台和航空波段的路子，單純用航天火箭式的箭頭又顯得太窄了。<br>
+所以最後還是選了更通用的表達方式：這個箭頭既可以理解成航天火箭，也可以理解成航空飛機，角度介於垂直升空和平飛之間。</p>
+<p>比起 QSL 卡片，呼號章對內容其實沒有什麼硬性要求，也不一定非得蓋在 QSL 卡片上。說到底，蓋章更多是一種文化習慣，或者說是一種展現個性的方式。</p>
+<p>眼球章（EyeBall QSO）則是用在<strong>非無線電通聯</strong>交換 QSL 卡片的情境中，比如線下見面、論壇換卡等等。</p>
+<p>有時候卡片發得太多，一張張親自簽名也挺麻煩，這種情況下也可以另外準備一枚簽名章。</p>
+<p>以我自己的理解，<strong>業餘無線電的本質在於交流技術、提升能力、服務社會；卡片也好、印章也好，都是用來豐富社群文化的，不能本末倒置。</strong></p>
+<h2 id="通聯記錄">
+<a class="header-anchor" href="#%e9%80%9a%e8%81%af%e8%a8%98%e9%8c%84"></a>
+通聯記錄
+</h2><p>每次通聯之後，最好及時記下以下資訊：</p>
+<ul>
+<li>Requird:
+<ol>
+<li>通聯開始與結束時間（注意時區）</li>
+<li>雙方呼號</li>
+<li>雙方 QTH</li>
+<li>雙方信號報告</li>
+<li>通聯模式</li>
+<li>通聯頻率（含中繼、亞音等情況）</li>
+</ol>
+</li>
+<li>Optional:
+<ol>
+<li>設備</li>
+<li>天線</li>
+<li>發射功率</li>
+<li>當地天氣</li>
+<li>是否交換卡片</li>
+</ol>
+</li>
+</ul>
+<p>記錄保存妥當後，也可以上傳到 LoTW（Logbook of The Word）等平台。</p>
+<h2 id="收發-qsl-卡片">
+<a class="header-anchor" href="#%e6%94%b6%e7%99%bc-qsl-%e5%8d%a1%e7%89%87"></a>
+收發 QSL 卡片
+</h2><h3 id="中國大陸">
+<a class="header-anchor" href="#%e4%b8%ad%e5%9c%8b%e5%a4%a7%e9%99%b8"></a>
+中國大陸
+</h3><p>中國大陸地區，省內或市內寄平信郵資為 0.8 元，掛號信為 3.8 元（3+0.8）。<br>
+跨省或直轄市寄平信郵資為 1.2 元，掛號信為 4.2 元（3+1.2）。<br>
+首重 20g，每超出 20g（不足 20g 也按 20g 計），需再增加郵資 0.8（省內）或 1.2（跨省）元。</p>
+<p>繳納郵資大致有三種方式：</p>
+<ol>
+<li>直接去郵局寄信，交給工作人員投遞並付款，由工作人員貼郵票。</li>
+<li>自己購買郵票並貼到信封或明信片上。</li>
+<li>自己購買<strong>郵資信封</strong>，也就是信封本身已附帶郵資。</li>
+</ol>
+<h3 id="郵票購買">
+<a class="header-anchor" href="#%e9%83%b5%e7%a5%a8%e8%b3%bc%e8%b2%b7"></a>
+郵票購買
+</h3><ol>
+<li>當地郵局：種類通常較少，原價。</li>
+<li>郵政主題郵局：郵票種類較多，也可能有特色郵票，原價。</li>
+<li>郵政官網 / APP：種類多且相對齊全，原價。</li>
+<li>電商平台：普通票通常能以 5～9 折買到，寄信用比較划算。</li>
+<li>個人交易：閒魚、個人賣家等，風險較大。</li>
+</ol>
+<p><strong>Warning：</strong> 非郵政官方管道購買郵票時，一定要注意辨別真偽。低於 5 折的郵票不建議買。<br>
+我自己通常是在淘寶挑銷量大的店家買折扣票，再用紫外燈驗證。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E9%B9%B0%E7%A5%A8.JPG" alt="一张很帅的老鹰，紫外灯照射后会显示红色荧光骨架"></p>
+<h2 id="考取-b-證">
+<a class="header-anchor" href="#%e8%80%83%e5%8f%96-b-%e8%ad%89"></a>
+考取 B 證
+</h2><p>2025 年陝西 B 類操作證考試在 11 月 8 日，我的電台執照發照日則是 5 月 8 日，剛好滿六個月，不然還真趕不上這一年一次的考試。<br>
+這也是題庫改版後的第一次考試。和 A 類相比，舊 B 題庫六百多題，新 B 已經 1100+，幾乎翻倍，難度自然也上去不少。</p>
+<p>不過題庫改版也不完全是壞事。作為第一批吃螃蟹的人，這次實際出的題反而非常簡單。<br>
+刷題時那些頻率題、計算題看得我頭都大了，尤其頻率題全是數字，比起簡語題難背得多；再加上各種天饋系統、信號調製解調、無線電波知識，也順便讓我狠狠回憶了一把兩年前學過的《電磁場與電磁波》，甚至還補了一點以前沒學過的《通信原理》。<br>
+我把題庫亂序刷了一遍，標記難題後又刷了很多遍，直到看一眼題幹就知道該選什麼，再把錯題重做一遍。即便如此時間依然很緊，模擬考一次都沒做，心裡其實還是有點虛。</p>
+<p>結果準備做得很足，拿到試卷反而一題難題都沒有。60 題十幾分鐘刷刷做完，再檢查一遍，塗答題卡花的時間都比做題本身長。<br>
+半小時交卷，樓下又等了一個多小時才出成績，58 / 60 輕鬆拿下。一起考的同學就算只刷完 700+ 題，也基本都有 50+。沒辦法，題庫後面的題幾乎沒考到。</p>
+<p>接下來就是等發證了，也不知道最後發下來的會是新式 B 證還是老樣式。這裡說的老款是樣式上的老，不是那種新規之前能發短波 100W 的老 B 登。<br>
+考 C 類要求短波台設立滿 18 個月。我其實是很想早點設台的，奈何囊中羞澀，短波台動不動就是大幾千甚至上萬，天饋也一樣不便宜。<br>
+之後也許會慢慢攢錢買協谷，或者乾脆自己做一台 μSDX。</p>
+
+        
+        <hr><p>本文2025-06-03首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-11-11</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>OtherNotes</category></item><item><title>QSL卡片展</title><link>https://guzhengsvt.cn/zh-tw/post/othernotes/qsl-card-exhibition/</link><pubDate>Thu, 21 Aug 2025 18:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/othernotes/qsl-card-exhibition/</guid><description>
+<![CDATA[<h1>QSL卡片展</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <h2 id="1-noa-1">
+<a class="header-anchor" href="#1-noa-1"></a>
+1. Noa-1
+</h2><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/QSL-%E6%A0%87-1.jpeg" alt="Noa-1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/QSL-%E6%A0%87-2.jpeg" alt="Noa-2.jpeg"></p>
+<h3 id="設計理念">
+<a class="header-anchor" href="#%e8%a8%ad%e8%a8%88%e7%90%86%e5%bf%b5"></a>
+設計理念
+</h3><p>取材自我非常喜歡的 <em><strong>Blue Archive</strong></em> 中的角色生鹽諾亞。</p>
+<ul>
+<li>正面是 Noa 的記憶大廳截圖。Noa 在落地窗上手寫十九世紀法國現代派詩人夏爾·皮埃爾·波德萊爾的詩，《巴黎的憂鬱》第一首《異鄉人》。</li>
+</ul>
+<blockquote>
+<p>Qui aimes-tu le mieux, homme énigmatique, dis?<br>
+謎一樣的人啊，說吧，你最愛的人是誰？</p>
+</blockquote>
+<p>我在這一句後加了 ITU、CQ 分區和梅登海德網格，盡量選用手寫體並拉伸透視效果，使得文字看起來是手寫在窗上的。</p>
+<ul>
+<li>背面除了常規的通聯必填資訊，還加上了個人部落格的二維碼，背景照片是 BA 官方做的 Noa 影片截圖。</li>
+<li><strong>Warning:</strong> 時區那裡 <em>UTC</em> 寫成了 <em>UCT</em> ，直到印下一張卡才發現，如果印第二批會更正。</li>
+</ul>
+<h3 id="印刷批次">
+<a class="header-anchor" href="#%e5%8d%b0%e5%88%b7%e6%89%b9%e6%ac%a1"></a>
+印刷批次
+</h3><ul>
+<li>1 期：300g 名片用銅版紙 200 張，切小圓角，淘寶久美印業。
+<ul>
+<li>卡片硬度不足，銅版紙背面書寫困難。</li>
+<li>餘量充足。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-dfh">
+<a class="header-anchor" href="#2-dfh"></a>
+2. DFH
+</h2><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-1.png" alt="DFH-1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-2-%E6%9B%B4%E6%AD%A3.png" alt="DFH-2"></p>
+<h3 id="設計理念-1">
+<a class="header-anchor" href="#%e8%a8%ad%e8%a8%88%e7%90%86%e5%bf%b5-1"></a>
+設計理念
+</h3><p>整體取材自 BiliBili UP 主<strong>炙彈冰</strong>的航天史填詞歌曲 <a href="https://www.bilibili.com/video/BV129mGY3Efe/">《東方紅的心臟》</a>（原曲為 <a href="https://music.163.com/#/artist?id=51020133">ヰ世界情緒</a> 的歌曲 <strong><a href="https://music.163.com/#/song?id=1907751320">シリウスの心臓(天狼星的心臟)</a></strong> ）。</p>
+<ul>
+<li>卡片正面右側少女為《東方紅的心臟》中曲繪，東方紅衛星擬人形象。</li>
+<li>卡片正面左側有重疊的兩個衛星，左側實體衛星為東方紅一號的 3D 建模截圖，右側彩色衛星為前一截圖經過 <a href="https://lab.magiconch.com/one-last-image/">One Last Image 盧浮宮生成器</a> 網站生成的一張類似 <em><strong>One Last Kiss</strong></em> 封面效果的彩色漸變衛星圖。</li>
+<li>環繞衛星的紅藍兩橢圓環由摩斯電碼構成，紅色是「中華人民共和國萬歲」，藍色是「世界人民大團結萬歲」，參考 1955 年《標準電碼本》翻譯。</li>
+<li>實體衛星上的日期指東方紅一號 1970 年 4 月 24 日發射入軌，5 月 14 日停止播放東方紅樂曲。這是東方紅一號短暫的一生，卻是中華民族騰飛的開始。</li>
+<li>彩色衛星上的日期，指 1840 年 6 月 21 日英軍炮擊澳門，開啟第一次鴉片戰爭，直至 1949 年 10 月 1 日中華人民共和國成立，中國人民從此站起來了。它承載的是中華民族屈辱的近代史，也是第三世界其他國家反抗帝國主義列強入侵、追求獨立的抗爭史。</li>
+<li>衛星和人物之間用兩條正弦線隔開，象徵電波。</li>
+<li>相比於 <a href="/zh-tw/post/othernotes/qsl-card-exhibition/#1-noa-1">Noa-1</a> ，這次背面設計增加了 NFC 標誌，我計劃為今後發放的卡片增加 NFC 標籤，錄入卡片資訊、通聯資訊，或實現自動播放音樂、影片等。</li>
+<li>背面郵箱下面那段話「霧靄縈繞的人生，要如何度過？甩下躊躇吧，因為朝陽是你也是我。」是《東方紅的心臟》中的歌詞，我十分喜歡。</li>
+<li>背面右下角貼上了一段《東方紅》的簡譜，呼應此次卡片東方紅一號衛星主題。</li>
+</ul>
+<p>另外，我還設計了此卡片的 PCB 版，加上 NFC 晶片、線圈，特別在正面人物胸口的位置放置一顆紅色 LED，手機貼近掃描後 LED 會亮，呼應「東方紅的心臟」主題。<br>
+因為製作成本高昂，PCB 版卡片預計只發給每個區第一個通聯的友台，或某種通聯方式第一個通聯的友台。</p>
+<p>人民英雄紀念碑上這樣寫：</p>
+<blockquote>
+<p>三年以來，在人民解放戰爭和人民革命中犧牲的人民英雄們永垂不朽！<br>
+三十年以來，在人民解放戰爭和人民革命中犧牲的人民英雄們永垂不朽！<br>
+由此上溯到一千八百四十年，從那時起，為了反對內外敵人，爭取民族獨立和人民自由幸福，在歷次鬥爭中犧牲的人民英雄們永垂不朽！</p>
+</blockquote>
+<p>今日，東方紅衛星仍然在軌，守望滄海變桑田。</p>
+<h3 id="印刷批次-1">
+<a class="header-anchor" href="#%e5%8d%b0%e5%88%b7%e6%89%b9%e6%ac%a1-1"></a>
+印刷批次
+</h3><p><strong>紙質：</strong></p>
+<ul>
+<li>1 期：350g 珠光紙（白滑影）150 張，切小圓角，閒魚未來既是未來
+<ul>
+<li>餘量充足</li>
+</ul>
+</li>
+</ul>
+<p><strong>PCB：</strong></p>
+<ul>
+<li>1 期：嘉立創彩色絲印 50 張，NT3H2111W0FHKH XQF，切小圓角
+<ul>
+<li>餘量充足</li>
+</ul>
+</li>
+</ul>
+
+        
+        <hr><p>本文2025-08-21首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-08-21</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>OtherNotes</category></item></channel></rss>

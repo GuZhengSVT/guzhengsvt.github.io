@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diary on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/en/tags/diary/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright><lastBuildDate>Mon, 01 Sep 2025 22:44:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/en/tags/diary/index.xml" rel="self" type="application/rss+xml"/><item><title>Postgrad Exam Diary 001</title><link>https://guzhengsvt.cn/en/post/diary/diary-001-of-postgraduate-entrance-examination/</link><pubDate>Mon, 01 Sep 2025 22:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/diary/diary-001-of-postgraduate-entrance-examination/</guid><description>
+<![CDATA[<h1>Postgrad Exam Diary 001</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
+        
+          <h2 id="preface">
+<a class="header-anchor" href="#preface"></a>
+Preface
+</h2><p>For various reasons, I have no choice now but to prepare for the postgraduate entrance exam.<br>
+This diary is both a review of each day&rsquo;s study and a place where I can talk into the void a little. I first thought of naming it Day 1, but then I realized I would not have time to write every day, nor would I necessarily have something to write every day. There will always be days of slackness and days too busy for words. So I kept it as 001.</p>
+<p>To be honest, I never truly believed I could start now and get in within three months. Speaking without much ambition, someone like me, who does not plan to marry, does not plan to buy a house, and supposedly has low material desire, can probably afford to keep trying for several years. This year is more of a trial run. I do not feel much pressure myself, but my parents are very anxious because my attempt at direct PhD admission failed.</p>
+<p>Today was only my third time going to the university library. The first time was when I had just entered XDU and came to look around, and the second was for a meeting.<br>
+Ever since that first visit to the so-called rat-slaying library, I have felt it was not a place that suited me for studying. The atmosphere is too serious and oppressive. I sit stiffly in the chair, worrying that I might make a sound and disturb others, and I keep wondering whether the people around me are watching to see if I am actually studying. It feels as if even glancing at my phone is a crime. I know that is only in my head and in fact nobody cares, but a place full of strangers that is this quiet really makes a socially anxious person tense up. It feels nothing like self-study sessions in high school.<br>
+Thankfully the library has neither Big Brother&rsquo;s eyes nor Miss Yang recording videos with her phone. If only 0721&rsquo;s 凌地宁宁 were here.</p>
+<p>I started with Math I. This year I plan to follow Wu Zhongxiang and jump straight into the intensive course. I watched two chapters in one day. Maybe because it has been too long since I last used my brain properly for study, I get sleepy as soon as I start learning. Fortunately, the first two chapters on functions and limits were not difficult, and only today did I realize how much my old Mathematical Analysis course had helped me. Back then I thought that course, so theoretical and science-oriented, was useless for my engineering major. I fell behind, then wanted to study it even less, because it was simply too hard. In the end the teacher helped me through the makeup exam and gave me a passing score in the sixties. But Mathematical Analysis did not only give me proofs of basic theorems. It was not just a toy for mathematicians. It was also training and enlightenment for the mind. Shame on me, truly.</p>
+<p>I have never been the type to take notes. Anything with internal logic I usually keep only in my head. But memory fades with time. I am no longer living the kind of life where I review everything every day like in high school, so I should write down some knowledge now and then for later review.</p>
+<h2 id="review">
+<a class="header-anchor" href="#review"></a>
+Review
+</h2><h3 id="functions">
+<a class="header-anchor" href="#functions"></a>
+Functions
+</h3><ul>
+<li>
+<p>Basic elements of a function: domain, mapping rule</p>
+</li>
+<li>
+<p>Properties of functions: monotonicity, parity, periodicity, boundedness</p>
+</li>
+<li>
+<p>Odd functions
+</p>
+$$
+ln{\frac{1-x}{1+x}},ln(x+\sqrt[2]{1+x^2}),\frac{e^x-1}{e^x+1},f(x)-f(-x)
+$$</li>
+<li>
+<p>Even functions
+</p>
+$$
+f(x)+f(-x)
+$$</li>
+<li>
+<p>If $f(x)$ is odd, then $\int ^x_0 f(x)dx+C$ is even</p>
+</li>
+<li>
+<p>If $f(x)$ is even, then $\int ^x_0 f(x)dx+C$ is odd only when $C=0$</p>
+</li>
+<li>
+<p>The derivative of a differentiable periodic function is periodic</p>
+</li>
+<li>
+<p>If the derivative is periodic, the original function is not necessarily periodic</p>
+</li>
+<li>
+<p>If the derivative is periodic and its integral over one period is $0$, then the original function is periodic, and this is a necessary and sufficient condition</p>
+</li>
+</ul>
+<h3 id="limits">
+<a class="header-anchor" href="#limits"></a>
+Limits
+</h3><ul>
+<li>Local boundedness: if a limit exists in a deleted neighborhood, then the function is locally bounded; local boundedness alone does not imply the limit exists</li>
+<li>Sign preservation</li>
+<li>Order preservation</li>
+</ul>
+<p>Criteria for the existence of a sequence limit</p>
+<ul>
+<li>Squeeze theorem</li>
+<li>Monotone bounded theorem</li>
+</ul>
+<p>Relation between divergence to infinity and unbounded variables:</p>
+<ul>
+<li>A sequence diverges to infinity if its terms eventually become arbitrarily large in absolute value
+
+$$
+\forall M \gt 0 ,\exist N \gt 0,当 n \gt N时,恒有\left\vert x_n \right\vert \gt M
+$$</li>
+<li>An unbounded variable only requires that for any given number, there exists some term whose absolute value exceeds it
+
+$$
+\forall M \gt 0 ,\exist N \gt 0,使得\left\vert x_N \right\vert \gt M
+$$</li>
+</ul>
+<h2 id="postscript">
+<a class="header-anchor" href="#postscript"></a>
+Postscript
+</h2><p>I do not understand, I do not understand, how high and far the stars are.<br>
+When will I finally be able to stand among them?
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E7%A7%91%E7%BD%97%E5%BB%96%E5%A4%AB%E5%8D%81%E5%AD%97.jpeg" alt=""></p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="//player.bilibili.com/player.html?isOutside=true&aid=114883244982356&bvid=BV1SPgbzzE3e&cid=31159160676&p=1"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+    frameborder="0" 
+    allowfullscreen="true">
+  </iframe>
+</div>
+
+
+
+        
+        <hr><p>Published on 2025-09-01 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-09-01</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Diary</category></item></channel></rss>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NAS on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-tw/tags/nas/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-tw</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</copyright><lastBuildDate>Thu, 16 Oct 2025 23:04:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-tw/tags/nas/index.xml" rel="self" type="application/rss+xml"/><item><title>利用舊電腦和飛牛OS自建NAS</title><link>https://guzhengsvt.cn/zh-tw/post/othernotes/use-old-computers-and-fnos-to-build-your-own-nas/</link><pubDate>Thu, 16 Oct 2025 23:04:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/othernotes/use-old-computers-and-fnos-to-build-your-own-nas/</guid><description>
+<![CDATA[<h1>利用舊電腦和飛牛OS自建NAS</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <h2 id="前言">
+<a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
+前言
+</h2><p>自從停了網易雲音樂會員後，每次打開網易雲音樂聽歌都得忍受五次以上的 VIP 彈窗，歌單也灰掉一大片。<br>
+那麼，給資本交了錢就真的會比較好嗎？VIP 還在的時候，它照樣天天給我跳 SVIP 廣告，開屏廣告也一點沒少。哥們不是出不起這點錢，但我都付費了，還要看廣告，版權還越來越少，這到底算什麼意思？<br>
+作為蘋果使用者，我也試過 Apple Music 每月 5 元的學生方案，但我常聽的音樂版權還是被國內串流平台壟斷得太厲害，自己下載再匯入 Apple Music 又太麻煩。<br>
+作為精神科技處女座，我絕不接受自己花錢買的電子產品和軟體還整天有廣告往臉上跳。以前只是嫌麻煩，才一直沒有自己建音樂庫；而網路上那些第三方、沒版權的音樂平台服務又很不穩定，現在也只能硬著頭皮自己動手鏟屎了。</p>
+<p>自建音樂庫的方案很多，但既然決定清，那就乾脆清得乾淨一點。<br>
+不只是音樂服務，照片我原本靠阿里雲盤同步，百度網盤裡也存了一部分；影視受制於設備容量，只有 Mac mini M4 上 PT 下了幾百個 G，也不算多；至於書籍，更是雲盤和本地到處亂放，幾百本資料完全沒有同步。</p>
+<p>剛好手邊有一台閒置筆電，Thinkbook 16+ 2022（i5-12500H + RTX 2050 + 512G SSD + 2T SSD），拿來做全閃 NAS 不是剛剛好嗎。<br>
+至於 NAS 系統怎麼選，現在最熱門、社群也最活躍的飛牛就很合適，而且還送 2Mb 的免費轉發服務。</p>
+<h2 id="系統安裝">
+<a class="header-anchor" href="#%e7%b3%bb%e7%b5%b1%e5%ae%89%e8%a3%9d"></a>
+系統安裝
+</h2><p>飛牛系統安裝其實很簡單，照官方教學一步一步來基本不會出什麼問題。<br>
+我遇到的坑是：我的 U 盤原本用 ventoy 做成了多系統啟動盤。飛牛 OS 既然基於 Debian，按理說直接把 ISO 丟進去就可以了。但我插上 U 盤、在 ventoy 裡選 fnOS 安裝之後，系統一直提示找不到硬碟，換模式也一樣。最後只能乖乖照官方教學，用 Rufus 重做啟動盤，一次就成功。</p>
+<h2 id="特別提醒">
+<a class="header-anchor" href="#%e7%89%b9%e5%88%a5%e6%8f%90%e9%86%92"></a>
+特別提醒
+</h2><p>docker 運行時，一定要注意配置儲存位置，把資料夾（例如音樂資料夾）映射到容器儲存空間，並且在檔案管理裡把訪問權限套用到子層級。</p>
+<h2 id="構建音樂庫navidrome">
+<a class="header-anchor" href="#%e6%a7%8b%e5%bb%ba%e9%9f%b3%e6%a8%82%e5%ba%abnavidrome"></a>
+構建音樂庫——Navidrome
+</h2><p>這是一個基於 Web 的開源音樂收集與串流伺服器。</p>
+<p>在系統設定裡的應用設定中，把音樂資料夾授權給 Navidrome，預設埠是 4533。<br>
+帳號密碼設好之後打開 web 介面，通常 Navidrome 就能直接掃描有權限的資料夾並匯入音樂。</p>
+<h3 id="music_tag_web">
+<a class="header-anchor" href="#music_tag_web"></a>
+music_tag_web
+</h3><p>docker 形式的、多功能音樂標籤編輯工具，有 web 操作介面。常用功能包括音樂刮削、整理、去重、格式轉換等等。<br>
+其中最重要的背景刮削功能需要 v2 版本（付費），我是在愛發電充了 10 元拿到一個月啟用碼，先試試水。</p>
+<p>我的音樂檔大多來自網易雲音樂，以前完全沒有整理意識，所以命名非常亂。iPhone、Redmi、Mac、度盤上到處都是，還有不少重複音檔。同一首歌也常常同時保留多個版本、多人翻唱版，例如《アイロニ (双声道版)》鹿乃/*菜乃。很多早年聽的歌現在在網易雲也已經灰掉了，例如雙笙的老版本道姑、封茗囧菌的《静悄悄》。</p>
+<p>先選好待刮削的音樂，並整理檔案結構，層級設成歌手—專輯—歌曲。<br>
+在自動刮削匹配模式上，我會優先選標準模式，標題、藝術家、專輯三者一起匹配；資料源則選歌曲最主要的來源，例如我就選網易雲音樂；修改範圍只限定封面、歌詞與歌詞檔。只要標題和藝術家本來沒亂掉，大多數歌曲都能完全匹配。</p>
+<p>對於無法正常刮削的歌曲，例如太小眾或已經下架的歌，就切到寬鬆模式，資料源多勾幾個，像是網易雲音樂、QQ 音樂、酷狗音樂、iTunes，修改範圍仍保持不變。<br>
+如果把藝術家也放進修改範圍，常常會把一些不出名翻唱的演唱者自動改成原唱。<br>
+有時同一首歌存在於不同專輯裡，雖然實際檔案可能相同，比如 Merry Christmas Mr. Lawrence；也可能不完全相同，比如動畫歌曲的劇中片段版和完整版。這種情況下如果允許修改專輯資訊，就很容易刮錯。</p>
+<p>全部刮削完之後，再重新整理一次檔案，刪掉空資料夾。<br>
+如果有重複檔案，就做重複檔案檢查，推薦開啟聲紋重複校驗。通常聲紋一致的檔案，多半只是同一首歌的不同格式版本，例如 mp3 和 flac，這種情況下我會優先刪掉體積較小的版本。<br>
+最後再整理一次檔案並清空空資料夾。</p>
+<p>music_tag_web 在付費後本身也能當作音樂庫使用，內建 Subsonic 伺服器，介面也比 Navidrome 更現代好看。<br>
+但我對個人開發者能否長期穩定維運這件事還是比較保守，所以目前先觀望。</p>
+<h3 id="歌單匹配器">
+<a class="header-anchor" href="#%e6%ad%8c%e5%96%ae%e5%8c%b9%e9%85%8d%e5%99%a8"></a>
+歌單匹配器
+</h3><p>LINUX DO 上有大佬做了一個把串流平台歌單匯入 Navidrome 的 Windows 小工具：<a href="https://linux.do/t/topic/757204">分享一个适配Navidrome的歌单匹配器</a>。<br>
+支援網易雲音樂、QQ 音樂、Apple Music 的歌單匯入，也能輸出未匹配歌曲。</p>
+<h3 id="客戶端">
+<a class="header-anchor" href="#%e5%ae%a2%e6%88%b6%e7%ab%af"></a>
+客戶端
+</h3><p>音樂庫建好之後，接下來就是要想辦法在手機和桌面端聽歌。<br>
+支援 Navidrome 的客戶端很多，網路上搜一下就能找到。</p>
+<p>我目前在用的是音流（1.3.9），支援大多數平台，例如安卓、iOS、iPadOS、Windows、macOS。一次性購買不到 60 元，最多可同時在 7 台裝置使用。<br>
+作為播放器，它基本能滿足我的需求：介面還算美觀、能把 NAS 上的歌曲下載到本地、支援桌面歌詞，也能加歌單、點喜歡、打星和隨機播放。</p>
+<p>問題也不是沒有：偶爾會閃退；背景播放時播完一首有時不會自動切到下一首，雖然不算穩定復現；連到 NAS 時速度偏慢；而且如果當下無法連到 NAS，就只能看到已下載的歌曲與已下載歌單。如果某首歌同時存在多個歌單裡，離線時它只會顯示在最初下載它的那個歌單裡。<br>
+它畢竟是個人開發者寫的、也不是開源軟體，所以買之前還是得保守一點，建議先用普通版試水。</p>
+<h2 id="構建書庫talebook">
+<a class="header-anchor" href="#%e6%a7%8b%e5%bb%ba%e6%9b%b8%e5%ba%abtalebook"></a>
+構建書庫——talebook
+</h2><p>docker 形式，talebook 是一個開源專案，也是一個簡潔但功能很強的私人書籍管理系統。它基於 calibre 建構，具備圖書管理、線上閱讀與推送、使用者管理、SSO 登入，還能從百度／豆瓣拉取書籍資訊。</p>
+<p>各種設定基本照 talebook 的 web 管理頁面一項一項設就可以，唯一需要注意的是使用者設定裡的幾個權限。有些客戶端不支援登入，這時需要開啟「允許任意下載」才下載得了。</p>
+<p>在圖書管理裡，還可以手動修改一部分中繼資料，也能加標籤。我自己看的書很雜，所以比較傾向按照<a href="https://www.clcindex.com/"><strong>中圖法</strong></a> 同時在實體資料夾和標籤上分類。</p>
+<h3 id="douban-api-rs">
+<a class="header-anchor" href="#douban-api-rs"></a>
+douban-api-rs
+</h3><p>這是 talebook 的豆瓣外掛，fnOS 上有鏡像。跑起 docker 之後，把對應的 API 位址複製到 talebook 設定中的「網際網路書籍資訊源」，這樣圖書管理裡的自動更新書籍資訊功能才能正常用。<br>
+對大部分常見文學書籍來說，豆瓣刮削效果不錯；但像《业余无线电爱好者的道德和操作守则》這種未正式出版的資料，或者《中国的野菜》（2008 海南出版公司）這種極冷門或年代太久的書，豆瓣不是搜不到，就是亂匹配。</p>
+<p>我在度盤裡甚至還存了一整套「赤脚医生手册民兵训练人才之友历代武术最全穿越者」這種穿越者專用「四庫全書」，整整 120G+。<br>
+其中大部分武功和軍事祕籍根本刮不出來，但歷史和文學類的書刮削效果倒是還不錯。</p>
+<h3 id="客戶端-1">
+<a class="header-anchor" href="#%e5%ae%a2%e6%88%b6%e7%ab%af-1"></a>
+客戶端
+</h3><p>talebook，或者說 OPDS 協定的客戶端，真正好用又現代的其實不多。</p>
+<p>安卓這邊我暫時是透過飛牛安卓客戶端把書下載下來，再用 eBoox 本地閱讀，還能靠 Google 同步。<br>
+tachiyomi 因為版權問題已經似了；它的後繼者 mihon 或其類似物，比較適合拿來看漫畫，設計邏輯不太適合正經看書。我之前想用 komaga 外掛匯入自建 Komaga 圖源時，就遇到地址根本沒辦法設定的問題。</p>
+<p>不過 Kahon（從 Mihon 改出來的）在匯入外掛庫之後，R18 圖源倒是多得離譜，拿來免廣告看黃反而相當不錯。</p>
+<p>iOS 與 iPadOS 上，各種閱讀軟體的體驗其實很難超過原生 iBook。我目前在試用的是 KyBook 3，只是它不能登入帳號。<br>
+填寫 OPDS 位址時也要注意埠號以及 <code>/opds/</code> 這個路徑。</p>
+<h2 id="構建影視庫">
+<a class="header-anchor" href="#%e6%a7%8b%e5%bb%ba%e5%bd%b1%e8%a6%96%e5%ba%ab"></a>
+構建影視庫
+</h2><p>對我來說，fnOS 自帶的飛牛影視已經夠用了。它可以刮削分類，Android、iOS、iPadOS、macOS、Windows 也都有客戶端，還能匯入度盤與遠端掛載硬碟裡的影視資源，例如 Mac 外接硬碟透過區域網路匯入飛牛媒體庫，也能線上匹配字幕。<br>
+如果之後還能接 bangumi api 和豆瓣 api，那就更完美了。</p>
+<h2 id="pt">
+<a class="header-anchor" href="#pt"></a>
+PT
+</h2><p>說到資源獲取，最終還是得靠 PT。我首推的還是飛牛應用中心裡的 qBittorrent。<br>
+至於軟體怎麼用、種子從哪裡找，就自行探索吧。總之，最好把分享率和做種時間維持住。<br>
+人人為我，我為人人。</p>
+<h2 id="相冊">
+<a class="header-anchor" href="#%e7%9b%b8%e5%86%8a"></a>
+相冊
+</h2><p>圖片管理其實更方便。<br>
+把各個雲盤與本地的照片通通上傳下載到 NAS Photos 資料夾下，不需要刻意整理實體資料夾，打開相簿就能自動掃描匯入。其他本地資料夾或外接資料夾，也能在相簿—設定—資料夾管理裡額外加入。<br>
+在 AI 相簿設定裡先把模型下載好，然後分別對尚未識別的照片與影片執行分析，背景就會自動分類。這些都是本地跑的，當然如果考慮隱私，也可以完全不開。<br>
+如果啟用 GPU 計算，識別速度會明顯快一些，不過需要另外下載對應顯卡驅動。</p>
+<p>我同時備份了 iPhone、Redmi、iPad 裡的照片，其中有大量重複照片，只是檔名各不相同。透過 AI 智慧識別之後，再檢查相似照片做去重，效果非常好。</p>
+<h2 id="其他推薦小工具">
+<a class="header-anchor" href="#%e5%85%b6%e4%bb%96%e6%8e%a8%e8%96%a6%e5%b0%8f%e5%b7%a5%e5%85%b7"></a>
+其他推薦小工具
+</h2><h3 id="hivisionidphoto">
+<a class="header-anchor" href="#hivisionidphoto"></a>
+HivisionIDPhoto
+</h3><p>自製證件照，應用中心 docker。</p>
+<h3 id="peazip">
+<a class="header-anchor" href="#peazip"></a>
+peazip
+</h3><p>壓縮解壓，docker。fnOS 現在檔案管理自帶的壓縮解壓工具非常陽春，甚至連分卷壓縮解壓都不支援。</p>
+<h3 id="singbox">
+<a class="header-anchor" href="#singbox"></a>
+singbox
+</h3><p>docker，偶爾會用到的～妙·妙·小·工·具～</p>
+<h3 id="飛牛同步">
+<a class="header-anchor" href="#%e9%a3%9b%e7%89%9b%e5%90%8c%e6%ad%a5"></a>
+飛牛同步
+</h3><p>把其他裝置上的資料夾同步到 NAS，支援雙向同步、僅下載、僅上傳。<br>
+其他端需要先安裝對應客戶端。</p>
+<h3 id="文本編輯器">
+<a class="header-anchor" href="#%e6%96%87%e6%9c%ac%e7%b7%a8%e8%bc%af%e5%99%a8"></a>
+文本編輯器
+</h3><p>安裝後就能直接在檔案管理中打開 txt、yml、log、html、js、md、nfo 等純文字檔。</p>
+<h3 id="office-預覽">
+<a class="header-anchor" href="#office-%e9%a0%90%e8%a6%bd"></a>
+Office 預覽
+</h3><p>能在檔案管理裡直接開啟最大 500MB 的 Office 檔案。</p>
+<h3 id="omnitools">
+<a class="header-anchor" href="#omnitools"></a>
+OmniTools
+</h3><p>整合十幾種工具的一個工具箱。</p>
+<h3 id="百度網盤飛牛版">
+<a class="header-anchor" href="#%e7%99%be%e5%ba%a6%e7%b6%b2%e7%9b%a4%e9%a3%9b%e7%89%9b%e7%89%88"></a>
+百度網盤（飛牛版）
+</h3><p>「幾乎」沒廣告，介面也比較簡潔，但不能複製檔案位址、沒有檔案或資料夾的詳情頁，似乎也看不到資料夾大小。<br>
+NAS 會員拆開單賣差評。</p>
+<h3 id="不推薦應用中心瀏覽器">
+<a class="header-anchor" href="#%e4%b8%8d%e6%8e%a8%e8%96%a6%e6%87%89%e7%94%a8%e4%b8%ad%e5%bf%83%e7%80%8f%e8%a6%bd%e5%99%a8"></a>
+不推薦：應用中心瀏覽器
+</h3><p>這個其實是 docker 跑的 Google Chrome，web 介面很糊，傳的是畫面流不是網頁本身，也沒辦法正常切中文輸入法。下載下來的檔案還得自己從應用檔案夾裡搬出來。預設 Google 搜尋又需要代理，雖然可以改成 Bing，但下載速度還是慢。</p>
+<p>所以如果有需要下載的東西，我還是建議先用本機瀏覽器找好直連，再從飛牛客戶端新增下載任務。</p>
+<h2 id="總結">
+<a class="header-anchor" href="#%e7%b8%bd%e7%b5%90"></a>
+總結
+</h2><p>折騰了幾天之後，這台筆電「NAS」已經初步實現了影音、圖片、書籍資料管理，以及關鍵資料備份，例如手冊、說明書、文稿、PCB、程式碼、證書、密碼等等。<br>
+接下來想折騰的，就是面板、網域、反代、IPv6、RSSHub、兩地三備。</p>
+<p>最後，SB 網易雲音樂。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/Soyo.JPG" alt="无语"></p>
+
+        
+        <hr><p>本文2025-10-16首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-10-16</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>OtherNotes</category></item></channel></rss>

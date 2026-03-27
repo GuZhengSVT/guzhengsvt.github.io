@@ -1,4 +1,1927 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://guzhengsvt.cn/ja/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>ja</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</copyright><lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/ja/index.xml" rel="self" type="application/rss+xml"/><item><title>TypechoコメントをWalineにインポート</title><link>https://guzhengsvt.cn/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://guzhengsvt.cn/ja/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>ja</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</copyright><lastBuildDate>Tue, 11 Nov 2025 18:44:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/ja/index.xml" rel="self" type="application/rss+xml"/><item><title>ゼロから始めるアマチュア無線</title><link>https://guzhengsvt.cn/ja/post/othernotes/the-path-to-amateur-radio-from-scratch/</link><pubDate>Tue, 03 Jun 2025 20:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/othernotes/the-path-to-amateur-radio-from-scratch/</guid><description>
+<![CDATA[<h1>ゼロから始めるアマチュア無線</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
+        
+          <h2 id="a-級操作証を取る">
+<a class="header-anchor" href="#a-%e7%b4%9a%e6%93%8d%e4%bd%9c%e8%a8%bc%e3%82%92%e5%8f%96%e3%82%8b"></a>
+A 級操作証を取る
+</h2><p>去年、2024 年に西安で試験を受けて A 級証を取得し、泉盛 UV-K6 のハンディ機を買った。初めて正式にアマチュア無線の交信を受信したのは、西電の海八宿舎ベランダでの $483.100 \text{MHz}$ だった。当時はまだコールサインを持っていなかったので、送信すると違法になる。そのため会話もせず、交信記録も残していない。</p>
+<p>A 級の試験そのものは特に難しくない。いちばん難しいのは受験枠の確保だ。西安ではここ最近、A 級試験は半年に一回くらいしかなく、毎回予約開始と同時にほぼ奪い合いになる。申し込みシステムもよく不調になる。本気で受けたいなら、戸籍地か常住地の無線協会をまず追いかけて、開催頻度が高く、枠が多く、証書発行も速いところで予約するのがよいと思う。</p>
+<p>とにかく早く A 級を取りたい人なら、三日ほど前から問題集を回しておけばかなり安全だ。実際には一日でも足りる。智譜 app や HAM ミニプログラムなどで問題演習や模擬試験ができる。先にこの 2018 年の<a href="https://www.jimmytian.com/archives/crac-aro-licence-a-review-guide.html">ブログ記事</a>に目を通しておくのがおすすめ。</p>
+<p><strong>==Waring==</strong>：2025 年に問題バンクが更新されたので、上のブログ記事はそのままでは通用しないかもしれない。ただ、全体像を掴むにはまだ役に立つ。</p>
+<h2 id="コールサインと無線局免許を取る">
+<a class="header-anchor" href="#%e3%82%b3%e3%83%bc%e3%83%ab%e3%82%b5%e3%82%a4%e3%83%b3%e3%81%a8%e7%84%a1%e7%b7%9a%e5%b1%80%e5%85%8d%e8%a8%b1%e3%82%92%e5%8f%96%e3%82%8b"></a>
+コールサインと無線局免許を取る
+</h2><p>操作証を取った後は、機材を買うか自作して開局申請を出し、コールサインを取得できる。入門機として私は業界でかなり人気のある 5 W ハンディ、泉盛 UV-K6 を選んだ。新品でも百元ちょっとで、始めるには十分だと思う。B 級を取ったら、もっと良い機材とアンテナで短波をやるつもり。</p>
+<p>西安は本当に行政が遅い。三月初めに協会へ開局申請に行って、実際に無線局免許が届いたのは五月末だった。ほぼ三か月待ちである。<br>
+免許の押印日を見たら、5 月 8 日にはもう出ていた。なぜそんなに引き延ばせるのか分からないが、どうも月一回しか配っていないらしい。</p>
+<p>コールサインがあれば合法に RTT ができ、無線局免許があれば届け出済みの自分の設備で合法周波数帯を送受信できる。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E7%94%B5%E5%8F%B0%E6%89%A7%E7%85%A7-%E6%AD%A3%E9%9D%A2.jpeg" alt="电台执照-正面.jpeg"></p>
+<h2 id="qsl-カードとコールサイン印のデザインについて">
+<a class="header-anchor" href="#qsl-%e3%82%ab%e3%83%bc%e3%83%89%e3%81%a8%e3%82%b3%e3%83%bc%e3%83%ab%e3%82%b5%e3%82%a4%e3%83%b3%e5%8d%b0%e3%81%ae%e3%83%87%e3%82%b6%e3%82%a4%e3%83%b3%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6"></a>
+QSL カードとコールサイン印のデザインについて
+</h2><p>厳密に言えば、QSL カードやコールサイン印はアマチュア無線文化の一部であって必需品ではない。ただ、郷に入っては郷に従えで、意味のある QSL カードや見栄えの良い QSL カード、あるいはコールサイン印を作っておくと、自分にとっても相手にとっても交信の記録や記念を残しやすい。</p>
+<p>もちろん、この二つにはある程度の「業界の作法」もある。</p>
+<h3 id="qsl-カード">
+<a class="header-anchor" href="#qsl-%e3%82%ab%e3%83%bc%e3%83%89"></a>
+QSL カード
+</h3><p>QSL カードは郵送しやすいよう、普通はポストカードサイズ、つまり $14 \text{cm} \times 9 \text{cm}$ くらいにする。印刷時には断裁が入るので、少し余白を見ておく必要がある。たとえば BG9GXM の Taobao 店では、キャンバスを $14.4\text{cm} \times 9.4\text{cm}$ にして、四辺に $3 \text{mm}$ の断裁線を置き、背景以外の内容はその内側に収めるよう勧められた。</p>
+<p>私は無料でオープンソースの描画ソフト Krita を使っているが、多くの人は Photoshop だと思う。psd 形式で出力しておけば、店側が修正しやすい。</p>
+<p>QSL カードは片面でも両面でも、折りたたみ式でもよく、必要情報さえ入っていれば問題ない。参考として HamCQ コミュニティの <a href="https://forum.hamcq.cn/qslCardShow">QSL卡片展</a> や、以下の記事を見るとよい。</p>
+<ul>
+<li><a href="https://forum.hamcq.cn/d/1882">设计自己的 QSL 卡片 —— 来自广告从业者的分享 - HamCQ 社区</a></li>
+<li><a href="https://www.hellocq.net/forum/read.php?tid=207871">哈罗CQ火腿社区 - QSL卡展板 - QSL卡片制作【新手必看Q&amp;A】</a></li>
+<li><a href="https://forum.hamcq.cn/d/418">分享一版自己设计的 QSL 卡片背面模板 - HamCQ 社区</a></li>
+</ul>
+<p>あるいは Taobao の BG9GXM、久美印业に相談するのもよい。私の初回印刷はそこだったが、仕上がりもきれいで、やり取りも丁寧だった。</p>
+<p>以下が私の最初の QSL カードである。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/QSL-%E6%A0%87-1.jpeg" alt="QSL-标-1.jpeg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/QSL-%E6%A0%87-2.jpeg" alt="QSL-标-2.jpeg"></p>
+<p>問題点：</p>
+<ol>
+<li>表面の BA 風コールサインロゴを小さくしすぎた。黒い部分はよく見ないと判別しづらい。次回は配置と背景とのコントラストに気をつけたい。</li>
+<li>窓の文字は Noa がガラスに手書きした感じを出したかったが、フォントが手書きっぽさに足りなかった。Krita にもっと良い書体がなく、次回は改善したい。</li>
+<li>裏面に背景を入れたことで、印刷用紙の選択肢が両面コート紙か高価なアート紙にほぼ限定された。コート紙はゲルインク系が乗りにくい。試したところ、油性ボールペンは比較的良好で、書いた直後にこすっても滲みにくかった。</li>
+<li>裏面背景の不透明度 80% はまだ高すぎた。次は 60% くらいを試したい。実際の印刷では黒い小文字がかなり読みにくい。</li>
+<li>“To Radio:” の後ろに確保した記入欄の高さが足りない。上の余白とも下の表とも近すぎる。</li>
+<li>$300 \text{g}$ の名刺用コート紙はやはり柔らかすぎる。もっと硬いカード紙のほうがよい。</li>
+</ol>
+<h3 id="コールサイン印とアイボール印">
+<a class="header-anchor" href="#%e3%82%b3%e3%83%bc%e3%83%ab%e3%82%b5%e3%82%a4%e3%83%b3%e5%8d%b0%e3%81%a8%e3%82%a2%e3%82%a4%e3%83%9c%e3%83%bc%e3%83%ab%e5%8d%b0"></a>
+コールサイン印とアイボール印
+</h3><p>一般的なオーダーメイド印章店で作る印の直径はだいたい $40 \text{mm}$ くらい。自作するなら $40\text{mm} \times 40\text{mm}$ のキャンバスを作って、既存のいろいろなコールサイン印のデザインを参考にすればよい。もちろん、コールサイン印の制作に PS 系ソフトが絶対必要なわけではなく、ベクター作業ならもっと向いたツールもある。<a href="https://forum.hamcq.cn/d/5865">使用 Visio 制作呼号章的手把手教学 - HamCQ 社区</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E5%91%BC%E5%8F%B7%E7%AB%A0.png" alt="呼号章.png"></p>
+<p>この印には以下の要素を入れた：</p>
+<ol>
+<li>外周のギア装飾。労働者、そして工学系を示す。</li>
+<li>中英文の「中国业余无线电台」、コールサイン、そして英字の &ldquo;Shaan Xi&rdquo; による陝西省表記。</li>
+<li>五芒星装飾。</li>
+<li>無線機本体とディスプレイ上の電波、北斗衛星（衛星通信）、ロケットや飛行機を表す矢印（航空帯）、地上信号局（アンテナ架設）、信号アイコン（空間電波）。</li>
+</ol>
+<p>私はもともと宇宙開発分野への関心が強いので、この矢印には特に愛着がある。うちの学院や学院科協のロゴにも矢印が使われている。本当は星を数個足して星空っぽくしたかったが、もし将来自分が「打飞机」、つまり空港タワーや航空無線の受信にも進むなら、宇宙ロケットっぽい矢印だけでは狭すぎる気もした。<br>
+そのため最終的には、宇宙ロケットにも航空機にも見える、打ち上げと水平飛行の中間くらいの角度の、より汎用的な矢印にした。</p>
+<p>QSL カードに比べると、コールサイン印には特に内容上の制約はないし、QSL カードに必ず押さなければならないものでもない。突き詰めれば、あれは文化であり、ある種の個性表現である。</p>
+<p>アイボール印（EyeBall QSO）は、<strong>無線を介さない接触</strong>、たとえば対面で会ったときやフォーラムでカード交換するときなどに使う。</p>
+<p>送るカードが多すぎて一枚一枚サインするのが面倒なときは、署名用の印を別に作ってもよい。</p>
+<p>私の考えでは、<strong>アマチュア無線の本質は技術交流・能力向上・社会奉仕にあり、カードも印もコミュニティ文化に奉仕するものだ。そこにこだわりすぎると本末転倒になる。</strong></p>
+<h2 id="交信記録">
+<a class="header-anchor" href="#%e4%ba%a4%e4%bf%a1%e8%a8%98%e9%8c%b2"></a>
+交信記録
+</h2><p>交信のたびに、以下の内容をできるだけその場で記録しておくべき：</p>
+<ul>
+<li>Requird:
+<ol>
+<li>交信開始と終了の時刻（タイムゾーン注意）</li>
+<li>双方のコールサイン</li>
+<li>双方の QTH</li>
+<li>双方のシグナルレポート</li>
+<li>モード</li>
+<li>周波数（レピータやトーンも含む）</li>
+</ol>
+</li>
+<li>Optional:
+<ol>
+<li>機材</li>
+<li>アンテナ</li>
+<li>送信出力</li>
+<li>現地の天気</li>
+<li>カード交換の有無</li>
+</ol>
+</li>
+</ul>
+<p>記録をきちんと保管しておけば、LoTW（Logbook of The Word）などへアップロードすることもできる。</p>
+<h2 id="qsl-カードの送受">
+<a class="header-anchor" href="#qsl-%e3%82%ab%e3%83%bc%e3%83%89%e3%81%ae%e9%80%81%e5%8f%97"></a>
+QSL カードの送受
+</h2><h3 id="中国大陸">
+<a class="header-anchor" href="#%e4%b8%ad%e5%9b%bd%e5%a4%a7%e9%99%b8"></a>
+中国大陸
+</h3><p>中国大陸では、同一省・同一市内で普通郵便を送る場合は 0.8 元、書留は 3.8 元（3 + 0.8）。<br>
+省や直轄市をまたぐ場合、普通郵便は 1.2 元、書留は 4.2 元（3 + 1.2）。<br>
+基本重量は 20g で、それを超えるごとに、20g 未満でも 20g として、同省内なら 0.8 元、省外なら 1.2 元ずつ追加。</p>
+<p>料金の支払い方法は主に三つ：</p>
+<ol>
+<li>郵便局で直接差し出し、窓口で支払って貼ってもらう</li>
+<li>自分で切手を買って封筒やハガキに貼る</li>
+<li><strong>料金別納封筒</strong> を買う</li>
+</ol>
+<h3 id="切手の買い方">
+<a class="header-anchor" href="#%e5%88%87%e6%89%8b%e3%81%ae%e8%b2%b7%e3%81%84%e6%96%b9"></a>
+切手の買い方
+</h3><ol>
+<li>地元の郵便局：種類は少なめ、額面通り</li>
+<li>郵政テーマ局：種類が多く、特色切手もある、額面通り</li>
+<li>郵政公式サイト / APP：品揃えが広い、額面通り</li>
+<li>EC プラットフォーム：普通切手は 5～9 割で買えることが多く、実用向き</li>
+<li>個人売買：闲鱼 など、リスク大</li>
+</ol>
+<p><strong>Warning：</strong> 郵政公式以外で切手を買う場合は真贋に注意。五割未満の切手はおすすめしない。<br>
+私は普段、Taobao で販売数の多い店から割引切手を買い、紫外線ライトで確認している。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E9%B9%B0%E7%A5%A8.JPG" alt="一张很帅的老鹰，紫外灯照射后会显示红色荧光骨架"></p>
+<h2 id="b-級証を取る">
+<a class="header-anchor" href="#b-%e7%b4%9a%e8%a8%bc%e3%82%92%e5%8f%96%e3%82%8b"></a>
+B 級証を取る
+</h2><p>2025 年の陝西 B 級操作証試験は 11 月 8 日で、私の無線局免許の交付日は 5 月 8 日だった。ちょうど六か月経っていて、ぎりぎり一年に一度の試験に間に合った形だ。<br>
+これは問題バンク改訂後最初の試験でもあった。A 級と比べると、旧 B の問題数は六百問ちょっとだったのに対し、新 B は 1100 問超えでほぼ倍。難度が上がるのも当然だった。</p>
+<p>とはいえ、改訂が完全に悪いことばかりでもなかった。最初の受験組だったおかげか、実際に出た問題はかなり簡単だった。<br>
+勉強中は周波数問題や計算問題でかなり苦しみ、とくに周波数問題は数字だらけで、文章問題よりはるかに覚えにくかった。さらにアンテナ・給電系、変調復調、電波の知識などまで出てきて、二年前にやった《电磁场与电磁波》を思い出しつつ、ついでに《通信原理》の未習部分まで少し触れることになった。<br>
+問題バンクをランダムに一周し、難問に印をつけて何度も回し、問題文一行を見ただけで答えが分かるところまで持っていったうえで、間違えた問題ももう一度やり直した。それでも時間はかなりきつく、模擬試験は一度もできなかったので、不安は残っていた。</p>
+<p>しかし、いざ本番の問題用紙を開いてみると、難問らしいものは一問もなかった。60 問を十数分でさっと解いて見直しまで済ませ、マークシートを塗る時間のほうが解く時間より長かったくらいだ。<br>
+30 分で提出し、下の階でさらに一時間以上待って結果が出た。58 / 60 で余裕の合格だった。一緒に受けた人でも、問題集を 700 問ちょっとまでしか回していないのに 50 点台を取っていた。結局、後ろのほうの問題はほとんど出なかった。</p>
+<p>あとは発行待ちである。新様式の B 級証になるのか、旧デザインになるのかは分からない。ここで言う「旧」は見た目の話であって、新制度前に取れた短波 100W 可能な本当の旧 B のことではない。<br>
+C 級を受けるには短波局を 18 か月設置している必要がある。私はできるだけ早く開局したいのだが、財布が厳しい。短波機は数千から一万を超えることも珍しくなく、アンテナや給電系も同じく安くない。<br>
+そのうちお金をためて協谷を買うか、あるいは μSDX を自作するかもしれない。</p>
+
+        
+        <hr><p>この記事は2025-06-03に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-11-11です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>OtherNotes</category></item><item><title>古いPCと飛牛OSで自前NASを作る</title><link>https://guzhengsvt.cn/ja/post/othernotes/use-old-computers-and-fnos-to-build-your-own-nas/</link><pubDate>Thu, 16 Oct 2025 23:04:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/othernotes/use-old-computers-and-fnos-to-build-your-own-nas/</guid><description>
+<![CDATA[<h1>古いPCと飛牛OSで自前NASを作る</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
+        
+          <h2 id="前書き">
+<a class="header-anchor" href="#%e5%89%8d%e6%9b%b8%e3%81%8d"></a>
+前書き
+</h2><p>网易云音乐 の会員を切ってからというもの、曲を聴こうとしてアプリを開くたびに VIP ポップアップを五回以上は見せられ、プレイリストも大量に灰色になった。<br>
+では、お金を払えば快適になるのかというと、まったくそんなことはない。VIP の期間中ですら SVIP 広告を毎日のように見せられたし、起動広告だって減らなかった。別にその程度の金額が払えないわけではない。ただ、払っているのに広告は出る、権利楽曲は減る、それは何なんだという話だ。<br>
+Apple ユーザーとして Apple Music の学生プラン月 5 元も試したが、よく聴く曲の権利が国内ストリーミングに偏りすぎていて、結局は自分で落として Apple Music に取り込む羽目になる。それもまた面倒だった。<br>
+精神的テック潔癖の乙女座として、金を払って買ったソフトやデバイスの中に広告が顔面へ飛んでくる状況は許せない。これまでは面倒で自分の音楽ライブラリを作っていなかったが、ネット上のサードパーティ製や権利の怪しい音楽サービスも安定しない。となれば、もう自分で片づけるしかない。</p>
+<p>音楽ライブラリの自作方法はいろいろあるが、どうせやるなら徹底的にやりたい。<br>
+音楽だけではなく、写真は Aliyun Drive で同期しつつ Baidu Netdisk にも一部保存していたし、映像は端末容量の都合で Mac mini M4 に PT から数百 GB あるだけ。本もクラウドとローカルに散乱していて、数百冊が同期も整理もされていない状態だった。</p>
+<p>ちょうど手元に余っていたノート PC がある。Thinkbook 16+ 2022、i5-12500H に RTX 2050、512G SSD と 2T SSD。この構成ならオールフラッシュ NAS にするにはちょうどいい。<br>
+NAS 用 OS は、今いちばん勢いがあってコミュニティも活発な飛牛で十分だった。無料の 2Mb リレーまで付いている。</p>
+<h2 id="システムのインストール">
+<a class="header-anchor" href="#%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab"></a>
+システムのインストール
+</h2><p>飛牛 OS の導入自体は簡単で、公式チュートリアル通りに進めればほぼ問題ない。<br>
+私が引っかかったのはここだった。USB メモリはもともと Ventoy で複数 OS の起動用にしてあった。飛牛 OS は Debian ベースなのだから、理屈のうえでは ISO をそのまま放り込めばよいはずだった。だが、Ventoy から fnOS のインストーラを選ぶと、どうしてもディスクが見つからないと言われる。モードを変えても同じだった。結局、公式手順どおりに Rufus で起動メディアを作り直したら一発で通った。</p>
+<h2 id="特に注意すること">
+<a class="header-anchor" href="#%e7%89%b9%e3%81%ab%e6%b3%a8%e6%84%8f%e3%81%99%e3%82%8b%e3%81%93%e3%81%a8"></a>
+特に注意すること
+</h2><p>Docker を動かすときは保存先の設定に気をつけること。音楽のようなデータフォルダはコンテナの保存領域へきちんとマッピングし、ファイルマネージャ上で権限を子ディレクトリにも適用しておくべきだ。</p>
+<h2 id="音楽ライブラリ構築navidrome">
+<a class="header-anchor" href="#%e9%9f%b3%e6%a5%bd%e3%83%a9%e3%82%a4%e3%83%96%e3%83%a9%e3%83%aa%e6%a7%8b%e7%af%89navidrome"></a>
+音楽ライブラリ構築——Navidrome
+</h2><p>Web ベースのオープンソース音楽サーバ兼ストリーミングサービス。</p>
+<p>システム設定のアプリ設定で音楽フォルダへのアクセス権を Navidrome に与える。標準ポートは 4533。<br>
+アカウントとパスワードを設定して Web UI を開けば、たいていはアクセス可能なフォルダをそのままスキャンして音楽を取り込んでくれる。</p>
+<h3 id="music_tag_web">
+<a class="header-anchor" href="#music_tag_web"></a>
+music_tag_web
+</h3><p>Docker で動く多機能音楽タグ編集ツールで、Web UI 付き。メタデータのスクレイピング、整理、重複チェック、フォーマット変換などができる。<br>
+いちばん重要なバックグラウンドスクレイプ機能は v2 以降、つまり有料。私は愛発電で 10 元払って一か月のアクティベーションコードを買い、とりあえず試した。</p>
+<p>手元の音楽ファイルの大半は 网易云音乐 由来で、昔は整理の意識がほぼなかったせいでファイル名がめちゃくちゃだった。iPhone、Redmi、Mac、百度网盘に散らばっていて重複音源も多いし、同じ曲の別版や別人カバーもある。たとえば《アイロニ (双声道版)》の 鹿乃 / *菜乃 版。昔よく聴いていた曲の多くは今や网易云で灰色になっている。双笙 の古い 道姑 や、封茗囧菌 の《静悄悄》のような曲だ。</p>
+<p>まずスクレイプ対象の曲を選び、アーティスト - アルバム - 曲 という階層になるよう整理する。<br>
+自動スクレイプのマッチングモードは、私はまず標準モードを使う。タイトル、アーティスト、アルバムで照合し、データソースは楽曲の出所に近いものを選ぶ。私なら 网易云音乐。変更範囲はジャケット、歌詞、歌詞ファイルだけにする。元のタイトルやアーティストがそこまで壊れていなければ、たいていの曲はきれいに一致する。</p>
+<p>うまくスクレイプできない曲、たとえば極端にマイナーな曲やすでに灰色になった曲については、ゆるめのモードに切り替え、网易云、QQ 音乐、酷狗 音乐、iTunes など複数ソースを併用する。変更範囲はそのまま。<br>
+ここでアーティストまで変更範囲に含めると、無名のカバー歌手が原曲歌手に置き換わってしまいやすい。<br>
+同じ曲が別アルバムに入っていることもあり、実ファイルが同じ場合もあれば、アニメ挿入版とフル版のように一致しない場合もある。アルバム情報まで変更させると、こういうケースで誤爆しやすい。</p>
+<p>全部スクレイプし終えたら、もう一度ファイルを整理して空フォルダを削除する。<br>
+重複ファイルがあるなら、重複チェックを実行する。音紋比較を有効にするのがおすすめだ。音紋が一致しているものは、たいてい同じ曲の別フォーマット版、たとえば mp3 と flac なので、私は容量の小さいほうを削除することが多い。<br>
+その後でもう一度整理し、空フォルダを掃除する。</p>
+<p>music_tag_web は有料化後なら、そのまま音楽ライブラリとしても使える。Subsonic サーバ内蔵で、UI も Navidrome より現代的で見栄えがよい。<br>
+ただ、個人開発者サービスの長期運営にはやはり慎重でいたいので、今は様子見をしている。</p>
+<h3 id="プレイリストマッチャー">
+<a class="header-anchor" href="#%e3%83%97%e3%83%ac%e3%82%a4%e3%83%aa%e3%82%b9%e3%83%88%e3%83%9e%e3%83%83%e3%83%81%e3%83%a3%e3%83%bc"></a>
+プレイリストマッチャー
+</h3><p>LINUX DO で、ストリーミングのプレイリストを Navidrome に取り込むための Windows ツールが共有されていた：<a href="https://linux.do/t/topic/757204">分享一个适配Navidrome的歌单匹配器</a>。<br>
+网易云音乐、QQ 音乐、Apple Music のプレイリストを Navidrome に取り込み、未マッチ曲を一覧で出せる。</p>
+<h3 id="クライアント">
+<a class="header-anchor" href="#%e3%82%af%e3%83%a9%e3%82%a4%e3%82%a2%e3%83%b3%e3%83%88"></a>
+クライアント
+</h3><p>音楽ライブラリを作ったあと、次はモバイルやデスクトップでどう聴くかになる。<br>
+Navidrome 対応クライアントはかなり多く、少し探せば見つかる。</p>
+<p>私が今使っているのは 音流 1.3.9 で、Android、iOS、iPadOS、Windows、macOS など大半の環境に対応している。買い切りで 60 元もしないうえ、最大 7 台同時利用可能。<br>
+プレイヤーとしては、見た目がそこそこ良く、NAS 上の曲をローカル保存でき、デスクトップ歌詞もあり、プレイリスト追加、お気に入り、星評価、シャッフルなど、必要なものはだいたい満たしている。</p>
+<p>問題もある。たまにクラッシュするし、バックグラウンド再生で一曲終わっても次へ進まないことがある。再現は安定しない。NAS への接続もやや遅い。さらに、NAS に接続できないときはダウンロード済みの曲とダウンロード済みプレイリストしか見えず、同じ曲が複数プレイリストに入っていても、オフラインでは最初に落としたプレイリストにしか表示されない。<br>
+個人開発者による非オープンソースアプリなので、買うなら慎重に。まずは通常版で試すのがよい。</p>
+<h2 id="書籍ライブラリ構築talebook">
+<a class="header-anchor" href="#%e6%9b%b8%e7%b1%8d%e3%83%a9%e3%82%a4%e3%83%96%e3%83%a9%e3%83%aa%e6%a7%8b%e7%af%89talebook"></a>
+書籍ライブラリ構築——talebook
+</h2><p>Docker ベースのオープンソースプロジェクトで、シンプルながら強力な個人向け書籍管理システム。calibre を基盤にしていて、蔵書管理、オンライン閲覧と配信、ユーザー管理、SSO、百度や豆瓣からのメタデータ取得などができる。</p>
+<p>設定は talebook の Web 管理画面から一つずつ進めれば大体足りる。唯一気をつけるべきなのはユーザー権限で、一部のクライアントはログイン自体に対応しておらず、その場合は「任意ダウンロードを許可」をオンにしないと使えない。</p>
+<p>書籍管理ではメタデータの一部を手動で編集できるし、タグも付けられる。私は読む本のジャンルが広いので、物理フォルダとタグの両方を <a href="https://www.clcindex.com/"><strong>中図法</strong></a> に寄せて整理したいタイプだ。</p>
+<h3 id="douban-api-rs">
+<a class="header-anchor" href="#douban-api-rs"></a>
+douban-api-rs
+</h3><p>talebook 用の豆瓣プラグインで、fnOS にイメージがある。Docker を動かした後、API アドレスを talebook の「インターネット書籍情報源」に貼り付けると、自動メタデータ更新が有効になる。<br>
+有名な文学作品なら豆瓣スクレイプの精度は悪くない。しかし《业余无线电爱好者的道德和操作守则》のような未出版物や、《中国的野菜》（2008 海南出版公司）のような極端にマイナーだったり年代が古すぎたりする本は、検索に出ないか、変な本に誤マッチする。</p>
+<p>百度网盘 には「赤脚医生手册民兵训练人才之友历代武术最全穿越者」みたいな、転生者向け四庫全書とでも言いたくなるものが一式入っていて、総量 120GB 超え。<br>
+このうち武功書や軍事秘本の大半はまともにスクレイプできないが、歴史や文学系は比較的うまくいく。</p>
+<h3 id="クライアント-1">
+<a class="header-anchor" href="#%e3%82%af%e3%83%a9%e3%82%a4%e3%82%a2%e3%83%b3%e3%83%88-1"></a>
+クライアント
+</h3><p>talebook、というより OPDS クライアント全般だが、本当に使いやすくて現代的なものは少ない。</p>
+<p>Android では今のところ、飛牛の Android クライアント経由で本を落とし、eBoox でローカル読書している。Google 同期も使える。<br>
+tachiyomi は著作権問題で終わり、その後継の Mihon や類似物は漫画寄りで、読書向けの設計ではない。自前の Komaga ソースを komaga プラグインで入れようとしたら、そもそもアドレス設定が通らなかった。</p>
+<p>ただし Kahon は Mihon 系の派生として、プラグインライブラリを入れると R18 系ソースがやたら豊富になる。広告なしでエロを見る用途としては、むしろかなり優秀だった。</p>
+<p>iOS と iPadOS では、標準の iBook を超える読書体験はなかなかない。今は KyBook 3 を試しているが、アカウントログインはできない。<br>
+OPDS アドレスを入れるときは、ポート番号と <code>/opds/</code> を忘れないようにする必要がある。</p>
+<h2 id="映像ライブラリ構築">
+<a class="header-anchor" href="#%e6%98%a0%e5%83%8f%e3%83%a9%e3%82%a4%e3%83%96%e3%83%a9%e3%83%aa%e6%a7%8b%e7%af%89"></a>
+映像ライブラリ構築
+</h2><p>私にとっては、fnOS 標準の飛牛映視ですでに十分便利だ。スクレイピングと分類ができ、Android、iOS、iPadOS、macOS、Windows にクライアントがある。百度网盘 やリモートマウントしたディスクの映像資源も取り込めるし、たとえば Mac の外付けディスクを LAN 経由で飛牛メディアライブラリへ流し込むこともできる。字幕のオンラインマッチも可能。<br>
+もし bangumi api と豆瓣 api までつながれば、さらに理想的だ。</p>
+<h2 id="pt">
+<a class="header-anchor" href="#pt"></a>
+PT
+</h2><p>資源調達という意味では、やはり最後は PT が強い。まず勧めたいのは飛牛アプリセンターにある qBittorrent。<br>
+具体的な使い方や torrent の入手先は各自で探ればよい。ただ、シェア率とシード時間はちゃんと意識したほうがいい。<br>
+人人為我、我為人人。</p>
+<h2 id="アルバム">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%83%90%e3%83%a0"></a>
+アルバム
+</h2><p>画像管理はさらに楽だ。<br>
+各種クラウドやローカルの写真を NAS Photos フォルダに全部集めてしまえば、物理フォルダをあえて綺麗に整理しなくても、アルバムを開くだけで自動スキャン・取り込みができる。ほかのローカルフォルダや外付けフォルダも、アルバム - 設定 - フォルダ管理から追加できる。<br>
+AI アルバム設定でモデルを先にダウンロードし、その後で未認識の写真や動画を解析させると、バックグラウンドで自動分類してくれる。全部ローカル実行なので、プライバシー重視なら使わなくてもよい。<br>
+GPU 計算を有効にすると認識速度はかなり上がるが、そのためには対応ドライバの導入が必要になる。</p>
+<p>iPhone、Redmi、iPad の写真を同時にバックアップした結果、名前は違うが中身は同じ写真が大量にあった。AI の類似画像判定で確認しながら重複削除したところ、かなり良かった。</p>
+<h2 id="その他おすすめ小物">
+<a class="header-anchor" href="#%e3%81%9d%e3%81%ae%e4%bb%96%e3%81%8a%e3%81%99%e3%81%99%e3%82%81%e5%b0%8f%e7%89%a9"></a>
+その他おすすめ小物
+</h2><h3 id="hivisionidphoto">
+<a class="header-anchor" href="#hivisionidphoto"></a>
+HivisionIDPhoto
+</h3><p>証明写真を自作する。アプリセンターの Docker。</p>
+<h3 id="peazip">
+<a class="header-anchor" href="#peazip"></a>
+peazip
+</h3><p>圧縮・解凍用 Docker。fnOS 標準の圧縮解凍機能はかなり貧弱で、分割圧縮にすらまともに対応していない。</p>
+<h3 id="singbox">
+<a class="header-anchor" href="#singbox"></a>
+singbox
+</h3><p>Docker。たまに必要になる、ちょっと素敵な小道具。</p>
+<h3 id="飛牛同期">
+<a class="header-anchor" href="#%e9%a3%9b%e7%89%9b%e5%90%8c%e6%9c%9f"></a>
+飛牛同期
+</h3><p>他端末のフォルダを NAS に同期する。双方向同期、ダウンロードのみ、アップロードのみ対応。<br>
+各端末側にはクライアントの導入が必要。</p>
+<h3 id="テキストエディタ">
+<a class="header-anchor" href="#%e3%83%86%e3%82%ad%e3%82%b9%e3%83%88%e3%82%a8%e3%83%87%e3%82%a3%e3%82%bf"></a>
+テキストエディタ
+</h3><p>入れておくと txt、yml、log、html、js、md、nfo などのプレーンテキストをファイルマネージャから直接開ける。</p>
+<h3 id="office-プレビュー">
+<a class="header-anchor" href="#office-%e3%83%97%e3%83%ac%e3%83%93%e3%83%a5%e3%83%bc"></a>
+Office プレビュー
+</h3><p>最大 500MB の Office ファイルをファイルマネージャ内で直接開ける。</p>
+<h3 id="omnitools">
+<a class="header-anchor" href="#omnitools"></a>
+OmniTools
+</h3><p>十数種類の小ツールをまとめたツールボックス。</p>
+<h3 id="百度网盘飛牛版">
+<a class="header-anchor" href="#%e7%99%be%e5%ba%a6%e7%bd%91%e7%9b%98%e9%a3%9b%e7%89%9b%e7%89%88"></a>
+百度网盘（飛牛版）
+</h3><p>「ほぼ」広告なしで、すっきりしている。ただしファイルアドレスのコピー不可、ファイル・フォルダ詳細画面なし、フォルダ容量確認もできないように見える。<br>
+NAS 会員を別売りにするのは本当にひどい。</p>
+<h3 id="非推奨アプリセンターのブラウザ">
+<a class="header-anchor" href="#%e9%9d%9e%e6%8e%a8%e5%a5%a8%e3%82%a2%e3%83%97%e3%83%aa%e3%82%bb%e3%83%b3%e3%82%bf%e3%83%bc%e3%81%ae%e3%83%96%e3%83%a9%e3%82%a6%e3%82%b6"></a>
+非推奨：アプリセンターのブラウザ
+</h3><p>これは Docker 上で動く Google Chrome だが、画面がぼやけるし、実際にはページではなく画面転送で見ている。中国語 IME もまともに使えず、ダウンロードしたファイルもアプリ用フォルダから自分で取り出さなければならない。標準検索は Google なので代理も必要で、Bing へ変えられるとはいえ、ダウンロードも遅い。</p>
+<p>なので、何か落としたいなら、まずローカルブラウザで直リンクを見つけ、それを飛牛クライアント側でダウンロードタスク化するほうがよい。</p>
+<h2 id="まとめ">
+<a class="header-anchor" href="#%e3%81%be%e3%81%a8%e3%82%81"></a>
+まとめ
+</h2><p>数日いじっただけでも、このノート PC 「NAS」は映像・音楽・写真・書籍の管理と、重要データ、つまりマニュアル、説明書、原稿、PCB、コード、証明書、パスワードなどのバックアップをすでにかなり実現できている。<br>
+次に触りたいのは、ダッシュボード、ドメイン、リバースプロキシ、IPv6、RSSHub、そして二拠点三重バックアップ。</p>
+<p>最後に。SB 网易云音乐。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/Soyo.JPG" alt="无语"></p>
+
+        
+        <hr><p>この記事は2025-10-16に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-10-16です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>OtherNotes</category></item><item><title>量子物理学</title><link>https://guzhengsvt.cn/ja/post/physics/quantum-physics/</link><pubDate>Fri, 05 Sep 2025 11:05:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/physics/quantum-physics/</guid><description>
+<![CDATA[<h1>量子物理学</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
+        
+          <h2 id="第1章-微粒子の二重性と状態記述">
+<a class="header-anchor" href="#%e7%ac%ac1%e7%ab%a0-%e5%be%ae%e7%b2%92%e5%ad%90%e3%81%ae%e4%ba%8c%e9%87%8d%e6%80%a7%e3%81%a8%e7%8a%b6%e6%85%8b%e8%a8%98%e8%bf%b0"></a>
+第1章 微粒子の二重性と状態記述
+</h2><h3 id="11-量子力学の成立と応用">
+<a class="header-anchor" href="#11-%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%a6%e3%81%ae%e6%88%90%e7%ab%8b%e3%81%a8%e5%bf%9c%e7%94%a8"></a>
+1.1 量子力学の成立と応用
+</h3><h4 id="111-旧量子論">
+<a class="header-anchor" href="#111-%e6%97%a7%e9%87%8f%e5%ad%90%e8%ab%96"></a>
+1.1.1 旧量子論
+</h4><h5 id="光電効果と光子仮説">
+<a class="header-anchor" href="#%e5%85%89%e9%9b%bb%e5%8a%b9%e6%9e%9c%e3%81%a8%e5%85%89%e5%ad%90%e4%bb%ae%e8%aa%ac"></a>
+光電効果と光子仮説
+</h5><ul>
+<li><strong>光子のエネルギー</strong>：$E = h\nu$</li>
+<li><strong>しきい周波数</strong>：$\nu_0 = \dfrac{W_0}{h}$、$\nu < \nu_0$ では光電子は放出されない</li>
+<li><strong>光電効果の式</strong>：<br>
+
+$$
+  E_k^{\text{max}} = \frac{1}{2}\mu v^2_m = h\nu - W_0
+  $$</li>
+<li>光電効果は光の粒子性を示す。</li>
+</ul>
+<h5 id="光子のエネルギー運動量関係と波粒統一">
+<a class="header-anchor" href="#%e5%85%89%e5%ad%90%e3%81%ae%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc%e9%81%8b%e5%8b%95%e9%87%8f%e9%96%a2%e4%bf%82%e3%81%a8%e6%b3%a2%e7%b2%92%e7%b5%b1%e4%b8%80"></a>
+光子のエネルギー・運動量関係と波粒統一
+</h5><ul>
+<li>
+<p><strong>相対論的エネルギー・運動量関係</strong>
+</p>
+$$
+  E^2=(pc)^2+(m_0c^2)^2,\quad m_0=0\ \Rightarrow\ E=c\,\lVert\vec p\rVert
+  $$</li>
+<li>
+<p><strong>光子のエネルギー</strong>
+</p>
+$$
+  E=h\nu=\frac{hc}{\lambda}=\hbar\omega
+  $$</li>
+<li>
+<p><strong>光子の運動量（ベクトル形式）</strong>
+</p>
+$$
+  \vec p=\frac{E}{c}\,\mathbf n=\frac{h}{\lambda}\,\mathbf n=\hbar\vec k,\quad
+  \vec k=\frac{2\pi}{\lambda}\,\mathbf n
+  $$<p>
+ただし $\mathbf n$ は進行方向の単位ベクトル。</p>
+</li>
+<li>
+<p><strong>波動像と粒子像の対応</strong>
+</p>
+$$
+  E\ \longleftrightarrow\ \hbar\omega,\qquad
+  \vec p\ \longleftrightarrow\ \hbar\vec k
+  $$</li>
+</ul>
+<h5 id="水素原子のボーア模型">
+<a class="header-anchor" href="#%e6%b0%b4%e7%b4%a0%e5%8e%9f%e5%ad%90%e3%81%ae%e3%83%9c%e3%83%bc%e3%82%a2%e6%a8%a1%e5%9e%8b"></a>
+水素原子のボーア模型
+</h5><ul>
+<li>軌道角運動量の量子化：
+
+$$
+  L = n\hbar,\quad n=1,2,3,\dots
+  $$</li>
+<li>エネルギー準位：
+
+$$
+  E_n = -\frac{13.6\ \text{eV}}{n^2}
+  $$</li>
+<li>これにより水素原子スペクトルの線状構造が説明される。</li>
+</ul>
+<h5 id="ボーアの仮説">
+<a class="header-anchor" href="#%e3%83%9c%e3%83%bc%e3%82%a2%e3%81%ae%e4%bb%ae%e8%aa%ac"></a>
+ボーアの仮説
+</h5><ul>
+<li>電子は安定軌道上ではエネルギーを放射しない。</li>
+<li>異なる準位間を遷移するとき、電子はエネルギーを吸収または放出する：
+
+$$
+  \Delta E = h\nu
+  $$</li>
+</ul>
+<h5 id="コンプトン効果">
+<a class="header-anchor" href="#%e3%82%b3%e3%83%b3%e3%83%97%e3%83%88%e3%83%b3%e5%8a%b9%e6%9e%9c"></a>
+コンプトン効果
+</h5><ul>
+<li>高エネルギー光子が電子と散乱すると、波長は
+
+$$
+  \Delta\lambda = \lambda' - \lambda = \frac{h}{m_ec}(1-\cos\theta)
+  $$
+だけ増加する。</li>
+<li>この実験は光子の粒子性と運動量保存を裏づけた。</li>
+</ul>
+<h5 id="黒体放射">
+<a class="header-anchor" href="#%e9%bb%92%e4%bd%93%e6%94%be%e5%b0%84"></a>
+黒体放射
+</h5><ul>
+<li>エネルギー量子化仮説：電磁場のエネルギーは $E=nh\nu$ の離散値をとる。</li>
+<li>プランク公式：
+
+$$
+  u(\nu,T)=\frac{8\pi h\nu^3}{c^3}\frac{1}{e^{h\nu/kT}-1}
+  $$</li>
+<li>これにより黒体放射の実験曲線が説明され、量子論が始まった。</li>
+</ul>
+<h4 id="112-微視的粒子の波動粒子二重性">
+<a class="header-anchor" href="#112-%e5%be%ae%e8%a6%96%e7%9a%84%e7%b2%92%e5%ad%90%e3%81%ae%e6%b3%a2%e5%8b%95%e7%b2%92%e5%ad%90%e4%ba%8c%e9%87%8d%e6%80%a7"></a>
+1.1.2 微視的粒子の波動粒子二重性
+</h4><h5 id="ドブロイ仮説">
+<a class="header-anchor" href="#%e3%83%89%e3%83%96%e3%83%ad%e3%82%a4%e4%bb%ae%e8%aa%ac"></a>
+ド・ブロイ仮説
+</h5><ul>
+<li>微視的粒子は粒子性だけでなく波動性ももつ。</li>
+<li>運動量 $\vec p$ をもつ粒子には、対応する物質波が存在し、その波長と振動数は運動量とエネルギーに対応する。</li>
+</ul>
+<h5 id="ドブロイ関係">
+<a class="header-anchor" href="#%e3%83%89%e3%83%96%e3%83%ad%e3%82%a4%e9%96%a2%e4%bf%82"></a>
+ド・ブロイ関係
+</h5><ul>
+<li>波長：
+
+$$
+  \lambda = \frac{h}{p}
+  $$</li>
+<li>ベクトル形式：
+
+$$
+  \vec p = \hbar \vec k
+  $$</li>
+<li>振動数：
+
+$$
+  E = h\nu = \hbar\omega
+  $$</li>
+</ul>
+<hr>
+<h3 id="12-状態と波動関数">
+<a class="header-anchor" href="#12-%e7%8a%b6%e6%85%8b%e3%81%a8%e6%b3%a2%e5%8b%95%e9%96%a2%e6%95%b0"></a>
+1.2 状態と波動関数
+</h3><h4 id="121-不確定性原理">
+<a class="header-anchor" href="#121-%e4%b8%8d%e7%a2%ba%e5%ae%9a%e6%80%a7%e5%8e%9f%e7%90%86"></a>
+1.2.1 不確定性原理
+</h4><ul>
+<li>微視的粒子の位置と運動量は同時に任意の精度では決定できない。</li>
+<li>ハイゼンベルクの不確定性関係：
+
+$$
+  \Delta x \cdot \Delta p_x \geq \frac{\hbar}{2}
+  $$</li>
+<li>エネルギーと時間についても
+
+$$
+  \Delta E \cdot \Delta t \geq \frac{\hbar}{2}
+  $$
+が成り立つ。</li>
+<li>本質は波動粒子二重性と演算子の非可換性にある。</li>
+</ul>
+<h4 id="122-波動関数">
+<a class="header-anchor" href="#122-%e6%b3%a2%e5%8b%95%e9%96%a2%e6%95%b0"></a>
+1.2.2 波動関数
+</h4><ul>
+<li>微視的粒子の状態を表すために <strong>波動関数</strong> $\psi(\vec r,t)$ を導入する。</li>
+<li><strong>確率解釈</strong>：$|\psi(\vec r,t)|^2 dV$ は体積要素 $dV$ 内に粒子を見出す確率である。</li>
+<li>波動関数は重ね合わせの原理とシュレーディンガー方程式を満たす。</li>
+<li>全空間での確率の総和は 1 であり、確率分布は波動関数の相対的な強度だけで決まる。</li>
+<li>波動関数に定数を掛けても、表す物理状態は変わらない。</li>
+<li>波動関数の標準条件：一価、有限、連続。</li>
+</ul>
+<h4 id="123-波動関数の規格化">
+<a class="header-anchor" href="#123-%e6%b3%a2%e5%8b%95%e9%96%a2%e6%95%b0%e3%81%ae%e8%a6%8f%e6%a0%bc%e5%8c%96"></a>
+1.2.3 波動関数の規格化
+</h4><ul>
+<li><strong>規格化条件</strong>
+
+$$
+  \int_{-\infty}^{\infty} \psi^* (\vec r,t) \psi (\vec r,t) dV = 1
+  $$</li>
+<li><strong>規格化の方法</strong>
+
+$$
+  \int_{-\infty}^{\infty} |\Psi(\vec r,t)|^2 dV = A^2 \int_{-\infty}^{\infty} |\psi(\vec r,t)|^2 dV = 1
+  $$
+ここで $A$ は規格化定数。</li>
+</ul>
+<hr>
+<h3 id="13-シュレーディンガー方程式">
+<a class="header-anchor" href="#13-%e3%82%b7%e3%83%a5%e3%83%ac%e3%83%bc%e3%83%87%e3%82%a3%e3%83%b3%e3%82%ac%e3%83%bc%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+1.3 シュレーディンガー方程式
+</h3><h4 id="131-自由粒子の波動方程式">
+<a class="header-anchor" href="#131-%e8%87%aa%e7%94%b1%e7%b2%92%e5%ad%90%e3%81%ae%e6%b3%a2%e5%8b%95%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+1.3.1 自由粒子の波動方程式
+</h4><p><strong>概念</strong><br>
+自由粒子とは外力を受けない粒子であり、その状態は波動関数 $\psi(\vec{r},t)$ によって表される。</p>
+<p><strong>自由粒子のシュレーディンガー方程式</strong>
+</p>
+$$
+i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = -\frac{\hbar^2}{2m} \nabla^2 \psi(\vec{r},t)
+$$<p><strong>平面波解</strong>
+</p>
+$$
+\psi(\vec{r},t) = A e^{i(\vec{k}\cdot\vec{r} - \omega t)}
+$$<p>
+ここで
+</p>
+$$
+E = \hbar \omega = \frac{\hbar^2 k^2}{2m},\qquad
+\vec{p} = \hbar \vec{k}
+$$<h5 id="平面波による導出">
+<a class="header-anchor" href="#%e5%b9%b3%e9%9d%a2%e6%b3%a2%e3%81%ab%e3%82%88%e3%82%8b%e5%b0%8e%e5%87%ba"></a>
+平面波による導出
+</h5><p><strong>1. 波動関数の仮定</strong>
+</p>
+$$
+\psi(\vec{r},t) = A e^{i(\vec{k}\cdot\vec{r} - \omega t)}
+$$<p><strong>2. 時間微分</strong>
+</p>
+$$
+\frac{\partial \psi}{\partial t}
+= -i \omega \psi
+$$<p>
+したがって
+</p>
+$$
+i\hbar \frac{\partial \psi}{\partial t} = \hbar \omega \psi
+$$<p><strong>3. ラプラシアン</strong>
+</p>
+$$
+\nabla^2 \psi = -k^2 \psi
+$$<p>
+よって
+</p>
+$$
+-\frac{\hbar^2}{2m} \nabla^2 \psi = \frac{\hbar^2 k^2}{2m} \psi
+$$<p><strong>4. エネルギー関係</strong>
+</p>
+$$
+E = \frac{\hbar^2 k^2}{2m} = \hbar \omega
+$$<p><strong>5. 方程式</strong>
+</p>
+$$
+i\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m} \nabla^2 \psi
+$$<h4 id="133-定常状態シュレーディンガー方程式と定常波動関数">
+<a class="header-anchor" href="#133-%e5%ae%9a%e5%b8%b8%e7%8a%b6%e6%85%8b%e3%82%b7%e3%83%a5%e3%83%ac%e3%83%bc%e3%83%87%e3%82%a3%e3%83%b3%e3%82%ac%e3%83%bc%e6%96%b9%e7%a8%8b%e5%bc%8f%e3%81%a8%e5%ae%9a%e5%b8%b8%e6%b3%a2%e5%8b%95%e9%96%a2%e6%95%b0"></a>
+1.3.3 定常状態シュレーディンガー方程式と定常波動関数
+</h4><p><strong>概念</strong>
+</p>
+$$
+\psi(\vec{r},t) = \phi(\vec{r}) e^{-i E t / \hbar}
+$$<p>
+の形に分離できる波動関数を定常状態波動関数という。</p>
+<p><strong>導出</strong>
+時間依存シュレーディンガー方程式
+</p>
+$$
+i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = \left[ -\frac{\hbar^2}{2m} \nabla^2 + V(\vec{r}) \right] \psi(\vec{r},t)
+$$<p>
+に上式を代入すると
+</p>
+$$
+\left[ -\frac{\hbar^2}{2m} \nabla^2 + V(\vec{r}) \right] \phi(\vec{r}) = E \phi(\vec{r})
+$$<p>
+を得る。</p>
+<p><strong>時間に依存しない形</strong>
+</p>
+$$
+i \hbar \frac{df}{dt}=E f , \; f= e^{-i E t / \hbar}
+$$<p>
+</p>
+$$
+-\frac{\hbar^2}{2m} \nabla^2 \phi(\vec{r}) + V(\vec{r}) \phi(\vec{r}) = E \phi(\vec{r})
+$$<h4 id="演算子からのシュレーディンガー方程式の導出">
+<a class="header-anchor" href="#%e6%bc%94%e7%ae%97%e5%ad%90%e3%81%8b%e3%82%89%e3%81%ae%e3%82%b7%e3%83%a5%e3%83%ac%e3%83%bc%e3%83%87%e3%82%a3%e3%83%b3%e3%82%ac%e3%83%bc%e6%96%b9%e7%a8%8b%e5%bc%8f%e3%81%ae%e5%b0%8e%e5%87%ba"></a>
+演算子からのシュレーディンガー方程式の導出
+</h4><p>古典的エネルギー
+</p>
+$$
+E = \frac{p^2}{2m} + V(\vec{r},t)
+$$<p>
+に対し、
+</p>
+$$
+\hat{E} = i\hbar \frac{\partial}{\partial t}, \quad \hat{\vec{p}} = -i\hbar \nabla
+$$<p>
+を導入すると、
+</p>
+$$
+\hat{H} = -\frac{\hbar^2}{2m}\nabla^2 + V(\vec{r},t)
+$$<p>
+より
+</p>
+$$
+i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = \hat{H} \psi(\vec{r},t)
+$$<p>
+すなわち
+</p>
+$$
+i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = \left[ -\frac{\hbar^2}{2m}\nabla^2 + V(\vec{r},t) \right] \psi(\vec{r},t)
+$$<p>
+となる。</p>
+<h4 id="状態の重ね合わせ原理">
+<a class="header-anchor" href="#%e7%8a%b6%e6%85%8b%e3%81%ae%e9%87%8d%e3%81%ad%e5%90%88%e3%82%8f%e3%81%9b%e5%8e%9f%e7%90%86"></a>
+状態の重ね合わせ原理
+</h4>$$
+\psi = c_1 \psi_1 + c_2 \psi_2
+$$<p>
+が再び可能な状態となる。一般には
+</p>
+$$
+\psi(\vec{r},t) = \sum_{n} c_n \phi_n(\vec{r},t),\qquad
+\sum_n |c_n|^2 = 1
+$$<p>
+で表される。</p>
+<h2 id="第2章-シュレーディンガー方程式の簡単な応用">
+<a class="header-anchor" href="#%e7%ac%ac2%e7%ab%a0-%e3%82%b7%e3%83%a5%e3%83%ac%e3%83%bc%e3%83%87%e3%82%a3%e3%83%b3%e3%82%ac%e3%83%bc%e6%96%b9%e7%a8%8b%e5%bc%8f%e3%81%ae%e7%b0%a1%e5%8d%98%e3%81%aa%e5%bf%9c%e7%94%a8"></a>
+第2章 シュレーディンガー方程式の簡単な応用
+</h2><h3 id="21-一次元無限深ポテンシャル井戸">
+<a class="header-anchor" href="#21-%e4%b8%80%e6%ac%a1%e5%85%83%e7%84%a1%e9%99%90%e6%b7%b1%e3%83%9d%e3%83%86%e3%83%b3%e3%82%b7%e3%83%a3%e3%83%ab%e4%ba%95%e6%88%b8"></a>
+2.1 一次元無限深ポテンシャル井戸
+</h3><h4 id="211-方程式の解">
+<a class="header-anchor" href="#211-%e6%96%b9%e7%a8%8b%e5%bc%8f%e3%81%ae%e8%a7%a3"></a>
+2.1.1 方程式の解
+</h4><p><strong>1. ポテンシャル</strong>
+</p>
+$$
+V(x) =
+\begin{cases}
+0, & 0 < x < L \\
+\infty, & x \leq 0 \ \text{または} \ x \geq L
+\end{cases}
+$$<p><strong>2. 方程式</strong>
+</p>
+$$
+-\frac{\hbar^2}{2m} \frac{d^2 \phi(x)}{dx^2} = E \phi(x)
+$$<p>
+</p>
+$$
+\frac{d^2 \phi(x)}{dx^2} + k^2 \phi(x) = 0,\qquad
+k^2 = \frac{2mE}{\hbar^2}
+$$<p><strong>3. 一般解</strong>
+</p>
+$$
+\phi(x) = A \sin(kx) + B \cos(kx)
+$$<p><strong>4. 境界条件</strong>
+</p>
+$$
+\phi(0) = 0, \quad \phi(L) = 0
+$$<p>
+から $B=0$、さらに $kL=n\pi$。</p>
+<p><strong>5. 固有関数と固有値</strong>
+</p>
+$$
+\phi_n(x) = \sqrt{\frac{2}{L}} \sin\left(\frac{n\pi x}{L}\right), \quad n=1,2,3,\dots
+$$<p>
+</p>
+$$
+E_n = \frac{n^2 \pi^2 \hbar^2}{2mL^2}, \quad n=1,2,3,\dots
+$$<hr>
+<h3 id="22-数理方程式の特殊関数">
+<a class="header-anchor" href="#22-%e6%95%b0%e7%90%86%e6%96%b9%e7%a8%8b%e5%bc%8f%e3%81%ae%e7%89%b9%e6%ae%8a%e9%96%a2%e6%95%b0"></a>
+2.2 数理方程式の特殊関数
+</h3><h4 id="221-直交性と規格化">
+<a class="header-anchor" href="#221-%e7%9b%b4%e4%ba%a4%e6%80%a7%e3%81%a8%e8%a6%8f%e6%a0%bc%e5%8c%96"></a>
+2.2.1 直交性と規格化
+</h4>$$
+\int_a^b \phi_m(x)\,\phi_n(x)\,dx = 0 \quad (m \neq n)
+$$<p>
+</p>
+$$
+\int_a^b |\phi_n(x)|^2 dx = 1
+$$<p>
+</p>
+$$
+\int_a^b \phi_m(x)\,\phi_n(x)\,dx = \delta_{mn}
+$$<h4 id="222-直交規格化関数系による展開">
+<a class="header-anchor" href="#222-%e7%9b%b4%e4%ba%a4%e8%a6%8f%e6%a0%bc%e5%8c%96%e9%96%a2%e6%95%b0%e7%b3%bb%e3%81%ab%e3%82%88%e3%82%8b%e5%b1%95%e9%96%8b"></a>
+2.2.2 直交規格化関数系による展開
+</h4>$$
+f(x) = \sum_{n=1}^{\infty} c_n \phi_n(x),\qquad
+c_n = \int_a^b f(x)\,\phi_n(x)\,dx
+$$<h4 id="223-フーリエ級数">
+<a class="header-anchor" href="#223-%e3%83%95%e3%83%bc%e3%83%aa%e3%82%a8%e7%b4%9a%e6%95%b0"></a>
+2.2.3 フーリエ級数
+</h4>$$
+f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty \left[ a_n \cos\left(\frac{n\pi x}{L}\right) + b_n \sin\left(\frac{n\pi x}{L}\right) \right]
+$$<h4 id="224-直交規格化関数の構成">
+<a class="header-anchor" href="#224-%e7%9b%b4%e4%ba%a4%e8%a6%8f%e6%a0%bc%e5%8c%96%e9%96%a2%e6%95%b0%e3%81%ae%e6%a7%8b%e6%88%90"></a>
+2.2.4 直交規格化関数の構成
+</h4><p>グラム・シュミット直交化を用いる：
+</p>
+$$
+\phi_1(x) = \frac{f_1(x)}{\sqrt{\int |f_1(x)|^2 dx}}
+$$<p>
+</p>
+$$
+\phi_2(x) = \frac{f_2(x) - \int \phi_1(x) f_2(x)\,dx \,\phi_1(x)}{\sqrt{\int \left|f_2(x) - \int \phi_1(x) f_2(x)\,dx \,\phi_1(x)\right|^2 dx}}
+$$<h4 id="225-ルジャンドル多項式とその他の特殊関数">
+<a class="header-anchor" href="#225-%e3%83%ab%e3%82%b8%e3%83%a3%e3%83%b3%e3%83%89%e3%83%ab%e5%a4%9a%e9%a0%85%e5%bc%8f%e3%81%a8%e3%81%9d%e3%81%ae%e4%bb%96%e3%81%ae%e7%89%b9%e6%ae%8a%e9%96%a2%e6%95%b0"></a>
+2.2.5 ルジャンドル多項式とその他の特殊関数
+</h4>$$
+(1-x^2)\frac{d^2 y}{dx^2} - 2x \frac{dy}{dx} + l(l+1)y = 0
+$$<p>
+</p>
+$$
+\int_{-1}^{1} P_l(x) P_{l'}(x)\,dx = \frac{2}{2l+1}\delta_{ll'}
+$$<ul>
+<li><strong>球面調和関数</strong> $Y_l^m(\theta,\phi)$</li>
+<li><strong>ベッセル関数</strong> $J_n(x)$</li>
+<li><strong>エルミート多項式</strong> $H_n(x)$</li>
+</ul>
+<h3 id="23-線形調和振動子">
+<a class="header-anchor" href="#23-%e7%b7%9a%e5%bd%a2%e8%aa%bf%e5%92%8c%e6%8c%af%e5%8b%95%e5%ad%90"></a>
+2.3 線形調和振動子
+</h3><h3 id="24-水素原子">
+<a class="header-anchor" href="#24-%e6%b0%b4%e7%b4%a0%e5%8e%9f%e5%ad%90"></a>
+2.4 水素原子
+</h3><h4 id="241-方程式の解-の三つに分離">
+<a class="header-anchor" href="#241-%e6%96%b9%e7%a8%8b%e5%bc%8f%e3%81%ae%e8%a7%a3-%e3%81%ae%e4%b8%89%e3%81%a4%e3%81%ab%e5%88%86%e9%9b%a2"></a>
+2.4.1 方程式の解（$r,\ \theta,\ \phi$ の三つに分離）
+</h4>$$
+V(r) = -\dfrac{e^2}{4\pi\varepsilon_0 r}
+$$<p>
+</p>
+$$
+-\dfrac{\hbar^2}{2m}\nabla^2\Psi(r,\theta,\phi) + V(r)\Psi = E\Psi.
+$$$$
+\Psi(r,\theta,\phi)=R(r)\,Y(\theta,\phi)
+$$<p>
+と置いて変数分離すると、角部分と動径部分の方程式が得られる。</p>
+<p><strong>$\phi$ 方程式</strong>
+</p>
+$$
+\frac{1}{\Phi(\phi)}\frac{d^2\Phi}{d\phi^2} = -m^2 \quad\Rightarrow\quad
+\Phi_m(\phi)=\frac{1}{\sqrt{2\pi}} e^{i m\phi},\quad m\in\mathbb{Z}
+$$<p><strong>$\theta$ 方程式</strong>
+</p>
+$$
+\frac{1}{\sin\theta}\frac{d}{d\theta}\!\left(\sin\theta\frac{d\Theta}{d\theta}\right)
++\left[l(l+1)-\frac{m^2}{\sin^2\theta}\right]\Theta=0
+$$<p>
+解は陪ルジャンドル関数：
+</p>
+$$
+\Theta_{l}^{m}(\theta)\propto P_l^{m}(\cos\theta)
+$$<p><strong>球面調和関数</strong>
+</p>
+$$
+Y_l^m(\theta,\phi)=N_{l}^{m}\,P_l^{m}(\cos\theta)\,e^{im\phi}
+$$<p>
+</p>
+$$
+\hat L^2 Y_l^m = l(l+1)\hbar^2 Y_l^m,\qquad \hat L_z Y_l^m = m\hbar Y_l^m
+$$<p><strong>動径方程式</strong>
+</p>
+$$
+-\frac{\hbar^2}{2m}\frac{d^2 u}{dr^2} + \left[ -\frac{e^2}{4\pi\varepsilon_0 r} + \frac{\hbar^2 l(l+1)}{2m r^2} \right] u = E u
+$$<p><strong>エネルギー固有値</strong>
+</p>
+$$
+E_n = -\frac{m e^4}{2(4\pi\varepsilon_0)^2 \hbar^2}\,\frac{1}{n^2} = -\frac{13.6057\ \mathrm{eV}}{n^2},\qquad n=1,2,3,\dots
+$$<p><strong>波動関数</strong>
+</p>
+$$
+\Psi_{n l m}(r,\theta,\phi)=R_{n l}(r)\,Y_l^m(\theta,\phi)
+$$<p>
+</p>
+$$
+R_{n l}(r)=N_{n l}\left(\frac{2r}{n a_0}\right)^{l} e^{-r/(n a_0)} L_{n-l-1}^{2l+1}\!\left(\frac{2r}{n a_0}\right)
+$$<h4 id="242-結果と考察">
+<a class="header-anchor" href="#242-%e7%b5%90%e6%9e%9c%e3%81%a8%e8%80%83%e5%af%9f"></a>
+2.4.2 結果と考察
+</h4><ul>
+<li>$n$：主量子数</li>
+<li>$l$：方位量子数</li>
+<li>$m$：磁気量子数</li>
+<li>クーロンポテンシャルではエネルギーは $n$ のみに依存する。</li>
+<li>基底状態 $(1,0,0)$ は球対称で、動径節を持たない。</li>
+</ul>
+<h2 id="第3章-力学量の演算子表示と表象理論">
+<a class="header-anchor" href="#%e7%ac%ac3%e7%ab%a0-%e5%8a%9b%e5%ad%a6%e9%87%8f%e3%81%ae%e6%bc%94%e7%ae%97%e5%ad%90%e8%a1%a8%e7%a4%ba%e3%81%a8%e8%a1%a8%e8%b1%a1%e7%90%86%e8%ab%96"></a>
+第3章 力学量の演算子表示と表象理論
+</h2><h3 id="31-力学量と演算子の関係">
+<a class="header-anchor" href="#31-%e5%8a%9b%e5%ad%a6%e9%87%8f%e3%81%a8%e6%bc%94%e7%ae%97%e5%ad%90%e3%81%ae%e9%96%a2%e4%bf%82"></a>
+3.1 力学量と演算子の関係
+</h3><h4 id="311-演算子の数学的知識">
+<a class="header-anchor" href="#311-%e6%bc%94%e7%ae%97%e5%ad%90%e3%81%ae%e6%95%b0%e5%ad%a6%e7%9a%84%e7%9f%a5%e8%ad%98"></a>
+3.1.1 演算子の数学的知識
+</h4><ol>
+<li>
+<p><strong>演算子の定義</strong><br>
+演算子は関数空間や状態空間に作用する規則であり、量子力学では物理量を表す。</p>
+</li>
+<li>
+<p><strong>線形性</strong>
+</p>
+$$
+   A(c_1\psi_1 + c_2\psi_2) = c_1 A\psi_1 + c_2 A\psi_2
+   $$</li>
+<li>
+<p><strong>交換関係</strong>
+</p>
+$$
+   [A,B] = AB - BA
+   $$</li>
+<li>
+<p><strong>エルミート演算子</strong>
+</p>
+$$
+   \langle \psi | A\varphi \rangle = \langle A\psi | \varphi \rangle
+   $$<p>
+可観測量はエルミート演算子で表される。</p>
+</li>
+</ol>
+<h4 id="312-力学量と演算子">
+<a class="header-anchor" href="#312-%e5%8a%9b%e5%ad%a6%e9%87%8f%e3%81%a8%e6%bc%94%e7%ae%97%e5%ad%90"></a>
+3.1.2 力学量と演算子
+</h4><ol>
+<li>
+<p><strong>基本思想</strong><br>
+古典量 $f(q,p)$ に対して量子演算子 $\hat f$ を対応させる。</p>
+</li>
+<li>
+<p><strong>位置表象における典型例</strong>
+</p>
+$$
+   \hat{x} = x,\qquad
+   \hat{p} = -i\hbar \frac{\partial}{\partial x}
+   $$</li>
+<li>
+<p><strong>基本交換関係</strong>
+</p>
+$$
+   [\hat{x}, \hat{p}] = i\hbar
+   $$</li>
+<li>
+<p><strong>固有値方程式</strong>
+</p>
+$$
+   \hat{A}\psi_a = a\psi_a
+   $$</li>
+</ol>
+<h3 id="32-演算子の交換関係と不確定性原理">
+<a class="header-anchor" href="#32-%e6%bc%94%e7%ae%97%e5%ad%90%e3%81%ae%e4%ba%a4%e6%8f%9b%e9%96%a2%e4%bf%82%e3%81%a8%e4%b8%8d%e7%a2%ba%e5%ae%9a%e6%80%a7%e5%8e%9f%e7%90%86"></a>
+3.2 演算子の交換関係と不確定性原理
+</h3><h4 id="321-交換関係">
+<a class="header-anchor" href="#321-%e4%ba%a4%e6%8f%9b%e9%96%a2%e4%bf%82"></a>
+3.2.1 交換関係
+</h4>$$
+[A,B] = AB - BA
+$$<p>
+</p>
+$$
+[\hat{x}, \hat{p}_x] = i\hbar
+$$<p>
+</p>
+$$
+[\hat{x}_i, \hat{p}_j] = i\hbar \delta_{ij}, \quad [\hat{x}_i, \hat{x}_j]=0, \quad [\hat{p}_i, \hat{p}_j]=0
+$$<h4 id="322-不確定性原理">
+<a class="header-anchor" href="#322-%e4%b8%8d%e7%a2%ba%e5%ae%9a%e6%80%a7%e5%8e%9f%e7%90%86"></a>
+3.2.2 不確定性原理
+</h4>$$
+(\Delta A)^2 = \langle (A-\langle A \rangle)^2 \rangle,\qquad
+(\Delta B)^2 = \langle (B-\langle B \rangle)^2 \rangle
+$$<p>
+</p>
+$$
+\Delta A \cdot \Delta B \geq \frac{1}{2}\left| \langle [A,B] \rangle \right|
+$$<p>
+特に
+</p>
+$$
+\Delta x \cdot \Delta p \geq \frac{\hbar}{2}
+$$<p>
+</p>
+$$
+\Delta E \cdot \Delta t \gtrsim \hbar
+$$<h3 id="33-表象理論">
+<a class="header-anchor" href="#33-%e8%a1%a8%e8%b1%a1%e7%90%86%e8%ab%96"></a>
+3.3 表象理論
+</h3><h4 id="331-数学的基礎">
+<a class="header-anchor" href="#331-%e6%95%b0%e5%ad%a6%e7%9a%84%e5%9f%ba%e7%a4%8e"></a>
+3.3.1 数学的基礎
+</h4>$$
+|\psi\rangle = \sum_n c_n |\phi_n\rangle,\qquad c_n = \langle \phi_n | \psi \rangle
+$$<p>
+</p>
+$$
+A_{mn} = \langle \phi_m | \hat{A} | \phi_n \rangle
+$$<p>
+</p>
+$$
+\sum_n |\phi_n\rangle \langle \phi_n| = I,\qquad
+\langle \phi_m | \phi_n \rangle = \delta_{mn}
+$$<h4 id="332-状態と力学量の表象">
+<a class="header-anchor" href="#332-%e7%8a%b6%e6%85%8b%e3%81%a8%e5%8a%9b%e5%ad%a6%e9%87%8f%e3%81%ae%e8%a1%a8%e8%b1%a1"></a>
+3.3.2 状態と力学量の表象
+</h4><p><strong>位置表象</strong>
+</p>
+$$
+\psi(x) = \langle x|\psi\rangle
+$$<p>
+</p>
+$$
+\hat{x} \psi(x) = x \psi(x), \quad \hat{p}_x \psi(x) = -i\hbar \frac{\partial}{\partial x}\psi(x)
+$$<p><strong>運動量表象</strong>
+</p>
+$$
+\phi(p) = \langle p|\psi\rangle
+$$<p>
+</p>
+$$
+\hat{p} \phi(p) = p \phi(p), \quad \hat{x} \phi(p) = i\hbar \frac{\partial}{\partial p}\phi(p)
+$$<p><strong>エネルギー表象</strong>
+</p>
+$$
+|\psi\rangle = \sum_n c_n |E_n\rangle, \quad c_n = \langle E_n|\psi\rangle
+$$<p><strong>表象間の変換</strong>
+</p>
+$$
+\phi(p) = \frac{1}{\sqrt{2\pi\hbar}} \int_{-\infty}^{\infty} \psi(x) e^{-ipx/\hbar} dx
+$$<p>
+</p>
+$$
+\psi(x) = \frac{1}{\sqrt{2\pi\hbar}} \int_{-\infty}^{\infty} \phi(p) e^{ipx/\hbar} dp
+$$<h3 id="34-軌道角運動量">
+<a class="header-anchor" href="#34-%e8%bb%8c%e9%81%93%e8%a7%92%e9%81%8b%e5%8b%95%e9%87%8f"></a>
+3.4 軌道角運動量
+</h3><h4 id="341-角運動量">
+<a class="header-anchor" href="#341-%e8%a7%92%e9%81%8b%e5%8b%95%e9%87%8f"></a>
+3.4.1 角運動量
+</h4>$$
+\vec{L} = \vec{r} \times \vec{p},\qquad
+\hat{\vec{L}} = \hat{\vec{r}} \times \hat{\vec{p}}
+$$<p>
+</p>
+$$
+\hat{L}_x = y\hat{p}_z - z\hat{p}_y, \quad
+\hat{L}_y = z\hat{p}_x - x\hat{p}_z, \quad
+\hat{L}_z = x\hat{p}_y - y\hat{p}_x
+$$<p>
+</p>
+$$
+[\hat{L}_x, \hat{L}_y] = i\hbar \hat{L}_z, \quad
+[\hat{L}_y, \hat{L}_z] = i\hbar \hat{L}_x, \quad
+[\hat{L}_z, \hat{L}_x] = i\hbar \hat{L}_y
+$$<p>
+</p>
+$$
+\hat{L}^2 = \hat{L}_x^2 + \hat{L}_y^2 + \hat{L}_z^2
+$$<h4 id="342-角運動量保存">
+<a class="header-anchor" href="#342-%e8%a7%92%e9%81%8b%e5%8b%95%e9%87%8f%e4%bf%9d%e5%ad%98"></a>
+3.4.2 角運動量保存
+</h4>$$
+[\hat{H}, \hat{L}_i] = 0 \quad \Rightarrow \quad \hat{L}_i \ \text{は保存する}
+$$<p>
+球対称ポテンシャルでは
+</p>
+$$
+[\hat{H}, \hat{L}^2] = 0, \quad [\hat{H}, \hat{L}_z] = 0
+$$<h4 id="343-軌道角運動量の計算">
+<a class="header-anchor" href="#343-%e8%bb%8c%e9%81%93%e8%a7%92%e9%81%8b%e5%8b%95%e9%87%8f%e3%81%ae%e8%a8%88%e7%ae%97"></a>
+3.4.3 軌道角運動量の計算
+</h4>$$
+\hat{L}^2 Y_{lm}(\theta,\varphi) = l(l+1)\hbar^2 Y_{lm}(\theta,\varphi)
+$$<p>
+</p>
+$$
+\hat{L}_z Y_{lm}(\theta,\varphi) = m\hbar Y_{lm}(\theta,\varphi)
+$$<p>
+</p>
+$$
+L = \sqrt{l(l+1)} \hbar,\qquad L_z = m\hbar
+$$<h2 id="第4章-摂動論とその応用">
+<a class="header-anchor" href="#%e7%ac%ac4%e7%ab%a0-%e6%91%82%e5%8b%95%e8%ab%96%e3%81%a8%e3%81%9d%e3%81%ae%e5%bf%9c%e7%94%a8"></a>
+第4章 摂動論とその応用
+</h2><h3 id="41-定常摂動論">
+<a class="header-anchor" href="#41-%e5%ae%9a%e5%b8%b8%e6%91%82%e5%8b%95%e8%ab%96"></a>
+4.1 定常摂動論
+</h3><h4 id="411-非縮退摂動論">
+<a class="header-anchor" href="#411-%e9%9d%9e%e7%b8%ae%e9%80%80%e6%91%82%e5%8b%95%e8%ab%96"></a>
+4.1.1 非縮退摂動論
+</h4>$$
+\hat{H} = \hat{H}^{(0)} + \lambda \hat{H}'
+$$<p>
+</p>
+$$
+E_n^{(1)} = \langle \psi_n^{(0)} | \hat{H}' | \psi_n^{(0)} \rangle
+$$<p>
+</p>
+$$
+E_n^{(2)} = \sum_{m \neq n} \frac{|\langle \psi_m^{(0)} | \hat{H}' | \psi_n^{(0)} \rangle|^2}{E_n^{(0)} - E_m^{(0)}}
+$$<p>
+</p>
+$$
+\psi_n^{(1)} = \sum_{m \neq n} \frac{\langle \psi_m^{(0)} | \hat{H}' | \psi_n^{(0)} \rangle}{E_n^{(0)} - E_m^{(0)}} \psi_m^{(0)}
+$$<h4 id="412-縮退摂動論">
+<a class="header-anchor" href="#412-%e7%b8%ae%e9%80%80%e6%91%82%e5%8b%95%e8%ab%96"></a>
+4.1.2 縮退摂動論
+</h4>$$
+H'_{ij} = \langle \psi_i^{(0)} | \hat{H}' | \psi_j^{(0)} \rangle
+$$<p>
+を縮退部分空間で対角化する。</p>
+<h3 id="42-時間依存摂動論">
+<a class="header-anchor" href="#42-%e6%99%82%e9%96%93%e4%be%9d%e5%ad%98%e6%91%82%e5%8b%95%e8%ab%96"></a>
+4.2 時間依存摂動論
+</h3>$$
+\hat{H}(t) = \hat{H}^{(0)} + \hat{H}'(t)
+$$<p>
+</p>
+$$
+|\psi(t)\rangle = \sum_n c_n(t) e^{-iE_n^{(0)}t/\hbar} |\psi_n^{(0)}\rangle
+$$<p>
+</p>
+$$
+c_f^{(1)}(t) = \frac{1}{i\hbar} \int_0^t \langle \psi_f^{(0)} | \hat{H}'(t') | \psi_i^{(0)} \rangle 
+e^{i\omega_{fi} t'} dt'
+$$<p>
+</p>
+$$
+W_{i \to f} = \frac{2\pi}{\hbar} \, |\langle f | \hat{H}' | i \rangle|^2 \, \rho(E_f)
+$$<h2 id="電子スピン">
+<a class="header-anchor" href="#%e9%9b%bb%e5%ad%90%e3%82%b9%e3%83%94%e3%83%b3"></a>
+電子スピン
+</h2><h3 id="電子スピンの実験的発見">
+<a class="header-anchor" href="#%e9%9b%bb%e5%ad%90%e3%82%b9%e3%83%94%e3%83%b3%e3%81%ae%e5%ae%9f%e9%a8%93%e7%9a%84%e7%99%ba%e8%a6%8b"></a>
+電子スピンの実験的発見
+</h3><ol>
+<li>
+<p><strong>シュテルン＝ゲルラッハ実験</strong><br>
+銀原子ビームを不均一磁場に通すと二本に分かれ、電子が軌道角運動量以外の内在的角運動量、すなわちスピンをもつことが示された。</p>
+</li>
+<li>
+<p><strong>実験的結論</strong></p>
+<ul>
+<li>スピン量子数は $s = 1/2$。</li>
+<li>スピン投影は $m_s = \pm 1/2$。</li>
+<li>スピン磁気モーメント：
+
+$$
+     \vec{\mu}_s = -g_s \frac{e}{2m_e} \vec{S}, \quad g_s \approx 2
+     $$</li>
+</ul>
+</li>
+</ol>
+<h3 id="電子スピンの理論">
+<a class="header-anchor" href="#%e9%9b%bb%e5%ad%90%e3%82%b9%e3%83%94%e3%83%b3%e3%81%ae%e7%90%86%e8%ab%96"></a>
+電子スピンの理論
+</h3><ol>
+<li>
+<p><strong>量子論的記述</strong>
+</p>
+$$
+   [\hat{S}_i, \hat{S}_j] = i\hbar \epsilon_{ijk} \hat{S}_k
+   $$</li>
+<li>
+<p><strong>物理的意味</strong><br>
+スピンは電子の磁性的ふるまいを決め、フェルミ＝ディラック統計とパウリの排他原理につながる。</p>
+</li>
+</ol>
+<h3 id="スピン角運動量">
+<a class="header-anchor" href="#%e3%82%b9%e3%83%94%e3%83%b3%e8%a7%92%e9%81%8b%e5%8b%95%e9%87%8f"></a>
+スピン角運動量
+</h3><h4 id="スピン演算子">
+<a class="header-anchor" href="#%e3%82%b9%e3%83%94%e3%83%b3%e6%bc%94%e7%ae%97%e5%ad%90"></a>
+スピン演算子
+</h4>$$
+\hat{S}_x, \hat{S}_y, \hat{S}_z
+$$<p>
+</p>
+$$
+[\hat{S}_x, \hat{S}_y] = i\hbar \hat{S}_z, \quad \text{循環対称}
+$$<p>
+</p>
+$$
+\hat{S}^2 = \hat{S}_x^2 + \hat{S}_y^2 + \hat{S}_z^2
+$$<p>
+</p>
+$$
+\hat{S}^2 |\chi_s\rangle = s(s+1)\hbar^2 |\chi_s\rangle
+$$<h4 id="固有関数の行列表現">
+<a class="header-anchor" href="#%e5%9b%ba%e6%9c%89%e9%96%a2%e6%95%b0%e3%81%ae%e8%a1%8c%e5%88%97%e8%a1%a8%e7%8f%be"></a>
+固有関数の行列表現
+</h4>$$
+|\uparrow\rangle = \begin{pmatrix}1\\0\end{pmatrix}, \quad
+|\downarrow\rangle = \begin{pmatrix}0\\1\end{pmatrix}
+$$<p>
+</p>
+$$
+\hat{S}_x = \frac{\hbar}{2} \sigma_x, \quad
+\hat{S}_y = \frac{\hbar}{2} \sigma_y, \quad
+\hat{S}_z = \frac{\hbar}{2} \sigma_z
+$$<p>
+</p>
+$$
+\sigma_x = \begin{pmatrix}0 & 1\\ 1 & 0\end{pmatrix},\quad
+\sigma_y = \begin{pmatrix}0 & -i\\ i & 0\end{pmatrix},\quad
+\sigma_z = \begin{pmatrix}1 & 0\\ 0 & -1\end{pmatrix}
+$$<h4 id="角運動量結合理論">
+<a class="header-anchor" href="#%e8%a7%92%e9%81%8b%e5%8b%95%e9%87%8f%e7%b5%90%e5%90%88%e7%90%86%e8%ab%96"></a>
+角運動量結合理論
+</h4>$$
+\hat{H}_{\text{SO}} = \xi(r)\, \vec{L} \cdot \vec{S}
+$$<p>
+</p>
+$$
+\vec{J} = \vec{L} + \vec{S}, \quad
+\hat{J}^2 = (\hat{L}+\hat{S})^2
+$$<p>
+</p>
+$$
+\hat{J}^2 |j, m_j\rangle = j(j+1)\hbar^2 |j, m_j\rangle, \quad
+\hat{J}_z |j, m_j\rangle = m_j \hbar |j, m_j\rangle
+$$<ul>
+<li>$j = l \pm s$、$m_j = -j, -j+1, ..., j$。</li>
+</ul>
+<h2 id="同種粒子の原理">
+<a class="header-anchor" href="#%e5%90%8c%e7%a8%ae%e7%b2%92%e5%ad%90%e3%81%ae%e5%8e%9f%e7%90%86"></a>
+同種粒子の原理
+</h2><h3 id="同種粒子系">
+<a class="header-anchor" href="#%e5%90%8c%e7%a8%ae%e7%b2%92%e5%ad%90%e7%b3%bb"></a>
+同種粒子系
+</h3><h4 id="概念と原理">
+<a class="header-anchor" href="#%e6%a6%82%e5%bf%b5%e3%81%a8%e5%8e%9f%e7%90%86"></a>
+概念と原理
+</h4><ol>
+<li>
+<p><strong>同種粒子の定義</strong><br>
+質量・電荷・スピンなどの物理的性質が完全に同一で、いかなる実験でも区別できない粒子を同種粒子という。</p>
+</li>
+<li>
+<p><strong>同種性原理</strong><br>
+同種粒子を交換しても、ハミルトニアンと可観測量は変わらない。</p>
+</li>
+</ol>
+<h4 id="同種粒子系のハミルトニアン">
+<a class="header-anchor" href="#%e5%90%8c%e7%a8%ae%e7%b2%92%e5%ad%90%e7%b3%bb%e3%81%ae%e3%83%8f%e3%83%9f%e3%83%ab%e3%83%88%e3%83%8b%e3%82%a2%e3%83%b3"></a>
+同種粒子系のハミルトニアン
+</h4>$$
+\hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i<j} V(\vec{r}_i - \vec{r}_j)
+$$<p>
+</p>
+$$
+[\hat{H}, \hat{P}_{ij}] = 0
+$$<h4 id="同種粒子系の波動関数">
+<a class="header-anchor" href="#%e5%90%8c%e7%a8%ae%e7%b2%92%e5%ad%90%e7%b3%bb%e3%81%ae%e6%b3%a2%e5%8b%95%e9%96%a2%e6%95%b0"></a>
+同種粒子系の波動関数
+</h4>$$
+\hat{P}_{ij} \Psi(\dots, \vec{r}_i, \vec{r}_j, \dots) =
+\pm \Psi(\dots, \vec{r}_i, \vec{r}_j, \dots)
+$$<ul>
+<li><strong>+</strong>：ボース粒子、対称</li>
+<li><strong>-</strong>：フェルミ粒子、反対称</li>
+</ul>
+<p>フェルミ粒子ではスレーター行列式：
+</p>
+$$
+\Psi(\vec{r}_1, \dots, \vec{r}_N) = \frac{1}{\sqrt{N!}}
+\begin{vmatrix}
+\psi_1(\vec{r}_1) & \cdots & \psi_1(\vec{r}_N) \\
+\vdots & \ddots & \vdots \\
+\psi_N(\vec{r}_1) & \cdots & \psi_N(\vec{r}_N)
+\end{vmatrix}
+$$<h3 id="パウリの排他原理">
+<a class="header-anchor" href="#%e3%83%91%e3%82%a6%e3%83%aa%e3%81%ae%e6%8e%92%e4%bb%96%e5%8e%9f%e7%90%86"></a>
+パウリの排他原理
+</h3><ol>
+<li>
+<p><strong>原理の内容</strong>
+半整数スピンをもつ同種フェルミ粒子では、任意の二粒子が完全に同一の量子状態を占めることはできない。
+</p>
+$$
+   \Psi(\text{同一量子状態}) = 0
+   $$</li>
+<li>
+<p><strong>物理的意味</strong>
+原子内電子の配置、原子構造、化学的性質、フェルミ気体の性質を説明する。</p>
+</li>
+<li>
+<p><strong>例</strong></p>
+<ul>
+<li>原子中の電子：一つの軌道には互いに逆向きのスピンをもつ二個まで。</li>
+<li>金属電子：フェルミ準位を形成し、電気的・熱的性質を決める。</li>
+</ul>
+</li>
+</ol>
+
+        
+        <hr><p>この記事は2025-09-05に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-09-05です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Physics</category></item><item><title>大学院受験日記001</title><link>https://guzhengsvt.cn/ja/post/diary/diary-001-of-postgraduate-entrance-examination/</link><pubDate>Mon, 01 Sep 2025 22:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/diary/diary-001-of-postgraduate-entrance-examination/</guid><description>
+<![CDATA[<h1>大学院受験日記001</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
+        
+          <h2 id="前書き">
+<a class="header-anchor" href="#%e5%89%8d%e6%9b%b8%e3%81%8d"></a>
+前書き
+</h2><p>いろいろあって、今はもう大学院受験をするしかなくなった。<br>
+この受験日記は、その日の勉強を振り返るためでもあり、空気に向かって少し話す場所でもある。最初は Day1 という題にしようかと思ったが、毎日書けるわけでもないし、毎日書くことがあるわけでもない。気が抜ける日もあるし、忙しくて何も書けない日もある。だから結局 001 にした。</p>
+<p>正直に言えば、今から始めて三か月で受かるつもりでもない。あまり向上心のある言い方ではないが、私のように結婚も家もまだ考えておらず、物欲も低い人間なら、何年か受け続けるだけの余力はある。今年はまず様子見だ。私自身はあまりプレッシャーを感じていないが、直博に失敗したことで両親はかなり焦っている。</p>
+<p>今日は大学で三回目の図書館だった。一回目は入学してすぐに西電を見学しに来たとき、二回目は会議だった。<br>
+最初にこの「屠鼠館」に来たときから、ここは自分には勉強向きじゃないと思っていた。空気があまりにも厳粛で、息苦しい。椅子にかしこまって座り、少しでも音を立てて周りの迷惑にならないかと気にし、周囲の人に「ちゃんと勉強しているか」を見られている気もしてしまう。スマホを一目見るだけでも罪のように思える。もちろん、そんなのは私の被害妄想で、実際には誰も気にしていないのだろう。でも、見知らぬ人がたくさんいて、しかもとても静かな場所というのは、社交不安のある人間には本当に緊張する。高校の自習の空気とはまるで違う。<br>
+それでも、図書館にはビッグ・ブラザーの目もないし、動画を撮る杨小姐もいない。0721 の 凌地宁宁 がいたらよかったのに。</p>
+<p>数学一から始めて、今年は武忠祥についていき、いきなり強化講義を見るつもりだ。今日は二章進めた。あまりにも長く頭を使ってこなかったせいか、勉強を始めるとすぐ眠くなる。幸い最初の二章は関数や極限で難しくなく、今日になってようやく昔の《数学分析》がかなり役に立っていたと実感した。当時は、あんな理学寄りの授業は工学の自分には何の役にも立たないと思っていた。ついていけなくなって、ますますやる気をなくし、とにかく難しかった。それでも最後は先生が追試で助けてくれて、六十点台をくれた。だが《数学分析》がくれたのは、基礎定理の証明だけではなかった。数学者の玩具なんかではなく、思考の訓練であり、発想の啓きでもあった。恥ずかしい、実に恥ずかしい。</p>
+<p>私は昔からノートを取らない。論理の通ったものは全部頭の中に置いておくタイプだ。だが、時間が経てばやはり薄れる。もう高校時代のように毎日全部を復習する生活ではないのだから、ある程度は書き留めて、あとで見返せるようにしておくべきだろう。</p>
+<h2 id="振り返り">
+<a class="header-anchor" href="#%e6%8c%af%e3%82%8a%e8%bf%94%e3%82%8a"></a>
+振り返り
+</h2><h3 id="関数">
+<a class="header-anchor" href="#%e9%96%a2%e6%95%b0"></a>
+関数
+</h3><ul>
+<li>
+<p>関数の基本要素：定義域、対応規則</p>
+</li>
+<li>
+<p>関数の性質：単調性、奇偶性、周期性、有界性</p>
+</li>
+<li>
+<p>奇関数
+</p>
+$$
+ln{\frac{1-x}{1+x}},ln(x+\sqrt[2]{1+x^2}),\frac{e^x-1}{e^x+1},f(x)-f(-x)
+$$</li>
+<li>
+<p>偶関数
+</p>
+$$
+f(x)+f(-x)
+$$</li>
+<li>
+<p>$f(x)$ が奇関数なら、$\int ^x_0 f(x)dx+C$ は偶関数</p>
+</li>
+<li>
+<p>$f(x)$ が偶関数なら、$\int ^x_0 f(x)dx+C$ は $C=0$ のときに限り奇関数</p>
+</li>
+<li>
+<p>微分可能な周期関数の導関数は周期関数</p>
+</li>
+<li>
+<p>導関数が周期関数でも、原関数が周期関数とは限らない</p>
+</li>
+<li>
+<p>導関数が周期関数で、しかも一周期での積分が $0$ なら、原関数は周期関数になる</p>
+</li>
+</ul>
+<h3 id="極限">
+<a class="header-anchor" href="#%e6%a5%b5%e9%99%90"></a>
+極限
+</h3><ul>
+<li>局所有界性：ある穿点近傍で極限が存在すれば局所有界である。逆は成り立たない</li>
+<li>符号保存性</li>
+<li>順序保存性</li>
+</ul>
+<p>数列極限の存在条件</p>
+<ul>
+<li>はさみうちの定理</li>
+<li>単調有界定理</li>
+</ul>
+<p>無限大と無界変数の関係：</p>
+<ul>
+<li>無限大に発散する列とは、項の絶対値が最終的に任意に大きくなるもの
+
+$$
+\forall M \gt 0 ,\exist N \gt 0,当 n \gt N时,恒有\left\vert x_n \right\vert \gt M
+$$</li>
+<li>無界変数とは、任意の大きさに対し、それを超える項が少なくとも一つ存在すること
+
+$$
+\forall M \gt 0 ,\exist N \gt 0,使得\left\vert x_N \right\vert \gt M
+$$</li>
+</ul>
+<h2 id="後書き">
+<a class="header-anchor" href="#%e5%be%8c%e6%9b%b8%e3%81%8d"></a>
+後書き
+</h2><p>わからない わからない 星の高さも遠さも<br>
+いつになれば その中に 身を置けるのだろう
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E7%A7%91%E7%BD%97%E5%BB%96%E5%A4%AB%E5%8D%81%E5%AD%97.jpeg" alt=""></p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="//player.bilibili.com/player.html?isOutside=true&aid=114883244982356&bvid=BV1SPgbzzE3e&cid=31159160676&p=1"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+    frameborder="0" 
+    allowfullscreen="true">
+  </iframe>
+</div>
+
+
+
+        
+        <hr><p>この記事は2025-09-01に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-09-01です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Diary</category></item><item><title>QSLカード展示</title><link>https://guzhengsvt.cn/ja/post/othernotes/qsl-card-exhibition/</link><pubDate>Thu, 21 Aug 2025 18:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/othernotes/qsl-card-exhibition/</guid><description>
+<![CDATA[<h1>QSLカード展示</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
+        
+          <h2 id="1-noa-1">
+<a class="header-anchor" href="#1-noa-1"></a>
+1. Noa-1
+</h2><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/QSL-%E6%A0%87-1.jpeg" alt="Noa-1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/QSL-%E6%A0%87-2.jpeg" alt="Noa-2.jpeg"></p>
+<h3 id="デザイン意図">
+<a class="header-anchor" href="#%e3%83%87%e3%82%b6%e3%82%a4%e3%83%b3%e6%84%8f%e5%9b%b3"></a>
+デザイン意図
+</h3><p>大好きな <em><strong>Blue Archive</strong></em> のキャラクター、生盐诺亚をモチーフにしたカード。</p>
+<ul>
+<li>表面は Noa のメモリアルロビーのスクリーンショット。床から天井まである窓に、十九世紀フランスのモダニズム詩人シャルル・ピエール・ボードレールの『パリの憂鬱』冒頭「異邦人」の一節を Noa が手書きしている構図になっている。</li>
+</ul>
+<blockquote>
+<p>Qui aimes-tu le mieux, homme énigmatique, dis?<br>
+謎めいた人よ、言ってみてくれ。君がいちばん愛しているのは誰だ？</p>
+</blockquote>
+<p>この一節の後ろに ITU ゾーン、CQ ゾーン、メイデンヘッドグリッドを加え、できるだけ手書き風の書体と遠近感のある変形を使って、本当にガラスに書かれているように見せた。</p>
+<ul>
+<li>裏面には通常の交信記録欄に加えて個人ブログの QR コードも載せている。背景写真は BA 公式の Noa 動画からのスクリーンショット。</li>
+<li><strong>Warning:</strong> タイムゾーン欄の <em>UTC</em> を <em>UCT</em> と誤記してしまった。次のカードを刷ってから気づいたので、第二版を出すなら直すつもり。</li>
+</ul>
+<h3 id="印刷ロット">
+<a class="header-anchor" href="#%e5%8d%b0%e5%88%b7%e3%83%ad%e3%83%83%e3%83%88"></a>
+印刷ロット
+</h3><ul>
+<li>第 1 期：300g 名刺用コート紙 200 枚、小さな角丸、Taobao の久美印业。
+<ul>
+<li>硬さがやや足りず、裏面は書き込みにくい。</li>
+<li>在庫は十分。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-dfh">
+<a class="header-anchor" href="#2-dfh"></a>
+2. DFH
+</h2><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-1.png" alt="DFH-1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-2-%E6%9B%B4%E6%AD%A3.png" alt="DFH-2"></p>
+<h3 id="デザイン意図-1">
+<a class="header-anchor" href="#%e3%83%87%e3%82%b6%e3%82%a4%e3%83%b3%e6%84%8f%e5%9b%b3-1"></a>
+デザイン意図
+</h3><p>全体のモチーフは、BiliBili の UP 主 <strong>炙弹冰</strong> による宇宙開発史替え歌 <a href="https://www.bilibili.com/video/BV129mGY3Efe/">《东方红的心脏》</a> 。原曲は <a href="https://music.163.com/#/artist?id=51020133">ヰ世界情緒</a> の <strong><a href="https://music.163.com/#/song?id=1907751320">シリウスの心臓(天狼星的心脏)</a></strong>。</p>
+<ul>
+<li>表面右側の少女は《东方红的心脏》の楽曲イラストで、东方红衛星の擬人化イメージ。</li>
+<li>表面左側には二つの衛星を重ねて配置している。左の実体衛星は东方红一号の 3D モデルのスクリーンショット。右のカラー衛星は、その画像を <a href="https://lab.magiconch.com/one-last-image/">One Last Image 卢浮宫生成器</a> で加工し、<em><strong>One Last Kiss</strong></em> のジャケットのようなグラデーション感を持たせたもの。</li>
+<li>衛星を囲む赤と青の二重楕円はモールス符号でできている。赤は「中华人民共和国万岁」、青は「世界人民大团结万岁」で、1955 年版《标准电码本》の表現を参考にした。</li>
+<li>実体衛星側の日付は、东方红一号が 1970 年 4 月 24 日に打ち上げられ、5 月 14 日に《东方红》の放送を停止したことを指す。短い生涯ではあったが、中華民族の飛躍の始まりでもあった。</li>
+<li>カラー衛星側の日付は、1840 年 6 月 21 日の英軍によるマカオ砲撃から、1949 年 10 月 1 日の中華人民共和国成立までを指している。中国近代の屈辱の歴史であると同時に、第三世界諸国が帝国主義に抗い独立を求めた闘争の歴史でもある。</li>
+<li>衛星と人物の間は二本の正弦波で区切っており、電波を象徴している。</li>
+<li><a href="/ja/post/othernotes/qsl-card-exhibition/#1-noa-1">Noa-1</a> と比べて、今回は裏面に NFC マークを追加した。今後配るカードには NFC タグを仕込み、カード情報や交信情報を入れたり、自動で音楽や動画を再生させたりしたいと考えている。</li>
+<li>裏面のメールアドレスの下にある「雾霭萦绕的人生，要如何度过？甩下踌躇吧，因为朝阳是你也是我。」という一文は《东方红的心脏》の歌詞で、個人的にとても好きなフレーズ。</li>
+<li>裏面右下には《东方红》の簡譜も入れてあり、东方红一号衛星という今回のテーマと響き合うようにした。</li>
+</ul>
+<p>さらに、このカードの PCB 版も設計した。NFC チップとコイルを載せ、表面の人物の胸元には赤い LED を配置している。スマホを近づけてスキャンすると LED が点灯し、「东方红的心脏」というテーマに対応する仕掛けになっている。<br>
+制作コストが高いので、PCB 版は各エリアで最初に交信した局、あるいは特定モードで最初に交信した局にだけ配る予定。</p>
+<p>人民英雄紀念碑にはこう刻まれている。</p>
+<blockquote>
+<p>三年以来，在人民解放战争和人民革命中牺牲的人民英雄们永垂不朽！<br>
+三十年以来，在人民解放战争和人民革命中牺牲的人民英雄们永垂不朽！<br>
+由此上溯到一千八百四十年，从那时起，为了反对内外敌人，争取民族独立和人民自由幸福，在历次斗争中牺牲的人民英雄们永垂不朽！</p>
+</blockquote>
+<p>今日もなお、东方红衛星は軌道上にあり、滄海が桑田に変わるのを見守っている。</p>
+<h3 id="印刷ロット-1">
+<a class="header-anchor" href="#%e5%8d%b0%e5%88%b7%e3%83%ad%e3%83%83%e3%83%88-1"></a>
+印刷ロット
+</h3><p><strong>紙版：</strong></p>
+<ul>
+<li>第 1 期：350g パール紙 150 枚、小さな角丸、Xianyu の「未来既是未来」
+<ul>
+<li>在庫は十分</li>
+</ul>
+</li>
+</ul>
+<p><strong>PCB 版：</strong></p>
+<ul>
+<li>第 1 期：JLCPCB カラーシルク 50 枚、NT3H2111W0FHKH XQF、小さな角丸
+<ul>
+<li>在庫は十分</li>
+</ul>
+</li>
+</ul>
+
+        
+        <hr><p>この記事は2025-08-21に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-08-21です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>OtherNotes</category></item><item><title>新編・物語</title><link>https://guzhengsvt.cn/ja/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</link><pubDate>Tue, 20 May 2025 12:18:48 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</guid><description>
+<![CDATA[<h1>新編・物語</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
+        
+          <h2 id="新編物語">
+<a class="header-anchor" href="#%e6%96%b0%e7%b7%a8%e7%89%a9%e8%aa%9e"></a>
+新編・物語
+</h2><p><strong>タイムラインを二〇一七へと巻き戻し、<br>
+昔日の気配を文面から探ってみた。<br>
+けれど読めば読むほど顔は熱くなり、<br>
+若さは軽く、向こう見ずで、思慮が足りない。<br>
+深情を気取って古人の嘆きを真似、<br>
+中二の気配ばかりが鼻につく。<br>
+それでもそこからまた詩心を拾い、<br>
+古典を盗み、文章を借りて、君に差し出す。</strong></p>
+<p><strong>さて許仙は長安へと駆け、<br>
+白蛇は古来より淮南に住むという。<br>
+三生の幸いで断橋にて出会えども、<br>
+ただ遠く眺めるのみ、鏡花水月。<br>
+書生とはもとより根なき綿毛、<br>
+袖に清風だけで、どうして高みに手を伸ばせよう。<br>
+道すがら山河のよさばかりを語り、<br>
+気質だけは相変わらず、拙く頑な。</strong></p>
+<p><strong>アニメにゲームに Galgame、<br>
+麗しき面々は驪山に満ちる。<br>
+攻めれば艶なる絵巻と管弦を愛で、<br>
+退けば純愛ひと筋に耽る。<br>
+昔より恋に円満は少なく、<br>
+ただ風流だけがひらひらと漂う。<br>
+名だたる山水をわざわざ訪ねずとも、<br>
+ひとりの知己を得ることのほうがなお難しい。</strong></p>
+<p><strong>ふと林の鳥の声のやわらかさを聞き、<br>
+月影を追って孤独を際立たせる。<br>
+参と商にさえまた会う日はあるのに、<br>
+人の世では桃花潭にめぐりあえない。<br>
+長き情は水面の月のようで、<br>
+俗世の風塵はことさらに波を乱す。<br>
+ただ一瓢だけを汲み取り、<br>
+杯の月光の冷たさまで飲み干したい。</strong></p>
+<p><strong>春風あたたかく、玉門関。<br>
+橘は陝北にも淮南にも生まれる。<br>
+たとえ塔の上で俗縁が尽きても、<br>
+秦淮まではいくつもの山を隔てるだけ。<br>
+法を闘わせ、劫を渡り、<br>
+金山が水に沈んでもなお帆は残る。<br>
+天地を傾け、淮水を逆さにし、<br>
+黄砂をさらって長安を洗い清めてみせよう。</strong></p>
+<p><strong>新しい文も古い出来事も、それぞれ別の貌を取り、<br>
+是も非も曲も直も、みな夢まぼろし。<br>
+どうか今宵の秦淮の水よ、<br>
+この入り乱れた思いを淮南のほうへ渡してくれ。</strong></p>
+<p><em>GPT-5.4 Codex 風訳</em></p>
+<p><em><strong>孤筝<br>
+2025.5.20<br>
+西安にて</strong></em></p>
+
+        
+        <hr><p>この記事は2025-05-20に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-05-20です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Poetry</category></item><item><title>最適化理論と方法</title><link>https://guzhengsvt.cn/ja/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</link><pubDate>Sat, 10 May 2025 18:48:10 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</guid><description>
+<![CDATA[<h1>最適化理論と方法</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
+        
+          <h1 id="最適化問題">
+<a class="header-anchor" href="#%e6%9c%80%e9%81%a9%e5%8c%96%e5%95%8f%e9%a1%8c"></a>
+最適化問題
+</h1><h2 id="数学モデル">
+<a class="header-anchor" href="#%e6%95%b0%e5%ad%a6%e3%83%a2%e3%83%87%e3%83%ab"></a>
+数学モデル
+</h2>$$
+\min f(\vec{x}),\vec{x}\in \vec{R^{n}}
+$$$$
+\text{s.t.}{
+\begin{cases}
+c_i(x)=0,& i \in E = {1,2,\cdots,l}\\
+c_i(\vec{x})\ge 0,& i \in I = {l+1,\cdots,l+m}\\
+\end{cases}}
+$$<p>
+ここで，</p>
+<ul>
+<li>$\vec{x}=(x_1,x_2,\cdots,x_n)^T$ は意思決定変数</li>
+<li>$f(\vec{x})$ は目的関数</li>
+<li>s.t.（subject to）は制約条件を表す</li>
+</ul>
+<h2 id="分類">
+<a class="header-anchor" href="#%e5%88%86%e9%a1%9e"></a>
+分類
+</h2><ol>
+<li>時間による分類
+<ol>
+<li>静的問題</li>
+<li>動的問題</li>
+</ol>
+</li>
+<li>制約条件による分類
+<ol>
+<li>制約付き問題</li>
+<li>無制約問題</li>
+</ol>
+</li>
+<li>目的関数と制約条件が線形かどうか
+<ol>
+<li>線形計画</li>
+<li>非線形計画</li>
+</ol>
+</li>
+<li>目的関数と制約条件が凸関数かどうか
+<ol>
+<li>凸最適化問題</li>
+<li>非凸最適化問題</li>
+</ol>
+</li>
+</ol>
+<h2 id="二次形式行列">
+<a class="header-anchor" href="#%e4%ba%8c%e6%ac%a1%e5%bd%a2%e5%bc%8f%e8%a1%8c%e5%88%97"></a>
+二次形式行列
+</h2><p>二次形式：
+</p>
+$$
+\begin{align}
+f
+&=x_1^2-3x_3^2-4x_1x_2+x_2x_3\\
+&=(x_1,x_2,x_3)
+\begin{bmatrix}
+1 & -2 & 0\\
+-2 & 0 & \frac{1}{2}\\
+0 & \frac{1}{2} & -3\\
+\end{bmatrix}
+\begin{bmatrix}
+x_1\\
+x_2\\
+x_3\\
+\end{bmatrix}\\
+&= \vec{X^T} A \vec{X}\\
+\end{align}
+$$<p>二次形式行列：
+</p>
+$$
+\begin{bmatrix}
+1 & -2 & 0\\
+-2 & 0 & \frac{1}{2}\\
+0 & \frac{1}{2} & -3\\
+\end{bmatrix}
+$$<h2 id="hessian-行列">
+<a class="header-anchor" href="#hessian-%e8%a1%8c%e5%88%97"></a>
+Hessian 行列
+</h2><p>二変数二次関数を例にすると：
+</p>
+$$
+\nabla^2 f(x_1,x_2)=
+\begin{bmatrix}
+\frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2}\\
+\frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2}\\
+\end{bmatrix}
+$$<h2 id="実行可能解">
+<a class="header-anchor" href="#%e5%ae%9f%e8%a1%8c%e5%8f%af%e8%83%bd%e8%a7%a3"></a>
+実行可能解
+</h2><ul>
+<li>実行可能解：すべての制約条件を満たす解。</li>
+<li>実行可能集合（許容集合、実行可能領域）：すべての実行可能解からなる集合。</li>
+<li>最適化問題：実行可能集合の中から目的関数を最大または最小にする点を探す問題。</li>
+<li>停留点：$\nabla f(x_0)=0$ を満たすとき，$x_0$ を停留点という。</li>
+<li>鞍点：$x_0$ が停留点ではあるが極値点ではないとき，鞍点という。</li>
+</ul>
+<h2 id="凸集合">
+<a class="header-anchor" href="#%e5%87%b8%e9%9b%86%e5%90%88"></a>
+凸集合
+</h2><h3 id="定義">
+<a class="header-anchor" href="#%e5%ae%9a%e7%be%a9"></a>
+定義
+</h3><p>平面において，図形内部の任意の二点を結ぶ線分がそのまま図形内部に含まれるとき，その図形を凸集合という。</p>
+<h3 id="性質">
+<a class="header-anchor" href="#%e6%80%a7%e8%b3%aa"></a>
+性質
+</h3><ol>
+<li>凸集合の共通部分は凸集合である</li>
+<li>凸集合を比例拡大・縮小しても凸集合である</li>
+<li>凸集合の和集合ではなく和集合和 $D_1+D_2$ は凸集合である
+<ul>
+<li>$D_1,D_2$ を凸集合とすると，$D_1+D_2=\{z|z=x+y,x \in D_1,y \in D_2\}$ は凸集合である。</li>
+</ul>
+</li>
+<li>凸集合の線形結合は凸集合である。</li>
+</ol>
+<h3 id="よくある凸集合">
+<a class="header-anchor" href="#%e3%82%88%e3%81%8f%e3%81%82%e3%82%8b%e5%87%b8%e9%9b%86%e5%90%88"></a>
+よくある凸集合
+</h3><ol>
+<li>空集合</li>
+<li>ユークリッド空間全体 $\vec{R^n}$</li>
+<li>超平面 $H=\{x \in \vec{R^n} | a_1x_1+a_2x_2+\cdots +a_nx_n=b\}$</li>
+<li>半空間 $H^+=\{x \in \vec{R^n} | a_1x_1+a_2x_2+\cdots +a_nx_n \ge b\}$</li>
+</ol>
+<h3 id="凸結合">
+<a class="header-anchor" href="#%e5%87%b8%e7%b5%90%e5%90%88"></a>
+凸結合
+</h3><p>$x_i \in \vec{R^n},i=1,2,\cdots ,k$ とし，実数 $\lambda_i \ge 0,\sum^k_{i=1}\lambda_i=1$ のとき，
+$x=\sum^k_{i=1}\lambda_ix_i$ を $x_1,x_2,\cdots , x_k$ の凸結合という。<br>
+凸集合内の有限個の点の凸結合は，やはりその凸集合に属する。</p>
+<h3 id="極点">
+<a class="header-anchor" href="#%e6%a5%b5%e7%82%b9"></a>
+極点
+</h3><p>$D$ を凸集合，$x \in D$ とする。$D$ の中に異なる二点 $y,z$ と実数 $\alpha \in (0,1)$ が存在して
+$x=\alpha y+(1-\alpha)z$ と表せないとき，$x$ を $D$ の極点という。</p>
+<p>平たく言えば，平面上の五角形なら極点は頂点であり，半円なら直径の両端点と円弧上の頂点に当たる。</p>
+<h2 id="凸関数">
+<a class="header-anchor" href="#%e5%87%b8%e9%96%a2%e6%95%b0"></a>
+凸関数
+</h2><h3 id="定義-1">
+<a class="header-anchor" href="#%e5%ae%9a%e7%be%a9-1"></a>
+定義
+</h3><p>凸集合上で定義された関数 $f(x)$ が，その凸集合内の任意の二点 $x_1,x_2$ に対して
+</p>
+$$
+f(\alpha x_1+(1-\alpha)x_2) \le \alpha f(x_1)+(1-\alpha)f(x_2)
+$$<p>
+を満たすとき，$f$ を凸関数という。<br>
+不等号が厳密不等号 $\lt$ なら，厳密凸関数という。</p>
+<h3 id="判定">
+<a class="header-anchor" href="#%e5%88%a4%e5%ae%9a"></a>
+判定
+</h3><ol>
+<li>多変数関数の Hessian 行列が半正定なら，その関数は凸関数である。</li>
+<li>Hessian 行列が正定なら，その関数は厳密凸関数である。</li>
+<li>多変数線形関数は $\vec{R^n}$ 上の凸関数である。</li>
+</ol>
+<h2 id="凸最適化問題">
+<a class="header-anchor" href="#%e5%87%b8%e6%9c%80%e9%81%a9%e5%8c%96%e5%95%8f%e9%a1%8c"></a>
+凸最適化問題
+</h2><h3 id="定義-2">
+<a class="header-anchor" href="#%e5%ae%9a%e7%be%a9-2"></a>
+定義
+</h3><p>目的関数と制約関数がいずれも凸関数である最適化問題。</p>
+<ul>
+<li>凸最適化の実行可能集合は凸集合である</li>
+<li>任意の局所最適解は大域最適解である</li>
+<li>目的関数が厳密凸関数なら，局所最適解は存在しかつ一意である</li>
+</ul>
+<h1 id="線形計画">
+<a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e8%a8%88%e7%94%bb"></a>
+線形計画
+</h1><h2 id="形式">
+<a class="header-anchor" href="#%e5%bd%a2%e5%bc%8f"></a>
+形式
+</h2><h3 id="非標準形">
+<a class="header-anchor" href="#%e9%9d%9e%e6%a8%99%e6%ba%96%e5%bd%a2"></a>
+非標準形
+</h3><ul>
+<li>目的関数：$\max z=\sum^{n}_{j=1}c_jx_j=CX$</li>
+<li>係数行列：
+
+$$
+A=
+\begin{bmatrix}
+a_{11} & \cdots & a_{1n}\\
+\vdots & \ddots & \vdots\\
+a_{m1} & \cdots & a_{mn}\\
+\end{bmatrix}
+=(P_1,P_2,\cdots,P_n)
+$$</li>
+<li>資源ベクトル：$b=\begin{bmatrix} b_1\\ \vdots \\ b_m\\ \end{bmatrix}$</li>
+<li>意思決定変数ベクトル：$X=(x_1,x_2,\cdots , x_n)^T$</li>
+<li>制約条件：
+
+$$
+\begin{cases}
+\sum^{n}_{j=1}a_{ij}x_j=b_i,&i=1,2,\cdots,m\\
+x_j \ge 0,& j=1,2,\cdots,n\\
+\end{cases}
+$$
+
+$$
+\begin{cases}
+AX=b\\
+X \ge \vec{0}
+\end{cases}
+$$</li>
+</ul>
+<h3 id="標準形">
+<a class="header-anchor" href="#%e6%a8%99%e6%ba%96%e5%bd%a2"></a>
+標準形
+</h3><ol>
+<li>最大化問題を最小化問題へ変換する</li>
+<li>スラック変数：$\le$ 制約に対して導入し，等式にする</li>
+<li>余剰変数：$\ge$ 制約に対して導入し，等式にする</li>
+<li>自由変数：実際の問題で自由に値を取れる変数で，$x_i=x'-x''$ と表す</li>
+</ol>
+$$
+\begin{cases}
+\min f(x_1,x_2,\cdots , x_n)\\
+\text{s.t.} 
+\begin{cases}
+h_j(x_1,x_2,\cdots,x_n)=0&(j=1,2,\cdots)\\
+x_j \ge 0\\
+\end{cases}
+\end{cases}
+$$<h2 id="基底行列">
+<a class="header-anchor" href="#%e5%9f%ba%e5%ba%95%e8%a1%8c%e5%88%97"></a>
+基底行列
+</h2><ul>
+<li>基底（基底行列）：係数行列の中の最大正則部分行列。
+<ul>
+<li>係数行列 $A$ が $m \times n$ 行列で，$rank(A)=m$ のとき，任意の $m \times m$ 正則部分行列が基底行列となる。</li>
+</ul>
+</li>
+<li>基底変数：基底に含まれる列ベクトルに対応する未知数。</li>
+<li>非基底変数：基底変数でない未知数。</li>
+<li>基本解：非基底変数をすべて 0 として得られる解。</li>
+<li>非退化基本解：基本解における非零成分の個数が制約式の本数に等しいもの。そうでなければ退化基本解。</li>
+<li>基本実行可能解：$\text{s.t.}$ の非負条件を満たす基本解。</li>
+<li>最適基底実行可能解：すべての基本実行可能解のうち，目的関数値を最適にするもの。</li>
+</ul>
+<h2 id="線形計画解の性質">
+<a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e8%a8%88%e7%94%bb%e8%a7%a3%e3%81%ae%e6%80%a7%e8%b3%aa"></a>
+線形計画解の性質
+</h2><ol>
+<li>線形計画の実行可能集合は凸集合である</li>
+<li>最適解が存在するなら，実行可能集合の頂点で達成される</li>
+</ol>
+<h2 id="単体法">
+<a class="header-anchor" href="#%e5%8d%98%e4%bd%93%e6%b3%95"></a>
+単体法
+</h2><h3 id="判定数検定数">
+<a class="header-anchor" href="#%e5%88%a4%e5%ae%9a%e6%95%b0%e6%a4%9c%e5%ae%9a%e6%95%b0"></a>
+判定数（検定数）
+</h3><p>各未知数には一つの判定数が対応する
+</p>
+$$
+\sigma_j=C^T_J \vec{P_j}-c_j=\sum^{m}_{i=1}c_ia_{ij}-c_j
+$$<ul>
+<li>$C^T$ は目的関数の係数行</li>
+<li>$C^T_J$ は基底変数の目的関数係数</li>
+<li>$P_j$ は行列 $A$ の第 $j$ 列</li>
+<li>$c_i$ は第 $i$ 個の<strong>基底変数</strong>の目的関数係数</li>
+<li>$c_j$ は目的関数中の第 $j$ 個の<strong>変数</strong>の係数で，$c_i$ とは無関係</li>
+</ul>
+<p><strong>すべての判定数が 0 以下なら，その基底実行可能解は最適解である。</strong></p>
+<p>一般に，基底変数の判定数は 0 である。</p>
+<h3 id="基底変換">
+<a class="header-anchor" href="#%e5%9f%ba%e5%ba%95%e5%a4%89%e6%8f%9b"></a>
+基底変換
+</h3><h4 id="基底行列の選択">
+<a class="header-anchor" href="#%e5%9f%ba%e5%ba%95%e8%a1%8c%e5%88%97%e3%81%ae%e9%81%b8%e6%8a%9e"></a>
+基底行列の選択
+</h4><p>最初は単位行列を基底行列として選ぶのが望ましい。初期基底実行可能解と判定数を計算する。</p>
+<h4 id="初期単体表の作成">
+<a class="header-anchor" href="#%e5%88%9d%e6%9c%9f%e5%8d%98%e4%bd%93%e8%a1%a8%e3%81%ae%e4%bd%9c%e6%88%90"></a>
+初期単体表の作成
+</h4><table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>$P_1$</th>
+          <th>$P_2$</th>
+          <th>$\cdots$</th>
+          <th>$P_n$</th>
+          <th>$\vec{b}$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>係数行列</td>
+          <td>$a_{11}$</td>
+          <td>$a_{12}$</td>
+          <td>$\cdots$</td>
+          <td>$a_{1n}$</td>
+          <td>$b_1$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$a_{21}$</td>
+          <td>$a_{22}$</td>
+          <td>$\cdots$</td>
+          <td>$a_{2n}$</td>
+          <td>$b_2$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$\vdots$</td>
+          <td>$\vdots$</td>
+          <td>$\ddots$</td>
+          <td>$\vdots$</td>
+          <td>$\vdots$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$a_{m1}$</td>
+          <td>$a_{m2}$</td>
+          <td>$\cdots$</td>
+          <td>$a_{mn}$</td>
+          <td>$b_m$</td>
+      </tr>
+      <tr>
+          <td>判定数</td>
+          <td>$\sigma_1$</td>
+          <td>$\sigma_2$</td>
+          <td>$\cdots$</td>
+          <td>$\sigma_n$</td>
+          <td>最適値</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="入る列の選択">
+<a class="header-anchor" href="#%e5%85%a5%e3%82%8b%e5%88%97%e3%81%ae%e9%81%b8%e6%8a%9e"></a>
+入る列の選択
+</h4><p>判定数が正なら，その列には改良の余地があるので，その列 $P_j$ を入る列とし，対応する変数 $x_j$ を入る変数とする。</p>
+<h4 id="主元の選択">
+<a class="header-anchor" href="#%e4%b8%bb%e5%85%83%e3%81%ae%e9%81%b8%e6%8a%9e"></a>
+主元の選択
+</h4><p>入る列の中で正の成分 $a_{ij}$ を取り，対応する $b$ の要素をそれで割って比を求め，最小のものを与える $a_{ij}$ を主元とする。<br>
+<em><strong>判定数が正であっても，その列の要素がすべて負なら，その線形計画には最適解が存在しない。</strong></em></p>
+<h4 id="初等行変換">
+<a class="header-anchor" href="#%e5%88%9d%e7%ad%89%e8%a1%8c%e5%a4%89%e6%8f%9b"></a>
+初等行変換
+</h4><p>主元を 1 にし，その列の他の成分を 0 にする。<br>
+<strong>幾何学的には，実行可能領域の頂点を移ることを意味する。</strong></p>
+<h4 id="出る列">
+<a class="header-anchor" href="#%e5%87%ba%e3%82%8b%e5%88%97"></a>
+出る列
+</h4><p>更新後の係数行列に応じて新しい基底行列を選ぶ。元の基底行列から置き換えられた列が出る列であり，その対応変数が出る変数である。<br>
+その後，判定数を再計算し，新しい単体表を作る。</p>
+<h4 id="次の基底変換">
+<a class="header-anchor" href="#%e6%ac%a1%e3%81%ae%e5%9f%ba%e5%ba%95%e5%a4%89%e6%8f%9b"></a>
+次の基底変換
+</h4><p>判定数行が更新されて新たに正の判定数が現れたら，その列を新しい入る列とし，主元を選んで再び初等行変換を行う。</p>
+<h4 id="結果">
+<a class="header-anchor" href="#%e7%b5%90%e6%9e%9c"></a>
+結果
+</h4><p>すべての判定数が 0 以下になったとき，$\vec{b}$ の値が基底変数の値であり，非基底変数は 0 となる。これらをまとめたものが最適解であり，目的関数に代入すると最小値が得られる。</p>
+<h3 id="単体法の適用条件">
+<a class="header-anchor" href="#%e5%8d%98%e4%bd%93%e6%b3%95%e3%81%ae%e9%81%a9%e7%94%a8%e6%9d%a1%e4%bb%b6"></a>
+単体法の適用条件
+</h3><ol>
+<li>非同次項がすべて非負である</li>
+<li>実行可能解が存在する</li>
+<li>スラック変数と非基底変数の値の積の和が 0 である</li>
+<li>問題が凸な実行可能領域上の線形計画問題である</li>
+<li>実行可能解集合が有限である</li>
+</ol>
+<h2 id="人工変数法">
+<a class="header-anchor" href="#%e4%ba%ba%e5%b7%a5%e5%a4%89%e6%95%b0%e6%b3%95"></a>
+人工変数法
+</h2><p>係数行列に単位行列が含まれない場合，人工変数を導入して人為的に単位行列を構成することが多い。</p>
+<p>線形計画問題の制約条件が $\sum^{n}_{j=1}a_{ij}=b_i(i=1,2,\cdots ,m)$ の形で与えられているとする。それぞれの制約に人工変数 $x_{n+1},x_{n+2},\cdots,x_{n+m}$ を加え，それらを基底変数とし，それ以外を 0 と置けば，$x^{(0)}=(0,0,\cdots,0,b_1,b_2,\cdots,b_m)^T$ という実行可能解が得られる。<br>
+この解から基底変換を進め，人工変数を含まない最適解へと到達する。</p>
+<p>すべての判定数が負になってもなお非零の人工変数が残っている場合，元の問題には実行可能解が存在しない。</p>
+<h2 id="big-m-法">
+<a class="header-anchor" href="#big-m-%e6%b3%95"></a>
+Big-M 法
+</h2><p>最小化問題では，制約条件に人工変数を入れた後，人工変数の目的関数係数を $M$（$M \in \vec{R^+}$）とする。<br>
+最小目的関数値を得るには，人工変数が 0 になるよう基底変換を繰り返す。最大化問題では $M \in \vec{R^-}$ とする。</p>
+<h2 id="退化の場合">
+<a class="header-anchor" href="#%e9%80%80%e5%8c%96%e3%81%ae%e5%a0%b4%e5%90%88"></a>
+退化の場合
+</h2><p>単体法が循環に陥る場合でも，問題に最適解が存在するなら，以下の方法で循環を避けられる。</p>
+<h3 id="摂動法">
+<a class="header-anchor" href="#%e6%91%82%e5%8b%95%e6%b3%95"></a>
+摂動法
+</h3><h3 id="改良単体法">
+<a class="header-anchor" href="#%e6%94%b9%e8%89%af%e5%8d%98%e4%bd%93%e6%b3%95"></a>
+改良単体法
+</h3><h1 id="線形計画の双対理論">
+<a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e8%a8%88%e7%94%bb%e3%81%ae%e5%8f%8c%e5%af%be%e7%90%86%e8%ab%96"></a>
+線形計画の双対理論
+</h1><h2 id="線形計画の双対問題の形式">
+<a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e8%a8%88%e7%94%bb%e3%81%ae%e5%8f%8c%e5%af%be%e5%95%8f%e9%a1%8c%e3%81%ae%e5%bd%a2%e5%bc%8f"></a>
+線形計画の双対問題の形式
+</h2><h3 id="対称形式">
+<a class="header-anchor" href="#%e5%af%be%e7%a7%b0%e5%bd%a2%e5%bc%8f"></a>
+対称形式
+</h3><p>元問題
+</p>
+$$
+\begin{cases}
+\min f=\vec{c^T}\vec{x}\\
+\text{s.t.}
+\begin{cases}
+\vec{A}\vec{x} \ge \vec{b}\\
+\vec{x} \ge \vec{0}
+\end{cases}
+\end{cases}
+$$<p>双対問題
+</p>
+$$
+\begin{cases}
+\max w=\vec{b^T}\vec{y}\\
+\text{s.t.}
+\begin{cases}
+\vec{A^T}\vec{y} \le \vec{c}\\
+\vec{y} \ge \vec{0}\\
+\end{cases}
+\end{cases}
+$$<p>対応関係：</p>
+<ul>
+<li>（1）元問題の制約条件数は，双対問題の変数の個数に等しい</li>
+<li>（2）元問題の目的関数係数は，双対問題の制約条件の右辺になる</li>
+<li>（3）元問題が最小化なら，双対問題は最大化になる</li>
+<li>（4）元問題の制約が「$\ge$」なら，双対問題の制約は「$\le$」になる</li>
+</ul>
+<h3 id="非対称形式">
+<a class="header-anchor" href="#%e9%9d%9e%e5%af%be%e7%a7%b0%e5%bd%a2%e5%bc%8f"></a>
+非対称形式
+</h3><p>元問題
+</p>
+$$
+\begin{cases}
+\min f=\vec{c^T}\vec{x}\\
+\text{s.t.}
+\begin{cases}
+\vec{A}\vec{x} = \vec{b}\\
+\vec{x} \ge \vec{0}
+\end{cases}
+\end{cases}
+$$<p>双対問題
+</p>
+$$
+\begin{cases}
+\max w=\vec{b^T}\vec{y}\\
+\text{s.t.}
+\begin{cases}
+\vec{A^T}\vec{y} \le \vec{c}\\
+\vec{y} \text{は自由変数}
+\end{cases}
+\end{cases}
+$$<h3 id="一般の場合">
+<a class="header-anchor" href="#%e4%b8%80%e8%88%ac%e3%81%ae%e5%a0%b4%e5%90%88"></a>
+一般の場合
+</h3><p>元問題に $\le,\ge,=$ が混在している場合は，まずスラック変数と余剰変数を導入して等式にそろえ，その後で非対称形式を使って双対問題を作る。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E5%8E%9F%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB%E8%A1%A81.png" alt="原问题与对偶问题对应关系表1.png">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E5%8E%9F%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB%E8%A1%A82.png" alt="原问题与对偶问题对应关系表2.png"></p>
+<h2 id="双対単体法">
+<a class="header-anchor" href="#%e5%8f%8c%e5%af%be%e5%8d%98%e4%bd%93%e6%b3%95"></a>
+双対単体法
+</h2><ul>
+<li>単体法：まず $\vec{b} \ge 0$ を満たし，その後で判定数 $\le 0$ に基づいて反復する</li>
+<li>双対単体法：まず判定数 $\le 0$ を満たし，その後で $\vec{b} \ge 0$ に基づいて反復する</li>
+</ul>
+<h3 id="判定数--を確保する">
+<a class="header-anchor" href="#%e5%88%a4%e5%ae%9a%e6%95%b0--%e3%82%92%e7%a2%ba%e4%bf%9d%e3%81%99%e3%82%8b"></a>
+判定数 $\le 0$ を確保する
+</h3><h3 id="出る変数の選択">
+<a class="header-anchor" href="#%e5%87%ba%e3%82%8b%e5%a4%89%e6%95%b0%e3%81%ae%e9%81%b8%e6%8a%9e"></a>
+出る変数の選択
+</h3><p>$b_i \lt 0$ が存在する場合，その中で最小の $\min b_i$ をもつ行を出る行とし，対応する変数を出る変数とする。</p>
+<h3 id="入る変数の選択">
+<a class="header-anchor" href="#%e5%85%a5%e3%82%8b%e5%a4%89%e6%95%b0%e3%81%ae%e9%81%b8%e6%8a%9e"></a>
+入る変数の選択
+</h3><p>判定数を出る行の負の係数 $a_{ij} \lt 0$ で割り，その結果が最小となる列を入る列とし，対応する変数を入る変数とする。</p>
+<h3 id="行変換">
+<a class="header-anchor" href="#%e8%a1%8c%e5%a4%89%e6%8f%9b"></a>
+行変換
+</h3><p>行変換によって入る列を基底行列に対応する単位列へ変形する。このとき $\vec{b}$ も更新される。<br>
+その後，判定数を再計算し，依然として 0 以下であることを確認する。</p>
+<h3 id="次の基底変換-1">
+<a class="header-anchor" href="#%e6%ac%a1%e3%81%ae%e5%9f%ba%e5%ba%95%e5%a4%89%e6%8f%9b-1"></a>
+次の基底変換
+</h3><p>まだ負の $b_i \lt 0$ が残っていれば，最小の $\min b_i$ を選んで次の基底変換を行う。</p>
+<h3 id="結果-1">
+<a class="header-anchor" href="#%e7%b5%90%e6%9e%9c-1"></a>
+結果
+</h3><p>すべての $b_i \ge 0$ となったとき，$\vec{b}$ は基底変数の最適解部分を与え，非基底変数は 0 となる。<br>
+それを目的関数に代入すれば，最大値または最小値が得られる。</p>
+<h1 id="感度分析">
+<a class="header-anchor" href="#%e6%84%9f%e5%ba%a6%e5%88%86%e6%9e%90"></a>
+感度分析
+</h1>
+        
+        <hr><p>この記事は2025-05-10に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-05-10です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Math</category></item><item><title>TypechoコメントをWalineにインポート</title><link>https://guzhengsvt.cn/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description>
 <![CDATA[<h1>TypechoコメントをWalineにインポート</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
         
           <p>数日前、ブログの記事をTypechoからHugoに移行しましたが、Front Matterのパラメータ設定や画像リンクの再設定だけでかなりの手間がかかりました。<br>
@@ -624,746 +2547,4 @@ $$<p>コードテスト</p>
 </span></span></code></pre></div><p>アイコン: <!-- raw HTML omitted --><!-- raw HTML omitted --> コーヒー一杯</p>
 
         
-        <hr><p>この記事は2025-04-13に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-04-13です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Thoughts</category></item><item><title>大学3年前期のまとめ</title><link>https://guzhengsvt.cn/ja/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link><pubDate>Tue, 28 Jan 2025 19:46:04 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid><description>
-<![CDATA[<h1>大学3年前期のまとめ</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
-        
-          <h2 id="期末試験について">
-<a class="header-anchor" href="#%e6%9c%9f%e6%9c%ab%e8%a9%a6%e9%a8%93%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6"></a>
-期末試験について
-</h2><p>学生にとって、学期で最も重要なのは成績のようだ。<del>伝統的な美徳</del>である「泥縄式勉強」を貫き、期末の半月はほぼ毎日猛勉強した（もちろんサボる時もあった<del>なぜ16週目にも実験があるんだ、くそ</del>）。とにかく落第はせず、点数は高くないが満足している（一日で空気力学を学び終えて70点以上取る実力は言うまでもない）。</p>
-<p>そしてまた「新学期こそちゃんと勉強する」という嘘の決意を口にするのだろう、笑。
-だが本当に勉強すべきだ、そうでなければどうやって博士課程を卒業するのか？</p>
-<h2 id="博士課程について">
-<a class="header-anchor" href="#%e5%8d%9a%e5%a3%ab%e8%aa%b2%e7%a8%8b%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6"></a>
-博士課程について
-</h2><p>私は「銭班」の学士・博士一貫コースを選んだが、4+3の早期卒業のためでも（そんな実力もない）、より高い給与や「社会的地位」をもたらす学位を求めるためでもない。昔「Doctor」を「博士」と翻訳した人は、その「博学博聞」の名声を強調したかったのだと思う。</p>
-<p>「人に博士進学を勧めるのは罪」と言われ、留年や鬱に悩む人が多い中、私は自分で創造し、前人未到の成果を生み出してみたい。肩書きのためでも、派閥のためでもなく、人々のため、人類の利益のためだ。</p>
-<p>以前にも言ったように、</p>
-<blockquote>
-<p>私の物質的要求は家族を養えるだけで、現状では難しくない。だが学士課程の学識に満足していない、4年学んでもまだ入門すらできていない気がする。
-何十年、何百年も前に先人が探求した知識に縋って、日進月歩の現代を生きるのか？最先端の学問に触れる機会を捨てて家計維持に安住するのか？私にはできない。
-才能のない私が学術的に大成できないかもしれないが、人類の開拓と革新の勇気を捨ててはならない。少なくとも最前線の証人となり、世代を超えて物質と精神の束縛に挑む姿、文明が穏やかな揺り籠から未知の深宇宙へ向かう姿を見届けたい。
-新たな知を得る快感を手放せない、
-私はすでに空に触れたのだから。</p>
-</blockquote>
-<p>今日は大言壮語が多すぎた、心の底では自分に何かを変える力などないと思っている。おそらく平凡なまま、論文を水増ししてどうにか卒業する学術ゴミになるだろう。
-だがとにかく試すべきだ、行動すべきだ、山がそこにあるから。</p>
-<h2 id="家族について">
-<a class="header-anchor" href="#%e5%ae%b6%e6%97%8f%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6"></a>
-家族について
-</h2><p>深刻な話題の後は、軽い話題を。
-8月に母が武漢同済で手術を受けた時、2週間付き添った<del>世話とは言いにくい</del>。子宮摘出後2ヶ月休養し、元気になったが、また早出遅帰の仕事に戻ってしまった、はあ。
-家族には特に心配事もなく、平穏だ。
-冬に祖母が作ってくれた卵の甘いスープが懐かしい。</p>
-<h2 id="友人について">
-<a class="header-anchor" href="#%e5%8f%8b%e4%ba%ba%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6"></a>
-友人について
-</h2><p>学校生活は相変わらずで、電子設計コンテスト以外は特に波乱もなかった。友人たちも変わらず、好きな人は元気で、それぞれの生活を送っている。
-<strong>天涯地角、知己は半ば散り散りに。</strong></p>
-<h2 id="ハンガリー旅行について">
-<a class="header-anchor" href="#%e3%83%8f%e3%83%b3%e3%82%ac%e3%83%aa%e3%83%bc%e6%97%85%e8%a1%8c%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6"></a>
-ハンガリー旅行について
-</h2><p>宇宙科学院の冬休みブダペスト工科大学訪学プログラムに申し込み、2週間滞在して帰国する準備だ。
-将来の勉強に関係のないAI応用を学び、本当に役立つスキルを期待しているわけではない。
-初めの数日は現地の食事がまずく、どうやって生きているのか不思議だった。後で地元のレストランでグヤーシュ（牛肉とジャガイモ、ニンジン入りのスープ）を食べ、確かに美味しかった。豚足も絶品で、量が多い<del>なのに関節と訳すのはなぜ？</del>。
-ステーキは論外で、レア過ぎて切れず噛み切れない。パンもパサパサで、サラダは石のように硬い。</p>
-<p>印象的だったのはトイレで、見たすべてのトイレが清潔で、定期的に清掃されトイレペーパーが補充されていた。手洗い用洗剤、乾燥機、ペーパータオルも完備（驚）。寮のトイレには便器洗浄用シャワーヘッドと洗剤漬けのブラシまであった。すべての水道で24時間冷水・温水が使え、暖房が効き過ぎて室内が暑いこともしばしば。
-唯一の残念点は公衆トイレがほぼなく、有料の場所もあることだ。
-先進国は金があり、資源をふんだんに使える。中国の北方で暖房を買えず、南方でエアコンを使えない人々を思うと胸が痛む。
-世界には苦しむ人々が多すぎる、まだまだ努力が必要だ。</p>
-<p>お土産を買ったが、友人に先に見られるとサプライズが台無しなので詳細は伏せる。</p>
-<h2 id="あとがき">
-<a class="header-anchor" href="#%e3%81%82%e3%81%a8%e3%81%8c%e3%81%8d"></a>
-あとがき
-</h2><p>明日帰国して新年を迎える、とても懐かしい。
-残り半分の冬休みは『通信原理』をしっかり勉強するつもり（するかもしれないし、しないかもしれない）。
-新年の幸せと平安を祈る。
-2025年1月24日</p>
-
-        
-        <hr><p>この記事は2025-01-28に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-01-28です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Thoughts</category></item><item><title>東方紅</title><link>https://guzhengsvt.cn/ja/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</link><pubDate>Thu, 26 Dec 2024 00:16:35 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</guid><description>
-<![CDATA[<h1>東方紅</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
-        
-          <h3 id="東方紅">
-<a class="header-anchor" href="#%e6%9d%b1%e6%96%b9%e7%b4%85"></a>
-東方紅
-</h3><p><strong>中流で水を打つ音は遠く空に響き、ただ聞こえるのは夜ごと轟く江水の音。</strong></p>
-<p><strong>人々は皆、朝日のように若くはないが、万里の山河は万里にわたって紅に染まる。</strong></p>
-<p>2024.12.26<br>
-西安にて</p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/12/1795319606.jpeg" alt="IMG_0434.jpeg"></p>
-
-        
-        <hr><p>この記事は2024-12-26に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-12-26です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Poetry</category></item><item><title>春が来たから</title><link>https://guzhengsvt.cn/ja/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</link><pubDate>Wed, 13 Nov 2024 22:07:40 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</guid><description>
-<![CDATA[<h1>春が来たから</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
-        
-          <h3 id="この詩を私の人生のあのpolarisに捧ぐ">
-<a class="header-anchor" href="#%e3%81%93%e3%81%ae%e8%a9%a9%e3%82%92%e7%a7%81%e3%81%ae%e4%ba%ba%e7%94%9f%e3%81%ae%e3%81%82%e3%81%aepolaris%e3%81%ab%e6%8d%a7%e3%81%90"></a>
-――この詩を、私の人生のあのPolarisに捧ぐ
-</h3><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/11/1787644976.jpg" alt="IMG_4884.jpg"></p>
-<p><strong>ある可愛らしい旅人が、誰にも顧みられない風景を通り過ぎた。彼女は異国の暖かい風をもたらし、干上がった畑を吹き抜け、木々の梢を撫で、湖面にきらめく波紋を描いた。<br>
-果樹たちはこぞってこの美人に魅了され、急いで花を咲かせ実を結んだ。森の鳥たちは数少ない花枝を探し求め、花冠を編んで彼女の頭に載せた。<br>
-旅人は花びらの舞い散る中を歩き、厚意に甘えて真っ赤な実をいくつか摘んだ。そして一方的に受け取るだけでは申し訳なく思い、ポケットの中の花の種をすべて取り出し、ひび割れた地面のあちこちに蒔いた。<br>
-ただ荒れ果てた畑だけが、恥ずかしさと後ろめたさでいっぱいだった――この愛らしい娘に捧げるものは何もないのか？<br>
-彼はありったけの力で花の種に早く育つよう促し、畑に咲き誇る花々を彼女に見せたいと願った。<br>
-だが旅人はここに長く留まる運命になかった――この風景は確かに素晴らしく、木々も鳥たちも親切だったが、ここは家を構えるのに適した場所ではなかったのだ。<br>
-旅人が去ると、果樹も鳥たちも畑も名残惜しかった。<br>
-畑の花々はまだ贈られることなく、次の旅人が来た時には美しい庭園が見られるかもしれない。<br>
-けれど誰もこれを悲しんではいなかった、<br>
-春が来たからだ。</strong></p>
-<p><strong>冬が去り春が来て、秋が去り冬が来る。<br>
-果実は小さな果樹となり、ひな鳥は飛ぶことを覚えた。年輪は木の幹に巻き付き、夏の雨が羽をぴかぴかに洗った。<br>
-畑が心を込めて育てた庭では、最後の菊が花期を過ぎ、空っぽの茎が寒風に揺れていた。<br>
-この土地はもはや荒れ果ててはいない。過ぎ去ったいくつもの季節、旅人が蒔いた種は芽を出し、決められた花期に従って世界にその美しさを披露した。朝露を飲み、朝日を浴び、清風に舞い、月光に寄り添った。<br>
-春、畑はクチナシとサンザシで純白の花冠を作った。旅人の白いドレスのように美しかった。<br>
-夏、畑はサルスベリとムクゲで花籠を作ったが、ムクゲは朝咲いて夕方に散るので、旅人が急いで去っていくようだった。<br>
-秋、畑はキンモクセイとシマカンギクで花のベッドを作ろうとしたが、秋風が情趣を解さず何度もキンモクセイの香りを運び去った。<br>
-花々は使命を帯びて短い命を謳歌し、土の中で次の旅支度をした。<br>
-旅人は二度と戻ってこなかった。彼女は自分が無造作に蒔いた種がすでに庭園に成長したことを知らず、畑もまた彼の贈り物を捧げる機会を永遠に失った。<br>
-冬が去り春が来て、秋が去り冬が来る。<br>
-畑は雪を待ち望んだ。雪が降れば、地中の種に暖かい布団をかけてやれる。もし来年、旅人が再びこの桃源郷を訪れるなら、この庭園はあの愛らしい娘にふさわしいものになるだろう。<br>
-初冬の細雨の中、彼は静かに眠りにつき、10月の最後のタンポポが風に乗って旅立ち、旅人の頬に追いつきそうな夢を見た。<br>
-「花の種が冬を越せないんじゃないかと心配しないの？」木々と鳥たちが畑に尋ねた。今の畑はまた裸同然で何もなくなっていた。<br>
-「大丈夫、私はもう春を見たから。」<br>
-春が来たからだ。</strong></p>
-        
-        <hr><p>この記事は2024-11-13に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-11-13です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Poetry</category></item><item><title>晋南行五首</title><link>https://guzhengsvt.cn/ja/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</link><pubDate>Tue, 08 Oct 2024 15:47:32 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</guid><description>
-<![CDATA[<h1>晋南行五首</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
-        
-          <h2 id="序">
-<a class="header-anchor" href="#%e5%ba%8f"></a>
-序
-</h2><p>　　国慶に『黒神話・悟空』に従って山西を旅し、晋南の晋城、臨汾、運城の三市を巡り、詩詞五首を作り、簡単に記す。
-　　</p>
-<h2 id="晋南行其一">
-<a class="header-anchor" href="#%e6%99%8b%e5%8d%97%e8%a1%8c%e5%85%b6%e4%b8%80"></a>
-晋南行・其一
-</h2><p><strong>門に残塑を掩い去り、檐から金鐸が出て来る。<br>
-翠林を点染して乱れ、碧裙を潑墨して開く。<br>
-新枝は朽木に攀じ、老壮は幼孩を携える。<br>
-徽因は涙有るべく、千年は留白可きか？</strong></p>
-<p><strong>孤筝<br>
-2024.10.2<br>
-晋城玉皇廟、府城関帝廟、青蓮寺</strong></p>
-<p>　　玉皇廟の二十八星宿などの殿は全てフラッシュ禁止で、仏像は鉄柵の奥に隠れ、漆の跡が剥がれ落ち、首や足が欠けているものもある。残念なことだ。<br>
-　　府城関帝廟の塑像はほとんどが現代の新作で、技術の拙劣さに食欲を失う。しかし建築は見る価値がある。<br>
-　　青蓮寺は山高く道遠く、途中の風景は極めて良く、秋の山は青く水は碧く、少しの紅葉や黄葉が点在し、雲一つない空は錦繍の福地である。<br>
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/4175125506.jpg" alt="IMG_0808 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/2744194162.jpg" alt="IMG_0836 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/4200527731.jpg" alt="IMG_1026 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/126764360.jpg" alt="IMG_0915 (1).JPG"></p>
-<h2 id="晋南行其二">
-<a class="header-anchor" href="#%e6%99%8b%e5%8d%97%e8%a1%8c%e5%85%b6%e4%ba%8c"></a>
-晋南行・其二
-</h2><p><strong>倦いて起きれば青帝は未だ点班せず、急騰する晨暁が寒さを破る。<br>
-人海を渡って仏面を窺い、林雲に登って伽藍を訪ねる。<br>
-九尊の金身に九菡萏、三進の相門に三浄壇。<br>
-鱗霞が暮色を収めるに及ばず、既に軽騎は重山を躍る。</strong></p>
-<p><strong>孤筝<br>
-2024.10.3<br>
-晋城開化寺、鉄仏寺、定林寺</strong></p>
-<p>　　早朝にバスで高平へ急ぎ、まず開化寺を見て回り、それから鉄仏寺に戻る。鉄仏寺は開放されて間もなく、人で溢れかえり、また小さな村の小さな庭に深く位置している。一時間以上並んで、仏面を二分間見ることができた。幸い並んでいる時に一家三人と出会い、両親は開明的で、二次元やゲームを拒まない。ああ、神仙のような親はどこにもいない。（娘さんのツインテールが可愛かったwwww）<br>
-　　定林寺の蓮華藻井も最近再開放されたばかりで、幸運にも出会え、確かに美しい。
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/438599092.jpg" alt="IMG_0998 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/1955933777.jpg" alt="IMG_1044 (1).JPG"></p>
-<h2 id="晋南行其三">
-<a class="header-anchor" href="#%e6%99%8b%e5%8d%97%e8%a1%8c%e5%85%b6%e4%b8%89"></a>
-晋南行・其三
-</h2><h3 id="水調歌頭">
-<a class="header-anchor" href="#%e6%b0%b4%e8%aa%bf%e6%ad%8c%e9%a0%ad"></a>
-水調歌頭
-</h3><p>**　　宝相は香禄を食み、石碑は風塵に浸る。敢えて問う座下の丘列、経を誦して神に達するか？既に青絲を削り欲を断ち、又酒肉を棄て宇を濯ぎ、笑面は嗔りを謹んで蔵す。空しく五蘊の律を識り、無明の身を解せず。<br>
-　　仮の金鐃、禅廟を修め、愚生を弄ぶ。誑語の功徳、却って如来に倣い大乗を釈す。利を許して虔衆を収め、善を勧めて信篤を得難く、八戒は沙門を誤る。司磬は富貴を称し、偽仏は俗僧を度す。**</p>
-<p><strong>孤筝<br>
-2024.10.4<br>
-臨汾小西天</strong></p>
-<p>八戒：一に殺生を戒め、二に偸盗を戒め、三に淫を戒め、四に妄語を戒め、五に飲酒を戒め、六に香華を着するを戒め、七に高広の大床に坐臥するを戒め、八に非時の食を戒む。<br>
-黄眉：殺生せずんば、仇恨は永く止息せず；偸盗せずんば、強弱は我と何の異なる；邪淫せずんば、一切の有情は皆孽；妄語せずんば、夢幻泡影は空虚；酒に饞らずんば、憂怖は漲落無常；楽に耽らずんば、芳華は刹那のみ；貪眠せずんば、苦苦は解脱を得ず；欲を縦にせずんば、諸行は生趣無し。</p>
-<p>　　小西天の下寺は見所がなく、財を求め子を求める善男善女が香を焚き仏を拝んでいるだけだ。あの尼僧（？疑問）が傍らに座って磬を叩き跪拝を見ながら、口々に一日一億円や一千万円を保証すると言い続け、皮肉極まりない。<br>
-　　上寺の大雄宝殿内の懸塑は、規模も規格も驚くべきものだ。残念ながら人が多すぎてじっくり見る時間がほとんどなかった。私は遅く着いたため山西の公式通関記念品である絵葉書をもらえず、少し残念だった。<br>
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/837638753.jpg" alt="IMG_1144 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/377169443.jpg" alt="IMG_1929 (1).JPG"></p>
-<h2 id="晋南行其四">
-<a class="header-anchor" href="#%e6%99%8b%e5%8d%97%e8%a1%8c%e5%85%b6%e5%9b%9b"></a>
-晋南行・其四
-</h2><p><strong>古刹は平陽に踞り、三震は仏光を隠す。<br>
-巍巍たる琉璃塔、缈缈たる羅漢堂。<br>
-経を求むるは功禄に憑り、雨を祈るは人王に頼る。<br>
-一蔵は東土に伝わり、貞観は盛唐を起こす。</strong></p>
-<p><strong>孤筝<br>
-2024.10.6<br>
-臨汾広勝寺</strong></p>
-<p>　　洪洞県の広勝寺、下寺には雨神廟があり、左右に壁画が満ちているが、保存状態はあまり良くない。殿内は暗く、はっきりと見えない。左右の部屋には公式のスキャンコピーがあり、色彩鮮やかで神韻も備わり、佳作と言える。<br>
-　　上寺では再び飛虹塔を見る。宝塔は全身が琉璃で覆われている。一階のみ開放されており、内部には見るべきものはあまりない。<br>
-　　奥の院の天中天殿には三尊の大仏があり、高さ十余尺で、姿形が優美で、一絶である。<br>
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/2152415040.jpg" alt="IMG_1956 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/270551755.jpg" alt="IMG_1985 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/4038570737.jpg" alt="IMG_2006 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/193997803.jpg" alt="IMG_2037 (2).JPG"></p>
-<h2 id="晋南行其五">
-<a class="header-anchor" href="#%e6%99%8b%e5%8d%97%e8%a1%8c%e5%85%b6%e4%ba%94"></a>
-晋南行・其五
-</h2><h3 id="鸛雀楼で幸い未陶然に遇い寄せる">
-<a class="header-anchor" href="#%e9%b8%9b%e9%9b%80%e6%a5%bc%e3%81%a7%e5%b9%b8%e3%81%84%e6%9c%aa%e9%99%b6%e7%84%b6%e3%81%ab%e9%81%87%e3%81%84%e5%af%84%e3%81%9b%e3%82%8b"></a>
-鸛雀楼で幸い未陶然に遇い寄せる
-</h3><p><strong>生まれながらにして酒中の仙ならず、墨を落として眉を皴め字を研ぐ。<br>
-鸛雀楼にて之涣と斗い、太行山の下にて教員を思う。<br>
-君は人間の逍遥客と作り、我は象塔に困り長く少年たり。<br>
-或いは天地の存する所無きを歴んとし、且つ詩債を酒銭に換えん。</strong></p>
-<p><strong>孤筝<br>
-2024.10.6<br>
-運城永楽宮、広仁王廟、鸛雀楼、関帝廟</strong></p>
-<p>　　運城はツアーで回り、時間が迫り場所も多く、じっくり見る時間がなかった。鸛雀楼に着いた時、「オリジナル詩集を売る」と書かれた小さな屋台を見た。新しい楼を見終わり、詩集を振り返り、長く驚きを覚えた。未陶然は大理の女詩人の影響を受けて文学の道を再び歩み、私もかつて多くの詩を書いたが、多くは暇な時の拙い筆で、これを生計とする考えもなかった。<br>
-　　高校時代に詩を作り、詩を抜き出した下書きを人に渡し、別れてから、もうほとんど詩を書かなくなった。一つはゲームと現実に耽り、本をあまり読まず、詩の才も勤めの心もなく、筆を下ろしても乾いてしまい結局満足できなかった。二つは心境がぼんやりし、当世を霧の中から見るようで、透ける力も清明さもなく、生きるのがぼんやりしていた。三つは長く象塔に住み経験も平凡で、喜びも悲しみもなく、詩情が湧きにくかった。<br>
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/3184801327.jpg" alt="IMG_2131 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/1585398490.jpg" alt="IMG_2134 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/3750612929.jpg" alt="IMG_2158 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/3048377807.jpg" alt="IMG_2214 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/1157009.jpg" alt="IMG_2233 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/343590413.jpg" alt="IMG_2234 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/915481746.jpg" alt="IMG_2235 (1).JPG"></p>
-<h2 id="後記">
-<a class="header-anchor" href="#%e5%be%8c%e8%a8%98"></a>
-後記
-</h2><p>晋南の三都市はそれぞれ特色がある。<br>
-晋城は繁華で、バスが発達しており、各観光地への専用路線がある。初めて市街地に着いた時、一路灯火が輝いていた。<br>
-臨汾は異様で、バスターミナルの周りでさえ暗く、観光地は市街地から遠くバス専用路線もなく、チャーター代がかさむ；公共トイレには特色があり、私は青桔電動バイクで二十余りを巡ったが、一つとして同じものはなかった。<br>
-運城は賑やかで、大通りも小路も、商店や小さな店や屋台で溢れ、南北二つの市もあると聞く（運城の包子は美味しく、小さな店は実直だ）。<br>
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/3704126306.jpg" alt="IMG_2091.JPG"></p>
-        
-        <hr><p>この記事は2024-10-08に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-10-08です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Poetry</category></item><item><title>中秋、家族に電話をかけよう</title><link>https://guzhengsvt.cn/ja/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</link><pubDate>Sun, 15 Sep 2024 22:35:40 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</guid><description>
-<![CDATA[<h1>中秋、家族に電話をかけよう</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
-        
-          <blockquote>
-<p>「ママ、この世界に本当に私を好きになってくれる女の子はいるの？」<br>
-「もちろんよ、初めてあなたに会った時、私もまだ20代だったもの」</p>
-</blockquote>
-
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2045946501&auto=0&height=66"></iframe>
-
-
-<p>中秋節が近づいてきました。家族に電話をかけてみませんか。</p>
-<blockquote>
-<p>人に悲歓離合あり、月に陰晴円缺あり、此事古より全からず。<br>
-ただ願わくは人長久に、千里共に婵娟を。</p>
-</blockquote>
-<p>ただ願わくは人長久に、ただ願わくは人長久に、ただ願わくは人長久に。</p>
-        
-        <hr><p>この記事は2024-09-15に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-09-15です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Thoughts</category></item><item><title>確率論と数理統計</title><link>https://guzhengsvt.cn/ja/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><pubDate>Tue, 10 Sep 2024 01:14:05 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid><description>
-<![CDATA[<h1>確率論と数理統計</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
-        
-          <h2 id="序文">
-<a class="header-anchor" href="#%e5%ba%8f%e6%96%87"></a>
-序文
-</h2><h3 id="初版序文">
-<a class="header-anchor" href="#%e5%88%9d%e7%89%88%e5%ba%8f%e6%96%87"></a>
-初版序文
-</h3><p>[[2024-09-14]] 今日、追試験がようやく終了した。本試験では過去問がそのまま出題されると聞き、ここ数日インターネットで入手した「西安電子科技大学の過去問」（21年分と23年分2セット）をひたすら解いていた。午前中に21年の問題を解き、午後の試験では4分の1が一字一句変わらない同じ問題だったので、思わず笑ってしまった。</p>
-<p>戴浩教授はかつて「全力でQianクラス（特別優待クラス）に最良の教師を配置する」と語っていたが、今や数学統計学院には人材がいなくなったのか？教え方が下手なのは「教育に重点を置いていない」「教える才能がない」と言い訳できるが、試験問題を作成するのに過去数年の問題をそのまま流用し、誤りや不備も多いのには呆れ返った。</p>
-<p>自分で作成した試験問題に全く価値がなく、自分でも解こうとしない。これは態度の問題だ。期末試験で水増し採点するのは結構だが、古いネタで学生を騙し続けるのはやめてほしい。学生にはイノベーションを説きながら、自分自身は適当に済ませようとする。これは学問に対する態度でもなければ、教育者としてあるべき姿でもない。</p>
-<p>確率論はこれで一段落。この2日間、ノートを繰り返し見直し、問題を解き、多くの誤りを訂正することで、この科目の知識体系が明確になった。内容はまだ少ないが、期末試験の復習材料としては十分だろう。この版を最終版とする（おそらく）。
-中秋節には電磁気学とデジタル信号処理の整理を続ける予定だ。</p>
-<h3 id="第二版序文">
-<a class="header-anchor" href="#%e7%ac%ac%e4%ba%8c%e7%89%88%e5%ba%8f%e6%96%87"></a>
-第二版序文
-</h3><blockquote>
-<p>何事も最終などない!!!
-——銭学森</p>
-</blockquote>
-<p>分布関数の左右連続性について補足した。この科目がfinalになるにはまだ遠いようだ&hellip;</p>
-<h2 id="事象演算から論理演算への変換">
-<a class="header-anchor" href="#%e4%ba%8b%e8%b1%a1%e6%bc%94%e7%ae%97%e3%81%8b%e3%82%89%e8%ab%96%e7%90%86%e6%bc%94%e7%ae%97%e3%81%b8%e3%81%ae%e5%a4%89%e6%8f%9b"></a>
-事象演算から論理演算への変換
-</h2><ul>
-<li>$A \cup B=A+B$</li>
-<li>$A \cap B=A \cdot B$</li>
-<li>$A-B=A \bar{B}$
-$A$事象が発生し$B$事象が発生しない場合。ベン図で簡単に証明可能。
-$-B$を$\cdot (-B)$と解釈でき、$-B$は$\bar{B}$に相当。</li>
-<li>$A \subset B$の場合、$A \cup B=B,A \cap B=A$</li>
-</ul>
-<p>事象演算を論理演算に変換後、ほとんどの法則が共通。
-デジタル回路で学んだ論理関数の演算と簡略化を用いて、複雑な事象演算を簡略化可能。
-ヒント：カルノー図</p>
-<h2 id="四大確率公式">
-<a class="header-anchor" href="#%e5%9b%9b%e5%a4%a7%e7%a2%ba%e7%8e%87%e5%85%ac%e5%bc%8f"></a>
-四大確率公式
-</h2>$$
-\begin{cases}
-P(A+B)=P(A)+P(B)-P(AB)\\
-P(A-B)=P(A)-P(AB)=P(A \bar{B})\\
-P(AB)=P(B) \cdot P(A|B)=P(A) \cdot P(B|A)\\
-P(A|B)=\frac{P(AB)}{P(B)}\\
-\end{cases}
-$$<h3 id="推論">
-<a class="header-anchor" href="#%e6%8e%a8%e8%ab%96"></a>
-推論
-</h3><p>$P(A+B+C)$において、$A+B$を一つの事象と見なし、上記の加法定理を適用し、二回分解すると：
-</p>
-$$
-P(A+B+C)=P(A)+P(B)+P(C)-P(AB)-P(AC)-P(BC)+P(ABC)
-$$<p>
-より多くの和事象の確率はこの方法で再帰的に求められる。</p>
-<p>余事象：$A$が発生しない確率。ベン図で一目瞭然。
-</p>
-$$
-P(\bar{A})=P(1 \cdot \bar{A})=P(1-A)=P(1)-P(1 \cdot A)=1-P(A)
-$$<h2 id="非負性と規格化">
-<a class="header-anchor" href="#%e9%9d%9e%e8%b2%a0%e6%80%a7%e3%81%a8%e8%a6%8f%e6%a0%bc%e5%8c%96"></a>
-非負性と規格化
-</h2><p>非負性：任意の事象$A$に対して、$0 \le P(A) \le 1$。
-規格化：全事象$\Omega$に対して、$P(\Omega)=1$。</p>
-<h2 id="相互独立">
-<a class="header-anchor" href="#%e7%9b%b8%e4%ba%92%e7%8b%ac%e7%ab%8b"></a>
-相互独立
-</h2>$$
-\begin{cases}
-P(AB)=P(A) \cdot P(B)\\
-P(A|B)=P(A)
-\end{cases}
-$$<p>
-独立は相互独立を包含。</p>
-<h2 id="古典的確率モデル">
-<a class="header-anchor" href="#%e5%8f%a4%e5%85%b8%e7%9a%84%e7%a2%ba%e7%8e%87%e3%83%a2%e3%83%87%e3%83%ab"></a>
-古典的確率モデル
-</h2><blockquote>
-<p>各基本事象の発生確率が等しい。</p>
-</blockquote>
-<p>例：コイン投げ、サイコロ振り……
-</p>
-$$
-P(A)=\frac{Aに含まれる基本事象数}{\Omega中の基本事象数}
-$$<p>
-古典的条件付き確率公式
-</p>
-$$
-P(B|A)=\frac{P(AB)}{P(A)}=\frac{A,B両方に含まれる基本事象数}{Aに含まれる基本事象数}
-$$<h2 id="ベルヌーイ試行二項分布">
-<a class="header-anchor" href="#%e3%83%99%e3%83%ab%e3%83%8c%e3%83%bc%e3%82%a4%e8%a9%a6%e8%a1%8c%e4%ba%8c%e9%a0%85%e5%88%86%e5%b8%83"></a>
-ベルヌーイ試行（二項分布）
-</h2><blockquote>
-<p>$n$回の独立試行で、各試行の結果は$A,\bar{A}$の2通り。</p>
-</blockquote>
-<p>$X \sim B(n,p)$
-</p>
-$$
-P_n(k)=C_n^kp^k(1-p)^{n-k}
-$$<p>
-ここで、$p=P(A),1-p=P(\bar{A})$</p>
-<h2 id="幾何的確率モデル">
-<a class="header-anchor" href="#%e5%b9%be%e4%bd%95%e7%9a%84%e7%a2%ba%e7%8e%87%e3%83%a2%e3%83%87%e3%83%ab"></a>
-幾何的確率モデル
-</h2><p>事象が占める<em>線/面/体積</em>部分と全体の<em>長さ/面積/体積</em>の比率。
-事象の占める空間次元が全事象空間$\Omega$の次元より低い場合、その事象の確率は常に0。
-==注意==：確率0は必ずしも発生しないことを意味しない。
-例：円内の点をランダムに選ぶ場合、任意の点を選ぶ確率は0だが、発生し得る。</p>
-<h2 id="一様分布">
-<a class="header-anchor" href="#%e4%b8%80%e6%a7%98%e5%88%86%e5%b8%83"></a>
-一様分布
-</h2><p>$x \sim U(a,b)$
-幾何分布における線形分布に近似。各点の確率密度：
-</p>
-$$
-f(x)=
-\begin{cases}
-0,x \le a\\
-\frac{1}{b-a},a  \lt  x \le b\\
-0,x \gt b\\
-\end{cases}
-$$<p>分布関数：
-</p>
-$$
-F(x)=
-\begin{cases}
-0,x \le a\\
-\frac{x-a}{b-a},a \lt x \le b\\
-1,x \gt b\\
-\end{cases}
-$$<h2 id="指数分布">
-<a class="header-anchor" href="#%e6%8c%87%e6%95%b0%e5%88%86%e5%b8%83"></a>
-指数分布
-</h2><p>$x \sim E(\lambda)$</p>
-<h3 id="確率密度">
-<a class="header-anchor" href="#%e7%a2%ba%e7%8e%87%e5%af%86%e5%ba%a6"></a>
-確率密度
-</h3>$$
-f(x)=
-\begin{cases}
-\lambda e^{-\lambda x},x \gt 0\\
-0,x \le 0\\
-\end{cases}
-$$<h3 id="分布関数">
-<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e9%96%a2%e6%95%b0"></a>
-分布関数
-</h3>$$
-F(x)=
-\begin{cases}
-1-e^{-\lambda x},x \ge 0\\
-0,x \lt 0\\
-\end{cases}
-$$<h2 id="ポアソン分布">
-<a class="header-anchor" href="#%e3%83%9d%e3%82%a2%e3%82%bd%e3%83%b3%e5%88%86%e5%b8%83"></a>
-ポアソン分布
-</h2><p>$X \sim \pi(\lambda)$
-</p>
-$$
-P(X=k)=\frac{e^{-\lambda}\lambda^k}{k!}
-$$<h2 id="正規分布">
-<a class="header-anchor" href="#%e6%ad%a3%e8%a6%8f%e5%88%86%e5%b8%83"></a>
-正規分布
-</h2><p>$x \sim N(\mu,\sigma^2)$</p>
-<h3 id="確率密度-1">
-<a class="header-anchor" href="#%e7%a2%ba%e7%8e%87%e5%af%86%e5%ba%a6-1"></a>
-確率密度
-</h3>$$
-f(x)=\frac{1}{\sqrt{2 \pi} \sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}},x \in R,\sigma \gt 0
-$$<h3 id="分布関数-1">
-<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e9%96%a2%e6%95%b0-1"></a>
-分布関数
-</h3>$$
-F(x)=\int^{x}_{-\infty}f(t)dt
-$$<p>
-明らかに、$F(\mu)=\frac{1}{2}$、すなわち$P(x \le \mu)=P(x \gt \mu)=\frac{1}{2}$。</p>
-<h3 id="標準正規分布">
-<a class="header-anchor" href="#%e6%a8%99%e6%ba%96%e6%ad%a3%e8%a6%8f%e5%88%86%e5%b8%83"></a>
-標準正規分布
-</h3><p>$\mu=0,\sigma=1$の場合、この分布は標準正規分布となる。
-</p>
-$$
-\varphi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
-$$<p>
-</p>
-$$
-\varPhi(x)=\int^{x}_{-\infty}\varphi(t)dt
-$$<h3 id="推論-1">
-<a class="header-anchor" href="#%e6%8e%a8%e8%ab%96-1"></a>
-推論
-</h3>$$
-\varPhi(-x)=1-\varPhi(x)
-$$<p>
-</p>
-$$
-F(x)=\varPhi(\frac{x-\mu}{\sigma})
-$$<p>
-正規分布の標準化：
-</p>
-$$
-X \sim N(\mu,\sigma^2),Z=\frac{X-\mu}{\sigma}\sim N(0,1)
-$$<h2 id="全確率公式">
-<a class="header-anchor" href="#%e5%85%a8%e7%a2%ba%e7%8e%87%e5%85%ac%e5%bc%8f"></a>
-全確率公式
-</h2><h3 id="完全事象群">
-<a class="header-anchor" href="#%e5%ae%8c%e5%85%a8%e4%ba%8b%e8%b1%a1%e7%be%a4"></a>
-完全事象群
-</h3>$$
-\begin{cases}
-B_1 \cup B_2 \cup B_3 \cup \cdots \cup B_n=\Omega\\
-B_i \cap B_j=\varnothing,i \ne j,1 \le i \le n,1 \le j \le n\\
-\end{cases}
-$$<p>
-$B_1,B_2,B_3,\cdots B_n$は$\Omega$の完全事象群を構成する。</p>
-<h3 id="全確率公式-1">
-<a class="header-anchor" href="#%e5%85%a8%e7%a2%ba%e7%8e%87%e5%85%ac%e5%bc%8f-1"></a>
-全確率公式
-</h3>$$
-\begin{align}
-P(A)
-&=P(AB_1 \cup AB_2 \cup \cdots \cup AB_n)\\
-&=P(AB_1)+P(AB_2)+\cdots +P(AB_n)\\
-&=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+\cdots +P(B_n)P(A|B_n)\\
-\end{align}
-$$<h3 id="ベイズの定理">
-<a class="header-anchor" href="#%e3%83%99%e3%82%a4%e3%82%ba%e3%81%ae%e5%ae%9a%e7%90%86"></a>
-ベイズの定理
-</h3>$$
-P(B_1|A)=\frac{P(AB_1)}{P(A)}=\frac{P(B_1)P(A|B_1)}{P(A)}
-$$<h2 id="一次元離散確率変数">
-<a class="header-anchor" href="#%e4%b8%80%e6%ac%a1%e5%85%83%e9%9b%a2%e6%95%a3%e7%a2%ba%e7%8e%87%e5%a4%89%e6%95%b0"></a>
-一次元離散確率変数
-</h2><h3 id="確率分布">
-<a class="header-anchor" href="#%e7%a2%ba%e7%8e%87%e5%88%86%e5%b8%83"></a>
-確率分布
-</h3>$$
-P(X=x_i)=p_i=\frac{X=x_iの場合数}{総場合数},i=1,2,\cdots 
-$$<h3 id="分布関数-2">
-<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e9%96%a2%e6%95%b0-2"></a>
-分布関数
-</h3>$$
-F(x)=\sum_{x_i \lt x}p_i,x \in R
-$$<h2 id="一次元連続確率変数">
-<a class="header-anchor" href="#%e4%b8%80%e6%ac%a1%e5%85%83%e9%80%a3%e7%b6%9a%e7%a2%ba%e7%8e%87%e5%a4%89%e6%95%b0"></a>
-一次元連続確率変数
-</h2><h3 id="確率密度-2">
-<a class="header-anchor" href="#%e7%a2%ba%e7%8e%87%e5%af%86%e5%ba%a6-2"></a>
-確率密度
-</h3>$$
-f(x)=F'(x)
-$$<h3 id="分布関数-3">
-<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e9%96%a2%e6%95%b0-3"></a>
-分布関数
-</h3>$$
-F(x)=\int_{-\infty}^xf(t)dt
-$$<h3 id="区間確率">
-<a class="header-anchor" href="#%e5%8c%ba%e9%96%93%e7%a2%ba%e7%8e%87"></a>
-区間確率
-</h3>$$
-P(a \lt x \le b)=\int_a^bf(x)dx=F(b)-F(a)
-$$<p>$\because$ $P(x=a)=0,a \in R$
-$\therefore$ 区間の両端の等号は任意</p>
-<h3 id="規格化">
-<a class="header-anchor" href="#%e8%a6%8f%e6%a0%bc%e5%8c%96"></a>
-規格化
-</h3>$$
-F(\infty)=\int^{\infty}_{-\infty}f(x)dx=1
-$$$$
-F(-\infty)=0
-$$<h2 id="二次元離散確率変数">
-<a class="header-anchor" href="#%e4%ba%8c%e6%ac%a1%e5%85%83%e9%9b%a2%e6%95%a3%e7%a2%ba%e7%8e%87%e5%a4%89%e6%95%b0"></a>
-二次元離散確率変数
-</h2><h3 id="結合確率分布">
-<a class="header-anchor" href="#%e7%b5%90%e5%90%88%e7%a2%ba%e7%8e%87%e5%88%86%e5%b8%83"></a>
-結合確率分布
-</h3><p>$P(X=x_i,Y=y_j)$
-X、Yの取り得る値を二次元表にし、対応する確率を記入。</p>
-<h3 id="周辺分布">
-<a class="header-anchor" href="#%e5%91%a8%e8%be%ba%e5%88%86%e5%b8%83"></a>
-周辺分布
-</h3><p>$P(X=x_i),P(Y=y_j)$
-結合確率分布の行/列を合計し、$f_Y(x),f_X(y)$を得る。</p>
-<h3 id="条件付き分布">
-<a class="header-anchor" href="#%e6%9d%a1%e4%bb%b6%e4%bb%98%e3%81%8d%e5%88%86%e5%b8%83"></a>
-条件付き分布
-</h3><p>$P(X=x_i|Y=y_j),P(Y=y_i|X=x_j)$
-結合確率分布の各行/列をその行/列に対応する周辺分布で割る。
-つまり、各行/列の結合確率分布を<strong>比例項</strong>に変換し、各項の和を1とする。</p>
-<h3 id="二変数の独立性">
-<a class="header-anchor" href="#%e4%ba%8c%e5%a4%89%e6%95%b0%e3%81%ae%e7%8b%ac%e7%ab%8b%e6%80%a7"></a>
-二変数の独立性
-</h3><p>==ここでの独立性は線形無関係を指し、完全な独立無関係を意味しない。==
-結合分布表を行列$\vec{A}$と見なすと、$\det \vec{A}=0$の時XとYは独立。
-または：結合分布表の各行/列が比例する場合、XとYは独立。
-または：結合確率≠周辺確率の積、すなわち$P(X=x_i,Y=y_j)\ne P(X=x_i)P(Y=y_j)$の場合、XとYは相互独立でない。</p>
-<h2 id="二次元連続確率変数">
-<a class="header-anchor" href="#%e4%ba%8c%e6%ac%a1%e5%85%83%e9%80%a3%e7%b6%9a%e7%a2%ba%e7%8e%87%e5%a4%89%e6%95%b0"></a>
-二次元連続確率変数
-</h2><h3 id="結合密度関数">
-<a class="header-anchor" href="#%e7%b5%90%e5%90%88%e5%af%86%e5%ba%a6%e9%96%a2%e6%95%b0"></a>
-結合密度関数
-</h3>$$
-f(x,y)
-$$<h3 id="規格化-1">
-<a class="header-anchor" href="#%e8%a6%8f%e6%a0%bc%e5%8c%96-1"></a>
-規格化
-</h3>$$
-\int^{\infty}_{-\infty}\int^{\infty}_{-\infty}f(x,y)dxdy=1
-$$<h3 id="周辺密度関数">
-<a class="header-anchor" href="#%e5%91%a8%e8%be%ba%e5%af%86%e5%ba%a6%e9%96%a2%e6%95%b0"></a>
-周辺密度関数
-</h3>$$
-f_X(x)=\int^{\infty}_{-\infty}f(x,y)dy
-$$<p>
-</p>
-$$
-f_Y(y)=\int^{\infty}_{-\infty}f(x,y)dx
-$$<h3 id="条件付き密度">
-<a class="header-anchor" href="#%e6%9d%a1%e4%bb%b6%e4%bb%98%e3%81%8d%e5%af%86%e5%ba%a6"></a>
-条件付き密度
-</h3>$$
-f_{Y|X}(y|x)=\frac{f(x,y)}{f_X(x)}
-$$<h3 id="独立性">
-<a class="header-anchor" href="#%e7%8b%ac%e7%ab%8b%e6%80%a7"></a>
-独立性
-</h3>$$
-f(x,y)=f_X(x)f_Y(y)
-$$<p>
-上記条件を満たす時、XとYは相互独立。</p>
-<h3 id="分布関数-4">
-<a class="header-anchor" href="#%e5%88%86%e5%b8%83%e9%96%a2%e6%95%b0-4"></a>
-分布関数
-</h3><p>$Z=X-Y$とすると、
-</p>
-$$
-\begin{align}
-F_Z(z)
-&=P(Z \lt z)\\
-&=P(X-Y \lt z)\\
-&=P(X \lt Y+z)\\
-&=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
-\end{align}
-$$<p>
-つまり分布関数$F_Z(z)=\iint_Df(x,y)dxdy$。分布関数を微分して確率密度関数$f_Z(z)$を得る。
-==注意==：$F_Z(z)$は規格化条件を満たす。</p>
-<h2 id="期待値と分散">
-<a class="header-anchor" href="#%e6%9c%9f%e5%be%85%e5%80%a4%e3%81%a8%e5%88%86%e6%95%a3"></a>
-期待値と分散
-</h2><h3 id="関係式">
-<a class="header-anchor" href="#%e9%96%a2%e4%bf%82%e5%bc%8f"></a>
-関係式
-</h3>$$
-DX=EX^2-(EX)^2
-$$<p>
-</p>
-$$
-D(cX)=c^2DX
-$$<p>
-</p>
-$$
-D(X+Y)=D(X)+D(Y)+2Cov(X,Y)
-$$<p>
-XとYが相互独立の場合$Cov(X,Y)=0$。</p>
-<h3 id="主要な期待値と分散">
-<a class="header-anchor" href="#%e4%b8%bb%e8%a6%81%e3%81%aa%e6%9c%9f%e5%be%85%e5%80%a4%e3%81%a8%e5%88%86%e6%95%a3"></a>
-主要な期待値と分散
-</h3><h4 id="分布">
-<a class="header-anchor" href="#%e5%88%86%e5%b8%83"></a>
-$(0,1)$分布
-</h4>$$
-EX=p,DX=p(1-p)
-$$<h4 id="二項分布">
-<a class="header-anchor" href="#%e4%ba%8c%e9%a0%85%e5%88%86%e5%b8%83"></a>
-$B(n,p)$二項分布
-</h4>$$
-EX=np,DX=np(1-p)
-$$<h4 id="一様分布-1">
-<a class="header-anchor" href="#%e4%b8%80%e6%a7%98%e5%88%86%e5%b8%83-1"></a>
-$U(a,b)$一様分布
-</h4>$$
-EX=\frac{a+b}{2},DX=\frac{(b-a)^2}{12}
-$$<h4 id="指数分布-1">
-<a class="header-anchor" href="#%e6%8c%87%e6%95%b0%e5%88%86%e5%b8%83-1"></a>
-$E(\lambda)$指数分布
-</h4>$$
-EX=\frac{1}{\lambda},DX=\frac{1}{\lambda^2}
-$$<h4 id="ポアソン分布-1">
-<a class="header-anchor" href="#%e3%83%9d%e3%82%a2%e3%82%bd%e3%83%b3%e5%88%86%e5%b8%83-1"></a>
-$P(\lambda)$ポアソン分布
-</h4>$$
-EX=\lambda,DX=\lambda
-$$<h4 id="正規分布-1">
-<a class="header-anchor" href="#%e6%ad%a3%e8%a6%8f%e5%88%86%e5%b8%83-1"></a>
-$N(\mu,\sigma^2)$正規分布
-</h4>$$
-EX=\mu,DX=\sigma^2
-$$<h2 id="共分散と相関係数">
-<a class="header-anchor" href="#%e5%85%b1%e5%88%86%e6%95%a3%e3%81%a8%e7%9b%b8%e9%96%a2%e4%bf%82%e6%95%b0"></a>
-共分散と相関係数
-</h2><h3 id="共分散">
-<a class="header-anchor" href="#%e5%85%b1%e5%88%86%e6%95%a3"></a>
-共分散
-</h3>$$
-Cov(X,Y)=E(XY)-E(X)E(Y)
-$$<p>
-明らかに、$X=Y$の場合、$Cov(X,X)=DX$。
-</p>
-$$
-Cov(X+Y,Z)=Cov(X,Z)+Cov(Y,Z)
-$$<p>
-</p>
-$$
-Cov(X-Y,Z)=Cov(X,Z)+Cov(-Y,Z)=Cov(X,Z)-Cov(Y,Z)
-$$<h3 id="相関係数">
-<a class="header-anchor" href="#%e7%9b%b8%e9%96%a2%e4%bf%82%e6%95%b0"></a>
-相関係数
-</h3>$$
-\rho_{XY}=\frac{Cov(X,Y)}{\sqrt{DX \cdot DY}}
-$$<p>
-$|\rho|$が大きいほど相関が強い。
-$Y=X$の場合、$X$と$X$の相関が最も強く、$\rho=1$を得る。
-$Y=-X$の場合、$-X$と$X$の相関が最も強く、$\rho=-1$を得る。
-明らかに$|\rho| \le 1$。
-$\rho=0$の場合、$X$と$Y$は無相関。
-==注意==：無相関$\nRightarrow$独立、独立$\Rightarrow$無相関。</p>
-<h2 id="チェビシェフの不等式による確率推定">
-<a class="header-anchor" href="#%e3%83%81%e3%82%a7%e3%83%93%e3%82%b7%e3%82%a7%e3%83%95%e3%81%ae%e4%b8%8d%e7%ad%89%e5%bc%8f%e3%81%ab%e3%82%88%e3%82%8b%e7%a2%ba%e7%8e%87%e6%8e%a8%e5%ae%9a"></a>
-チェビシェフの不等式による確率推定
-</h2>$$
-P(|X-EX|\ge \varepsilon)\le \frac{DX}{\varepsilon^2}
-$$<h2 id="中心極限定理">
-<a class="header-anchor" href="#%e4%b8%ad%e5%bf%83%e6%a5%b5%e9%99%90%e5%ae%9a%e7%90%86"></a>
-中心極限定理
-</h2><p>多数の独立変数が同一分布に従う場合、正規分布で近似可能。
-$x_1,x_2,\cdots,x_n$が独立かつ同一分布の場合、
-</p>
-$$
-\sum_{i=1}^nx_i \sim N(\sum^{n}_{i=1}E(x_i),\sum^{n}_{i=1}D(x_i))
-$$<h2 id="三大分布">
-<a class="header-anchor" href="#%e4%b8%89%e5%a4%a7%e5%88%86%e5%b8%83"></a>
-三大分布
-</h2><h3 id="カイ二乗分布">
-<a class="header-anchor" href="#%e3%82%ab%e3%82%a4%e4%ba%8c%e4%b9%97%e5%88%86%e5%b8%83"></a>
-$\chi^2$（カイ二乗）分布
-</h3>$$
-X=x_1^2+x_2^2+\cdots +x_n^2 \sim \chi^2(n),x_i \sim N(0,1)かつ相互独立
-$$<p>
-上側$\alpha$分位点$\chi^2_\alpha(n)$
-密度関数は第一象限に存在</p>
-<h3 id="分布-1">
-<a class="header-anchor" href="#%e5%88%86%e5%b8%83-1"></a>
-$t$分布
-</h3>$$
-X=\frac{x_1}{\sqrt{x_2/n}}\sim t(n),x_1 \sim N(0,1),x_2 \sim \chi^2(n),x_1とx_2は相互独立
-$$<p>
-上側$\alpha$分位点$t_\alpha(n)$
-密度関数は正規分布に似ており、左右対称</p>
-<h3 id="分布-2">
-<a class="header-anchor" href="#%e5%88%86%e5%b8%83-2"></a>
-$F$分布
-</h3>$$
-X=\frac{x_1/n_1}{x_2/n_2} \sim F(n_1,n_2),x_1 \sim \chi^2(n_1),x_2 \sim \chi^2(n_2),x_1とx_2は相互独立
-$$<p>
-上側$\alpha$分位点$F_\alpha(n_1,n_2)$
-密度関数は第一象限に存在</p>
-<h2 id="推定法">
-<a class="header-anchor" href="#%e6%8e%a8%e5%ae%9a%e6%b3%95"></a>
-推定法
-</h2><p>単純無作為標本が相互独立かつ同一分布の場合、未知パラメータを推定。</p>
-<h3 id="モーメント法">
-<a class="header-anchor" href="#%e3%83%a2%e3%83%bc%e3%83%a1%e3%83%b3%e3%83%88%e6%b3%95"></a>
-モーメント法
-</h3><p>標本数が大きい場合、標本を平均分布で近似し、標本平均で母平均を代替（母モーメント=標本モーメント）。</p>
-<ol>
-<li>与えられた確率分布/密度関数から期待値$EX$（一次母モーメント）を求める</li>
-<li>与えられた標本から標本平均$\bar{X}$（一次標本モーメント）を求める</li>
-<li>$EX=\bar{X}$として$\theta_0$を解き、$\hat{\theta}$を得る</li>
-</ol>
-<h3 id="最尤推定法">
-<a class="header-anchor" href="#%e6%9c%80%e5%b0%a4%e6%8e%a8%e5%ae%9a%e6%b3%95"></a>
-最尤推定法
-</h3><p>推定値が標本の発生確率を最大化する。
-標本の尤度関数：
-</p>
-$$
-L(x_1,x_2,\cdots,x_n;\theta)=
-\begin{cases}
-P(X=x_1)P(X=x_2)\cdots P(X=x_n),離散型\\
-f(x_1;\theta)f(x_2;\theta)\cdots f(x_n;\theta),連続型\\
-\end{cases}
-$$<p>
-$L$の最大値を求めるため、微分して極点を得る。積の微分が煩雑なため、まず対数形式に変換後、未知パラメータ$\theta$で微分。
-</p>
-$$
-(\ln L)'=
-\begin{cases}
-(\ln P_1+\ln P_2+\cdots +\ln P_n)',離散型\\
-[\ln f(x_1;\theta)+\ln f(x_2;\theta)+\cdots +\ln f(x_n;\theta)]',連続型\\
-\end{cases}
-=0
-$$<p>
-極点$\theta_0$を解き、推定値$\hat{\theta}$を得る。</p>
-<h2 id="不偏性と有効性">
-<a class="header-anchor" href="#%e4%b8%8d%e5%81%8f%e6%80%a7%e3%81%a8%e6%9c%89%e5%8a%b9%e6%80%a7"></a>
-不偏性と有効性
-</h2><p>$E(\hat{\theta})=\theta$の場合、$\hat{\theta}$</p>
-
-        
-        <hr><p>この記事は2024-09-10に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-09-10です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Math</category></item><item><title>欄干に寄りて瀟瀟たる雨を静かに聴く、故国の人民思うことあり。</title><link>https://guzhengsvt.cn/ja/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</link><pubDate>Mon, 09 Sep 2024 17:54:04 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</guid><description>
-<![CDATA[<h1>欄干に寄りて瀟瀟たる雨を静かに聴く、故国の人民思うことあり。</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
-        
-          <p>「私には夢がある。いつかきらめく陽光が暗い森に差し込む日が来るかもしれないという夢だ。」</p>
-<p>その時、ここの太陽は沈みかけていた。今は遠くの山の頂上にほんの少しだけ顔を出し、山頂に嵌め込まれた輝く宝石のようだった。子供はもう遠くへ走り去り、草原と共に金色の夕焼けに包まれていた。</p>
-<p>太陽が沈もうとしているのに、あなたたちの子供は怖がらないのか？</p>
-<p>「もちろん怖がらないわ。明日も太陽は昇ると知っているから」</p>
-<p>おやすみなさい。
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2683784600.jpg" alt="毛1.JPG"></p>
-        
-        <hr><p>この記事は2024-09-09に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-09-09です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Thoughts</category></item></channel></rss>
+        <hr><p>この記事は2025-04-13に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-04-13です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Thoughts</category></item></channel></rss>

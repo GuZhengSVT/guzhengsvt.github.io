@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>日記 on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-tw/tags/%E6%97%A5%E8%A8%98/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-tw</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</copyright><lastBuildDate>Mon, 01 Sep 2025 22:44:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-tw/tags/%E6%97%A5%E8%A8%98/index.xml" rel="self" type="application/rss+xml"/><item><title>考研日記001</title><link>https://guzhengsvt.cn/zh-tw/post/diary/diary-001-of-postgraduate-entrance-examination/</link><pubDate>Mon, 01 Sep 2025 22:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/diary/diary-001-of-postgraduate-entrance-examination/</guid><description>
+<![CDATA[<h1>考研日記001</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <h2 id="前言">
+<a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
+前言
+</h2><p>因為各種原因，現在不得不考研了。<br>
+寫考研日記，既是對每一天學習的回顧，也是找個地方對著空氣說說話。開始想寫 Day1 作為標題，想了想不是每天都有時間寫，也不是每天都有東西寫。總有放鬆懈怠和忙碌無暇的時候。最後留了個 001。</p>
+<p>其實也沒真想著現在開始三個月上岸，說句沒上進心的，像我這樣不結婚不買房物慾低的人，家底夠我考好幾年。今年先試試水吧，我是沒什麼壓力，父母卻因為直博失敗很是焦急。</p>
+<p>今天是大學第三次去圖書館，第一次是剛進西電參觀，第二次是開會。<br>
+從第一次來屠鼠館開始，我就覺得這地兒不適合我學習，太嚴肅壓抑了。戰戰兢兢端坐在椅子上，擔憂是否會發出聲音打擾到其他人，也時常在意是否周圍人會盯著我有沒有在學習，似乎任何看一眼手機都是犯罪。我知道這只是臆想，事實上無人在意，但和這麼多陌生人在一起卻十分安靜的場合真的讓社恐緊張，這與高中自習的氛圍是截然不同的。<br>
+好在圖書館既沒有老大哥的眼線也沒有拍影片的楊小姐（笑），要是有 0721 的凌地寧寧就好了（）</p>
+<p>從數一開始，今年打算師從武忠祥，直接看強化，一天看了 2 章。或許是太久沒有動腦學習，一學就犯困，好在前兩章的函數極限之類不難，今日才發覺當年上的《數學分析》大有裨益。當時覺得這理科的課於我工科毫無用處，平時跟不上越發不想學，太難了，好在最後老師補考拉我一把給了 60 多。其實《數學分析》給的不僅是各種基礎定理的證明，不只是數學大師的玩具，更是思維鍛鍊和啟迪。慚愧，慚愧。</p>
+<p>我是從來不做筆記的，任何有邏輯的東西我只記在腦子裡。然日久必疏，如今已非高中每日複習的境地，適當也應記一些知識，以便後日回顧。</p>
+<h2 id="回顧">
+<a class="header-anchor" href="#%e5%9b%9e%e9%a1%a7"></a>
+回顧
+</h2><h3 id="函數">
+<a class="header-anchor" href="#%e5%87%bd%e6%95%b8"></a>
+函數
+</h3><ul>
+<li>
+<p>函數基本要素：定義域，對應規則</p>
+</li>
+<li>
+<p>函數性態：單調性，奇偶性，週期性，有界性</p>
+</li>
+<li>
+<p>奇函數
+</p>
+$$
+ln{\frac{1-x}{1+x}},ln(x+\sqrt[2]{1+x^2}),\frac{e^x-1}{e^x+1},f(x)-f(-x)
+$$</li>
+<li>
+<p>偶函數
+</p>
+$$
+f(x)+f(-x)
+$$</li>
+<li>
+<p>$f(x)$ 為奇函數，$\int ^x_0 f(x)dx+C$ 為偶函數</p>
+</li>
+<li>
+<p>$f(x)$ 為偶函數，$\int ^x_0 f(x)dx+C$ 僅當 $C=0$ 時為奇函數</p>
+</li>
+<li>
+<p>可導週期函數導函數為週期函數</p>
+</li>
+<li>
+<p>導函數為週期函數，原函數不一定為週期函數</p>
+</li>
+<li>
+<p>導函數為週期函數，且在一個週期內積分為 $0$，則原函數為週期函數</p>
+</li>
+</ul>
+<h3 id="極限">
+<a class="header-anchor" href="#%e6%a5%b5%e9%99%90"></a>
+極限
+</h3><ul>
+<li>區域性有界性：某去心鄰域極限存在，可得區域性有界；區域性有界不可推斷極限存在</li>
+<li>保號性</li>
+<li>保序性</li>
+</ul>
+<p>數列極限存在準則</p>
+<ul>
+<li>夾逼準則</li>
+<li>單調有界準則</li>
+</ul>
+<p>無窮大與無界變數關係：</p>
+<ul>
+<li>無窮大指數列趨於無窮
+
+$$
+\forall M \gt 0 ,\exist N \gt 0,当 n \gt N时,恒有\left\vert x_n \right\vert \gt M
+$$</li>
+<li>無界變數，指任選一數，數列存在一數大於該數
+
+$$
+\forall M \gt 0 ,\exist N \gt 0,使得\left\vert x_N \right\vert \gt M
+$$</li>
+</ul>
+<h2 id="後記">
+<a class="header-anchor" href="#%e5%be%8c%e8%a8%98"></a>
+後記
+</h2><p>不明白 不明白 星星的高和遠<br>
+究竟要 何時才 能夠置身其間
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E7%A7%91%E7%BD%97%E5%BB%96%E5%A4%AB%E5%8D%81%E5%AD%97.jpeg" alt=""></p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="//player.bilibili.com/player.html?isOutside=true&aid=114883244982356&bvid=BV1SPgbzzE3e&cid=31159160676&p=1"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+    frameborder="0" 
+    allowfullscreen="true">
+  </iframe>
+</div>
+
+
+
+        
+        <hr><p>本文2025-09-01首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-09-01</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Diary</category></item></channel></rss>

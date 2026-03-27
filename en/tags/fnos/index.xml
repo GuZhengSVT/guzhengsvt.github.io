@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FnOS on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/en/tags/fnos/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright><lastBuildDate>Thu, 16 Oct 2025 23:04:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/en/tags/fnos/index.xml" rel="self" type="application/rss+xml"/><item><title>Building a NAS with an Old Computer and fnOS</title><link>https://guzhengsvt.cn/en/post/othernotes/use-old-computers-and-fnos-to-build-your-own-nas/</link><pubDate>Thu, 16 Oct 2025 23:04:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/use-old-computers-and-fnos-to-build-your-own-nas/</guid><description>
+<![CDATA[<h1>Building a NAS with an Old Computer and fnOS</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
+        
+          <h2 id="preface">
+<a class="header-anchor" href="#preface"></a>
+Preface
+</h2><p>Ever since I canceled my NetEase Cloud Music subscription, every time I open the app to listen to music I have to endure five or more VIP pop-ups, and a huge chunk of my playlists has gone gray.<br>
+So does paying money to capital actually solve the problem? Not really. Even when I still had VIP, it was constantly throwing SVIP ads at me anyway, and the splash ads never became any fewer. It is not that I cannot afford the fee. It is that I am paying, still getting ads, and still watching the licensing catalog shrink. What exactly am I paying for?<br>
+As an Apple user, I also tried the 5 RMB student plan for Apple Music, but too much of the music I actually listen to is locked up by domestic streaming platforms. Downloading everything myself and importing it into Apple Music is just too much trouble.<br>
+As a spiritually tech-obsessed Virgo, I absolutely refuse to accept ads shoved in my face inside software and devices I already paid for. I had been too lazy to build my own music library before, and the third-party music services floating around online, especially the ones without proper licenses, are unstable anyway. At this point I really have no choice but to start cleaning up the mess myself.</p>
+<p>There are many ways to build a personal music library, but since I have already decided to clean house, I might as well do it thoroughly.<br>
+This is not only about music. I used to sync photos with Aliyun Drive and left some in Baidu Netdisk. As for movies and TV shows, storage on my everyday devices was limited, so only my Mac mini M4 had a few hundred gigabytes from PT, and even that was not much. My books were even worse, scattered between cloud drives and local folders with no real synchronization, amounting to several hundred volumes.</p>
+<p>As it happened, I had an old laptop lying around: a Thinkbook 16+ 2022 with an i5-12500H, RTX 2050, 512 GB SSD, and 2 TB SSD. It felt almost wasteful not to turn it into an all-flash NAS.<br>
+As for the NAS system, fnOS was the obvious choice. It is currently very popular, has an active community, and even offers 2 Mb of free relay service.</p>
+<h2 id="system-installation">
+<a class="header-anchor" href="#system-installation"></a>
+System Installation
+</h2><p>Installing fnOS is actually simple. If you follow the official guide, there is usually no problem.<br>
+The issue I ran into was this: my USB drive had already been turned into a multi-boot drive with Ventoy. Since fnOS is based on Debian, in theory I should have been able to just drop the ISO into it. But after plugging in the USB stick and selecting the fnOS installer through Ventoy, it kept saying that no hard drive could be found, and changing modes did not help. In the end I followed the official guide, rebuilt the boot disk with Rufus, and it worked on the first try.</p>
+<h2 id="special-reminder">
+<a class="header-anchor" href="#special-reminder"></a>
+Special Reminder
+</h2><p>When running Docker, make sure to configure storage paths properly. Map your data folders, such as your music folder, into the container storage space, and set file permissions in the file manager so they apply to child items as well.</p>
+<h2 id="building-a-music-library-with-navidrome">
+<a class="header-anchor" href="#building-a-music-library-with-navidrome"></a>
+Building a Music Library with Navidrome
+</h2><p>Navidrome is a web-based open-source music collection server and streaming service.</p>
+<p>In system settings, under app settings, add the music folder so Navidrome is allowed to access it. The default port is 4533.<br>
+After setting up the account and password, open the web interface. In most cases Navidrome can directly scan accessible folders and import your music.</p>
+<h3 id="music_tag_web">
+<a class="header-anchor" href="#music_tag_web"></a>
+music_tag_web
+</h3><p>This is a Docker-based multifunction music tag editor with a web interface. Common features include metadata scraping, library organization, duplicate checking, and format conversion.<br>
+Its most important background scraping feature requires version 2, which is paid. I paid 10 RMB on Aifadian for a one-month activation code just to try it out first.</p>
+<p>Most of my music files came from NetEase Cloud Music. Because I never had any real sense of organization before, the filenames were a mess. There were duplicates all over my iPhone, Redmi, Mac, and Baidu Drive, and a lot of songs existed in multiple versions or multiple cover versions, such as 《アイロニ (双声道版)》 by 鹿乃 and *菜乃. Many songs I used to listen to years ago have already gone gray on NetEase, such as 双笙&rsquo;s old version of 道姑 or 封茗囧菌&rsquo;s 《静悄悄》.</p>
+<p>The first step is to choose the music files you want to scrape and organize the file structure into artist - album - track.<br>
+For automatic scraping, I usually start with standard mode, matching title, artist, and album. For the data source, I choose the platform the song mostly came from, for example NetEase Cloud Music in my case. I restrict modifications to cover art, lyrics, and lyric files. If title and artist information were not already messed up, most tracks match perfectly.</p>
+<p>For songs that cannot be scraped normally, such as very obscure tracks or tracks that have gone unavailable, I switch to loose mode and enable several sources at once, such as NetEase, QQ Music, Kugou, and iTunes, while keeping the modification scope unchanged.<br>
+If you let the software modify the artist field as well, it can easily replace lesser-known cover singers with the original performer.<br>
+Sometimes the same piece of music exists in different albums. In some cases the actual audio file is identical, such as Merry Christmas Mr. Lawrence; in others it is not, such as TV-size anime inserts versus full-length versions. If album data is also allowed to change, this can easily lead to bad matches.</p>
+<p>After scraping everything, I organize the files once more and delete empty folders.<br>
+If there are duplicates, I run duplicate checking and strongly recommend enabling acoustic fingerprint comparison. When the fingerprints match, the files are usually just the same song in different formats, such as mp3 and flac, and I normally keep the larger-bitrate or otherwise preferred version and delete the smaller one.<br>
+Then I organize the files again and clean up the empty folders one last time.</p>
+<p>Once paid for, music_tag_web can also function as the music library itself. It comes with a built-in Subsonic server, and its interface looks more modern and polished than Navidrome.<br>
+That said, I am still cautious about the long-term operational reliability of a solo developer project, so for now I am just watching.</p>
+<h3 id="playlist-matcher">
+<a class="header-anchor" href="#playlist-matcher"></a>
+Playlist Matcher
+</h3><p>Someone on LINUX DO made a Windows tool for importing playlists from streaming platforms into Navidrome: <a href="https://linux.do/t/topic/757204">分享一个适配Navidrome的歌单匹配器</a>.<br>
+It supports importing playlists from NetEase Cloud Music, QQ Music, and Apple Music into Navidrome, and also outputs a list of unmatched tracks.</p>
+<h3 id="clients">
+<a class="header-anchor" href="#clients"></a>
+Clients
+</h3><p>After the music library is built, the next question is how to listen on mobile and desktop devices.<br>
+There are many clients that support Navidrome, and they are easy enough to find online.</p>
+<p>I am currently using 音流 (1.3.9), which supports most of the platforms I care about, including Android, iOS, iPadOS, Windows, and macOS. It costs under 60 RMB as a one-time purchase and supports up to seven devices at once.<br>
+As a player, it basically meets my needs: a fairly decent-looking interface, the ability to download songs from the NAS for local playback, desktop lyrics, playlists, likes, ratings, and shuffle playback.</p>
+<p>There are still issues. It crashes sometimes. Background playback occasionally fails to move on to the next track after finishing one song, though not in a reliably reproducible way. Connection to the NAS can feel slow. And when the client cannot connect to the NAS, it only shows already-downloaded tracks and downloaded playlists. If one song appears in multiple playlists, offline it will appear only in the playlist through which it was originally downloaded.<br>
+Since it is a non-open-source app by an individual developer, I would still recommend caution before paying. Try the regular version first.</p>
+<h2 id="building-a-book-library-with-talebook">
+<a class="header-anchor" href="#building-a-book-library-with-talebook"></a>
+Building a Book Library with talebook
+</h2><p>talebook is a Docker-based open-source project and a compact but powerful private book management system. It is built on calibre and offers book management, online reading and delivery, user management, SSO login, and metadata fetching from Baidu and Douban.</p>
+<p>Most configuration is straightforward if you just go through the talebook web admin page item by item. The one thing worth noting is the set of user permissions. Some clients cannot log in normally, and in those cases you need to enable &ldquo;allow arbitrary download&rdquo; so that downloads will work.</p>
+<p>In book management, you can manually edit some metadata and add tags. My reading is all over the place, so I prefer to classify both the physical folders and the tags according to the <a href="https://www.clcindex.com/"><strong>Chinese Library Classification</strong></a>.</p>
+<h3 id="douban-api-rs">
+<a class="header-anchor" href="#douban-api-rs"></a>
+douban-api-rs
+</h3><p>This is the Douban plugin for talebook, and there is an image for it in fnOS. After running the Docker container, copy the corresponding API address into talebook&rsquo;s &ldquo;internet book metadata source&rdquo; setting. Only then will the automatic metadata update function in book management work properly.<br>
+For most well-known literary books, Douban scraping works well. But for unpublished materials such as 《业余无线电爱好者的道德和操作守则》 or very obscure or older books such as 《中国的野菜》 from Hainan Publishing House in 2008, Douban either cannot find anything or matches the wrong thing.</p>
+<p>I even have a whole pile of &ldquo;barefoot doctor manuals, militia training guides, martial arts collections, and transmigrator survival texts&rdquo; sitting in Baidu Drive, a full 120 GB plus.<br>
+Most of the martial arts and military manuals are impossible to scrape properly, but historical and literary works fare much better.</p>
+<h3 id="clients-1">
+<a class="header-anchor" href="#clients-1"></a>
+Clients
+</h3><p>For talebook, or rather OPDS clients in general, genuinely good and modern apps are surprisingly rare.</p>
+<p>On Android, I currently download books through the fnOS Android client and then read them locally in eBoox, which can still sync through Google.<br>
+tachiyomi is dead because of copyright issues, and its successor Mihon, or similar tools, are much better suited to manga than to books. Their design logic just is not built for ordinary reading. I even ran into a problem where the address could not be set at all when trying to import my self-hosted Komaga source through the komaga plugin.</p>
+<p>That said, Kahon, which is derived from Mihon, becomes almost hilariously useful for R18 image sources after you import plugin libraries. As a no-ad way to browse porn, it is honestly pretty great.</p>
+<p>On iOS and iPadOS, it is hard for any reading app to beat the built-in iBooks experience. Right now I am trying KyBook 3, though it does not support account login.<br>
+When entering the OPDS address, be sure to include both the correct port and the <code>/opds/</code> path.</p>
+<h2 id="building-a-video-library">
+<a class="header-anchor" href="#building-a-video-library"></a>
+Building a Video Library
+</h2><p>For me, the built-in fnOS media app is already good enough. It can scrape metadata and classify content. There are clients for Android, iOS, iPadOS, macOS, and Windows. It can also import video resources from Baidu Drive and remotely mounted disks, such as an external drive connected to a Mac and then imported into the fnOS media library over the LAN. Subtitle matching also works online.<br>
+If it could also connect to the Bangumi API and the Douban API, that would be even better.</p>
+<h2 id="pt">
+<a class="header-anchor" href="#pt"></a>
+PT
+</h2><p>When it comes to acquiring resources, PT is still king. My first recommendation remains qBittorrent from the fnOS app center.<br>
+As for how to use the software and where to find torrents, that is left to your own exploration. In any case, it is best to maintain a decent share ratio and seeding time.<br>
+One for all, all for one.</p>
+<h2 id="photos">
+<a class="header-anchor" href="#photos"></a>
+Photos
+</h2><p>Image management is even easier.<br>
+Upload or download photos from all your cloud drives and local devices into the NAS Photos folder. There is no need to carefully organize physical folders beforehand. Once you open the album, it can scan and import automatically. You can also add other local or externally mounted folders under Album - Settings - Folder Management.<br>
+In the AI album settings, download the required models first, then run analysis on the unrecognized photos and videos. Classification will happen automatically in the background. All of this runs locally, so if privacy matters more, you can simply leave it disabled.<br>
+If you enable GPU acceleration, recognition becomes significantly faster, though that does require installing the proper graphics driver.</p>
+<p>I backed up photos from my iPhone, Redmi, and iPad at the same time, which left me with a huge number of duplicates under different filenames. After AI-based recognition and then reviewing similar photos for deduplication, the results were excellent.</p>
+<h2 id="other-handy-small-tools">
+<a class="header-anchor" href="#other-handy-small-tools"></a>
+Other Handy Small Tools
+</h2><h3 id="hivisionidphoto">
+<a class="header-anchor" href="#hivisionidphoto"></a>
+HivisionIDPhoto
+</h3><p>For making your own ID photos. Available as a Docker app in the app center.</p>
+<h3 id="peazip">
+<a class="header-anchor" href="#peazip"></a>
+peazip
+</h3><p>Compression and decompression through Docker. The built-in archive tool in fnOS file management is currently extremely bare-bones and does not even support split archives properly.</p>
+<h3 id="singbox">
+<a class="header-anchor" href="#singbox"></a>
+singbox
+</h3><p>Docker-based. An occasionally necessary little miraculous tool.</p>
+<h3 id="fnos-sync">
+<a class="header-anchor" href="#fnos-sync"></a>
+fnOS Sync
+</h3><p>Synchronizes folders from other devices to the NAS. Supports bidirectional sync, download-only, and upload-only.<br>
+You need to install the matching client on the other devices first.</p>
+<h3 id="text-editor">
+<a class="header-anchor" href="#text-editor"></a>
+Text Editor
+</h3><p>After installing it, you can open txt, yml, log, html, js, md, nfo, and other plain-text files directly from the file manager.</p>
+<h3 id="office-preview">
+<a class="header-anchor" href="#office-preview"></a>
+Office Preview
+</h3><p>Lets you open Office files up to 500 MB directly inside the file manager.</p>
+<h3 id="omnitools">
+<a class="header-anchor" href="#omnitools"></a>
+OmniTools
+</h3><p>A toolbox that bundles more than ten small utilities together.</p>
+<h3 id="baidu-netdisk-for-fnos">
+<a class="header-anchor" href="#baidu-netdisk-for-fnos"></a>
+Baidu Netdisk for fnOS
+</h3><p>&ldquo;Almost&rdquo; ad-free, fairly clean, but you cannot copy file URLs, there is no proper file or folder details page, and it does not seem to show folder sizes either.<br>
+Selling the NAS membership separately is terrible.</p>
+<h3 id="not-recommended-the-browser-in-the-app-center">
+<a class="header-anchor" href="#not-recommended-the-browser-in-the-app-center"></a>
+Not Recommended: the Browser in the App Center
+</h3><p>This is basically a Dockerized Google Chrome. The web image is blurry because it is streaming the interface instead of rendering pages directly. Chinese input methods do not work properly, downloaded files have to be moved out manually from the app folder, the default Google search engine requires a proxy, though you can switch it to Bing, and download speed is still poor.</p>
+<p>So if you need to download something, I strongly recommend first finding the direct link in your local browser, then adding the download task through the fnOS client instead.</p>
+<h2 id="summary">
+<a class="header-anchor" href="#summary"></a>
+Summary
+</h2><p>After several days of initial tinkering, this laptop &ldquo;NAS&rdquo; can already manage video, music, photos, and books, while also backing up critical files such as manuals, documentation, manuscripts, PCB files, code, certificates, and passwords.<br>
+The next things I want to play with are dashboards, domain names, reverse proxying, IPv6, RSSHub, and an off-site triple-backup setup.</p>
+<p>And finally, NetEase Cloud Music can go to hell.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/Soyo.JPG" alt="无语"></p>
+
+        
+        <hr><p>Published on 2025-10-16 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-10-16</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>OtherNotes</category></item></channel></rss>

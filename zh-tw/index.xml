@@ -1,4 +1,2477 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-tw/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-tw</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</copyright><lastBuildDate>Sat, 19 Apr 2025 16:56:24 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-tw/index.xml" rel="self" type="application/rss+xml"/><item><title>Typecho評論匯入Waline</title><link>https://guzhengsvt.cn/zh-tw/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://guzhengsvt.cn/zh-tw/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-tw</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</copyright><lastBuildDate>Tue, 11 Nov 2025 18:44:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/zh-tw/index.xml" rel="self" type="application/rss+xml"/><item><title>從零入門業餘無線電之路</title><link>https://guzhengsvt.cn/zh-tw/post/othernotes/the-path-to-amateur-radio-from-scratch/</link><pubDate>Tue, 03 Jun 2025 20:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/othernotes/the-path-to-amateur-radio-from-scratch/</guid><description>
+<![CDATA[<h1>從零入門業餘無線電之路</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <h2 id="取得-a-類操作證">
+<a class="header-anchor" href="#%e5%8f%96%e5%be%97-a-%e9%a1%9e%e6%93%8d%e4%bd%9c%e8%ad%89"></a>
+取得 A 類操作證
+</h2><p>去年（2024）我在西安考到了 A 證，買了泉盛 UV-K6 手台，第一次正式收到業餘無線電通話是在西電海八宿舍陽台的 $483.100 \text{MHz}$。由於當時還沒有呼號，發射屬於非法，所以既沒有聊天，也沒有留下通聯記錄。</p>
+<p>A 證考試本身並不難，最難的是搶到考試名額。西安這邊最近大概半年才有一次 A 證考試，每次一開放預約基本就是手慢無，而且報名系統還老出問題。真有心想考的話，建議先關注戶籍地或常住地的無線電學會，找那種辦考頻率高、名額多、辦證也快的地方去預約。</p>
+<p>如果只是想快速拿下 A 證，其實提前留個三天左右刷題就很穩了，實際上一天都夠。可以用智譜 app、HAM 小程式之類的平台刷題或模擬考，建議先過一遍這篇 2018 年的<a href="https://www.jimmytian.com/archives/crac-aro-licence-a-review-guide.html">博文</a>。</p>
+<p><strong>==Waring==</strong>：2025 年題庫已經換新，上面提到的那篇博文可能不再完全適用。不過拿來先熟悉題型還是有幫助的。</p>
+<h2 id="取得呼號和電台執照">
+<a class="header-anchor" href="#%e5%8f%96%e5%be%97%e5%91%bc%e8%99%9f%e5%92%8c%e9%9b%bb%e5%8f%b0%e5%9f%b7%e7%85%a7"></a>
+取得呼號和電台執照
+</h2><p>考到操作證之後，就可以購買或自製設備，申請設台並取得呼號了。剛入門時我選了圈內很熱門的 5 W 手台泉盛 UV-K6，全新大概一百多塊，對入門來說應該夠用。等考到 B 證之後，再去買更好的設備和天線玩短波。</p>
+<p>西安這地方，行政效率是真的慢。我三月初去學會申請設台，直到五月底才收到電台執照，前後差不多拖了三個月。<br>
+看執照上的蓋章日期，其實 5 月 8 日就已經批下來了，不知道為什麼能拖這麼久，硬是要一個月才發一批。</p>
+<p>有了呼號，就能合法 RTT；有了電台執照，就能用自己報備過的設備在合法頻段內收發。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E7%94%B5%E5%8F%B0%E6%89%A7%E7%85%A7-%E6%AD%A3%E9%9D%A2.jpeg" alt="電台執照-正面.jpeg"></p>
+<h2 id="關於-qsl-卡片和呼號章設計">
+<a class="header-anchor" href="#%e9%97%9c%e6%96%bc-qsl-%e5%8d%a1%e7%89%87%e5%92%8c%e5%91%bc%e8%99%9f%e7%ab%a0%e8%a8%ad%e8%a8%88"></a>
+關於 QSL 卡片和呼號章設計
+</h2><p>嚴格來說，QSL 卡片和呼號章屬於業餘無線電文化的一部分，並不是必需品。不過既然入了這個圈子，做一張有意義或好看的 QSL 卡片、做一枚呼號章，對自己和對方來說都更方便留下通聯紀錄與紀念。</p>
+<p>這兩樣東西的設計，自然也有一些約定俗成的「行業規範」。</p>
+<h3 id="qsl-卡片">
+<a class="header-anchor" href="#qsl-%e5%8d%a1%e7%89%87"></a>
+QSL 卡片
+</h3><p>QSL 卡片為了方便郵寄，通常做成明信片大小，也就是 $14 \text{cm} \times 9 \text{cm}$。實際印刷時還要裁切，所以需要預留一些出血。比如 BG9GXM 的淘寶店就建議我把畫布設成 $14.4\text{cm} \times 9.4\text{cm}$，四周再留 $3 \text{mm}$ 的裁切線，內容部分（背景圖除外）都要放在裁切線裡面。</p>
+<p>我用的是免費開源繪圖軟體 Krita，多數人大概還是會用 Photoshop。輸出成 psd 檔也方便店家協助修改。</p>
+<p>QSL 卡片可以是單面、雙面，甚至折疊式，只要必要資訊寫完整就行。可以先參考 HamCQ 社群的 <a href="https://forum.hamcq.cn/qslCardShow">QSL卡片展</a> ，以及下面幾篇文章：</p>
+<ul>
+<li><a href="https://forum.hamcq.cn/d/1882">设计自己的 QSL 卡片 —— 来自广告从业者的分享 - HamCQ 社区</a></li>
+<li><a href="https://www.hellocq.net/forum/read.php?tid=207871">哈罗CQ火腿社区 - QSL卡展板 - QSL卡片制作【新手必看Q&amp;A】</a></li>
+<li><a href="https://forum.hamcq.cn/d/418">分享一版自己设计的 QSL 卡片背面模板 - HamCQ 社区</a></li>
+</ul>
+<p>或者直接去問淘寶店 BG9GXM 的久美印業。我第一次就是在這家印卡，印刷品質不錯，溝通也很耐心。</p>
+<p>下面是我設計的第一款 QSL 卡片：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/QSL-%E6%A0%87-1.jpeg" alt="QSL-标-1.jpeg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/QSL-%E6%A0%87-2.jpeg" alt="QSL-标-2.jpeg"></p>
+<p>問題：</p>
+<ol>
+<li>正面 BA 式呼號 Logo 縮得太小，黑色部分得仔細看才看得清，之後應該注意擺放位置，最好和背景形成反差。</li>
+<li>窗戶上的文字原本想做成 Noa 手寫在玻璃上的效果，但字體不夠像手寫體，Krita 裡也沒找到更合適的，下次得改。</li>
+<li>背面一加背景之後，印卡就只能選雙面銅版紙或高價藝術紙。銅版紙吸油不吸墨，一般中性筆很難寫。實際測試下來，原子筆效果倒是不錯，寫完馬上擦也不太會糊。</li>
+<li>背面背景的不透明度設成 80% 還是太高，下次應該試試 60%。實際印出來後，黑色小字不太好讀。</li>
+<li>“To Radio:” 後面預留的書寫高度不夠，和上面的白邊、下面的表格距離都太近。</li>
+<li>$300 \text{g}$ 名片用銅版紙還是太軟，應該換硬一點的卡紙。</li>
+</ol>
+<h3 id="呼號章與眼球章">
+<a class="header-anchor" href="#%e5%91%bc%e8%99%9f%e7%ab%a0%e8%88%87%e7%9c%bc%e7%90%83%e7%ab%a0"></a>
+呼號章與眼球章
+</h3><p>一般訂製印章店做的章直徑大概在 $40 \text{mm}$ 左右。若要自己設計，就直接開一個 $40\text{mm} \times 40\text{mm}$ 的畫布，剩下的內容可以參考現成的各類呼號章樣式。當然，做呼號章也不一定非得用 PS 類軟體，做向量圖可能還有更順手的工具。<a href="https://forum.hamcq.cn/d/5865">使用 Visio 制作呼号章的手把手教学 - HamCQ 社区</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E5%91%BC%E5%8F%B7%E7%AB%A0.png" alt="呼号章.png"></p>
+<p>上面這枚就是我自己設計的呼號章，裡面加了這些元素：</p>
+<ol>
+<li>外圈齒輪裝飾，代表工人，也帶一點工科意味。</li>
+<li>中英文的「中國業餘無線電台」、呼號，以及英文字樣 &ldquo;Shaan Xi&rdquo; 標註陝西省。</li>
+<li>五角星裝飾。</li>
+<li>電台本體與螢幕上的電波、北斗衛星（打衛星玩法）、代表火箭與飛機等飛行器的箭頭（航空頻段）、地面信號站（架天線）、信號圖標（空間電波）。</li>
+</ol>
+<p>我自己平常比較關注航太，所以對這個箭頭元素特別有感情。我們學院以及學院科協的徽標裡也都用了箭頭。其實原本還想再加幾顆星星表示星空，但轉念一想，如果以後我真的也走上打飛機，也就是收聽機場塔台和航空波段的路子，單純用航天火箭式的箭頭又顯得太窄了。<br>
+所以最後還是選了更通用的表達方式：這個箭頭既可以理解成航天火箭，也可以理解成航空飛機，角度介於垂直升空和平飛之間。</p>
+<p>比起 QSL 卡片，呼號章對內容其實沒有什麼硬性要求，也不一定非得蓋在 QSL 卡片上。說到底，蓋章更多是一種文化習慣，或者說是一種展現個性的方式。</p>
+<p>眼球章（EyeBall QSO）則是用在<strong>非無線電通聯</strong>交換 QSL 卡片的情境中，比如線下見面、論壇換卡等等。</p>
+<p>有時候卡片發得太多，一張張親自簽名也挺麻煩，這種情況下也可以另外準備一枚簽名章。</p>
+<p>以我自己的理解，<strong>業餘無線電的本質在於交流技術、提升能力、服務社會；卡片也好、印章也好，都是用來豐富社群文化的，不能本末倒置。</strong></p>
+<h2 id="通聯記錄">
+<a class="header-anchor" href="#%e9%80%9a%e8%81%af%e8%a8%98%e9%8c%84"></a>
+通聯記錄
+</h2><p>每次通聯之後，最好及時記下以下資訊：</p>
+<ul>
+<li>Requird:
+<ol>
+<li>通聯開始與結束時間（注意時區）</li>
+<li>雙方呼號</li>
+<li>雙方 QTH</li>
+<li>雙方信號報告</li>
+<li>通聯模式</li>
+<li>通聯頻率（含中繼、亞音等情況）</li>
+</ol>
+</li>
+<li>Optional:
+<ol>
+<li>設備</li>
+<li>天線</li>
+<li>發射功率</li>
+<li>當地天氣</li>
+<li>是否交換卡片</li>
+</ol>
+</li>
+</ul>
+<p>記錄保存妥當後，也可以上傳到 LoTW（Logbook of The Word）等平台。</p>
+<h2 id="收發-qsl-卡片">
+<a class="header-anchor" href="#%e6%94%b6%e7%99%bc-qsl-%e5%8d%a1%e7%89%87"></a>
+收發 QSL 卡片
+</h2><h3 id="中國大陸">
+<a class="header-anchor" href="#%e4%b8%ad%e5%9c%8b%e5%a4%a7%e9%99%b8"></a>
+中國大陸
+</h3><p>中國大陸地區，省內或市內寄平信郵資為 0.8 元，掛號信為 3.8 元（3+0.8）。<br>
+跨省或直轄市寄平信郵資為 1.2 元，掛號信為 4.2 元（3+1.2）。<br>
+首重 20g，每超出 20g（不足 20g 也按 20g 計），需再增加郵資 0.8（省內）或 1.2（跨省）元。</p>
+<p>繳納郵資大致有三種方式：</p>
+<ol>
+<li>直接去郵局寄信，交給工作人員投遞並付款，由工作人員貼郵票。</li>
+<li>自己購買郵票並貼到信封或明信片上。</li>
+<li>自己購買<strong>郵資信封</strong>，也就是信封本身已附帶郵資。</li>
+</ol>
+<h3 id="郵票購買">
+<a class="header-anchor" href="#%e9%83%b5%e7%a5%a8%e8%b3%bc%e8%b2%b7"></a>
+郵票購買
+</h3><ol>
+<li>當地郵局：種類通常較少，原價。</li>
+<li>郵政主題郵局：郵票種類較多，也可能有特色郵票，原價。</li>
+<li>郵政官網 / APP：種類多且相對齊全，原價。</li>
+<li>電商平台：普通票通常能以 5～9 折買到，寄信用比較划算。</li>
+<li>個人交易：閒魚、個人賣家等，風險較大。</li>
+</ol>
+<p><strong>Warning：</strong> 非郵政官方管道購買郵票時，一定要注意辨別真偽。低於 5 折的郵票不建議買。<br>
+我自己通常是在淘寶挑銷量大的店家買折扣票，再用紫外燈驗證。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E9%B9%B0%E7%A5%A8.JPG" alt="一张很帅的老鹰，紫外灯照射后会显示红色荧光骨架"></p>
+<h2 id="考取-b-證">
+<a class="header-anchor" href="#%e8%80%83%e5%8f%96-b-%e8%ad%89"></a>
+考取 B 證
+</h2><p>2025 年陝西 B 類操作證考試在 11 月 8 日，我的電台執照發照日則是 5 月 8 日，剛好滿六個月，不然還真趕不上這一年一次的考試。<br>
+這也是題庫改版後的第一次考試。和 A 類相比，舊 B 題庫六百多題，新 B 已經 1100+，幾乎翻倍，難度自然也上去不少。</p>
+<p>不過題庫改版也不完全是壞事。作為第一批吃螃蟹的人，這次實際出的題反而非常簡單。<br>
+刷題時那些頻率題、計算題看得我頭都大了，尤其頻率題全是數字，比起簡語題難背得多；再加上各種天饋系統、信號調製解調、無線電波知識，也順便讓我狠狠回憶了一把兩年前學過的《電磁場與電磁波》，甚至還補了一點以前沒學過的《通信原理》。<br>
+我把題庫亂序刷了一遍，標記難題後又刷了很多遍，直到看一眼題幹就知道該選什麼，再把錯題重做一遍。即便如此時間依然很緊，模擬考一次都沒做，心裡其實還是有點虛。</p>
+<p>結果準備做得很足，拿到試卷反而一題難題都沒有。60 題十幾分鐘刷刷做完，再檢查一遍，塗答題卡花的時間都比做題本身長。<br>
+半小時交卷，樓下又等了一個多小時才出成績，58 / 60 輕鬆拿下。一起考的同學就算只刷完 700+ 題，也基本都有 50+。沒辦法，題庫後面的題幾乎沒考到。</p>
+<p>接下來就是等發證了，也不知道最後發下來的會是新式 B 證還是老樣式。這裡說的老款是樣式上的老，不是那種新規之前能發短波 100W 的老 B 登。<br>
+考 C 類要求短波台設立滿 18 個月。我其實是很想早點設台的，奈何囊中羞澀，短波台動不動就是大幾千甚至上萬，天饋也一樣不便宜。<br>
+之後也許會慢慢攢錢買協谷，或者乾脆自己做一台 μSDX。</p>
+
+        
+        <hr><p>本文2025-06-03首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-11-11</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>OtherNotes</category></item><item><title>利用舊電腦和飛牛OS自建NAS</title><link>https://guzhengsvt.cn/zh-tw/post/othernotes/use-old-computers-and-fnos-to-build-your-own-nas/</link><pubDate>Thu, 16 Oct 2025 23:04:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/othernotes/use-old-computers-and-fnos-to-build-your-own-nas/</guid><description>
+<![CDATA[<h1>利用舊電腦和飛牛OS自建NAS</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <h2 id="前言">
+<a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
+前言
+</h2><p>自從停了網易雲音樂會員後，每次打開網易雲音樂聽歌都得忍受五次以上的 VIP 彈窗，歌單也灰掉一大片。<br>
+那麼，給資本交了錢就真的會比較好嗎？VIP 還在的時候，它照樣天天給我跳 SVIP 廣告，開屏廣告也一點沒少。哥們不是出不起這點錢，但我都付費了，還要看廣告，版權還越來越少，這到底算什麼意思？<br>
+作為蘋果使用者，我也試過 Apple Music 每月 5 元的學生方案，但我常聽的音樂版權還是被國內串流平台壟斷得太厲害，自己下載再匯入 Apple Music 又太麻煩。<br>
+作為精神科技處女座，我絕不接受自己花錢買的電子產品和軟體還整天有廣告往臉上跳。以前只是嫌麻煩，才一直沒有自己建音樂庫；而網路上那些第三方、沒版權的音樂平台服務又很不穩定，現在也只能硬著頭皮自己動手鏟屎了。</p>
+<p>自建音樂庫的方案很多，但既然決定清，那就乾脆清得乾淨一點。<br>
+不只是音樂服務，照片我原本靠阿里雲盤同步，百度網盤裡也存了一部分；影視受制於設備容量，只有 Mac mini M4 上 PT 下了幾百個 G，也不算多；至於書籍，更是雲盤和本地到處亂放，幾百本資料完全沒有同步。</p>
+<p>剛好手邊有一台閒置筆電，Thinkbook 16+ 2022（i5-12500H + RTX 2050 + 512G SSD + 2T SSD），拿來做全閃 NAS 不是剛剛好嗎。<br>
+至於 NAS 系統怎麼選，現在最熱門、社群也最活躍的飛牛就很合適，而且還送 2Mb 的免費轉發服務。</p>
+<h2 id="系統安裝">
+<a class="header-anchor" href="#%e7%b3%bb%e7%b5%b1%e5%ae%89%e8%a3%9d"></a>
+系統安裝
+</h2><p>飛牛系統安裝其實很簡單，照官方教學一步一步來基本不會出什麼問題。<br>
+我遇到的坑是：我的 U 盤原本用 ventoy 做成了多系統啟動盤。飛牛 OS 既然基於 Debian，按理說直接把 ISO 丟進去就可以了。但我插上 U 盤、在 ventoy 裡選 fnOS 安裝之後，系統一直提示找不到硬碟，換模式也一樣。最後只能乖乖照官方教學，用 Rufus 重做啟動盤，一次就成功。</p>
+<h2 id="特別提醒">
+<a class="header-anchor" href="#%e7%89%b9%e5%88%a5%e6%8f%90%e9%86%92"></a>
+特別提醒
+</h2><p>docker 運行時，一定要注意配置儲存位置，把資料夾（例如音樂資料夾）映射到容器儲存空間，並且在檔案管理裡把訪問權限套用到子層級。</p>
+<h2 id="構建音樂庫navidrome">
+<a class="header-anchor" href="#%e6%a7%8b%e5%bb%ba%e9%9f%b3%e6%a8%82%e5%ba%abnavidrome"></a>
+構建音樂庫——Navidrome
+</h2><p>這是一個基於 Web 的開源音樂收集與串流伺服器。</p>
+<p>在系統設定裡的應用設定中，把音樂資料夾授權給 Navidrome，預設埠是 4533。<br>
+帳號密碼設好之後打開 web 介面，通常 Navidrome 就能直接掃描有權限的資料夾並匯入音樂。</p>
+<h3 id="music_tag_web">
+<a class="header-anchor" href="#music_tag_web"></a>
+music_tag_web
+</h3><p>docker 形式的、多功能音樂標籤編輯工具，有 web 操作介面。常用功能包括音樂刮削、整理、去重、格式轉換等等。<br>
+其中最重要的背景刮削功能需要 v2 版本（付費），我是在愛發電充了 10 元拿到一個月啟用碼，先試試水。</p>
+<p>我的音樂檔大多來自網易雲音樂，以前完全沒有整理意識，所以命名非常亂。iPhone、Redmi、Mac、度盤上到處都是，還有不少重複音檔。同一首歌也常常同時保留多個版本、多人翻唱版，例如《アイロニ (双声道版)》鹿乃/*菜乃。很多早年聽的歌現在在網易雲也已經灰掉了，例如雙笙的老版本道姑、封茗囧菌的《静悄悄》。</p>
+<p>先選好待刮削的音樂，並整理檔案結構，層級設成歌手—專輯—歌曲。<br>
+在自動刮削匹配模式上，我會優先選標準模式，標題、藝術家、專輯三者一起匹配；資料源則選歌曲最主要的來源，例如我就選網易雲音樂；修改範圍只限定封面、歌詞與歌詞檔。只要標題和藝術家本來沒亂掉，大多數歌曲都能完全匹配。</p>
+<p>對於無法正常刮削的歌曲，例如太小眾或已經下架的歌，就切到寬鬆模式，資料源多勾幾個，像是網易雲音樂、QQ 音樂、酷狗音樂、iTunes，修改範圍仍保持不變。<br>
+如果把藝術家也放進修改範圍，常常會把一些不出名翻唱的演唱者自動改成原唱。<br>
+有時同一首歌存在於不同專輯裡，雖然實際檔案可能相同，比如 Merry Christmas Mr. Lawrence；也可能不完全相同，比如動畫歌曲的劇中片段版和完整版。這種情況下如果允許修改專輯資訊，就很容易刮錯。</p>
+<p>全部刮削完之後，再重新整理一次檔案，刪掉空資料夾。<br>
+如果有重複檔案，就做重複檔案檢查，推薦開啟聲紋重複校驗。通常聲紋一致的檔案，多半只是同一首歌的不同格式版本，例如 mp3 和 flac，這種情況下我會優先刪掉體積較小的版本。<br>
+最後再整理一次檔案並清空空資料夾。</p>
+<p>music_tag_web 在付費後本身也能當作音樂庫使用，內建 Subsonic 伺服器，介面也比 Navidrome 更現代好看。<br>
+但我對個人開發者能否長期穩定維運這件事還是比較保守，所以目前先觀望。</p>
+<h3 id="歌單匹配器">
+<a class="header-anchor" href="#%e6%ad%8c%e5%96%ae%e5%8c%b9%e9%85%8d%e5%99%a8"></a>
+歌單匹配器
+</h3><p>LINUX DO 上有大佬做了一個把串流平台歌單匯入 Navidrome 的 Windows 小工具：<a href="https://linux.do/t/topic/757204">分享一个适配Navidrome的歌单匹配器</a>。<br>
+支援網易雲音樂、QQ 音樂、Apple Music 的歌單匯入，也能輸出未匹配歌曲。</p>
+<h3 id="客戶端">
+<a class="header-anchor" href="#%e5%ae%a2%e6%88%b6%e7%ab%af"></a>
+客戶端
+</h3><p>音樂庫建好之後，接下來就是要想辦法在手機和桌面端聽歌。<br>
+支援 Navidrome 的客戶端很多，網路上搜一下就能找到。</p>
+<p>我目前在用的是音流（1.3.9），支援大多數平台，例如安卓、iOS、iPadOS、Windows、macOS。一次性購買不到 60 元，最多可同時在 7 台裝置使用。<br>
+作為播放器，它基本能滿足我的需求：介面還算美觀、能把 NAS 上的歌曲下載到本地、支援桌面歌詞，也能加歌單、點喜歡、打星和隨機播放。</p>
+<p>問題也不是沒有：偶爾會閃退；背景播放時播完一首有時不會自動切到下一首，雖然不算穩定復現；連到 NAS 時速度偏慢；而且如果當下無法連到 NAS，就只能看到已下載的歌曲與已下載歌單。如果某首歌同時存在多個歌單裡，離線時它只會顯示在最初下載它的那個歌單裡。<br>
+它畢竟是個人開發者寫的、也不是開源軟體，所以買之前還是得保守一點，建議先用普通版試水。</p>
+<h2 id="構建書庫talebook">
+<a class="header-anchor" href="#%e6%a7%8b%e5%bb%ba%e6%9b%b8%e5%ba%abtalebook"></a>
+構建書庫——talebook
+</h2><p>docker 形式，talebook 是一個開源專案，也是一個簡潔但功能很強的私人書籍管理系統。它基於 calibre 建構，具備圖書管理、線上閱讀與推送、使用者管理、SSO 登入，還能從百度／豆瓣拉取書籍資訊。</p>
+<p>各種設定基本照 talebook 的 web 管理頁面一項一項設就可以，唯一需要注意的是使用者設定裡的幾個權限。有些客戶端不支援登入，這時需要開啟「允許任意下載」才下載得了。</p>
+<p>在圖書管理裡，還可以手動修改一部分中繼資料，也能加標籤。我自己看的書很雜，所以比較傾向按照<a href="https://www.clcindex.com/"><strong>中圖法</strong></a> 同時在實體資料夾和標籤上分類。</p>
+<h3 id="douban-api-rs">
+<a class="header-anchor" href="#douban-api-rs"></a>
+douban-api-rs
+</h3><p>這是 talebook 的豆瓣外掛，fnOS 上有鏡像。跑起 docker 之後，把對應的 API 位址複製到 talebook 設定中的「網際網路書籍資訊源」，這樣圖書管理裡的自動更新書籍資訊功能才能正常用。<br>
+對大部分常見文學書籍來說，豆瓣刮削效果不錯；但像《业余无线电爱好者的道德和操作守则》這種未正式出版的資料，或者《中国的野菜》（2008 海南出版公司）這種極冷門或年代太久的書，豆瓣不是搜不到，就是亂匹配。</p>
+<p>我在度盤裡甚至還存了一整套「赤脚医生手册民兵训练人才之友历代武术最全穿越者」這種穿越者專用「四庫全書」，整整 120G+。<br>
+其中大部分武功和軍事祕籍根本刮不出來，但歷史和文學類的書刮削效果倒是還不錯。</p>
+<h3 id="客戶端-1">
+<a class="header-anchor" href="#%e5%ae%a2%e6%88%b6%e7%ab%af-1"></a>
+客戶端
+</h3><p>talebook，或者說 OPDS 協定的客戶端，真正好用又現代的其實不多。</p>
+<p>安卓這邊我暫時是透過飛牛安卓客戶端把書下載下來，再用 eBoox 本地閱讀，還能靠 Google 同步。<br>
+tachiyomi 因為版權問題已經似了；它的後繼者 mihon 或其類似物，比較適合拿來看漫畫，設計邏輯不太適合正經看書。我之前想用 komaga 外掛匯入自建 Komaga 圖源時，就遇到地址根本沒辦法設定的問題。</p>
+<p>不過 Kahon（從 Mihon 改出來的）在匯入外掛庫之後，R18 圖源倒是多得離譜，拿來免廣告看黃反而相當不錯。</p>
+<p>iOS 與 iPadOS 上，各種閱讀軟體的體驗其實很難超過原生 iBook。我目前在試用的是 KyBook 3，只是它不能登入帳號。<br>
+填寫 OPDS 位址時也要注意埠號以及 <code>/opds/</code> 這個路徑。</p>
+<h2 id="構建影視庫">
+<a class="header-anchor" href="#%e6%a7%8b%e5%bb%ba%e5%bd%b1%e8%a6%96%e5%ba%ab"></a>
+構建影視庫
+</h2><p>對我來說，fnOS 自帶的飛牛影視已經夠用了。它可以刮削分類，Android、iOS、iPadOS、macOS、Windows 也都有客戶端，還能匯入度盤與遠端掛載硬碟裡的影視資源，例如 Mac 外接硬碟透過區域網路匯入飛牛媒體庫，也能線上匹配字幕。<br>
+如果之後還能接 bangumi api 和豆瓣 api，那就更完美了。</p>
+<h2 id="pt">
+<a class="header-anchor" href="#pt"></a>
+PT
+</h2><p>說到資源獲取，最終還是得靠 PT。我首推的還是飛牛應用中心裡的 qBittorrent。<br>
+至於軟體怎麼用、種子從哪裡找，就自行探索吧。總之，最好把分享率和做種時間維持住。<br>
+人人為我，我為人人。</p>
+<h2 id="相冊">
+<a class="header-anchor" href="#%e7%9b%b8%e5%86%8a"></a>
+相冊
+</h2><p>圖片管理其實更方便。<br>
+把各個雲盤與本地的照片通通上傳下載到 NAS Photos 資料夾下，不需要刻意整理實體資料夾，打開相簿就能自動掃描匯入。其他本地資料夾或外接資料夾，也能在相簿—設定—資料夾管理裡額外加入。<br>
+在 AI 相簿設定裡先把模型下載好，然後分別對尚未識別的照片與影片執行分析，背景就會自動分類。這些都是本地跑的，當然如果考慮隱私，也可以完全不開。<br>
+如果啟用 GPU 計算，識別速度會明顯快一些，不過需要另外下載對應顯卡驅動。</p>
+<p>我同時備份了 iPhone、Redmi、iPad 裡的照片，其中有大量重複照片，只是檔名各不相同。透過 AI 智慧識別之後，再檢查相似照片做去重，效果非常好。</p>
+<h2 id="其他推薦小工具">
+<a class="header-anchor" href="#%e5%85%b6%e4%bb%96%e6%8e%a8%e8%96%a6%e5%b0%8f%e5%b7%a5%e5%85%b7"></a>
+其他推薦小工具
+</h2><h3 id="hivisionidphoto">
+<a class="header-anchor" href="#hivisionidphoto"></a>
+HivisionIDPhoto
+</h3><p>自製證件照，應用中心 docker。</p>
+<h3 id="peazip">
+<a class="header-anchor" href="#peazip"></a>
+peazip
+</h3><p>壓縮解壓，docker。fnOS 現在檔案管理自帶的壓縮解壓工具非常陽春，甚至連分卷壓縮解壓都不支援。</p>
+<h3 id="singbox">
+<a class="header-anchor" href="#singbox"></a>
+singbox
+</h3><p>docker，偶爾會用到的～妙·妙·小·工·具～</p>
+<h3 id="飛牛同步">
+<a class="header-anchor" href="#%e9%a3%9b%e7%89%9b%e5%90%8c%e6%ad%a5"></a>
+飛牛同步
+</h3><p>把其他裝置上的資料夾同步到 NAS，支援雙向同步、僅下載、僅上傳。<br>
+其他端需要先安裝對應客戶端。</p>
+<h3 id="文本編輯器">
+<a class="header-anchor" href="#%e6%96%87%e6%9c%ac%e7%b7%a8%e8%bc%af%e5%99%a8"></a>
+文本編輯器
+</h3><p>安裝後就能直接在檔案管理中打開 txt、yml、log、html、js、md、nfo 等純文字檔。</p>
+<h3 id="office-預覽">
+<a class="header-anchor" href="#office-%e9%a0%90%e8%a6%bd"></a>
+Office 預覽
+</h3><p>能在檔案管理裡直接開啟最大 500MB 的 Office 檔案。</p>
+<h3 id="omnitools">
+<a class="header-anchor" href="#omnitools"></a>
+OmniTools
+</h3><p>整合十幾種工具的一個工具箱。</p>
+<h3 id="百度網盤飛牛版">
+<a class="header-anchor" href="#%e7%99%be%e5%ba%a6%e7%b6%b2%e7%9b%a4%e9%a3%9b%e7%89%9b%e7%89%88"></a>
+百度網盤（飛牛版）
+</h3><p>「幾乎」沒廣告，介面也比較簡潔，但不能複製檔案位址、沒有檔案或資料夾的詳情頁，似乎也看不到資料夾大小。<br>
+NAS 會員拆開單賣差評。</p>
+<h3 id="不推薦應用中心瀏覽器">
+<a class="header-anchor" href="#%e4%b8%8d%e6%8e%a8%e8%96%a6%e6%87%89%e7%94%a8%e4%b8%ad%e5%bf%83%e7%80%8f%e8%a6%bd%e5%99%a8"></a>
+不推薦：應用中心瀏覽器
+</h3><p>這個其實是 docker 跑的 Google Chrome，web 介面很糊，傳的是畫面流不是網頁本身，也沒辦法正常切中文輸入法。下載下來的檔案還得自己從應用檔案夾裡搬出來。預設 Google 搜尋又需要代理，雖然可以改成 Bing，但下載速度還是慢。</p>
+<p>所以如果有需要下載的東西，我還是建議先用本機瀏覽器找好直連，再從飛牛客戶端新增下載任務。</p>
+<h2 id="總結">
+<a class="header-anchor" href="#%e7%b8%bd%e7%b5%90"></a>
+總結
+</h2><p>折騰了幾天之後，這台筆電「NAS」已經初步實現了影音、圖片、書籍資料管理，以及關鍵資料備份，例如手冊、說明書、文稿、PCB、程式碼、證書、密碼等等。<br>
+接下來想折騰的，就是面板、網域、反代、IPv6、RSSHub、兩地三備。</p>
+<p>最後，SB 網易雲音樂。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/Soyo.JPG" alt="无语"></p>
+
+        
+        <hr><p>本文2025-10-16首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-10-16</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>OtherNotes</category></item><item><title>量子物理學</title><link>https://guzhengsvt.cn/zh-tw/post/physics/quantum-physics/</link><pubDate>Fri, 05 Sep 2025 11:05:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/physics/quantum-physics/</guid><description>
+<![CDATA[<h1>量子物理學</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <h2 id="第一章-微粒二象性與狀態描述">
+<a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e7%ab%a0-%e5%be%ae%e7%b2%92%e4%ba%8c%e8%b1%a1%e6%80%a7%e8%88%87%e7%8b%80%e6%85%8b%e6%8f%8f%e8%bf%b0"></a>
+第一章 微粒二象性與狀態描述
+</h2><h3 id="11-量子力學的形成與應用">
+<a class="header-anchor" href="#11-%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%b8%e7%9a%84%e5%bd%a2%e6%88%90%e8%88%87%e6%87%89%e7%94%a8"></a>
+1.1 量子力學的形成與應用
+</h3><h4 id="111-舊量子論">
+<a class="header-anchor" href="#111-%e8%88%8a%e9%87%8f%e5%ad%90%e8%ab%96"></a>
+1.1.1 舊量子論
+</h4><h5 id="光電效應與光子假說">
+<a class="header-anchor" href="#%e5%85%89%e9%9b%bb%e6%95%88%e6%87%89%e8%88%87%e5%85%89%e5%ad%90%e5%81%87%e8%aa%aa"></a>
+光電效應與光子假說
+</h5><ul>
+<li><strong>光子能量</strong>：$E = h\nu$</li>
+<li><strong>閾頻</strong>：$\nu_0 = \dfrac{W_0}{h}$，$\nu < \nu_0$ 無光電子逸出</li>
+<li><strong>光電效應方程</strong>：<br>
+
+$$
+  E_k^{\text{max}} = \frac{1}{2}\mu v^2_m = h\nu - W_0
+  $$</li>
+<li>光電效應證明了光的粒子性。</li>
+</ul>
+<h5 id="光子的能量動量向量關係與波粒統一">
+<a class="header-anchor" href="#%e5%85%89%e5%ad%90%e7%9a%84%e8%83%bd%e9%87%8f%e5%8b%95%e9%87%8f%e5%90%91%e9%87%8f%e9%97%9c%e4%bf%82%e8%88%87%e6%b3%a2%e7%b2%92%e7%b5%b1%e4%b8%80"></a>
+光子的能量—動量（向量）關係與波粒統一
+</h5><ul>
+<li>
+<p><strong>相對論能量—動量關係式</strong><br>
+</p>
+$$
+  E^2=(pc)^2+(m_0c^2)^2,\quad m_0=0\ \Rightarrow\ E=c\,\lVert\vec p\rVert
+  $$</li>
+<li>
+<p><strong>光子能量</strong><br>
+</p>
+$$
+  E=h\nu=\frac{hc}{\lambda}=\hbar\omega
+  $$</li>
+<li>
+<p><strong>光子動量（向量形式）</strong><br>
+令 $\mathbf n$ 為傳播方向的單位向量，則
+</p>
+$$
+  \vec p=\frac{E}{c}\,\mathbf n=\frac{h}{\lambda}\,\mathbf n=\hbar\vec k,\quad
+  \vec k=\frac{2\pi}{\lambda}\,\mathbf n
+  $$</li>
+<li>
+<p><strong>波粒二象性統一（對應關係）</strong><br>
+</p>
+$$
+  E\ \longleftrightarrow\ \hbar\omega,\qquad
+  \vec p\ \longleftrightarrow\ \hbar\vec k
+  $$</li>
+</ul>
+<h5 id="氫原子玻爾結構">
+<a class="header-anchor" href="#%e6%b0%ab%e5%8e%9f%e5%ad%90%e7%8e%bb%e7%88%be%e7%b5%90%e6%a7%8b"></a>
+氫原子玻爾結構
+</h5><ul>
+<li>電子繞原子核运動的軌道角動量量子化：<br>
+
+$$
+  L = n\hbar,\quad n=1,2,3,\dots
+  $$</li>
+<li>能級公式：<br>
+
+$$
+  E_n = -\frac{13.6\ \text{eV}}{n^2}
+  $$</li>
+<li>成功解釋了氫原子光譜的線狀分佈。</li>
+</ul>
+<h5 id="玻爾假說">
+<a class="header-anchor" href="#%e7%8e%bb%e7%88%be%e5%81%87%e8%aa%aa"></a>
+玻爾假說
+</h5><ul>
+<li>電子在穩定軌道上運動時不輻射能量。</li>
+<li>電子在不同能級之間躍遷時吸收或發射能量：<br>
+
+$$
+  \Delta E = h\nu
+  $$</li>
+</ul>
+<h5 id="康普頓效應">
+<a class="header-anchor" href="#%e5%ba%b7%e6%99%ae%e9%a0%93%e6%95%88%e6%87%89"></a>
+康普頓效應
+</h5><ul>
+<li>高能光子與電子散射後波長增加：<br>
+
+$$
+  \Delta\lambda = \lambda' - \lambda = \frac{h}{m_ec}(1-\cos\theta)
+  $$</li>
+<li>實驗證實了光子的粒子性與動量守恆。</li>
+</ul>
+<h5 id="黑體輻射">
+<a class="header-anchor" href="#%e9%bb%91%e9%ab%94%e8%bc%bb%e5%b0%84"></a>
+黑體輻射
+</h5><ul>
+<li>能量量子化假設：電磁場能量按 $E=nh\nu$ 離散取值。</li>
+<li>普朗克公式：<br>
+
+$$
+  u(\nu,T)=\frac{8\pi h\nu^3}{c^3}\frac{1}{e^{h\nu/kT}-1}
+  $$</li>
+<li>成功解釋了黑體輻射實驗曲線，開啟量子論。</li>
+</ul>
+<h4 id="112-微觀粒子的波粒二象性">
+<a class="header-anchor" href="#112-%e5%be%ae%e8%a7%80%e7%b2%92%e5%ad%90%e7%9a%84%e6%b3%a2%e7%b2%92%e4%ba%8c%e8%b1%a1%e6%80%a7"></a>
+1.1.2 微觀粒子的波粒二象性
+</h4><h5 id="德布羅意假說">
+<a class="header-anchor" href="#%e5%be%b7%e5%b8%83%e7%be%85%e6%84%8f%e5%81%87%e8%aa%aa"></a>
+德布羅意假說
+</h5><ul>
+<li>微觀粒子不僅具有粒子性，也具有波動性。</li>
+<li>每一個動量為 $\vec p$ 的粒子，都對應一列物質波，其波長和頻率與動量、能量相關。</li>
+</ul>
+<h5 id="德布羅意關係">
+<a class="header-anchor" href="#%e5%be%b7%e5%b8%83%e7%be%85%e6%84%8f%e9%97%9c%e4%bf%82"></a>
+德布羅意關係
+</h5><ul>
+<li>波長：<br>
+
+$$
+  \lambda = \frac{h}{p}
+  $$</li>
+<li>向量形式：<br>
+
+$$
+  \vec p = \hbar \vec k
+  $$</li>
+<li>頻率：<br>
+
+$$
+  E = h\nu = \hbar\omega
+  $$</li>
+</ul>
+<hr>
+<h3 id="12-狀態與波函數">
+<a class="header-anchor" href="#12-%e7%8b%80%e6%85%8b%e8%88%87%e6%b3%a2%e5%87%bd%e6%95%b8"></a>
+1.2 狀態與波函數
+</h3><h4 id="121-測不準原理">
+<a class="header-anchor" href="#121-%e6%b8%ac%e4%b8%8d%e6%ba%96%e5%8e%9f%e7%90%86"></a>
+1.2.1 測不準原理
+</h4><ul>
+<li>微觀粒子的位置與動量不能同時被精確測定，存在測量極限。</li>
+<li>海森堡測不準關係：<br>
+
+$$
+  \Delta x \cdot \Delta p_x \geq \frac{\hbar}{2}
+  $$</li>
+<li>能量與時間之間的測不準關係：<br>
+
+$$
+  \Delta E \cdot \Delta t \geq \frac{\hbar}{2}
+  $$</li>
+<li>本質：源於波粒二象性與算符的不對易性。</li>
+</ul>
+<h4 id="122-波函數">
+<a class="header-anchor" href="#122-%e6%b3%a2%e5%87%bd%e6%95%b8"></a>
+1.2.2 波函數
+</h4><ul>
+<li>為描述微觀粒子狀態，引入<strong>波函數</strong> $\psi(\vec r,t)$。</li>
+<li><strong>機率詮釋</strong>：$|\psi(\vec r,t)|^2 dV$ 表示粒子在體積元 $dV$ 內出現的機率。</li>
+<li>波函數必須滿足線性疊加原理與薛定諤方程。</li>
+<li>粒子必定在空間某點出現，其<strong>在空間各點出現機率的總和為 1</strong>，因此粒子在空間各點出現的機率只取決於波函數在空間各點的相對強度，而不取決於強度的絕對大小。</li>
+<li>將波函數乘上一個常數後，所描寫的粒子狀態並不改變。</li>
+<li>波函數標準條件：單值、有限、連續</li>
+</ul>
+<h4 id="123-波函數歸一化">
+<a class="header-anchor" href="#123-%e6%b3%a2%e5%87%bd%e6%95%b8%e6%ad%b8%e4%b8%80%e5%8c%96"></a>
+1.2.3 波函數歸一化
+</h4><ul>
+<li><strong>歸一化條件</strong>：在空間內找到粒子的機率為 1。<br>
+
+$$
+  \int_{-\infty}^{\infty} \psi^* (\vec r,t) \psi (\vec r,t) dV = 1
+  $$</li>
+<li><strong>歸一化波函數求法</strong>
+
+$$
+  \int_{-\infty}^{\infty} |\Psi(\vec r,t)|^2 dV = A^2 \int_{-\infty}^{\infty} |\psi(\vec r,t)|^2 dV = 1
+  $$
+A：歸一化常數</li>
+</ul>
+<hr>
+<h3 id="13-薛定諤方程">
+<a class="header-anchor" href="#13-%e8%96%9b%e5%ae%9a%e8%ab%a4%e6%96%b9%e7%a8%8b"></a>
+1.3 薛定諤方程
+</h3><h4 id="131-自由粒子的波動方程">
+<a class="header-anchor" href="#131-%e8%87%aa%e7%94%b1%e7%b2%92%e5%ad%90%e7%9a%84%e6%b3%a2%e5%8b%95%e6%96%b9%e7%a8%8b"></a>
+1.3.1 自由粒子的波動方程
+</h4><p><strong>概念</strong><br>
+自由粒子是指不受外力作用的粒子，其運動僅受量子力學規律描述。在量子力學中，自由粒子的狀態由波函數 $\psi(\vec{r},t)$ 描述，滿足薛定諤方程。</p>
+<p><strong>薛定諤方程（自由粒子）</strong><br>
+</p>
+$$
+i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = -\frac{\hbar^2}{2m} \nabla^2 \psi(\vec{r},t)
+$$<p>
+其中：</p>
+<ul>
+<li>$\hbar$：約化普朗克常數</li>
+<li>$m$：粒子質量</li>
+<li>$\nabla^2$：拉普拉斯算符</li>
+</ul>
+<p><strong>平面波解</strong><br>
+自由粒子波函數的一般解為平面波形式：<br>
+</p>
+$$
+\psi(\vec{r},t) = A e^{i(\vec{k}\cdot\vec{r} - \omega t)}
+$$<p>
+其中：</p>
+<ul>
+<li>$\vec{k}$：波矢，$|\vec{k}| = k$</li>
+<li>$\omega$：角頻率，滿足能量關係<br>
+
+$$
+E = \hbar \omega = \frac{\hbar^2 k^2}{2m}
+$$</li>
+</ul>
+<p><strong>動量與波矢關係（德布羅意關係）</strong><br>
+</p>
+$$
+\vec{p} = \hbar \vec{k}
+$$<h5 id="自由粒子薛定諤方程的平面波推導">
+<a class="header-anchor" href="#%e8%87%aa%e7%94%b1%e7%b2%92%e5%ad%90%e8%96%9b%e5%ae%9a%e8%ab%a4%e6%96%b9%e7%a8%8b%e7%9a%84%e5%b9%b3%e9%9d%a2%e6%b3%a2%e6%8e%a8%e5%b0%8e"></a>
+自由粒子薛定諤方程的平面波推導
+</h5><p><strong>1. 自由粒子波函數假設</strong><br>
+自由粒子波函數可以寫成平面波形式：
+</p>
+$$
+\psi(\vec{r},t) = A e^{i(\vec{k}\cdot\vec{r} - \omega t)}
+$$<p>
+其中：</p>
+<ul>
+<li>$\vec{k}$ 為波矢</li>
+<li>$\omega$ 為角頻率</li>
+<li>$A$ 為振幅常數</li>
+</ul>
+<p><strong>2. 求時間偏導數</strong><br>
+對時間 $t$ 求偏導：
+</p>
+$$
+\frac{\partial \psi}{\partial t} = \frac{\partial}{\partial t} \left[ A e^{i(\vec{k}\cdot\vec{r} - \omega t)} \right] 
+= -i \omega A e^{i(\vec{k}\cdot\vec{r} - \omega t)} 
+= -i \omega \psi
+$$<p>
+乘以 $i\hbar$：
+</p>
+$$
+i\hbar \frac{\partial \psi}{\partial t} = \hbar \omega \psi
+$$<p><strong>3. 求空間拉普拉斯（動能項）</strong><br>
+對空間 $\vec{r}$ 求二階偏導：
+</p>
+$$
+\nabla^2 \psi = \nabla^2 \left[ A e^{i \vec{k}\cdot\vec{r}} e^{-i\omega t} \right] 
+= -k^2 A e^{i(\vec{k}\cdot\vec{r} - \omega t)} 
+= -k^2 \psi
+$$<p>
+因此動能項為：
+</p>
+$$
+-\frac{\hbar^2}{2m} \nabla^2 \psi = \frac{\hbar^2 k^2}{2m} \psi
+$$<p><strong>4. 建立能量關係</strong><br>
+自由粒子的總能量為動能：
+</p>
+$$
+E = \frac{\hbar^2 k^2}{2m} = \hbar \omega
+$$<p><strong>5. 得到薛定諤方程</strong><br>
+將時間導數與空間導數關係寫出：
+</p>
+$$
+i\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m} \nabla^2 \psi
+$$<p><strong>說明</strong></p>
+<ul>
+<li>這種推導直接利用了平面波形式和微分運算，不依賴算符定義。</li>
+<li>對應自由粒子 $V=0$ 的情況。</li>
+</ul>
+<h4 id="133-定態薛定諤方程與定態波函數">
+<a class="header-anchor" href="#133-%e5%ae%9a%e6%85%8b%e8%96%9b%e5%ae%9a%e8%ab%a4%e6%96%b9%e7%a8%8b%e8%88%87%e5%ae%9a%e6%85%8b%e6%b3%a2%e5%87%bd%e6%95%b8"></a>
+1.3.3 定態薛定諤方程與定態波函數
+</h4><p><strong>概念</strong><br>
+定態波函數是指時間依賴可分離的波函數，形如：
+</p>
+$$
+\psi(\vec{r},t) = \phi(\vec{r}) e^{-i E t / \hbar}
+$$<p>
+設 $f(t)=e^{-i E t / \hbar}$ 。<br>
+其中 $\phi(\vec{r})$ 只依賴空間座標，$E$ 為粒子總能量。</p>
+<p><strong>推導定態薛定諤方程</strong><br>
+從時間依賴薛定諤方程：
+</p>
+$$
+i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = \left[ -\frac{\hbar^2}{2m} \nabla^2 + V(\vec{r}) \right] \psi(\vec{r},t)
+$$<p>
+代入 $\psi(\vec{r},t) = \phi(\vec{r}) e^{-i E t / \hbar}$：
+</p>
+$$
+i\hbar \left( -\frac{i E}{\hbar} \phi(\vec{r}) e^{-i E t / \hbar} \right) = \left[ -\frac{\hbar^2}{2m} \nabla^2 + V(\vec{r}) \right] \phi(\vec{r}) e^{-i E t / \hbar}
+$$<p>
+化簡得到時間獨立部分：
+</p>
+$$
+\left[ -\frac{\hbar^2}{2m} \nabla^2 + V(\vec{r}) \right] \phi(\vec{r}) = E \phi(\vec{r})
+$$<p><strong>定態薛定諤方程（時間獨立形式）</strong><br>
+</p>
+$$
+i \hbar \frac{df}{dt}=E f , \; f= e^{-i E t / \hbar}
+$$<p>
+</p>
+$$
+-\frac{\hbar^2}{2m} \nabla^2 \phi(\vec{r}) + V(\vec{r}) \phi(\vec{r}) = E \phi(\vec{r})
+$$<p><strong>說明</strong></p>
+<ul>
+<li>$\phi(\vec{r})$ 稱為定態波函數或本徵函數。</li>
+<li>$E$ 為對應的能量本徵值。</li>
+</ul>
+<h4 id="薛定諤方程的推導算符">
+<a class="header-anchor" href="#%e8%96%9b%e5%ae%9a%e8%ab%a4%e6%96%b9%e7%a8%8b%e7%9a%84%e6%8e%a8%e5%b0%8e%e7%ae%97%e7%ac%a6"></a>
+薛定諤方程的推導（算符）
+</h4><p><strong>1. 從經典能量出發</strong><br>
+經典力學中，單個粒子的總能量為：
+</p>
+$$
+E = \frac{p^2}{2m} + V(\vec{r},t)
+$$<p>
+其中 $p$ 是動量，$V(\vec{r},t)$ 是勢能。</p>
+<p><strong>2. 引入量子假設（德布羅意關係）</strong><br>
+粒子具有波動性，動量和能量對應波的性質：
+</p>
+$$
+\vec{p} = \hbar \vec{k}, \quad E = \hbar \omega
+$$<p>
+波函數可表示為：
+</p>
+$$
+\psi(\vec{r},t) \sim e^{i(\vec{k}\cdot\vec{r} - \omega t)}
+$$<p><strong>3. 引入算符表示</strong><br>
+根據量子力學公設，能量與動量用算符表示：
+</p>
+$$
+\hat{E} = i\hbar \frac{\partial}{\partial t}, \quad \hat{\vec{p}} = -i\hbar \nabla
+$$<p><strong>4. 將算符作用到波函數上</strong></p>
+<ul>
+<li>動能算符：
+
+$$
+\hat{T} = \frac{\hat{p}^2}{2m} = -\frac{\hbar^2}{2m}\nabla^2
+$$</li>
+<li>總能量算符：
+
+$$
+\hat{H} = \hat{T} + V(\vec{r},t) = -\frac{\hbar^2}{2m}\nabla^2 + V(\vec{r},t)
+$$</li>
+</ul>
+<p><strong>5. 寫出薛定諤方程</strong><br>
+將總能量算符作用於波函數：
+</p>
+$$
+i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = \hat{H} \psi(\vec{r},t)
+$$<p>
+即：
+</p>
+$$
+i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = \left[ -\frac{\hbar^2}{2m}\nabla^2 + V(\vec{r},t) \right] \psi(\vec{r},t)
+$$<p><strong>說明</strong></p>
+<ul>
+<li>這是非相對論情況下的時間依賴薛定諤方程。</li>
+<li>對自由粒子 ($V=0$) 可化簡為：
+
+$$
+i\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m}\nabla^2 \psi
+$$</li>
+</ul>
+<h4 id="態疊加原理">
+<a class="header-anchor" href="#%e6%85%8b%e7%96%8a%e5%8a%a0%e5%8e%9f%e7%90%86"></a>
+態疊加原理
+</h4><p><strong>概念</strong><br>
+量子力學中，若 $\psi_1$ 和 $\psi_2$ 是同一體系的兩個可能態，那麼它們的線性組合：
+</p>
+$$
+\psi = c_1 \psi_1 + c_2 \psi_2
+$$<p>
+也是該體系的一個可能態。這裡 $c_1, c_2$ 為複數係數，滿足歸一化條件。</p>
+<p><strong>一般形式</strong><br>
+對一組正交歸一基態 $\{ \phi_n \}$，任意態可展開為：
+</p>
+$$
+\psi(\vec{r},t) = \sum_{n} c_n \phi_n(\vec{r},t)
+$$<p>
+其中：</p>
+<ul>
+<li>$c_n$ 為展開係數，表示體系處於 $\phi_n$ 態的機率幅；</li>
+<li>機率為 $|c_n|^2$，需滿足：
+
+$$
+\sum_n |c_n|^2 = 1
+$$</li>
+</ul>
+<p><strong>說明</strong></p>
+<ul>
+<li>態疊加是量子力學最基本的原理之一。</li>
+<li>不同基態可以同時疊加，但觀測時只能得到其中一個本徵值。</li>
+<li>疊加態的干涉效應體現了量子力學與經典力學的根本區別。</li>
+</ul>
+<h2 id="第二章-薛定諤方程的簡單應用">
+<a class="header-anchor" href="#%e7%ac%ac%e4%ba%8c%e7%ab%a0-%e8%96%9b%e5%ae%9a%e8%ab%a4%e6%96%b9%e7%a8%8b%e7%9a%84%e7%b0%a1%e5%96%ae%e6%87%89%e7%94%a8"></a>
+第二章 薛定諤方程的簡單應用
+</h2><h3 id="21-一維無限深勢阱">
+<a class="header-anchor" href="#21-%e4%b8%80%e7%b6%ad%e7%84%a1%e9%99%90%e6%b7%b1%e5%8b%a2%e9%98%b1"></a>
+2.1 一維無限深勢阱
+</h3><h4 id="211-方程求解">
+<a class="header-anchor" href="#211-%e6%96%b9%e7%a8%8b%e6%b1%82%e8%a7%a3"></a>
+2.1.1 方程求解
+</h4><p><strong>1. 勢能函數定義</strong><br>
+一維無限深勢阱（寬度 $L$）定義為：
+</p>
+$$
+V(x) =
+\begin{cases}
+0, & 0 < x < L \\
+\infty, & x \leq 0 \ \text{或} \ x \geq L
+\end{cases}
+$$<p><strong>2. 薛定諤方程</strong><br>
+在阱內 ($0 < x < L$)：
+</p>
+$$
+-\frac{\hbar^2}{2m} \frac{d^2 \phi(x)}{dx^2} = E \phi(x)
+$$<p>
+化簡為：
+</p>
+$$
+\frac{d^2 \phi(x)}{dx^2} + k^2 \phi(x) = 0
+$$<p>
+其中：
+</p>
+$$
+k^2 = \frac{2mE}{\hbar^2}
+$$<p><strong>3. 通解</strong><br>
+方程的通解為：
+</p>
+$$
+\phi(x) = A \sin(kx) + B \cos(kx)
+$$<p><strong>4. 邊界條件</strong><br>
+由於勢阱無限深，波函數必須滿足：
+</p>
+$$
+\phi(0) = 0, \quad \phi(L) = 0
+$$<ul>
+<li>由 $\phi(0) = 0 \implies B = 0$</li>
+<li>由 $\phi(L) = 0 \implies \sin(kL) = 0 \implies kL = n\pi \quad (n=1,2,3,\dots)$</li>
+</ul>
+<p><strong>5. 本徵函數與能量</strong></p>
+<ul>
+<li>歸一化波函數：
+
+$$
+\phi_n(x) = \sqrt{\frac{2}{L}} \sin\left(\frac{n\pi x}{L}\right), \quad n=1,2,3,\dots
+$$</li>
+<li>能量本徵值：
+
+$$
+E_n = \frac{n^2 \pi^2 \hbar^2}{2mL^2}, \quad n=1,2,3,\dots
+$$</li>
+</ul>
+<p><strong>說明</strong></p>
+<ul>
+<li>粒子能量離散化，與量子數 $n$ 成正比。</li>
+<li>基態能量 ($n=1$) 非零，體現零點能量現象。</li>
+</ul>
+<hr>
+<h3 id="22-數理方程的特殊函數">
+<a class="header-anchor" href="#22-%e6%95%b8%e7%90%86%e6%96%b9%e7%a8%8b%e7%9a%84%e7%89%b9%e6%ae%8a%e5%87%bd%e6%95%b8"></a>
+2.2 數理方程的特殊函數
+</h3><h4 id="221-正交性與歸一性">
+<a class="header-anchor" href="#221-%e6%ad%a3%e4%ba%a4%e6%80%a7%e8%88%87%e6%ad%b8%e4%b8%80%e6%80%a7"></a>
+2.2.1 正交性與歸一性
+</h4><p><strong>正交性</strong><br>
+一組函數 $\{ \phi_n(x) \}$ 在區間 $[a,b]$ 上若滿足：
+</p>
+$$
+\int_a^b \phi_m(x)\,\phi_n(x)\,dx = 0 \quad (m \neq n)
+$$<p>
+則稱為正交。</p>
+<p><strong>歸一性</strong><br>
+若同時滿足：
+</p>
+$$
+\int_a^b |\phi_n(x)|^2 dx = 1
+$$<p>
+則稱為歸一。</p>
+<p><strong>正交歸一性</strong><br>
+綜合寫為：
+</p>
+$$
+\int_a^b \phi_m(x)\,\phi_n(x)\,dx = \delta_{mn}
+$$<h4 id="222-用正交歸一函數組展開">
+<a class="header-anchor" href="#222-%e7%94%a8%e6%ad%a3%e4%ba%a4%e6%ad%b8%e4%b8%80%e5%87%bd%e6%95%b8%e7%b5%84%e5%b1%95%e9%96%8b"></a>
+2.2.2 用正交歸一函數組展開
+</h4><p>任意滿足一定條件的函數 $f(x)$ 可以展開為正交歸一函數組 $\{ \phi_n(x) \}$ 的線性組合：
+</p>
+$$
+f(x) = \sum_{n=1}^{\infty} c_n \phi_n(x)
+$$<p>
+其中展開係數：
+</p>
+$$
+c_n = \int_a^b f(x)\,\phi_n(x)\,dx
+$$<h4 id="223-傅立葉級數">
+<a class="header-anchor" href="#223-%e5%82%85%e7%ab%8b%e8%91%89%e7%b4%9a%e6%95%b8"></a>
+2.2.3 傅立葉級數
+</h4><p>在區間 $[-L,L]$ 上，週期函數 $f(x)$ 可展開為三角函數正交基的級數：
+</p>
+$$
+f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty \left[ a_n \cos\left(\frac{n\pi x}{L}\right) + b_n \sin\left(\frac{n\pi x}{L}\right) \right]
+$$<p>
+其中：
+</p>
+$$
+a_n = \frac{1}{L} \int_{-L}^L f(x)\cos\left(\frac{n\pi x}{L}\right)\,dx, \quad
+b_n = \frac{1}{L} \int_{-L}^L f(x)\sin\left(\frac{n\pi x}{L}\right)\,dx
+$$<h4 id="224-構造正交歸一函數">
+<a class="header-anchor" href="#224-%e6%a7%8b%e9%80%a0%e6%ad%a3%e4%ba%a4%e6%ad%b8%e4%b8%80%e5%87%bd%e6%95%b8"></a>
+2.2.4 構造正交歸一函數
+</h4><p>常用方法：<strong>施密特正交化</strong>（Gram-Schmidt）。<br>
+給定一組函數 $\{ f_n(x) \}$，可依次構造：
+</p>
+$$
+\phi_1(x) = \frac{f_1(x)}{\sqrt{\int |f_1(x)|^2 dx}}
+$$<p>
+</p>
+$$
+\phi_2(x) = \frac{f_2(x) - \int \phi_1(x) f_2(x)\,dx \,\phi_1(x)}{\sqrt{\int \left|f_2(x) - \int \phi_1(x) f_2(x)\,dx \,\phi_1(x)\right|^2 dx}}
+$$<p>
+依此類推，得到一組正交歸一函數。</p>
+<h4 id="225-勒讓德多項式與其他特殊函數">
+<a class="header-anchor" href="#225-%e5%8b%92%e8%ae%93%e5%be%b7%e5%a4%9a%e9%a0%85%e5%bc%8f%e8%88%87%e5%85%b6%e4%bb%96%e7%89%b9%e6%ae%8a%e5%87%bd%e6%95%b8"></a>
+2.2.5 勒讓德多項式與其他特殊函數
+</h4><p><strong>勒讓德多項式</strong><br>
+由勒讓德方程：
+</p>
+$$
+(1-x^2)\frac{d^2 y}{dx^2} - 2x \frac{dy}{dx} + l(l+1)y = 0
+$$<p>
+解為勒讓德多項式 $P_l(x)$。</p>
+<ul>
+<li>正交性：
+
+$$
+\int_{-1}^{1} P_l(x) P_{l'}(x)\,dx = \frac{2}{2l+1}\delta_{ll'}
+$$</li>
+</ul>
+<p><strong>其他常見特殊函數</strong></p>
+<ul>
+<li><strong>球諧函數</strong> $Y_l^m(\theta,\phi)$：角動量問題中出現。</li>
+<li><strong>貝塞爾函數</strong> $J_n(x)$：圓柱對稱問題中出現。</li>
+<li><strong>厄米多項式</strong> $H_n(x)$：諧振子問題中出現。</li>
+</ul>
+<p>這些特殊函數都是滿足不同邊界條件與對稱性的薛定諤方程解。</p>
+<hr>
+<h3 id="23-線性諧振子">
+<a class="header-anchor" href="#23-%e7%b7%9a%e6%80%a7%e8%ab%a7%e6%8c%af%e5%ad%90"></a>
+2.3 線性諧振子
+</h3><hr>
+<h3 id="24-氫原子">
+<a class="header-anchor" href="#24-%e6%b0%ab%e5%8e%9f%e5%ad%90"></a>
+2.4 氫原子
+</h3><h4 id="241-方程求解分為--三個方程">
+<a class="header-anchor" href="#241-%e6%96%b9%e7%a8%8b%e6%b1%82%e8%a7%a3%e5%88%86%e7%82%ba--%e4%b8%89%e5%80%8b%e6%96%b9%e7%a8%8b"></a>
+2.4.1 方程求解（分為 $r,\ \theta,\ \phi$ 三個方程）
+</h4><p><strong>1. 時間獨立薛定諤方程（庫侖勢）</strong><br>
+氫原子（單電子）勢能：
+</p>
+$$
+V(r) = -\dfrac{e^2}{4\pi\varepsilon_0 r}
+$$<p>
+在球座標 $(r,\theta,\phi)$ 中，時間獨立薛定諤方程為
+</p>
+$$
+-\dfrac{\hbar^2}{2m}\nabla^2\Psi(r,\theta,\phi) + V(r)\Psi = E\Psi.
+$$<p><strong>2. 變數分離</strong><br>
+設
+</p>
+$$
+\Psi(r,\theta,\phi)=R(r)\,Y(\theta,\phi).
+$$<p>
+代入並除以 $\Psi$ 後可得到形如<br>
+</p>
+$$
+\frac{1}{R}\left[-\frac{\hbar^2}{2m}\left(\frac{1}{r^2}\frac{d}{dr}\! \left(r^2\frac{dR}{dr}\right)\right)+V(r)R\right]
++\frac{1}{Y}\left[-\frac{\hbar^2}{2m}\frac{1}{r^2}\hat{L}^2Y\right]=E,
+$$<p>
+其中 $\hat L^2$ 為角動量算符。將角動量部分移項並設分離常數 $l(l+1)\hbar^2$，得到三個獨立方程（按變數分為 $r,\theta,\phi$）。</p>
+<p><strong>3. 方程 1 — 角方程（$\phi$ 方向）</strong><br>
+對 $\phi$ 變數：
+</p>
+$$
+\frac{1}{\Phi(\phi)}\frac{d^2\Phi}{d\phi^2} = -m^2 \quad\Rightarrow\quad
+\Phi_m(\phi)=\frac{1}{\sqrt{2\pi}} e^{i m\phi},\quad m\in\mathbb{Z}.
+$$<p><strong>4. 方程 2 — 角方程（$\theta$ 方向）</strong><br>
+極角方程（由 $\hat L^2$ 的 $\theta$ 部分給出）為關聯勒讓德方程：
+</p>
+$$
+\frac{1}{\sin\theta}\frac{d}{d\theta}\!\left(\sin\theta\frac{d\Theta}{d\theta}\right)
++\left[l(l+1)-\frac{m^2}{\sin^2\theta}\right]\Theta=0.
+$$<p>
+其解為關聯勒讓德函數：
+</p>
+$$
+\Theta_{l}^{m}(\theta)\propto P_l^{m}(\cos\theta).
+$$<p><strong>5. 角部綜合（球諧函數）</strong><br>
+角函數組合為球諧函數：
+</p>
+$$
+Y_l^m(\theta,\phi)=N_{l}^{m}\,P_l^{m}(\cos\theta)\,e^{im\phi},
+$$<p>
+滿足
+</p>
+$$
+\hat L^2 Y_l^m = l(l+1)\hbar^2 Y_l^m,\qquad \hat L_z Y_l^m = m\hbar Y_l^m,
+$$<p>
+其中 $l=0,1,2,\dots,\ -l\le m\le l$，且歸一化：
+</p>
+$$
+\int_0^{2\pi}\!\int_0^{\pi} |Y_l^m|^2\sin\theta\,d\theta d\phi =1.
+$$<p><strong>6. 方程 3 — 徑向方程</strong><br>
+令 $u(r)=rR(r)$，徑向方程化為一維形式：
+</p>
+$$
+-\frac{\hbar^2}{2m}\frac{d^2 u}{dr^2} + \left[ -\frac{e^2}{4\pi\varepsilon_0 r} + \frac{\hbar^2 l(l+1)}{2m r^2} \right] u = E u.
+$$<p>
+解該方程並施加邊界條件 $u(0)=0,\ u(r)\xrightarrow{r\to\infty}0$，得到離散能級與徑向本徵函數。</p>
+<p><strong>7. 能量本徵值（玻爾能級）</strong><br>
+能量量子化結果：
+</p>
+$$
+E_n = -\frac{m e^4}{2(4\pi\varepsilon_0)^2 \hbar^2}\,\frac{1}{n^2} = -\frac{13.6057\ \mathrm{eV}}{n^2},\qquad n=1,2,3,\dots
+$$<p>
+主量子數 $n$ 與角量子數滿足 $l=0,1,\dots,n-1$。</p>
+<p><strong>8. 波函數形式（歸一化）</strong><br>
+完整本徵函數寫為
+</p>
+$$
+\Psi_{n l m}(r,\theta,\phi)=R_{n l}(r)\,Y_l^m(\theta,\phi),
+$$<p>
+徑向部分（氫原子）可表示為
+</p>
+$$
+R_{n l}(r)=N_{n l}\left(\frac{2r}{n a_0}\right)^{l} e^{-r/(n a_0)} L_{n-l-1}^{2l+1}\!\left(\frac{2r}{n a_0}\right),
+$$<p>
+其中 $a_0=\dfrac{4\pi\varepsilon_0\hbar^2}{m e^2}$ 為波耳半徑，$L_{n-l-1}^{2l+1}$ 為廣義拉蓋爾多項式，$N_{n l}$ 為歸一化常數。</p>
+<h4 id="242-結果與討論">
+<a class="header-anchor" href="#242-%e7%b5%90%e6%9e%9c%e8%88%87%e8%a8%8e%e8%ab%96"></a>
+2.4.2 結果與討論
+</h4><p><strong>1. 量子數與簡要物理意義</strong></p>
+<ul>
+<li>$n$（主量子數）：決定能量與徑向性質。</li>
+<li>$l$（角量子數）：與角動量大小相關，取 $0\le l\le n-1$。</li>
+<li>$m$（磁量子數）：角動量 $L_z$ 的本徵值，取 $-l\le m\le l$。</li>
+</ul>
+<p><strong>2. 能級簡併</strong><br>
+能量僅與 $n$ 有關（庫侖勢下的額外對稱性），每一能級的簡併度為 $n^2$（所有滿足相同 $n$ 的 $(l,m)$ 組合）。</p>
+<p><strong>3. 波函數的空間結構</strong></p>
+<ul>
+<li>角部分由球諧函數給出，決定角向分佈與節點數。</li>
+<li>徑向部分由 $R_{nl}(r)$ 給出，具有 $n-l-1$ 個徑向節點。</li>
+<li>基態 $(n,l,m)=(1,0,0)$ 的波函數無角向依賴、徑向無節點，機率密度最大在 $r=a_0$ 附近（期望值 $\langle r\rangle = \tfrac{3}{2}a_0$）。</li>
+</ul>
+<p><strong>5. 總結</strong><br>
+氫原子問題通過在球座標中按 $r,\theta,\phi$ 三個變數分離得到：兩個角方程（$\theta,\phi$）給出球諧函數和角量子數譜，徑向方程給出離散能級 $E_n$ 與徑向本徵函數。</p>
+<h2 id="第三章-力學量的算符表示與表象理論">
+<a class="header-anchor" href="#%e7%ac%ac%e4%b8%89%e7%ab%a0-%e5%8a%9b%e5%ad%b8%e9%87%8f%e7%9a%84%e7%ae%97%e7%ac%a6%e8%a1%a8%e7%a4%ba%e8%88%87%e8%a1%a8%e8%b1%a1%e7%90%86%e8%ab%96"></a>
+第三章 力學量的算符表示與表象理論
+</h2><h3 id="31-力學量與算符的關係">
+<a class="header-anchor" href="#31-%e5%8a%9b%e5%ad%b8%e9%87%8f%e8%88%87%e7%ae%97%e7%ac%a6%e7%9a%84%e9%97%9c%e4%bf%82"></a>
+3.1 力學量與算符的關係
+</h3><h4 id="311-算符數學知識">
+<a class="header-anchor" href="#311-%e7%ae%97%e7%ac%a6%e6%95%b8%e5%ad%b8%e7%9f%a5%e8%ad%98"></a>
+3.1.1 算符數學知識
+</h4><ol>
+<li>
+<p><strong>算符的定義</strong><br>
+算符（Operator）是作用在函數空間或態空間上的運算規則。在量子力學中，物理量通過算符來刻畫，波函數是算符作用的對象。</p>
+<ul>
+<li>若 $A$ 是一個算符，對波函數 $\psi$ 的作用記為<br>
+
+$$
+     A\psi(x)
+     $$</li>
+<li>算符可以是代數運算、微分運算或積分運算。</li>
+</ul>
+</li>
+<li>
+<p><strong>算符的線性性</strong><br>
+算符 $A$ 若滿足<br>
+</p>
+$$
+   A(c_1\psi_1 + c_2\psi_2) = c_1 A\psi_1 + c_2 A\psi_2
+   $$<p>
+其中 $c_1, c_2$ 為常數，則稱 $A$ 為線性算符。量子力學中的物理算符一般都是線性的。</p>
+</li>
+<li>
+<p><strong>算符的對易關係</strong></p>
+<ul>
+<li>兩個算符 $A, B$ 的對易子定義為<br>
+
+$$
+     [A,B] = AB - BA
+     $$</li>
+<li>若 $[A,B]=0$，稱 $A$ 與 $B$ 對易，可以有共同本徵態。</li>
+<li>對易關係是量子力學的重要特徵，與測不準原理密切相關。</li>
+</ul>
+</li>
+<li>
+<p><strong>厄米算符</strong></p>
+<ul>
+<li>定義：若算符 $A$ 滿足<br>
+
+$$
+     \langle \psi | A\varphi \rangle = \langle A\psi | \varphi \rangle
+     $$
+對任意態向量 $\psi, \varphi$ 都成立，則稱 $A$ 為厄米算符。</li>
+<li>性質：厄米算符的本徵值必為實數，本徵函數可正交歸一化。</li>
+<li>物理意義：所有可觀測量都由厄米算符表示。</li>
+</ul>
+</li>
+</ol>
+<h4 id="312-力學量與算符">
+<a class="header-anchor" href="#312-%e5%8a%9b%e5%ad%b8%e9%87%8f%e8%88%87%e7%ae%97%e7%ac%a6"></a>
+3.1.2 力學量與算符
+</h4><ol>
+<li>
+<p><strong>基本思想</strong><br>
+在量子力學中，每一個經典力學量 $f(q,p)$ 都對應一個量子算符 $\hat{f}$，從而物理量的測量與算符的本徵問題相聯繫。</p>
+</li>
+<li>
+<p><strong>典型的算符表示</strong><br>
+在位置表象下：</p>
+<ul>
+<li>座標算符<br>
+
+$$
+     \hat{x} = x
+     $$</li>
+<li>動量算符<br>
+
+$$
+     \hat{p} = -i\hbar \frac{\partial}{\partial x}
+     $$</li>
+</ul>
+</li>
+<li>
+<p><strong>對易關係與基本假設</strong><br>
+座標與動量算符滿足基本對易關係：
+</p>
+$$
+   [\hat{x}, \hat{p}] = i\hbar
+   $$<p>
+這是量子力學的核心假設之一，反映了經典力學泊松括號與量子力學算符代數的對應關係。</p>
+</li>
+<li>
+<p><strong>物理量的測量與本徵方程</strong></p>
+<ul>
+<li>測量某一物理量 $A$，等價於求解算符 $\hat{A}$ 的本徵方程：<br>
+
+$$
+     \hat{A}\psi_a = a\psi_a
+     $$</li>
+<li>本徵值 $a$ 是可能的測量結果，本徵函數 $\psi_a$ 描述系統處於物理量 $A$ 取值為 $a$ 的狀態。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="32-算符對易關係與測不準原理">
+<a class="header-anchor" href="#32-%e7%ae%97%e7%ac%a6%e5%b0%8d%e6%98%93%e9%97%9c%e4%bf%82%e8%88%87%e6%b8%ac%e4%b8%8d%e6%ba%96%e5%8e%9f%e7%90%86"></a>
+3.2 算符對易關係與測不準原理
+</h3><h4 id="321-算符對易關係">
+<a class="header-anchor" href="#321-%e7%ae%97%e7%ac%a6%e5%b0%8d%e6%98%93%e9%97%9c%e4%bf%82"></a>
+3.2.1 算符對易關係
+</h4><ol>
+<li>
+<p><strong>定義</strong><br>
+兩個算符 $A, B$ 的對易子定義為：
+</p>
+$$
+   [A,B] = AB - BA
+   $$<ul>
+<li>若 $[A,B]=0$，稱 $A$ 與 $B$ <strong>對易</strong>，說明它們可同時具有一組本徵函數。</li>
+<li>若 $[A,B]\neq 0$，則 $A, B$ <strong>不對易</strong>，對應的物理量不能同時被精確測量。</li>
+</ul>
+</li>
+<li>
+<p><strong>基本對易關係</strong><br>
+在位置表象下：
+</p>
+$$
+   [\hat{x}, \hat{p}_x] = i\hbar
+   $$<p>
+這被稱為量子力學的基本對易關係，是經典力學泊松括號與量子算符代數的對應結果。</p>
+</li>
+<li>
+<p><strong>推廣形式</strong><br>
+在三維空間中，有：
+</p>
+$$
+   [\hat{x}_i, \hat{p}_j] = i\hbar \delta_{ij}, \quad [\hat{x}_i, \hat{x}_j]=0, \quad [\hat{p}_i, \hat{p}_j]=0
+   $$<p>
+其中 $\delta_{ij}$ 為克羅內克 δ 符號。</p>
+</li>
+<li>
+<p><strong>物理意義</strong></p>
+<ul>
+<li>對易關係刻畫了物理量之間是否可以同時確定。</li>
+<li>若兩個算符對易，則它們的物理量可以同時具有確定值。</li>
+<li>若不對易，則測量一個物理量會干擾另一個物理量的精確值。</li>
+</ul>
+</li>
+</ol>
+<h4 id="322-測不準原理">
+<a class="header-anchor" href="#322-%e6%b8%ac%e4%b8%8d%e6%ba%96%e5%8e%9f%e7%90%86"></a>
+3.2.2 測不準原理
+</h4><ol>
+<li>
+<p><strong>數學表達式</strong><br>
+對於任意兩個算符 $A, B$，定義其物理量的<strong>不確定度</strong>為：
+</p>
+$$
+   (\Delta A)^2 = \langle (A-\langle A \rangle)^2 \rangle
+   $$<p>
+</p>
+$$
+   (\Delta B)^2 = \langle (B-\langle B \rangle)^2 \rangle
+   $$<p>
+根據柯西–施瓦茲不等式，可以得到測不準關係：
+</p>
+$$
+   \Delta A \cdot \Delta B \geq \frac{1}{2}\left| \langle [A,B] \rangle \right|
+   $$</li>
+<li>
+<p><strong>座標與動量的不確定關係</strong><br>
+對於 $\hat{x}, \hat{p}$：
+</p>
+$$
+   \Delta x \cdot \Delta p \geq \frac{\hbar}{2}
+   $$<p>
+這表明不可能同時無限精確地測量粒子的位置與動量。</p>
+</li>
+<li>
+<p><strong>能量與時間的不確定關係</strong><br>
+雖然時間在量子力學中不是算符，但可以得到類似關係：
+</p>
+$$
+   \Delta E \cdot \Delta t \gtrsim \hbar
+   $$<p>
+該關係對瞬時過程、能級壽命等物理現象有重要意義。</p>
+</li>
+</ol>
+<hr>
+<h3 id="33-表象理論">
+<a class="header-anchor" href="#33-%e8%a1%a8%e8%b1%a1%e7%90%86%e8%ab%96"></a>
+3.3 表象理論
+</h3><h4 id="331-表象理論的數學基礎">
+<a class="header-anchor" href="#331-%e8%a1%a8%e8%b1%a1%e7%90%86%e8%ab%96%e7%9a%84%e6%95%b8%e5%ad%b8%e5%9f%ba%e7%a4%8e"></a>
+3.3.1 表象理論的數學基礎
+</h4><ol>
+<li>
+<p><strong>表象的概念</strong></p>
+<ul>
+<li>量子態與算符可在不同基底（如位置表象、動量表象、能量表象）下表示。</li>
+<li><strong>表象</strong>就是在某組正交歸一基向量 $\{ | \phi_n \rangle \}$ 下，態向量與算符的矩陣或函數表示形式。</li>
+</ul>
+</li>
+<li>
+<p><strong>態向量的展開</strong><br>
+對於任意態 $|\psi\rangle$，可在基底 $\{|\phi_n\rangle\}$ 下展開為：
+</p>
+$$
+   |\psi\rangle = \sum_n c_n |\phi_n\rangle
+   $$<p>
+其中 $c_n = \langle \phi_n | \psi \rangle$。</p>
+</li>
+<li>
+<p><strong>算符的矩陣元</strong><br>
+算符 $\hat{A}$ 在基底 $\{|\phi_n\rangle\}$ 下的矩陣元定義為：
+</p>
+$$
+   A_{mn} = \langle \phi_m | \hat{A} | \phi_n \rangle
+   $$<p>
+這樣，算符在該表象下對應一個矩陣。</p>
+</li>
+<li>
+<p><strong>完備性與正交性</strong></p>
+<ul>
+<li>完備性：
+
+$$
+     \sum_n |\phi_n\rangle \langle \phi_n| = I
+     $$</li>
+<li>正交性：
+
+$$
+     \langle \phi_m | \phi_n \rangle = \delta_{mn}
+     $$</li>
+</ul>
+</li>
+</ol>
+<h4 id="332-態與力學量的表象">
+<a class="header-anchor" href="#332-%e6%85%8b%e8%88%87%e5%8a%9b%e5%ad%b8%e9%87%8f%e7%9a%84%e8%a1%a8%e8%b1%a1"></a>
+3.3.2 態與力學量的表象
+</h4><ol>
+<li>
+<p><strong>位置表象</strong></p>
+<ul>
+<li>基底：$|x\rangle$</li>
+<li>波函數表示：<br>
+
+$$
+     \psi(x) = \langle x|\psi\rangle
+     $$</li>
+<li>算符作用：
+
+$$
+     \hat{x} \psi(x) = x \psi(x), \quad \hat{p}_x \psi(x) = -i\hbar \frac{\partial}{\partial x}\psi(x)
+     $$</li>
+</ul>
+</li>
+<li>
+<p><strong>動量表象</strong></p>
+<ul>
+<li>基底：$|p\rangle$</li>
+<li>波函數表示：
+
+$$
+     \phi(p) = \langle p|\psi\rangle
+     $$</li>
+<li>算符作用：
+
+$$
+     \hat{p} \phi(p) = p \phi(p), \quad \hat{x} \phi(p) = i\hbar \frac{\partial}{\partial p}\phi(p)
+     $$</li>
+</ul>
+</li>
+<li>
+<p><strong>能量表象</strong></p>
+<ul>
+<li>基底：哈密頓算符的本徵態 $|E_n\rangle$</li>
+<li>態向量表示：
+
+$$
+     |\psi\rangle = \sum_n c_n |E_n\rangle, \quad c_n = \langle E_n|\psi\rangle
+     $$</li>
+<li>物理意義：能量表象下，態展開係數 $c_n$ 給出粒子處於能量本徵態的機率幅。</li>
+</ul>
+</li>
+<li>
+<p><strong>表象之間的變換</strong></p>
+<ul>
+<li>不同表象之間通過傅立葉變換聯繫：<br>
+
+$$
+     \phi(p) = \frac{1}{\sqrt{2\pi\hbar}} \int_{-\infty}^{\infty} \psi(x) e^{-ipx/\hbar} dx
+     $$
+
+$$
+     \psi(x) = \frac{1}{\sqrt{2\pi\hbar}} \int_{-\infty}^{\infty} \phi(p) e^{ipx/\hbar} dp
+     $$</li>
+</ul>
+</li>
+</ol>
+<p><strong>總結</strong></p>
+<ul>
+<li>表象理論提供了在不同基底下處理量子態與算符的統一方法。</li>
+<li>位置表象與動量表象是最常用的兩種形式，它們體現了量子力學的波粒二象性。</li>
+</ul>
+<hr>
+<h3 id="34-軌道角動量">
+<a class="header-anchor" href="#34-%e8%bb%8c%e9%81%93%e8%a7%92%e5%8b%95%e9%87%8f"></a>
+3.4 軌道角動量
+</h3><h4 id="341-角動量">
+<a class="header-anchor" href="#341-%e8%a7%92%e5%8b%95%e9%87%8f"></a>
+3.4.1 角動量
+</h4><ol>
+<li>
+<p><strong>定義</strong><br>
+在經典力學中，軌道角動量定義為：
+</p>
+$$
+   \vec{L} = \vec{r} \times \vec{p}
+   $$<p>
+在量子力學中，定義相應算符：
+</p>
+$$
+   \hat{\vec{L}} = \hat{\vec{r}} \times \hat{\vec{p}}
+   $$</li>
+<li>
+<p><strong>分量表示</strong><br>
+</p>
+$$
+   \hat{L}_x = y\hat{p}_z - z\hat{p}_y, \quad
+   \hat{L}_y = z\hat{p}_x - x\hat{p}_z, \quad
+   \hat{L}_z = x\hat{p}_y - y\hat{p}_x
+   $$</li>
+<li>
+<p><strong>對易關係</strong><br>
+</p>
+$$
+   [\hat{L}_x, \hat{L}_y] = i\hbar \hat{L}_z, \quad
+   [\hat{L}_y, \hat{L}_z] = i\hbar \hat{L}_x, \quad
+   [\hat{L}_z, \hat{L}_x] = i\hbar \hat{L}_y
+   $$<p>
+總角動量算符：
+</p>
+$$
+   \hat{L}^2 = \hat{L}_x^2 + \hat{L}_y^2 + \hat{L}_z^2
+   $$</li>
+</ol>
+<h4 id="342-角動量守恆">
+<a class="header-anchor" href="#342-%e8%a7%92%e5%8b%95%e9%87%8f%e5%ae%88%e6%81%86"></a>
+3.4.2 角動量守恆
+</h4><ol>
+<li>
+<p><strong>守恆條件</strong><br>
+若體系的哈密頓算符與角動量分量對易，則該分量守恆：
+</p>
+$$
+   [\hat{H}, \hat{L}_i] = 0 \quad \Rightarrow \quad \hat{L}_i \ \text{守恆}
+   $$</li>
+<li>
+<p><strong>球對稱勢場</strong><br>
+在球對稱勢場 $V(r)$ 下：
+</p>
+$$
+   [\hat{H}, \hat{L}^2] = 0, \quad [\hat{H}, \hat{L}_z] = 0
+   $$<p>
+說明總角動量 $\hat{L}^2$ 與其 $z$ 分量 $\hat{L}_z$ 守恆。</p>
+</li>
+</ol>
+<h4 id="343-軌道角動量計算">
+<a class="header-anchor" href="#343-%e8%bb%8c%e9%81%93%e8%a7%92%e5%8b%95%e9%87%8f%e8%a8%88%e7%ae%97"></a>
+3.4.3 軌道角動量計算
+</h4><ol>
+<li>
+<p><strong>本徵方程</strong><br>
+軌道角動量滿足：
+</p>
+$$
+   \hat{L}^2 Y_{lm}(\theta,\varphi) = l(l+1)\hbar^2 Y_{lm}(\theta,\varphi)
+   $$<p>
+</p>
+$$
+   \hat{L}_z Y_{lm}(\theta,\varphi) = m\hbar Y_{lm}(\theta,\varphi)
+   $$<p>
+其中 $Y_{lm}(\theta,\varphi)$ 為球諧函數，$l=0,1,2,\dots$，$m=-l,\dots,l$。</p>
+</li>
+<li>
+<p><strong>本徵值</strong></p>
+<ul>
+<li>角動量平方：
+
+$$
+     L = \sqrt{l(l+1)} \hbar
+     $$</li>
+<li>角動量 $z$ 分量：
+
+$$
+     L_z = m\hbar
+     $$</li>
+</ul>
+</li>
+<li>
+<p><strong>物理意義</strong></p>
+<ul>
+<li>$l$ 為軌道角動量量子數，決定角動量大小。</li>
+<li>$m$ 為磁量子數，決定角動量在 $z$ 方向上的投影。</li>
+<li>軌道角動量的量子化反映了微觀粒子運動的離散性。</li>
+</ul>
+</li>
+</ol>
+<h2 id="第四章-微擾理論及其應用">
+<a class="header-anchor" href="#%e7%ac%ac%e5%9b%9b%e7%ab%a0-%e5%be%ae%e6%93%be%e7%90%86%e8%ab%96%e5%8f%8a%e5%85%b6%e6%87%89%e7%94%a8"></a>
+第四章 微擾理論及其應用
+</h2><h3 id="41-定態微擾理論">
+<a class="header-anchor" href="#41-%e5%ae%9a%e6%85%8b%e5%be%ae%e6%93%be%e7%90%86%e8%ab%96"></a>
+4.1 定態微擾理論
+</h3><h4 id="411-非簡併微擾理論">
+<a class="header-anchor" href="#411-%e9%9d%9e%e7%b0%a1%e4%bd%b5%e5%be%ae%e6%93%be%e7%90%86%e8%ab%96"></a>
+4.1.1 非簡併微擾理論
+</h4><ol>
+<li>
+<p><strong>基本思想</strong><br>
+當體系的哈密頓量可以寫成：
+</p>
+$$
+   \hat{H} = \hat{H}^{(0)} + \lambda \hat{H}'
+   $$<p>
+其中 $\hat{H}^{(0)}$ 為可解的零階哈密頓量，$\hat{H}'$ 為較小的微擾項，$\lambda$ 為展開參數。<br>
+若能量本徵態非簡併，可展開為級數解。</p>
+</li>
+<li>
+<p><strong>能量修正</strong></p>
+<ul>
+<li>零階：<br>
+
+$$
+     E_n^{(0)} , \quad \psi_n^{(0)}
+     $$</li>
+<li>一階：<br>
+
+$$
+     E_n^{(1)} = \langle \psi_n^{(0)} | \hat{H}' | \psi_n^{(0)} \rangle
+     $$</li>
+<li>二階：<br>
+
+$$
+     E_n^{(2)} = \sum_{m \neq n} \frac{|\langle \psi_m^{(0)} | \hat{H}' | \psi_n^{(0)} \rangle|^2}{E_n^{(0)} - E_m^{(0)}}
+     $$</li>
+</ul>
+</li>
+<li>
+<p><strong>波函數修正</strong><br>
+一階波函數修正：
+</p>
+$$
+   \psi_n^{(1)} = \sum_{m \neq n} \frac{\langle \psi_m^{(0)} | \hat{H}' | \psi_n^{(0)} \rangle}{E_n^{(0)} - E_m^{(0)}} \psi_m^{(0)}
+   $$</li>
+</ol>
+<h4 id="412-簡併微擾理論">
+<a class="header-anchor" href="#412-%e7%b0%a1%e4%bd%b5%e5%be%ae%e6%93%be%e7%90%86%e8%ab%96"></a>
+4.1.2 簡併微擾理論
+</h4><ol>
+<li>
+<p><strong>問題來源</strong><br>
+若零階能量 $E^{(0)}$ 對應多個正交本徵態，則稱為簡併態。直接套用非簡併公式會出現分母為零的發散問題。</p>
+</li>
+<li>
+<p><strong>處理方法</strong><br>
+在簡併子空間內，構造矩陣：
+</p>
+$$
+   H'_{ij} = \langle \psi_i^{(0)} | \hat{H}' | \psi_j^{(0)} \rangle
+   $$<p>
+對其進行對角化，得到修正後的能量與本徵態。</p>
+</li>
+<li>
+<p><strong>結果</strong></p>
+<ul>
+<li>一階能量修正由 $H'_{ij}$ 的本徵值給出。</li>
+<li>修正後的本徵態為 $H'_{ij}$ 的本徵向量在原簡併子空間中的線性組合。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="42-含時微擾理論">
+<a class="header-anchor" href="#42-%e5%90%ab%e6%99%82%e5%be%ae%e6%93%be%e7%90%86%e8%ab%96"></a>
+4.2 含時微擾理論
+</h3><ol>
+<li>
+<p><strong>基本框架</strong><br>
+考慮體系哈密頓量：
+</p>
+$$
+   \hat{H}(t) = \hat{H}^{(0)} + \hat{H}'(t)
+   $$<p>
+其中 $\hat{H}'(t)$ 為隨時間變化的微擾項。</p>
+</li>
+<li>
+<p><strong>態展開</strong><br>
+用零階本徵態展開體系波函數：
+</p>
+$$
+   |\psi(t)\rangle = \sum_n c_n(t) e^{-iE_n^{(0)}t/\hbar} |\psi_n^{(0)}\rangle
+   $$<p>
+微擾使得係數 $c_n(t)$ 隨時間演化。</p>
+</li>
+<li>
+<p><strong>躍遷機率</strong><br>
+一階近似下，從態 $i$ 躍遷到態 $f$ 的機率幅為：
+</p>
+$$
+   c_f^{(1)}(t) = \frac{1}{i\hbar} \int_0^t \langle \psi_f^{(0)} | \hat{H}'(t') | \psi_i^{(0)} \rangle 
+   e^{i\omega_{fi} t'} dt'
+   $$<p>
+其中 $\omega_{fi} = (E_f^{(0)} - E_i^{(0)})/\hbar$。</p>
+</li>
+<li>
+<p><strong>費米黃金法則</strong><br>
+當微擾近似為簡諧形式，長時間平均下，躍遷速率為：
+</p>
+$$
+   W_{i \to f} = \frac{2\pi}{\hbar} \, |\langle f | \hat{H}' | i \rangle|^2 \, \rho(E_f)
+   $$<p>
+其中 $\rho(E_f)$ 為末態密度。</p>
+</li>
+</ol>
+<p><strong>總結</strong></p>
+<ul>
+<li>定態微擾：適用於時間無關擾動，修正能量與波函數。</li>
+<li>含時微擾：研究能級間的躍遷過程，解釋輻射與吸收等現象。</li>
+</ul>
+<h2 id="電子自旋">
+<a class="header-anchor" href="#%e9%9b%bb%e5%ad%90%e8%87%aa%e6%97%8b"></a>
+電子自旋
+</h2><h3 id="電子自旋實驗發現">
+<a class="header-anchor" href="#%e9%9b%bb%e5%ad%90%e8%87%aa%e6%97%8b%e5%af%a6%e9%a9%97%e7%99%bc%e7%8f%be"></a>
+電子自旋實驗發現
+</h3><ol>
+<li>
+<p><strong>斯特恩–格拉赫實驗</strong></p>
+<ul>
+<li>將銀原子束通過非均勻磁場，觀測到束分裂為兩條軌跡。</li>
+<li>說明電子具有除軌道角動量之外的內稟角動量——自旋。</li>
+</ul>
+</li>
+<li>
+<p><strong>實驗結論</strong></p>
+<ul>
+<li>自旋量子數為 $s = 1/2$。</li>
+<li>自旋有兩個可能的投影 $m_s = \pm 1/2$。</li>
+<li>自旋引入了額外的磁矩：
+
+$$
+     \vec{\mu}_s = -g_s \frac{e}{2m_e} \vec{S}, \quad g_s \approx 2
+     $$</li>
+</ul>
+</li>
+</ol>
+<h3 id="電子自旋理論">
+<a class="header-anchor" href="#%e9%9b%bb%e5%ad%90%e8%87%aa%e6%97%8b%e7%90%86%e8%ab%96"></a>
+電子自旋理論
+</h3><ol>
+<li>
+<p><strong>自旋的量子描述</strong></p>
+<ul>
+<li>自旋是內稟角動量，不依賴空間座標。</li>
+<li>其算符滿足角動量對易關係：
+
+$$
+     [\hat{S}_i, \hat{S}_j] = i\hbar \epsilon_{ijk} \hat{S}_k
+     $$</li>
+</ul>
+</li>
+<li>
+<p><strong>物理意義</strong></p>
+<ul>
+<li>自旋決定了電子的磁性行為。</li>
+<li>自旋量子化導致費米–狄拉克統計與泡利不相容原理。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="自旋角動量">
+<a class="header-anchor" href="#%e8%87%aa%e6%97%8b%e8%a7%92%e5%8b%95%e9%87%8f"></a>
+自旋角動量
+</h3><h4 id="自旋算符">
+<a class="header-anchor" href="#%e8%87%aa%e6%97%8b%e7%ae%97%e7%ac%a6"></a>
+自旋算符
+</h4><ol>
+<li>
+<p><strong>自旋分量算符</strong><br>
+</p>
+$$
+   \hat{S}_x, \hat{S}_y, \hat{S}_z
+   $$<p>
+滿足對易關係：
+</p>
+$$
+   [\hat{S}_x, \hat{S}_y] = i\hbar \hat{S}_z, \quad \text{循環對稱}
+   $$</li>
+<li>
+<p><strong>總自旋算符</strong><br>
+</p>
+$$
+   \hat{S}^2 = \hat{S}_x^2 + \hat{S}_y^2 + \hat{S}_z^2
+   $$<p>
+對應總自旋量子數 $s$：
+</p>
+$$
+   \hat{S}^2 |\chi_s\rangle = s(s+1)\hbar^2 |\chi_s\rangle
+   $$</li>
+</ol>
+<h4 id="本徵函數的矩陣表示">
+<a class="header-anchor" href="#%e6%9c%ac%e5%be%b5%e5%87%bd%e6%95%b8%e7%9a%84%e7%9f%a9%e9%99%a3%e8%a1%a8%e7%a4%ba"></a>
+本徵函數的矩陣表示
+</h4><ol>
+<li>
+<p><strong>自旋-1/2 粒子</strong></p>
+<ul>
+<li>自旋態空間二維，取基底：
+
+$$
+     |\uparrow\rangle = \begin{pmatrix}1\\0\end{pmatrix}, \quad
+     |\downarrow\rangle = \begin{pmatrix}0\\1\end{pmatrix}
+     $$</li>
+</ul>
+</li>
+<li>
+<p><strong>自旋算符的矩陣形式（泡利矩陣）</strong><br>
+</p>
+$$
+   \hat{S}_x = \frac{\hbar}{2} \sigma_x, \quad
+   \hat{S}_y = \frac{\hbar}{2} \sigma_y, \quad
+   \hat{S}_z = \frac{\hbar}{2} \sigma_z
+   $$<p>
+其中
+</p>
+$$
+   \sigma_x = \begin{pmatrix}0 & 1\\ 1 & 0\end{pmatrix},\quad
+   \sigma_y = \begin{pmatrix}0 & -i\\ i & 0\end{pmatrix},\quad
+   \sigma_z = \begin{pmatrix}1 & 0\\ 0 & -1\end{pmatrix}
+   $$</li>
+</ol>
+<h4 id="角動量耦合理論">
+<a class="header-anchor" href="#%e8%a7%92%e5%8b%95%e9%87%8f%e8%80%a6%e5%90%88%e7%90%86%e8%ab%96"></a>
+角動量耦合理論
+</h4><ol>
+<li>
+<p><strong>自旋-軌道耦合</strong></p>
+<ul>
+<li>電子軌道角動量 $\vec{L}$ 與自旋 $\vec{S}$ 耦合：
+
+$$
+     \hat{H}_{\text{SO}} = \xi(r)\, \vec{L} \cdot \vec{S}
+     $$</li>
+<li>造成能級分裂（精細結構）。</li>
+</ul>
+</li>
+<li>
+<p><strong>總角動量</strong><br>
+</p>
+$$
+   \vec{J} = \vec{L} + \vec{S}, \quad
+   \hat{J}^2 = (\hat{L}+\hat{S})^2
+   $$<p>
+本徵態記為 $|j, m_j\rangle$，滿足：
+</p>
+$$
+   \hat{J}^2 |j, m_j\rangle = j(j+1)\hbar^2 |j, m_j\rangle, \quad
+   \hat{J}_z |j, m_j\rangle = m_j \hbar |j, m_j\rangle
+   $$</li>
+<li>
+<p><strong>耦合結果</strong></p>
+<ul>
+<li>$j = l \pm s$，$m_j = -j, -j+1, ..., j$。</li>
+<li>自旋與軌道角動量的耦合是原子光譜精細結構的重要來源。</li>
+</ul>
+</li>
+</ol>
+<h2 id="全同性原理">
+<a class="header-anchor" href="#%e5%85%a8%e5%90%8c%e6%80%a7%e5%8e%9f%e7%90%86"></a>
+全同性原理
+</h2><h3 id="全同粒子體系">
+<a class="header-anchor" href="#%e5%85%a8%e5%90%8c%e7%b2%92%e5%ad%90%e9%ab%94%e7%b3%bb"></a>
+全同粒子體系
+</h3><h4 id="概念與原理">
+<a class="header-anchor" href="#%e6%a6%82%e5%bf%b5%e8%88%87%e5%8e%9f%e7%90%86"></a>
+概念與原理
+</h4><ol>
+<li>
+<p><strong>全同粒子定義</strong></p>
+<ul>
+<li>若兩個粒子在物理性質上完全相同（質量、電荷、自旋等）且無法通過任何實驗區分，則稱為全同粒子（Identical particles）。</li>
+</ul>
+</li>
+<li>
+<p><strong>全同性原理</strong></p>
+<ul>
+<li>物理規律對全同粒子應保持不變。</li>
+<li>即交換任意兩粒子的位置和自旋，哈密頓量與可觀測量不變。</li>
+</ul>
+</li>
+</ol>
+<h4 id="全同粒子體系哈密頓算符特點">
+<a class="header-anchor" href="#%e5%85%a8%e5%90%8c%e7%b2%92%e5%ad%90%e9%ab%94%e7%b3%bb%e5%93%88%e5%af%86%e9%a0%93%e7%ae%97%e7%ac%a6%e7%89%b9%e9%bb%9e"></a>
+全同粒子體系哈密頓算符特點
+</h4><ol>
+<li>
+<p><strong>哈密頓量形式</strong><br>
+對 $N$ 個全同粒子：
+</p>
+$$
+   \hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i<j} V(\vec{r}_i - \vec{r}_j)
+   $$<ul>
+<li>$\hat{T}_i$ 為第 $i$ 個粒子的動能算符。</li>
+<li>$V(\vec{r}_i - \vec{r}_j)$ 為兩粒子間相互作用勢。</li>
+</ul>
+</li>
+<li>
+<p><strong>對稱性</strong></p>
+<ul>
+<li>$\hat{H}$ 在交換粒子算符下保持不變：
+
+$$
+     [\hat{H}, \hat{P}_{ij}] = 0
+     $$</li>
+<li>$\hat{P}_{ij}$ 為交換粒子 $i$ 與 $j$ 的交換算符。</li>
+</ul>
+</li>
+</ol>
+<h4 id="全同粒子體系波函數特點">
+<a class="header-anchor" href="#%e5%85%a8%e5%90%8c%e7%b2%92%e5%ad%90%e9%ab%94%e7%b3%bb%e6%b3%a2%e5%87%bd%e6%95%b8%e7%89%b9%e9%bb%9e"></a>
+全同粒子體系波函數特點
+</h4><ol>
+<li>
+<p><strong>對稱性要求</strong></p>
+<ul>
+<li>波函數必須滿足交換對稱性：
+
+$$
+     \hat{P}_{ij} \Psi(\dots, \vec{r}_i, \vec{r}_j, \dots) =
+     \pm \Psi(\dots, \vec{r}_i, \vec{r}_j, \dots)
+     $$</li>
+<li><strong>+號</strong>：玻色子（Bosons），波函數對稱。</li>
+<li><strong>-號</strong>：費米子（Fermions），波函數反對稱。</li>
+</ul>
+</li>
+<li>
+<p><strong>多粒子波函數構造</strong></p>
+<ul>
+<li>玻色子：對稱化和式。</li>
+<li>費米子：反對稱化行列式（Slater 行列式）：
+
+$$
+     \Psi(\vec{r}_1, \dots, \vec{r}_N) = \frac{1}{\sqrt{N!}}
+     \begin{vmatrix}
+     \psi_1(\vec{r}_1) & \cdots & \psi_1(\vec{r}_N) \\
+     \vdots & \ddots & \vdots \\
+     \psi_N(\vec{r}_1) & \cdots & \psi_N(\vec{r}_N)
+     \end{vmatrix}
+     $$</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="泡利不相容原理">
+<a class="header-anchor" href="#%e6%b3%a1%e5%88%a9%e4%b8%8d%e7%9b%b8%e5%ae%b9%e5%8e%9f%e7%90%86"></a>
+泡利不相容原理
+</h3><ol>
+<li>
+<p><strong>原理內容</strong></p>
+<ul>
+<li>對於自旋為半整數的全同費米子，任何兩粒子不能佔據完全相同的量子態。</li>
+<li>即：
+
+$$
+     \Psi(\text{同一量子態}) = 0
+     $$</li>
+</ul>
+</li>
+<li>
+<p><strong>物理意義</strong></p>
+<ul>
+<li>解釋電子在原子軌道的排布規律。</li>
+<li>導致原子結構、化學性質與費米氣體性質。</li>
+</ul>
+</li>
+<li>
+<p><strong>例子</strong></p>
+<ul>
+<li>原子中的電子：每個軌道最多兩個電子，自旋相反。</li>
+<li>金屬電子：形成費米能級，決定導電與熱學性質。</li>
+</ul>
+</li>
+</ol>
+
+        
+        <hr><p>本文2025-09-05首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-09-05</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Physics</category></item><item><title>考研日記001</title><link>https://guzhengsvt.cn/zh-tw/post/diary/diary-001-of-postgraduate-entrance-examination/</link><pubDate>Mon, 01 Sep 2025 22:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/diary/diary-001-of-postgraduate-entrance-examination/</guid><description>
+<![CDATA[<h1>考研日記001</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <h2 id="前言">
+<a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
+前言
+</h2><p>因為各種原因，現在不得不考研了。<br>
+寫考研日記，既是對每一天學習的回顧，也是找個地方對著空氣說說話。開始想寫 Day1 作為標題，想了想不是每天都有時間寫，也不是每天都有東西寫。總有放鬆懈怠和忙碌無暇的時候。最後留了個 001。</p>
+<p>其實也沒真想著現在開始三個月上岸，說句沒上進心的，像我這樣不結婚不買房物慾低的人，家底夠我考好幾年。今年先試試水吧，我是沒什麼壓力，父母卻因為直博失敗很是焦急。</p>
+<p>今天是大學第三次去圖書館，第一次是剛進西電參觀，第二次是開會。<br>
+從第一次來屠鼠館開始，我就覺得這地兒不適合我學習，太嚴肅壓抑了。戰戰兢兢端坐在椅子上，擔憂是否會發出聲音打擾到其他人，也時常在意是否周圍人會盯著我有沒有在學習，似乎任何看一眼手機都是犯罪。我知道這只是臆想，事實上無人在意，但和這麼多陌生人在一起卻十分安靜的場合真的讓社恐緊張，這與高中自習的氛圍是截然不同的。<br>
+好在圖書館既沒有老大哥的眼線也沒有拍影片的楊小姐（笑），要是有 0721 的凌地寧寧就好了（）</p>
+<p>從數一開始，今年打算師從武忠祥，直接看強化，一天看了 2 章。或許是太久沒有動腦學習，一學就犯困，好在前兩章的函數極限之類不難，今日才發覺當年上的《數學分析》大有裨益。當時覺得這理科的課於我工科毫無用處，平時跟不上越發不想學，太難了，好在最後老師補考拉我一把給了 60 多。其實《數學分析》給的不僅是各種基礎定理的證明，不只是數學大師的玩具，更是思維鍛鍊和啟迪。慚愧，慚愧。</p>
+<p>我是從來不做筆記的，任何有邏輯的東西我只記在腦子裡。然日久必疏，如今已非高中每日複習的境地，適當也應記一些知識，以便後日回顧。</p>
+<h2 id="回顧">
+<a class="header-anchor" href="#%e5%9b%9e%e9%a1%a7"></a>
+回顧
+</h2><h3 id="函數">
+<a class="header-anchor" href="#%e5%87%bd%e6%95%b8"></a>
+函數
+</h3><ul>
+<li>
+<p>函數基本要素：定義域，對應規則</p>
+</li>
+<li>
+<p>函數性態：單調性，奇偶性，週期性，有界性</p>
+</li>
+<li>
+<p>奇函數
+</p>
+$$
+ln{\frac{1-x}{1+x}},ln(x+\sqrt[2]{1+x^2}),\frac{e^x-1}{e^x+1},f(x)-f(-x)
+$$</li>
+<li>
+<p>偶函數
+</p>
+$$
+f(x)+f(-x)
+$$</li>
+<li>
+<p>$f(x)$ 為奇函數，$\int ^x_0 f(x)dx+C$ 為偶函數</p>
+</li>
+<li>
+<p>$f(x)$ 為偶函數，$\int ^x_0 f(x)dx+C$ 僅當 $C=0$ 時為奇函數</p>
+</li>
+<li>
+<p>可導週期函數導函數為週期函數</p>
+</li>
+<li>
+<p>導函數為週期函數，原函數不一定為週期函數</p>
+</li>
+<li>
+<p>導函數為週期函數，且在一個週期內積分為 $0$，則原函數為週期函數</p>
+</li>
+</ul>
+<h3 id="極限">
+<a class="header-anchor" href="#%e6%a5%b5%e9%99%90"></a>
+極限
+</h3><ul>
+<li>區域性有界性：某去心鄰域極限存在，可得區域性有界；區域性有界不可推斷極限存在</li>
+<li>保號性</li>
+<li>保序性</li>
+</ul>
+<p>數列極限存在準則</p>
+<ul>
+<li>夾逼準則</li>
+<li>單調有界準則</li>
+</ul>
+<p>無窮大與無界變數關係：</p>
+<ul>
+<li>無窮大指數列趨於無窮
+
+$$
+\forall M \gt 0 ,\exist N \gt 0,当 n \gt N时,恒有\left\vert x_n \right\vert \gt M
+$$</li>
+<li>無界變數，指任選一數，數列存在一數大於該數
+
+$$
+\forall M \gt 0 ,\exist N \gt 0,使得\left\vert x_N \right\vert \gt M
+$$</li>
+</ul>
+<h2 id="後記">
+<a class="header-anchor" href="#%e5%be%8c%e8%a8%98"></a>
+後記
+</h2><p>不明白 不明白 星星的高和遠<br>
+究竟要 何時才 能夠置身其間
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E7%A7%91%E7%BD%97%E5%BB%96%E5%A4%AB%E5%8D%81%E5%AD%97.jpeg" alt=""></p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="//player.bilibili.com/player.html?isOutside=true&aid=114883244982356&bvid=BV1SPgbzzE3e&cid=31159160676&p=1"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+    frameborder="0" 
+    allowfullscreen="true">
+  </iframe>
+</div>
+
+
+
+        
+        <hr><p>本文2025-09-01首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-09-01</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Diary</category></item><item><title>QSL卡片展</title><link>https://guzhengsvt.cn/zh-tw/post/othernotes/qsl-card-exhibition/</link><pubDate>Thu, 21 Aug 2025 18:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/othernotes/qsl-card-exhibition/</guid><description>
+<![CDATA[<h1>QSL卡片展</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <h2 id="1-noa-1">
+<a class="header-anchor" href="#1-noa-1"></a>
+1. Noa-1
+</h2><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/QSL-%E6%A0%87-1.jpeg" alt="Noa-1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/QSL-%E6%A0%87-2.jpeg" alt="Noa-2.jpeg"></p>
+<h3 id="設計理念">
+<a class="header-anchor" href="#%e8%a8%ad%e8%a8%88%e7%90%86%e5%bf%b5"></a>
+設計理念
+</h3><p>取材自我非常喜歡的 <em><strong>Blue Archive</strong></em> 中的角色生鹽諾亞。</p>
+<ul>
+<li>正面是 Noa 的記憶大廳截圖。Noa 在落地窗上手寫十九世紀法國現代派詩人夏爾·皮埃爾·波德萊爾的詩，《巴黎的憂鬱》第一首《異鄉人》。</li>
+</ul>
+<blockquote>
+<p>Qui aimes-tu le mieux, homme énigmatique, dis?<br>
+謎一樣的人啊，說吧，你最愛的人是誰？</p>
+</blockquote>
+<p>我在這一句後加了 ITU、CQ 分區和梅登海德網格，盡量選用手寫體並拉伸透視效果，使得文字看起來是手寫在窗上的。</p>
+<ul>
+<li>背面除了常規的通聯必填資訊，還加上了個人部落格的二維碼，背景照片是 BA 官方做的 Noa 影片截圖。</li>
+<li><strong>Warning:</strong> 時區那裡 <em>UTC</em> 寫成了 <em>UCT</em> ，直到印下一張卡才發現，如果印第二批會更正。</li>
+</ul>
+<h3 id="印刷批次">
+<a class="header-anchor" href="#%e5%8d%b0%e5%88%b7%e6%89%b9%e6%ac%a1"></a>
+印刷批次
+</h3><ul>
+<li>1 期：300g 名片用銅版紙 200 張，切小圓角，淘寶久美印業。
+<ul>
+<li>卡片硬度不足，銅版紙背面書寫困難。</li>
+<li>餘量充足。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-dfh">
+<a class="header-anchor" href="#2-dfh"></a>
+2. DFH
+</h2><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-1.png" alt="DFH-1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-2-%E6%9B%B4%E6%AD%A3.png" alt="DFH-2"></p>
+<h3 id="設計理念-1">
+<a class="header-anchor" href="#%e8%a8%ad%e8%a8%88%e7%90%86%e5%bf%b5-1"></a>
+設計理念
+</h3><p>整體取材自 BiliBili UP 主<strong>炙彈冰</strong>的航天史填詞歌曲 <a href="https://www.bilibili.com/video/BV129mGY3Efe/">《東方紅的心臟》</a>（原曲為 <a href="https://music.163.com/#/artist?id=51020133">ヰ世界情緒</a> 的歌曲 <strong><a href="https://music.163.com/#/song?id=1907751320">シリウスの心臓(天狼星的心臟)</a></strong> ）。</p>
+<ul>
+<li>卡片正面右側少女為《東方紅的心臟》中曲繪，東方紅衛星擬人形象。</li>
+<li>卡片正面左側有重疊的兩個衛星，左側實體衛星為東方紅一號的 3D 建模截圖，右側彩色衛星為前一截圖經過 <a href="https://lab.magiconch.com/one-last-image/">One Last Image 盧浮宮生成器</a> 網站生成的一張類似 <em><strong>One Last Kiss</strong></em> 封面效果的彩色漸變衛星圖。</li>
+<li>環繞衛星的紅藍兩橢圓環由摩斯電碼構成，紅色是「中華人民共和國萬歲」，藍色是「世界人民大團結萬歲」，參考 1955 年《標準電碼本》翻譯。</li>
+<li>實體衛星上的日期指東方紅一號 1970 年 4 月 24 日發射入軌，5 月 14 日停止播放東方紅樂曲。這是東方紅一號短暫的一生，卻是中華民族騰飛的開始。</li>
+<li>彩色衛星上的日期，指 1840 年 6 月 21 日英軍炮擊澳門，開啟第一次鴉片戰爭，直至 1949 年 10 月 1 日中華人民共和國成立，中國人民從此站起來了。它承載的是中華民族屈辱的近代史，也是第三世界其他國家反抗帝國主義列強入侵、追求獨立的抗爭史。</li>
+<li>衛星和人物之間用兩條正弦線隔開，象徵電波。</li>
+<li>相比於 <a href="/zh-tw/post/othernotes/qsl-card-exhibition/#1-noa-1">Noa-1</a> ，這次背面設計增加了 NFC 標誌，我計劃為今後發放的卡片增加 NFC 標籤，錄入卡片資訊、通聯資訊，或實現自動播放音樂、影片等。</li>
+<li>背面郵箱下面那段話「霧靄縈繞的人生，要如何度過？甩下躊躇吧，因為朝陽是你也是我。」是《東方紅的心臟》中的歌詞，我十分喜歡。</li>
+<li>背面右下角貼上了一段《東方紅》的簡譜，呼應此次卡片東方紅一號衛星主題。</li>
+</ul>
+<p>另外，我還設計了此卡片的 PCB 版，加上 NFC 晶片、線圈，特別在正面人物胸口的位置放置一顆紅色 LED，手機貼近掃描後 LED 會亮，呼應「東方紅的心臟」主題。<br>
+因為製作成本高昂，PCB 版卡片預計只發給每個區第一個通聯的友台，或某種通聯方式第一個通聯的友台。</p>
+<p>人民英雄紀念碑上這樣寫：</p>
+<blockquote>
+<p>三年以來，在人民解放戰爭和人民革命中犧牲的人民英雄們永垂不朽！<br>
+三十年以來，在人民解放戰爭和人民革命中犧牲的人民英雄們永垂不朽！<br>
+由此上溯到一千八百四十年，從那時起，為了反對內外敵人，爭取民族獨立和人民自由幸福，在歷次鬥爭中犧牲的人民英雄們永垂不朽！</p>
+</blockquote>
+<p>今日，東方紅衛星仍然在軌，守望滄海變桑田。</p>
+<h3 id="印刷批次-1">
+<a class="header-anchor" href="#%e5%8d%b0%e5%88%b7%e6%89%b9%e6%ac%a1-1"></a>
+印刷批次
+</h3><p><strong>紙質：</strong></p>
+<ul>
+<li>1 期：350g 珠光紙（白滑影）150 張，切小圓角，閒魚未來既是未來
+<ul>
+<li>餘量充足</li>
+</ul>
+</li>
+</ul>
+<p><strong>PCB：</strong></p>
+<ul>
+<li>1 期：嘉立創彩色絲印 50 張，NT3H2111W0FHKH XQF，切小圓角
+<ul>
+<li>餘量充足</li>
+</ul>
+</li>
+</ul>
+
+        
+        <hr><p>本文2025-08-21首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-08-21</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>OtherNotes</category></item><item><title>故事新編</title><link>https://guzhengsvt.cn/zh-tw/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</link><pubDate>Tue, 20 May 2025 12:18:48 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</guid><description>
+<![CDATA[<h1>故事新編</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <h2 id="故事新編">
+<a class="header-anchor" href="#%e6%95%85%e4%ba%8b%e6%96%b0%e7%b7%a8"></a>
+故事新編
+</h2><p><strong>空間翻到一七年，欲知往昔解文案。<br>
+奈何越讀越羞赧，年少輕狂少計算。<br>
+自覺情深學古嘆，中二做作惹人煩。<br>
+籍此復得詩靈感，盜典襲文予君看。</strong></p>
+<p><strong>且說許仙奔長安，白蛇自古居淮南。<br>
+三生有幸斷橋會，鏡花水月止遠觀。<br>
+書生本是無根絮，兩袖清風怎敢攀。<br>
+一路只道江山好，脾性未改劣且頑。</strong></p>
+<p><strong>動漫遊戲Galgame，後宮佳麗滿驪山。<br>
+進可賞本淫絲竹，退守純愛亦忠耽。<br>
+古來愛情少圓滿，唯有風流飄飄然。<br>
+何須屈駕訪名川，得一知己復為難。</strong></p>
+<p><strong>偶聞林鳥聲婉轉，自逐月影襯孤單。<br>
+參商尚有重見日，人間難覓桃花潭。<br>
+長情好似水中月，俗世塵風偏驚瀾。<br>
+唯願取其一瓢飲，飲盡杯中月光寒。</strong></p>
+<p><strong>春風暖，玉門關，橘生陝北與淮南。<br>
+縱使塔上塵緣盡，秦淮不過幾重山。<br>
+鬥法相，渡劫難，水漫金山猶有帆。<br>
+敢傾天地倒淮水，遍淘黃沙洗長安。</strong></p>
+<p><strong>新文舊事作兩般，是非曲直皆夢幻。<br>
+煩請今夜秦淮水，渡我雜思近淮南。</strong></p>
+<p><em><strong>孤箏<br>
+2025.5.20<br>
+於西安</strong></em></p>
+
+        
+        <hr><p>本文2025-05-20首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-05-20</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Poetry</category></item><item><title>最佳化理論與方法</title><link>https://guzhengsvt.cn/zh-tw/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</link><pubDate>Sat, 10 May 2025 18:48:10 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</guid><description>
+<![CDATA[<h1>最佳化理論與方法</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <h1 id="最佳化問題">
+<a class="header-anchor" href="#%e6%9c%80%e4%bd%b3%e5%8c%96%e5%95%8f%e9%a1%8c"></a>
+最佳化問題
+</h1><h2 id="數學模型">
+<a class="header-anchor" href="#%e6%95%b8%e5%ad%b8%e6%a8%a1%e5%9e%8b"></a>
+數學模型
+</h2>$$
+\min f(\vec{x}),\vec{x}\in \vec{R^{n}}
+$$$$
+\text{s.t.}{
+\begin{cases}
+c_i(x)=0,& i \in E = {1,2,\cdots,l}\\
+c_i(\vec{x})\ge 0,& i \in I = {l+1,\cdots,l+m}\\
+\end{cases}}
+$$<p>
+其中，</p>
+<ul>
+<li>$\vec{x}=(x_1,x_2,\cdots,x_n)^T$ 稱為決策變數</li>
+<li>$f(\vec{x})$ 稱為目標函數</li>
+<li>s.t.（subject to，受限於），稱為約束條件</li>
+</ul>
+<h2 id="分類">
+<a class="header-anchor" href="#%e5%88%86%e9%a1%9e"></a>
+分類
+</h2><ol>
+<li>時間
+<ol>
+<li>靜態問題</li>
+<li>動態問題</li>
+</ol>
+</li>
+<li>約束條件
+<ol>
+<li>有約束問題</li>
+<li>無約束問題</li>
+</ol>
+</li>
+<li>目標函數與約束條件是否為線性函數
+<ol>
+<li>線性規劃</li>
+<li>非線性規劃</li>
+</ol>
+</li>
+<li>目標函數與約束條件是否為凸函數
+<ol>
+<li>凸最佳化問題</li>
+<li>非凸最佳化問題</li>
+</ol>
+</li>
+</ol>
+<h2 id="二次型矩陣">
+<a class="header-anchor" href="#%e4%ba%8c%e6%ac%a1%e5%9e%8b%e7%9f%a9%e9%99%a3"></a>
+二次型矩陣
+</h2><p>二次型：
+</p>
+$$
+\begin{align}
+f
+&=x_1^2-3x_3^2-4x_1x_2+x_2x_3\\
+&=(x_1,x_2,x_3)
+\begin{bmatrix}
+1 & -2 & 0\\
+-2 & 0 & \frac{1}{2}\\
+0 & \frac{1}{2} & -3\\
+\end{bmatrix}
+\begin{bmatrix}
+x_1\\
+x_2\\
+x_3\\
+\end{bmatrix}\\
+&= \vec{X^T} A \vec{X}\\
+\end{align}
+$$<p>二次型矩陣：
+</p>
+$$
+\begin{bmatrix}
+1 & -2 & 0\\
+-2 & 0 & \frac{1}{2}\\
+0 & \frac{1}{2} & -3\\
+\end{bmatrix}
+$$<h2 id="hessen-矩陣">
+<a class="header-anchor" href="#hessen-%e7%9f%a9%e9%99%a3"></a>
+Hessen 矩陣
+</h2><p>以二元二次函數為例：
+</p>
+$$
+\nabla^2 f(x_1,x_2)=
+\begin{bmatrix}
+\frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2}\\
+\frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2}\\
+\end{bmatrix}
+$$<h2 id="可行解">
+<a class="header-anchor" href="#%e5%8f%af%e8%a1%8c%e8%a7%a3"></a>
+可行解
+</h2><ul>
+<li>可行解：滿足所有約束條件的解。</li>
+<li>可行集（容許集、可行域）：所有可行解所構成的集合。</li>
+<li>最佳化問題：在可行集中找出使目標函數取得最大值或最小值的點。</li>
+<li>駐點：$\nabla f(x_0)=0$，稱 $x_0$ 為駐點。</li>
+<li>鞍點：$x_0$ 為駐點，但不是極值點時，稱為鞍點。</li>
+</ul>
+<h2 id="凸集">
+<a class="header-anchor" href="#%e5%87%b8%e9%9b%86"></a>
+凸集
+</h2><h3 id="定義">
+<a class="header-anchor" href="#%e5%ae%9a%e7%be%a9"></a>
+定義
+</h3><p>在平面中，若一個圖形內部任意兩點的連線仍位於圖形內部，則該圖形稱為凸集。</p>
+<h3 id="性質">
+<a class="header-anchor" href="#%e6%80%a7%e8%b3%aa"></a>
+性質
+</h3><ol>
+<li>凸集的交集仍為凸集</li>
+<li>凸集按比例縮放後仍為凸集</li>
+<li>凸集的和集（不是並集）是凸集
+<ul>
+<li>設 $D_1,D_2$ 是凸集，則 $D_1+D_2=\{z|z=x+y,x \in D_1,y \in D_2\}$ 是凸集。</li>
+</ul>
+</li>
+<li>凸集的線性組合是凸集。</li>
+</ol>
+<h3 id="常見凸集">
+<a class="header-anchor" href="#%e5%b8%b8%e8%a6%8b%e5%87%b8%e9%9b%86"></a>
+常見凸集
+</h3><ol>
+<li>空集</li>
+<li>整個歐氏空間 $\vec{R^n}$</li>
+<li>超平面 $H=\{x \in \vec{R^n} | a_1x_1+a_2x_2+\cdots +a_nx_n=b\}$</li>
+<li>半空間 $H^+=\{x \in \vec{R^n} | a_1x_1+a_2x_2+\cdots +a_nx_n \ge b\}$</li>
+</ol>
+<h3 id="凸組合">
+<a class="header-anchor" href="#%e5%87%b8%e7%b5%84%e5%90%88"></a>
+凸組合
+</h3><p>設 $x_i \in \vec{R^n},i=1,2,\cdots ,k$，實數 $\lambda_i \ge 0,\sum^k_{i=1}\lambda_i=1$，則 $x=\sum^k_{i=1}\lambda_ix_i$ 稱為 $x_1,x_2,\cdots , x_k$ 的凸組合。<br>
+凸集中任意有限個點的凸組合仍然在該凸集中。</p>
+<h3 id="極點">
+<a class="header-anchor" href="#%e6%a5%b5%e9%bb%9e"></a>
+極點
+</h3><p>設 $D$ 為凸集，$x \in D$，若 $D$ 中不存在兩個相異的點 $y,z$ 及某個實數 $\alpha \in (0,1)$ 使得 $x=\alpha y+(1-\alpha)z$，則稱 $x$ 為 $D$ 的極點。</p>
+<p>人話：以平面五邊形為例，極點就是它的頂點；以半圓形為例，極點則是直徑的兩個端點以及半圓弧上的尖端。</p>
+<h2 id="凸函數">
+<a class="header-anchor" href="#%e5%87%b8%e5%87%bd%e6%95%b8"></a>
+凸函數
+</h2><h3 id="定義-1">
+<a class="header-anchor" href="#%e5%ae%9a%e7%be%a9-1"></a>
+定義
+</h3><p>定義在某個凸集上的函數 $f(x)$，若對凸集內任意兩點 $x_1,x_2$ 都有
+</p>
+$$
+f(\alpha x_1+(1-\alpha)x_2) \le \alpha f(x_1)+(1-\alpha)f(x_2)
+$$<p>
+則稱該函數為凸函數。<br>
+若不等號為嚴格小於號 $\lt$，則稱為嚴格凸函數。</p>
+<h3 id="判斷">
+<a class="header-anchor" href="#%e5%88%a4%e6%96%b7"></a>
+判斷
+</h3><ol>
+<li>多元函數的 Hessen 矩陣為半正定矩陣——&gt;多元函數是凸函數。</li>
+<li>多元函數的 Hessen 矩陣為正定矩陣——&gt;多元函數是嚴格凸函數。</li>
+<li>多元線性（一次）函數是 $\vec{R^n}$ 上的凸函數。</li>
+</ol>
+<h2 id="凸最佳化問題">
+<a class="header-anchor" href="#%e5%87%b8%e6%9c%80%e4%bd%b3%e5%8c%96%e5%95%8f%e9%a1%8c"></a>
+凸最佳化問題
+</h2><h3 id="定義-2">
+<a class="header-anchor" href="#%e5%ae%9a%e7%be%a9-2"></a>
+定義
+</h3><p>目標函數與約束函數都是凸函數的最佳化問題。</p>
+<ul>
+<li>凸最佳化的可行集是凸集</li>
+<li>任何區域最優解都是全域最優解</li>
+<li>若目標函數是嚴格凸函數，則區域最優解存在且唯一</li>
+</ul>
+<h1 id="線性規劃">
+<a class="header-anchor" href="#%e7%b7%9a%e6%80%a7%e8%a6%8f%e5%8a%83"></a>
+線性規劃
+</h1><h2 id="形式">
+<a class="header-anchor" href="#%e5%bd%a2%e5%bc%8f"></a>
+形式
+</h2><h3 id="非標準形式">
+<a class="header-anchor" href="#%e9%9d%9e%e6%a8%99%e6%ba%96%e5%bd%a2%e5%bc%8f"></a>
+非標準形式
+</h3><ul>
+<li>目標函數：$\max z=\sum^{n}_{j=1}c_jx_j=CX$</li>
+<li>係數矩陣：
+
+$$
+A=
+\begin{bmatrix}
+a_{11} & \cdots & a_{1n}\\
+\vdots & \ddots & \vdots\\
+a_{m1} & \cdots & a_{mn}\\
+\end{bmatrix}
+=(P_1,P_2,\cdots,P_n)
+$$</li>
+<li>資源向量：$b=\begin{bmatrix} b_1\\ \vdots \\ b_m\\ \end{bmatrix}$</li>
+<li>決策變數向量：$X=(x_1,x_2,\cdots , x_n)^T$</li>
+<li>約束條件：
+
+$$
+\begin{cases}
+\sum^{n}_{j=1}a_{ij}x_j=b_i,&i=1,2,\cdots,m\\
+x_j \ge 0,& j=1,2,\cdots,n\\
+\end{cases}
+$$
+
+$$
+\begin{cases}
+AX=b\\
+X \ge \vec{0}
+\end{cases}
+$$</li>
+</ul>
+<h3 id="標準形式">
+<a class="header-anchor" href="#%e6%a8%99%e6%ba%96%e5%bd%a2%e5%bc%8f"></a>
+標準形式
+</h3><ol>
+<li>將極大問題轉為極小化</li>
+<li>鬆弛變數：對於 $\le$ 約束，引入鬆弛變數使等號成立</li>
+<li>剩餘變數：對於 $\ge$ 約束，引入剩餘變數使等號成立</li>
+<li>自由變數：在實際問題中可自由取值的變數，記作 $x_i=x'-x''$</li>
+</ol>
+$$
+\begin{cases}
+\min f(x_1,x_2,\cdots , x_n)\\
+\text{s.t.} 
+\begin{cases}
+h_j(x_1,x_2,\cdots,x_n)=0&(j=1,2,\cdots)\\
+x_j \ge 0\\
+\end{cases}
+\end{cases}
+$$<h2 id="基矩陣">
+<a class="header-anchor" href="#%e5%9f%ba%e7%9f%a9%e9%99%a3"></a>
+基矩陣
+</h2><ul>
+<li>基（基矩陣）：係數矩陣中的最大非奇異子矩陣。
+<ul>
+<li>若係數矩陣 $A$ 為 $m \times n$ 矩陣，且 $rank(A)=m$，則基矩陣為任意 $m \times m$ 的非奇異子矩陣。</li>
+</ul>
+</li>
+<li>基變數：基中所有列向量所對應的未知數。</li>
+<li>非基變數：不屬於基變數的未知數。</li>
+<li>基本解：令所有非基變數為零所得到的解。</li>
+<li>非退化基本解：基本解中非零分量個數等於約束方程數。否則稱為退化基本解。</li>
+<li>基本可行解：滿足 $\text{s.t.}$ 非負條件的基本解。</li>
+<li>最優基可行解：所有基本可行解中，使函數值達到最優的基可行解。</li>
+</ul>
+<h2 id="線性規劃解的性質">
+<a class="header-anchor" href="#%e7%b7%9a%e6%80%a7%e8%a6%8f%e5%8a%83%e8%a7%a3%e7%9a%84%e6%80%a7%e8%b3%aa"></a>
+線性規劃解的性質
+</h2><ol>
+<li>線性規劃的可行集是凸集</li>
+<li>若有最優解，必定在可行集頂點取得</li>
+</ol>
+<h2 id="單純形法">
+<a class="header-anchor" href="#%e5%96%ae%e7%b4%94%e5%bd%a2%e6%b3%95"></a>
+單純形法
+</h2><h3 id="判別數檢驗數">
+<a class="header-anchor" href="#%e5%88%a4%e5%88%a5%e6%95%b8%e6%aa%a2%e9%a9%97%e6%95%b8"></a>
+判別數（檢驗數）
+</h3><p>每一個未知數都對應一個判別數
+</p>
+$$
+\sigma_j=C^T_J \vec{P_j}-c_j=\sum^{m}_{i=1}c_ia_{ij}-c_j
+$$<ul>
+<li>$C^T$ 為目標函數係數</li>
+<li>$C^T_J$ 為基變數在目標函數中的係數</li>
+<li>$P_j$ 表示 $A$ 矩陣第 $j$ 列</li>
+<li>$c_i$ 表示第 $i$ 個<strong>基變數</strong>在目標函數中的係數</li>
+<li>$c_j$ 表示目標函數中第 $j$ 個<strong>變數</strong>的係數，與 $c_i$ 無關。</li>
+</ul>
+<p><strong>當所有判別數都小於等於零時，基可行解即為最優解。</strong></p>
+<p>一般來說，基變數的判別數為零。</p>
+<h3 id="基變換">
+<a class="header-anchor" href="#%e5%9f%ba%e8%ae%8a%e6%8f%9b"></a>
+基變換
+</h3><h4 id="選取基矩陣">
+<a class="header-anchor" href="#%e9%81%b8%e5%8f%96%e5%9f%ba%e7%9f%a9%e9%99%a3"></a>
+選取基矩陣
+</h4><p>優先選取單位矩陣作為基矩陣，先計算初始基可行解與判別數。</p>
+<h4 id="畫出初始單純形表">
+<a class="header-anchor" href="#%e7%95%ab%e5%87%ba%e5%88%9d%e5%a7%8b%e5%96%ae%e7%b4%94%e5%bd%a2%e8%a1%a8"></a>
+畫出初始單純形表
+</h4><table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>$P_1$</th>
+          <th>$P_2$</th>
+          <th>$\cdots$</th>
+          <th>$P_n$</th>
+          <th>$\vec{b}$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>係數矩陣</td>
+          <td>$a_{11}$</td>
+          <td>$a_{12}$</td>
+          <td>$\cdots$</td>
+          <td>$a_{1n}$</td>
+          <td>$b_1$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$a_{21}$</td>
+          <td>$a_{22}$</td>
+          <td>$\cdots$</td>
+          <td>$a_{2n}$</td>
+          <td>$b_2$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$\vdots$</td>
+          <td>$\vdots$</td>
+          <td>$\ddots$</td>
+          <td>$\vdots$</td>
+          <td>$\vdots$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$a_{m1}$</td>
+          <td>$a_{m2}$</td>
+          <td>$\cdots$</td>
+          <td>$a_{mn}$</td>
+          <td>$b_m$</td>
+      </tr>
+      <tr>
+          <td>判別數</td>
+          <td>$\sigma_1$</td>
+          <td>$\sigma_2$</td>
+          <td>$\cdots$</td>
+          <td>$\sigma_n$</td>
+          <td>最優值</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="選取合適的進基列">
+<a class="header-anchor" href="#%e9%81%b8%e5%8f%96%e5%90%88%e9%81%a9%e7%9a%84%e9%80%b2%e5%9f%ba%e5%88%97"></a>
+選取合適的進基列
+</h4><p>若判別數大於零，則該列有分量大於零，選取該列作為進基列 $P_j$，對應變數為進基變數 $x_j$。</p>
+<h4 id="選取主元">
+<a class="header-anchor" href="#%e9%81%b8%e5%8f%96%e4%b8%bb%e5%85%83"></a>
+選取主元
+</h4><p>在該進基列中挑選大於零的元素 $a_{ij}$，將 $b$ 中對應元素除以所選元素，取比值最小者，該元素 $a_{ij}$ 即為主元。<br>
+<em><strong>若判別數大於零，而該列元素全都小於零，則此線性規劃無最優解。</strong></em></p>
+<h4 id="初等列運算">
+<a class="header-anchor" href="#%e5%88%9d%e7%ad%89%e5%88%97%e9%81%8b%e7%ae%97"></a>
+初等列運算
+</h4><p>將主元化為 1，並把該列其他係數元素化為 0。<br>
+<strong>幾何意義：更換可行域頂點。</strong></p>
+<h4 id="出基列">
+<a class="header-anchor" href="#%e5%87%ba%e5%9f%ba%e5%88%97"></a>
+出基列
+</h4><p>根據係數矩陣選取新的基矩陣。與原來的基矩陣相比，被取代的那一列為出基列，對應變數即為出基變數。<br>
+接著重新計算判別數，列出新的單純形表。</p>
+<h4 id="新一輪基變換">
+<a class="header-anchor" href="#%e6%96%b0%e4%b8%80%e8%bc%aa%e5%9f%ba%e8%ae%8a%e6%8f%9b"></a>
+新一輪基變換
+</h4><p>當判別數行發生變化後，如果又出現新的正判別數，就再選取該列作為新的進基列，重新選主元並做初等變換。</p>
+<h4 id="結果">
+<a class="header-anchor" href="#%e7%b5%90%e6%9e%9c"></a>
+結果
+</h4><p>當所有判別數都小於等於零時，$\vec{b}$ 中的值就是基變數的值，非基變數取 0，合起來構成最優解，再代回目標函數即可求得最小值。</p>
+<h3 id="單純形法適用條件">
+<a class="header-anchor" href="#%e5%96%ae%e7%b4%94%e5%bd%a2%e6%b3%95%e9%81%a9%e7%94%a8%e6%a2%9d%e4%bb%b6"></a>
+單純形法適用條件
+</h3><ol>
+<li>非齊次項元素非負。</li>
+<li>存在可行解。</li>
+<li>鬆弛變數與非基變數的值乘積和為零。</li>
+<li>問題是凸可行域上的線性規劃問題。</li>
+<li>可行解集合有限。</li>
+</ol>
+<h2 id="人工變數法">
+<a class="header-anchor" href="#%e4%ba%ba%e5%b7%a5%e8%ae%8a%e6%95%b8%e6%b3%95"></a>
+人工變數法
+</h2><p>當係數矩陣中不含單位矩陣時，通常採用引入人工變數的方式，人為構造出一個單位矩陣。</p>
+<p>設線性規劃問題的約束條件為 $\sum^{n}_{j=1}a_{ij}=b_i(i=1,2,\cdots ,m)$，分別給每個約束條件加入人工變數 $x_{n+1},x_{n+2},\cdots,x_{n+m}$，以其作為基變數（構成單位矩陣），其餘變數置零，即得到一組可行解 $x^{(0)}=(0,0,\cdots,0,b_1,b_2,\cdots,b_m)^T$。<br>
+在此基礎上再透過基變換求解，最終得到不含非零人工變數的最優解。</p>
+<p>若當所有判別數小於零時，仍有非零人工變數存在，則說明原問題無可行解。</p>
+<h2 id="大-m-法">
+<a class="header-anchor" href="#%e5%a4%a7-m-%e6%b3%95"></a>
+大 M 法
+</h2><p>對於最小化問題，在約束條件中加入人工變數後，令人工變數在目標函數中的係數為 $M$（$M \in \vec{R^+}$）。<br>
+為了求得最小目標函數值，需要不斷進行基變換，使人工變數取值為 0。對於最大化問題，則取 $M \in \vec{R^-}$。</p>
+<h2 id="退化情形">
+<a class="header-anchor" href="#%e9%80%80%e5%8c%96%e6%83%85%e5%bd%a2"></a>
+退化情形
+</h2><p>若單純形法陷入循環，而該問題又確有最優解，可透過以下方法避免循環。</p>
+<h3 id="攝動法">
+<a class="header-anchor" href="#%e6%94%9d%e5%8b%95%e6%b3%95"></a>
+攝動法
+</h3><h3 id="修正單純形法">
+<a class="header-anchor" href="#%e4%bf%ae%e6%ad%a3%e5%96%ae%e7%b4%94%e5%bd%a2%e6%b3%95"></a>
+修正單純形法
+</h3><h1 id="線性規劃對偶理論">
+<a class="header-anchor" href="#%e7%b7%9a%e6%80%a7%e8%a6%8f%e5%8a%83%e5%b0%8d%e5%81%b6%e7%90%86%e8%ab%96"></a>
+線性規劃對偶理論
+</h1><h2 id="線性規劃對偶問題形式">
+<a class="header-anchor" href="#%e7%b7%9a%e6%80%a7%e8%a6%8f%e5%8a%83%e5%b0%8d%e5%81%b6%e5%95%8f%e9%a1%8c%e5%bd%a2%e5%bc%8f"></a>
+線性規劃對偶問題形式
+</h2><h3 id="對稱形式">
+<a class="header-anchor" href="#%e5%b0%8d%e7%a8%b1%e5%bd%a2%e5%bc%8f"></a>
+對稱形式
+</h3><p>原問題
+</p>
+$$
+\begin{cases}
+\min f=\vec{c^T}\vec{x}\\
+\text{s.t.}
+\begin{cases}
+\vec{A}\vec{x} \ge \vec{b}\\
+\vec{x} \ge \vec{0}
+\end{cases}
+\end{cases}
+$$<p>對偶問題
+</p>
+$$
+\begin{cases}
+\max w=\vec{b^T}\vec{y}\\
+\text{s.t.}
+\begin{cases}
+\vec{A^T}\vec{y} \le \vec{c}\\
+\vec{y} \ge \vec{0}\\
+\end{cases}
+\end{cases}
+$$<p>對應關係：</p>
+<ul>
+<li>（1）原問題中的約束條件個數等於其對偶問題中的變數個數；</li>
+<li>（2）原問題目標函數的係數，就是對偶問題中約束條件右端項；</li>
+<li>（3）原問題目標函數為最小化時，對偶問題目標函數為最大化；</li>
+<li>（4）原問題的約束條件為「≥」，則對偶問題的約束條件為「≤」。</li>
+</ul>
+<h3 id="非對稱形式">
+<a class="header-anchor" href="#%e9%9d%9e%e5%b0%8d%e7%a8%b1%e5%bd%a2%e5%bc%8f"></a>
+非對稱形式
+</h3><p>原問題
+</p>
+$$
+\begin{cases}
+\min f=\vec{c^T}\vec{x}\\
+\text{s.t.}
+\begin{cases}
+\vec{A}\vec{x} = \vec{b}\\
+\vec{x} \ge \vec{0}
+\end{cases}
+\end{cases}
+$$<p>對偶問題
+</p>
+$$
+\begin{cases}
+\max w=\vec{b^T}\vec{y}\\
+\text{s.t.}
+\begin{cases}
+\vec{A^T}\vec{y} \le \vec{c}\\
+\vec{y} \text{無約束}
+\end{cases}
+\end{cases}
+$$<h3 id="一般情形">
+<a class="header-anchor" href="#%e4%b8%80%e8%88%ac%e6%83%85%e5%bd%a2"></a>
+一般情形
+</h3><p>若原問題同時含有 $\le,\ge,=$ 等多種約束，則先引入鬆弛變數與剩餘變數，將約束統一化為 $=$，再用非對稱形式建立對偶問題。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E5%8E%9F%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB%E8%A1%A81.png" alt="原问题与对偶问题对应关系表1.png">
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E5%8E%9F%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB%E8%A1%A82.png" alt="原问题与对偶问题对应关系表2.png"></p>
+<h2 id="對偶單純形法">
+<a class="header-anchor" href="#%e5%b0%8d%e5%81%b6%e5%96%ae%e7%b4%94%e5%bd%a2%e6%b3%95"></a>
+對偶單純形法
+</h2><ul>
+<li>單純形法：先保證 $\vec{b} \ge 0$，再根據檢驗數 $\le 0$ 迭代。</li>
+<li>對偶單純形法：先保證檢驗數 $\le 0$，再依據 $\vec{b} \ge 0$ 迭代。</li>
+</ul>
+<h3 id="確保檢驗數">
+<a class="header-anchor" href="#%e7%a2%ba%e4%bf%9d%e6%aa%a2%e9%a9%97%e6%95%b8"></a>
+確保檢驗數 $\le 0$
+</h3><h3 id="選取出基">
+<a class="header-anchor" href="#%e9%81%b8%e5%8f%96%e5%87%ba%e5%9f%ba"></a>
+選取出基
+</h3><p>若存在 $b_i \lt 0$，則取其中最小的 $\min b_i$ 所在列作為出基列，對應變數為出基變數。</p>
+<h3 id="選取進基">
+<a class="header-anchor" href="#%e9%81%b8%e5%8f%96%e9%80%b2%e5%9f%ba"></a>
+選取進基
+</h3><p>將檢驗數除以出基列中為負值的係數（$a_{ij} \lt 0$），取結果最小值所對應的列作為進基列，對應變數為進基變數。</p>
+<h3 id="行變換">
+<a class="header-anchor" href="#%e8%a1%8c%e8%ae%8a%e6%8f%9b"></a>
+行變換
+</h3><p>透過行變換，將進基列變成可匹配基矩陣（單位矩陣）的形式，此時 $\vec{b}$ 也會隨之改變。<br>
+重新計算檢驗數，並確保其不大於零。</p>
+<h3 id="新一輪基變換-1">
+<a class="header-anchor" href="#%e6%96%b0%e4%b8%80%e8%bc%aa%e5%9f%ba%e8%ae%8a%e6%8f%9b-1"></a>
+新一輪基變換
+</h3><p>若仍有負值 $b_i \lt 0$，則取最小的 $\min b_i$ 進行下一輪基變換。</p>
+<h3 id="結果-1">
+<a class="header-anchor" href="#%e7%b5%90%e6%9e%9c-1"></a>
+結果
+</h3><p>當所有 $b_i \ge 0$ 時，$\vec{b}$ 構成基變數的最優解部分，而非基變數部分取 0。<br>
+將其代回目標函數即可得到最優值（最大或最小）。</p>
+<h1 id="靈敏度分析">
+<a class="header-anchor" href="#%e9%9d%88%e6%95%8f%e5%ba%a6%e5%88%86%e6%9e%90"></a>
+靈敏度分析
+</h1>
+        
+        <hr><p>本文2025-05-10首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-05-10</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Math</category></item><item><title>Typecho評論匯入Waline</title><link>https://guzhengsvt.cn/zh-tw/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description>
 <![CDATA[<h1>Typecho評論匯入Waline</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <p>前兩天把部落格文章從 Typecho 遷移到 Hugo，光是設定 Front Matter 參數和重新配置圖片連結就費了很大功夫。<br>
@@ -563,401 +3036,4 @@ $$<p>code test</p>
 </span></span></code></pre></div><p>icon: <!-- raw HTML omitted --><!-- raw HTML omitted --> 一杯咖啡</p>
 
         
-        <hr><p>本文2025-04-13首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-04-13</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Thoughts</category></item><item><title>大三上學期總結</title><link>https://guzhengsvt.cn/zh-tw/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</link><pubDate>Tue, 28 Jan 2025 19:46:04 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/thoughts/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/</guid><description>
-<![CDATA[<h1>大三上學期總結</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
-        
-          <h2 id="關於期末考試">
-<a class="header-anchor" href="#%e9%97%9c%e6%96%bc%e6%9c%9f%e6%9c%ab%e8%80%83%e8%a9%a6"></a>
-關於期末考試
-</h2><p>對學生來說，一個學期最重要的似乎莫過於成績了。秉持著臨陣磨槍的<del>優良傳統</del>，期末半個月幾乎每日狂學（當然偶有偷懶的時候<del>怎麼十六週還做實驗啊我操</del>）。好歹是沒有掛科，雖然分數不高但也滿意（一天學完空氣動力學70+什麼實力我不說）。
-於是又要「下定決心」說「下學期我一定好好學」這樣唬人的假話hhh
-不過確實該學了，不然如何博士畢業呢？</p>
-<h2 id="關於讀博">
-<a class="header-anchor" href="#%e9%97%9c%e6%96%bc%e8%ae%80%e5%8d%9a"></a>
-關於讀博
-</h2><p>我選擇進入錢班本博通道，不是為了4+3提前畢業（雖然也沒有這實力），也不是為了把握機會追求一個能帶來更高薪、更高「社會地位」的學位。我想，當年將「Doctor」翻譯成「博士」的人，想強調的是其背負「博學博聞」的名聲，而不是其他。
-雖說「勸人讀博天打雷劈」，延畢鬱鬱比比皆是，我還是想試試做一些親手創造的，前無古人的成果。不為「帽子」，不為「山頭」，只是為著於人民有利，為人類有益。
-就像我之前說的，</p>
-<blockquote>
-<p>我對物質的要求僅是養活一家老小，以目前的情況看不難做到。但我對本科階段的學識不滿意，學四年似乎還沒入門。
-守著前賢幾十幾百年前就探索出來的知識生活在日新月異的新時代？放棄接觸最前沿的學問安於養家糊口？我做不到。
-鄙人不才或許一生在學術上難有建樹，但絕不能捨棄人類開拓創新的勇氣。至少要做個站在最前面的見證者，見證一代代人衝擊物質與精神的桎梏，見證文明走出溫和的搖籃，走向未知的深空。
-我無法割捨獲取新知的快感，
-因為我已經觸碰過天空了。</p>
-</blockquote>
-<p>今日的大話說得夠多了，打心底我也不覺得自己真有改變些什麼的能力，大抵最後碌碌無為成為灌水勉強畢業的學術垃圾。
-但總歸是要試試的，是要去做的，因為山就在那裡。</p>
-<h2 id="關於家庭">
-<a class="header-anchor" href="#%e9%97%9c%e6%96%bc%e5%ae%b6%e5%ba%ad"></a>
-關於家庭
-</h2><p>說完嚴肅的話題，該聊些輕鬆的。
-八月母親在武漢同濟手術，我去陪了半個月<del>實在是不好意思說是照顧</del>，切除子宮後休養兩個月，精神好些。然後又去早起晚歸工作了，唉。
-家裡並無太多牽掛，一切如常。
-有點想念冬日裡奶奶煮的雞蛋糖水。</p>
-<h2 id="關於朋友">
-<a class="header-anchor" href="#%e9%97%9c%e6%96%bc%e6%9c%8b%e5%8f%8b"></a>
-關於朋友
-</h2><p>在學校的日子一如往常，除了一個電賽並無太多波瀾。朋友們還是老樣子，喜歡的人過得很好，大家各有各的生活。
-<strong>天之涯，地之角，知交半零落。</strong></p>
-<h2 id="關於匈牙利之行">
-<a class="header-anchor" href="#%e9%97%9c%e6%96%bc%e5%8c%88%e7%89%99%e5%88%a9%e4%b9%8b%e8%a1%8c"></a>
-關於匈牙利之行
-</h2><p>報名了空間院寒假的歐布達大學訪學項目，來這兒待了兩週，準備回去了。
-學些沒什麼用的AI應用，確實和我未來的學習沒多大關係，也不指望真學到什麼屠龍術。
-剛來的幾天白人飯很難吃，完全無法想像這兒人怎麼活下去的。後面伙食漸漸好起來了，去本地的地道館子吃了goulash（一種牛肉疙瘩湯，加了土豆胡蘿蔔之類的），確實好吃。這裡的豬肘子更是一絕，大份又好吃<del>但為什麼翻譯過來是趾關節？</del>
-牛排就算了，默認五分熟不到，切不動嚼不爛。最常見的乾巴麵包也不行，蔬菜沙拉石中石。
-另一個印象深的是廁所，目前所有見過的廁所都乾淨得很，有人定期打掃放衛生紙，洗手用的清潔劑、烘乾器和擦手紙一應俱全（omg），宿舍的廁所甚至有沖洗馬桶用的花灑噴頭和泡潔廁靈裡的馬桶刷子。所有水龍頭都24h冷熱水供應，暖氣遍布以至於室內常常太熱。
-唯一遺憾的是幾乎沒有公廁，有些地方廁所收費。
-唉，發達國家有錢，資源使勁造。一想到國內許多北方村民冬天沒錢買暖氣，南方許多人夏天開不起空調，我就心裡難受。
-世界上受苦受難的人太多了，同志仍需努力。</p>
-<p>買了些地道東西帶回去，但怕有朋友先看見破壞神秘感，就不說了。</p>
-<h2 id="尾言">
-<a class="header-anchor" href="#%e5%b0%be%e8%a8%80"></a>
-尾言
-</h2><p>明天回國過年，心裡十分想念。
-剩餘一半的寒假應該好好學一下《通信原理》（也許會，也許不會）。
-祝新年快樂，歲歲平安。
-2025.1.24</p>
-
-        
-        <hr><p>本文2025-01-28首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-01-28</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Thoughts</category></item><item><title>東方紅</title><link>https://guzhengsvt.cn/zh-tw/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</link><pubDate>Thu, 26 Dec 2024 00:16:35 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/poetry/%E4%B8%9C%E6%96%B9%E7%BA%A2/</guid><description>
-<![CDATA[<h1>東方紅</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
-        
-          <h3 id="東方紅">
-<a class="header-anchor" href="#%e6%9d%b1%e6%96%b9%e7%b4%85"></a>
-東方紅
-</h3><p><strong>中流擊水聲遠空，但聞江水夜夜隆。</strong></p>
-<p><strong>人皆旭日豈年少，萬里河山萬里紅。</strong></p>
-<p>2024.12.26<br>
-於西安</p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/12/1795319606.jpeg" alt="IMG_0434.jpeg"></p>
-
-        
-        <hr><p>本文2024-12-26首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2024-12-26</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Poetry</category></item><item><title>因為春天來過</title><link>https://guzhengsvt.cn/zh-tw/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</link><pubDate>Wed, 13 Nov 2024 22:07:40 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/poetry/%E5%9B%A0%E4%B8%BA%E6%98%A5%E5%A4%A9%E6%9D%A5%E8%BF%87/</guid><description>
-<![CDATA[<h1>因為春天來過</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
-        
-          <h3 id="謹以此詩獻給我生命中那顆polaris">
-<a class="header-anchor" href="#%e8%ac%b9%e4%bb%a5%e6%ad%a4%e8%a9%a9%e7%8d%bb%e7%b5%a6%e6%88%91%e7%94%9f%e5%91%bd%e4%b8%ad%e9%82%a3%e9%a1%86polaris"></a>
-——謹以此詩，獻給我生命中那顆Polaris
-</h3><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/11/1787644976.jpg" alt="IMG_4884.jpg"></p>
-<p><strong>一位可愛的旅人途經一片無人欣賞的風景，她帶來這異域的暖風吹過乾涸的田野，拂過樹梢又在湖面蕩漾出波光粼粼。<br>
-果樹們紛紛為這美人傾倒，急急忙忙開花又結果；林中的鳥兒四處尋覓為數不多的花枝，編成花環戴在她頭上。<br>
-旅人漫步於這落英繽紛，盛情難卻，摘下幾個鮮紅的果實；又不好意思一味索取，便掏出口袋裡所有鮮花的種子，播撒在所有龜裂的地皮。<br>
-唯有田野荒蕪，他羞澀又內疚——有什麼可以拿出來獻給這位可愛的姑娘嗎？<br>
-他使出吃奶的力氣催促花種們快快長大，希望能讓她看到田野裡盛放的鮮花。<br>
-可旅人注定不會在這兒久留——這裡的風景確實很好，樹和鳥兒都很殷勤，只是，這裡不是一個適合當家的地方。<br>
-旅人走了，果樹、鳥兒、田野都有些捨不得。<br>
-田野的花兒還是沒有送出去，可能下一位旅人到來就能看到一座美麗的花園吧。<br>
-但大家並不為此感到悲傷，<br>
-因為春天來過。</strong></p>
-<p><strong>冬去春來，秋去冬來。<br>
-果實變成小小的果樹，雛鳥剛剛學會飛翔；年輪纏上樹幹，夏雨將羽翼洗得鋥亮。<br>
-田野悉心照料的花園裡，最後一朵菊花开過了花期，空桿葉隨寒風擺動。<br>
-這片土地不再荒蕪，過去的幾個季節，旅人帶來的種子抽芽破土而出，按商量好的花期依次向世界展示她們的美麗。飲晨露，沐朝陽，舞清風，枕月光。<br>
-春天，田野用梔子花和山楂花做了一頂純白的花環，像旅人的白裙子一樣美。<br>
-夏天，田野用紫薇和木槿做了一個花籃，可惜木槿朝開暮落，像旅人匆匆離開。<br>
-秋天，田野想用桂花和菱葉菊鋪一張花床，秋風卻不解風情一次次捲走了桂香。<br>
-鮮花們帶著使命暢享短暫的生命，在塵土中準備下一次遠航。<br>
-旅人再也沒有回來，她不知道自己隨手灑下的種子已然長成一片花園，而田野也始終沒有機會獻上他的禮裝。<br>
-冬去春來，秋去冬來。<br>
-田野期待一場雪，給底下的花種蓋上溫暖的被子。若是來年旅人再次來到這世外桃源，這花園可配得上那可愛的姑娘。<br>
-初冬的細雨裡，他悄然睡下，夢到十月最後一批蒲公英乘風出發，快要追上旅人的雙頰。<br>
-「你不害怕花種撐不過冬天嗎？」樹和鳥兒這樣問田野，此刻的田野又變得光禿禿空無一物。<br>
-「沒關係，我已經見過春天了。」<br>
-因為春天來過。</strong></p>
-        
-        <hr><p>本文2024-11-13首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2024-11-13</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Poetry</category></item><item><title>晉南行五首</title><link>https://guzhengsvt.cn/zh-tw/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</link><pubDate>Tue, 08 Oct 2024 15:47:32 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/poetry/%E6%99%8B%E5%8D%97%E8%A1%8C%E4%BA%94%E9%A6%96/</guid><description>
-<![CDATA[<h1>晉南行五首</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
-        
-          <h2 id="序">
-<a class="header-anchor" href="#%e5%ba%8f"></a>
-序
-</h2><p>　　國慶隨《黑神話·悟空》遊山西，歷晉南晉城、臨汾、運城三市，作詩詞五首，簡記之。
-　　</p>
-<h2 id="晉南行其一">
-<a class="header-anchor" href="#%e6%99%89%e5%8d%97%e8%a1%8c%e5%85%b6%e4%b8%80"></a>
-晉南行·其一
-</h2><p><strong>門掩殘塑去，簷出金鐸來。<br>
-點染翠林亂，潑墨碧裙開。<br>
-新枝攀朽木，老壯攜幼孩。<br>
-徽因應有淚，千年可留白？</strong></p>
-<p><strong>孤箏<br>
-2024.10.2<br>
-晉城玉皇廟、府城關帝廟、青蓮寺</strong></p>
-<p>　　玉皇廟二十八星宿等殿均禁閃光燈，佛像隱於鐵柵欄後，許些漆跡剝落，乃至缺首斷足。令人遺憾。<br>
-　　府城關帝廟中塑像幾乎都是現代新作，手藝拙劣叫人倒胃口。倒是建築值得一看。<br>
-　　青蓮寺山高路遠，沿途風景極好，秋日山青水碧，少許紅黃闊葉點綴其間，萬里無雲，是錦繡福地。<br>
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/4175125506.jpg" alt="IMG_0808 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/2744194162.jpg" alt="IMG_0836 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/4200527731.jpg" alt="IMG_1026 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/126764360.jpg" alt="IMG_0915 (1).JPG"></p>
-<h2 id="晉南行其二">
-<a class="header-anchor" href="#%e6%99%89%e5%8d%97%e8%a1%8c%e5%85%b6%e4%ba%8c"></a>
-晉南行·其二
-</h2><p><strong>倦起青帝未點班，急騰晨霧破曉寒。<br>
-才渡人海窺佛面，又登林雲訪伽藍。<br>
-九尊金身九菡萏，三進相門三淨壇。<br>
-未及鱗霞收暮色，已是輕騎躍重山。</strong></p>
-<p><strong>孤箏<br>
-2024.10.3<br>
-晉城開化寺、鐵佛寺、定林寺</strong></p>
-<p>　　大早上趕公交到高平，先逛開化寺，再回鐵佛寺。鐵佛寺新開放不久，人滿為患，又深居小村小院。排隊一小時餘，得窺佛面兩分鐘。幸而排隊遇一家三口，父母開明，不拒二次元和遊戲。唉，神仙父母無處尋也。（女兒雙馬尾好可愛wwww）<br>
-　　定林寺蓮花藻井亦是近期才重新開放，有幸遇上，確實好看。
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/438599092.jpg" alt="IMG_0998 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/1955933777.jpg" alt="IMG_1044 (1).JPG"></p>
-<h2 id="晉南行其三">
-<a class="header-anchor" href="#%e6%99%89%e5%8d%97%e8%a1%8c%e5%85%b6%e4%b8%89"></a>
-晉南行·其三
-</h2><h3 id="水調歌頭">
-<a class="header-anchor" href="#%e6%b0%b4%e8%aa%bf%e6%ad%8c%e9%a0%ad"></a>
-水調歌頭
-</h3><p>**　　寶相食香祿，石碑浸風塵。敢問座下丘列，誦經可達神？已削青絲斷欲，又棄酒肉濯宇，笑面謹藏嗔。空識五蘊律，不解無明身。<br>
-　　假金鐃，修禪廟，弄愚生。誑語功德，卻效如來釋大乘。許利好收虔眾，勸善難得信篤，八戒誤沙門。司磬稱富貴，偽佛度俗僧。**</p>
-<p><strong>孤箏<br>
-2024.10.4<br>
-臨汾小西天</strong></p>
-<p>八戒：一戒殺生，二戒偷盜，三戒淫，四戒妄語，五戒飲酒，六戒著香華，七戒坐臥高廣大床，八戒非時食。<br>
-黃眉：不殺生，仇恨永無止息；不偷盜，強弱如我何異；不邪淫，一切有情皆孽；不妄語，夢幻泡影空虛；不饞酒，憂怖漲落無常；不耽樂，芳華剎那而已；不貪眠，苦苦不得解脫；不縱欲，諸行了無生趣。</p>
-<p>　　小西天下寺沒啥看頭，都是些求財求子的善男信女燒香拜佛。那尼姑（？存疑）坐一旁敲磬看跪拜，口中不停說包佑日入一個億一千萬什麼的，諷刺至極。<br>
-　　上寺大雄寶殿內懸塑，規格規模具是驚人。可惜人太多了沒多少時間細看。我去晚了沒拿到山西官方通關信物明信片，略有遺憾。<br>
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/837638753.jpg" alt="IMG_1144 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/377169443.jpg" alt="IMG_1929 (1).JPG"></p>
-<h2 id="晉南行其四">
-<a class="header-anchor" href="#%e6%99%89%e5%8d%97%e8%a1%8c%e5%85%b6%e5%9b%9b"></a>
-晉南行·其四
-</h2><p><strong>古剎踞平陽，三震隱佛光。<br>
-巍巍琉璃塔，緲緲羅漢堂。<br>
-求經憑功祿，祈雨賴人王。<br>
-一藏傳東土，貞觀起盛唐。</strong></p>
-<p><strong>孤箏<br>
-2024.10.6<br>
-臨汾廣勝寺</strong></p>
-<p>　　洪洞縣廣勝寺，下寺有雨神廟，左右滿壁畫，保存不甚完好。殿內光線陰暗，看不真切。左右偏房有官方掃描件，色彩鮮明，神采俱備，可稱佳品。<br>
-　　上寺重看飛虹塔，寶塔遍身琉璃。僅開放一層，內裡無甚可觀之處。<br>
-　　後院天中天殿有三尊大佛，高十餘尺，身形秀麗，是為一絕。<br>
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/2152415040.jpg" alt="IMG_1956 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/270551755.jpg" alt="IMG_1985 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/4038570737.jpg" alt="IMG_2006 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/193997803.jpg" alt="IMG_2037 (2).JPG"></p>
-<h2 id="晉南行其五">
-<a class="header-anchor" href="#%e6%99%89%e5%8d%97%e8%a1%8c%e5%85%b6%e4%ba%94"></a>
-晉南行·其五
-</h2><h3 id="鸛雀樓幸遇未陶然有寄">
-<a class="header-anchor" href="#%e9%b8%9b%e9%9b%80%e6%a8%93%e5%b9%b8%e9%81%87%e6%9c%aa%e9%99%b6%e7%84%b6%e6%9c%89%e5%af%84"></a>
-鸛雀樓幸遇未陶然有寄
-</h3><p><strong>生來不是酒中仙，落墨皴眉把字研。<br>
-鸛雀樓上鬥之渙，太行山下思教員。<br>
-君作人間逍遙客，我困象塔長少年。<br>
-或歷天地無存所，且將詩債換酒錢。</strong></p>
-<p><strong>孤箏<br>
-2024.10.6<br>
-運城永樂宮、廣仁王廟、鸛雀樓、關帝廟</strong></p>
-<p>　　運城跟團遊，時間緊地點多，都沒來得及細看。至鸛雀樓時，觀一小攤書「賣原創詩集」大字。逛畢新樓，回看詩集，久震餘驚。未陶然受大理女詩人影響重走文學路，我也曾寫過不少詩，多是閒來拙筆，倒也未想過以此為生計。<br>
-　　高中將作詩、摘詩的底稿送出，分手後，再也沒怎麼寫過詩了。一是沉迷遊戲現實，沒讀什麼書，既無詩才也無勤心，落筆乾澀終不滿意。二是心境迷濛，顧當世如霧裡看花，既無透勁亦無清明，活得渾渾噩噩。三是久居象塔經歷平平，無喜無悲，難有詩情。<br>
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/3184801327.jpg" alt="IMG_2131 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/1585398490.jpg" alt="IMG_2134 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/3750612929.jpg" alt="IMG_2158 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/3048377807.jpg" alt="IMG_2214 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/1157009.jpg" alt="IMG_2233 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/343590413.jpg" alt="IMG_2234 (1).JPG">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/915481746.jpg" alt="IMG_2235 (1).JPG"></p>
-<h2 id="後記">
-<a class="header-anchor" href="#%e5%be%8c%e8%a8%98"></a>
-後記
-</h2><p>晉南三城各有特色。<br>
-晉城繁華，公交發達，有專線通往各個景點。初到市區，一路燈火通明。<br>
-臨汾奇異，連客運站周圍都黑的很，景點離城區遠且沒有公交專線，包車花費較大；公共廁所有特色，我騎青桔電動車打卡二十餘，無一相同。<br>
-運城熱鬧，主路也好小路也罷，商鋪小店小攤擠滿了，聽說還有南北兩集市（運城包子好吃，小館實誠）。<br>
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/10/3704126306.jpg" alt="IMG_2091.JPG"></p>
-        
-        <hr><p>本文2024-10-08首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2024-10-08</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Poetry</category></item><item><title>中秋，給家人打個電話吧</title><link>https://guzhengsvt.cn/zh-tw/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</link><pubDate>Sun, 15 Sep 2024 22:35:40 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/thoughts/%E4%B8%AD%E7%A7%8B%E7%BB%99%E5%AE%B6%E4%BA%BA%E6%89%93%E4%B8%AA%E7%94%B5%E8%AF%9D%E5%90%A7/</guid><description>
-<![CDATA[<h1>中秋，給家人打個電話吧</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
-        
-          <blockquote>
-<p>「媽媽這個世界真的會有女孩喜歡我嗎？」<br>
-「當然啦第一次見你我也才20多歲。」</p>
-</blockquote>
-
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2045946501&auto=0&height=66"></iframe>
-
-
-<p>中秋節將近，給家人打個電話吧。</p>
-<blockquote>
-<p>人有悲歡離合，月有陰晴圓缺，此事古難全。<br>
-但願人長久，千里共嬋娟。</p>
-</blockquote>
-<p>但願人長久，但願人長久，但願人長久。</p>
-        
-        <hr><p>本文2024-09-15首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2024-09-15</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Thoughts</category></item><item><title>機率論與數理統計</title><link>https://guzhengsvt.cn/zh-tw/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><pubDate>Tue, 10 Sep 2024 01:14:05 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid><description>
-<![CDATA[<h1>機率論與數理統計</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
-        
-          <h2 id="前言">
-<a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
-前言
-</h2><h3 id="第一版前言">
-<a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e7%89%88%e5%89%8d%e8%a8%80"></a>
-第一版前言
-</h3><p>[[2024-09-14]] 今天補考終於結束了，聽說正考直接放原卷，這幾天刷了三套網上得來的「西電原卷」（21 年和兩套 23 年）。上午刷的 21 年題，下午 $\frac{1}{4}$ 是一個字不改的原題，我都看笑了。
-戴浩當年說盡力給錢班找最好的老師，現在看來數統院沒人了？講課不行可以說是重心不在教學、天賦不在教書；出套卷子直接搬舊題，還是近幾年的，題也沒審錯漏百出，給我氣笑了。
-自己出的卷子毫無含金量，自己也不做做看。這是態度問題。
-你電期末考試放水挺好的，但不要總是拿老本糊弄人。對學生大談創新，對自己能混就行。這不是做學術的態度，更不是教書應有的態度。</p>
-<p>概率論就此告一段落，這兩天反覆看筆記刷題訂正不少錯誤，也明晰了這門課的知識結構。雖然內容仍然偏少，但作為期末複習的材料大抵足夠，這版就作為終版吧（大概）。
-中秋繼續整理電動力學和數位信號處理。</p>
-<h3 id="第二版前言">
-<a class="header-anchor" href="#%e7%ac%ac%e4%ba%8c%e7%89%88%e5%89%8d%e8%a8%80"></a>
-第二版前言
-</h3><blockquote>
-<p>Nothing is final!!!
-——錢學森</p>
-</blockquote>
-<p>補充了分佈函數左右連續問題，看來這門課離 final 還有很遠……</p>
-<h2 id="事件運算轉邏輯運算">
-<a class="header-anchor" href="#%e4%ba%8b%e4%bb%b6%e9%81%8b%e7%ae%97%e8%bd%89%e9%82%8f%e8%bc%af%e9%81%8b%e7%ae%97"></a>
-事件運算轉邏輯運算
-</h2><ul>
-<li>$A \cup B=A+B$</li>
-<li>$A \cap B=A \cdot B$</li>
-<li>$A-B=A \bar{B}$
-$A$ 事件發生 $B$ 事件不發生，由韋恩圖易證。
-可以將 $-B$ 理解為 $\cdot (-B)$ ，$-B$ 即為 $\bar{B}$</li>
-<li>若 $A \subset B$ ，$A \cup B=B,A \cap B=A$</li>
-</ul>
-<p>事件運算轉邏輯運算後，大部分法則共通。
-運用數電中學到的邏輯函數運算與化簡，可將複雜事件運算化簡。
-Tips：卡諾圖</p>
-<h2 id="四大事件概率公式">
-<a class="header-anchor" href="#%e5%9b%9b%e5%a4%a7%e4%ba%8b%e4%bb%b6%e6%a6%82%e7%8e%87%e5%85%ac%e5%bc%8f"></a>
-四大事件概率公式
-</h2>$$
-\begin{cases}
-P(A+B)=P(A)+P(B)-P(AB)\\
-P(A-B)=P(A)-P(AB)=P(A \bar{B})\\
-P(AB)=P(B) \cdot P(A|B)=P(A) \cdot P(B|A)\\
-P(A|B)=\frac{P(AB)}{P(B)}\\
-\end{cases}
-$$<h3 id="推論">
-<a class="header-anchor" href="#%e6%8e%a8%e8%ab%96"></a>
-推論
-</h3><p>$P(A+B+C)$ ，將 $A+B$ 看成一個事件，運用上面的加法公式，兩次拆分得到：
-</p>
-$$
-P(A+B+C)=P(A)+P(B)+P(C)-P(AB)-P(AC)-P(BC)+P(ABC)
-$$<p>
-更多和事件概率可依此遞推得到。</p>
-<p>對立事件：$A$ 不發生的概率，韋恩圖一目了然。
-</p>
-$$
-P(\bar{A})=P(1 \cdot \bar{A})=P(1-A)=P(1)-P(1 \cdot A)=1-P(A)
-$$<h2 id="非負性與規範性">
-<a class="header-anchor" href="#%e9%9d%9e%e8%b2%a0%e6%80%a7%e8%88%87%e8%a6%8f%e7%af%84%e6%80%a7"></a>
-非負性與規範性
-</h2><p>非負性：對於任意事件 $A$ ，$0 \le P(A) \le 1$ 。
-規範性：對於總事件 $\Omega$ ，$P(\Omega)=1$ 。</p>
-<h2 id="相互獨立">
-<a class="header-anchor" href="#%e7%9b%b8%e4%ba%92%e7%8d%a8%e7%ab%8b"></a>
-相互獨立
-</h2>$$
-\begin{cases}
-P(AB)=P(A) \cdot P(B)\\
-P(A|B)=P(A)
-\end{cases}
-$$<p>
-獨立必相互獨立。</p>
-<h2 id="古典概型">
-<a class="header-anchor" href="#%e5%8f%a4%e5%85%b8%e6%a6%82%e5%9e%8b"></a>
-古典概型
-</h2><blockquote>
-<p>各基本事件發生概率相等。</p>
-</blockquote>
-<p>Eg. 拋硬幣，擲骰子……
-</p>
-$$
-P(A)=\frac{A包含基本事件數}{\Omega 中基本事件數}
-$$<p>
-古典條件概率公式
-</p>
-$$
-P(B|A)=\frac{P(AB)}{P(A)}=\frac{同時在A,B中的基本事件數}{A包含基本事件數}
-$$<h2 id="伯努利概型二項分佈">
-<a class="header-anchor" href="#%e4%bc%af%e5%8a%aa%e5%88%a9%e6%a6%82%e5%9e%8b%e4%ba%8c%e9%a0%85%e5%88%86%e4%bd%88"></a>
-伯努利概型（二項分佈）
-</h2><blockquote>
-<p>$n$ 次獨立實驗，每次實驗只有 $A,\bar{A}$ 兩種結果。</p>
-</blockquote>
-<p>$X \sim B(n,p)$
-</p>
-$$
-P_n(k)=C_n^kp^k(1-p)^{n-k}
-$$<p>
-其中，$p=P(A),1-p=P(\bar{A})$</p>
-<h2 id="幾何概型">
-<a class="header-anchor" href="#%e5%b9%be%e4%bd%95%e6%a6%82%e5%9e%8b"></a>
-幾何概型
-</h2><p>事件 <em>所佔線/面/體積</em> 部分與整個 <em>線/面/體</em> 的 <em>長度/面積/體積</em> 比值。
-當事件所佔空間維度低於總事件空間 $\Omega$ 維度時，該事件概率恒為 0 。
-==Warning==：事件概率為 0 不代表一定不發生。
-Eg：隨機選中圓內某點，選中任意點概率為 0，但都可能發生。</p>
-<h2 id="均勻分佈">
-<a class="header-anchor" href="#%e5%9d%87%e5%8b%bb%e5%88%86%e4%bd%88"></a>
-均勻分佈
-</h2><p>$x \sim U(a,b)$
-近似為幾何分佈中的線性分佈，各點處概率密度：
-</p>
-$$
-f(x)=
-\begin{cases}
-0,x \le a\\
-\frac{1}{b-a},a  \lt  x \le b\\
-0,x \gt b\\
-\end{cases}
-$$<p>分佈函數：
-</p>
-$$
-F(x)=
-\begin{cases}
-0,x \le a\\
-\frac{x-a}{b-a},a \lt x \le b\\
-1,x \gt b\\
-\end{cases}
-$$<h2 id="指數分佈">
-<a class="header-anchor" href="#%e6%8c%87%e6%95%b8%e5%88%86%e4%bd%88"></a>
-指數分佈
-</h2><p>$x \sim E(\lambda)$</p>
-<h3 id="概率密度">
-<a class="header-anchor" href="#%e6%a6%82%e7%8e%87%e5%af%86%e5%ba%a6"></a>
-概率密度
-</h3>$$
-f(x)=
-\begin{cases}
-\lambda e^{-\lambda x},x \gt 0\\
-0,x \le 0\\
-\end{cases}
-$$<h3 id="分佈函數">
-<a class="header-anchor" href="#%e5%88%86%e4%bd%88%e5%87%bd%e6%95%b8"></a>
-分佈函數
-</h3>$$
-F(x)=
-\begin{cases}
-1-e^{-\lambda x},x \ge 0\\
-0,x \lt 0\\
-\end{cases}
-$$<h2 id="泊松分佈">
-<a class="header-anchor" href="#%e6%b3%8a%e6%9d%be%e5%88%86%e4%bd%88"></a>
-泊松分佈
-</h2><p>$X \sim \pi(\lambda)$
-</p>
-$$
-P(X=k)=\frac{e^{-\lambda}\lambda^k}{k!}
-$$
-        
-        <hr><p>本文2024-09-10首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2024-09-10</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Math</category></item><item><title>憑欄靜聽瀟瀟雨，故國人民有所思。</title><link>https://guzhengsvt.cn/zh-tw/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</link><pubDate>Mon, 09 Sep 2024 17:54:04 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/thoughts/%E5%87%AD%E6%A0%8F%E9%9D%99%E5%90%AC%E6%BD%87%E6%BD%87%E9%9B%A8%E6%95%85%E5%9B%BD%E4%BA%BA%E6%B0%91%E6%9C%89%E6%89%80%E6%80%9D/</guid><description>
-<![CDATA[<h1>憑欄靜聽瀟瀟雨，故國人民有所思。</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
-        
-          <p>「我有一個夢，也許有一天，燦爛的陽光能照進黑暗森林。」</p>
-<p>這時，這裡的太陽卻在落下去，現在只在遠山露出頂端的一點，像山頂上鑲嵌著的一塊光燦燦的寶石。孩子已經跑遠，同草地一起沐浴在金色的晚霞之中。</p>
-<p>太陽快落下去了，你們的孩子居然不害怕？</p>
-<p>「當然不害怕，她知道明天太陽還會升起來的。」</p>
-<p>晚安。
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2683784600.jpg" alt="毛1.JPG"></p>
-        
-        <hr><p>本文2024-09-09首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2024-09-09</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Thoughts</category></item></channel></rss>
+        <hr><p>本文2025-04-13首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-04-13</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Thoughts</category></item></channel></rss>

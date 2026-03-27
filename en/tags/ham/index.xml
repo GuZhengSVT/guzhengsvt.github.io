@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HAM on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/en/tags/ham/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright><lastBuildDate>Tue, 11 Nov 2025 18:44:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/en/tags/ham/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting into Amateur Radio from Scratch</title><link>https://guzhengsvt.cn/en/post/othernotes/the-path-to-amateur-radio-from-scratch/</link><pubDate>Tue, 03 Jun 2025 20:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/the-path-to-amateur-radio-from-scratch/</guid><description>
+<![CDATA[<h1>Getting into Amateur Radio from Scratch</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
+        
+          <h2 id="getting-the-class-a-operator-certificate">
+<a class="header-anchor" href="#getting-the-class-a-operator-certificate"></a>
+Getting the Class A Operator Certificate
+</h2><p>Last year, in 2024, I took the exam in Xi&rsquo;an and got my Class A certificate. I bought a Quansheng UV-K6 handheld, and the first time I formally listened to an amateur radio contact was on the balcony of Dorm Hai-8 at XDU on $483.100 \text{MHz}$. Since I did not yet have a call sign at the time, transmitting would have been illegal, so I neither chatted nor logged the contact.</p>
+<p>The A-class exam itself is not difficult. The hardest part is getting a seat. In Xi&rsquo;an, Class A exams are held only about once every six months, and registration is basically first-come, first-served with no mercy. The sign-up system also breaks quite often. If you are serious about taking it, I would suggest first following the radio society in either your registered hometown or your place of long-term residence, and booking somewhere that runs exams more often, has more seats, and processes certificates faster.</p>
+<p>For students who simply want to get the A certificate quickly, setting aside about three days in advance for question drilling is already more than safe, honestly even one day can be enough. You can use platforms like the Zhipu app or HAM mini-programs for practice and mock tests. I would recommend first reading this 2018 <a href="https://www.jimmytian.com/archives/crac-aro-licence-a-review-guide.html">blog post</a>.</p>
+<p><strong>==Waring==</strong>: The question bank was updated in 2025, so the blog post above may no longer fully apply. Still, it remains useful for getting a feel for the questions.</p>
+<h2 id="getting-a-call-sign-and-a-station-license">
+<a class="header-anchor" href="#getting-a-call-sign-and-a-station-license"></a>
+Getting a Call Sign and a Station License
+</h2><p>Once you have the operator certificate, you can buy or build equipment, apply to set up a station, and obtain a call sign. As a beginner, I went with the very popular 5 W handheld Quansheng UV-K6. A brand-new one only costs a bit over a hundred RMB, and that is enough to get started. After getting a B certificate, I can move on to better equipment and antennas for HF.</p>
+<p>Xi&rsquo;an really is slow when it comes to administration. I went to the society in early March to apply for my station, and I did not receive my station license until the end of May, almost three months later.<br>
+Judging from the stamped date on the license, it had already been approved on May 8. I honestly have no idea why they could drag it out that long, apparently only issuing them once a month.</p>
+<p>With a call sign, you can legally conduct RTT. With a station license, you can use your registered equipment to transmit and receive on the legal bands.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E7%94%B5%E5%8F%B0%E6%89%A7%E7%85%A7-%E6%AD%A3%E9%9D%A2.jpeg" alt="电台执照-正面.jpeg"></p>
+<h2 id="on-designing-qsl-cards-and-call-sign-stamps">
+<a class="header-anchor" href="#on-designing-qsl-cards-and-call-sign-stamps"></a>
+On Designing QSL Cards and Call Sign Stamps
+</h2><p>Strictly speaking, QSL cards and call sign stamps are part of amateur radio culture rather than actual necessities. But when in Rome, making meaningful or good-looking QSL cards and stamps is a nice way to preserve a record and a memory of a contact for both yourself and the other operator.</p>
+<p>Naturally, both have a few accepted &ldquo;industry standards.&rdquo;</p>
+<h3 id="qsl-cards">
+<a class="header-anchor" href="#qsl-cards"></a>
+QSL Cards
+</h3><p>For mailing convenience, QSL cards are usually postcard-sized, about $14 \text{cm} \times 9 \text{cm}$. Since printing requires trimming, some extra margin is needed. For example, the Taobao shop run by BG9GXM advised me to set the canvas to $14.4\text{cm} \times 9.4\text{cm}$, add $3 \text{mm}$ guide lines around the edges for trimming, and keep all content except the background image inside the safe area.</p>
+<p>I use Krita, which is free and open source. Most people probably still use Photoshop. Exporting a PSD file also makes it easier for the printer to tweak things if necessary.</p>
+<p>QSL cards can be single-sided, double-sided, or even folded, as long as the required information is present. You can look at the <a href="https://forum.hamcq.cn/qslCardShow">QSL card gallery</a> on the HamCQ community, as well as the following posts:</p>
+<ul>
+<li><a href="https://forum.hamcq.cn/d/1882">设计自己的 QSL 卡片 —— 来自广告从业者的分享 - HamCQ 社区</a></li>
+<li><a href="https://www.hellocq.net/forum/read.php?tid=207871">哈罗CQ火腿社区 - QSL卡展板 - QSL卡片制作【新手必看Q&amp;A】</a></li>
+<li><a href="https://forum.hamcq.cn/d/418">分享一版自己设计的 QSL 卡片背面模板 - HamCQ 社区</a></li>
+</ul>
+<p>Or you can simply ask 久美印业, BG9GXM&rsquo;s Taobao shop. That was where I printed my first batch of cards. The print quality was clear, and communication was patient.</p>
+<p>Below is the first QSL card I designed:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/QSL-%E6%A0%87-1.jpeg" alt="QSL-标-1.jpeg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/QSL-%E6%A0%87-2.jpeg" alt="QSL-标-2.jpeg"></p>
+<p>Problems:</p>
+<ol>
+<li>The BA-style call sign logo on the front was scaled too small. The black part is hard to make out unless you stare at it. Next time I need to pay more attention to placement and contrast with the background.</li>
+<li>I wanted the text on the window to look like Noa had handwritten it directly on the glass, but the font still did not feel handwritten enough. I could not find a better one in Krita, so I need to revise that later.</li>
+<li>Once the background was added on the back, I could only really choose double-sided coated paper or expensive art paper. Coated paper takes oil-based ink better than water-based ink, so gel pens write poorly on it. After testing, a ballpoint pen actually worked quite well and did not smudge easily.</li>
+<li>The background opacity on the back was set to 80 percent, which was still too high. I should probably try 60 percent next time. In the actual print, the small black text is hard to read.</li>
+<li>The reserved writing height after &ldquo;To Radio:&rdquo; is too small, with too little room between the top blank margin and the form below.</li>
+<li>$300 \text{g}$ coated business-card stock is still too soft. A stiffer card stock would be better.</li>
+</ol>
+<h3 id="call-sign-stamp-and-eyeball-stamp">
+<a class="header-anchor" href="#call-sign-stamp-and-eyeball-stamp"></a>
+Call Sign Stamp and EyeBall Stamp
+</h3><p>Custom stamp shops usually make stamps with a diameter of about $40 \text{mm}$. If you design one yourself, you can simply create a $40\text{mm} \times 40\text{mm}$ canvas and then refer to existing call sign stamp designs for the rest. Of course, designing call sign stamps does not necessarily require Photoshop-type software. Vector tools may be better. <a href="https://forum.hamcq.cn/d/5865">使用 Visio 制作呼号章的手把手教学 - HamCQ 社区</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E5%91%BC%E5%8F%B7%E7%AB%A0.png" alt="呼号章.png"></p>
+<p>The stamp above is my own design, and I included the following elements:</p>
+<ol>
+<li>A gear decoration on the outer ring, representing workers and also a bit of engineering flavor.</li>
+<li>The Chinese and English wording for &ldquo;Chinese Amateur Radio Station,&rdquo; the call sign itself, and &ldquo;Shaan Xi&rdquo; to indicate the province.</li>
+<li>A five-pointed star decoration.</li>
+<li>A radio set and radio waves on the screen, a BeiDou satellite for satellite operation, an arrow representing rockets and aircraft, a ground signal station for antennas, and a signal icon representing radio waves in space.</li>
+</ol>
+<p>I personally pay a lot of attention to aerospace, so I am especially fond of that arrow motif. Our school and our school&rsquo;s science association both use arrows in their logos as well. I originally thought about adding a few stars to suggest the night sky, but then I reconsidered. If I someday also get into &ldquo;plane spotting&rdquo; in the sense of monitoring airport towers and aviation bands, then a purely rocket-like arrow would feel too narrow.<br>
+So in the end I went with something more general: the arrow can represent either a space rocket or an aircraft, with an angle somewhere between vertical launch and level flight.</p>
+<p>Compared with QSL cards, call sign stamps are not really bound by strict content requirements, nor do they have to be stamped onto QSL cards at all. In the end, stamping is simply a cultural habit and a way to show personality.</p>
+<p>An EyeBall QSO stamp is used for <strong>non-radio contacts</strong>, such as meeting in person or exchanging cards on a forum.</p>
+<p>Sometimes, if you have too many cards to send, signing them one by one is also a pain, and in that case a signature stamp can help.</p>
+<p>As I see it, <strong>the essence of amateur radio lies in exchanging technical knowledge, improving one&rsquo;s skills, and serving society. Whether cards or stamps, they are there to support the culture of the community, not to become the main thing.</strong></p>
+<h2 id="contact-logging">
+<a class="header-anchor" href="#contact-logging"></a>
+Contact Logging
+</h2><p>After each contact, the following information should be logged promptly:</p>
+<ul>
+<li>Requird:
+<ol>
+<li>Start and end time of the QSO, with attention to the time zone</li>
+<li>Both call signs</li>
+<li>Both QTHs</li>
+<li>Both signal reports</li>
+<li>Operating mode</li>
+<li>Frequency, including repeater and tone information if applicable</li>
+</ol>
+</li>
+<li>Optional:
+<ol>
+<li>Equipment</li>
+<li>Antenna</li>
+<li>Transmit power</li>
+<li>Local weather</li>
+<li>Whether cards will be exchanged</li>
+</ol>
+</li>
+</ul>
+<p>If these logs are kept properly, they can later be uploaded to platforms such as LoTW, Logbook of The World.</p>
+<h2 id="sending-and-receiving-qsl-cards">
+<a class="header-anchor" href="#sending-and-receiving-qsl-cards"></a>
+Sending and Receiving QSL Cards
+</h2><h3 id="mainland-china">
+<a class="header-anchor" href="#mainland-china"></a>
+Mainland China
+</h3><p>Within the same province or city in mainland China, an ordinary letter costs 0.8 RMB in postage, while a registered letter costs 3.8 RMB, meaning 3 + 0.8.<br>
+Across provinces or municipalities, ordinary mail costs 1.2 RMB and registered mail costs 4.2 RMB, meaning 3 + 1.2.<br>
+The first weight bracket is 20 g. For every additional 20 g, or any fraction thereof, postage increases by 0.8 RMB within the province or 1.2 RMB across provinces.</p>
+<p>There are three main ways to pay postage:</p>
+<ol>
+<li>Go to the post office and hand it directly to the staff, who will charge you and apply the stamps.</li>
+<li>Buy stamps yourself and attach them to the envelope or postcard.</li>
+<li>Buy a <strong>prepaid envelope</strong>, meaning the envelope already carries postage.</li>
+</ol>
+<h3 id="buying-stamps">
+<a class="header-anchor" href="#buying-stamps"></a>
+Buying Stamps
+</h3><ol>
+<li>Local post offices: usually limited selection, face value</li>
+<li>Specialty postal branches: more varieties, sometimes themed stamps, face value</li>
+<li>Postal website or app: broad selection, face value</li>
+<li>E-commerce platforms: ordinary stamps often sold at 50 to 90 percent of face value, good for regular mailing</li>
+<li>Private sales: Xianyu and individual sellers, with higher risk</li>
+</ol>
+<p><strong>Warning:</strong> When buying from unofficial postal channels, be careful about authenticity. I do not recommend stamps sold below half price.<br>
+I usually buy discounted stamps from high-volume Taobao shops and check them with a UV light.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E9%B9%B0%E7%A5%A8.JPG" alt="一张很帅的老鹰，紫外灯照射后会显示红色荧光骨架"></p>
+<h2 id="getting-the-class-b-certificate">
+<a class="header-anchor" href="#getting-the-class-b-certificate"></a>
+Getting the Class B Certificate
+</h2><p>The Shaanxi Class B operator exam in 2025 was held on November 8, and my station license was issued on May 8, which meant I had just barely crossed the required six-month mark. Otherwise I would have missed this once-a-year exam.<br>
+This was also the first exam after the question bank revision. Compared with Class A, the old B bank had a bit over 600 questions, while the new B bank has over 1100, almost doubling in size. The difficulty naturally increased as well.</p>
+<p>Still, the revision was not entirely a bad thing. Being among the first batch to sit the new exam, I found the actual paper surprisingly easy.<br>
+While practicing, all the frequency questions and calculation questions were a headache, especially the frequency questions, which are all numbers and much harder to memorize than plain-language items. On top of that, there were topics like antenna-feed systems, signal modulation and demodulation, and radio-wave theory, which forced me to revisit the Electromagnetic Fields and Waves course I had taken two years ago, and even learn a bit of Communication Principles that I had never properly studied.<br>
+I went through the whole bank in random order, marked the hard ones, drilled them again and again until I could tell the answer from the first line, and then redid the wrong questions. Even so, time was tight, and I never even did a full mock exam, so I still felt uncertain inside.</p>
+<p>After all that preparation, the real paper turned out not to contain a single truly difficult question. I finished the 60 questions in a bit more than ten minutes, checked them once more, and honestly spent longer filling in the answer sheet than solving the paper itself.<br>
+I handed it in after half an hour, then waited downstairs for over an hour before the results came out. I got 58 out of 60 without much trouble. Even classmates who had only finished about 700 questions in the bank still scored above 50. There was no helping it, almost none of the later questions in the bank showed up at all.</p>
+<p>Now I just have to wait for the certificate to be issued. I have no idea whether it will come in the new Class B format or the older-looking one. By &ldquo;old&rdquo; here I mean the appearance, not the truly old B license from before the new regulations, the one that still allowed 100 W HF operation.<br>
+To take the Class C exam, one must have had an HF station established for 18 months. I would really like to set one up as soon as possible, but money is the problem. HF stations often cost several thousand or even more, and antennas and feed lines are not cheap either.<br>
+Maybe I will save up for a Xiegu, or perhaps build a μSDX myself.</p>
+
+        
+        <hr><p>Published on 2025-06-03 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-11-11</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>OtherNotes</category></item><item><title>QSL Card Gallery</title><link>https://guzhengsvt.cn/en/post/othernotes/qsl-card-exhibition/</link><pubDate>Thu, 21 Aug 2025 18:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/qsl-card-exhibition/</guid><description>
+<![CDATA[<h1>QSL Card Gallery</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
+        
+          <h2 id="1-noa-1">
+<a class="header-anchor" href="#1-noa-1"></a>
+1. Noa-1
+</h2><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/QSL-%E6%A0%87-1.jpeg" alt="Noa-1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/QSL-%E6%A0%87-2.jpeg" alt="Noa-2.jpeg"></p>
+<h3 id="design-notes">
+<a class="header-anchor" href="#design-notes"></a>
+Design Notes
+</h3><p>This one is based on 生盐诺亚 from <em><strong>Blue Archive</strong></em>, one of my favorite characters.</p>
+<ul>
+<li>The front uses a screenshot from Noa&rsquo;s memorial lobby. She is writing by hand on the floor-to-ceiling window a line from <em>Le Spleen de Paris</em>, specifically &ldquo;The Stranger,&rdquo; by the nineteenth-century French modernist poet Charles Pierre Baudelaire.</li>
+</ul>
+<blockquote>
+<p>Qui aimes-tu le mieux, homme énigmatique, dis?<br>
+Enigmatic man, tell me, whom do you love best?</p>
+</blockquote>
+<p>After that line, I added the ITU zone, CQ zone, and Maidenhead grid. I tried to use a handwriting-style font and stretch it with perspective so the text would look like it had really been written on the glass.</p>
+<ul>
+<li>On the back, besides the standard QSO information fields, I added a QR code linking to my blog. The background image is a screenshot from an official BA Noa video.</li>
+<li><strong>Warning:</strong> I accidentally wrote <em>UCT</em> instead of <em>UTC</em> in the time-zone field. I did not notice it until the next card was already printed. If I ever print a second batch, I will fix it.</li>
+</ul>
+<h3 id="print-batch">
+<a class="header-anchor" href="#print-batch"></a>
+Print Batch
+</h3><ul>
+<li>Batch 1: 200 cards on 300g coated business-card stock, with rounded corners, printed by 久美印业 on Taobao.
+<ul>
+<li>The cards are not stiff enough, and the back side is hard to write on.</li>
+<li>Still plenty left.</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-dfh">
+<a class="header-anchor" href="#2-dfh"></a>
+2. DFH
+</h2><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-1.png" alt="DFH-1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-2-%E6%9B%B4%E6%AD%A3.png" alt="DFH-2"></p>
+<h3 id="design-notes-1">
+<a class="header-anchor" href="#design-notes-1"></a>
+Design Notes
+</h3><p>The whole design draws from the space-history lyric adaptation song <a href="https://www.bilibili.com/video/BV129mGY3Efe/">《东方红的心脏》</a> by the BiliBili creator <strong>炙弹冰</strong>, itself based on <strong><a href="https://music.163.com/#/song?id=1907751320">シリウスの心臓(天狼星的心脏)</a></strong> by <a href="https://music.163.com/#/artist?id=51020133">ヰ世界情緒</a>.</p>
+<ul>
+<li>The girl on the right side of the front is the illustration used for 《东方红的心脏》, a personified version of the Dong Fang Hong satellite.</li>
+<li>On the left side of the front are two overlapping satellites. The solid one on the left is a screenshot of a 3D model of Dong Fang Hong 1. The colorful one on the right was generated from that image using the <a href="https://lab.magiconch.com/one-last-image/">One Last Image Louvre Generator</a>, producing a gradient look reminiscent of the <em><strong>One Last Kiss</strong></em> cover.</li>
+<li>The red and blue elliptical rings around the satellite are written in Morse code. The red one says &ldquo;Long live the People&rsquo;s Republic of China,&rdquo; and the blue one says &ldquo;Long live the great unity of the people of the world,&rdquo; following the wording in the 1955 <em>Standard Telegraph Codebook</em>.</li>
+<li>The date on the solid satellite marks the launch of Dong Fang Hong 1 on April 24, 1970, and the day it stopped broadcasting &ldquo;The East Is Red&rdquo; on May 14. That was the satellite&rsquo;s brief life, but also the beginning of China&rsquo;s rise in space.</li>
+<li>The date on the colored satellite refers to the British bombardment of Macau on June 21, 1840, which opened the First Opium War, and extends to the founding of the People&rsquo;s Republic of China on October 1, 1949, when the Chinese people finally stood up. It carries not only the humiliation of China&rsquo;s modern history, but also the broader anti-imperialist struggles of many Third World countries seeking independence.</li>
+<li>The satellite and the girl are separated by two sine curves symbolizing radio waves.</li>
+<li>Compared with <a href="/en/post/othernotes/qsl-card-exhibition/#1-noa-1">Noa-1</a>, this design adds an NFC mark on the back. I plan to add NFC tags to future cards so they can store card data, QSO data, or even trigger music and video playback automatically.</li>
+<li>The line below the email on the back, &ldquo;How is one to live through a life wrapped in haze? Cast off hesitation, for the morning sun is both you and me,&rdquo; is a lyric from 《东方红的心脏》 that I love very much.</li>
+<li>In the lower-right corner on the back, I added a short numbered score of <em>The East Is Red</em> to echo the Dong Fang Hong 1 theme of the card.</li>
+</ul>
+<p>I also designed a PCB version of this card. It includes an NFC chip and antenna coil, and I placed a red LED at the chest of the figure on the front. When a phone scans it at close range, the LED lights up, which fits the &ldquo;Heart of Dong Fang Hong&rdquo; theme perfectly.<br>
+Because the cost is high, I plan to give the PCB version only to the first station I work in each call area, or to the first station contacted through a given operating mode.</p>
+<p>The inscription on the Monument to the People&rsquo;s Heroes reads:</p>
+<blockquote>
+<p>Eternal glory to the people&rsquo;s heroes who laid down their lives in the People&rsquo;s Liberation War and the people&rsquo;s revolution over the past three years!<br>
+Eternal glory to the people&rsquo;s heroes who laid down their lives in the People&rsquo;s Liberation War and the people&rsquo;s revolution over the past thirty years!<br>
+Going back further to 1840, eternal glory to the people&rsquo;s heroes who laid down their lives in every struggle against internal and external enemies, for national independence and for the freedom and happiness of the people!</p>
+</blockquote>
+<p>Even today, the Dong Fang Hong satellite is still in orbit, quietly witnessing seas turn into mulberry fields.</p>
+<h3 id="print-batch-1">
+<a class="header-anchor" href="#print-batch-1"></a>
+Print Batch
+</h3><p><strong>Paper version:</strong></p>
+<ul>
+<li>Batch 1: 150 cards on 350g pearlescent paper, rounded corners, printed via 未来既是未来 on Xianyu
+<ul>
+<li>Plenty left</li>
+</ul>
+</li>
+</ul>
+<p><strong>PCB version:</strong></p>
+<ul>
+<li>Batch 1: 50 cards with colored silkscreen from JLCPCB, NT3H2111W0FHKH XQF, rounded corners
+<ul>
+<li>Plenty left</li>
+</ul>
+</li>
+</ul>
+
+        
+        <hr><p>Published on 2025-08-21 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-08-21</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>OtherNotes</category></item></channel></rss>

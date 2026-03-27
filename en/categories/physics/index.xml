@@ -1,4 +1,1192 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Physics on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/en/categories/physics/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright><lastBuildDate>Wed, 04 Sep 2024 23:44:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/en/categories/physics/index.xml" rel="self" type="application/rss+xml"/><item><title>Digital Signal Processing</title><link>https://guzhengsvt.cn/en/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link><pubDate>Wed, 04 Sep 2024 23:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Physics on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/en/categories/physics/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright><lastBuildDate>Fri, 05 Sep 2025 11:05:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/en/categories/physics/index.xml" rel="self" type="application/rss+xml"/><item><title>Quantum Physics</title><link>https://guzhengsvt.cn/en/post/physics/quantum-physics/</link><pubDate>Fri, 05 Sep 2025 11:05:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/physics/quantum-physics/</guid><description>
+<![CDATA[<h1>Quantum Physics</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
+        
+          <h2 id="chapter-1-wave-particle-duality-and-state-description">
+<a class="header-anchor" href="#chapter-1-wave-particle-duality-and-state-description"></a>
+Chapter 1 Wave-Particle Duality and State Description
+</h2><h3 id="11-formation-and-applications-of-quantum-mechanics">
+<a class="header-anchor" href="#11-formation-and-applications-of-quantum-mechanics"></a>
+1.1 Formation and Applications of Quantum Mechanics
+</h3><h4 id="111-old-quantum-theory">
+<a class="header-anchor" href="#111-old-quantum-theory"></a>
+1.1.1 Old Quantum Theory
+</h4><h5 id="photoelectric-effect-and-the-photon-hypothesis">
+<a class="header-anchor" href="#photoelectric-effect-and-the-photon-hypothesis"></a>
+Photoelectric Effect and the Photon Hypothesis
+</h5><ul>
+<li><strong>Photon energy</strong>: $E = h\nu$</li>
+<li><strong>Threshold frequency</strong>: $\nu_0 = \dfrac{W_0}{h}$; no photoelectrons are emitted when $\nu < \nu_0$</li>
+<li><strong>Photoelectric equation</strong>:<br>
+
+$$
+  E_k^{\text{max}} = \frac{1}{2}\mu v^2_m = h\nu - W_0
+  $$</li>
+<li>The photoelectric effect demonstrates the particle nature of light.</li>
+</ul>
+<h5 id="energy-momentum-relation-of-photons-and-wave-particle-unity">
+<a class="header-anchor" href="#energy-momentum-relation-of-photons-and-wave-particle-unity"></a>
+Energy-Momentum Relation of Photons and Wave-Particle Unity
+</h5><ul>
+<li>
+<p><strong>Relativistic energy-momentum relation</strong><br>
+</p>
+$$
+  E^2=(pc)^2+(m_0c^2)^2,\quad m_0=0\ \Rightarrow\ E=c\,\lVert\vec p\rVert
+  $$</li>
+<li>
+<p><strong>Photon energy</strong><br>
+</p>
+$$
+  E=h\nu=\frac{hc}{\lambda}=\hbar\omega
+  $$</li>
+<li>
+<p><strong>Photon momentum (vector form)</strong><br>
+Let $\mathbf n$ be the unit vector in the propagation direction, then
+</p>
+$$
+  \vec p=\frac{E}{c}\,\mathbf n=\frac{h}{\lambda}\,\mathbf n=\hbar\vec k,\quad
+  \vec k=\frac{2\pi}{\lambda}\,\mathbf n
+  $$</li>
+<li>
+<p><strong>Unified correspondence of wave and particle pictures</strong><br>
+</p>
+$$
+  E\ \longleftrightarrow\ \hbar\omega,\qquad
+  \vec p\ \longleftrightarrow\ \hbar\vec k
+  $$</li>
+</ul>
+<h5 id="bohr-structure-of-the-hydrogen-atom">
+<a class="header-anchor" href="#bohr-structure-of-the-hydrogen-atom"></a>
+Bohr Structure of the Hydrogen Atom
+</h5><ul>
+<li>Quantization of orbital angular momentum:
+
+$$
+  L = n\hbar,\quad n=1,2,3,\dots
+  $$</li>
+<li>Energy levels:
+
+$$
+  E_n = -\frac{13.6\ \text{eV}}{n^2}
+  $$</li>
+<li>This successfully explains the line spectrum of hydrogen.</li>
+</ul>
+<h5 id="bohrs-postulates">
+<a class="header-anchor" href="#bohrs-postulates"></a>
+Bohr&rsquo;s Postulates
+</h5><ul>
+<li>Electrons moving in stable orbits do not radiate energy.</li>
+<li>Electrons absorb or emit energy when they jump between energy levels:
+
+$$
+  \Delta E = h\nu
+  $$</li>
+</ul>
+<h5 id="compton-effect">
+<a class="header-anchor" href="#compton-effect"></a>
+Compton Effect
+</h5><ul>
+<li>The wavelength of a high-energy photon increases after scattering from an electron:
+
+$$
+  \Delta\lambda = \lambda' - \lambda = \frac{h}{m_ec}(1-\cos\theta)
+  $$</li>
+<li>The experiment confirms both the particle nature of light and conservation of momentum.</li>
+</ul>
+<h5 id="blackbody-radiation">
+<a class="header-anchor" href="#blackbody-radiation"></a>
+Blackbody Radiation
+</h5><ul>
+<li>Energy quantization assumption: the energy of the electromagnetic field takes discrete values $E=nh\nu$.</li>
+<li>Planck formula:
+
+$$
+  u(\nu,T)=\frac{8\pi h\nu^3}{c^3}\frac{1}{e^{h\nu/kT}-1}
+  $$</li>
+<li>This successfully explains the blackbody spectrum and marks the birth of quantum theory.</li>
+</ul>
+<h4 id="112-wave-particle-duality-of-microscopic-particles">
+<a class="header-anchor" href="#112-wave-particle-duality-of-microscopic-particles"></a>
+1.1.2 Wave-Particle Duality of Microscopic Particles
+</h4><h5 id="de-broglie-hypothesis">
+<a class="header-anchor" href="#de-broglie-hypothesis"></a>
+de Broglie Hypothesis
+</h5><ul>
+<li>Microscopic particles have not only particle properties but also wave properties.</li>
+<li>Every particle with momentum $\vec p$ corresponds to a matter wave whose wavelength and frequency are related to its momentum and energy.</li>
+</ul>
+<h5 id="de-broglie-relations">
+<a class="header-anchor" href="#de-broglie-relations"></a>
+de Broglie Relations
+</h5><ul>
+<li>Wavelength:
+
+$$
+  \lambda = \frac{h}{p}
+  $$</li>
+<li>Vector form:
+
+$$
+  \vec p = \hbar \vec k
+  $$</li>
+<li>Frequency:
+
+$$
+  E = h\nu = \hbar\omega
+  $$</li>
+</ul>
+<hr>
+<h3 id="12-states-and-wave-functions">
+<a class="header-anchor" href="#12-states-and-wave-functions"></a>
+1.2 States and Wave Functions
+</h3><h4 id="121-uncertainty-principle">
+<a class="header-anchor" href="#121-uncertainty-principle"></a>
+1.2.1 Uncertainty Principle
+</h4><ul>
+<li>The position and momentum of a microscopic particle cannot be measured simultaneously with arbitrary precision.</li>
+<li>Heisenberg uncertainty relation:
+
+$$
+  \Delta x \cdot \Delta p_x \geq \frac{\hbar}{2}
+  $$</li>
+<li>Energy-time uncertainty relation:
+
+$$
+  \Delta E \cdot \Delta t \geq \frac{\hbar}{2}
+  $$</li>
+<li>Its origin lies in wave-particle duality and the non-commutativity of operators.</li>
+</ul>
+<h4 id="122-wave-function">
+<a class="header-anchor" href="#122-wave-function"></a>
+1.2.2 Wave Function
+</h4><ul>
+<li>To describe the state of a microscopic particle, we introduce the <strong>wave function</strong> $\psi(\vec r,t)$.</li>
+<li><strong>Probabilistic interpretation</strong>: $|\psi(\vec r,t)|^2 dV$ gives the probability of finding the particle in the volume element $dV$.</li>
+<li>The wave function must satisfy the superposition principle and the Schrödinger equation.</li>
+<li>The total probability over all space is 1, so the probability distribution depends only on the relative magnitude of the wave function, not its absolute scale.</li>
+<li>Multiplying the wave function by a constant does not change the physical state it describes.</li>
+<li>Standard requirements for a wave function: single-valued, finite, and continuous.</li>
+</ul>
+<h4 id="123-normalization-of-the-wave-function">
+<a class="header-anchor" href="#123-normalization-of-the-wave-function"></a>
+1.2.3 Normalization of the Wave Function
+</h4><ul>
+<li><strong>Normalization condition</strong>:
+
+$$
+  \int_{-\infty}^{\infty} \psi^* (\vec r,t) \psi (\vec r,t) dV = 1
+  $$</li>
+<li><strong>How to normalize a wave function</strong>
+
+$$
+  \int_{-\infty}^{\infty} |\Psi(\vec r,t)|^2 dV = A^2 \int_{-\infty}^{\infty} |\psi(\vec r,t)|^2 dV = 1
+  $$
+where $A$ is the normalization constant.</li>
+</ul>
+<hr>
+<h3 id="13-schrödinger-equation">
+<a class="header-anchor" href="#13-schr%c3%b6dinger-equation"></a>
+1.3 Schrödinger Equation
+</h3><h4 id="131-wave-equation-for-a-free-particle">
+<a class="header-anchor" href="#131-wave-equation-for-a-free-particle"></a>
+1.3.1 Wave Equation for a Free Particle
+</h4><p><strong>Concept</strong><br>
+A free particle is a particle not subject to external forces. In quantum mechanics, its state is described by the wave function $\psi(\vec{r},t)$ and satisfies the Schrödinger equation.</p>
+<p><strong>Schrödinger equation for a free particle</strong><br>
+</p>
+$$
+i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = -\frac{\hbar^2}{2m} \nabla^2 \psi(\vec{r},t)
+$$<p>
+where:</p>
+<ul>
+<li>$\hbar$: reduced Planck constant</li>
+<li>$m$: mass of the particle</li>
+<li>$\nabla^2$: Laplacian operator</li>
+</ul>
+<p><strong>Plane-wave solution</strong><br>
+</p>
+$$
+\psi(\vec{r},t) = A e^{i(\vec{k}\cdot\vec{r} - \omega t)}
+$$<p>
+where:</p>
+<ul>
+<li>$\vec{k}$ is the wave vector, with $|\vec{k}| = k$</li>
+<li>$\omega$ is the angular frequency, satisfying
+
+$$
+E = \hbar \omega = \frac{\hbar^2 k^2}{2m}
+$$</li>
+</ul>
+<p><strong>Momentum-wave vector relation</strong>
+</p>
+$$
+\vec{p} = \hbar \vec{k}
+$$<h5 id="plane-wave-derivation-of-the-free-particle-schrödinger-equation">
+<a class="header-anchor" href="#plane-wave-derivation-of-the-free-particle-schr%c3%b6dinger-equation"></a>
+Plane-Wave Derivation of the Free-Particle Schrödinger Equation
+</h5><p><strong>1. Assume a plane-wave form</strong>
+</p>
+$$
+\psi(\vec{r},t) = A e^{i(\vec{k}\cdot\vec{r} - \omega t)}
+$$<p>
+with $\vec{k}$ the wave vector, $\omega$ the angular frequency, and $A$ the amplitude constant.</p>
+<p><strong>2. Time derivative</strong>
+</p>
+$$
+\frac{\partial \psi}{\partial t} = \frac{\partial}{\partial t} \left[ A e^{i(\vec{k}\cdot\vec{r} - \omega t)} \right] 
+= -i \omega A e^{i(\vec{k}\cdot\vec{r} - \omega t)} 
+= -i \omega \psi
+$$<p>
+Multiplying by $i\hbar$ gives
+</p>
+$$
+i\hbar \frac{\partial \psi}{\partial t} = \hbar \omega \psi
+$$<p><strong>3. Spatial Laplacian</strong>
+</p>
+$$
+\nabla^2 \psi = \nabla^2 \left[ A e^{i \vec{k}\cdot\vec{r}} e^{-i\omega t} \right] 
+= -k^2 A e^{i(\vec{k}\cdot\vec{r} - \omega t)} 
+= -k^2 \psi
+$$<p>
+Thus,
+</p>
+$$
+-\frac{\hbar^2}{2m} \nabla^2 \psi = \frac{\hbar^2 k^2}{2m} \psi
+$$<p><strong>4. Energy relation</strong>
+</p>
+$$
+E = \frac{\hbar^2 k^2}{2m} = \hbar \omega
+$$<p><strong>5. Final equation</strong>
+</p>
+$$
+i\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m} \nabla^2 \psi
+$$<p><strong>Remark</strong></p>
+<ul>
+<li>This derivation uses only the plane-wave form and differentiation, without relying on operator definitions.</li>
+<li>It corresponds to the case $V=0$.</li>
+</ul>
+<h4 id="133-stationary-state-schrödinger-equation-and-stationary-wave-functions">
+<a class="header-anchor" href="#133-stationary-state-schr%c3%b6dinger-equation-and-stationary-wave-functions"></a>
+1.3.3 Stationary-State Schrödinger Equation and Stationary Wave Functions
+</h4><p><strong>Concept</strong><br>
+A stationary-state wave function has separable time dependence:
+</p>
+$$
+\psi(\vec{r},t) = \phi(\vec{r}) e^{-i E t / \hbar}
+$$<p>
+Let $f(t)=e^{-i E t / \hbar}$.<br>
+Here $\phi(\vec{r})$ depends only on spatial coordinates, and $E$ is the total energy of the particle.</p>
+<p><strong>Derivation</strong>
+Starting from the time-dependent Schrödinger equation:
+</p>
+$$
+i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = \left[ -\frac{\hbar^2}{2m} \nabla^2 + V(\vec{r}) \right] \psi(\vec{r},t)
+$$<p>
+substitute $\psi(\vec{r},t) = \phi(\vec{r}) e^{-i E t / \hbar}$ to obtain
+</p>
+$$
+\left[ -\frac{\hbar^2}{2m} \nabla^2 + V(\vec{r}) \right] \phi(\vec{r}) = E \phi(\vec{r})
+$$<p><strong>Time-independent form</strong>
+</p>
+$$
+i \hbar \frac{df}{dt}=E f , \; f= e^{-i E t / \hbar}
+$$<p>
+</p>
+$$
+-\frac{\hbar^2}{2m} \nabla^2 \phi(\vec{r}) + V(\vec{r}) \phi(\vec{r}) = E \phi(\vec{r})
+$$<p><strong>Remark</strong></p>
+<ul>
+<li>$\phi(\vec{r})$ is called a stationary-state wave function or eigenfunction.</li>
+<li>$E$ is the corresponding energy eigenvalue.</li>
+</ul>
+<h4 id="derivation-of-the-schrödinger-equation-from-operators">
+<a class="header-anchor" href="#derivation-of-the-schr%c3%b6dinger-equation-from-operators"></a>
+Derivation of the Schrödinger Equation from Operators
+</h4><p><strong>1. Start from classical energy</strong>
+</p>
+$$
+E = \frac{p^2}{2m} + V(\vec{r},t)
+$$<p><strong>2. Introduce the de Broglie relations</strong>
+</p>
+$$
+\vec{p} = \hbar \vec{k}, \quad E = \hbar \omega
+$$<p>
+and the plane-wave form
+</p>
+$$
+\psi(\vec{r},t) \sim e^{i(\vec{k}\cdot\vec{r} - \omega t)}
+$$<p><strong>3. Operator representation</strong>
+</p>
+$$
+\hat{E} = i\hbar \frac{\partial}{\partial t}, \quad \hat{\vec{p}} = -i\hbar \nabla
+$$<p><strong>4. Kinetic-energy and Hamiltonian operators</strong>
+</p>
+$$
+\hat{T} = \frac{\hat{p}^2}{2m} = -\frac{\hbar^2}{2m}\nabla^2
+$$<p>
+</p>
+$$
+\hat{H} = \hat{T} + V(\vec{r},t) = -\frac{\hbar^2}{2m}\nabla^2 + V(\vec{r},t)
+$$<p><strong>5. Schrödinger equation</strong>
+</p>
+$$
+i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = \hat{H} \psi(\vec{r},t)
+$$<p>
+that is,
+</p>
+$$
+i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = \left[ -\frac{\hbar^2}{2m}\nabla^2 + V(\vec{r},t) \right] \psi(\vec{r},t)
+$$<p>For a free particle ($V=0$), this reduces to
+</p>
+$$
+i\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m}\nabla^2 \psi
+$$<h4 id="principle-of-superposition-of-states">
+<a class="header-anchor" href="#principle-of-superposition-of-states"></a>
+Principle of Superposition of States
+</h4><p><strong>Concept</strong><br>
+If $\psi_1$ and $\psi_2$ are two possible states of the same system, then their linear combination
+</p>
+$$
+\psi = c_1 \psi_1 + c_2 \psi_2
+$$<p>
+is also a possible state, where $c_1$ and $c_2$ are complex coefficients.</p>
+<p><strong>General expansion</strong>
+</p>
+$$
+\psi(\vec{r},t) = \sum_{n} c_n \phi_n(\vec{r},t)
+$$<p>
+with</p>
+<ul>
+<li>$c_n$ the expansion coefficients, or probability amplitudes;</li>
+<li>probabilities $|c_n|^2$ satisfying
+
+$$
+\sum_n |c_n|^2 = 1
+$$</li>
+</ul>
+<p><strong>Remark</strong></p>
+<ul>
+<li>Superposition is one of the most fundamental principles of quantum mechanics.</li>
+<li>Different eigenstates may superpose, but a measurement yields only one eigenvalue.</li>
+<li>Interference in superposed states is one of the essential features that distinguishes quantum mechanics from classical mechanics.</li>
+</ul>
+<h2 id="chapter-2-simple-applications-of-the-schrödinger-equation">
+<a class="header-anchor" href="#chapter-2-simple-applications-of-the-schr%c3%b6dinger-equation"></a>
+Chapter 2 Simple Applications of the Schrödinger Equation
+</h2><h3 id="21-one-dimensional-infinite-potential-well">
+<a class="header-anchor" href="#21-one-dimensional-infinite-potential-well"></a>
+2.1 One-Dimensional Infinite Potential Well
+</h3><h4 id="211-solving-the-equation">
+<a class="header-anchor" href="#211-solving-the-equation"></a>
+2.1.1 Solving the Equation
+</h4><p><strong>1. Potential</strong>
+</p>
+$$
+V(x) =
+\begin{cases}
+0, & 0 < x < L \\
+\infty, & x \leq 0 \ \text{or} \ x \geq L
+\end{cases}
+$$<p><strong>2. Schrödinger equation in the well</strong>
+</p>
+$$
+-\frac{\hbar^2}{2m} \frac{d^2 \phi(x)}{dx^2} = E \phi(x)
+$$<p>
+which becomes
+</p>
+$$
+\frac{d^2 \phi(x)}{dx^2} + k^2 \phi(x) = 0,\qquad
+k^2 = \frac{2mE}{\hbar^2}
+$$<p><strong>3. General solution</strong>
+</p>
+$$
+\phi(x) = A \sin(kx) + B \cos(kx)
+$$<p><strong>4. Boundary conditions</strong>
+</p>
+$$
+\phi(0) = 0, \quad \phi(L) = 0
+$$<p>
+Hence $B=0$ and $kL = n\pi$ for $n=1,2,3,\dots$.</p>
+<p><strong>5. Eigenfunctions and eigenvalues</strong>
+</p>
+$$
+\phi_n(x) = \sqrt{\frac{2}{L}} \sin\left(\frac{n\pi x}{L}\right), \quad n=1,2,3,\dots
+$$<p>
+</p>
+$$
+E_n = \frac{n^2 \pi^2 \hbar^2}{2mL^2}, \quad n=1,2,3,\dots
+$$<p><strong>Remark</strong></p>
+<ul>
+<li>The energy is quantized.</li>
+<li>The ground-state energy is nonzero, showing the zero-point energy.</li>
+</ul>
+<hr>
+<h3 id="22-special-functions-in-mathematical-physics">
+<a class="header-anchor" href="#22-special-functions-in-mathematical-physics"></a>
+2.2 Special Functions in Mathematical Physics
+</h3><h4 id="221-orthogonality-and-normalization">
+<a class="header-anchor" href="#221-orthogonality-and-normalization"></a>
+2.2.1 Orthogonality and Normalization
+</h4><p><strong>Orthogonality</strong>
+</p>
+$$
+\int_a^b \phi_m(x)\,\phi_n(x)\,dx = 0 \quad (m \neq n)
+$$<p><strong>Normalization</strong>
+</p>
+$$
+\int_a^b |\phi_n(x)|^2 dx = 1
+$$<p><strong>Orthonormality</strong>
+</p>
+$$
+\int_a^b \phi_m(x)\,\phi_n(x)\,dx = \delta_{mn}
+$$<h4 id="222-expansion-in-an-orthonormal-set">
+<a class="header-anchor" href="#222-expansion-in-an-orthonormal-set"></a>
+2.2.2 Expansion in an Orthonormal Set
+</h4>$$
+f(x) = \sum_{n=1}^{\infty} c_n \phi_n(x), \qquad
+c_n = \int_a^b f(x)\,\phi_n(x)\,dx
+$$<h4 id="223-fourier-series">
+<a class="header-anchor" href="#223-fourier-series"></a>
+2.2.3 Fourier Series
+</h4>$$
+f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty \left[ a_n \cos\left(\frac{n\pi x}{L}\right) + b_n \sin\left(\frac{n\pi x}{L}\right) \right]
+$$<p>
+where
+</p>
+$$
+a_n = \frac{1}{L} \int_{-L}^L f(x)\cos\left(\frac{n\pi x}{L}\right)\,dx, \quad
+b_n = \frac{1}{L} \int_{-L}^L f(x)\sin\left(\frac{n\pi x}{L}\right)\,dx
+$$<h4 id="224-constructing-orthonormal-functions">
+<a class="header-anchor" href="#224-constructing-orthonormal-functions"></a>
+2.2.4 Constructing Orthonormal Functions
+</h4><p>The standard method is <strong>Gram-Schmidt orthogonalization</strong>:
+</p>
+$$
+\phi_1(x) = \frac{f_1(x)}{\sqrt{\int |f_1(x)|^2 dx}}
+$$<p>
+</p>
+$$
+\phi_2(x) = \frac{f_2(x) - \int \phi_1(x) f_2(x)\,dx \,\phi_1(x)}{\sqrt{\int \left|f_2(x) - \int \phi_1(x) f_2(x)\,dx \,\phi_1(x)\right|^2 dx}}
+$$<h4 id="225-legendre-polynomials-and-other-special-functions">
+<a class="header-anchor" href="#225-legendre-polynomials-and-other-special-functions"></a>
+2.2.5 Legendre Polynomials and Other Special Functions
+</h4><p><strong>Legendre polynomials</strong>
+</p>
+$$
+(1-x^2)\frac{d^2 y}{dx^2} - 2x \frac{dy}{dx} + l(l+1)y = 0
+$$<p>
+with orthogonality
+</p>
+$$
+\int_{-1}^{1} P_l(x) P_{l'}(x)\,dx = \frac{2}{2l+1}\delta_{ll'}
+$$<p><strong>Other common special functions</strong></p>
+<ul>
+<li><strong>Spherical harmonics</strong> $Y_l^m(\theta,\phi)$ appear in angular momentum problems.</li>
+<li><strong>Bessel functions</strong> $J_n(x)$ appear in cylindrical symmetry problems.</li>
+<li><strong>Hermite polynomials</strong> $H_n(x)$ appear in harmonic oscillator problems.</li>
+</ul>
+<p>These special functions are solutions of the Schrödinger equation under different boundary conditions and symmetries.</p>
+<hr>
+<h3 id="23-linear-harmonic-oscillator">
+<a class="header-anchor" href="#23-linear-harmonic-oscillator"></a>
+2.3 Linear Harmonic Oscillator
+</h3><hr>
+<h3 id="24-hydrogen-atom">
+<a class="header-anchor" href="#24-hydrogen-atom"></a>
+2.4 Hydrogen Atom
+</h3><h4 id="241-solution-of-the-equation-separated-into--parts">
+<a class="header-anchor" href="#241-solution-of-the-equation-separated-into--parts"></a>
+2.4.1 Solution of the Equation (Separated into $r,\ \theta,\ \phi$ Parts)
+</h4><p><strong>1. Time-independent Schrödinger equation under a Coulomb potential</strong>
+</p>
+$$
+V(r) = -\dfrac{e^2}{4\pi\varepsilon_0 r}
+$$<p>
+and
+</p>
+$$
+-\dfrac{\hbar^2}{2m}\nabla^2\Psi(r,\theta,\phi) + V(r)\Psi = E\Psi.
+$$<p><strong>2. Separation of variables</strong>
+</p>
+$$
+\Psi(r,\theta,\phi)=R(r)\,Y(\theta,\phi).
+$$<p>
+This leads to three equations in $r$, $\theta$, and $\phi$ after separation.</p>
+<p><strong>3. Equation in $\phi$</strong>
+</p>
+$$
+\frac{1}{\Phi(\phi)}\frac{d^2\Phi}{d\phi^2} = -m^2 \quad\Rightarrow\quad
+\Phi_m(\phi)=\frac{1}{\sqrt{2\pi}} e^{i m\phi},\quad m\in\mathbb{Z}.
+$$<p><strong>4. Equation in $\theta$</strong>
+</p>
+$$
+\frac{1}{\sin\theta}\frac{d}{d\theta}\!\left(\sin\theta\frac{d\Theta}{d\theta}\right)
++\left[l(l+1)-\frac{m^2}{\sin^2\theta}\right]\Theta=0
+$$<p>
+with solutions proportional to the associated Legendre functions:
+</p>
+$$
+\Theta_{l}^{m}(\theta)\propto P_l^{m}(\cos\theta).
+$$<p><strong>5. Angular part: spherical harmonics</strong>
+</p>
+$$
+Y_l^m(\theta,\phi)=N_{l}^{m}\,P_l^{m}(\cos\theta)\,e^{im\phi},
+$$<p>
+which satisfy
+</p>
+$$
+\hat L^2 Y_l^m = l(l+1)\hbar^2 Y_l^m,\qquad \hat L_z Y_l^m = m\hbar Y_l^m.
+$$<p><strong>6. Radial equation</strong>
+Let $u(r)=rR(r)$, then
+</p>
+$$
+-\frac{\hbar^2}{2m}\frac{d^2 u}{dr^2} + \left[ -\frac{e^2}{4\pi\varepsilon_0 r} + \frac{\hbar^2 l(l+1)}{2m r^2} \right] u = E u.
+$$<p><strong>7. Energy eigenvalues</strong>
+</p>
+$$
+E_n = -\frac{m e^4}{2(4\pi\varepsilon_0)^2 \hbar^2}\,\frac{1}{n^2} = -\frac{13.6057\ \mathrm{eV}}{n^2},\qquad n=1,2,3,\dots
+$$<p>
+with $l=0,1,\dots,n-1$.</p>
+<p><strong>8. Wave function</strong>
+</p>
+$$
+\Psi_{n l m}(r,\theta,\phi)=R_{n l}(r)\,Y_l^m(\theta,\phi),
+$$<p>
+and
+</p>
+$$
+R_{n l}(r)=N_{n l}\left(\frac{2r}{n a_0}\right)^{l} e^{-r/(n a_0)} L_{n-l-1}^{2l+1}\!\left(\frac{2r}{n a_0}\right),
+$$<p>
+where $a_0=\dfrac{4\pi\varepsilon_0\hbar^2}{m e^2}$ is the Bohr radius.</p>
+<h4 id="242-results-and-discussion">
+<a class="header-anchor" href="#242-results-and-discussion"></a>
+2.4.2 Results and Discussion
+</h4><p><strong>1. Quantum numbers and their meanings</strong></p>
+<ul>
+<li>$n$: principal quantum number</li>
+<li>$l$: orbital angular momentum quantum number</li>
+<li>$m$: magnetic quantum number</li>
+</ul>
+<p><strong>2. Degeneracy</strong><br>
+For the Coulomb potential, the energy depends only on $n$. The degeneracy of the level with principal quantum number $n$ is $n^2$.</p>
+<p><strong>3. Spatial structure of the wave function</strong></p>
+<ul>
+<li>The angular part is given by the spherical harmonics.</li>
+<li>The radial part $R_{nl}(r)$ has $n-l-1$ radial nodes.</li>
+<li>The ground state $(1,0,0)$ is spherically symmetric and has no radial node.</li>
+</ul>
+<p><strong>4. Summary</strong><br>
+The hydrogen atom is solved by separating variables in spherical coordinates. The angular equations give spherical harmonics and angular quantum numbers, while the radial equation yields the discrete energy levels and radial eigenfunctions.</p>
+<h2 id="chapter-3-operator-representation-of-dynamical-variables-and-representation-theory">
+<a class="header-anchor" href="#chapter-3-operator-representation-of-dynamical-variables-and-representation-theory"></a>
+Chapter 3 Operator Representation of Dynamical Variables and Representation Theory
+</h2><h3 id="31-relation-between-dynamical-variables-and-operators">
+<a class="header-anchor" href="#31-relation-between-dynamical-variables-and-operators"></a>
+3.1 Relation Between Dynamical Variables and Operators
+</h3><h4 id="311-mathematical-knowledge-of-operators">
+<a class="header-anchor" href="#311-mathematical-knowledge-of-operators"></a>
+3.1.1 Mathematical Knowledge of Operators
+</h4><ol>
+<li>
+<p><strong>Definition of an operator</strong><br>
+An operator is a rule acting on a function space or state space. In quantum mechanics, physical quantities are represented by operators, and the wave function is the object on which they act.</p>
+</li>
+<li>
+<p><strong>Linearity</strong><br>
+If
+</p>
+$$
+   A(c_1\psi_1 + c_2\psi_2) = c_1 A\psi_1 + c_2 A\psi_2,
+   $$<p>
+then $A$ is a linear operator.</p>
+</li>
+<li>
+<p><strong>Commutation relations</strong><br>
+The commutator is defined by
+</p>
+$$
+   [A,B] = AB - BA.
+   $$<p>
+If $[A,B]=0$, the two operators are said to commute.</p>
+</li>
+<li>
+<p><strong>Hermitian operators</strong><br>
+If
+</p>
+$$
+   \langle \psi | A\varphi \rangle = \langle A\psi | \varphi \rangle,
+   $$<p>
+then $A$ is Hermitian. Hermitian operators have real eigenvalues and represent observables.</p>
+</li>
+</ol>
+<h4 id="312-dynamical-variables-and-operators">
+<a class="header-anchor" href="#312-dynamical-variables-and-operators"></a>
+3.1.2 Dynamical Variables and Operators
+</h4><ol>
+<li>
+<p><strong>Basic idea</strong><br>
+Every classical quantity $f(q,p)$ corresponds to a quantum operator $\hat f$.</p>
+</li>
+<li>
+<p><strong>Typical operator forms in the coordinate representation</strong>
+</p>
+$$
+   \hat{x} = x, \qquad \hat{p} = -i\hbar \frac{\partial}{\partial x}
+   $$</li>
+<li>
+<p><strong>Fundamental commutation relation</strong>
+</p>
+$$
+   [\hat{x}, \hat{p}] = i\hbar
+   $$</li>
+<li>
+<p><strong>Measurement and eigenvalue equations</strong>
+</p>
+$$
+   \hat{A}\psi_a = a\psi_a
+   $$<p>
+Here $a$ is a possible measurement outcome, and $\psi_a$ is the corresponding eigenfunction.</p>
+</li>
+</ol>
+<hr>
+<h3 id="32-commutation-relations-and-the-uncertainty-principle">
+<a class="header-anchor" href="#32-commutation-relations-and-the-uncertainty-principle"></a>
+3.2 Commutation Relations and the Uncertainty Principle
+</h3><h4 id="321-commutation-relations">
+<a class="header-anchor" href="#321-commutation-relations"></a>
+3.2.1 Commutation Relations
+</h4><ol>
+<li>
+<p><strong>Definition</strong>
+</p>
+$$
+   [A,B] = AB - BA
+   $$<p>
+If $[A,B]=0$, the two physical quantities can have simultaneous definite values.</p>
+</li>
+<li>
+<p><strong>Basic relation</strong>
+</p>
+$$
+   [\hat{x}, \hat{p}_x] = i\hbar
+   $$</li>
+<li>
+<p><strong>Three-dimensional form</strong>
+</p>
+$$
+   [\hat{x}_i, \hat{p}_j] = i\hbar \delta_{ij}, \quad [\hat{x}_i, \hat{x}_j]=0, \quad [\hat{p}_i, \hat{p}_j]=0
+   $$</li>
+<li>
+<p><strong>Physical meaning</strong><br>
+Commutation relations determine whether two observables can be measured simultaneously with arbitrary precision.</p>
+</li>
+</ol>
+<h4 id="322-uncertainty-principle">
+<a class="header-anchor" href="#322-uncertainty-principle"></a>
+3.2.2 Uncertainty Principle
+</h4><ol>
+<li>
+<p><strong>Mathematical form</strong>
+</p>
+$$
+   (\Delta A)^2 = \langle (A-\langle A \rangle)^2 \rangle,\qquad
+   (\Delta B)^2 = \langle (B-\langle B \rangle)^2 \rangle
+   $$<p>
+which leads to
+</p>
+$$
+   \Delta A \cdot \Delta B \geq \frac{1}{2}\left| \langle [A,B] \rangle \right|
+   $$</li>
+<li>
+<p><strong>Position-momentum uncertainty</strong>
+</p>
+$$
+   \Delta x \cdot \Delta p \geq \frac{\hbar}{2}
+   $$</li>
+<li>
+<p><strong>Energy-time uncertainty</strong>
+</p>
+$$
+   \Delta E \cdot \Delta t \gtrsim \hbar
+   $$</li>
+</ol>
+<hr>
+<h3 id="33-representation-theory">
+<a class="header-anchor" href="#33-representation-theory"></a>
+3.3 Representation Theory
+</h3><h4 id="331-mathematical-basis">
+<a class="header-anchor" href="#331-mathematical-basis"></a>
+3.3.1 Mathematical Basis
+</h4><ol>
+<li>
+<p><strong>Concept of representation</strong><br>
+States and operators can be represented in different bases, such as the coordinate, momentum, and energy representations.</p>
+</li>
+<li>
+<p><strong>Expansion of a state</strong>
+</p>
+$$
+   |\psi\rangle = \sum_n c_n |\phi_n\rangle,\qquad c_n = \langle \phi_n | \psi \rangle
+   $$</li>
+<li>
+<p><strong>Matrix elements</strong>
+</p>
+$$
+   A_{mn} = \langle \phi_m | \hat{A} | \phi_n \rangle
+   $$</li>
+<li>
+<p><strong>Completeness and orthogonality</strong>
+</p>
+$$
+   \sum_n |\phi_n\rangle \langle \phi_n| = I,\qquad
+   \langle \phi_m | \phi_n \rangle = \delta_{mn}
+   $$</li>
+</ol>
+<h4 id="332-representations-of-states-and-observables">
+<a class="header-anchor" href="#332-representations-of-states-and-observables"></a>
+3.3.2 Representations of States and Observables
+</h4><ol>
+<li>
+<p><strong>Coordinate representation</strong>
+</p>
+$$
+   \psi(x) = \langle x|\psi\rangle
+   $$<p>
+</p>
+$$
+   \hat{x} \psi(x) = x \psi(x), \quad \hat{p}_x \psi(x) = -i\hbar \frac{\partial}{\partial x}\psi(x)
+   $$</li>
+<li>
+<p><strong>Momentum representation</strong>
+</p>
+$$
+   \phi(p) = \langle p|\psi\rangle
+   $$<p>
+</p>
+$$
+   \hat{p} \phi(p) = p \phi(p), \quad \hat{x} \phi(p) = i\hbar \frac{\partial}{\partial p}\phi(p)
+   $$</li>
+<li>
+<p><strong>Energy representation</strong>
+</p>
+$$
+   |\psi\rangle = \sum_n c_n |E_n\rangle, \quad c_n = \langle E_n|\psi\rangle
+   $$</li>
+<li>
+<p><strong>Transformations between representations</strong>
+</p>
+$$
+   \phi(p) = \frac{1}{\sqrt{2\pi\hbar}} \int_{-\infty}^{\infty} \psi(x) e^{-ipx/\hbar} dx
+   $$<p>
+</p>
+$$
+   \psi(x) = \frac{1}{\sqrt{2\pi\hbar}} \int_{-\infty}^{\infty} \phi(p) e^{ipx/\hbar} dp
+   $$</li>
+</ol>
+<h3 id="34-orbital-angular-momentum">
+<a class="header-anchor" href="#34-orbital-angular-momentum"></a>
+3.4 Orbital Angular Momentum
+</h3><h4 id="341-angular-momentum">
+<a class="header-anchor" href="#341-angular-momentum"></a>
+3.4.1 Angular Momentum
+</h4><ol>
+<li>
+<p><strong>Definition</strong>
+</p>
+$$
+   \vec{L} = \vec{r} \times \vec{p},\qquad
+   \hat{\vec{L}} = \hat{\vec{r}} \times \hat{\vec{p}}
+   $$</li>
+<li>
+<p><strong>Components</strong>
+</p>
+$$
+   \hat{L}_x = y\hat{p}_z - z\hat{p}_y, \quad
+   \hat{L}_y = z\hat{p}_x - x\hat{p}_z, \quad
+   \hat{L}_z = x\hat{p}_y - y\hat{p}_x
+   $$</li>
+<li>
+<p><strong>Commutation relations</strong>
+</p>
+$$
+   [\hat{L}_x, \hat{L}_y] = i\hbar \hat{L}_z, \quad
+   [\hat{L}_y, \hat{L}_z] = i\hbar \hat{L}_x, \quad
+   [\hat{L}_z, \hat{L}_x] = i\hbar \hat{L}_y
+   $$<p>
+</p>
+$$
+   \hat{L}^2 = \hat{L}_x^2 + \hat{L}_y^2 + \hat{L}_z^2
+   $$</li>
+</ol>
+<h4 id="342-conservation-of-angular-momentum">
+<a class="header-anchor" href="#342-conservation-of-angular-momentum"></a>
+3.4.2 Conservation of Angular Momentum
+</h4><ol>
+<li>
+<p><strong>Condition for conservation</strong>
+</p>
+$$
+   [\hat{H}, \hat{L}_i] = 0 \quad \Rightarrow \quad \hat{L}_i \ \text{is conserved}
+   $$</li>
+<li>
+<p><strong>Spherically symmetric potential</strong>
+</p>
+$$
+   [\hat{H}, \hat{L}^2] = 0, \quad [\hat{H}, \hat{L}_z] = 0
+   $$</li>
+</ol>
+<h4 id="343-calculation-of-orbital-angular-momentum">
+<a class="header-anchor" href="#343-calculation-of-orbital-angular-momentum"></a>
+3.4.3 Calculation of Orbital Angular Momentum
+</h4><ol>
+<li>
+<p><strong>Eigenvalue equations</strong>
+</p>
+$$
+   \hat{L}^2 Y_{lm}(\theta,\varphi) = l(l+1)\hbar^2 Y_{lm}(\theta,\varphi)
+   $$<p>
+</p>
+$$
+   \hat{L}_z Y_{lm}(\theta,\varphi) = m\hbar Y_{lm}(\theta,\varphi)
+   $$</li>
+<li>
+<p><strong>Eigenvalues</strong>
+</p>
+$$
+   L = \sqrt{l(l+1)} \hbar,\qquad L_z = m\hbar
+   $$</li>
+<li>
+<p><strong>Physical meaning</strong><br>
+The quantum numbers $l$ and $m$ determine the magnitude of the orbital angular momentum and its $z$-component, respectively.</p>
+</li>
+</ol>
+<h2 id="chapter-4-perturbation-theory-and-its-applications">
+<a class="header-anchor" href="#chapter-4-perturbation-theory-and-its-applications"></a>
+Chapter 4 Perturbation Theory and Its Applications
+</h2><h3 id="41-time-independent-perturbation-theory">
+<a class="header-anchor" href="#41-time-independent-perturbation-theory"></a>
+4.1 Time-Independent Perturbation Theory
+</h3><h4 id="411-nondegenerate-perturbation-theory">
+<a class="header-anchor" href="#411-nondegenerate-perturbation-theory"></a>
+4.1.1 Nondegenerate Perturbation Theory
+</h4><ol>
+<li>
+<p><strong>Basic idea</strong>
+</p>
+$$
+   \hat{H} = \hat{H}^{(0)} + \lambda \hat{H}'
+   $$</li>
+<li>
+<p><strong>Energy corrections</strong>
+</p>
+$$
+   E_n^{(1)} = \langle \psi_n^{(0)} | \hat{H}' | \psi_n^{(0)} \rangle
+   $$<p>
+</p>
+$$
+   E_n^{(2)} = \sum_{m \neq n} \frac{|\langle \psi_m^{(0)} | \hat{H}' | \psi_n^{(0)} \rangle|^2}{E_n^{(0)} - E_m^{(0)}}
+   $$</li>
+<li>
+<p><strong>Wave-function correction</strong>
+</p>
+$$
+   \psi_n^{(1)} = \sum_{m \neq n} \frac{\langle \psi_m^{(0)} | \hat{H}' | \psi_n^{(0)} \rangle}{E_n^{(0)} - E_m^{(0)}} \psi_m^{(0)}
+   $$</li>
+</ol>
+<h4 id="412-degenerate-perturbation-theory">
+<a class="header-anchor" href="#412-degenerate-perturbation-theory"></a>
+4.1.2 Degenerate Perturbation Theory
+</h4><ol>
+<li>
+<p><strong>Origin of the problem</strong><br>
+If the zeroth-order energy corresponds to multiple orthogonal eigenstates, the state is degenerate, and the nondegenerate formulas fail.</p>
+</li>
+<li>
+<p><strong>Method</strong>
+</p>
+$$
+   H'_{ij} = \langle \psi_i^{(0)} | \hat{H}' | \psi_j^{(0)} \rangle
+   $$<p>
+Diagonalize this matrix inside the degenerate subspace.</p>
+</li>
+<li>
+<p><strong>Result</strong><br>
+The first-order energy corrections are the eigenvalues of $H'_{ij}$, and the corrected states are the corresponding linear combinations.</p>
+</li>
+</ol>
+<hr>
+<h3 id="42-time-dependent-perturbation-theory">
+<a class="header-anchor" href="#42-time-dependent-perturbation-theory"></a>
+4.2 Time-Dependent Perturbation Theory
+</h3><ol>
+<li>
+<p><strong>Basic framework</strong>
+</p>
+$$
+   \hat{H}(t) = \hat{H}^{(0)} + \hat{H}'(t)
+   $$</li>
+<li>
+<p><strong>State expansion</strong>
+</p>
+$$
+   |\psi(t)\rangle = \sum_n c_n(t) e^{-iE_n^{(0)}t/\hbar} |\psi_n^{(0)}\rangle
+   $$</li>
+<li>
+<p><strong>Transition probability amplitude</strong>
+</p>
+$$
+   c_f^{(1)}(t) = \frac{1}{i\hbar} \int_0^t \langle \psi_f^{(0)} | \hat{H}'(t') | \psi_i^{(0)} \rangle 
+   e^{i\omega_{fi} t'} dt'
+   $$<p>
+where $\omega_{fi} = (E_f^{(0)} - E_i^{(0)})/\hbar$.</p>
+</li>
+<li>
+<p><strong>Fermi&rsquo;s golden rule</strong>
+</p>
+$$
+   W_{i \to f} = \frac{2\pi}{\hbar} \, |\langle f | \hat{H}' | i \rangle|^2 \, \rho(E_f)
+   $$</li>
+</ol>
+<p><strong>Summary</strong></p>
+<ul>
+<li>Time-independent perturbation theory corrects energies and wave functions for static perturbations.</li>
+<li>Time-dependent perturbation theory describes transitions between energy levels, such as radiation absorption and emission.</li>
+</ul>
+<h2 id="electron-spin">
+<a class="header-anchor" href="#electron-spin"></a>
+Electron Spin
+</h2><h3 id="experimental-discovery-of-electron-spin">
+<a class="header-anchor" href="#experimental-discovery-of-electron-spin"></a>
+Experimental Discovery of Electron Spin
+</h3><ol>
+<li>
+<p><strong>Stern-Gerlach experiment</strong><br>
+Passing a beam of silver atoms through a nonuniform magnetic field produces two trajectories, revealing an intrinsic angular momentum beyond orbital angular momentum.</p>
+</li>
+<li>
+<p><strong>Experimental conclusions</strong></p>
+<ul>
+<li>The spin quantum number is $s = 1/2$.</li>
+<li>The two possible spin projections are $m_s = \pm 1/2$.</li>
+<li>Spin contributes an additional magnetic moment:
+
+$$
+     \vec{\mu}_s = -g_s \frac{e}{2m_e} \vec{S}, \quad g_s \approx 2
+     $$</li>
+</ul>
+</li>
+</ol>
+<h3 id="theory-of-electron-spin">
+<a class="header-anchor" href="#theory-of-electron-spin"></a>
+Theory of Electron Spin
+</h3><ol>
+<li>
+<p><strong>Quantum description</strong></p>
+<ul>
+<li>Spin is intrinsic angular momentum and does not depend on spatial coordinates.</li>
+<li>Its operators satisfy
+
+$$
+     [\hat{S}_i, \hat{S}_j] = i\hbar \epsilon_{ijk} \hat{S}_k
+     $$</li>
+</ul>
+</li>
+<li>
+<p><strong>Physical meaning</strong></p>
+<ul>
+<li>Spin determines the magnetic behavior of electrons.</li>
+<li>Quantized spin leads to Fermi-Dirac statistics and the Pauli exclusion principle.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="spin-angular-momentum">
+<a class="header-anchor" href="#spin-angular-momentum"></a>
+Spin Angular Momentum
+</h3><h4 id="spin-operators">
+<a class="header-anchor" href="#spin-operators"></a>
+Spin Operators
+</h4><ol>
+<li>
+<p><strong>Spin components</strong>
+</p>
+$$
+   \hat{S}_x, \hat{S}_y, \hat{S}_z
+   $$<p>
+satisfying
+</p>
+$$
+   [\hat{S}_x, \hat{S}_y] = i\hbar \hat{S}_z, \quad \text{cyclic symmetry}
+   $$</li>
+<li>
+<p><strong>Total spin operator</strong>
+</p>
+$$
+   \hat{S}^2 = \hat{S}_x^2 + \hat{S}_y^2 + \hat{S}_z^2
+   $$<p>
+with
+</p>
+$$
+   \hat{S}^2 |\chi_s\rangle = s(s+1)\hbar^2 |\chi_s\rangle
+   $$</li>
+</ol>
+<h4 id="matrix-representation-of-eigenfunctions">
+<a class="header-anchor" href="#matrix-representation-of-eigenfunctions"></a>
+Matrix Representation of Eigenfunctions
+</h4><ol>
+<li>
+<p><strong>Spin-$1/2$ particles</strong>
+</p>
+$$
+   |\uparrow\rangle = \begin{pmatrix}1\\0\end{pmatrix}, \quad
+   |\downarrow\rangle = \begin{pmatrix}0\\1\end{pmatrix}
+   $$</li>
+<li>
+<p><strong>Pauli-matrix form of the spin operators</strong>
+</p>
+$$
+   \hat{S}_x = \frac{\hbar}{2} \sigma_x, \quad
+   \hat{S}_y = \frac{\hbar}{2} \sigma_y, \quad
+   \hat{S}_z = \frac{\hbar}{2} \sigma_z
+   $$<p>
+where
+</p>
+$$
+   \sigma_x = \begin{pmatrix}0 & 1\\ 1 & 0\end{pmatrix},\quad
+   \sigma_y = \begin{pmatrix}0 & -i\\ i & 0\end{pmatrix},\quad
+   \sigma_z = \begin{pmatrix}1 & 0\\ 0 & -1\end{pmatrix}
+   $$</li>
+</ol>
+<h4 id="theory-of-angular-momentum-coupling">
+<a class="header-anchor" href="#theory-of-angular-momentum-coupling"></a>
+Theory of Angular Momentum Coupling
+</h4><ol>
+<li>
+<p><strong>Spin-orbit coupling</strong>
+</p>
+$$
+   \hat{H}_{\text{SO}} = \xi(r)\, \vec{L} \cdot \vec{S}
+   $$<p>
+which produces fine-structure splitting.</p>
+</li>
+<li>
+<p><strong>Total angular momentum</strong>
+</p>
+$$
+   \vec{J} = \vec{L} + \vec{S}, \quad
+   \hat{J}^2 = (\hat{L}+\hat{S})^2
+   $$<p>
+with eigenstates $|j, m_j\rangle$ satisfying
+</p>
+$$
+   \hat{J}^2 |j, m_j\rangle = j(j+1)\hbar^2 |j, m_j\rangle, \quad
+   \hat{J}_z |j, m_j\rangle = m_j \hbar |j, m_j\rangle
+   $$</li>
+<li>
+<p><strong>Coupling result</strong></p>
+<ul>
+<li>$j = l \pm s$, $m_j = -j, -j+1, ..., j$.</li>
+<li>Spin-orbit coupling is an important source of the fine structure of atomic spectra.</li>
+</ul>
+</li>
+</ol>
+<h2 id="principle-of-indistinguishability">
+<a class="header-anchor" href="#principle-of-indistinguishability"></a>
+Principle of Indistinguishability
+</h2><h3 id="systems-of-identical-particles">
+<a class="header-anchor" href="#systems-of-identical-particles"></a>
+Systems of Identical Particles
+</h3><h4 id="concepts-and-principles">
+<a class="header-anchor" href="#concepts-and-principles"></a>
+Concepts and Principles
+</h4><ol>
+<li>
+<p><strong>Definition of identical particles</strong><br>
+If two particles are completely identical in physical properties such as mass, charge, and spin, and cannot be distinguished by any experiment, they are called identical particles.</p>
+</li>
+<li>
+<p><strong>Principle of indistinguishability</strong><br>
+The physical laws are invariant under exchange of identical particles. Exchanging the positions and spins of any two identical particles leaves the Hamiltonian and observables unchanged.</p>
+</li>
+</ol>
+<h4 id="hamiltonian-of-a-system-of-identical-particles">
+<a class="header-anchor" href="#hamiltonian-of-a-system-of-identical-particles"></a>
+Hamiltonian of a System of Identical Particles
+</h4><ol>
+<li>
+<p><strong>Form</strong>
+</p>
+$$
+   \hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i<j} V(\vec{r}_i - \vec{r}_j)
+   $$</li>
+<li>
+<p><strong>Symmetry</strong>
+</p>
+$$
+   [\hat{H}, \hat{P}_{ij}] = 0
+   $$<p>
+where $\hat{P}_{ij}$ is the exchange operator of particles $i$ and $j$.</p>
+</li>
+</ol>
+<h4 id="wave-functions-of-identical-particle-systems">
+<a class="header-anchor" href="#wave-functions-of-identical-particle-systems"></a>
+Wave Functions of Identical-Particle Systems
+</h4><ol>
+<li>
+<p><strong>Symmetry requirement</strong>
+</p>
+$$
+   \hat{P}_{ij} \Psi(\dots, \vec{r}_i, \vec{r}_j, \dots) =
+   \pm \Psi(\dots, \vec{r}_i, \vec{r}_j, \dots)
+   $$<ul>
+<li><strong>+</strong> for bosons, whose wave functions are symmetric</li>
+<li><strong>-</strong> for fermions, whose wave functions are antisymmetric</li>
+</ul>
+</li>
+<li>
+<p><strong>Construction of many-particle wave functions</strong></p>
+<ul>
+<li>Bosons: symmetrized sum</li>
+<li>Fermions: antisymmetrized determinant (Slater determinant)
+
+$$
+     \Psi(\vec{r}_1, \dots, \vec{r}_N) = \frac{1}{\sqrt{N!}}
+     \begin{vmatrix}
+     \psi_1(\vec{r}_1) & \cdots & \psi_1(\vec{r}_N) \\
+     \vdots & \ddots & \vdots \\
+     \psi_N(\vec{r}_1) & \cdots & \psi_N(\vec{r}_N)
+     \end{vmatrix}
+     $$</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="pauli-exclusion-principle">
+<a class="header-anchor" href="#pauli-exclusion-principle"></a>
+Pauli Exclusion Principle
+</h3><ol>
+<li>
+<p><strong>Content of the principle</strong><br>
+For identical fermions with half-integer spin, no two particles may occupy the same quantum state:
+</p>
+$$
+   \Psi(\text{same quantum state}) = 0
+   $$</li>
+<li>
+<p><strong>Physical meaning</strong><br>
+It explains the arrangement of electrons in atomic orbitals and underlies atomic structure, chemical properties, and Fermi-gas behavior.</p>
+</li>
+<li>
+<p><strong>Examples</strong></p>
+<ul>
+<li>In atoms, each orbital can hold at most two electrons with opposite spins.</li>
+<li>In metals, electrons form a Fermi level that determines electrical and thermal properties.</li>
+</ul>
+</li>
+</ol>
+
+        
+        <hr><p>Published on 2025-09-05 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-09-05</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Physics</category></item><item><title>Digital Signal Processing</title><link>https://guzhengsvt.cn/en/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link><pubDate>Wed, 04 Sep 2024 23:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid><description>
 <![CDATA[<h1>Digital Signal Processing</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
           <h1 id="fundamental-concepts-of-digital-signal-processing">

@@ -1,4 +1,894 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Physics on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/ja/categories/physics/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>ja</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</copyright><lastBuildDate>Wed, 04 Sep 2024 23:44:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/ja/categories/physics/index.xml" rel="self" type="application/rss+xml"/><item><title>デジタル信号処理</title><link>https://guzhengsvt.cn/ja/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link><pubDate>Wed, 04 Sep 2024 23:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Physics on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/ja/categories/physics/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>ja</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</copyright><lastBuildDate>Fri, 05 Sep 2025 11:05:15 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/ja/categories/physics/index.xml" rel="self" type="application/rss+xml"/><item><title>量子物理学</title><link>https://guzhengsvt.cn/ja/post/physics/quantum-physics/</link><pubDate>Fri, 05 Sep 2025 11:05:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/physics/quantum-physics/</guid><description>
+<![CDATA[<h1>量子物理学</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
+        
+          <h2 id="第1章-微粒子の二重性と状態記述">
+<a class="header-anchor" href="#%e7%ac%ac1%e7%ab%a0-%e5%be%ae%e7%b2%92%e5%ad%90%e3%81%ae%e4%ba%8c%e9%87%8d%e6%80%a7%e3%81%a8%e7%8a%b6%e6%85%8b%e8%a8%98%e8%bf%b0"></a>
+第1章 微粒子の二重性と状態記述
+</h2><h3 id="11-量子力学の成立と応用">
+<a class="header-anchor" href="#11-%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%a6%e3%81%ae%e6%88%90%e7%ab%8b%e3%81%a8%e5%bf%9c%e7%94%a8"></a>
+1.1 量子力学の成立と応用
+</h3><h4 id="111-旧量子論">
+<a class="header-anchor" href="#111-%e6%97%a7%e9%87%8f%e5%ad%90%e8%ab%96"></a>
+1.1.1 旧量子論
+</h4><h5 id="光電効果と光子仮説">
+<a class="header-anchor" href="#%e5%85%89%e9%9b%bb%e5%8a%b9%e6%9e%9c%e3%81%a8%e5%85%89%e5%ad%90%e4%bb%ae%e8%aa%ac"></a>
+光電効果と光子仮説
+</h5><ul>
+<li><strong>光子のエネルギー</strong>：$E = h\nu$</li>
+<li><strong>しきい周波数</strong>：$\nu_0 = \dfrac{W_0}{h}$、$\nu < \nu_0$ では光電子は放出されない</li>
+<li><strong>光電効果の式</strong>：<br>
+
+$$
+  E_k^{\text{max}} = \frac{1}{2}\mu v^2_m = h\nu - W_0
+  $$</li>
+<li>光電効果は光の粒子性を示す。</li>
+</ul>
+<h5 id="光子のエネルギー運動量関係と波粒統一">
+<a class="header-anchor" href="#%e5%85%89%e5%ad%90%e3%81%ae%e3%82%a8%e3%83%8d%e3%83%ab%e3%82%ae%e3%83%bc%e9%81%8b%e5%8b%95%e9%87%8f%e9%96%a2%e4%bf%82%e3%81%a8%e6%b3%a2%e7%b2%92%e7%b5%b1%e4%b8%80"></a>
+光子のエネルギー・運動量関係と波粒統一
+</h5><ul>
+<li>
+<p><strong>相対論的エネルギー・運動量関係</strong>
+</p>
+$$
+  E^2=(pc)^2+(m_0c^2)^2,\quad m_0=0\ \Rightarrow\ E=c\,\lVert\vec p\rVert
+  $$</li>
+<li>
+<p><strong>光子のエネルギー</strong>
+</p>
+$$
+  E=h\nu=\frac{hc}{\lambda}=\hbar\omega
+  $$</li>
+<li>
+<p><strong>光子の運動量（ベクトル形式）</strong>
+</p>
+$$
+  \vec p=\frac{E}{c}\,\mathbf n=\frac{h}{\lambda}\,\mathbf n=\hbar\vec k,\quad
+  \vec k=\frac{2\pi}{\lambda}\,\mathbf n
+  $$<p>
+ただし $\mathbf n$ は進行方向の単位ベクトル。</p>
+</li>
+<li>
+<p><strong>波動像と粒子像の対応</strong>
+</p>
+$$
+  E\ \longleftrightarrow\ \hbar\omega,\qquad
+  \vec p\ \longleftrightarrow\ \hbar\vec k
+  $$</li>
+</ul>
+<h5 id="水素原子のボーア模型">
+<a class="header-anchor" href="#%e6%b0%b4%e7%b4%a0%e5%8e%9f%e5%ad%90%e3%81%ae%e3%83%9c%e3%83%bc%e3%82%a2%e6%a8%a1%e5%9e%8b"></a>
+水素原子のボーア模型
+</h5><ul>
+<li>軌道角運動量の量子化：
+
+$$
+  L = n\hbar,\quad n=1,2,3,\dots
+  $$</li>
+<li>エネルギー準位：
+
+$$
+  E_n = -\frac{13.6\ \text{eV}}{n^2}
+  $$</li>
+<li>これにより水素原子スペクトルの線状構造が説明される。</li>
+</ul>
+<h5 id="ボーアの仮説">
+<a class="header-anchor" href="#%e3%83%9c%e3%83%bc%e3%82%a2%e3%81%ae%e4%bb%ae%e8%aa%ac"></a>
+ボーアの仮説
+</h5><ul>
+<li>電子は安定軌道上ではエネルギーを放射しない。</li>
+<li>異なる準位間を遷移するとき、電子はエネルギーを吸収または放出する：
+
+$$
+  \Delta E = h\nu
+  $$</li>
+</ul>
+<h5 id="コンプトン効果">
+<a class="header-anchor" href="#%e3%82%b3%e3%83%b3%e3%83%97%e3%83%88%e3%83%b3%e5%8a%b9%e6%9e%9c"></a>
+コンプトン効果
+</h5><ul>
+<li>高エネルギー光子が電子と散乱すると、波長は
+
+$$
+  \Delta\lambda = \lambda' - \lambda = \frac{h}{m_ec}(1-\cos\theta)
+  $$
+だけ増加する。</li>
+<li>この実験は光子の粒子性と運動量保存を裏づけた。</li>
+</ul>
+<h5 id="黒体放射">
+<a class="header-anchor" href="#%e9%bb%92%e4%bd%93%e6%94%be%e5%b0%84"></a>
+黒体放射
+</h5><ul>
+<li>エネルギー量子化仮説：電磁場のエネルギーは $E=nh\nu$ の離散値をとる。</li>
+<li>プランク公式：
+
+$$
+  u(\nu,T)=\frac{8\pi h\nu^3}{c^3}\frac{1}{e^{h\nu/kT}-1}
+  $$</li>
+<li>これにより黒体放射の実験曲線が説明され、量子論が始まった。</li>
+</ul>
+<h4 id="112-微視的粒子の波動粒子二重性">
+<a class="header-anchor" href="#112-%e5%be%ae%e8%a6%96%e7%9a%84%e7%b2%92%e5%ad%90%e3%81%ae%e6%b3%a2%e5%8b%95%e7%b2%92%e5%ad%90%e4%ba%8c%e9%87%8d%e6%80%a7"></a>
+1.1.2 微視的粒子の波動粒子二重性
+</h4><h5 id="ドブロイ仮説">
+<a class="header-anchor" href="#%e3%83%89%e3%83%96%e3%83%ad%e3%82%a4%e4%bb%ae%e8%aa%ac"></a>
+ド・ブロイ仮説
+</h5><ul>
+<li>微視的粒子は粒子性だけでなく波動性ももつ。</li>
+<li>運動量 $\vec p$ をもつ粒子には、対応する物質波が存在し、その波長と振動数は運動量とエネルギーに対応する。</li>
+</ul>
+<h5 id="ドブロイ関係">
+<a class="header-anchor" href="#%e3%83%89%e3%83%96%e3%83%ad%e3%82%a4%e9%96%a2%e4%bf%82"></a>
+ド・ブロイ関係
+</h5><ul>
+<li>波長：
+
+$$
+  \lambda = \frac{h}{p}
+  $$</li>
+<li>ベクトル形式：
+
+$$
+  \vec p = \hbar \vec k
+  $$</li>
+<li>振動数：
+
+$$
+  E = h\nu = \hbar\omega
+  $$</li>
+</ul>
+<hr>
+<h3 id="12-状態と波動関数">
+<a class="header-anchor" href="#12-%e7%8a%b6%e6%85%8b%e3%81%a8%e6%b3%a2%e5%8b%95%e9%96%a2%e6%95%b0"></a>
+1.2 状態と波動関数
+</h3><h4 id="121-不確定性原理">
+<a class="header-anchor" href="#121-%e4%b8%8d%e7%a2%ba%e5%ae%9a%e6%80%a7%e5%8e%9f%e7%90%86"></a>
+1.2.1 不確定性原理
+</h4><ul>
+<li>微視的粒子の位置と運動量は同時に任意の精度では決定できない。</li>
+<li>ハイゼンベルクの不確定性関係：
+
+$$
+  \Delta x \cdot \Delta p_x \geq \frac{\hbar}{2}
+  $$</li>
+<li>エネルギーと時間についても
+
+$$
+  \Delta E \cdot \Delta t \geq \frac{\hbar}{2}
+  $$
+が成り立つ。</li>
+<li>本質は波動粒子二重性と演算子の非可換性にある。</li>
+</ul>
+<h4 id="122-波動関数">
+<a class="header-anchor" href="#122-%e6%b3%a2%e5%8b%95%e9%96%a2%e6%95%b0"></a>
+1.2.2 波動関数
+</h4><ul>
+<li>微視的粒子の状態を表すために <strong>波動関数</strong> $\psi(\vec r,t)$ を導入する。</li>
+<li><strong>確率解釈</strong>：$|\psi(\vec r,t)|^2 dV$ は体積要素 $dV$ 内に粒子を見出す確率である。</li>
+<li>波動関数は重ね合わせの原理とシュレーディンガー方程式を満たす。</li>
+<li>全空間での確率の総和は 1 であり、確率分布は波動関数の相対的な強度だけで決まる。</li>
+<li>波動関数に定数を掛けても、表す物理状態は変わらない。</li>
+<li>波動関数の標準条件：一価、有限、連続。</li>
+</ul>
+<h4 id="123-波動関数の規格化">
+<a class="header-anchor" href="#123-%e6%b3%a2%e5%8b%95%e9%96%a2%e6%95%b0%e3%81%ae%e8%a6%8f%e6%a0%bc%e5%8c%96"></a>
+1.2.3 波動関数の規格化
+</h4><ul>
+<li><strong>規格化条件</strong>
+
+$$
+  \int_{-\infty}^{\infty} \psi^* (\vec r,t) \psi (\vec r,t) dV = 1
+  $$</li>
+<li><strong>規格化の方法</strong>
+
+$$
+  \int_{-\infty}^{\infty} |\Psi(\vec r,t)|^2 dV = A^2 \int_{-\infty}^{\infty} |\psi(\vec r,t)|^2 dV = 1
+  $$
+ここで $A$ は規格化定数。</li>
+</ul>
+<hr>
+<h3 id="13-シュレーディンガー方程式">
+<a class="header-anchor" href="#13-%e3%82%b7%e3%83%a5%e3%83%ac%e3%83%bc%e3%83%87%e3%82%a3%e3%83%b3%e3%82%ac%e3%83%bc%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+1.3 シュレーディンガー方程式
+</h3><h4 id="131-自由粒子の波動方程式">
+<a class="header-anchor" href="#131-%e8%87%aa%e7%94%b1%e7%b2%92%e5%ad%90%e3%81%ae%e6%b3%a2%e5%8b%95%e6%96%b9%e7%a8%8b%e5%bc%8f"></a>
+1.3.1 自由粒子の波動方程式
+</h4><p><strong>概念</strong><br>
+自由粒子とは外力を受けない粒子であり、その状態は波動関数 $\psi(\vec{r},t)$ によって表される。</p>
+<p><strong>自由粒子のシュレーディンガー方程式</strong>
+</p>
+$$
+i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = -\frac{\hbar^2}{2m} \nabla^2 \psi(\vec{r},t)
+$$<p><strong>平面波解</strong>
+</p>
+$$
+\psi(\vec{r},t) = A e^{i(\vec{k}\cdot\vec{r} - \omega t)}
+$$<p>
+ここで
+</p>
+$$
+E = \hbar \omega = \frac{\hbar^2 k^2}{2m},\qquad
+\vec{p} = \hbar \vec{k}
+$$<h5 id="平面波による導出">
+<a class="header-anchor" href="#%e5%b9%b3%e9%9d%a2%e6%b3%a2%e3%81%ab%e3%82%88%e3%82%8b%e5%b0%8e%e5%87%ba"></a>
+平面波による導出
+</h5><p><strong>1. 波動関数の仮定</strong>
+</p>
+$$
+\psi(\vec{r},t) = A e^{i(\vec{k}\cdot\vec{r} - \omega t)}
+$$<p><strong>2. 時間微分</strong>
+</p>
+$$
+\frac{\partial \psi}{\partial t}
+= -i \omega \psi
+$$<p>
+したがって
+</p>
+$$
+i\hbar \frac{\partial \psi}{\partial t} = \hbar \omega \psi
+$$<p><strong>3. ラプラシアン</strong>
+</p>
+$$
+\nabla^2 \psi = -k^2 \psi
+$$<p>
+よって
+</p>
+$$
+-\frac{\hbar^2}{2m} \nabla^2 \psi = \frac{\hbar^2 k^2}{2m} \psi
+$$<p><strong>4. エネルギー関係</strong>
+</p>
+$$
+E = \frac{\hbar^2 k^2}{2m} = \hbar \omega
+$$<p><strong>5. 方程式</strong>
+</p>
+$$
+i\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m} \nabla^2 \psi
+$$<h4 id="133-定常状態シュレーディンガー方程式と定常波動関数">
+<a class="header-anchor" href="#133-%e5%ae%9a%e5%b8%b8%e7%8a%b6%e6%85%8b%e3%82%b7%e3%83%a5%e3%83%ac%e3%83%bc%e3%83%87%e3%82%a3%e3%83%b3%e3%82%ac%e3%83%bc%e6%96%b9%e7%a8%8b%e5%bc%8f%e3%81%a8%e5%ae%9a%e5%b8%b8%e6%b3%a2%e5%8b%95%e9%96%a2%e6%95%b0"></a>
+1.3.3 定常状態シュレーディンガー方程式と定常波動関数
+</h4><p><strong>概念</strong>
+</p>
+$$
+\psi(\vec{r},t) = \phi(\vec{r}) e^{-i E t / \hbar}
+$$<p>
+の形に分離できる波動関数を定常状態波動関数という。</p>
+<p><strong>導出</strong>
+時間依存シュレーディンガー方程式
+</p>
+$$
+i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = \left[ -\frac{\hbar^2}{2m} \nabla^2 + V(\vec{r}) \right] \psi(\vec{r},t)
+$$<p>
+に上式を代入すると
+</p>
+$$
+\left[ -\frac{\hbar^2}{2m} \nabla^2 + V(\vec{r}) \right] \phi(\vec{r}) = E \phi(\vec{r})
+$$<p>
+を得る。</p>
+<p><strong>時間に依存しない形</strong>
+</p>
+$$
+i \hbar \frac{df}{dt}=E f , \; f= e^{-i E t / \hbar}
+$$<p>
+</p>
+$$
+-\frac{\hbar^2}{2m} \nabla^2 \phi(\vec{r}) + V(\vec{r}) \phi(\vec{r}) = E \phi(\vec{r})
+$$<h4 id="演算子からのシュレーディンガー方程式の導出">
+<a class="header-anchor" href="#%e6%bc%94%e7%ae%97%e5%ad%90%e3%81%8b%e3%82%89%e3%81%ae%e3%82%b7%e3%83%a5%e3%83%ac%e3%83%bc%e3%83%87%e3%82%a3%e3%83%b3%e3%82%ac%e3%83%bc%e6%96%b9%e7%a8%8b%e5%bc%8f%e3%81%ae%e5%b0%8e%e5%87%ba"></a>
+演算子からのシュレーディンガー方程式の導出
+</h4><p>古典的エネルギー
+</p>
+$$
+E = \frac{p^2}{2m} + V(\vec{r},t)
+$$<p>
+に対し、
+</p>
+$$
+\hat{E} = i\hbar \frac{\partial}{\partial t}, \quad \hat{\vec{p}} = -i\hbar \nabla
+$$<p>
+を導入すると、
+</p>
+$$
+\hat{H} = -\frac{\hbar^2}{2m}\nabla^2 + V(\vec{r},t)
+$$<p>
+より
+</p>
+$$
+i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = \hat{H} \psi(\vec{r},t)
+$$<p>
+すなわち
+</p>
+$$
+i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = \left[ -\frac{\hbar^2}{2m}\nabla^2 + V(\vec{r},t) \right] \psi(\vec{r},t)
+$$<p>
+となる。</p>
+<h4 id="状態の重ね合わせ原理">
+<a class="header-anchor" href="#%e7%8a%b6%e6%85%8b%e3%81%ae%e9%87%8d%e3%81%ad%e5%90%88%e3%82%8f%e3%81%9b%e5%8e%9f%e7%90%86"></a>
+状態の重ね合わせ原理
+</h4>$$
+\psi = c_1 \psi_1 + c_2 \psi_2
+$$<p>
+が再び可能な状態となる。一般には
+</p>
+$$
+\psi(\vec{r},t) = \sum_{n} c_n \phi_n(\vec{r},t),\qquad
+\sum_n |c_n|^2 = 1
+$$<p>
+で表される。</p>
+<h2 id="第2章-シュレーディンガー方程式の簡単な応用">
+<a class="header-anchor" href="#%e7%ac%ac2%e7%ab%a0-%e3%82%b7%e3%83%a5%e3%83%ac%e3%83%bc%e3%83%87%e3%82%a3%e3%83%b3%e3%82%ac%e3%83%bc%e6%96%b9%e7%a8%8b%e5%bc%8f%e3%81%ae%e7%b0%a1%e5%8d%98%e3%81%aa%e5%bf%9c%e7%94%a8"></a>
+第2章 シュレーディンガー方程式の簡単な応用
+</h2><h3 id="21-一次元無限深ポテンシャル井戸">
+<a class="header-anchor" href="#21-%e4%b8%80%e6%ac%a1%e5%85%83%e7%84%a1%e9%99%90%e6%b7%b1%e3%83%9d%e3%83%86%e3%83%b3%e3%82%b7%e3%83%a3%e3%83%ab%e4%ba%95%e6%88%b8"></a>
+2.1 一次元無限深ポテンシャル井戸
+</h3><h4 id="211-方程式の解">
+<a class="header-anchor" href="#211-%e6%96%b9%e7%a8%8b%e5%bc%8f%e3%81%ae%e8%a7%a3"></a>
+2.1.1 方程式の解
+</h4><p><strong>1. ポテンシャル</strong>
+</p>
+$$
+V(x) =
+\begin{cases}
+0, & 0 < x < L \\
+\infty, & x \leq 0 \ \text{または} \ x \geq L
+\end{cases}
+$$<p><strong>2. 方程式</strong>
+</p>
+$$
+-\frac{\hbar^2}{2m} \frac{d^2 \phi(x)}{dx^2} = E \phi(x)
+$$<p>
+</p>
+$$
+\frac{d^2 \phi(x)}{dx^2} + k^2 \phi(x) = 0,\qquad
+k^2 = \frac{2mE}{\hbar^2}
+$$<p><strong>3. 一般解</strong>
+</p>
+$$
+\phi(x) = A \sin(kx) + B \cos(kx)
+$$<p><strong>4. 境界条件</strong>
+</p>
+$$
+\phi(0) = 0, \quad \phi(L) = 0
+$$<p>
+から $B=0$、さらに $kL=n\pi$。</p>
+<p><strong>5. 固有関数と固有値</strong>
+</p>
+$$
+\phi_n(x) = \sqrt{\frac{2}{L}} \sin\left(\frac{n\pi x}{L}\right), \quad n=1,2,3,\dots
+$$<p>
+</p>
+$$
+E_n = \frac{n^2 \pi^2 \hbar^2}{2mL^2}, \quad n=1,2,3,\dots
+$$<hr>
+<h3 id="22-数理方程式の特殊関数">
+<a class="header-anchor" href="#22-%e6%95%b0%e7%90%86%e6%96%b9%e7%a8%8b%e5%bc%8f%e3%81%ae%e7%89%b9%e6%ae%8a%e9%96%a2%e6%95%b0"></a>
+2.2 数理方程式の特殊関数
+</h3><h4 id="221-直交性と規格化">
+<a class="header-anchor" href="#221-%e7%9b%b4%e4%ba%a4%e6%80%a7%e3%81%a8%e8%a6%8f%e6%a0%bc%e5%8c%96"></a>
+2.2.1 直交性と規格化
+</h4>$$
+\int_a^b \phi_m(x)\,\phi_n(x)\,dx = 0 \quad (m \neq n)
+$$<p>
+</p>
+$$
+\int_a^b |\phi_n(x)|^2 dx = 1
+$$<p>
+</p>
+$$
+\int_a^b \phi_m(x)\,\phi_n(x)\,dx = \delta_{mn}
+$$<h4 id="222-直交規格化関数系による展開">
+<a class="header-anchor" href="#222-%e7%9b%b4%e4%ba%a4%e8%a6%8f%e6%a0%bc%e5%8c%96%e9%96%a2%e6%95%b0%e7%b3%bb%e3%81%ab%e3%82%88%e3%82%8b%e5%b1%95%e9%96%8b"></a>
+2.2.2 直交規格化関数系による展開
+</h4>$$
+f(x) = \sum_{n=1}^{\infty} c_n \phi_n(x),\qquad
+c_n = \int_a^b f(x)\,\phi_n(x)\,dx
+$$<h4 id="223-フーリエ級数">
+<a class="header-anchor" href="#223-%e3%83%95%e3%83%bc%e3%83%aa%e3%82%a8%e7%b4%9a%e6%95%b0"></a>
+2.2.3 フーリエ級数
+</h4>$$
+f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty \left[ a_n \cos\left(\frac{n\pi x}{L}\right) + b_n \sin\left(\frac{n\pi x}{L}\right) \right]
+$$<h4 id="224-直交規格化関数の構成">
+<a class="header-anchor" href="#224-%e7%9b%b4%e4%ba%a4%e8%a6%8f%e6%a0%bc%e5%8c%96%e9%96%a2%e6%95%b0%e3%81%ae%e6%a7%8b%e6%88%90"></a>
+2.2.4 直交規格化関数の構成
+</h4><p>グラム・シュミット直交化を用いる：
+</p>
+$$
+\phi_1(x) = \frac{f_1(x)}{\sqrt{\int |f_1(x)|^2 dx}}
+$$<p>
+</p>
+$$
+\phi_2(x) = \frac{f_2(x) - \int \phi_1(x) f_2(x)\,dx \,\phi_1(x)}{\sqrt{\int \left|f_2(x) - \int \phi_1(x) f_2(x)\,dx \,\phi_1(x)\right|^2 dx}}
+$$<h4 id="225-ルジャンドル多項式とその他の特殊関数">
+<a class="header-anchor" href="#225-%e3%83%ab%e3%82%b8%e3%83%a3%e3%83%b3%e3%83%89%e3%83%ab%e5%a4%9a%e9%a0%85%e5%bc%8f%e3%81%a8%e3%81%9d%e3%81%ae%e4%bb%96%e3%81%ae%e7%89%b9%e6%ae%8a%e9%96%a2%e6%95%b0"></a>
+2.2.5 ルジャンドル多項式とその他の特殊関数
+</h4>$$
+(1-x^2)\frac{d^2 y}{dx^2} - 2x \frac{dy}{dx} + l(l+1)y = 0
+$$<p>
+</p>
+$$
+\int_{-1}^{1} P_l(x) P_{l'}(x)\,dx = \frac{2}{2l+1}\delta_{ll'}
+$$<ul>
+<li><strong>球面調和関数</strong> $Y_l^m(\theta,\phi)$</li>
+<li><strong>ベッセル関数</strong> $J_n(x)$</li>
+<li><strong>エルミート多項式</strong> $H_n(x)$</li>
+</ul>
+<h3 id="23-線形調和振動子">
+<a class="header-anchor" href="#23-%e7%b7%9a%e5%bd%a2%e8%aa%bf%e5%92%8c%e6%8c%af%e5%8b%95%e5%ad%90"></a>
+2.3 線形調和振動子
+</h3><h3 id="24-水素原子">
+<a class="header-anchor" href="#24-%e6%b0%b4%e7%b4%a0%e5%8e%9f%e5%ad%90"></a>
+2.4 水素原子
+</h3><h4 id="241-方程式の解-の三つに分離">
+<a class="header-anchor" href="#241-%e6%96%b9%e7%a8%8b%e5%bc%8f%e3%81%ae%e8%a7%a3-%e3%81%ae%e4%b8%89%e3%81%a4%e3%81%ab%e5%88%86%e9%9b%a2"></a>
+2.4.1 方程式の解（$r,\ \theta,\ \phi$ の三つに分離）
+</h4>$$
+V(r) = -\dfrac{e^2}{4\pi\varepsilon_0 r}
+$$<p>
+</p>
+$$
+-\dfrac{\hbar^2}{2m}\nabla^2\Psi(r,\theta,\phi) + V(r)\Psi = E\Psi.
+$$$$
+\Psi(r,\theta,\phi)=R(r)\,Y(\theta,\phi)
+$$<p>
+と置いて変数分離すると、角部分と動径部分の方程式が得られる。</p>
+<p><strong>$\phi$ 方程式</strong>
+</p>
+$$
+\frac{1}{\Phi(\phi)}\frac{d^2\Phi}{d\phi^2} = -m^2 \quad\Rightarrow\quad
+\Phi_m(\phi)=\frac{1}{\sqrt{2\pi}} e^{i m\phi},\quad m\in\mathbb{Z}
+$$<p><strong>$\theta$ 方程式</strong>
+</p>
+$$
+\frac{1}{\sin\theta}\frac{d}{d\theta}\!\left(\sin\theta\frac{d\Theta}{d\theta}\right)
++\left[l(l+1)-\frac{m^2}{\sin^2\theta}\right]\Theta=0
+$$<p>
+解は陪ルジャンドル関数：
+</p>
+$$
+\Theta_{l}^{m}(\theta)\propto P_l^{m}(\cos\theta)
+$$<p><strong>球面調和関数</strong>
+</p>
+$$
+Y_l^m(\theta,\phi)=N_{l}^{m}\,P_l^{m}(\cos\theta)\,e^{im\phi}
+$$<p>
+</p>
+$$
+\hat L^2 Y_l^m = l(l+1)\hbar^2 Y_l^m,\qquad \hat L_z Y_l^m = m\hbar Y_l^m
+$$<p><strong>動径方程式</strong>
+</p>
+$$
+-\frac{\hbar^2}{2m}\frac{d^2 u}{dr^2} + \left[ -\frac{e^2}{4\pi\varepsilon_0 r} + \frac{\hbar^2 l(l+1)}{2m r^2} \right] u = E u
+$$<p><strong>エネルギー固有値</strong>
+</p>
+$$
+E_n = -\frac{m e^4}{2(4\pi\varepsilon_0)^2 \hbar^2}\,\frac{1}{n^2} = -\frac{13.6057\ \mathrm{eV}}{n^2},\qquad n=1,2,3,\dots
+$$<p><strong>波動関数</strong>
+</p>
+$$
+\Psi_{n l m}(r,\theta,\phi)=R_{n l}(r)\,Y_l^m(\theta,\phi)
+$$<p>
+</p>
+$$
+R_{n l}(r)=N_{n l}\left(\frac{2r}{n a_0}\right)^{l} e^{-r/(n a_0)} L_{n-l-1}^{2l+1}\!\left(\frac{2r}{n a_0}\right)
+$$<h4 id="242-結果と考察">
+<a class="header-anchor" href="#242-%e7%b5%90%e6%9e%9c%e3%81%a8%e8%80%83%e5%af%9f"></a>
+2.4.2 結果と考察
+</h4><ul>
+<li>$n$：主量子数</li>
+<li>$l$：方位量子数</li>
+<li>$m$：磁気量子数</li>
+<li>クーロンポテンシャルではエネルギーは $n$ のみに依存する。</li>
+<li>基底状態 $(1,0,0)$ は球対称で、動径節を持たない。</li>
+</ul>
+<h2 id="第3章-力学量の演算子表示と表象理論">
+<a class="header-anchor" href="#%e7%ac%ac3%e7%ab%a0-%e5%8a%9b%e5%ad%a6%e9%87%8f%e3%81%ae%e6%bc%94%e7%ae%97%e5%ad%90%e8%a1%a8%e7%a4%ba%e3%81%a8%e8%a1%a8%e8%b1%a1%e7%90%86%e8%ab%96"></a>
+第3章 力学量の演算子表示と表象理論
+</h2><h3 id="31-力学量と演算子の関係">
+<a class="header-anchor" href="#31-%e5%8a%9b%e5%ad%a6%e9%87%8f%e3%81%a8%e6%bc%94%e7%ae%97%e5%ad%90%e3%81%ae%e9%96%a2%e4%bf%82"></a>
+3.1 力学量と演算子の関係
+</h3><h4 id="311-演算子の数学的知識">
+<a class="header-anchor" href="#311-%e6%bc%94%e7%ae%97%e5%ad%90%e3%81%ae%e6%95%b0%e5%ad%a6%e7%9a%84%e7%9f%a5%e8%ad%98"></a>
+3.1.1 演算子の数学的知識
+</h4><ol>
+<li>
+<p><strong>演算子の定義</strong><br>
+演算子は関数空間や状態空間に作用する規則であり、量子力学では物理量を表す。</p>
+</li>
+<li>
+<p><strong>線形性</strong>
+</p>
+$$
+   A(c_1\psi_1 + c_2\psi_2) = c_1 A\psi_1 + c_2 A\psi_2
+   $$</li>
+<li>
+<p><strong>交換関係</strong>
+</p>
+$$
+   [A,B] = AB - BA
+   $$</li>
+<li>
+<p><strong>エルミート演算子</strong>
+</p>
+$$
+   \langle \psi | A\varphi \rangle = \langle A\psi | \varphi \rangle
+   $$<p>
+可観測量はエルミート演算子で表される。</p>
+</li>
+</ol>
+<h4 id="312-力学量と演算子">
+<a class="header-anchor" href="#312-%e5%8a%9b%e5%ad%a6%e9%87%8f%e3%81%a8%e6%bc%94%e7%ae%97%e5%ad%90"></a>
+3.1.2 力学量と演算子
+</h4><ol>
+<li>
+<p><strong>基本思想</strong><br>
+古典量 $f(q,p)$ に対して量子演算子 $\hat f$ を対応させる。</p>
+</li>
+<li>
+<p><strong>位置表象における典型例</strong>
+</p>
+$$
+   \hat{x} = x,\qquad
+   \hat{p} = -i\hbar \frac{\partial}{\partial x}
+   $$</li>
+<li>
+<p><strong>基本交換関係</strong>
+</p>
+$$
+   [\hat{x}, \hat{p}] = i\hbar
+   $$</li>
+<li>
+<p><strong>固有値方程式</strong>
+</p>
+$$
+   \hat{A}\psi_a = a\psi_a
+   $$</li>
+</ol>
+<h3 id="32-演算子の交換関係と不確定性原理">
+<a class="header-anchor" href="#32-%e6%bc%94%e7%ae%97%e5%ad%90%e3%81%ae%e4%ba%a4%e6%8f%9b%e9%96%a2%e4%bf%82%e3%81%a8%e4%b8%8d%e7%a2%ba%e5%ae%9a%e6%80%a7%e5%8e%9f%e7%90%86"></a>
+3.2 演算子の交換関係と不確定性原理
+</h3><h4 id="321-交換関係">
+<a class="header-anchor" href="#321-%e4%ba%a4%e6%8f%9b%e9%96%a2%e4%bf%82"></a>
+3.2.1 交換関係
+</h4>$$
+[A,B] = AB - BA
+$$<p>
+</p>
+$$
+[\hat{x}, \hat{p}_x] = i\hbar
+$$<p>
+</p>
+$$
+[\hat{x}_i, \hat{p}_j] = i\hbar \delta_{ij}, \quad [\hat{x}_i, \hat{x}_j]=0, \quad [\hat{p}_i, \hat{p}_j]=0
+$$<h4 id="322-不確定性原理">
+<a class="header-anchor" href="#322-%e4%b8%8d%e7%a2%ba%e5%ae%9a%e6%80%a7%e5%8e%9f%e7%90%86"></a>
+3.2.2 不確定性原理
+</h4>$$
+(\Delta A)^2 = \langle (A-\langle A \rangle)^2 \rangle,\qquad
+(\Delta B)^2 = \langle (B-\langle B \rangle)^2 \rangle
+$$<p>
+</p>
+$$
+\Delta A \cdot \Delta B \geq \frac{1}{2}\left| \langle [A,B] \rangle \right|
+$$<p>
+特に
+</p>
+$$
+\Delta x \cdot \Delta p \geq \frac{\hbar}{2}
+$$<p>
+</p>
+$$
+\Delta E \cdot \Delta t \gtrsim \hbar
+$$<h3 id="33-表象理論">
+<a class="header-anchor" href="#33-%e8%a1%a8%e8%b1%a1%e7%90%86%e8%ab%96"></a>
+3.3 表象理論
+</h3><h4 id="331-数学的基礎">
+<a class="header-anchor" href="#331-%e6%95%b0%e5%ad%a6%e7%9a%84%e5%9f%ba%e7%a4%8e"></a>
+3.3.1 数学的基礎
+</h4>$$
+|\psi\rangle = \sum_n c_n |\phi_n\rangle,\qquad c_n = \langle \phi_n | \psi \rangle
+$$<p>
+</p>
+$$
+A_{mn} = \langle \phi_m | \hat{A} | \phi_n \rangle
+$$<p>
+</p>
+$$
+\sum_n |\phi_n\rangle \langle \phi_n| = I,\qquad
+\langle \phi_m | \phi_n \rangle = \delta_{mn}
+$$<h4 id="332-状態と力学量の表象">
+<a class="header-anchor" href="#332-%e7%8a%b6%e6%85%8b%e3%81%a8%e5%8a%9b%e5%ad%a6%e9%87%8f%e3%81%ae%e8%a1%a8%e8%b1%a1"></a>
+3.3.2 状態と力学量の表象
+</h4><p><strong>位置表象</strong>
+</p>
+$$
+\psi(x) = \langle x|\psi\rangle
+$$<p>
+</p>
+$$
+\hat{x} \psi(x) = x \psi(x), \quad \hat{p}_x \psi(x) = -i\hbar \frac{\partial}{\partial x}\psi(x)
+$$<p><strong>運動量表象</strong>
+</p>
+$$
+\phi(p) = \langle p|\psi\rangle
+$$<p>
+</p>
+$$
+\hat{p} \phi(p) = p \phi(p), \quad \hat{x} \phi(p) = i\hbar \frac{\partial}{\partial p}\phi(p)
+$$<p><strong>エネルギー表象</strong>
+</p>
+$$
+|\psi\rangle = \sum_n c_n |E_n\rangle, \quad c_n = \langle E_n|\psi\rangle
+$$<p><strong>表象間の変換</strong>
+</p>
+$$
+\phi(p) = \frac{1}{\sqrt{2\pi\hbar}} \int_{-\infty}^{\infty} \psi(x) e^{-ipx/\hbar} dx
+$$<p>
+</p>
+$$
+\psi(x) = \frac{1}{\sqrt{2\pi\hbar}} \int_{-\infty}^{\infty} \phi(p) e^{ipx/\hbar} dp
+$$<h3 id="34-軌道角運動量">
+<a class="header-anchor" href="#34-%e8%bb%8c%e9%81%93%e8%a7%92%e9%81%8b%e5%8b%95%e9%87%8f"></a>
+3.4 軌道角運動量
+</h3><h4 id="341-角運動量">
+<a class="header-anchor" href="#341-%e8%a7%92%e9%81%8b%e5%8b%95%e9%87%8f"></a>
+3.4.1 角運動量
+</h4>$$
+\vec{L} = \vec{r} \times \vec{p},\qquad
+\hat{\vec{L}} = \hat{\vec{r}} \times \hat{\vec{p}}
+$$<p>
+</p>
+$$
+\hat{L}_x = y\hat{p}_z - z\hat{p}_y, \quad
+\hat{L}_y = z\hat{p}_x - x\hat{p}_z, \quad
+\hat{L}_z = x\hat{p}_y - y\hat{p}_x
+$$<p>
+</p>
+$$
+[\hat{L}_x, \hat{L}_y] = i\hbar \hat{L}_z, \quad
+[\hat{L}_y, \hat{L}_z] = i\hbar \hat{L}_x, \quad
+[\hat{L}_z, \hat{L}_x] = i\hbar \hat{L}_y
+$$<p>
+</p>
+$$
+\hat{L}^2 = \hat{L}_x^2 + \hat{L}_y^2 + \hat{L}_z^2
+$$<h4 id="342-角運動量保存">
+<a class="header-anchor" href="#342-%e8%a7%92%e9%81%8b%e5%8b%95%e9%87%8f%e4%bf%9d%e5%ad%98"></a>
+3.4.2 角運動量保存
+</h4>$$
+[\hat{H}, \hat{L}_i] = 0 \quad \Rightarrow \quad \hat{L}_i \ \text{は保存する}
+$$<p>
+球対称ポテンシャルでは
+</p>
+$$
+[\hat{H}, \hat{L}^2] = 0, \quad [\hat{H}, \hat{L}_z] = 0
+$$<h4 id="343-軌道角運動量の計算">
+<a class="header-anchor" href="#343-%e8%bb%8c%e9%81%93%e8%a7%92%e9%81%8b%e5%8b%95%e9%87%8f%e3%81%ae%e8%a8%88%e7%ae%97"></a>
+3.4.3 軌道角運動量の計算
+</h4>$$
+\hat{L}^2 Y_{lm}(\theta,\varphi) = l(l+1)\hbar^2 Y_{lm}(\theta,\varphi)
+$$<p>
+</p>
+$$
+\hat{L}_z Y_{lm}(\theta,\varphi) = m\hbar Y_{lm}(\theta,\varphi)
+$$<p>
+</p>
+$$
+L = \sqrt{l(l+1)} \hbar,\qquad L_z = m\hbar
+$$<h2 id="第4章-摂動論とその応用">
+<a class="header-anchor" href="#%e7%ac%ac4%e7%ab%a0-%e6%91%82%e5%8b%95%e8%ab%96%e3%81%a8%e3%81%9d%e3%81%ae%e5%bf%9c%e7%94%a8"></a>
+第4章 摂動論とその応用
+</h2><h3 id="41-定常摂動論">
+<a class="header-anchor" href="#41-%e5%ae%9a%e5%b8%b8%e6%91%82%e5%8b%95%e8%ab%96"></a>
+4.1 定常摂動論
+</h3><h4 id="411-非縮退摂動論">
+<a class="header-anchor" href="#411-%e9%9d%9e%e7%b8%ae%e9%80%80%e6%91%82%e5%8b%95%e8%ab%96"></a>
+4.1.1 非縮退摂動論
+</h4>$$
+\hat{H} = \hat{H}^{(0)} + \lambda \hat{H}'
+$$<p>
+</p>
+$$
+E_n^{(1)} = \langle \psi_n^{(0)} | \hat{H}' | \psi_n^{(0)} \rangle
+$$<p>
+</p>
+$$
+E_n^{(2)} = \sum_{m \neq n} \frac{|\langle \psi_m^{(0)} | \hat{H}' | \psi_n^{(0)} \rangle|^2}{E_n^{(0)} - E_m^{(0)}}
+$$<p>
+</p>
+$$
+\psi_n^{(1)} = \sum_{m \neq n} \frac{\langle \psi_m^{(0)} | \hat{H}' | \psi_n^{(0)} \rangle}{E_n^{(0)} - E_m^{(0)}} \psi_m^{(0)}
+$$<h4 id="412-縮退摂動論">
+<a class="header-anchor" href="#412-%e7%b8%ae%e9%80%80%e6%91%82%e5%8b%95%e8%ab%96"></a>
+4.1.2 縮退摂動論
+</h4>$$
+H'_{ij} = \langle \psi_i^{(0)} | \hat{H}' | \psi_j^{(0)} \rangle
+$$<p>
+を縮退部分空間で対角化する。</p>
+<h3 id="42-時間依存摂動論">
+<a class="header-anchor" href="#42-%e6%99%82%e9%96%93%e4%be%9d%e5%ad%98%e6%91%82%e5%8b%95%e8%ab%96"></a>
+4.2 時間依存摂動論
+</h3>$$
+\hat{H}(t) = \hat{H}^{(0)} + \hat{H}'(t)
+$$<p>
+</p>
+$$
+|\psi(t)\rangle = \sum_n c_n(t) e^{-iE_n^{(0)}t/\hbar} |\psi_n^{(0)}\rangle
+$$<p>
+</p>
+$$
+c_f^{(1)}(t) = \frac{1}{i\hbar} \int_0^t \langle \psi_f^{(0)} | \hat{H}'(t') | \psi_i^{(0)} \rangle 
+e^{i\omega_{fi} t'} dt'
+$$<p>
+</p>
+$$
+W_{i \to f} = \frac{2\pi}{\hbar} \, |\langle f | \hat{H}' | i \rangle|^2 \, \rho(E_f)
+$$<h2 id="電子スピン">
+<a class="header-anchor" href="#%e9%9b%bb%e5%ad%90%e3%82%b9%e3%83%94%e3%83%b3"></a>
+電子スピン
+</h2><h3 id="電子スピンの実験的発見">
+<a class="header-anchor" href="#%e9%9b%bb%e5%ad%90%e3%82%b9%e3%83%94%e3%83%b3%e3%81%ae%e5%ae%9f%e9%a8%93%e7%9a%84%e7%99%ba%e8%a6%8b"></a>
+電子スピンの実験的発見
+</h3><ol>
+<li>
+<p><strong>シュテルン＝ゲルラッハ実験</strong><br>
+銀原子ビームを不均一磁場に通すと二本に分かれ、電子が軌道角運動量以外の内在的角運動量、すなわちスピンをもつことが示された。</p>
+</li>
+<li>
+<p><strong>実験的結論</strong></p>
+<ul>
+<li>スピン量子数は $s = 1/2$。</li>
+<li>スピン投影は $m_s = \pm 1/2$。</li>
+<li>スピン磁気モーメント：
+
+$$
+     \vec{\mu}_s = -g_s \frac{e}{2m_e} \vec{S}, \quad g_s \approx 2
+     $$</li>
+</ul>
+</li>
+</ol>
+<h3 id="電子スピンの理論">
+<a class="header-anchor" href="#%e9%9b%bb%e5%ad%90%e3%82%b9%e3%83%94%e3%83%b3%e3%81%ae%e7%90%86%e8%ab%96"></a>
+電子スピンの理論
+</h3><ol>
+<li>
+<p><strong>量子論的記述</strong>
+</p>
+$$
+   [\hat{S}_i, \hat{S}_j] = i\hbar \epsilon_{ijk} \hat{S}_k
+   $$</li>
+<li>
+<p><strong>物理的意味</strong><br>
+スピンは電子の磁性的ふるまいを決め、フェルミ＝ディラック統計とパウリの排他原理につながる。</p>
+</li>
+</ol>
+<h3 id="スピン角運動量">
+<a class="header-anchor" href="#%e3%82%b9%e3%83%94%e3%83%b3%e8%a7%92%e9%81%8b%e5%8b%95%e9%87%8f"></a>
+スピン角運動量
+</h3><h4 id="スピン演算子">
+<a class="header-anchor" href="#%e3%82%b9%e3%83%94%e3%83%b3%e6%bc%94%e7%ae%97%e5%ad%90"></a>
+スピン演算子
+</h4>$$
+\hat{S}_x, \hat{S}_y, \hat{S}_z
+$$<p>
+</p>
+$$
+[\hat{S}_x, \hat{S}_y] = i\hbar \hat{S}_z, \quad \text{循環対称}
+$$<p>
+</p>
+$$
+\hat{S}^2 = \hat{S}_x^2 + \hat{S}_y^2 + \hat{S}_z^2
+$$<p>
+</p>
+$$
+\hat{S}^2 |\chi_s\rangle = s(s+1)\hbar^2 |\chi_s\rangle
+$$<h4 id="固有関数の行列表現">
+<a class="header-anchor" href="#%e5%9b%ba%e6%9c%89%e9%96%a2%e6%95%b0%e3%81%ae%e8%a1%8c%e5%88%97%e8%a1%a8%e7%8f%be"></a>
+固有関数の行列表現
+</h4>$$
+|\uparrow\rangle = \begin{pmatrix}1\\0\end{pmatrix}, \quad
+|\downarrow\rangle = \begin{pmatrix}0\\1\end{pmatrix}
+$$<p>
+</p>
+$$
+\hat{S}_x = \frac{\hbar}{2} \sigma_x, \quad
+\hat{S}_y = \frac{\hbar}{2} \sigma_y, \quad
+\hat{S}_z = \frac{\hbar}{2} \sigma_z
+$$<p>
+</p>
+$$
+\sigma_x = \begin{pmatrix}0 & 1\\ 1 & 0\end{pmatrix},\quad
+\sigma_y = \begin{pmatrix}0 & -i\\ i & 0\end{pmatrix},\quad
+\sigma_z = \begin{pmatrix}1 & 0\\ 0 & -1\end{pmatrix}
+$$<h4 id="角運動量結合理論">
+<a class="header-anchor" href="#%e8%a7%92%e9%81%8b%e5%8b%95%e9%87%8f%e7%b5%90%e5%90%88%e7%90%86%e8%ab%96"></a>
+角運動量結合理論
+</h4>$$
+\hat{H}_{\text{SO}} = \xi(r)\, \vec{L} \cdot \vec{S}
+$$<p>
+</p>
+$$
+\vec{J} = \vec{L} + \vec{S}, \quad
+\hat{J}^2 = (\hat{L}+\hat{S})^2
+$$<p>
+</p>
+$$
+\hat{J}^2 |j, m_j\rangle = j(j+1)\hbar^2 |j, m_j\rangle, \quad
+\hat{J}_z |j, m_j\rangle = m_j \hbar |j, m_j\rangle
+$$<ul>
+<li>$j = l \pm s$、$m_j = -j, -j+1, ..., j$。</li>
+</ul>
+<h2 id="同種粒子の原理">
+<a class="header-anchor" href="#%e5%90%8c%e7%a8%ae%e7%b2%92%e5%ad%90%e3%81%ae%e5%8e%9f%e7%90%86"></a>
+同種粒子の原理
+</h2><h3 id="同種粒子系">
+<a class="header-anchor" href="#%e5%90%8c%e7%a8%ae%e7%b2%92%e5%ad%90%e7%b3%bb"></a>
+同種粒子系
+</h3><h4 id="概念と原理">
+<a class="header-anchor" href="#%e6%a6%82%e5%bf%b5%e3%81%a8%e5%8e%9f%e7%90%86"></a>
+概念と原理
+</h4><ol>
+<li>
+<p><strong>同種粒子の定義</strong><br>
+質量・電荷・スピンなどの物理的性質が完全に同一で、いかなる実験でも区別できない粒子を同種粒子という。</p>
+</li>
+<li>
+<p><strong>同種性原理</strong><br>
+同種粒子を交換しても、ハミルトニアンと可観測量は変わらない。</p>
+</li>
+</ol>
+<h4 id="同種粒子系のハミルトニアン">
+<a class="header-anchor" href="#%e5%90%8c%e7%a8%ae%e7%b2%92%e5%ad%90%e7%b3%bb%e3%81%ae%e3%83%8f%e3%83%9f%e3%83%ab%e3%83%88%e3%83%8b%e3%82%a2%e3%83%b3"></a>
+同種粒子系のハミルトニアン
+</h4>$$
+\hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i<j} V(\vec{r}_i - \vec{r}_j)
+$$<p>
+</p>
+$$
+[\hat{H}, \hat{P}_{ij}] = 0
+$$<h4 id="同種粒子系の波動関数">
+<a class="header-anchor" href="#%e5%90%8c%e7%a8%ae%e7%b2%92%e5%ad%90%e7%b3%bb%e3%81%ae%e6%b3%a2%e5%8b%95%e9%96%a2%e6%95%b0"></a>
+同種粒子系の波動関数
+</h4>$$
+\hat{P}_{ij} \Psi(\dots, \vec{r}_i, \vec{r}_j, \dots) =
+\pm \Psi(\dots, \vec{r}_i, \vec{r}_j, \dots)
+$$<ul>
+<li><strong>+</strong>：ボース粒子、対称</li>
+<li><strong>-</strong>：フェルミ粒子、反対称</li>
+</ul>
+<p>フェルミ粒子ではスレーター行列式：
+</p>
+$$
+\Psi(\vec{r}_1, \dots, \vec{r}_N) = \frac{1}{\sqrt{N!}}
+\begin{vmatrix}
+\psi_1(\vec{r}_1) & \cdots & \psi_1(\vec{r}_N) \\
+\vdots & \ddots & \vdots \\
+\psi_N(\vec{r}_1) & \cdots & \psi_N(\vec{r}_N)
+\end{vmatrix}
+$$<h3 id="パウリの排他原理">
+<a class="header-anchor" href="#%e3%83%91%e3%82%a6%e3%83%aa%e3%81%ae%e6%8e%92%e4%bb%96%e5%8e%9f%e7%90%86"></a>
+パウリの排他原理
+</h3><ol>
+<li>
+<p><strong>原理の内容</strong>
+半整数スピンをもつ同種フェルミ粒子では、任意の二粒子が完全に同一の量子状態を占めることはできない。
+</p>
+$$
+   \Psi(\text{同一量子状態}) = 0
+   $$</li>
+<li>
+<p><strong>物理的意味</strong>
+原子内電子の配置、原子構造、化学的性質、フェルミ気体の性質を説明する。</p>
+</li>
+<li>
+<p><strong>例</strong></p>
+<ul>
+<li>原子中の電子：一つの軌道には互いに逆向きのスピンをもつ二個まで。</li>
+<li>金属電子：フェルミ準位を形成し、電気的・熱的性質を決める。</li>
+</ul>
+</li>
+</ol>
+
+        
+        <hr><p>この記事は2025-09-05に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-09-05です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Physics</category></item><item><title>デジタル信号処理</title><link>https://guzhengsvt.cn/ja/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link><pubDate>Wed, 04 Sep 2024 23:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid><description>
 <![CDATA[<h1>デジタル信号処理</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
         
           <h1 id="デジタル信号処理の基本概念">
