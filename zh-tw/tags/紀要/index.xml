@@ -34,10 +34,10 @@
         <hr><p>本文2025-05-20首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-05-20</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Poetry</category></item><item><title>哈囉世界</title><link>https://guzhengsvt.cn/zh-tw/post/thoughts/hello-world/</link><pubDate>Sun, 13 Apr 2025 11:00:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/thoughts/hello-world/</guid><description>
 <![CDATA[<h1>哈囉世界</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
-          <h1 id="20250413">
+          <h2 id="20250413">
 <a class="header-anchor" href="#20250413"></a>
 2025.04.13
-</h1><p>折騰了兩天終於搭好了Hugo博客，主題是<a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu</a>。</p>
+</h2><p>折騰了兩天終於搭好了Hugo博客，主題是<a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu</a>。</p>
 <p>對於原來的<a href="https://guzhengsvt.top/">Typecho博客</a>響應速度不滿意，我計劃再次遷移博客。（儘管Typecho已經很輕量了，垃圾的雲伺服器及頻寬嚴重限制了訪問和文章加載速度。）</p>
 <p>放棄動態後，能考慮靜態無非Hexo、Hugo、Jekyll等。選擇Hugo，無非是因為它的口號 <em><strong>The world’s fastest framework for building websites</strong></em> 。</p>
 <p>這段時間慢慢把老博客的內容搬到這裡來。找了些Typecho to Hugo的方法，大多年久失修不能用了（Typecho和PHP太老了，這也是我轉向的原因）。還得用笨辦法，一點點把文章導出，再編輯導入Hugo。</p>
@@ -45,27 +45,27 @@
 <p>然後為了加快圖片訪問速度，得整個圖床，再把之前文章的圖片連結替換。</p>
 <p>為了不對老博客產生不可逆影響，Hugo目前放在GitHub Pages託管。而GitHub在國內訪問不穩定，等搬完內容完全搭建好了再copy到自己雲虛擬主機。</p>
 <p>怎麼這麼多事啊woc</p>
-<h1 id="test">
+<h2 id="test">
 <a class="header-anchor" href="#test"></a>
 Test
-</h1><p>測試一下新博客。</p>
+</h2><p>測試一下新博客。</p>
 <p>markdown</p>
-<h2 id="二級標題">
+<h3 id="二級標題">
 <a class="header-anchor" href="#%e4%ba%8c%e7%b4%9a%e6%a8%99%e9%a1%8c"></a>
 二級標題
-</h2><h3 id="三級標題">
+</h3><h4 id="三級標題">
 <a class="header-anchor" href="#%e4%b8%89%e7%b4%9a%e6%a8%99%e9%a1%8c"></a>
 三級標題
-</h3><h4 id="四級標題">
+</h4><h5 id="四級標題">
 <a class="header-anchor" href="#%e5%9b%9b%e7%b4%9a%e6%a8%99%e9%a1%8c"></a>
 四級標題
-</h4><h5 id="五級標題">
+</h5><h5 id="五級標題">
 <a class="header-anchor" href="#%e4%ba%94%e7%b4%9a%e6%a8%99%e9%a1%8c"></a>
 五級標題
-</h5><h6 id="六級標題">
+</h5><h5 id="六級標題">
 <a class="header-anchor" href="#%e5%85%ad%e7%b4%9a%e6%a8%99%e9%a1%8c"></a>
 六級標題
-</h6><ol>
+</h5><ol>
 <li>
 <p>分條</p>
 </li>
@@ -279,10 +279,10 @@ $$<p>code test</p>
         <hr><p>本文2024-06-27首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2024-06-27</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Thoughts</category></item><item><title>生活小記</title><link>https://guzhengsvt.cn/zh-tw/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</link><pubDate>Mon, 06 May 2024 18:12:51 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</guid><description>
 <![CDATA[<h1>生活小記</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
-          <h3 id="活著">
+          <h2 id="活著">
 <a class="header-anchor" href="#%e6%b4%bb%e8%91%97"></a>
 活著
-</h3><p>五一假期沒有假期，剛結束了電賽校賽，雖然結果不太好但卻是學到了許多東西。</p>
+</h2><p>五一假期沒有假期，剛結束了電賽校賽，雖然結果不太好但卻是學到了許多東西。</p>
 <p>第四天晚上通宵，早上五六點太陽升起，實驗室裡幾組通宵的同學都在打卡拍照。難得西電看日出，F樓五樓視野開闊，遠處高樓、校園綠樹盡收眼底，被朝陽和剛結束工作的心情籠上獨特的美感。昨天下午開始睡，一覺睡到第二天早上八點，繼續開始新的一週課。睡足了精神很好，但一天課下來今天仍然疲憊。</p>
 <p>去C樓的那條小路今日格外美。正是初夏時分，沒有春末花謝花飛的感傷，沒有夏中的酷暑與瀑雨，只是單純的天氣很好，不冷不熱空氣品質不爆表（西安AQI過500是常事）。沒有花兒只有綠葉，綠得很平淡但讓人欣喜。</p>
 <p>我羨慕路邊的小草小灌木，能安靜地在路邊蜷縮著不被打擾，沒有855上課，沒有作業，不用去講座也沒人強迫打比賽，他只用站在那裡，<em><strong>沒人會因為冬天沒有綠葉或夏天蚊蟲太多而責罵小草，但我不一樣。</strong></em></p>
@@ -293,10 +293,10 @@ $$<p>code test</p>
 「所以你不會選擇去死。」</p>
 </blockquote>
 <p><strong>是的，我就是活著太安逸了，因為死不了所以庸碌無為。</strong></p>
-<h3 id="哲學">
+<h2 id="哲學">
 <a class="header-anchor" href="#%e5%93%b2%e5%ad%b8"></a>
 哲學
-</h3><p>初中我開始第一次哲學思考，那時讀了許多正統科幻文學，也沉迷於網文（QQ閱讀+笔趣阁大概有2400+h）。一邊為宏大敘事所折服，一邊被崇高道德打動。在<strong>形而上學唯物主義</strong>中悲觀消極，或借<strong>唯心主義</strong>蒙頭直撞。這是我處理當下挫折的兩種方式，或者說兩種思考方式。對於未來規劃，我在<strong>遠視主義</strong>和<strong>共產主義</strong>中模糊探索，那時還不太清楚其中的區別，一方面堅信科學發展至關重要，一邊又希望人人都不被壓迫過上幸福生活。</p>
+</h2><p>初中我開始第一次哲學思考，那時讀了許多正統科幻文學，也沉迷於網文（QQ閱讀+笔趣阁大概有2400+h）。一邊為宏大敘事所折服，一邊被崇高道德打動。在<strong>形而上學唯物主義</strong>中悲觀消極，或借<strong>唯心主義</strong>蒙頭直撞。這是我處理當下挫折的兩種方式，或者說兩種思考方式。對於未來規劃，我在<strong>遠視主義</strong>和<strong>共產主義</strong>中模糊探索，那時還不太清楚其中的區別，一方面堅信科學發展至關重要，一邊又希望人人都不被壓迫過上幸福生活。</p>
 <p>那時的很多思考、原則、哲理都誕生於廁所蹲坑，<em><strong>在那一米見方的齷齪之地，最偉大的思想家悠然漫步於他的哲學宮殿，牆上則掛著歷代先賢的畫像。</strong></em></p>
 <blockquote>
 <p>「如若秦始皇放棄修長城，多少百姓會過上好日子啊！同樣的道理，造火箭勞民傷財，國家財政應該用於民生。」<br>
@@ -306,16 +306,16 @@ $$<p>code test</p>
 <p>高中時讀了更多的傳統文學，但只是提高心智與文學水平，並未引起更多、更本質的思考。</p>
 <p>很遺憾，我慢慢地失去了閱讀的能力。粗淺地讀了幾本共產主義的書，便確信這是前進的方向；看幾個進步視頻，就又有了一絲前進的動力。在大學久不讀詩書，寫詩寫文章都沒有靈氣，寫出的文字自己讀起來都覺得羞愧。長期沉浸在互聯網，我都沒有發現自己變得輕浮，沾染上些許的戾氣。</p>
 <p>還能讀進長文嗎？還能在讀書時抽神思考嗎？ 我不知道。這短平快的時代裡，偶爾有空開一把戰地似乎是比讀書跟能獲取愉悅的手段。我沒有整塊的時間去細細品一本好書了，每天僅剩的精力需要一針猛藥刺激而不是一杯燙口需要等待冷卻的茶。</p>
-<h3 id="久處亦砰然">
+<h2 id="久處亦砰然">
 <a class="header-anchor" href="#%e4%b9%85%e8%99%95%e4%ba%a6%e7%a0%b0%e7%84%b6"></a>
 久處亦砰然
-</h3><p>下午上完課回寢室，斜陽在小路上斑駁樹影，一隻不知名的鳥兒從路邊跳到低丫上，待我走近了才跳到更高的枝丫。我又一次感受到這小小校園的美。西電像是<strong>耐看</strong>的姑娘，初見不覺驚艷，甚至有些土氣。兩年過去，才漸漸察覺出靜謐的美來，一切都是剛剛好。</p>
+</h2><p>下午上完課回寢室，斜陽在小路上斑駁樹影，一隻不知名的鳥兒從路邊跳到低丫上，待我走近了才跳到更高的枝丫。我又一次感受到這小小校園的美。西電像是<strong>耐看</strong>的姑娘，初見不覺驚艷，甚至有些土氣。兩年過去，才漸漸察覺出靜謐的美來，一切都是剛剛好。</p>
 <p>也是漸漸適應了西安，這個西部大都市。對她，我吐槽的時候叫<em><strong>西安</strong></em>，吹的時候雅稱<em><strong>長安</strong></em>。至於長安區這塊地方，沒有半點「長安」的繁華。</p>
 <p>雖然國內的大城市幾乎一模一樣，但長安還是很好的，該有的都有，一些地方路邊小吃也親切，能尋到「煙火氣」。大多地方很乾淨，人不算特別多，車一般不堵，物價正常——<strong>「中庸」，這是長安的待客之道，也是君王治國之道。</strong></p>
-<h3 id="people-change">
+<h2 id="people-change">
 <a class="header-anchor" href="#people-change"></a>
 People Change
-</h3><blockquote>
+</h2><blockquote>
 <p>人不能兩次踏進同一條河流。<br>
 ——赫拉克利特</p>
 </blockquote>
@@ -349,10 +349,10 @@ People Change
           <p>今年生日給自己新配了一台桌上型電腦</p>
 <p>，原來那台4年前的9700KF+1660S性能不太夠用了，1080P 60Hz的螢幕也難以讓人滿意。
 賣了舊主機舊顯示器，加上小金庫的錢勉強湊夠了預算。</p>
-<h3 id="配置單">
+<h2 id="配置單">
 <a class="header-anchor" href="#%e9%85%8d%e7%bd%ae%e5%96%ae"></a>
 配置單
-</h3><ul>
+</h2><ul>
 <li>CPU：12400F 散片</li>
 <li>主機板：華碩 610M-A D4</li>
 <li>散熱：利民 AX120 R SE White</li>
@@ -364,10 +364,10 @@ People Change
 <li>風扇：極光正葉扇*4 +反葉扇*3</li>
 <li>顯示器：科睿 X41Q 23.8吋 2K 180Hz</li>
 </ul>
-<h3 id="組裝">
+<h2 id="組裝">
 <a class="header-anchor" href="#%e7%b5%84%e8%a3%9d"></a>
 組裝
-</h3><p>整體難度不高，看一遍硬體茶談影片就可以動手了。</p>
+</h2><p>整體難度不高，看一遍硬體茶談影片就可以動手了。</p>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe 

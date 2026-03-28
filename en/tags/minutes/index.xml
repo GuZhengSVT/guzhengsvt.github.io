@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Minutes on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/en/tags/minutes/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright><lastBuildDate>Sun, 13 Apr 2025 11:00:00 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/en/tags/minutes/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello World</title><link>https://guzhengsvt.cn/en/post/thoughts/hello-world/</link><pubDate>Sun, 13 Apr 2025 11:00:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/thoughts/hello-world/</guid><description>
 <![CDATA[<h1>Hello World</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="20250413">
+          <h2 id="20250413">
 <a class="header-anchor" href="#20250413"></a>
 2025.04.13
-</h1><p>After two days of tinkering, I finally set up my Hugo blog using the <a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu</a> theme.</p>
+</h2><p>After two days of tinkering, I finally set up my Hugo blog using the <a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu</a> theme.</p>
 <p>Unsatisfied with the response speed of my previous <a href="https://guzhengsvt.top/">Typecho blog</a>, I decided to migrate my blog again. (Although Typecho is already quite lightweight, the poor cloud server and bandwidth severely limited access and article loading speeds.)</p>
 <p>After abandoning dynamic solutions, the static options available were essentially Hexo, Hugo, Jekyll, etc. I chose Hugo simply because of its slogan: <em><strong>The world’s fastest framework for building websites</strong></em>.</p>
 <p>I’ll gradually move the content from my old blog over here during this time. I looked up some Typecho-to-Hugo conversion methods, but most were outdated and unusable (Typecho and PHP are too old, which is another reason for my switch). I’ll have to resort to the tedious method of manually exporting articles, editing them, and importing them into Hugo.</p>
@@ -12,10 +12,10 @@
 <p>Then, to speed up image loading, I’ll need to set up an image hosting service and replace the image links in previous articles.</p>
 <p>To avoid irreversible impacts on the old blog, Hugo is currently hosted on GitHub Pages. However, GitHub is unstable in China, so once I’ve fully migrated the content and completed the setup, I’ll copy it to my cloud virtual host.</p>
 <p>Why is there so much to do? Damn.</p>
-<h1 id="test">
+<h2 id="test">
 <a class="header-anchor" href="#test"></a>
 Test
-</h1><p>Testing the new blog.</p>
+</h2><p>Testing the new blog.</p>
 <p>markdown</p>
 <h2 id="level-2-heading">
 <a class="header-anchor" href="#level-2-heading"></a>
@@ -79,10 +79,10 @@ I have no regrets.</p>
         <hr><p>Published on 2024-06-27 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-06-27</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Thoughts</category></item><item><title>A Little Note on Life</title><link>https://guzhengsvt.cn/en/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</link><pubDate>Mon, 06 May 2024 18:12:51 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/thoughts/%E7%94%9F%E6%B4%BB%E5%B0%8F%E8%AE%B0/</guid><description>
 <![CDATA[<h1>A Little Note on Life</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
-          <h3 id="alive">
+          <h2 id="alive">
 <a class="header-anchor" href="#alive"></a>
 Alive
-</h3><p>There was no holiday during the May Day break. I just finished the university-level electronic design competition, and although the results weren’t great, I learned a lot.</p>
+</h2><p>There was no holiday during the May Day break. I just finished the university-level electronic design competition, and although the results weren’t great, I learned a lot.</p>
 <p>On the fourth night, I pulled an all-nighter. By five or six in the morning, the sun rose, and the few groups of students who had also stayed up all night in the lab took photos to commemorate the moment. It’s rare to see the sunrise at Xidian University. The fifth floor of Building F offers an open view, with distant high-rises and the campus greenery all bathed in the unique beauty of the morning sun and the relief of finishing work. I started sleeping yesterday afternoon and didn’t wake up until eight the next morning, ready to start a new week of classes. Though well-rested and refreshed, I still felt exhausted after a full day of lectures.</p>
 <p>The small path to Building C was unusually beautiful today. It’s early summer—no melancholy of spring flowers withering and falling, no scorching heat or torrential rain of midsummer, just pure, pleasant weather, neither too hot nor too cold, with air quality that hasn’t hit hazardous levels (Xi’an’s AQI often exceeds 500). No flowers, just green leaves, plain yet delightful.</p>
 <p>I envy the little grass and shrubs by the roadside, quietly curling up undisturbed. No 8:55 AM classes, no homework, no mandatory lectures or competitions—they just stand there. <em><strong>No one scolds the grass for lacking leaves in winter or for attracting too many mosquitoes in summer, but I’m different.</strong></em></p>
@@ -93,10 +93,10 @@ Alive
 “So you wouldn’t choose to die.”</p>
 </blockquote>
 <p><strong>Yes, I’m just too comfortable being alive—mediocre because I can’t die.</strong></p>
-<h3 id="philosophy">
+<h2 id="philosophy">
 <a class="header-anchor" href="#philosophy"></a>
 Philosophy
-</h3><p>My first philosophical reflections began in middle school. Back then, I read a lot of orthodox sci-fi literature and was also obsessed with web novels (QQ Reading +笔趣阁, totaling around 2,400+ hours). I was awed by grand narratives and moved by lofty morals. I oscillated between pessimistic resignation under <strong>metaphysical materialism</strong> and reckless idealism under <strong>idealism</strong>. These were my two ways of coping with setbacks, or rather, two modes of thought. For future planning, I vaguely explored <strong>longtermism</strong> and <strong>communism</strong>, not yet clear about the distinctions—firmly believing in the importance of scientific progress while also hoping for a world where everyone lives happily, free from oppression.</p>
+</h2><p>My first philosophical reflections began in middle school. Back then, I read a lot of orthodox sci-fi literature and was also obsessed with web novels (QQ Reading +笔趣阁, totaling around 2,400+ hours). I was awed by grand narratives and moved by lofty morals. I oscillated between pessimistic resignation under <strong>metaphysical materialism</strong> and reckless idealism under <strong>idealism</strong>. These were my two ways of coping with setbacks, or rather, two modes of thought. For future planning, I vaguely explored <strong>longtermism</strong> and <strong>communism</strong>, not yet clear about the distinctions—firmly believing in the importance of scientific progress while also hoping for a world where everyone lives happily, free from oppression.</p>
 <p>Many of those thoughts, principles, and philosophies were born in the bathroom stall. <em><strong>In that squalid square meter, the greatest thinker strolled through his palace of philosophy, portraits of past sages hanging on the walls.</strong></em></p>
 <blockquote>
 <p>“If Qin Shi Huang had abandoned the Great Wall, how many common people would have lived better lives! The same logic applies to rockets—they drain resources that should go toward public welfare.”<br>
@@ -106,16 +106,16 @@ If we don’t develop space exploration now, how will future generations judge u
 <p>In high school, I read more traditional literature, but it only refined my intellect and literary skills without sparking deeper, more fundamental reflections.</p>
 <p>Sadly, I gradually lost the ability to read deeply. After skimming a few books on communism, I became convinced it was the way forward; watching a few progressive videos gave me a fleeting burst of motivation. In university, I rarely read poetry or books, and my writing lost its spark. The words I penned now embarrass even me. Immersed in the internet, I didn’t notice myself becoming frivolous, tainted by a hint of cynicism.</p>
 <p>Can I still read long articles? Can I still pause to reflect while reading? I don’t know. In this era of bite-sized content, firing up <em>Battlefield</em> for a quick match seems more gratifying than reading. I no longer have uninterrupted time to savor a good book. The little energy I have left demands a quick hit of stimulation, not a scalding cup of tea that requires patience to cool.</p>
-<h3 id="longing-in-familiarity">
+<h2 id="longing-in-familiarity">
 <a class="header-anchor" href="#longing-in-familiarity"></a>
 Longing in Familiarity
-</h3><p>After class in the afternoon, I walked back to my dorm under dappled sunlight. An unnamed bird hopped from the roadside to a low branch, then to a higher one as I approached. Once again, I felt the beauty of this small campus. Xidian is like a <strong>plain but enduringly attractive</strong> girl—unremarkable at first glance, even a bit dowdy. But after two years, I’ve begun to appreciate its quiet beauty, where everything is just right.</p>
+</h2><p>After class in the afternoon, I walked back to my dorm under dappled sunlight. An unnamed bird hopped from the roadside to a low branch, then to a higher one as I approached. Once again, I felt the beauty of this small campus. Xidian is like a <strong>plain but enduringly attractive</strong> girl—unremarkable at first glance, even a bit dowdy. But after two years, I’ve begun to appreciate its quiet beauty, where everything is just right.</p>
 <p>I’ve also grown accustomed to Xi’an, this western metropolis. When complaining, I call it <em><strong>Xi’an</strong></em>; when praising, I elegantly dub it <em><strong>Chang’an</strong></em>. As for the Chang’an District, it bears no resemblance to the prosperity of its namesake.</p>
 <p>Though most Chinese megacities are nearly identical, Chang’an is still lovely. It has everything you’d expect, with street food stalls exuding warmth and a sense of “lived-in vibrancy.” Most places are clean, crowds are manageable, traffic is usually smooth, and prices are reasonable—<strong>“moderation,”</strong> Chang’an’s way of hosting guests, and also the ruler’s way of governing.</p>
-<h3 id="people-change">
+<h2 id="people-change">
 <a class="header-anchor" href="#people-change"></a>
 People Change
-</h3><blockquote>
+</h2><blockquote>
 <p>“No man ever steps in the same river twice.”<br>
 —Heraclitus</p>
 </blockquote>

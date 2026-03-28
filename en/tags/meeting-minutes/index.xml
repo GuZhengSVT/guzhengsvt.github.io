@@ -169,10 +169,10 @@ But Chang’an has no flavor quite like this.</p>
           <p>This year, I treated myself to a new desktop PC for my birthday</p>
 <p>. My old setup from four years ago—a 9700KF paired with a 1660S—was no longer cutting it, and the 1080P 60Hz monitor had become underwhelming.</p>
 <p>After selling the old PC and monitor, plus dipping into my savings, I barely managed to scrape together enough for the upgrade.</p>
-<h3 id="spec-list">
+<h2 id="spec-list">
 <a class="header-anchor" href="#spec-list"></a>
 Spec List
-</h3><ul>
+</h2><ul>
 <li><strong>CPU</strong>: 12400F (loose chip)</li>
 <li><strong>Motherboard</strong>: ASUS 610M-A D4</li>
 <li><strong>Cooler</strong>: Thermalright AX120 R SE White</li>
@@ -184,10 +184,10 @@ Spec List
 <li><strong>Fans</strong>: 4× Aurora regular fans + 3× reverse fans</li>
 <li><strong>Monitor</strong>: Koorui X41Q 23.8-inch 2K 180Hz</li>
 </ul>
-<h3 id="assembly">
+<h2 id="assembly">
 <a class="header-anchor" href="#assembly"></a>
 Assembly
-</h3><p>The build wasn’t too difficult overall—just watched a Hardware Tea Talk video and got to work.</p>
+</h2><p>The build wasn’t too difficult overall—just watched a Hardware Tea Talk video and got to work.</p>
   
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">  
   <iframe   

@@ -1417,13 +1417,13 @@ $$</li>
         <hr><p>この記事は2025-05-20に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-05-20です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Poetry</category></item><item><title>最適化理論と方法</title><link>https://guzhengsvt.cn/ja/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</link><pubDate>Sat, 10 May 2025 18:48:10 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</guid><description>
 <![CDATA[<h1>最適化理論と方法</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="最適化問題">
+          <h2 id="最適化問題">
 <a class="header-anchor" href="#%e6%9c%80%e9%81%a9%e5%8c%96%e5%95%8f%e9%a1%8c"></a>
 最適化問題
-</h1><h2 id="数学モデル">
+</h2><h3 id="数学モデル">
 <a class="header-anchor" href="#%e6%95%b0%e5%ad%a6%e3%83%a2%e3%83%87%e3%83%ab"></a>
 数学モデル
-</h2>$$
+</h3>$$
 \min f(\vec{x}),\vec{x}\in \vec{R^{n}}
 $$$$
 \text{s.t.}{
@@ -1438,10 +1438,10 @@ $$<p>
 <li>$f(\vec{x})$ は目的関数</li>
 <li>s.t.（subject to）は制約条件を表す</li>
 </ul>
-<h2 id="分類">
+<h3 id="分類">
 <a class="header-anchor" href="#%e5%88%86%e9%a1%9e"></a>
 分類
-</h2><ol>
+</h3><ol>
 <li>時間による分類
 <ol>
 <li>静的問題</li>
@@ -1467,10 +1467,10 @@ $$<p>
 </ol>
 </li>
 </ol>
-<h2 id="二次形式行列">
+<h3 id="二次形式行列">
 <a class="header-anchor" href="#%e4%ba%8c%e6%ac%a1%e5%bd%a2%e5%bc%8f%e8%a1%8c%e5%88%97"></a>
 二次形式行列
-</h2><p>二次形式：
+</h3><p>二次形式：
 </p>
 $$
 \begin{align}
@@ -1497,10 +1497,10 @@ $$
 -2 & 0 & \frac{1}{2}\\
 0 & \frac{1}{2} & -3\\
 \end{bmatrix}
-$$<h2 id="hessian-行列">
+$$<h3 id="hessian-行列">
 <a class="header-anchor" href="#hessian-%e8%a1%8c%e5%88%97"></a>
 Hessian 行列
-</h2><p>二変数二次関数を例にすると：
+</h3><p>二変数二次関数を例にすると：
 </p>
 $$
 \nabla^2 f(x_1,x_2)=
@@ -1508,27 +1508,27 @@ $$
 \frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2}\\
 \frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2}\\
 \end{bmatrix}
-$$<h2 id="実行可能解">
+$$<h3 id="実行可能解">
 <a class="header-anchor" href="#%e5%ae%9f%e8%a1%8c%e5%8f%af%e8%83%bd%e8%a7%a3"></a>
 実行可能解
-</h2><ul>
+</h3><ul>
 <li>実行可能解：すべての制約条件を満たす解。</li>
 <li>実行可能集合（許容集合、実行可能領域）：すべての実行可能解からなる集合。</li>
 <li>最適化問題：実行可能集合の中から目的関数を最大または最小にする点を探す問題。</li>
 <li>停留点：$\nabla f(x_0)=0$ を満たすとき，$x_0$ を停留点という。</li>
 <li>鞍点：$x_0$ が停留点ではあるが極値点ではないとき，鞍点という。</li>
 </ul>
-<h2 id="凸集合">
+<h3 id="凸集合">
 <a class="header-anchor" href="#%e5%87%b8%e9%9b%86%e5%90%88"></a>
 凸集合
-</h2><h3 id="定義">
+</h3><h4 id="定義">
 <a class="header-anchor" href="#%e5%ae%9a%e7%be%a9"></a>
 定義
-</h3><p>平面において，図形内部の任意の二点を結ぶ線分がそのまま図形内部に含まれるとき，その図形を凸集合という。</p>
-<h3 id="性質">
+</h4><p>平面において，図形内部の任意の二点を結ぶ線分がそのまま図形内部に含まれるとき，その図形を凸集合という。</p>
+<h4 id="性質">
 <a class="header-anchor" href="#%e6%80%a7%e8%b3%aa"></a>
 性質
-</h3><ol>
+</h4><ol>
 <li>凸集合の共通部分は凸集合である</li>
 <li>凸集合を比例拡大・縮小しても凸集合である</li>
 <li>凸集合の和集合ではなく和集合和 $D_1+D_2$ は凸集合である
@@ -1538,70 +1538,70 @@ $$<h2 id="実行可能解">
 </li>
 <li>凸集合の線形結合は凸集合である。</li>
 </ol>
-<h3 id="よくある凸集合">
+<h4 id="よくある凸集合">
 <a class="header-anchor" href="#%e3%82%88%e3%81%8f%e3%81%82%e3%82%8b%e5%87%b8%e9%9b%86%e5%90%88"></a>
 よくある凸集合
-</h3><ol>
+</h4><ol>
 <li>空集合</li>
 <li>ユークリッド空間全体 $\vec{R^n}$</li>
 <li>超平面 $H=\{x \in \vec{R^n} | a_1x_1+a_2x_2+\cdots +a_nx_n=b\}$</li>
 <li>半空間 $H^+=\{x \in \vec{R^n} | a_1x_1+a_2x_2+\cdots +a_nx_n \ge b\}$</li>
 </ol>
-<h3 id="凸結合">
+<h4 id="凸結合">
 <a class="header-anchor" href="#%e5%87%b8%e7%b5%90%e5%90%88"></a>
 凸結合
-</h3><p>$x_i \in \vec{R^n},i=1,2,\cdots ,k$ とし，実数 $\lambda_i \ge 0,\sum^k_{i=1}\lambda_i=1$ のとき，
+</h4><p>$x_i \in \vec{R^n},i=1,2,\cdots ,k$ とし，実数 $\lambda_i \ge 0,\sum^k_{i=1}\lambda_i=1$ のとき，
 $x=\sum^k_{i=1}\lambda_ix_i$ を $x_1,x_2,\cdots , x_k$ の凸結合という。<br>
 凸集合内の有限個の点の凸結合は，やはりその凸集合に属する。</p>
-<h3 id="極点">
+<h4 id="極点">
 <a class="header-anchor" href="#%e6%a5%b5%e7%82%b9"></a>
 極点
-</h3><p>$D$ を凸集合，$x \in D$ とする。$D$ の中に異なる二点 $y,z$ と実数 $\alpha \in (0,1)$ が存在して
+</h4><p>$D$ を凸集合，$x \in D$ とする。$D$ の中に異なる二点 $y,z$ と実数 $\alpha \in (0,1)$ が存在して
 $x=\alpha y+(1-\alpha)z$ と表せないとき，$x$ を $D$ の極点という。</p>
 <p>平たく言えば，平面上の五角形なら極点は頂点であり，半円なら直径の両端点と円弧上の頂点に当たる。</p>
-<h2 id="凸関数">
+<h3 id="凸関数">
 <a class="header-anchor" href="#%e5%87%b8%e9%96%a2%e6%95%b0"></a>
 凸関数
-</h2><h3 id="定義-1">
+</h3><h4 id="定義-1">
 <a class="header-anchor" href="#%e5%ae%9a%e7%be%a9-1"></a>
 定義
-</h3><p>凸集合上で定義された関数 $f(x)$ が，その凸集合内の任意の二点 $x_1,x_2$ に対して
+</h4><p>凸集合上で定義された関数 $f(x)$ が，その凸集合内の任意の二点 $x_1,x_2$ に対して
 </p>
 $$
 f(\alpha x_1+(1-\alpha)x_2) \le \alpha f(x_1)+(1-\alpha)f(x_2)
 $$<p>
 を満たすとき，$f$ を凸関数という。<br>
 不等号が厳密不等号 $\lt$ なら，厳密凸関数という。</p>
-<h3 id="判定">
+<h4 id="判定">
 <a class="header-anchor" href="#%e5%88%a4%e5%ae%9a"></a>
 判定
-</h3><ol>
+</h4><ol>
 <li>多変数関数の Hessian 行列が半正定なら，その関数は凸関数である。</li>
 <li>Hessian 行列が正定なら，その関数は厳密凸関数である。</li>
 <li>多変数線形関数は $\vec{R^n}$ 上の凸関数である。</li>
 </ol>
-<h2 id="凸最適化問題">
+<h3 id="凸最適化問題">
 <a class="header-anchor" href="#%e5%87%b8%e6%9c%80%e9%81%a9%e5%8c%96%e5%95%8f%e9%a1%8c"></a>
 凸最適化問題
-</h2><h3 id="定義-2">
+</h3><h4 id="定義-2">
 <a class="header-anchor" href="#%e5%ae%9a%e7%be%a9-2"></a>
 定義
-</h3><p>目的関数と制約関数がいずれも凸関数である最適化問題。</p>
+</h4><p>目的関数と制約関数がいずれも凸関数である最適化問題。</p>
 <ul>
 <li>凸最適化の実行可能集合は凸集合である</li>
 <li>任意の局所最適解は大域最適解である</li>
 <li>目的関数が厳密凸関数なら，局所最適解は存在しかつ一意である</li>
 </ul>
-<h1 id="線形計画">
+<h2 id="線形計画">
 <a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e8%a8%88%e7%94%bb"></a>
 線形計画
-</h1><h2 id="形式">
+</h2><h3 id="形式">
 <a class="header-anchor" href="#%e5%bd%a2%e5%bc%8f"></a>
 形式
-</h2><h3 id="非標準形">
+</h3><h4 id="非標準形">
 <a class="header-anchor" href="#%e9%9d%9e%e6%a8%99%e6%ba%96%e5%bd%a2"></a>
 非標準形
-</h3><ul>
+</h4><ul>
 <li>目的関数：$\max z=\sum^{n}_{j=1}c_jx_j=CX$</li>
 <li>係数行列：
 
@@ -1632,10 +1632,10 @@ X \ge \vec{0}
 \end{cases}
 $$</li>
 </ul>
-<h3 id="標準形">
+<h4 id="標準形">
 <a class="header-anchor" href="#%e6%a8%99%e6%ba%96%e5%bd%a2"></a>
 標準形
-</h3><ol>
+</h4><ol>
 <li>最大化問題を最小化問題へ変換する</li>
 <li>スラック変数：$\le$ 制約に対して導入し，等式にする</li>
 <li>余剰変数：$\ge$ 制約に対して導入し，等式にする</li>
@@ -1650,10 +1650,10 @@ h_j(x_1,x_2,\cdots,x_n)=0&(j=1,2,\cdots)\\
 x_j \ge 0\\
 \end{cases}
 \end{cases}
-$$<h2 id="基底行列">
+$$<h3 id="基底行列">
 <a class="header-anchor" href="#%e5%9f%ba%e5%ba%95%e8%a1%8c%e5%88%97"></a>
 基底行列
-</h2><ul>
+</h3><ul>
 <li>基底（基底行列）：係数行列の中の最大正則部分行列。
 <ul>
 <li>係数行列 $A$ が $m \times n$ 行列で，$rank(A)=m$ のとき，任意の $m \times m$ 正則部分行列が基底行列となる。</li>
@@ -1666,20 +1666,20 @@ $$<h2 id="基底行列">
 <li>基本実行可能解：$\text{s.t.}$ の非負条件を満たす基本解。</li>
 <li>最適基底実行可能解：すべての基本実行可能解のうち，目的関数値を最適にするもの。</li>
 </ul>
-<h2 id="線形計画解の性質">
+<h3 id="線形計画解の性質">
 <a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e8%a8%88%e7%94%bb%e8%a7%a3%e3%81%ae%e6%80%a7%e8%b3%aa"></a>
 線形計画解の性質
-</h2><ol>
+</h3><ol>
 <li>線形計画の実行可能集合は凸集合である</li>
 <li>最適解が存在するなら，実行可能集合の頂点で達成される</li>
 </ol>
-<h2 id="単体法">
+<h3 id="単体法">
 <a class="header-anchor" href="#%e5%8d%98%e4%bd%93%e6%b3%95"></a>
 単体法
-</h2><h3 id="判定数検定数">
+</h3><h4 id="判定数検定数">
 <a class="header-anchor" href="#%e5%88%a4%e5%ae%9a%e6%95%b0%e6%a4%9c%e5%ae%9a%e6%95%b0"></a>
 判定数（検定数）
-</h3><p>各未知数には一つの判定数が対応する
+</h4><p>各未知数には一つの判定数が対応する
 </p>
 $$
 \sigma_j=C^T_J \vec{P_j}-c_j=\sum^{m}_{i=1}c_ia_{ij}-c_j
@@ -1692,17 +1692,17 @@ $$<ul>
 </ul>
 <p><strong>すべての判定数が 0 以下なら，その基底実行可能解は最適解である。</strong></p>
 <p>一般に，基底変数の判定数は 0 である。</p>
-<h3 id="基底変換">
+<h4 id="基底変換">
 <a class="header-anchor" href="#%e5%9f%ba%e5%ba%95%e5%a4%89%e6%8f%9b"></a>
 基底変換
-</h3><h4 id="基底行列の選択">
+</h4><h5 id="基底行列の選択">
 <a class="header-anchor" href="#%e5%9f%ba%e5%ba%95%e8%a1%8c%e5%88%97%e3%81%ae%e9%81%b8%e6%8a%9e"></a>
 基底行列の選択
-</h4><p>最初は単位行列を基底行列として選ぶのが望ましい。初期基底実行可能解と判定数を計算する。</p>
-<h4 id="初期単体表の作成">
+</h5><p>最初は単位行列を基底行列として選ぶのが望ましい。初期基底実行可能解と判定数を計算する。</p>
+<h5 id="初期単体表の作成">
 <a class="header-anchor" href="#%e5%88%9d%e6%9c%9f%e5%8d%98%e4%bd%93%e8%a1%a8%e3%81%ae%e4%bd%9c%e6%88%90"></a>
 初期単体表の作成
-</h4><table>
+</h5><table>
   <thead>
       <tr>
           <th></th>
@@ -1756,75 +1756,75 @@ $$<ul>
       </tr>
   </tbody>
 </table>
-<h4 id="入る列の選択">
+<h5 id="入る列の選択">
 <a class="header-anchor" href="#%e5%85%a5%e3%82%8b%e5%88%97%e3%81%ae%e9%81%b8%e6%8a%9e"></a>
 入る列の選択
-</h4><p>判定数が正なら，その列には改良の余地があるので，その列 $P_j$ を入る列とし，対応する変数 $x_j$ を入る変数とする。</p>
-<h4 id="主元の選択">
+</h5><p>判定数が正なら，その列には改良の余地があるので，その列 $P_j$ を入る列とし，対応する変数 $x_j$ を入る変数とする。</p>
+<h5 id="主元の選択">
 <a class="header-anchor" href="#%e4%b8%bb%e5%85%83%e3%81%ae%e9%81%b8%e6%8a%9e"></a>
 主元の選択
-</h4><p>入る列の中で正の成分 $a_{ij}$ を取り，対応する $b$ の要素をそれで割って比を求め，最小のものを与える $a_{ij}$ を主元とする。<br>
+</h5><p>入る列の中で正の成分 $a_{ij}$ を取り，対応する $b$ の要素をそれで割って比を求め，最小のものを与える $a_{ij}$ を主元とする。<br>
 <em><strong>判定数が正であっても，その列の要素がすべて負なら，その線形計画には最適解が存在しない。</strong></em></p>
-<h4 id="初等行変換">
+<h5 id="初等行変換">
 <a class="header-anchor" href="#%e5%88%9d%e7%ad%89%e8%a1%8c%e5%a4%89%e6%8f%9b"></a>
 初等行変換
-</h4><p>主元を 1 にし，その列の他の成分を 0 にする。<br>
+</h5><p>主元を 1 にし，その列の他の成分を 0 にする。<br>
 <strong>幾何学的には，実行可能領域の頂点を移ることを意味する。</strong></p>
-<h4 id="出る列">
+<h5 id="出る列">
 <a class="header-anchor" href="#%e5%87%ba%e3%82%8b%e5%88%97"></a>
 出る列
-</h4><p>更新後の係数行列に応じて新しい基底行列を選ぶ。元の基底行列から置き換えられた列が出る列であり，その対応変数が出る変数である。<br>
+</h5><p>更新後の係数行列に応じて新しい基底行列を選ぶ。元の基底行列から置き換えられた列が出る列であり，その対応変数が出る変数である。<br>
 その後，判定数を再計算し，新しい単体表を作る。</p>
-<h4 id="次の基底変換">
+<h5 id="次の基底変換">
 <a class="header-anchor" href="#%e6%ac%a1%e3%81%ae%e5%9f%ba%e5%ba%95%e5%a4%89%e6%8f%9b"></a>
 次の基底変換
-</h4><p>判定数行が更新されて新たに正の判定数が現れたら，その列を新しい入る列とし，主元を選んで再び初等行変換を行う。</p>
-<h4 id="結果">
+</h5><p>判定数行が更新されて新たに正の判定数が現れたら，その列を新しい入る列とし，主元を選んで再び初等行変換を行う。</p>
+<h5 id="結果">
 <a class="header-anchor" href="#%e7%b5%90%e6%9e%9c"></a>
 結果
-</h4><p>すべての判定数が 0 以下になったとき，$\vec{b}$ の値が基底変数の値であり，非基底変数は 0 となる。これらをまとめたものが最適解であり，目的関数に代入すると最小値が得られる。</p>
-<h3 id="単体法の適用条件">
+</h5><p>すべての判定数が 0 以下になったとき，$\vec{b}$ の値が基底変数の値であり，非基底変数は 0 となる。これらをまとめたものが最適解であり，目的関数に代入すると最小値が得られる。</p>
+<h4 id="単体法の適用条件">
 <a class="header-anchor" href="#%e5%8d%98%e4%bd%93%e6%b3%95%e3%81%ae%e9%81%a9%e7%94%a8%e6%9d%a1%e4%bb%b6"></a>
 単体法の適用条件
-</h3><ol>
+</h4><ol>
 <li>非同次項がすべて非負である</li>
 <li>実行可能解が存在する</li>
 <li>スラック変数と非基底変数の値の積の和が 0 である</li>
 <li>問題が凸な実行可能領域上の線形計画問題である</li>
 <li>実行可能解集合が有限である</li>
 </ol>
-<h2 id="人工変数法">
+<h3 id="人工変数法">
 <a class="header-anchor" href="#%e4%ba%ba%e5%b7%a5%e5%a4%89%e6%95%b0%e6%b3%95"></a>
 人工変数法
-</h2><p>係数行列に単位行列が含まれない場合，人工変数を導入して人為的に単位行列を構成することが多い。</p>
+</h3><p>係数行列に単位行列が含まれない場合，人工変数を導入して人為的に単位行列を構成することが多い。</p>
 <p>線形計画問題の制約条件が $\sum^{n}_{j=1}a_{ij}=b_i(i=1,2,\cdots ,m)$ の形で与えられているとする。それぞれの制約に人工変数 $x_{n+1},x_{n+2},\cdots,x_{n+m}$ を加え，それらを基底変数とし，それ以外を 0 と置けば，$x^{(0)}=(0,0,\cdots,0,b_1,b_2,\cdots,b_m)^T$ という実行可能解が得られる。<br>
 この解から基底変換を進め，人工変数を含まない最適解へと到達する。</p>
 <p>すべての判定数が負になってもなお非零の人工変数が残っている場合，元の問題には実行可能解が存在しない。</p>
-<h2 id="big-m-法">
+<h3 id="big-m-法">
 <a class="header-anchor" href="#big-m-%e6%b3%95"></a>
 Big-M 法
-</h2><p>最小化問題では，制約条件に人工変数を入れた後，人工変数の目的関数係数を $M$（$M \in \vec{R^+}$）とする。<br>
+</h3><p>最小化問題では，制約条件に人工変数を入れた後，人工変数の目的関数係数を $M$（$M \in \vec{R^+}$）とする。<br>
 最小目的関数値を得るには，人工変数が 0 になるよう基底変換を繰り返す。最大化問題では $M \in \vec{R^-}$ とする。</p>
-<h2 id="退化の場合">
+<h3 id="退化の場合">
 <a class="header-anchor" href="#%e9%80%80%e5%8c%96%e3%81%ae%e5%a0%b4%e5%90%88"></a>
 退化の場合
-</h2><p>単体法が循環に陥る場合でも，問題に最適解が存在するなら，以下の方法で循環を避けられる。</p>
-<h3 id="摂動法">
+</h3><p>単体法が循環に陥る場合でも，問題に最適解が存在するなら，以下の方法で循環を避けられる。</p>
+<h4 id="摂動法">
 <a class="header-anchor" href="#%e6%91%82%e5%8b%95%e6%b3%95"></a>
 摂動法
-</h3><h3 id="改良単体法">
+</h4><h4 id="改良単体法">
 <a class="header-anchor" href="#%e6%94%b9%e8%89%af%e5%8d%98%e4%bd%93%e6%b3%95"></a>
 改良単体法
-</h3><h1 id="線形計画の双対理論">
+</h4><h2 id="線形計画の双対理論">
 <a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e8%a8%88%e7%94%bb%e3%81%ae%e5%8f%8c%e5%af%be%e7%90%86%e8%ab%96"></a>
 線形計画の双対理論
-</h1><h2 id="線形計画の双対問題の形式">
+</h2><h3 id="線形計画の双対問題の形式">
 <a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e8%a8%88%e7%94%bb%e3%81%ae%e5%8f%8c%e5%af%be%e5%95%8f%e9%a1%8c%e3%81%ae%e5%bd%a2%e5%bc%8f"></a>
 線形計画の双対問題の形式
-</h2><h3 id="対称形式">
+</h3><h4 id="対称形式">
 <a class="header-anchor" href="#%e5%af%be%e7%a7%b0%e5%bd%a2%e5%bc%8f"></a>
 対称形式
-</h3><p>元問題
+</h4><p>元問題
 </p>
 $$
 \begin{cases}
@@ -1853,10 +1853,10 @@ $$<p>対応関係：</p>
 <li>（3）元問題が最小化なら，双対問題は最大化になる</li>
 <li>（4）元問題の制約が「$\ge$」なら，双対問題の制約は「$\le$」になる</li>
 </ul>
-<h3 id="非対称形式">
+<h4 id="非対称形式">
 <a class="header-anchor" href="#%e9%9d%9e%e5%af%be%e7%a7%b0%e5%bd%a2%e5%bc%8f"></a>
 非対称形式
-</h3><p>元問題
+</h4><p>元問題
 </p>
 $$
 \begin{cases}
@@ -1878,48 +1878,48 @@ $$
 \vec{y} \text{は自由変数}
 \end{cases}
 \end{cases}
-$$<h3 id="一般の場合">
+$$<h4 id="一般の場合">
 <a class="header-anchor" href="#%e4%b8%80%e8%88%ac%e3%81%ae%e5%a0%b4%e5%90%88"></a>
 一般の場合
-</h3><p>元問題に $\le,\ge,=$ が混在している場合は，まずスラック変数と余剰変数を導入して等式にそろえ，その後で非対称形式を使って双対問題を作る。</p>
+</h4><p>元問題に $\le,\ge,=$ が混在している場合は，まずスラック変数と余剰変数を導入して等式にそろえ，その後で非対称形式を使って双対問題を作る。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E5%8E%9F%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB%E8%A1%A81.png" alt="原问题与对偶问题对应关系表1.png">
 <img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E5%8E%9F%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB%E8%A1%A82.png" alt="原问题与对偶问题对应关系表2.png"></p>
-<h2 id="双対単体法">
+<h3 id="双対単体法">
 <a class="header-anchor" href="#%e5%8f%8c%e5%af%be%e5%8d%98%e4%bd%93%e6%b3%95"></a>
 双対単体法
-</h2><ul>
+</h3><ul>
 <li>単体法：まず $\vec{b} \ge 0$ を満たし，その後で判定数 $\le 0$ に基づいて反復する</li>
 <li>双対単体法：まず判定数 $\le 0$ を満たし，その後で $\vec{b} \ge 0$ に基づいて反復する</li>
 </ul>
-<h3 id="判定数--を確保する">
+<h4 id="判定数--を確保する">
 <a class="header-anchor" href="#%e5%88%a4%e5%ae%9a%e6%95%b0--%e3%82%92%e7%a2%ba%e4%bf%9d%e3%81%99%e3%82%8b"></a>
 判定数 $\le 0$ を確保する
-</h3><h3 id="出る変数の選択">
+</h4><h4 id="出る変数の選択">
 <a class="header-anchor" href="#%e5%87%ba%e3%82%8b%e5%a4%89%e6%95%b0%e3%81%ae%e9%81%b8%e6%8a%9e"></a>
 出る変数の選択
-</h3><p>$b_i \lt 0$ が存在する場合，その中で最小の $\min b_i$ をもつ行を出る行とし，対応する変数を出る変数とする。</p>
-<h3 id="入る変数の選択">
+</h4><p>$b_i \lt 0$ が存在する場合，その中で最小の $\min b_i$ をもつ行を出る行とし，対応する変数を出る変数とする。</p>
+<h4 id="入る変数の選択">
 <a class="header-anchor" href="#%e5%85%a5%e3%82%8b%e5%a4%89%e6%95%b0%e3%81%ae%e9%81%b8%e6%8a%9e"></a>
 入る変数の選択
-</h3><p>判定数を出る行の負の係数 $a_{ij} \lt 0$ で割り，その結果が最小となる列を入る列とし，対応する変数を入る変数とする。</p>
-<h3 id="行変換">
+</h4><p>判定数を出る行の負の係数 $a_{ij} \lt 0$ で割り，その結果が最小となる列を入る列とし，対応する変数を入る変数とする。</p>
+<h4 id="行変換">
 <a class="header-anchor" href="#%e8%a1%8c%e5%a4%89%e6%8f%9b"></a>
 行変換
-</h3><p>行変換によって入る列を基底行列に対応する単位列へ変形する。このとき $\vec{b}$ も更新される。<br>
+</h4><p>行変換によって入る列を基底行列に対応する単位列へ変形する。このとき $\vec{b}$ も更新される。<br>
 その後，判定数を再計算し，依然として 0 以下であることを確認する。</p>
-<h3 id="次の基底変換-1">
+<h4 id="次の基底変換-1">
 <a class="header-anchor" href="#%e6%ac%a1%e3%81%ae%e5%9f%ba%e5%ba%95%e5%a4%89%e6%8f%9b-1"></a>
 次の基底変換
-</h3><p>まだ負の $b_i \lt 0$ が残っていれば，最小の $\min b_i$ を選んで次の基底変換を行う。</p>
-<h3 id="結果-1">
+</h4><p>まだ負の $b_i \lt 0$ が残っていれば，最小の $\min b_i$ を選んで次の基底変換を行う。</p>
+<h4 id="結果-1">
 <a class="header-anchor" href="#%e7%b5%90%e6%9e%9c-1"></a>
 結果
-</h3><p>すべての $b_i \ge 0$ となったとき，$\vec{b}$ は基底変数の最適解部分を与え，非基底変数は 0 となる。<br>
+</h4><p>すべての $b_i \ge 0$ となったとき，$\vec{b}$ は基底変数の最適解部分を与え，非基底変数は 0 となる。<br>
 それを目的関数に代入すれば，最大値または最小値が得られる。</p>
-<h1 id="感度分析">
+<h2 id="感度分析">
 <a class="header-anchor" href="#%e6%84%9f%e5%ba%a6%e5%88%86%e6%9e%90"></a>
 感度分析
-</h1>
+</h2>
         
         <hr><p>この記事は2025-05-10に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-05-10です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Math</category></item><item><title>TypechoコメントをWalineにインポート</title><link>https://guzhengsvt.cn/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description>
 <![CDATA[<h1>TypechoコメントをWalineにインポート</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
@@ -2093,10 +2093,10 @@ LeanCloudへのインポート
         <hr><p>この記事は2025-04-19に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-04-19です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>OtherNotes</category></item><item><title>Hugoブログよく使う資料</title><link>https://guzhengsvt.cn/ja/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link><pubDate>Tue, 15 Apr 2025 16:42:35 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid><description>
 <![CDATA[<h1>Hugoブログよく使う資料</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="reimuテーマ-icon_font">
+          <h2 id="reimuテーマ-icon_font">
 <a class="header-anchor" href="#reimu%e3%83%86%e3%83%bc%e3%83%9e-icon_font"></a>
 reimuテーマ icon_font
-</h1><table>
+</h2><table>
   <thead>
       <tr>
           <th>コマンド</th>
@@ -2493,10 +2493,10 @@ reimuテーマ icon_font
         <hr><p>この記事は2025-04-15に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-04-15です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>OtherNotes</category></item><item><title>Hello World</title><link>https://guzhengsvt.cn/ja/post/thoughts/hello-world/</link><pubDate>Sun, 13 Apr 2025 11:00:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/thoughts/hello-world/</guid><description>
 <![CDATA[<h1>Hello World</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="20250413">
+          <h2 id="20250413">
 <a class="header-anchor" href="#20250413"></a>
 2025.04.13
-</h1><p>二日間かけてようやくHugoブログを構築しました。テーマは<a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu</a>を使用しています。</p>
+</h2><p>二日間かけてようやくHugoブログを構築しました。テーマは<a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu</a>を使用しています。</p>
 <p>以前の<a href="https://guzhengsvt.top/">Typechoブログ</a>のレスポンス速度に満足できず、再度ブログの移行を計画しています。（Typechoは既に軽量ですが、貧弱なクラウドサーバーと帯域幅がアクセスと記事の読み込み速度を大きく制限しています。）</p>
 <p>動的サイトを諦めた後、静的サイトジェネレーターとしてHexo、Hugo、Jekyllなどを検討しました。Hugoを選んだ理由は、そのスローガン <em><strong>The world&rsquo;s fastest framework for building websites</strong></em> にあります。</p>
 <p>この期間を使って、古いブログのコンテンツを少しずつこちらに移行していきます。TypechoからHugoへの移行方法をいくつか調べましたが、ほとんどが古くて使えませんでした（TypechoとPHPが古すぎるのも移行の理由です）。結局、記事をエクスポートし、編集してHugoにインポートするという地道な方法を取ることにしました。</p>
@@ -2504,27 +2504,27 @@ reimuテーマ icon_font
 <p>さらに、画像の読み込み速度を向上させるために、画像ホスティングサービスを用意し、過去記事の画像リンクを置き換える作業も必要です。</p>
 <p>古いブログに不可逆な影響を与えないように、Hugoは現在GitHub Pagesでホストしています。GitHubは中国国内でのアクセスが不安定なので、コンテンツの移行が完全に終わり、構築が完了したら自分のクラウド仮想ホストにコピーする予定です。</p>
 <p>なんてたくさんの作業があるんだろう、まったく</p>
-<h1 id="テスト">
+<h2 id="テスト">
 <a class="header-anchor" href="#%e3%83%86%e3%82%b9%e3%83%88"></a>
 テスト
-</h1><p>新しいブログのテストです。</p>
+</h2><p>新しいブログのテストです。</p>
 <p>markdown</p>
-<h2 id="セカンドレベル見出し">
+<h3 id="セカンドレベル見出し">
 <a class="header-anchor" href="#%e3%82%bb%e3%82%ab%e3%83%b3%e3%83%89%e3%83%ac%e3%83%99%e3%83%ab%e8%a6%8b%e5%87%ba%e3%81%97"></a>
 セカンドレベル見出し
-</h2><h3 id="サードレベル見出し">
+</h3><h4 id="サードレベル見出し">
 <a class="header-anchor" href="#%e3%82%b5%e3%83%bc%e3%83%89%e3%83%ac%e3%83%99%e3%83%ab%e8%a6%8b%e5%87%ba%e3%81%97"></a>
 サードレベル見出し
-</h3><h4 id="フォースレベル見出し">
+</h4><h5 id="フォースレベル見出し">
 <a class="header-anchor" href="#%e3%83%95%e3%82%a9%e3%83%bc%e3%82%b9%e3%83%ac%e3%83%99%e3%83%ab%e8%a6%8b%e5%87%ba%e3%81%97"></a>
 フォースレベル見出し
-</h4><h5 id="フィフスレベル見出し">
+</h5><h5 id="フィフスレベル見出し">
 <a class="header-anchor" href="#%e3%83%95%e3%82%a3%e3%83%95%e3%82%b9%e3%83%ac%e3%83%99%e3%83%ab%e8%a6%8b%e5%87%ba%e3%81%97"></a>
 フィフスレベル見出し
-</h5><h6 id="シックスレベル見出し">
+</h5><h5 id="シックスレベル見出し">
 <a class="header-anchor" href="#%e3%82%b7%e3%83%83%e3%82%af%e3%82%b9%e3%83%ac%e3%83%99%e3%83%ab%e8%a6%8b%e5%87%ba%e3%81%97"></a>
 シックスレベル見出し
-</h6><ol>
+</h5><ol>
 <li>
 <p>リスト項目</p>
 </li>

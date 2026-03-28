@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>テスト on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/ja/tags/%E3%83%86%E3%82%B9%E3%83%88/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>ja</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</copyright><lastBuildDate>Sun, 13 Apr 2025 11:00:00 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/ja/tags/%E3%83%86%E3%82%B9%E3%83%88/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello World</title><link>https://guzhengsvt.cn/ja/post/thoughts/hello-world/</link><pubDate>Sun, 13 Apr 2025 11:00:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/thoughts/hello-world/</guid><description>
 <![CDATA[<h1>Hello World</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="20250413">
+          <h2 id="20250413">
 <a class="header-anchor" href="#20250413"></a>
 2025.04.13
-</h1><p>二日間かけてようやくHugoブログを構築しました。テーマは<a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu</a>を使用しています。</p>
+</h2><p>二日間かけてようやくHugoブログを構築しました。テーマは<a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu</a>を使用しています。</p>
 <p>以前の<a href="https://guzhengsvt.top/">Typechoブログ</a>のレスポンス速度に満足できず、再度ブログの移行を計画しています。（Typechoは既に軽量ですが、貧弱なクラウドサーバーと帯域幅がアクセスと記事の読み込み速度を大きく制限しています。）</p>
 <p>動的サイトを諦めた後、静的サイトジェネレーターとしてHexo、Hugo、Jekyllなどを検討しました。Hugoを選んだ理由は、そのスローガン <em><strong>The world&rsquo;s fastest framework for building websites</strong></em> にあります。</p>
 <p>この期間を使って、古いブログのコンテンツを少しずつこちらに移行していきます。TypechoからHugoへの移行方法をいくつか調べましたが、ほとんどが古くて使えませんでした（TypechoとPHPが古すぎるのも移行の理由です）。結局、記事をエクスポートし、編集してHugoにインポートするという地道な方法を取ることにしました。</p>
@@ -12,27 +12,27 @@
 <p>さらに、画像の読み込み速度を向上させるために、画像ホスティングサービスを用意し、過去記事の画像リンクを置き換える作業も必要です。</p>
 <p>古いブログに不可逆な影響を与えないように、Hugoは現在GitHub Pagesでホストしています。GitHubは中国国内でのアクセスが不安定なので、コンテンツの移行が完全に終わり、構築が完了したら自分のクラウド仮想ホストにコピーする予定です。</p>
 <p>なんてたくさんの作業があるんだろう、まったく</p>
-<h1 id="テスト">
+<h2 id="テスト">
 <a class="header-anchor" href="#%e3%83%86%e3%82%b9%e3%83%88"></a>
 テスト
-</h1><p>新しいブログのテストです。</p>
+</h2><p>新しいブログのテストです。</p>
 <p>markdown</p>
-<h2 id="セカンドレベル見出し">
+<h3 id="セカンドレベル見出し">
 <a class="header-anchor" href="#%e3%82%bb%e3%82%ab%e3%83%b3%e3%83%89%e3%83%ac%e3%83%99%e3%83%ab%e8%a6%8b%e5%87%ba%e3%81%97"></a>
 セカンドレベル見出し
-</h2><h3 id="サードレベル見出し">
+</h3><h4 id="サードレベル見出し">
 <a class="header-anchor" href="#%e3%82%b5%e3%83%bc%e3%83%89%e3%83%ac%e3%83%99%e3%83%ab%e8%a6%8b%e5%87%ba%e3%81%97"></a>
 サードレベル見出し
-</h3><h4 id="フォースレベル見出し">
+</h4><h5 id="フォースレベル見出し">
 <a class="header-anchor" href="#%e3%83%95%e3%82%a9%e3%83%bc%e3%82%b9%e3%83%ac%e3%83%99%e3%83%ab%e8%a6%8b%e5%87%ba%e3%81%97"></a>
 フォースレベル見出し
-</h4><h5 id="フィフスレベル見出し">
+</h5><h5 id="フィフスレベル見出し">
 <a class="header-anchor" href="#%e3%83%95%e3%82%a3%e3%83%95%e3%82%b9%e3%83%ac%e3%83%99%e3%83%ab%e8%a6%8b%e5%87%ba%e3%81%97"></a>
 フィフスレベル見出し
-</h5><h6 id="シックスレベル見出し">
+</h5><h5 id="シックスレベル見出し">
 <a class="header-anchor" href="#%e3%82%b7%e3%83%83%e3%82%af%e3%82%b9%e3%83%ac%e3%83%99%e3%83%ab%e8%a6%8b%e5%87%ba%e3%81%97"></a>
 シックスレベル見出し
-</h6><ol>
+</h5><ol>
 <li>
 <p>リスト項目</p>
 </li>

@@ -146,10 +146,10 @@ As I said at the beginning, they&rsquo;re traces of my growth, proof of my exist
         <hr><p>Published on 2025-04-19 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-04-19</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>OtherNotes</category></item><item><title>Hello World</title><link>https://guzhengsvt.cn/en/post/thoughts/hello-world/</link><pubDate>Sun, 13 Apr 2025 11:00:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/thoughts/hello-world/</guid><description>
 <![CDATA[<h1>Hello World</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="20250413">
+          <h2 id="20250413">
 <a class="header-anchor" href="#20250413"></a>
 2025.04.13
-</h1><p>After two days of tinkering, I finally set up my Hugo blog using the <a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu</a> theme.</p>
+</h2><p>After two days of tinkering, I finally set up my Hugo blog using the <a href="https://github.com/D-Sketon/hexo-theme-reimu">reimu</a> theme.</p>
 <p>Unsatisfied with the response speed of my previous <a href="https://guzhengsvt.top/">Typecho blog</a>, I decided to migrate my blog again. (Although Typecho is already quite lightweight, the poor cloud server and bandwidth severely limited access and article loading speeds.)</p>
 <p>After abandoning dynamic solutions, the static options available were essentially Hexo, Hugo, Jekyll, etc. I chose Hugo simply because of its slogan: <em><strong>The world’s fastest framework for building websites</strong></em>.</p>
 <p>I’ll gradually move the content from my old blog over here during this time. I looked up some Typecho-to-Hugo conversion methods, but most were outdated and unusable (Typecho and PHP are too old, which is another reason for my switch). I’ll have to resort to the tedious method of manually exporting articles, editing them, and importing them into Hugo.</p>
@@ -157,10 +157,10 @@ As I said at the beginning, they&rsquo;re traces of my growth, proof of my exist
 <p>Then, to speed up image loading, I’ll need to set up an image hosting service and replace the image links in previous articles.</p>
 <p>To avoid irreversible impacts on the old blog, Hugo is currently hosted on GitHub Pages. However, GitHub is unstable in China, so once I’ve fully migrated the content and completed the setup, I’ll copy it to my cloud virtual host.</p>
 <p>Why is there so much to do? Damn.</p>
-<h1 id="test">
+<h2 id="test">
 <a class="header-anchor" href="#test"></a>
 Test
-</h1><p>Testing the new blog.</p>
+</h2><p>Testing the new blog.</p>
 <p>markdown</p>
 <h2 id="level-2-heading">
 <a class="header-anchor" href="#level-2-heading"></a>

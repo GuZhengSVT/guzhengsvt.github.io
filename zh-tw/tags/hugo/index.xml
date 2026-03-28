@@ -167,10 +167,10 @@ Waline 的<a href="https://waline.js.org/guide/get-started/">中文文檔</a>內
         <hr><p>本文2025-04-19首發於<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-04-19</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>OtherNotes</category></item><item><title>Hugo部落格常用資料</title><link>https://guzhengsvt.cn/zh-tw/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link><pubDate>Tue, 15 Apr 2025 16:42:35 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/zh-tw/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid><description>
 <![CDATA[<h1>Hugo部落格常用資料</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
-          <h1 id="hugo-常用指令">
+          <h2 id="hugo-常用指令">
 <a class="header-anchor" href="#hugo-%e5%b8%b8%e7%94%a8%e6%8c%87%e4%bb%a4"></a>
 Hugo 常用指令
-</h1><p>| 命令 | 作用 | 說明 |</p>
+</h2><p>| 命令 | 作用 | 說明 |</p>
 <p>|&mdash;&mdash;|&mdash;&mdash;|&mdash;&mdash;|
 | <code>hugo version</code> | 查看版本 | 顯示當前 Hugo 安裝版本 |
 | <code>hugo new site &lt;專案名&gt;</code> | 建立新站點 | 會生成 Hugo 的目錄結構 |
@@ -185,10 +185,10 @@ Hugo 常用指令
 | <code>hugo list future</code> | 列出未來發佈的文章 | <code>date</code> 設定在當前時間之後的文章 |
 | <code>hugo list expired</code> | 列出過期文章 | <code>expiryDate</code> 已過期的文章 |
 | <code>hugo --gc</code> | 垃圾回收 | 清理過時資源，如縮圖快取 |</p>
-<h1 id="reimu-主題-icon_font">
+<h2 id="reimu-主題-icon_font">
 <a class="header-anchor" href="#reimu-%e4%b8%bb%e9%a1%8c-icon_font"></a>
 reimu 主題 icon_font
-</h1><table>
+</h2><table>
   <thead>
       <tr>
           <th>圖標類名</th>

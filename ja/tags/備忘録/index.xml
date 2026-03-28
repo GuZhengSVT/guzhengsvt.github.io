@@ -4,10 +4,10 @@
           <p>今年の誕生日に新しいデスクトップPCを自作しました</p>
 <p>。4年前の9700KF+1660Sの性能ではもう少し物足りなく、1080P 60Hzのモニターも満足できませんでした。
 古い本体とモニターを売り、貯金を合わせて何とか予算を確保しました。</p>
-<h3 id="構成リスト">
+<h2 id="構成リスト">
 <a class="header-anchor" href="#%e6%a7%8b%e6%88%90%e3%83%aa%e3%82%b9%e3%83%88"></a>
 構成リスト
-</h3><ul>
+</h2><ul>
 <li>CPU：12400F バルク品</li>
 <li>マザーボード：ASUS 610M-A D4</li>
 <li>クーラー：Thermalright AX120 R SE White</li>
@@ -19,10 +19,10 @@
 <li>ファン：極光正回転ファン*4 +逆回転ファン*3</li>
 <li>モニター：KOORUI X41Q 23.8インチ 2K 180Hz</li>
 </ul>
-<h3 id="組み立て">
+<h2 id="組み立て">
 <a class="header-anchor" href="#%e7%b5%84%e3%81%bf%e7%ab%8b%e3%81%a6"></a>
 組み立て
-</h3><p>全体的な難易度は高くなく、ハードウェア解説動画を見れば作業できます。</p>
+</h2><p>全体的な難易度は高くなく、ハードウェア解説動画を見れば作業できます。</p>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe 

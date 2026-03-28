@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>原创 on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/ja/tags/%E5%8E%9F%E5%88%9B/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>ja</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</copyright><lastBuildDate>Tue, 12 Dec 2023 14:56:33 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/ja/tags/%E5%8E%9F%E5%88%9B/index.xml" rel="self" type="application/rss+xml"/><item><title>データ構造実機実験レポート6——前順序・後順序による二分木のスレッド化、グラフの隣接行列と隣接リストの格納</title><link>https://guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8/</link><pubDate>Tue, 12 Dec 2023 14:56:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8/</guid><description>
 <![CDATA[<h1>データ構造実機実験レポート6——前順序・後順序による二分木のスレッド化、グラフの隣接行列と隣接リストの格納</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="前順序後順序による二分木のスレッド化">
+          <h2 id="前順序後順序による二分木のスレッド化">
 <a class="header-anchor" href="#%e5%89%8d%e9%a0%86%e5%ba%8f%e5%be%8c%e9%a0%86%e5%ba%8f%e3%81%ab%e3%82%88%e3%82%8b%e4%ba%8c%e5%88%86%e6%9c%a8%e3%81%ae%e3%82%b9%e3%83%ac%e3%83%83%e3%83%89%e5%8c%96"></a>
 前順序、後順序による二分木のスレッド化
-</h1><h2 id="a-問題分析">
+</h2><h3 id="a-問題分析">
 <a class="header-anchor" href="#a-%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90"></a>
 a. 問題分析
-</h2><p>二分木の前順序スレッディングを実装する必要があります。スレッディングとは、二分リンクリストの空ポインタ領域を、特定の走査順序における前駆ノードまたは後続ノードを指すように変更する方法です。これにより、前順序、中順序、または後順序のいずれかのノードから開始することができ、根ノードからだけではなくなります。</p>
-<h2 id="b-アルゴリズム設計">
+</h3><p>二分木の前順序スレッディングを実装する必要があります。スレッディングとは、二分リンクリストの空ポインタ領域を、特定の走査順序における前駆ノードまたは後続ノードを指すように変更する方法です。これにより、前順序、中順序、または後順序のいずれかのノードから開始することができ、根ノードからだけではなくなります。</p>
+<h3 id="b-アルゴリズム設計">
 <a class="header-anchor" href="#b-%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88"></a>
 b. アルゴリズム設計
-</h2><p>私たちのアルゴリズムはまず二分木を作成し、その後それをスレッド化します。スレッド化のプロセスは再帰関数によって実装され、この関数は各ノードを走査し、その左右の子ノードが存在するかどうかをチェックします。存在しない場合、その左/右ポインタを前/次のノードに指向させます。最後に、スレッド化が成功したかどうかを確認するため、中間順走査を行います。</p>
+</h3><p>私たちのアルゴリズムはまず二分木を作成し、その後それをスレッド化します。スレッド化のプロセスは再帰関数によって実装され、この関数は各ノードを走査し、その左右の子ノードが存在するかどうかをチェックします。存在しない場合、その左/右ポインタを前/次のノードに指向させます。最後に、スレッド化が成功したかどうかを確認するため、中間順走査を行います。</p>
 <p>以下はスレッド化のコードスニペットです：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// スレッドを作成する関数
 </span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">createThread</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
@@ -30,10 +30,10 @@ b. アルゴリズム設計
 </span></span><span class="line"><span class="cl">    <span class="n">pre</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span> <span class="c1">// 前のノードを更新
 </span></span></span><span class="line"><span class="cl">    <span class="n">createThread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span> <span class="c1">// 右部分木を再帰的に処理
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="c-データ構造設計">
+</span></span></code></pre></div><h3 id="c-データ構造設計">
 <a class="header-anchor" href="#c-%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88"></a>
 c. データ構造設計
-</h2><p>二分木のノードを表現するために、構造体を使用します。この構造体には、データフィールドと2つのポインタフィールドが含まれており、それぞれ左子ノードと右子ノードを指します。さらに、左右のポインタがスレッド化されているかどうかを示す2つのマークフィールドを追加しました。</p>
+</h3><p>二分木のノードを表現するために、構造体を使用します。この構造体には、データフィールドと2つのポインタフィールドが含まれており、それぞれ左子ノードと右子ノードを指します。さらに、左右のポインタがスレッド化されているかどうかを示す2つのマークフィールドを追加しました。</p>
 <p>以下はデータ構造のコードスニペットです：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 二分木ノードの構造体を定義
 </span></span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>
@@ -42,10 +42,10 @@ c. データ構造設計
 </span></span></span><span class="line"><span class="cl">    <span class="n">Node</span><span class="o">*</span> <span class="n">right</span><span class="p">;</span> <span class="c1">// 右子ノード
 </span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">ltag</span><span class="p">,</span> <span class="n">rtag</span><span class="p">;</span> <span class="c1">// 左右スレッドマーク
 </span></span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></div><h2 id="d-デバッグプロセス">
+</span></span></code></pre></div><h3 id="d-デバッグプロセス">
 <a class="header-anchor" href="#d-%e3%83%87%e3%83%90%e3%83%83%e3%82%b0%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9"></a>
 d. デバッグプロセス
-</h2><p>まず二分木を作成し、それをスレッド化します。その後、中順走査を行い、スレッド化が成功したかどうかを確認します。走査結果が期待通りの結果と一致すれば、スレッド化は成功したと判断できます。</p>
+</h3><p>まず二分木を作成し、それをスレッド化します。その後、中順走査を行い、スレッド化が成功したかどうかを確認します。走査結果が期待通りの結果と一致すれば、スレッド化は成功したと判断できます。</p>
 <p>以下はデバッグプロセスのコードスニペットです：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// 二分木を作成
@@ -61,14 +61,14 @@ d. デバッグプロセス
 </span></span></span><span class="line"><span class="cl">    <span class="n">inOrder</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n1</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="e-出力結果">
+</span></span></code></pre></div><h3 id="e-出力結果">
 <a class="header-anchor" href="#e-%e5%87%ba%e5%8a%9b%e7%b5%90%e6%9e%9c"></a>
 e. 出力結果
-</h2><p>プログラムの出力結果は二分木の中間順走査結果であるべきです。この例では、出力結果は <code>4 2 5 1 3</code> となるはずです。作成した二分木の中間順走査結果がこのシーケンスになります。</p>
-<h2 id="f-ソースコード">
+</h3><p>プログラムの出力結果は二分木の中間順走査結果であるべきです。この例では、出力結果は <code>4 2 5 1 3</code> となるはずです。作成した二分木の中間順走査結果がこのシーケンスになります。</p>
+<h3 id="f-ソースコード">
 <a class="header-anchor" href="#f-%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89"></a>
 f. ソースコード
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;
 </span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// 二分木ノードの構造体を定義
@@ -129,20 +129,20 @@ f. ソースコード
 </span></span></span><span class="line"><span class="cl">    <span class="n">inOrder</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n1</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h1 id="グラフの隣接行列と隣接リストの記憶">
+</span></span></code></pre></div><h2 id="グラフの隣接行列と隣接リストの記憶">
 <a class="header-anchor" href="#%e3%82%b0%e3%83%a9%e3%83%95%e3%81%ae%e9%9a%a3%e6%8e%a5%e8%a1%8c%e5%88%97%e3%81%a8%e9%9a%a3%e6%8e%a5%e3%83%aa%e3%82%b9%e3%83%88%e3%81%ae%e8%a8%98%e6%86%b6"></a>
 グラフの隣接行列と隣接リストの記憶
-</h1><h2 id="a-問題分析-1">
+</h2><h3 id="a-問題分析-1">
 <a class="header-anchor" href="#a-%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90-1"></a>
 a. 問題分析
-</h2><p>私たちの目標は、C++でグラフの隣接行列と隣接リストの保存を実装することです。これには、配列（隣接行列用）とリンクリスト（隣接リスト用）という2つの異なるデータ構造が関わってきます。</p>
-<h2 id="b-アルゴリズム設計-1">
+</h3><p>私たちの目標は、C++でグラフの隣接行列と隣接リストの保存を実装することです。これには、配列（隣接行列用）とリンクリスト（隣接リスト用）という2つの異なるデータ構造が関わってきます。</p>
+<h3 id="b-アルゴリズム設計-1">
 <a class="header-anchor" href="#b-%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88-1"></a>
 b. アルゴリズム設計
-</h2><h3 id="隣接行列">
+</h3><h4 id="隣接行列">
 <a class="header-anchor" href="#%e9%9a%a3%e6%8e%a5%e8%a1%8c%e5%88%97"></a>
 隣接行列
-</h3><p>二次元配列<code>adj[MAX][MAX]</code>を使用してグラフの隣接行列を格納します。各要素<code>adj[i][j]</code>は、ノードiからノードjへの辺が存在するかどうかを示します。存在する場合、<code>adj[i][j] = 1</code>、そうでない場合は<code>adj[i][j] = 0</code>となります。</p>
+</h4><p>二次元配列<code>adj[MAX][MAX]</code>を使用してグラフの隣接行列を格納します。各要素<code>adj[i][j]</code>は、ノードiからノードjへの辺が存在するかどうかを示します。存在する場合、<code>adj[i][j] = 1</code>、そうでない場合は<code>adj[i][j] = 0</code>となります。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">max_edges</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">origin</span> <span class="o">&gt;&gt;</span> <span class="n">destin</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">((</span><span class="n">origin</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">destin</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
@@ -153,33 +153,33 @@ b. アルゴリズム設計
 </span></span><span class="line"><span class="cl">        <span class="n">adj</span><span class="p">[</span><span class="n">origin</span><span class="p">][</span><span class="n">destin</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="隣接リスト">
+</span></span></code></pre></div><h4 id="隣接リスト">
 <a class="header-anchor" href="#%e9%9a%a3%e6%8e%a5%e3%83%aa%e3%82%b9%e3%83%88"></a>
 隣接リスト
-</h3><p>連結リストの配列<code>list&lt;int&gt; *adj</code>を使用してグラフの隣接リストを格納します。各要素<code>adj[i]</code>は、ノードiに隣接するすべてのノードを格納する連結リストです。</p>
+</h4><p>連結リストの配列<code>list&lt;int&gt; *adj</code>を使用してグラフの隣接リストを格納します。各要素<code>adj[i]</code>は、ノードiに隣接するすべてのノードを格納する連結リストです。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">Graph</span><span class="o">::</span><span class="n">addEdge</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">,</span> <span class="kt">int</span> <span class="n">w</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="c-データ構造設計-1">
+</span></span></code></pre></div><h3 id="c-データ構造設計-1">
 <a class="header-anchor" href="#c-%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88-1"></a>
 c. データ構造設計
-</h2><h3 id="隣接行列-1">
+</h3><h4 id="隣接行列-1">
 <a class="header-anchor" href="#%e9%9a%a3%e6%8e%a5%e8%a1%8c%e5%88%97-1"></a>
 隣接行列
-</h3><p>二次元配列<code>int adj[MAX][MAX]</code>を使用して隣接行列を格納します。<code>MAX</code>はグラフ内のノードの最大数です。</p>
-<h3 id="隣接リスト-1">
+</h4><p>二次元配列<code>int adj[MAX][MAX]</code>を使用して隣接行列を格納します。<code>MAX</code>はグラフ内のノードの最大数です。</p>
+<h4 id="隣接リスト-1">
 <a class="header-anchor" href="#%e9%9a%a3%e6%8e%a5%e3%83%aa%e3%82%b9%e3%83%88-1"></a>
 隣接リスト
-</h3><p>リンクリストの配列<code>list&lt;int&gt; *adj</code>を使用して隣接リストを格納します。<code>V</code>はグラフ内のノードの数です。</p>
-<h2 id="d-デバッグプロセス-1">
+</h4><p>リンクリストの配列<code>list&lt;int&gt; *adj</code>を使用して隣接リストを格納します。<code>V</code>はグラフ内のノードの数です。</p>
+<h3 id="d-デバッグプロセス-1">
 <a class="header-anchor" href="#d-%e3%83%87%e3%83%90%e3%83%83%e3%82%b0%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9-1"></a>
 d. デバッグプロセス
-</h2><p>コードの実装とデバッグの過程で、まず入力された辺が有効であることを確認しました。入力された辺が無効な場合（例えば、存在しないノードを参照している場合）、ユーザーに通知し、再入力を促します。</p>
+</h3><p>コードの実装とデバッグの過程で、まず入力された辺が有効であることを確認しました。入力された辺が無効な場合（例えば、存在しないノードを参照している場合）、ユーザーに通知し、再入力を促します。</p>
 <p>隣接行列または隣接リストに辺を追加する際には、配列やリンクリストの範囲外インデックスにアクセスしようとしないように、エラーチェックを使用しました。</p>
-<h2 id="e-出力結果-1">
+<h3 id="e-出力結果-1">
 <a class="header-anchor" href="#e-%e5%87%ba%e5%8a%9b%e7%b5%90%e6%9e%9c-1"></a>
 e. 出力結果
-</h2><p>最後に、隣接行列または隣接リストを出力して、コードが正しいかどうかを確認できます。隣接リストの場合、各ノードのリンクリストを走査し、すべての隣接ノードを出力します。</p>
+</h3><p>最後に、隣接行列または隣接リストを出力して、コードが正しいかどうかを確認できます。隣接リストの場合、各ノードのリンクリストを走査し、すべての隣接ノードを出力します。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">Graph</span><span class="o">::</span><span class="n">printGraph</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">V</span><span class="p">;</span> <span class="n">v</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s"> Adjacency list of vertex &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">v</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s"> head &#34;</span><span class="p">;</span>
@@ -188,13 +188,13 @@ e. 出力結果
 </span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="f-ソースコード-1">
+</span></span></code></pre></div><h3 id="f-ソースコード-1">
 <a class="header-anchor" href="#f-%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89-1"></a>
 f. ソースコード
-</h2><h3 id="隣接行列による格納">
+</h3><h4 id="隣接行列による格納">
 <a class="header-anchor" href="#%e9%9a%a3%e6%8e%a5%e8%a1%8c%e5%88%97%e3%81%ab%e3%82%88%e3%82%8b%e6%a0%bc%e7%b4%8d"></a>
 隣接行列による格納
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;
 </span></span></span><span class="line"><span class="cl"><span class="cp">#define MAX 20
 </span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
@@ -223,10 +223,10 @@ f. ソースコード
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="隣接リストによる格納">
+</span></span></code></pre></div><h4 id="隣接リストによる格納">
 <a class="header-anchor" href="#%e9%9a%a3%e6%8e%a5%e3%83%aa%e3%82%b9%e3%83%88%e3%81%ab%e3%82%88%e3%82%8b%e6%a0%bc%e7%b4%8d"></a>
 隣接リストによる格納
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include&lt;list&gt;
 </span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
@@ -265,21 +265,21 @@ f. ソースコード
 <![CDATA[<h1>Pythonの基本データ構造</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
         
           <p><strong>elemは単語element（要素）の略称</strong>であり、プログラムの定義では不確定な型、つまり抽象的なデータ型を表します。</p>
-<h1 id="リスト">
+<h2 id="リスト">
 <a class="header-anchor" href="#%e3%83%aa%e3%82%b9%e3%83%88"></a>
 リスト
-</h1><h2 id="定義">
+</h2><h3 id="定義">
 <a class="header-anchor" href="#%e5%ae%9a%e7%be%a9"></a>
 定義
-</h2><p>順番に並べられた要素からなるコンテナ</p>
+</h3><p>順番に並べられた要素からなるコンテナ</p>
 <ul>
 <li>要素は任意の型で可能</li>
 <li>要素は確定した順序で並び、順序性を持つ</li>
 </ul>
-<h2 id="リストの作成">
+<h3 id="リストの作成">
 <a class="header-anchor" href="#%e3%83%aa%e3%82%b9%e3%83%88%e3%81%ae%e4%bd%9c%e6%88%90"></a>
 リストの作成
-</h2><p>空のリストインスタンスを作成してから要素を追加する</p>
+</h3><p>空のリストインスタンスを作成してから要素を追加する</p>
 <ul>
 <li>list()</li>
 <li>.append()メソッド</li>
@@ -294,10 +294,10 @@ f. ソースコード
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">phones</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;Apple&#34;</span><span class="p">,</span> <span class="s2">&#34;Huawei&#34;</span><span class="p">,</span> <span class="s2">&#34;Xiaomi&#34;</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">phones</span>
 </span></span><span class="line"><span class="cl"><span class="p">[</span><span class="s1">&#39;Apple&#39;</span><span class="p">,</span> <span class="s1">&#39;Huawei&#39;</span><span class="p">,</span> <span class="s1">&#39;Xiaomi&#39;</span><span class="p">]</span>
-</span></span></code></pre></div><h2 id="要素の確認">
+</span></span></code></pre></div><h3 id="要素の確認">
 <a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e7%a2%ba%e8%aa%8d"></a>
 要素の確認
-</h2><ol>
+</h3><ol>
 <li>インデックスの使用
 $[i]$でi+1番目の要素を確認</li>
 <li>index()メソッド
@@ -313,10 +313,10 @@ list name内で値がxとなる要素がいくつあるかを確認し、その�
 $$name.len()$$
 list name内の要素の総数を検索し、その数を返す</li>
 </ol>
-<h2 id="新しい要素の追加">
+<h3 id="新しい要素の追加">
 <a class="header-anchor" href="#%e6%96%b0%e3%81%97%e3%81%84%e8%a6%81%e7%b4%a0%e3%81%ae%e8%bf%bd%e5%8a%a0"></a>
 新しい要素の追加
-</h2><ol>
+</h3><ol>
 <li>append()メソッド
 
 $$name.append(x)$$
@@ -330,16 +330,16 @@ $$name.insert(i,x)$$
 $$name.extend(name2)$$
 リストname2をリストnameの後ろに連結する</li>
 </ol>
-<h2 id="要素の変更">
+<h3 id="要素の変更">
 <a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e5%a4%89%e6%9b%b4"></a>
 要素の変更
-</h2><ol>
+</h3><ol>
 <li>インデックスを指定して要素を直接代入して変更する</li>
 </ol>
-<h2 id="要素の削除">
+<h3 id="要素の削除">
 <a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e5%89%8a%e9%99%a4"></a>
 要素の削除
-</h2><ol>
+</h3><ol>
 <li>pop()メソッド
 
 $$name.pop()$$
@@ -364,10 +364,10 @@ $del\ name[:]$はlistを空にすることを意味する
 $$del\ name[i]$$
 インデックスがiの要素を削除</li>
 </ol>
-<h2 id="リストの反転">
+<h3 id="リストの反転">
 <a class="header-anchor" href="#%e3%83%aa%e3%82%b9%e3%83%88%e3%81%ae%e5%8f%8d%e8%bb%a2"></a>
 リストの反転
-</h2><ol>
+</h3><ol>
 <li>reverse()メソッド
 
 $$name.reverse()$$
@@ -379,10 +379,10 @@ $$name.reverse()$$
 </span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">new_nums</span>
 </span></span><span class="line"><span class="cl"><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 </span></span></code></pre></div><p>元のオブジェクトnumsは変更されず、反転されたリストとして新しいオブジェクトnew_numsが生成されます。</p>
-<h2 id="リストのソート">
+<h3 id="リストのソート">
 <a class="header-anchor" href="#%e3%83%aa%e3%82%b9%e3%83%88%e3%81%ae%e3%82%bd%e3%83%bc%e3%83%88"></a>
 リストのソート
-</h2><ol>
+</h3><ol>
 <li>sort()メソッド
 
 $$name.sort()$$
@@ -422,18 +422,18 @@ $$name.sort(cmp=None,key=None,reverse=False)$$</li>
 </span></span></code></pre></div><ul>
 <li>reverseはソートのルールで、デフォルトはFalseで昇順、Trueは降順です</li>
 </ul>
-<h1 id="タプル">
+<h2 id="タプル">
 <a class="header-anchor" href="#%e3%82%bf%e3%83%97%e3%83%ab"></a>
 タプル
-</h1><h2 id="定義-1">
+</h2><h3 id="定義-1">
 <a class="header-anchor" href="#%e5%ae%9a%e7%be%a9-1"></a>
 定義
-</h2><p>タプル（tuple）は、一連の要素を順番に並べて形成されるコンテナです。
+</h3><p>タプル（tuple）は、一連の要素を順番に並べて形成されるコンテナです。
 タプルは不変（immutable）であり、リストは可変（mutable）です。</p>
-<h2 id="タプルの作成">
+<h3 id="タプルの作成">
 <a class="header-anchor" href="#%e3%82%bf%e3%83%97%e3%83%ab%e3%81%ae%e4%bd%9c%e6%88%90"></a>
 タプルの作成
-</h2><ol>
+</h3><ol>
 <li>直接$()$ですべての要素を囲むことで作成、リストの作成は$[]$を使用</li>
 <li>時には$()$を使用しなくてもタプルを作成できる（非推奨）</li>
 <li>タプルの内包表記</li>
@@ -446,13 +446,13 @@ $$name.sort(cmp=None,key=None,reverse=False)$$</li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span><span class="o">=</span><span class="nb">tuple</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="n">b</span><span class="o">=</span><span class="p">()</span>
-</span></span></code></pre></div><h2 id="tupleは増減改査を許可しません">
+</span></span></code></pre></div><h3 id="tupleは増減改査を許可しません">
 <a class="header-anchor" href="#tuple%e3%81%af%e5%a2%97%e6%b8%9b%e6%94%b9%e6%9f%bb%e3%82%92%e8%a8%b1%e5%8f%af%e3%81%97%e3%81%be%e3%81%9b%e3%82%93"></a>
 tupleは増減改査を許可しません
-</h2><h2 id="tupleとlistの変換">
+</h3><h3 id="tupleとlistの変換">
 <a class="header-anchor" href="#tuple%e3%81%a8list%e3%81%ae%e5%a4%89%e6%8f%9b"></a>
 tupleとlistの変換
-</h2><p>tuple-&gt;list</p>
+</h3><p>tuple-&gt;list</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">atuple</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;love&#39;</span><span class="p">,</span><span class="mf">3.334</span><span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">list</span><span class="p">(</span><span class="n">atuple</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;この時atupleは依然としてtuple型&#39;&#39;&#39;</span>
@@ -466,13 +466,13 @@ tupleとlistの変換
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">alist</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">3.1415</span><span class="p">,</span><span class="s1">&#39;polaris&#39;</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="n">atuple</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;alistは依然としてlist、atupleはtuple&#39;&#39;&#39;</span>
-</span></span></code></pre></div><h1 id="dict">
+</span></span></code></pre></div><h2 id="dict">
 <a class="header-anchor" href="#dict"></a>
 dict
-</h1><h2 id="定義-2">
+</h2><h3 id="定義-2">
 <a class="header-anchor" href="#%e5%ae%9a%e7%be%a9-2"></a>
 定義
-</h2><ul>
+</h3><ul>
 <li>辞書（dict）、一連の<strong>キーと値のペア（key-value）</strong> で構成されるデータ構造です。</li>
 <li>キーはハッシュ可能な値でなければなりません。例えば==文字列==や数値など。
 <ul>
@@ -482,10 +482,10 @@ dict
 </li>
 <li>値は任意のオブジェクトを指定できます。</li>
 </ul>
-<h2 id="辞書の作成">
+<h3 id="辞書の作成">
 <a class="header-anchor" href="#%e8%be%9e%e6%9b%b8%e3%81%ae%e4%bd%9c%e6%88%90"></a>
 辞書の作成
-</h2><ol>
+</h3><ol>
 <li>空の辞書を作成してから要素を追加する
 識別子とオブジェクト（key&amp;value）を<strong>等号</strong>で接続することに注意
 この場合、keyは識別子であり、<strong>識別子の文字列には引用符を付けない</strong></li>
@@ -510,10 +510,10 @@ keyとvalueを<strong>コロン</strong>で接続することに注意
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">adict</span><span class="o">=</span><span class="p">{</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)}</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">adict</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">出力</span><span class="p">{</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="mi">25</span><span class="p">}</span>
-</span></span></code></pre></div><h2 id="要素の確認-1">
+</span></span></code></pre></div><h3 id="要素の確認-1">
 <a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e7%a2%ba%e8%aa%8d-1"></a>
 要素の確認
-</h2><ol>
+</h3><ol>
 <li>
 $$dict[key]$$を使用
 dictは辞書名、keyはキー
@@ -523,18 +523,18 @@ dictは辞書名、keyはキー、valueはオプションパラメータで初�
 keyが存在しない場合、設定したvalueを返し、valueが設定されていない場合はNoneを返す
 ==キーが辞書に存在しない場合、キーが追加され、valueがデフォルト値に設定されます。==</li>
 </ol>
-<h2 id="新しい要素の追加-1">
+<h3 id="新しい要素の追加-1">
 <a class="header-anchor" href="#%e6%96%b0%e3%81%97%e3%81%84%e8%a6%81%e7%b4%a0%e3%81%ae%e8%bf%bd%e5%8a%a0-1"></a>
 新しい要素の追加
-</h2>$$dict[key]=value$$<p>
+</h3>$$dict[key]=value$$<p>
 keyは新しいキーで、valueは対応する値です</p>
-<h2 id="要素の変更-1">
+<h3 id="要素の変更-1">
 <a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e5%a4%89%e6%9b%b4-1"></a>
 要素の変更
-</h2>$$dict[key]=new\_value$$<h2 id="要素の削除-1">
+</h3>$$dict[key]=new\_value$$<h3 id="要素の削除-1">
 <a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e5%89%8a%e9%99%a4-1"></a>
 要素の削除
-</h2><ol>
+</h3><ol>
 <li>$dict.pop(key)$
 dictは辞書名、keyはキーで、文字列には引用符が必要</li>
 <li>del関数
@@ -542,22 +542,22 @@ dictは辞書名、keyはキーで、文字列には引用符が必要</li>
 $$del\ dict[key]$$
 dictは辞書名</li>
 </ol>
-<h2 id="その他の重要な方法">
+<h3 id="その他の重要な方法">
 <a class="header-anchor" href="#%e3%81%9d%e3%81%ae%e4%bb%96%e3%81%ae%e9%87%8d%e8%a6%81%e3%81%aa%e6%96%b9%e6%b3%95"></a>
 その他の重要な方法
-</h2><h3 id="keyの存在を確認する">
+</h3><h4 id="keyの存在を確認する">
 <a class="header-anchor" href="#key%e3%81%ae%e5%ad%98%e5%9c%a8%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%99%e3%82%8b"></a>
 keyの存在を確認する
-</h3><ol>
+</h4><ol>
 <li>$in,not in$</li>
 <li>$dict.has\_key()$関数
 存在すればTrueを返し、存在しなければFalseを返す
 ==Python2でのみ使用可能、Python3では削除==</li>
 </ol>
-<h3 id="keyのデフォルト値を設定する">
+<h4 id="keyのデフォルト値を設定する">
 <a class="header-anchor" href="#key%e3%81%ae%e3%83%87%e3%83%95%e3%82%a9%e3%83%ab%e3%83%88%e5%80%a4%e3%82%92%e8%a8%ad%e5%ae%9a%e3%81%99%e3%82%8b"></a>
 keyのデフォルト値を設定する
-</h3><ol>
+</h4><ol>
 <li>まずkeyがdictに存在するかどうかを確認し、存在しない場合は値を割り当てる</li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;王炳明&#34;</span><span class="p">,</span> <span class="s2">&#34;age&#34;</span><span class="p">:</span> <span class="mi">27</span><span class="p">,</span> <span class="s2">&#34;公众号&#34;</span><span class="p">:</span> <span class="s2">&#34;Python编程时光&#34;</span><span class="p">}</span>
@@ -570,18 +570,18 @@ keyのデフォルト値を設定する
 $$dict.setdefault(key,default=None)$$
 defaultはkeyが存在しない場合に設定する値で、デフォルトはNone</li>
 </ol>
-<h1 id="set">
+<h2 id="set">
 <a class="header-anchor" href="#set"></a>
 set
-</h1><h2 id="定義-3">
+</h2><h3 id="定義-3">
 <a class="header-anchor" href="#%e5%ae%9a%e7%be%a9-3"></a>
 定義
-</h2><p>集合（set）は、数学の集合と同じく、<strong>順序付けされていない</strong>、<strong>重複のない</strong>要素のシーケンスです。
+</h3><p>集合（set）は、数学の集合と同じく、<strong>順序付けされていない</strong>、<strong>重複のない</strong>要素のシーケンスです。
 ==question==：順序がない場合、print setの際に要素はどのような順序で表示され、保存時はどのような順序になるのでしょうか？</p>
-<h2 id="集合の作成">
+<h3 id="集合の作成">
 <a class="header-anchor" href="#%e9%9b%86%e5%90%88%e3%81%ae%e4%bd%9c%e6%88%90"></a>
 集合の作成
-</h2><ol>
+</h3><ol>
 <li><strong>波括弧</strong>を使用して作成します。$\{\}$内に重複した要素を含めることができますが、最終的にsetは重複を削除します。</li>
 <li>set()メソッドを使用して作成します。</li>
 </ol>
@@ -602,10 +602,10 @@ set
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">出力</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="s1">&#39;love&#39;</span><span class="p">,</span><span class="s1">&#39;ishimiya&#39;</span><span class="p">}</span>
-</span></span></code></pre></div><h2 id="要素の追加">
+</span></span></code></pre></div><h3 id="要素の追加">
 <a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e8%bf%bd%e5%8a%a0"></a>
 要素の追加
-</h2><ol>
+</h3><ol>
 <li>
 <p>$.add()$関数
 </p>
@@ -635,10 +635,10 @@ ElemTypeはシーケンス（string、list、tuple、dict、setなど）でな�
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">出力</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;朱冰倩&#39;</span><span class="p">,</span><span class="s1">&#39;suki&#39;</span><span class="p">,</span><span class="s1">&#39;for&#39;</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="s1">&#39;years&#39;</span><span class="p">,</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="p">}</span>
-</span></span></code></pre></div><h2 id="要素の削除-2">
+</span></span></code></pre></div><h3 id="要素の削除-2">
 <a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e5%89%8a%e9%99%a4-2"></a>
 要素の削除
-</h2><ol>
+</h3><ol>
 <li>$.remove()$</li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">aset</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;朱冰倩&#39;</span><span class="p">,</span><span class="s1">&#39;suki&#39;</span><span class="p">,</span><span class="s1">&#39;for&#39;</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="s1">&#39;years&#39;</span><span class="p">,</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="p">}</span>
@@ -670,41 +670,41 @@ ElemTypeはシーケンス（string、list、tuple、dict、setなど）でな�
 
 $$set.clear()$$</li>
 </ol>
-<h2 id="要素の変更-2">
+<h3 id="要素の変更-2">
 <a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e5%a4%89%e6%9b%b4-2"></a>
 要素の変更
-</h2><p>セット内の要素は順序がないため、集合にはインデックスがなく、要素を変更することはできず、追加または削除のみ可能です。</p>
-<h2 id="要素の確認-2">
+</h3><p>セット内の要素は順序がないため、集合にはインデックスがなく、要素を変更することはできず、追加または削除のみ可能です。</p>
+<h3 id="要素の確認-2">
 <a class="header-anchor" href="#%e8%a6%81%e7%b4%a0%e3%81%ae%e7%a2%ba%e8%aa%8d-2"></a>
 要素の確認
-</h2><p>同上、インデックスなしでは要素を確認できません。
+</h3><p>同上、インデックスなしでは要素を確認できません。
 <strong>要素数の確認</strong>
 </p>
 $$len(set)$$<p>
 セット内の要素数を返します</p>
-<h2 id="集合演算">
+<h3 id="集合演算">
 <a class="header-anchor" href="#%e9%9b%86%e5%90%88%e6%bc%94%e7%ae%97"></a>
 集合演算
-</h2><h3 id="和集合">
+</h3><h4 id="和集合">
 <a class="header-anchor" href="#%e5%92%8c%e9%9b%86%e5%90%88"></a>
 和集合
-</h3><p>$union$関数を使用して2つの集合を結合し重複を削除し、結合後の集合Cを返します
+</h4><p>$union$関数を使用して2つの集合を結合し重複を削除し、結合後の集合Cを返します
 </p>
 $$aset.union(bset)$$<p>
 同等
 </p>
-$$aset\ |\ bset$$<h3 id="差集合">
+$$aset\ |\ bset$$<h4 id="差集合">
 <a class="header-anchor" href="#%e5%b7%ae%e9%9b%86%e5%90%88"></a>
 差集合
-</h3><p>$difference$関数を使用して差集合を求めます：==集合Aに存在する==が==集合Bには存在しない==要素を見つけ、新しい集合Cとして返します。
+</h4><p>$difference$関数を使用して差集合を求めます：==集合Aに存在する==が==集合Bには存在しない==要素を見つけ、新しい集合Cとして返します。
 </p>
 $$aset.difference(bset)$$<p>
 同等
 </p>
-$$aset\ -\ bset$$<h3 id="積集合">
+$$aset\ -\ bset$$<h4 id="積集合">
 <a class="header-anchor" href="#%e7%a9%8d%e9%9b%86%e5%90%88"></a>
 積集合
-</h3><ol>
+</h4><ol>
 <li>$intersection$関数を使用して積集合を求めます：==集合AとBの両方に存在する==要素を見つけ、集合Cとして返します。
 
 $$aset.intersection(bset)$$
@@ -722,10 +722,10 @@ $$aset.intersection\_update()$$</li>
 
 $$aset\ \&\ bset$$</li>
 </ol>
-<h3 id="対称差集合">
+<h4 id="対称差集合">
 <a class="header-anchor" href="#%e5%af%be%e7%a7%b0%e5%b7%ae%e9%9b%86%e5%90%88"></a>
 対称差集合
-</h3><ol>
+</h4><ol>
 <li>$symmetric\_difference$関数を使用し、対称差集合を返します
 
 $$aset.symmetric\_difference(bset)$$</li>
@@ -733,10 +733,10 @@ $$aset.symmetric\_difference(bset)$$</li>
 
 $$aset.symmetric\_difference\_update(bset)$$</li>
 </ol>
-<h2 id="その他">
+<h3 id="その他">
 <a class="header-anchor" href="#%e3%81%9d%e3%81%ae%e4%bb%96"></a>
 その他
-</h2><ol>
+</h3><ol>
 <li>setが特定の要素を含むかどうかを判断するには、inを使用します
 
 $$print(elem\ in\ aset)$$</li>
@@ -749,18 +749,18 @@ $$aset.isdisjoint(bset)$$
 $$bset.issubset(aset)$$
 <strong>bsetがasetの部分集合である</strong>場合、Trueを返します</li>
 </ol>
-<h1 id="イテレータ">
+<h2 id="イテレータ">
 <a class="header-anchor" href="#%e3%82%a4%e3%83%86%e3%83%ac%e3%83%bc%e3%82%bf"></a>
 イテレータ
-</h1><p>イテレータ</p>
-<h2 id="反復可能オブジェクト">
+</h2><p>イテレータ</p>
+<h3 id="反復可能オブジェクト">
 <a class="header-anchor" href="#%e5%8f%8d%e5%be%a9%e5%8f%af%e8%83%bd%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88"></a>
 反復可能オブジェクト
-</h2><p>forループを利用できるオブジェクトは、すべて反復可能オブジェクトと呼ばれます。</p>
-<h2 id="反復可能プロトコル">
+</h3><p>forループを利用できるオブジェクトは、すべて反復可能オブジェクトと呼ばれます。</p>
+<h3 id="反復可能プロトコル">
 <a class="header-anchor" href="#%e5%8f%8d%e5%be%a9%e5%8f%af%e8%83%bd%e3%83%97%e3%83%ad%e3%83%88%e3%82%b3%e3%83%ab"></a>
 反復可能プロトコル
-</h2><ol>
+</h3><ol>
 <li><strong>最初のシナリオ</strong>：あるオブジェクトが内部で<code>__iter__()</code>メソッドを実装し、イテレータインスタンスを返す場合、そのオブジェクトは反復可能オブジェクトです。
 <ol>
 <li>このシナリオでは、<code>isinstance(my_list,Iterable)</code>はTrueを返します</li>
@@ -772,10 +772,10 @@ $$bset.issubset(aset)$$
 </ol>
 </li>
 </ol>
-<h2 id="イテレータオブジェクト">
+<h3 id="イテレータオブジェクト">
 <a class="header-anchor" href="#%e3%82%a4%e3%83%86%e3%83%ac%e3%83%bc%e3%82%bf%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88"></a>
 イテレータオブジェクト
-</h2><p>反復可能なオブジェクトに対してiter関数を使用すると、イテレータオブジェクトが返されます。イテレータオブジェクトに対してはnext関数を使用して要素を取得できます。実行するたびに1つずつ要素を取得し、すべて取得し終わるとStopIterationが発生し、これ以上要素がないことが通知されます。</p>
+</h3><p>反復可能なオブジェクトに対してiter関数を使用すると、イテレータオブジェクトが返されます。イテレータオブジェクトに対してはnext関数を使用して要素を取得できます。実行するたびに1つずつ要素を取得し、すべて取得し終わるとStopIterationが発生し、これ以上要素がないことが通知されます。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">alist</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;人&#39;</span><span class="p">,</span><span class="s1">&#39;生&#39;</span><span class="p">,</span><span class="s1">&#39;若&#39;</span><span class="p">,</span><span class="s1">&#39;只&#39;</span><span class="p">,</span><span class="s1">&#39;如&#39;</span><span class="p">,</span><span class="s1">&#39;初&#39;</span><span class="p">,</span><span class="s1">&#39;見&#39;</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="n">gen</span><span class="o">=</span><span class="nb">iter</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">:</span>
@@ -801,24 +801,24 @@ $$bset.issubset(aset)$$
 </span></span><span class="line"><span class="cl"><span class="n">如</span>
 </span></span><span class="line"><span class="cl"><span class="n">初</span>
 </span></span><span class="line"><span class="cl"><span class="n">見</span>
-</span></span></code></pre></div><h2 id="反復可能オブジェクトとイテレータオブジェクト">
+</span></span></code></pre></div><h3 id="反復可能オブジェクトとイテレータオブジェクト">
 <a class="header-anchor" href="#%e5%8f%8d%e5%be%a9%e5%8f%af%e8%83%bd%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%81%a8%e3%82%a4%e3%83%86%e3%83%ac%e3%83%bc%e3%82%bf%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88"></a>
 反復可能オブジェクトとイテレータオブジェクト
-</h2><ol>
+</h3><ol>
 <li>反復可能オブジェクトは全体を指し、例えばリストのようなものです。</li>
 <li>イテレータオブジェクトはiter()関数によって返されるオブジェクトで、このオブジェクトに対してnext()関数を使用して要素を次々と取得できます。</li>
 </ol>
-<h1 id="generator">
+<h2 id="generator">
 <a class="header-anchor" href="#generator"></a>
 generator
-</h1><p>ジェネレータは、イテレータのようにforループを使用して要素を取得できる関数です。</p>
-<h2 id="ジェネレータの作成">
+</h2><p>ジェネレータは、イテレータのようにforループを使用して要素を取得できる関数です。</p>
+<h3 id="ジェネレータの作成">
 <a class="header-anchor" href="#%e3%82%b8%e3%82%a7%e3%83%8d%e3%83%ac%e3%83%bc%e3%82%bf%e3%81%ae%e4%bd%9c%e6%88%90"></a>
 ジェネレータの作成
-</h2><h3 id="リスト内包表記">
+</h3><h4 id="リスト内包表記">
 <a class="header-anchor" href="#%e3%83%aa%e3%82%b9%e3%83%88%e5%86%85%e5%8c%85%e8%a1%a8%e8%a8%98"></a>
 リスト内包表記
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">alist</span><span class="o">=</span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">alist</span><span class="o">=</span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">出力</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
@@ -833,10 +833,10 @@ generator
 </span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
 </span></span></span><span class="line"><span class="cl"><span class="s1">この場合、alistはジェネレータオブジェクト
 </span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
-</span></span></code></pre></div><h3 id="yield">
+</span></span></code></pre></div><h4 id="yield">
 <a class="header-anchor" href="#yield"></a>
 yield
-</h3><p>yieldとrenturnの違い</p>
+</h4><p>yieldとrenturnの違い</p>
 <ul>
 <li>関数がyieldに到達すると、関数の実行は一時停止し、yieldの後の値が返されます。</li>
 <li>yieldに何も値が続いていない場合、Noneが返されます。</li>

@@ -516,10 +516,10 @@ As I said at the beginning, they&rsquo;re traces of my growth, proof of my exist
         <hr><p>Published on 2025-04-19 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-04-19</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>OtherNotes</category></item><item><title>Common Hugo Blog Resources</title><link>https://guzhengsvt.cn/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link><pubDate>Tue, 15 Apr 2025 16:42:35 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid><description>
 <![CDATA[<h1>Common Hugo Blog Resources</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="hugo-common-commands">
+          <h2 id="hugo-common-commands">
 <a class="header-anchor" href="#hugo-common-commands"></a>
 Hugo Common Commands
-</h1><table>
+</h2><table>
   <thead>
       <tr>
           <th>Command</th>
@@ -595,10 +595,10 @@ Hugo Common Commands
       </tr>
   </tbody>
 </table>
-<h1 id="reimu-theme-icon_font">
+<h2 id="reimu-theme-icon_font">
 <a class="header-anchor" href="#reimu-theme-icon_font"></a>
 reimu Theme icon_font
-</h1><table>
+</h2><table>
   <thead>
       <tr>
           <th>Icon Class</th>
@@ -1224,53 +1224,53 @@ Auto-Dial on Boot &amp; Reconnect
 <![CDATA[<h1>Obsidian Basics</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
           <p><a href="https://publish.obsidian.md/help-zh/%E7%94%B1%E6%AD%A4%E5%BC%80%E5%A7%8B">Obsidian Chinese Help</a></p>
-<h1 id="interface">
+<h2 id="interface">
 <a class="header-anchor" href="#interface"></a>
 Interface
-</h1><p><a href="https://zhuanlan.zhihu.com/p/428519519">Want to master Obsidian in one hour? This guide is all you need. [Complete Step-by-Step Obsidian Tutorial] - Zhihu</a><br>
+</h2><p><a href="https://zhuanlan.zhihu.com/p/428519519">Want to master Obsidian in one hour? This guide is all you need. [Complete Step-by-Step Obsidian Tutorial] - Zhihu</a><br>
 Create vault folder → Create note category folders within vault → Organize notes<br>
 Obsidian Help<br>
 Top bar of notes → Vertical three-dot menu → Split view<br>
 <a href="https://zhuanlan.zhihu.com/p/409409946">Wyatt: Building Your Workspace [Complete Step-by-Step Obsidian Tutorial] 216 upvotes · 7 comments<img src="https://pic1.zhimg.com/v2-2323eabf712e3ebaae40c322ec18dde0_180x120.jpg" alt=""></a><br>
 View outline in top-left corner</p>
-<h1 id="plugins-to-be-explored">
+<h2 id="plugins-to-be-explored">
 <a class="header-anchor" href="#plugins-to-be-explored"></a>
 Plugins (To Be Explored)
-</h1><p><a href="https://zhuanlan.zhihu.com/p/403001135">Wyatt: How to Install Plugins? [Complete Step-by-Step Obsidian Tutorial] 264 upvotes · 63 comments<img src="https://pic2.zhimg.com/v2-51f1cdbc1b5891f62958cdb379dc5561_180x120.jpg" alt=""></a></p>
-<h1 id="text-formatting">
+</h2><p><a href="https://zhuanlan.zhihu.com/p/403001135">Wyatt: How to Install Plugins? [Complete Step-by-Step Obsidian Tutorial] 264 upvotes · 63 comments<img src="https://pic2.zhimg.com/v2-51f1cdbc1b5891f62958cdb379dc5561_180x120.jpg" alt=""></a></p>
+<h2 id="text-formatting">
 <a class="header-anchor" href="#text-formatting"></a>
 Text Formatting
-</h1><p>Use <code># + space</code> for headings. More <code>#</code> = lower heading level.</p>
-<h3 id="emphasis">
+</h2><p>Use <code># + space</code> for headings. More <code>#</code> = lower heading level.</p>
+<h4 id="emphasis">
 <a class="header-anchor" href="#emphasis"></a>
 Emphasis
-</h3><p><em>Italic</em><br>
+</h4><p><em>Italic</em><br>
 <em>Alternative italic syntax (English underscores)</em></p>
-<h3 id="bold">
+<h4 id="bold">
 <a class="header-anchor" href="#bold"></a>
 Bold
-</h3><p><strong>Bold example (double asterisks)</strong><br>
+</h4><p><strong>Bold example (double asterisks)</strong><br>
 <strong>Or double underscores</strong></p>
-<h3 id="combined-usage">
+<h4 id="combined-usage">
 <a class="header-anchor" href="#combined-usage"></a>
 Combined Usage
-</h3><p><em>This is <strong>italic + bold</strong></em></p>
-<h3 id="strikethrough">
+</h4><p><em>This is <strong>italic + bold</strong></em></p>
+<h4 id="strikethrough">
 <a class="header-anchor" href="#strikethrough"></a>
 Strikethrough
-</h3><p><del>Since we&rsquo;re pursuing excitement, let&rsquo;s go all the way</del></p>
-<h3 id="highlight">
+</h4><p><del>Since we&rsquo;re pursuing excitement, let&rsquo;s go all the way</del></p>
+<h4 id="highlight">
 <a class="header-anchor" href="#highlight"></a>
 Highlight
-</h3><p>==Sparse shadows slant across clear shallow water; subtle fragrance wafts under moonlit dusk==</p>
-<h3 id="footnotes">
+</h4><p>==Sparse shadows slant across clear shallow water; subtle fragrance wafts under moonlit dusk==</p>
+<h4 id="footnotes">
 <a class="header-anchor" href="#footnotes"></a>
 Footnotes
-</h3><p>Text<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>Text</p>
-<h3 id="comments">
+</h4><p>Text<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>Text</p>
+<h4 id="comments">
 <a class="header-anchor" href="#comments"></a>
 Comments
-</h3><ul>
+</h4><ul>
 <li>Inline comments<br>
 %%This is an inline comment%%</li>
 <li>Multi-line comments<br>
@@ -1281,10 +1281,10 @@ Stars twinkle unintentionally<br>
 Fine rain dots the flowers<br>
 %%</li>
 </ul>
-<h1 id="lists">
+<h2 id="lists">
 <a class="header-anchor" href="#lists"></a>
 Lists
-</h1><ul>
+</h2><ul>
 <li>Unordered list
 <ul>
 <li>Hyphen + space</li>
@@ -1299,10 +1299,10 @@ Lists
 </ol>
 </li>
 </ul>
-<h1 id="images">
+<h2 id="images">
 <a class="header-anchor" href="#images"></a>
 Images
-</h1><ul>
+</h2><ul>
 <li>
 $$![Engelbart](image_URL)$$</li>
 <li>![[Pasted image 20230625203344.png]]</li>
@@ -1314,13 +1314,13 @@ $$![Engelbart|100](image_link)$$</li>
 </ul>
 </li>
 </ul>
-<h1 id="external-links">
+<h2 id="external-links">
 <a class="header-anchor" href="#external-links"></a>
 External Links
-</h1><h3 id="linking-to-notesimages-in-vault">
+</h2><h4 id="linking-to-notesimages-in-vault">
 <a class="header-anchor" href="#linking-to-notesimages-in-vault"></a>
 Linking to notes/images in vault
-</h3><ul>
+</h4><ul>
 <li>$http://obsidian.md - automatic!$
 <ul>
 <li><em>Web link (URL displayed as-is, $ for formatting only)</em></li>
@@ -1332,10 +1332,10 @@ Linking to notes/images in vault
 </ul>
 </li>
 </ul>
-<h3 id="obsidian-url">
+<h4 id="obsidian-url">
 <a class="header-anchor" href="#obsidian-url"></a>
 Obsidian URL
-</h3><p>Obsidian URIs typically follow this format:<br>
+</h4><p>Obsidian URIs typically follow this format:<br>
 </p>
 $$obsidian://action?param1=value&param2=value$$<p><br>
 Where <code>action</code> specifies the operation and <code>value</code> are parameters.<br>
@@ -1354,10 +1354,10 @@ $$[name](obsidian://open?vault=vault_name/vault_ID)$$<br>
 <li><em>Open Calculus under Math folder (<strong>.md</strong> extension optional)</em><br>
 <a href="#ZgotmplZ">Calculus</a></li>
 </ul>
-<h3 id="others">
+<h4 id="others">
 <a class="header-anchor" href="#others"></a>
 Others
-</h3><ul>
+</h4><ul>
 <li>
 <p>Escape spaces in URLs as <code>%20</code></p>
 <ul>

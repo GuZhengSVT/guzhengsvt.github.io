@@ -2523,79 +2523,79 @@ GitHub: <a href="https://github.com/makipom/BlueArchive-Cursors">BlueArchive-Cur
         <hr><p>Published on 2024-09-07 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-09-07</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>OtherNotes</category></item><item><title>Digital Signal Processing</title><link>https://guzhengsvt.cn/en/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link><pubDate>Wed, 04 Sep 2024 23:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid><description>
 <![CDATA[<h1>Digital Signal Processing</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="fundamental-concepts-of-digital-signal-processing">
+          <h2 id="fundamental-concepts-of-digital-signal-processing">
 <a class="header-anchor" href="#fundamental-concepts-of-digital-signal-processing"></a>
 Fundamental Concepts of Digital Signal Processing
-</h1><h2 id="signal-classification">
+</h2><h3 id="signal-classification">
 <a class="header-anchor" href="#signal-classification"></a>
 Signal Classification
-</h2><ol>
+</h3><ol>
 <li><strong>Continuous-time signal</strong>: Analog signal, continuous in the time domain.</li>
 <li><strong>Discrete-time signal</strong>: Continuous in amplitude but discrete in time.</li>
 <li><strong>Amplitude-discrete signal</strong>: Discrete in amplitude but continuous in time.</li>
 <li><strong>Digital signal</strong>: Discrete in both amplitude and time.</li>
 </ol>
-<h3 id="differences">
+<h4 id="differences">
 <a class="header-anchor" href="#differences"></a>
 Differences
-</h3><p>The distinction between a discrete-time signal and a digital signal lies solely in the <strong>quantization error</strong> present in digital signals.</p>
-<h2 id="implementation-methods-of-digital-signal-processing">
+</h4><p>The distinction between a discrete-time signal and a digital signal lies solely in the <strong>quantization error</strong> present in digital signals.</p>
+<h3 id="implementation-methods-of-digital-signal-processing">
 <a class="header-anchor" href="#implementation-methods-of-digital-signal-processing"></a>
 Implementation Methods of Digital Signal Processing
-</h2><p>The primary target of digital signal processing is <strong>digital signals</strong>, achieved through <strong>numerical operations</strong>.</p>
-<h3 id="software-implementation">
+</h3><p>The primary target of digital signal processing is <strong>digital signals</strong>, achieved through <strong>numerical operations</strong>.</p>
+<h4 id="software-implementation">
 <a class="header-anchor" href="#software-implementation"></a>
 Software Implementation
-</h3><p>Programs are written based on principles and algorithms and executed on general-purpose computers.</p>
+</h4><p>Programs are written based on principles and algorithms and executed on general-purpose computers.</p>
 <ul>
 <li><strong>Advantages</strong>: Flexibility</li>
 <li><strong>Disadvantages</strong>: Slow computation speed, difficult to achieve real-time processing.</li>
 <li><strong>Suitable for</strong>: Algorithm research and simulation.</li>
 </ul>
-<h3 id="hardware-implementation">
+<h4 id="hardware-implementation">
 <a class="header-anchor" href="#hardware-implementation"></a>
 Hardware Implementation
-</h3><p>Hardware structures are designed according to specific requirements and algorithms, using basic components such as multipliers, adders, delay units, controllers, memory, and input/output interfaces.</p>
+</h4><p>Hardware structures are designed according to specific requirements and algorithms, using basic components such as multipliers, adders, delay units, controllers, memory, and input/output interfaces.</p>
 <ul>
 <li><strong>Advantages</strong>: Fast computation speed, capable of real-time processing.</li>
 <li><strong>Disadvantages</strong>: Inflexibility</li>
 </ul>
 <p>Hardware implementation refers to selecting an appropriate <strong>DSP chip</strong>, equipped with suitable software and language for the task, to achieve specific signal processing functions.</p>
-<h3 id="dedicated-chips">
+<h4 id="dedicated-chips">
 <a class="header-anchor" href="#dedicated-chips"></a>
 Dedicated Chips
-</h3><p>Using <strong>Digital Signal Processing (DSP) chips</strong> is currently the fastest-growing and most widely applied method. DSP chips offer significant advantages over general-purpose microcontrollers:</p>
+</h4><p>Using <strong>Digital Signal Processing (DSP) chips</strong> is currently the fastest-growing and most widely applied method. DSP chips offer significant advantages over general-purpose microcontrollers:</p>
 <ul>
 <li><strong>Internal multipliers and accumulators</strong> tailored for digital signal processing.</li>
 <li><strong>Pipeline architecture</strong>, parallel structures, and multiple buses.</li>
 <li>Specialized instructions optimized for digital signal processing, enabling high-speed computation.</li>
 </ul>
 <p>For ultra-high-speed real-time systems where DSP chips are insufficient, <strong>Field-Programmable Gate Arrays (FPGAs)</strong> or custom ASICs (Application-Specific Integrated Circuits) should be employed.</p>
-<h2 id="characteristics-of-digital-signal-processing">
+<h3 id="characteristics-of-digital-signal-processing">
 <a class="header-anchor" href="#characteristics-of-digital-signal-processing"></a>
 Characteristics of Digital Signal Processing
-</h2><p>Compared to analog signal processing, digital signal processing offers:</p>
+</h3><p>Compared to analog signal processing, digital signal processing offers:</p>
 <ol>
 <li><strong>Flexibility</strong></li>
 <li><strong>High precision and stability</strong></li>
 <li><strong>Ease of large-scale integration</strong></li>
 <li><strong>Capability to perform functions unattainable by analog systems</strong>, such as storage, complex transformations, and operations.</li>
 </ol>
-<h2 id="signal-dimensionality">
+<h3 id="signal-dimensionality">
 <a class="header-anchor" href="#signal-dimensionality"></a>
 Signal Dimensionality
-</h2><p>A signal is typically a function of one or more independent variables.</p>
+</h3><p>A signal is typically a function of one or more independent variables.</p>
 <ul>
 <li><strong>One-dimensional signal</strong>: Only one independent variable.</li>
 <li><strong>Multidimensional signal</strong>: Two or more independent variables.</li>
 </ul>
-<h1 id="discrete-time-signals-and-systems">
+<h2 id="discrete-time-signals-and-systems">
 <a class="header-anchor" href="#discrete-time-signals-and-systems"></a>
 Discrete-Time Signals and Systems
-</h1><h2 id="discrete-time-signals">
+</h2><h3 id="discrete-time-signals">
 <a class="header-anchor" href="#discrete-time-signals"></a>
 Discrete-Time Signals
-</h2><p>In practice, signals are generally analog. <strong>Uniform sampling</strong> (equally spaced sampling) converts them into discrete-time signals.</p>
+</h3><p>In practice, signals are generally analog. <strong>Uniform sampling</strong> (equally spaced sampling) converts them into discrete-time signals.</p>
 <p>For an analog signal \( x_a(t) \), discrete time points \( t_n \).<br>
 With uniform sampling interval \( T \), \( t_n = nT \):<br>
 </p>
@@ -2608,32 +2608,32 @@ $$
 x(n) = \{\cdots, x_a(-2T), x_a(-T), x_a(0), x_a(T), x_a(2T), \cdots \}  
 $$<p><br>
 Discrete-time signals are also referred to as <strong>sequences</strong>.</p>
-<h3 id="representation-methods-for-sequences">
+<h4 id="representation-methods-for-sequences">
 <a class="header-anchor" href="#representation-methods-for-sequences"></a>
 Representation Methods for Sequences
-</h3><h4 id="set-notation">
+</h4><h5 id="set-notation">
 <a class="header-anchor" href="#set-notation"></a>
 Set Notation
-</h4><p>A set of numbers is denoted by \( \{\cdot\} \). A discrete-time signal can be represented as an ordered set of numbers.<br>
+</h5><p>A set of numbers is denoted by \( \{\cdot\} \). A discrete-time signal can be represented as an ordered set of numbers.<br>
 The underlined element in the set indicates the sample value at \( n=0 \).</p>
-<h4 id="formula-representation">
+<h5 id="formula-representation">
 <a class="header-anchor" href="#formula-representation"></a>
 Formula Representation
-</h4><p>Example:<br>
+</h5><p>Example:<br>
 </p>
 $$
 x(n) = a^{|n|}, \quad 0  \lt  a  \lt  1, \quad -\infty  \lt  n  \lt  \infty  
-$$<h4 id="graphical-representation">
+$$<h5 id="graphical-representation">
 <a class="header-anchor" href="#graphical-representation"></a>
 Graphical Representation
-</h4><p>The horizontal axis represents \( n \), and the vertical axis represents the value of \( x \), with dots atop vertical lines.</p>
-<h3 id="common-standard-sequences">
+</h5><p>The horizontal axis represents \( n \), and the vertical axis represents the value of \( x \), with dots atop vertical lines.</p>
+<h4 id="common-standard-sequences">
 <a class="header-anchor" href="#common-standard-sequences"></a>
 Common Standard Sequences
-</h3><h4 id="unit-impulse-sequence">
+</h4><h5 id="unit-impulse-sequence">
 <a class="header-anchor" href="#unit-impulse-sequence"></a>
 Unit Impulse Sequence \( \delta(n) \)
-</h4>$$
+</h5>$$
 \delta(n) = 
 \begin{cases} 
 1 & n = 0 \\
@@ -2641,10 +2641,10 @@ Unit Impulse Sequence \( \delta(n) \)
 \end{cases}  
 $$<p><br>
 Also called the <strong>unit sample sequence</strong>, distinct from the unit impulse signal \( \delta(t) \).</p>
-<h4 id="unit-step-sequence">
+<h5 id="unit-step-sequence">
 <a class="header-anchor" href="#unit-step-sequence"></a>
 Unit Step Sequence \( u(n) \)
-</h4>$$
+</h5>$$
 u(n) = 
 \begin{cases} 
 1 & n \geq 0 \\
@@ -2659,10 +2659,10 @@ $$<p><br>
 </p>
 $$
 u(n) = \sum_{k=0}^{\infty} \delta(n - k)  
-$$<h4 id="rectangular-sequence">
+$$<h5 id="rectangular-sequence">
 <a class="header-anchor" href="#rectangular-sequence"></a>
 Rectangular Sequence \( R_N(n) \)
-</h4>$$
+</h5>$$
 R_N(n) = 
 \begin{cases} 
 1 & 0 \leq n \leq N-1 \\
@@ -2673,19 +2673,19 @@ $$<p><br>
 </p>
 $$
 R_N(n) = u(n) - u(n - N)  
-$$<h4 id="real-exponential-sequence">
+$$<h5 id="real-exponential-sequence">
 <a class="header-anchor" href="#real-exponential-sequence"></a>
 Real Exponential Sequence
-</h4>$$
+</h5>$$
 x(n) = a^n u(n), \quad a \text{ is a real number}  
 $$<ul>
 <li><strong>Convergent sequence</strong>: \( |a|  \lt  1 \)</li>
 <li><strong>Divergent sequence</strong>: \( |a|  \gt  1 \)</li>
 </ul>
-<h4 id="sinusoidal-sequence">
+<h5 id="sinusoidal-sequence">
 <a class="header-anchor" href="#sinusoidal-sequence"></a>
 Sinusoidal Sequence
-</h4>$$
+</h5>$$
 x(n) = \sin(\omega n)  
 $$<p><br>
 Here, \( \omega \) is the <strong>digital frequency</strong> (units: radians, \( rad \)), representing the rate of change (phase shift between adjacent samples).</p>
@@ -2706,60 +2706,60 @@ $$
 \omega = \frac{\varOmega}{F_s}  
 $$<p><br>
 <em>Digital frequency is the normalized analog angular frequency relative to the sampling frequency.</em></p>
-<h4 id="complex-exponential-sequence">
+<h5 id="complex-exponential-sequence">
 <a class="header-anchor" href="#complex-exponential-sequence"></a>
 Complex Exponential Sequence
-</h4>$$
+</h5>$$
 x(n) = e^{(\sigma + j \omega_0)n} = \cos(\omega_0 n) + j \sin(\omega_0 n)  
 $$<p><br>
 Since \( n \) is an integer, both sinusoidal and complex exponential sequences are periodic with period \( 2\pi \).</p>
-<h4 id="periodic-sequence">
+<h5 id="periodic-sequence">
 <a class="header-anchor" href="#periodic-sequence"></a>
 Periodic Sequence
-</h4><p>If for all \( n \), there exists a <strong>smallest positive integer</strong> \( N \) such that:<br>
+</h5><p>If for all \( n \), there exists a <strong>smallest positive integer</strong> \( N \) such that:<br>
 </p>
 $$
 x(n) = x(n + N), \quad -\infty  \lt  n  \lt  \infty  
 $$<p><br>
 then the sequence \( x(n) \) is <strong>periodic</strong> with period \( N \).</p>
-<h3 id="sequence-operations">
+<h4 id="sequence-operations">
 <a class="header-anchor" href="#sequence-operations"></a>
 Sequence Operations
-</h3><h4 id="addition-and-multiplication">
+</h4><h5 id="addition-and-multiplication">
 <a class="header-anchor" href="#addition-and-multiplication"></a>
 Addition and Multiplication
-</h4><h4 id="shifting-flipping-and-scaling">
+</h5><h5 id="shifting-flipping-and-scaling">
 <a class="header-anchor" href="#shifting-flipping-and-scaling"></a>
 Shifting, Flipping, and Scaling
-</h4><h2 id="discrete-time-systems">
+</h5><h3 id="discrete-time-systems">
 <a class="header-anchor" href="#discrete-time-systems"></a>
 Discrete-Time Systems
-</h2><p>For a system with input \( x(n) \), output \( y(n) \), and operation \( T[\cdot] \):<br>
+</h3><p>For a system with input \( x(n) \), output \( y(n) \), and operation \( T[\cdot] \):<br>
 </p>
 $$
 y(n) = T[x(n)]  
-$$<h3 id="linear-systems">
+$$<h4 id="linear-systems">
 <a class="header-anchor" href="#linear-systems"></a>
 Linear Systems
-</h3><p>A system is <strong>linear</strong> if its input-output relationship satisfies the principle of superposition.</p>
-<h4 id="additivity">
+</h4><p>A system is <strong>linear</strong> if its input-output relationship satisfies the principle of superposition.</p>
+<h5 id="additivity">
 <a class="header-anchor" href="#additivity"></a>
 Additivity
-</h4>$$
+</h5>$$
 y_1(n) = T[x_1(n)], \quad y_2(n) = T[x_2(n)]  
 $$<p><br>
 </p>
 $$
 T[x_1(n) + x_2(n)] = y_1(n) + y_2(n)  
-$$<h4 id="homogeneity-scaling">
+$$<h5 id="homogeneity-scaling">
 <a class="header-anchor" href="#homogeneity-scaling"></a>
 Homogeneity (Scaling)
-</h4>$$
+</h5>$$
 T[a \cdot x(n)] = a \cdot y(n)  
-$$<h3 id="time-invariant-systems">
+$$<h4 id="time-invariant-systems">
 <a class="header-anchor" href="#time-invariant-systems"></a>
 Time-Invariant Systems
-</h3><p>A system is <strong>time-invariant</strong> if its operation \( T[\cdot] \) does not change over time, i.e., the system&rsquo;s response is independent of when the input is applied.<br>
+</h4><p>A system is <strong>time-invariant</strong> if its operation \( T[\cdot] \) does not change over time, i.e., the system&rsquo;s response is independent of when the input is applied.<br>
 </p>
 $$
 y(n) = T[x(n)]  
@@ -2767,14 +2767,14 @@ $$<p><br>
 </p>
 $$
 y(n - n_0) = T[x(n - n_0)]  
-$$<h3 id="characteristics-of-linear-time-invariant-lti-systems">
+$$<h4 id="characteristics-of-linear-time-invariant-lti-systems">
 <a class="header-anchor" href="#characteristics-of-linear-time-invariant-lti-systems"></a>
 Characteristics of Linear Time-Invariant (LTI) Systems
-</h3><p>Total response = Zero-input response + Zero-state response</p>
-<h4 id="unit-impulse-response">
+</h4><p>Total response = Zero-input response + Zero-state response</p>
+<h5 id="unit-impulse-response">
 <a class="header-anchor" href="#unit-impulse-response"></a>
 Unit Impulse Response
-</h4><p>With zero initial state (no zero-input response):<br>
+</h5><p>With zero initial state (no zero-input response):<br>
 </p>
 $$
 h(n) = T[\delta(n)]  
@@ -2797,27 +2797,27 @@ y(n)
 \end{align}  
 $$<p><br>
 This is the <strong>convolution sum</strong>. For details, refer to <em>Signals and Systems</em>.</p>
-<h3 id="causality-of-systems">
+<h4 id="causality-of-systems">
 <a class="header-anchor" href="#causality-of-systems"></a>
 Causality of Systems
-</h3><p><strong>Definition</strong>: A system is <strong>causal</strong> if its output at time \( n \) depends only on the input at time \( n \) and prior inputs, not future inputs.</p>
+</h4><p><strong>Definition</strong>: A system is <strong>causal</strong> if its output at time \( n \) depends only on the input at time \( n \) and prior inputs, not future inputs.</p>
 <p><strong>Necessary and Sufficient Condition</strong>:<br>
 The unit impulse response satisfies:<br>
 </p>
 $$
 h(n) = 0 \quad \text{for} \quad n  \lt  0  
-$$<h3 id="stability-of-systems">
+$$<h4 id="stability-of-systems">
 <a class="header-anchor" href="#stability-of-systems"></a>
 Stability of Systems
-</h3><p><strong>Definition</strong>: A system is <strong>stable</strong> if every bounded input produces a bounded output (BIBO stability).</p>
+</h4><p><strong>Definition</strong>: A system is <strong>stable</strong> if every bounded input produces a bounded output (BIBO stability).</p>
 <p><strong>Necessary and Sufficient Condition</strong>:<br>
 The unit impulse response is absolutely summable:<br>
 </p>
 $$
 \sum_{m=-\infty}^{\infty} |h(n)|  \lt  \infty  
-$$<h3 id="linear-constant-coefficient-difference-equations">
+$$<h4 id="linear-constant-coefficient-difference-equations">
 <a class="header-anchor" href="#linear-constant-coefficient-difference-equations"></a>
 Linear Constant-Coefficient Difference Equations
-</h3>
+</h4>
         
         <hr><p>Published on 2024-09-04 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-09-04</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Physics</category></item></channel></rss>

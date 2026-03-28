@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Data Structures on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/en/tags/data-structures/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright><lastBuildDate>Tue, 12 Dec 2023 14:56:33 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/en/tags/data-structures/index.xml" rel="self" type="application/rss+xml"/><item><title>Data Structure Lab Report 6 — Threading Binary Trees with Preorder and Postorder Traversals, Adjacency Matrix and Adjacency List Storage for Graphs</title><link>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8/</link><pubDate>Tue, 12 Dec 2023 14:56:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A6%E5%89%8D%E5%BA%8F%E5%90%8E%E7%BB%AD%E5%B0%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BA%BF%E7%B4%A2%E5%8C%96%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8/</guid><description>
 <![CDATA[<h1>Data Structure Lab Report 6 — Threading Binary Trees with Preorder and Postorder Traversals, Adjacency Matrix and Adjacency List Storage for Graphs</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="threading-a-binary-tree-in-pre-order-and-post-order">
+          <h2 id="threading-a-binary-tree-in-pre-order-and-post-order">
 <a class="header-anchor" href="#threading-a-binary-tree-in-pre-order-and-post-order"></a>
 Threading a Binary Tree in Pre-order and Post-order
-</h1><h2 id="a-problem-analysis">
+</h2><h3 id="a-problem-analysis">
 <a class="header-anchor" href="#a-problem-analysis"></a>
 a. Problem Analysis
-</h2><p>We need to implement pre-order threading of a binary tree. Threading is a method that converts null pointer fields in a binary linked list into pointers pointing to the predecessor or successor node of the current node in a specific traversal order (pre-order, in-order, or post-order). This allows us to start traversal from any node in the specified order, not just the root node.</p>
-<h2 id="b-algorithm-design">
+</h3><p>We need to implement pre-order threading of a binary tree. Threading is a method that converts null pointer fields in a binary linked list into pointers pointing to the predecessor or successor node of the current node in a specific traversal order (pre-order, in-order, or post-order). This allows us to start traversal from any node in the specified order, not just the root node.</p>
+<h3 id="b-algorithm-design">
 <a class="header-anchor" href="#b-algorithm-design"></a>
 b. Algorithm Design
-</h2><p>Our algorithm first creates a binary tree and then threads it. The threading process is implemented via a recursive function that traverses each node and checks whether its left or right child exists. If a child is absent, the corresponding left/right pointer is set to point to the predecessor/successor node. Finally, an in-order traversal is performed to verify the success of the threading.</p>
+</h3><p>Our algorithm first creates a binary tree and then threads it. The threading process is implemented via a recursive function that traverses each node and checks whether its left or right child exists. If a child is absent, the corresponding left/right pointer is set to point to the predecessor/successor node. Finally, an in-order traversal is performed to verify the success of the threading.</p>
 <p>Here is the threading code snippet:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// Function to create threads  
 </span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">createThread</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>  
@@ -30,10 +30,10 @@ b. Algorithm Design
 </span></span><span class="line"><span class="cl">    <span class="n">pre</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span> <span class="c1">// Update the predecessor node  
 </span></span></span><span class="line"><span class="cl">    <span class="n">createThread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span> <span class="c1">// Recursively process the right subtree  
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span>  
-</span></span></code></pre></div><h2 id="c-data-structure-design">
+</span></span></code></pre></div><h3 id="c-data-structure-design">
 <a class="header-anchor" href="#c-data-structure-design"></a>
 c. Data Structure Design
-</h2><p>We use a struct to represent a binary tree node, which includes a data field and two pointer fields pointing to the left and right children. Additionally, we add two flag fields to indicate whether the left and right pointers have been threaded.</p>
+</h3><p>We use a struct to represent a binary tree node, which includes a data field and two pointer fields pointing to the left and right children. Additionally, we add two flag fields to indicate whether the left and right pointers have been threaded.</p>
 <p>Here is the data structure code snippet:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// Struct definition for a binary tree node  
 </span></span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>  
@@ -42,10 +42,10 @@ c. Data Structure Design
 </span></span></span><span class="line"><span class="cl">    <span class="n">Node</span><span class="o">*</span> <span class="n">right</span><span class="p">;</span> <span class="c1">// Right child  
 </span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">ltag</span><span class="p">,</span> <span class="n">rtag</span><span class="p">;</span> <span class="c1">// Left and right thread flags  
 </span></span></span><span class="line"><span class="cl"><span class="p">};</span>  
-</span></span></code></pre></div><h2 id="d-debugging-process">
+</span></span></code></pre></div><h3 id="d-debugging-process">
 <a class="header-anchor" href="#d-debugging-process"></a>
 d. Debugging Process
-</h2><p>First, we create a binary tree and thread it. Then, we perform an in-order traversal to check whether the threading is successful. If the traversal result matches the expected output, we consider the threading successful.</p>
+</h3><p>First, we create a binary tree and thread it. Then, we perform an in-order traversal to check whether the threading is successful. If the traversal result matches the expected output, we consider the threading successful.</p>
 <p>Here is the debugging code snippet:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>  
 </span></span><span class="line"><span class="cl">    <span class="c1">// Create a binary tree  
@@ -61,14 +61,14 @@ d. Debugging Process
 </span></span></span><span class="line"><span class="cl">    <span class="n">inOrder</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n1</span><span class="p">);</span>  
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
 </span></span><span class="line"><span class="cl"><span class="p">}</span>  
-</span></span></code></pre></div><h2 id="e-output-result">
+</span></span></code></pre></div><h3 id="e-output-result">
 <a class="header-anchor" href="#e-output-result"></a>
 e. Output Result
-</h2><p>The program&rsquo;s output should be the in-order traversal result of the binary tree. In our example, the expected output is <code>4 2 5 1 3</code>. The in-order traversal of the created binary tree should yield this sequence.</p>
-<h2 id="f-source-code">
+</h3><p>The program&rsquo;s output should be the in-order traversal result of the binary tree. In our example, the expected output is <code>4 2 5 1 3</code>. The in-order traversal of the created binary tree should yield this sequence.</p>
+<h3 id="f-source-code">
 <a class="header-anchor" href="#f-source-code"></a>
 f. Source Code
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;  
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;  
 </span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>  
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// Struct definition for a binary tree node  
@@ -129,20 +129,20 @@ f. Source Code
 </span></span></span><span class="line"><span class="cl">    <span class="n">inOrder</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n1</span><span class="p">);</span>  
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
 </span></span><span class="line"><span class="cl"><span class="p">}</span>  
-</span></span></code></pre></div><h1 id="adjacency-matrix-and-adjacency-list-storage-for-graphs">
+</span></span></code></pre></div><h2 id="adjacency-matrix-and-adjacency-list-storage-for-graphs">
 <a class="header-anchor" href="#adjacency-matrix-and-adjacency-list-storage-for-graphs"></a>
 Adjacency Matrix and Adjacency List Storage for Graphs
-</h1><h2 id="a-problem-analysis-1">
+</h2><h3 id="a-problem-analysis-1">
 <a class="header-anchor" href="#a-problem-analysis-1"></a>
 a. Problem Analysis
-</h2><p>Our goal is to implement adjacency matrix and adjacency list storage for graphs in C++. This involves two different data structures: arrays (for adjacency matrices) and linked lists (for adjacency lists).</p>
-<h2 id="b-algorithm-design-1">
+</h3><p>Our goal is to implement adjacency matrix and adjacency list storage for graphs in C++. This involves two different data structures: arrays (for adjacency matrices) and linked lists (for adjacency lists).</p>
+<h3 id="b-algorithm-design-1">
 <a class="header-anchor" href="#b-algorithm-design-1"></a>
 b. Algorithm Design
-</h2><h3 id="adjacency-matrix">
+</h3><h4 id="adjacency-matrix">
 <a class="header-anchor" href="#adjacency-matrix"></a>
 Adjacency Matrix
-</h3><p>We use a 2D array <code>adj[MAX][MAX]</code> to store the adjacency matrix of the graph. Each element <code>adj[i][j]</code> indicates whether an edge exists from node <code>i</code> to node <code>j</code>. If it exists, <code>adj[i][j] = 1</code>; otherwise, <code>adj[i][j] = 0</code>.</p>
+</h4><p>We use a 2D array <code>adj[MAX][MAX]</code> to store the adjacency matrix of the graph. Each element <code>adj[i][j]</code> indicates whether an edge exists from node <code>i</code> to node <code>j</code>. If it exists, <code>adj[i][j] = 1</code>; otherwise, <code>adj[i][j] = 0</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">max_edges</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>  
 </span></span><span class="line"><span class="cl">    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">origin</span> <span class="o">&gt;&gt;</span> <span class="n">destin</span><span class="p">;</span>  
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">((</span><span class="n">origin</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">destin</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>  
@@ -153,33 +153,33 @@ Adjacency Matrix
 </span></span><span class="line"><span class="cl">        <span class="n">adj</span><span class="p">[</span><span class="n">origin</span><span class="p">][</span><span class="n">destin</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>  
 </span></span><span class="line"><span class="cl"><span class="p">}</span>  
-</span></span></code></pre></div><h3 id="adjacency-list">
+</span></span></code></pre></div><h4 id="adjacency-list">
 <a class="header-anchor" href="#adjacency-list"></a>
 Adjacency List
-</h3><p>We use an array of linked lists <code>list&lt;int&gt; *adj</code> to store the adjacency list of the graph. Each element <code>adj[i]</code> is a linked list containing all nodes adjacent to node <code>i</code>.</p>
+</h4><p>We use an array of linked lists <code>list&lt;int&gt; *adj</code> to store the adjacency list of the graph. Each element <code>adj[i]</code> is a linked list containing all nodes adjacent to node <code>i</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">Graph</span><span class="o">::</span><span class="n">addEdge</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">,</span> <span class="kt">int</span> <span class="n">w</span><span class="p">)</span> <span class="p">{</span>  
 </span></span><span class="line"><span class="cl">    <span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>  
 </span></span><span class="line"><span class="cl"><span class="p">}</span>  
-</span></span></code></pre></div><h2 id="c-data-structure-design-1">
+</span></span></code></pre></div><h3 id="c-data-structure-design-1">
 <a class="header-anchor" href="#c-data-structure-design-1"></a>
 c. Data Structure Design
-</h2><h3 id="adjacency-matrix-1">
+</h3><h4 id="adjacency-matrix-1">
 <a class="header-anchor" href="#adjacency-matrix-1"></a>
 Adjacency Matrix
-</h3><p>We use a 2D array <code>int adj[MAX][MAX]</code> to store the adjacency matrix. <code>MAX</code> is the maximum number of nodes in the graph.</p>
-<h3 id="adjacency-list-1">
+</h4><p>We use a 2D array <code>int adj[MAX][MAX]</code> to store the adjacency matrix. <code>MAX</code> is the maximum number of nodes in the graph.</p>
+<h4 id="adjacency-list-1">
 <a class="header-anchor" href="#adjacency-list-1"></a>
 Adjacency List
-</h3><p>We use an array of linked lists <code>list&lt;int&gt; *adj</code> to store the adjacency list. <code>V</code> is the number of nodes in the graph.</p>
-<h2 id="d-debugging-process-1">
+</h4><p>We use an array of linked lists <code>list&lt;int&gt; *adj</code> to store the adjacency list. <code>V</code> is the number of nodes in the graph.</p>
+<h3 id="d-debugging-process-1">
 <a class="header-anchor" href="#d-debugging-process-1"></a>
 d. Debugging Process
-</h2><p>During implementation and debugging, we first ensured that the input edges are valid. If an edge is invalid (e.g., referencing a non-existent node), we prompt the user to re-enter it.</p>
+</h3><p>During implementation and debugging, we first ensured that the input edges are valid. If an edge is invalid (e.g., referencing a non-existent node), we prompt the user to re-enter it.</p>
 <p>When adding edges to the adjacency matrix or adjacency list, we included error checks to prevent out-of-bounds array or list accesses.</p>
-<h2 id="e-output-result-1">
+<h3 id="e-output-result-1">
 <a class="header-anchor" href="#e-output-result-1"></a>
 e. Output Result
-</h2><p>Finally, we can print the adjacency matrix or adjacency list to verify the correctness of our code. For the adjacency list, we traverse each node&rsquo;s linked list and print all adjacent nodes.</p>
+</h3><p>Finally, we can print the adjacency matrix or adjacency list to verify the correctness of our code. For the adjacency list, we traverse each node&rsquo;s linked list and print all adjacent nodes.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">Graph</span><span class="o">::</span><span class="n">printGraph</span><span class="p">()</span> <span class="p">{</span>  
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">V</span><span class="p">;</span> <span class="n">v</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>  
 </span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s"> Adjacency list of vertex &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">v</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s"> head &#34;</span><span class="p">;</span>  
@@ -188,13 +188,13 @@ e. Output Result
 </span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>  
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>  
 </span></span><span class="line"><span class="cl"><span class="p">}</span>  
-</span></span></code></pre></div><h2 id="f-source-code-1">
+</span></span></code></pre></div><h3 id="f-source-code-1">
 <a class="header-anchor" href="#f-source-code-1"></a>
 f. Source Code
-</h2><h3 id="adjacency-matrix-storage">
+</h3><h4 id="adjacency-matrix-storage">
 <a class="header-anchor" href="#adjacency-matrix-storage"></a>
 Adjacency Matrix Storage
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;  
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;  
 </span></span></span><span class="line"><span class="cl"><span class="cp">#define MAX 20  
 </span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>  
 </span></span><span class="line"><span class="cl">
@@ -223,10 +223,10 @@ Adjacency Matrix Storage
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>  
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>  
 </span></span><span class="line"><span class="cl"><span class="p">}</span>  
-</span></span></code></pre></div><h3 id="adjacency-list-storage">
+</span></span></code></pre></div><h4 id="adjacency-list-storage">
 <a class="header-anchor" href="#adjacency-list-storage"></a>
 Adjacency List Storage
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;  
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;  
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include&lt;list&gt;  
 </span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>  
 </span></span><span class="line"><span class="cl">
@@ -264,32 +264,32 @@ Adjacency List Storage
         <hr><p>Published on 2023-12-12 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-12-12</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Code</category></item><item><title>Data Structure Lab Report 5 - Huffman Tree Encoding and Decoding, Construction and Node Deletion of Binary Search Tree</title><link>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A5%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E7%9A%84%E7%BC%96%E7%A0%81%E5%92%8C%E8%AF%91%E7%A0%81%E6%8E%92%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%92%8C%E8%8A%82%E7%82%B9%E5%88%A0%E9%99%A4/</link><pubDate>Tue, 12 Dec 2023 14:54:04 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A5%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E7%9A%84%E7%BC%96%E7%A0%81%E5%92%8C%E8%AF%91%E7%A0%81%E6%8E%92%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%92%8C%E8%8A%82%E7%82%B9%E5%88%A0%E9%99%A4/</guid><description>
 <![CDATA[<h1>Data Structure Lab Report 5 - Huffman Tree Encoding and Decoding, Construction and Node Deletion of Binary Search Tree</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="implementing-huffman-tree-encoding-and-decoding">
+          <h2 id="implementing-huffman-tree-encoding-and-decoding">
 <a class="header-anchor" href="#implementing-huffman-tree-encoding-and-decoding"></a>
 Implementing Huffman Tree Encoding and Decoding
-</h1><h3 id="a-problem-analysis">
+</h2><h4 id="a-problem-analysis">
 <a class="header-anchor" href="#a-problem-analysis"></a>
 a. Problem Analysis
-</h3><h4 id="objective">
+</h4><h5 id="objective">
 <a class="header-anchor" href="#objective"></a>
 Objective:
-</h4><p>Implement Huffman tree encoding and decoding.</p>
-<h4 id="key-questions">
+</h5><p>Implement Huffman tree encoding and decoding.</p>
+<h5 id="key-questions">
 <a class="header-anchor" href="#key-questions"></a>
 Key Questions:
-</h4><ol>
+</h5><ol>
 <li>Is the Huffman tree construction process correct?</li>
 <li>Are the Huffman codes generated accurately?</li>
 <li>Does the encoding and decoding process function correctly?</li>
 <li>Can the algorithm handle characters with identical frequencies?</li>
 </ol>
-<h3 id="b-algorithm-design">
+<h4 id="b-algorithm-design">
 <a class="header-anchor" href="#b-algorithm-design"></a>
 b. Algorithm Design
-</h3><h4 id="1-constructing-the-huffman-tree">
+</h4><h5 id="1-constructing-the-huffman-tree">
 <a class="header-anchor" href="#1-constructing-the-huffman-tree"></a>
 1. Constructing the Huffman Tree:
-</h4><ul>
+</h5><ul>
 <li>Calculate character frequencies from input text.</li>
 <li>Build the Huffman tree using a priority queue (min-heap).</li>
 </ul>
@@ -323,10 +323,10 @@ b. Algorithm Design
 </span></span><span class="line"><span class="cl">    <span class="c1">// 4. Return the root node
 </span></span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h4 id="2-generating-huffman-codes">
+</span></span></code></pre></div><h5 id="2-generating-huffman-codes">
 <a class="header-anchor" href="#2-generating-huffman-codes"></a>
 2. Generating Huffman Codes:
-</h4><ul>
+</h5><ul>
 <li>Traverse the Huffman tree recursively to generate codes for each character.</li>
 </ul>
 <p><strong>Input:</strong> Root node <code>root</code>, empty string <code>code</code>, empty map <code>huffmanCodes</code>.<br>
@@ -344,10 +344,10 @@ b. Algorithm Design
 </span></span></span><span class="line"><span class="cl">    <span class="n">generateHuffmanCodes</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">code</span> <span class="o">+</span> <span class="s">&#34;0&#34;</span><span class="p">,</span> <span class="n">huffmanCodes</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="n">generateHuffmanCodes</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">code</span> <span class="o">+</span> <span class="s">&#34;1&#34;</span><span class="p">,</span> <span class="n">huffmanCodes</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h4 id="3-huffman-encoding">
+</span></span></code></pre></div><h5 id="3-huffman-encoding">
 <a class="header-anchor" href="#3-huffman-encoding"></a>
 3. Huffman Encoding:
-</h4><ul>
+</h5><ul>
 <li>Replace each character in the input text with its corresponding Huffman code.</li>
 </ul>
 <p><strong>Input:</strong> Original text <code>text</code>, Huffman code map <code>huffmanCodes</code>.<br>
@@ -359,10 +359,10 @@ b. Algorithm Design
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">encodedText</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h4 id="4-huffman-decoding">
+</span></span></code></pre></div><h5 id="4-huffman-decoding">
 <a class="header-anchor" href="#4-huffman-decoding"></a>
 4. Huffman Decoding:
-</h4><ul>
+</h5><ul>
 <li>Traverse the encoded text using the Huffman tree to reconstruct the original text.</li>
 </ul>
 <p><strong>Input:</strong> Encoded text <code>encodedText</code>, Huffman tree root <code>root</code>.<br>
@@ -381,10 +381,10 @@ b. Algorithm Design
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">decodedText</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="c-data-structure-design">
+</span></span></code></pre></div><h4 id="c-data-structure-design">
 <a class="header-anchor" href="#c-data-structure-design"></a>
 c. Data Structure Design
-</h3><ul>
+</h4><ul>
 <li><strong><code>HuffmanNode</code> Struct:</strong>
 <ul>
 <li>Stores character (<code>data</code>), frequency, and left/right child pointers.</li>
@@ -406,10 +406,10 @@ c. Data Structure Design
 </ul>
 </li>
 </ul>
-<h3 id="d-debugging-process">
+<h4 id="d-debugging-process">
 <a class="header-anchor" href="#d-debugging-process"></a>
 d. Debugging Process
-</h3><ol>
+</h4><ol>
 <li><strong>Tree Construction:</strong>
 <ul>
 <li>Verified frequency calculations.</li>
@@ -428,10 +428,10 @@ d. Debugging Process
 </ul>
 </li>
 </ol>
-<h3 id="e-output-results">
+<h4 id="e-output-results">
 <a class="header-anchor" href="#e-output-results"></a>
 e. Output Results
-</h3><p>For input <code>&quot;hello world&quot;</code>, the program outputs:</p>
+</h4><p>For input <code>&quot;hello world&quot;</code>, the program outputs:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">Huffman Codes:
 </span></span><span class="line"><span class="cl">d: 00
 </span></span><span class="line"><span class="cl">r: 010
@@ -445,10 +445,10 @@ e. Output Results
 </span></span><span class="line"><span class="cl">Encoded Text: 111000110010100010010010110111010010011110111100
 </span></span><span class="line"><span class="cl">Decoded Text: hello world
 </span></span></code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/1993178519.png" alt="Pasted image 20231110154039.png"></p>
-<h3 id="f-source-code">
+<h4 id="f-source-code">
 <a class="header-anchor" href="#f-source-code"></a>
 f. Source Code
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;queue&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;map&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
@@ -536,44 +536,44 @@ f. Source Code
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="summary">
+</span></span></code></pre></div><h4 id="summary">
 <a class="header-anchor" href="#summary"></a>
 Summary
-</h3><p>The implementation correctly constructs Huffman trees, generates codes, and performs encoding/decoding. Special cases (e.g., equal frequencies) are handled by the min-heap’s stable sorting. Testing confirmed accurate results for varied inputs.</p>
+</h4><p>The implementation correctly constructs Huffman trees, generates codes, and performs encoding/decoding. Special cases (e.g., equal frequencies) are handled by the min-heap’s stable sorting. Testing confirmed accurate results for varied inputs.</p>
 <hr>
-<h1 id="binary-search-tree-construction-and-node-deletion">
+<h2 id="binary-search-tree-construction-and-node-deletion">
 <a class="header-anchor" href="#binary-search-tree-construction-and-node-deletion"></a>
 Binary Search Tree Construction and Node Deletion
-</h1><h2 id="a-problem-analysis-1">
+</h2><h3 id="a-problem-analysis-1">
 <a class="header-anchor" href="#a-problem-analysis-1"></a>
 a. Problem Analysis
-</h2><p>This experiment aims to implement node insertion, inorder traversal, entire tree deletion, and single-node deletion in a binary search tree (BST). Key requirements include using a <code>struct</code> for nodes and supporting insertion/deletion operations.</p>
-<h2 id="b-algorithm-design-1">
+</h3><p>This experiment aims to implement node insertion, inorder traversal, entire tree deletion, and single-node deletion in a binary search tree (BST). Key requirements include using a <code>struct</code> for nodes and supporting insertion/deletion operations.</p>
+<h3 id="b-algorithm-design-1">
 <a class="header-anchor" href="#b-algorithm-design-1"></a>
 b. Algorithm Design
-</h2><h3 id="node-insertion">
+</h3><h4 id="node-insertion">
 <a class="header-anchor" href="#node-insertion"></a>
 Node Insertion
-</h3><p>Recursively inserts a value by comparing with the current node. Creates a new node if the subtree is empty.</p>
+</h4><p>Recursively inserts a value by comparing with the current node. Creates a new node if the subtree is empty.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">insert</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&lt;=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">)</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="bst-construction">
+</span></span></code></pre></div><h4 id="bst-construction">
 <a class="header-anchor" href="#bst-construction"></a>
 BST Construction
-</h3><p>Iteratively inserts each input value into the BST.</p>
+</h4><p>Iteratively inserts each input value into the BST.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">buildTree</span><span class="p">(</span><span class="kt">int</span> <span class="n">input</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">root</span> <span class="o">=</span> <span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">input</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="inorder-traversal">
+</span></span></code></pre></div><h4 id="inorder-traversal">
 <a class="header-anchor" href="#inorder-traversal"></a>
 Inorder Traversal
-</h3><p>Outputs node values in ascending order.</p>
+</h4><p>Outputs node values in ascending order.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">inorderTraversal</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">inorderTraversal</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
@@ -581,10 +581,10 @@ Inorder Traversal
 </span></span><span class="line"><span class="cl">        <span class="n">inorderTraversal</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="entire-tree-deletion">
+</span></span></code></pre></div><h4 id="entire-tree-deletion">
 <a class="header-anchor" href="#entire-tree-deletion"></a>
 Entire Tree Deletion
-</h3><p>Recursively deletes all nodes.</p>
+</h4><p>Recursively deletes all nodes.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">deleteTree</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">deleteTree</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
@@ -592,10 +592,10 @@ Entire Tree Deletion
 </span></span><span class="line"><span class="cl">        <span class="k">delete</span> <span class="n">node</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="single-node-deletion">
+</span></span></code></pre></div><h4 id="single-node-deletion">
 <a class="header-anchor" href="#single-node-deletion"></a>
 Single-Node Deletion
-</h3><p>Handles three cases: no children, one child, or two children (replaced by the right subtree’s minimum).</p>
+</h4><p>Handles three cases: no children, one child, or two children (replaced by the right subtree’s minimum).</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">deleteNode</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">)</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">deleteNode</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
@@ -617,32 +617,32 @@ Single-Node Deletion
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="c-data-structure-design-1">
+</span></span></code></pre></div><h3 id="c-data-structure-design-1">
 <a class="header-anchor" href="#c-data-structure-design-1"></a>
 c. Data Structure Design
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">TreeNode</span> <span class="p">{</span>
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">TreeNode</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span> <span class="o">*</span><span class="n">left</span><span class="p">,</span> <span class="o">*</span><span class="n">right</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="p">(</span><span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="o">:</span> <span class="n">data</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="n">left</span><span class="p">(</span><span class="k">nullptr</span><span class="p">),</span> <span class="n">right</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span> <span class="p">{}</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></div><h2 id="d-debugging">
+</span></span></code></pre></div><h3 id="d-debugging">
 <a class="header-anchor" href="#d-debugging"></a>
 d. Debugging
-</h2><ul>
+</h3><ul>
 <li>Validated <code>deleteNode</code> by checking inorder traversal post-deletion.</li>
 <li>Confirmed edge cases (e.g., deleting root or leaves).</li>
 </ul>
-<h2 id="e-output-results-1">
+<h3 id="e-output-results-1">
 <a class="header-anchor" href="#e-output-results-1"></a>
 e. Output Results
-</h2><p>Input: <code>7, 5, 9, 2, 5, 2, 6, 3, 7, 0</code></p>
+</h3><p>Input: <code>7, 5, 9, 2, 5, 2, 6, 3, 7, 0</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">BST: 0 2 2 3 5 5 6 7 7 9 
 </span></span><span class="line"><span class="cl">After deleting 3: 0 2 2 5 5 6 7 7 9 
 </span></span><span class="line"><span class="cl">After deleting 5: 0 2 2 6 7 7 9 
-</span></span></code></pre></div><h2 id="f-source-code-1">
+</span></span></code></pre></div><h3 id="f-source-code-1">
 <a class="header-anchor" href="#f-source-code-1"></a>
 f. Source Code
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">TreeNode</span> <span class="p">{</span>
@@ -719,135 +719,135 @@ f. Source Code
 </span></span><span class="line"><span class="cl">    <span class="n">deleteTree</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="summary-1">
+</span></span></code></pre></div><h4 id="summary-1">
 <a class="header-anchor" href="#summary-1"></a>
 Summary
-</h3><p>The BST implementation supports insertion, traversal, and deletion (both entire tree and single nodes). Testing confirmed correct behavior for all operations.</p>
+</h4><p>The BST implementation supports insertion, traversal, and deletion (both entire tree and single nodes). Testing confirmed correct behavior for all operations.</p>
 
         
         <hr><p>Published on 2023-12-12 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-12-12</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Code</category></item><item><title>Data Structure Lab Report 4 - Binary Tree Construction, Storage, and Traversal</title><link>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/</link><pubDate>Tue, 12 Dec 2023 14:43:54 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/</guid><description>
 <![CDATA[<h1>Data Structure Lab Report 4 - Binary Tree Construction, Storage, and Traversal</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="1-creating-binary-trees-from-input-sequential-and-linked-storage">
+          <h2 id="1-creating-binary-trees-from-input-sequential-and-linked-storage">
 <a class="header-anchor" href="#1-creating-binary-trees-from-input-sequential-and-linked-storage"></a>
 1. Creating Binary Trees from Input: Sequential and Linked Storage
-</h1><h2 id="a-problem-analysis">
+</h2><h3 id="a-problem-analysis">
 <a class="header-anchor" href="#a-problem-analysis"></a>
 a. Problem Analysis:
-</h2><p>This task requires creating a binary tree from an input character sequence, implementing two storage methods: sequential storage and linked storage. The character &lsquo;@&rsquo; in the input sequence represents an empty node.</p>
-<h2 id="b-algorithm-design">
+</h3><p>This task requires creating a binary tree from an input character sequence, implementing two storage methods: sequential storage and linked storage. The character &lsquo;@&rsquo; in the input sequence represents an empty node.</p>
+<h3 id="b-algorithm-design">
 <a class="header-anchor" href="#b-algorithm-design"></a>
 b. Algorithm Design:
-</h2><h3 id="sequential-storage-method">
+</h3><h4 id="sequential-storage-method">
 <a class="header-anchor" href="#sequential-storage-method"></a>
 Sequential Storage Method:
-</h3><ol>
+</h4><ol>
 <li>Initialize an array to represent the sequentially stored binary tree.</li>
 <li>Traverse the input character sequence and store characters in the array sequentially.</li>
 <li>Use array indices to represent node positions: for a parent node at index <code>i</code>, its left child is at <code>2*i + 1</code> and right child at <code>2*i + 2</code>.</li>
 <li>Skip &lsquo;@&rsquo; characters (empty nodes), storing only actual data.</li>
 </ol>
-<h3 id="linked-storage-method">
+<h4 id="linked-storage-method">
 <a class="header-anchor" href="#linked-storage-method"></a>
 Linked Storage Method:
-</h3><ol>
+</h4><ol>
 <li>Create a <code>TreeNode</code> struct to represent binary tree nodes, containing data, left subtree pointer, and right subtree pointer.</li>
 <li>Use a queue data structure to assist in building the tree. Initialize with a root node and enqueue it.</li>
 <li>Traverse the input sequence, dequeuing nodes to create left and right children, then enqueue them.</li>
 </ol>
-<h2 id="c-data-structure-design">
+<h3 id="c-data-structure-design">
 <a class="header-anchor" href="#c-data-structure-design"></a>
 c. Data Structure Design:
-</h2><h3 id="sequential-storage">
+</h3><h4 id="sequential-storage">
 <a class="header-anchor" href="#sequential-storage"></a>
 Sequential Storage:
-</h3><ul>
+</h4><ul>
 <li><code>struct TreeNode</code> represents binary tree nodes.</li>
 <li>Array stores nodes sequentially.</li>
 </ul>
-<h3 id="linked-storage">
+<h4 id="linked-storage">
 <a class="header-anchor" href="#linked-storage"></a>
 Linked Storage:
-</h3><ul>
+</h4><ul>
 <li><code>struct TreeNode</code> represents nodes with data and subtree pointers.</li>
 <li>Queue assists in tree construction.</li>
 </ul>
-<h2 id="d-debugging-process">
+<h3 id="d-debugging-process">
 <a class="header-anchor" href="#d-debugging-process"></a>
 d. Debugging Process:
-</h2><ul>
+</h3><ul>
 <li>Run the program with sample input to build the tree.</li>
 <li>Ensure correct input sequence with &lsquo;@&rsquo; for empty nodes.</li>
 <li>Use &lsquo;#&rsquo; to mark input completion in linked storage.</li>
 <li>Verify correct sequential and linked storage implementations.</li>
 </ul>
-<h2 id="e-output-results">
+<h3 id="e-output-results">
 <a class="header-anchor" href="#e-output-results"></a>
 e. Output Results:
-</h2><ul>
+</h3><ul>
 <li>Output includes sequentially stored node data and traversal results for linked storage.</li>
 </ul>
-<h1 id="2-depth-first-traversal-implementation">
+<h2 id="2-depth-first-traversal-implementation">
 <a class="header-anchor" href="#2-depth-first-traversal-implementation"></a>
 2. Depth-First Traversal Implementation
-</h1><h2 id="a-problem-analysis-1">
+</h2><h3 id="a-problem-analysis-1">
 <a class="header-anchor" href="#a-problem-analysis-1"></a>
 a. Problem Analysis:
-</h2><p>Implement depth-first traversals: pre-order, in-order, and post-order for sequentially stored trees.</p>
-<h2 id="b-algorithm-design-1">
+</h3><p>Implement depth-first traversals: pre-order, in-order, and post-order for sequentially stored trees.</p>
+<h3 id="b-algorithm-design-1">
 <a class="header-anchor" href="#b-algorithm-design-1"></a>
 b. Algorithm Design:
-</h2><h3 id="pre-order">
+</h3><h4 id="pre-order">
 <a class="header-anchor" href="#pre-order"></a>
 Pre-order:
-</h3><ul>
+</h4><ul>
 <li>Visit root, then recursively traverse left and right subtrees.</li>
 </ul>
-<h3 id="in-order">
+<h4 id="in-order">
 <a class="header-anchor" href="#in-order"></a>
 In-order:
-</h3><ul>
+</h4><ul>
 <li>Recursively traverse left subtree, visit root, then right subtree.</li>
 </ul>
-<h3 id="post-order">
+<h4 id="post-order">
 <a class="header-anchor" href="#post-order"></a>
 Post-order:
-</h3><ul>
+</h4><ul>
 <li>Recursively traverse left and right subtrees, then visit root.</li>
 </ul>
-<h2 id="c-data-structure-design-1">
+<h3 id="c-data-structure-design-1">
 <a class="header-anchor" href="#c-data-structure-design-1"></a>
 c. Data Structure Design:
-</h2><ul>
+</h3><ul>
 <li>Recursive algorithms.</li>
 </ul>
-<h1 id="3-breadth-first-traversal-implementation">
+<h2 id="3-breadth-first-traversal-implementation">
 <a class="header-anchor" href="#3-breadth-first-traversal-implementation"></a>
 3. Breadth-First Traversal Implementation
-</h1><h2 id="a-problem-analysis-2">
+</h2><h3 id="a-problem-analysis-2">
 <a class="header-anchor" href="#a-problem-analysis-2"></a>
 a. Problem Analysis:
-</h2><p>Implement level-order traversal for linked storage trees.</p>
-<h2 id="b-algorithm-design-2">
+</h3><p>Implement level-order traversal for linked storage trees.</p>
+<h3 id="b-algorithm-design-2">
 <a class="header-anchor" href="#b-algorithm-design-2"></a>
 b. Algorithm Design:
-</h2><ul>
+</h3><ul>
 <li>Use a queue, starting from root, enqueuing nodes level by level while visiting them.</li>
 </ul>
-<h2 id="c-data-structure-design-2">
+<h3 id="c-data-structure-design-2">
 <a class="header-anchor" href="#c-data-structure-design-2"></a>
 c. Data Structure Design:
-</h2><ul>
+</h3><ul>
 <li>Queue data structure.</li>
 </ul>
-<h1 id="sample-cases">
+<h2 id="sample-cases">
 <a class="header-anchor" href="#sample-cases"></a>
 Sample Cases
-</h1><p>Inputs: <code>abc@@@d@ef@</code> and <code>abc@@@d@ef@#</code></p>
-<h2 id="debugging-process">
+</h2><p>Inputs: <code>abc@@@d@ef@</code> and <code>abc@@@d@ef@#</code></p>
+<h3 id="debugging-process">
 <a class="header-anchor" href="#debugging-process"></a>
 Debugging Process:
-</h2><ol>
+</h3><ol>
 <li>Sequential Storage:
 <ul>
 <li>Input characters: &lsquo;a&rsquo;, &lsquo;b&rsquo;, &lsquo;c&rsquo;, &lsquo;@&rsquo;, &lsquo;@&rsquo;, &lsquo;@&rsquo;, &rsquo;d&rsquo;, &lsquo;@&rsquo;, &rsquo;e&rsquo;, &lsquo;f&rsquo;.</li>
@@ -868,10 +868,10 @@ Debugging Process:
 </ul>
 </li>
 </ol>
-<h2 id="output-results">
+<h3 id="output-results">
 <a class="header-anchor" href="#output-results"></a>
 Output Results:
-</h2><ol>
+</h3><ol>
 <li>Sequential Storage:
 <ul>
 <li>Pre-order: <code>a b d c e f</code></li>
@@ -888,13 +888,13 @@ Output Results:
 </ul>
 </li>
 </ol>
-<h1 id="source-code">
+<h2 id="source-code">
 <a class="header-anchor" href="#source-code"></a>
 Source Code
-</h1><h2 id="sequential-storage-1">
+</h2><h3 id="sequential-storage-1">
 <a class="header-anchor" href="#sequential-storage-1"></a>
 Sequential Storage
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
 </span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="cp">#define MAX_NODES 1000  </span><span class="c1">// Maximum node count
 </span></span></span><span class="line"><span class="cl"><span class="c1">// Binary tree node structure
@@ -1004,10 +1004,10 @@ Sequential Storage
 </span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="linked-storage-1">
+</span></span></code></pre></div><h3 id="linked-storage-1">
 <a class="header-anchor" href="#linked-storage-1"></a>
 Linked Storage
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
 </span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="c1">// Binary tree node structure
 </span></span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">TreeNode</span> <span class="p">{</span>
@@ -1104,56 +1104,56 @@ Linked Storage
         <hr><p>Published on 2023-12-12 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-12-12</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Code</category></item><item><title>Data Structure Lab Report 3 – Using KMP Algorithm for String Search</title><link>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A3kmp%E7%AE%97%E6%B3%95%E7%94%A8%E4%BA%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2/</link><pubDate>Tue, 12 Dec 2023 14:42:01 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A3kmp%E7%AE%97%E6%B3%95%E7%94%A8%E4%BA%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2/</guid><description>
 <![CDATA[<h1>Data Structure Lab Report 3 – Using KMP Algorithm for String Search</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="experiment-objective">
+          <h2 id="experiment-objective">
 <a class="header-anchor" href="#experiment-objective"></a>
 <strong>Experiment Objective:</strong>
-</h1><p>This experiment aims to analyze and test the implementation of the KMP algorithm and explore its application in string searching.</p>
-<h1 id="experiment-content">
+</h2><p>This experiment aims to analyze and test the implementation of the KMP algorithm and explore its application in string searching.</p>
+<h2 id="experiment-content">
 <a class="header-anchor" href="#experiment-content"></a>
 <strong>Experiment Content:</strong>
-</h1><h2 id="a-problem-analysis">
+</h2><h3 id="a-problem-analysis">
 <a class="header-anchor" href="#a-problem-analysis"></a>
 <strong>a. Problem Analysis:</strong>
-</h2><ul>
+</h3><ul>
 <li>How to construct the Longest Prefix Suffix (LPS) array to improve search efficiency?</li>
 <li>How to perform matching in the text string using the LPS array to avoid unnecessary character comparisons?</li>
 <li>How to design an algorithm to search for a pattern string?</li>
 </ul>
-<h2 id="b-algorithm-design">
+<h3 id="b-algorithm-design">
 <a class="header-anchor" href="#b-algorithm-design"></a>
 <strong>b. Algorithm Design:</strong>
-</h2><p>The KMP algorithm involves the following key steps:</p>
+</h3><p>The KMP algorithm involves the following key steps:</p>
 <ul>
 <li><strong>Constructing the LPS array:</strong> The <code>computeLPSArray</code> function calculates the LPS array for the pattern string, which indicates the longest matching length of prefixes and suffixes at each position in the pattern.</li>
 <li><strong>Performing matching in the text:</strong> The <code>KMPSearch</code> function executes pattern matching in the text string. It utilizes the LPS array to backtrack intelligently, thereby improving search efficiency.</li>
 </ul>
-<h2 id="c-data-structure-design">
+<h3 id="c-data-structure-design">
 <a class="header-anchor" href="#c-data-structure-design"></a>
 <strong>c. Data Structure Design:</strong>
-</h2><p>In this experiment, the following data structures were used:</p>
+</h3><p>In this experiment, the following data structures were used:</p>
 <ul>
 <li><strong>Strings:</strong> To represent the text and pattern strings.</li>
 <li><strong>Vectors:</strong> To store the LPS array.</li>
 <li><strong>Integer variables:</strong> To track indices during the matching process.</li>
 </ul>
-<h2 id="d-debugging-process">
+<h3 id="d-debugging-process">
 <a class="header-anchor" href="#d-debugging-process"></a>
 <strong>d. Debugging Process:</strong>
-</h2><p>While writing and testing the code, some potential issues such as logical errors or edge cases were encountered. Careful debugging was required to ensure the algorithm&rsquo;s correctness and performance. By step-by-step debugging and printing intermediate results, the code was verified to correctly identify the positions of pattern matches in the text.</p>
-<h2 id="e-output-results">
+</h3><p>While writing and testing the code, some potential issues such as logical errors or edge cases were encountered. Careful debugging was required to ensure the algorithm&rsquo;s correctness and performance. By step-by-step debugging and printing intermediate results, the code was verified to correctly identify the positions of pattern matches in the text.</p>
+<h3 id="e-output-results">
 <a class="header-anchor" href="#e-output-results"></a>
 <strong>e. Output Results:</strong>
-</h2><p>Below are some example output results:</p>
+</h3><p>Below are some example output results:</p>
 <ul>
 <li>When the text string is <code>&quot;ABABDABACDABABCABAB&quot;</code> and the pattern string is <code>&quot;ABABCABAB&quot;</code>, the KMP algorithm locates the pattern in the text at:
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Match found at index 10  
 </span></span></code></pre></div></li>
 <li>When both the text and pattern strings are provided by the user, the KMP algorithm searches for the user-specified pattern in the given text and outputs the matching positions.</li>
 </ul>
-<h2 id="f-source-code">
+<h3 id="f-source-code">
 <a class="header-anchor" href="#f-source-code"></a>
 <strong>f. Source Code:</strong>
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
 </span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// Computes the Longest Prefix Suffix (LPS) array for the pattern
@@ -1236,51 +1236,51 @@ Linked Storage
         <hr><p>Published on 2023-12-12 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-12-12</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Code</category></item><item><title>Data Structure Lab Report 2 — Sparse Matrix Multiplication</title><link>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A2%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</link><pubDate>Tue, 12 Dec 2023 14:38:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A2%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</guid><description>
 <![CDATA[<h1>Data Structure Lab Report 2 — Sparse Matrix Multiplication</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="problem-analysis">
+          <h2 id="problem-analysis">
 <a class="header-anchor" href="#problem-analysis"></a>
 Problem Analysis
-</h1><p>The primary objective of this experiment is to develop a sparse matrix multiplication algorithm capable of multiplying two sparse matrices, A and B, and outputting the resulting matrix C. In this algorithm, sparse matrices are represented using triplets, and users can input different matrix data multiple times to compute their products.</p>
-<h1 id="algorithm-design">
+</h2><p>The primary objective of this experiment is to develop a sparse matrix multiplication algorithm capable of multiplying two sparse matrices, A and B, and outputting the resulting matrix C. In this algorithm, sparse matrices are represented using triplets, and users can input different matrix data multiple times to compute their products.</p>
+<h2 id="algorithm-design">
 <a class="header-anchor" href="#algorithm-design"></a>
 Algorithm Design
-</h1><p>The sparse matrix multiplication algorithm is designed as follows:</p>
+</h2><p>The sparse matrix multiplication algorithm is designed as follows:</p>
 <ul>
 <li>A <code>struct</code> is used to represent the matrix, which includes the number of rows (<code>m</code>), columns (<code>n</code>), the count of non-zero elements (<code>L</code>), and an array to store node information.</li>
 <li>The input function <code>input</code> retrieves the triplet representation of the matrix, checks the validity of the input, and stores it in the memory structure.</li>
 <li>The output function <code>output</code> prints the sparse matrix in standard matrix form for user review.</li>
 <li>The matrix multiplication function <code>multiplier</code> takes two input matrices, A and B, computes their product, and stores the result in matrix C.</li>
 </ul>
-<h1 id="data-structure-design">
+<h2 id="data-structure-design">
 <a class="header-anchor" href="#data-structure-design"></a>
 Data Structure Design
-</h1><ul>
+</h2><ul>
 <li>The <code>matrix</code> struct contains the number of rows (<code>m</code>), columns (<code>n</code>), the count of non-zero elements (<code>L</code>), and the <code>Ma</code> array for storing node information.</li>
 <li>The <code>node</code> struct represents each non-zero element in the sparse matrix, including the row index (<code>i</code>), column index (<code>j</code>), and the element value (<code>data</code>).</li>
 </ul>
-<h1 id="debugging-process">
+<h2 id="debugging-process">
 <a class="header-anchor" href="#debugging-process"></a>
 Debugging Process
-</h1><ul>
+</h2><ul>
 <li>The code includes error-handling mechanisms, such as validating input legality, checking memory allocation success, and ensuring matrix multiplication compatibility.</li>
 <li>When inputting sparse matrix data, users receive error messages and are prompted to re-enter data if it exceeds the matrix dimensions.</li>
 <li>The sparse matrix multiplication algorithm checks whether the columns of the first matrix match the rows of the second matrix to ensure valid multiplication.</li>
 </ul>
-<h1 id="output-results">
+<h2 id="output-results">
 <a class="header-anchor" href="#output-results"></a>
 Output Results
-</h1><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/1074652966.png" alt="Pasted image 20231020161652.png"><br>
+</h2><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/1074652966.png" alt="Pasted image 20231020161652.png"><br>
 Matlab verification results:<br>
 <img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/4226980695.png" alt="Pasted image 20231020161908.png"><br>
 <img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/2855363853.png" alt="Pasted image 20231020161929.png"></p>
 <p>Users can input two matrices, A and B, and the program will compute their product and output the resulting matrix C. Users may choose to continue with additional sparse matrix multiplications or exit the program. The program runs continuously until the user opts to exit.</p>
-<h1 id="summary">
+<h2 id="summary">
 <a class="header-anchor" href="#summary"></a>
 Summary
-</h1><p>Overall, this experiment successfully implements sparse matrix multiplication, providing a user-friendly interface and robust error-handling mechanisms to ensure valid matrix input. It correctly computes the product of two sparse matrices and outputs the result in standard matrix form.</p>
-<h1 id="source-code">
+</h2><p>Overall, this experiment successfully implements sparse matrix multiplication, providing a user-friendly interface and robust error-handling mechanisms to ensure valid matrix input. It correctly computes the product of two sparse matrices and outputs the result in standard matrix form.</p>
+<h2 id="source-code">
 <a class="header-anchor" href="#source-code"></a>
 Source Code
-</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
 </span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="cp">#define MAX 1000
 </span></span></span><span class="line"><span class="cl">
@@ -1408,17 +1408,17 @@ Source Code
         <hr><p>Published on 2023-12-12 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-12-12</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Code</category></item><item><title>Lab Report 1 on Data Structure Experiments——Fibonacci Sequence &amp; Set Partition Problem</title><link>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1fibonacci%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86%E5%AD%90%E9%9B%86%E9%97%AE%E9%A2%98/</link><pubDate>Tue, 12 Dec 2023 14:31:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1fibonacci%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86%E5%AD%90%E9%9B%86%E9%97%AE%E9%A2%98/</guid><description>
 <![CDATA[<h1>Lab Report 1 on Data Structure Experiments——Fibonacci Sequence & Set Partition Problem</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="fibonacci-sequence">
+          <h2 id="fibonacci-sequence">
 <a class="header-anchor" href="#fibonacci-sequence"></a>
 <strong>Fibonacci Sequence</strong>
-</h1><h2 id="problem-analysis">
+</h2><h3 id="problem-analysis">
 <a class="header-anchor" href="#problem-analysis"></a>
 <strong>Problem Analysis</strong>
-</h2><p>To correctly implement recursive function calls and returns, parameter passing and return address handling must be properly addressed. Specifically, during each recursive call, new storage space must be allocated for all parameters, while preserving the actual parameters from the previous call and the return address for the current call.</p>
-<h2 id="algorithm-design">
+</h3><p>To correctly implement recursive function calls and returns, parameter passing and return address handling must be properly addressed. Specifically, during each recursive call, new storage space must be allocated for all parameters, while preserving the actual parameters from the previous call and the return address for the current call.</p>
+<h3 id="algorithm-design">
 <a class="header-anchor" href="#algorithm-design"></a>
 <strong>Algorithm Design</strong>
-</h2><p>The algorithm is described as follows:</p>
+</h3><p>The algorithm is described as follows:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">Fib</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">fib</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="n">fib</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
@@ -1426,23 +1426,23 @@ Source Code
 </span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="n">fib</span><span class="o">=</span><span class="n">Fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">fib</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="data-structure-design">
+</span></span></code></pre></div><h3 id="data-structure-design">
 <a class="header-anchor" href="#data-structure-design"></a>
 <strong>Data Structure Design</strong>
-</h2><p>A stack is used to allocate and manage storage space. The system creates a &ldquo;working record&rdquo; for each procedure call, storing the values of all parameters before the call and the return address after the call. This working record is pushed onto the stack to ensure correct information retrieval upon return.</p>
-<h2 id="debugging-process">
+</h3><p>A stack is used to allocate and manage storage space. The system creates a &ldquo;working record&rdquo; for each procedure call, storing the values of all parameters before the call and the return address after the call. This working record is pushed onto the stack to ensure correct information retrieval upon return.</p>
+<h3 id="debugging-process">
 <a class="header-anchor" href="#debugging-process"></a>
 <strong>Debugging Process</strong>
-</h2><p>During each function call, outputting the passed parameters provides a clearer visualization of the stack&rsquo;s call process.<br>
+</h3><p>During each function call, outputting the passed parameters provides a clearer visualization of the stack&rsquo;s call process.<br>
 For example, in the initial recursive call <code>Fib(2)</code>, the program first pushes <code>Fib(5)</code>, <code>Fib(4)</code>, &hellip;, <code>Fib(1)</code> onto the stack. When <code>n == 1</code>, the value is returned to the previous address. Similarly, when <code>n == 0</code>, its value is returned, allowing <code>Fib(2)</code> to compute its value, which is then returned to its caller <code>Fib(3)</code>.</p>
-<h2 id="output-result">
+<h3 id="output-result">
 <a class="header-anchor" href="#output-result"></a>
 <strong>Output Result</strong>
-</h2><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/3648031837.png" alt="Pasted image 20231020121850.png"></p>
-<h2 id="source-code">
+</h3><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/3648031837.png" alt="Pasted image 20231020121850.png"></p>
+<h3 id="source-code">
 <a class="header-anchor" href="#source-code"></a>
 Source Code
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
 </span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">Fibonacci</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
@@ -1479,32 +1479,32 @@ Source Code
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h1 id="set-partitioning-problem">
+</span></span></code></pre></div><h2 id="set-partitioning-problem">
 <a class="header-anchor" href="#set-partitioning-problem"></a>
 <strong>Set Partitioning Problem</strong>
-</h1><h2 id="problem-analysis-1">
+</h2><h3 id="problem-analysis-1">
 <a class="header-anchor" href="#problem-analysis-1"></a>
 <strong>Problem Analysis</strong>
-</h2><p>The task requires partitioning a set into mutually disjoint subsets such that no elements within any subset conflict with each other, while minimizing the number of subsets. Such problems are commonly encountered in scheduling applications.</p>
-<h2 id="algorithm-design-1">
+</h3><p>The task requires partitioning a set into mutually disjoint subsets such that no elements within any subset conflict with each other, while minimizing the number of subsets. Such problems are commonly encountered in scheduling applications.</p>
+<h3 id="algorithm-design-1">
 <a class="header-anchor" href="#algorithm-design-1"></a>
 <strong>Algorithm Design</strong>
-</h2><p>Conflict relationships are represented using a 2D array, where <code>1</code> indicates a conflict and <code>0</code> indicates no conflict. A cyclic screening method is employed for partitioning: starting with the first element, it is isolated, and other elements are checked for conflicts with the isolated elements. Non-conflicting elements are grouped together. This process repeats until all mutually non-conflicting elements are grouped, iterating until all elements are partitioned.</p>
-<h2 id="data-structure-design-1">
+</h3><p>Conflict relationships are represented using a 2D array, where <code>1</code> indicates a conflict and <code>0</code> indicates no conflict. A cyclic screening method is employed for partitioning: starting with the first element, it is isolated, and other elements are checked for conflicts with the isolated elements. Non-conflicting elements are grouped together. This process repeats until all mutually non-conflicting elements are grouped, iterating until all elements are partitioned.</p>
+<h3 id="data-structure-design-1">
 <a class="header-anchor" href="#data-structure-design-1"></a>
 <strong>Data Structure Design</strong>
-</h2><p>A circular queue stores the data, allowing iterative processing without requiring additional storage space.</p>
-<h2 id="debugging-process-1">
+</h3><p>A circular queue stores the data, allowing iterative processing without requiring additional storage space.</p>
+<h3 id="debugging-process-1">
 <a class="header-anchor" href="#debugging-process-1"></a>
 <strong>Debugging Process</strong>
-</h2><h2 id="output-result-1">
+</h3><h3 id="output-result-1">
 <a class="header-anchor" href="#output-result-1"></a>
 <strong>Output Result</strong>
-</h2><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/3486074357.png" alt="Pasted image 20231020123220.png"></p>
-<h2 id="source-code-1">
+</h3><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/3486074357.png" alt="Pasted image 20231020123220.png"></p>
+<h3 id="source-code-1">
 <a class="header-anchor" href="#source-code-1"></a>
 Source Code
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
 </span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">newr</span><span class="p">[</span><span class="mi">9</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">

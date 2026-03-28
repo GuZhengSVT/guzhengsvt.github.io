@@ -146,10 +146,10 @@ As I said at the beginning, they&rsquo;re traces of my growth, proof of my exist
         <hr><p>Published on 2025-04-19 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-04-19</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>OtherNotes</category></item><item><title>Common Hugo Blog Resources</title><link>https://guzhengsvt.cn/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</link><pubDate>Tue, 15 Apr 2025 16:42:35 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/othernotes/hugo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E8%B5%84%E6%96%99/</guid><description>
 <![CDATA[<h1>Common Hugo Blog Resources</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="hugo-common-commands">
+          <h2 id="hugo-common-commands">
 <a class="header-anchor" href="#hugo-common-commands"></a>
 Hugo Common Commands
-</h1><table>
+</h2><table>
   <thead>
       <tr>
           <th>Command</th>
@@ -225,10 +225,10 @@ Hugo Common Commands
       </tr>
   </tbody>
 </table>
-<h1 id="reimu-theme-icon_font">
+<h2 id="reimu-theme-icon_font">
 <a class="header-anchor" href="#reimu-theme-icon_font"></a>
 reimu Theme icon_font
-</h1><table>
+</h2><table>
   <thead>
       <tr>
           <th>Icon Class</th>

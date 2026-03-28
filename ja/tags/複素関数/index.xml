@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>複素関数 on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/ja/tags/%E8%A4%87%E7%B4%A0%E9%96%A2%E6%95%B0/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>ja</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</copyright><lastBuildDate>Wed, 20 Dec 2023 08:54:33 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/ja/tags/%E8%A4%87%E7%B4%A0%E9%96%A2%E6%95%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>留数定理とローラン級数、高階導関数公式およびコーシー積分公式の関係または関連性</title><link>https://guzhengsvt.cn/ja/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link><pubDate>Wed, 20 Dec 2023 08:54:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid><description>
 <![CDATA[<h1>留数定理とローラン級数、高階導関数公式およびコーシー積分公式の関係または関連性</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
         
-          <h3 id="1-留数定理residue-theorem">
+          <h2 id="1-留数定理residue-theorem">
 <a class="header-anchor" href="#1-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86residue-theorem"></a>
 1. 留数定理（Residue Theorem）：
-</h3><p>留数定理は複素関数理論における重要な結果であり、留数の概念に基づいています。留数定理の核心的な考え方は、孤立特異点を含む閉曲線内で関数がその曲線上で至る所正則である場合、曲線内の積分は特異点における留数の和に等しいというものです。</p>
-<h3 id="2-ローラン級数laurent-series">
+</h2><p>留数定理は複素関数理論における重要な結果であり、留数の概念に基づいています。留数定理の核心的な考え方は、孤立特異点を含む閉曲線内で関数がその曲線上で至る所正則である場合、曲線内の積分は特異点における留数の和に等しいというものです。</p>
+<h2 id="2-ローラン級数laurent-series">
 <a class="header-anchor" href="#2-%e3%83%ad%e3%83%bc%e3%83%a9%e3%83%b3%e7%b4%9a%e6%95%b0laurent-series"></a>
 2. ローラン級数（Laurent Series）：
-</h3><p>ローラン級数は複素関数の展開形式の一つで、正のべき乗と負のべき乗を含む無限級数として表されます。具体的には、複素関数が環状領域内で次のようにローラン級数展開されます：
+</h2><p>ローラン級数は複素関数の展開形式の一つで、正のべき乗と負のべき乗を含む無限級数として表されます。具体的には、複素関数が環状領域内で次のようにローラン級数展開されます：
 </p>
 $$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<p>ここで、$c_n$は係数、$z_0$は展開点です。</p>
-<h3 id="3-高階導関数の公式">
+<h2 id="3-高階導関数の公式">
 <a class="header-anchor" href="#3-%e9%ab%98%e9%9a%8e%e5%b0%8e%e9%96%a2%e6%95%b0%e3%81%ae%e5%85%ac%e5%bc%8f"></a>
 3. 高階導関数の公式：
-</h3><p>複素関数の高階導関数の公式は実関数と似ていますが、複素平面上での演算には注意が必要です。関数がある点で正則であれば、その点での高階導関数はべき級数を項ごとに微分することで得られます。</p>
-<h3 id="4-コーシーの積分公式cauchys-integral-formula">
+</h2><p>複素関数の高階導関数の公式は実関数と似ていますが、複素平面上での演算には注意が必要です。関数がある点で正則であれば、その点での高階導関数はべき級数を項ごとに微分することで得られます。</p>
+<h2 id="4-コーシーの積分公式cauchys-integral-formula">
 <a class="header-anchor" href="#4-%e3%82%b3%e3%83%bc%e3%82%b7%e3%83%bc%e3%81%ae%e7%a9%8d%e5%88%86%e5%85%ac%e5%bc%8fcauchys-integral-formula"></a>
 4. コーシーの積分公式（Cauchy&rsquo;s Integral Formula）：
-</h3><p>コーシーの積分公式は複素解析の基本的な結果であり、正則関数とその周回積分の関係を確立します。具体的には、関数$f(z)$が単純閉曲線内で正則であれば、その曲線内の任意の点$z_0$に対して次が成り立ちます：</p>
+</h2><p>コーシーの積分公式は複素解析の基本的な結果であり、正則関数とその周回積分の関係を確立します。具体的には、関数$f(z)$が単純閉曲線内で正則であれば、その曲線内の任意の点$z_0$に対して次が成り立ちます：</p>
 $$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$<p>ここで、$C$は$z_0$を囲む単純閉曲線です。</p>
-<h3 id="関係と関連性">
+<h2 id="関係と関連性">
 <a class="header-anchor" href="#%e9%96%a2%e4%bf%82%e3%81%a8%e9%96%a2%e9%80%a3%e6%80%a7"></a>
 関係と関連性：
-</h3><ol>
+</h2><ol>
 <li>
 <p><strong>留数定理とローラン級数：</strong> 留数定理は閉曲線内の関数の積分を計算するために使用され、ローラン級数展開は関数の特異点近傍の性質を理解し、留数を求めるのに役立ちます。</p>
 </li>
@@ -34,22 +34,22 @@ $$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$<p>ここで、$
 <p><strong>留数定理とコーシーの積分公式：</strong> コーシーの積分公式は関数の周回積分を計算するために使用され、留数定理はコーシーの積分公式の特殊なケースであり、周回内に有限個の孤立特異点がある場合に対応します。</p>
 </li>
 </ol>
-<h3 id="1-留数定理のローラン級数による証明">
+<h2 id="1-留数定理のローラン級数による証明">
 <a class="header-anchor" href="#1-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86%e3%81%ae%e3%83%ad%e3%83%bc%e3%83%a9%e3%83%b3%e7%b4%9a%e6%95%b0%e3%81%ab%e3%82%88%e3%82%8b%e8%a8%bc%e6%98%8e"></a>
 1. 留数定理のローラン級数による証明：
-</h3><h4 id="留数定理">
+</h2><h3 id="留数定理">
 <a class="header-anchor" href="#%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86"></a>
 留数定理：
-</h4><p>留数定理の表現は次の通りです：</p>
+</h3><p>留数定理の表現は次の通りです：</p>
 <p>$f(z)$が孤立特異点$z_0$を含む閉曲線内で至る所正則であれば、曲線内の積分は関数の特異点における留数の和に等しい。</p>
-<h4 id="ローラン級数展開">
+<h3 id="ローラン級数展開">
 <a class="header-anchor" href="#%e3%83%ad%e3%83%bc%e3%83%a9%e3%83%b3%e7%b4%9a%e6%95%b0%e5%b1%95%e9%96%8b"></a>
 ローラン級数展開：
-</h4>$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<p>ここで、$c_n$は留数です。</p>
-<h4 id="証明の手順">
+</h3>$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<p>ここで、$c_n$は留数です。</p>
+<h3 id="証明の手順">
 <a class="header-anchor" href="#%e8%a8%bc%e6%98%8e%e3%81%ae%e6%89%8b%e9%a0%86"></a>
 証明の手順：
-</h4><ol>
+</h3><ol>
 <li>
 <p><strong>ローラン級数の導出：</strong>
 複素関数のローラン級数展開により、
@@ -77,25 +77,25 @@ $$\oint_C f(z) \, dz = 2\pi i \cdot c_{-1}$$</li>
 </p>
 $$\oint_C f(z) \, dz = 2\pi i \cdot c_{-1}$$</li>
 </ol>
-<h3 id="2-留数定理から高階導関数の公式の証明">
+<h2 id="2-留数定理から高階導関数の公式の証明">
 <a class="header-anchor" href="#2-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86%e3%81%8b%e3%82%89%e9%ab%98%e9%9a%8e%e5%b0%8e%e9%96%a2%e6%95%b0%e3%81%ae%e5%85%ac%e5%bc%8f%e3%81%ae%e8%a8%bc%e6%98%8e"></a>
 2. 留数定理から高階導関数の公式の証明：
-</h3><h4 id="留数定理-1">
+</h2><h3 id="留数定理-1">
 <a class="header-anchor" href="#%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86-1"></a>
 留数定理：
-</h4><p>留数定理の表現は次の通りです：</p>
+</h3><p>留数定理の表現は次の通りです：</p>
 <p>$f(z)$が孤立特異点$z_0$を含む閉曲線内で至る所正則であれば、曲線内の積分は関数の特異点における留数の和に等しい。</p>
-<h4 id="高階導関数の公式">
+<h3 id="高階導関数の公式">
 <a class="header-anchor" href="#%e9%ab%98%e9%9a%8e%e5%b0%8e%e9%96%a2%e6%95%b0%e3%81%ae%e5%85%ac%e5%bc%8f"></a>
 高階導関数の公式：
-</h4><p>複素関数の高階導関数の公式は次の通りです：</p>
+</h3><p>複素関数の高階導関数の公式は次の通りです：</p>
 <p>$f(z)$が点$z_0$で正則であれば、その点での$n$階導関数は次のように表されます：
 </p>
 $$f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} \, dz$$<p>ここで、$C$は$z_0$を囲む単純閉曲線です。</p>
-<h4 id="証明の手順-1">
+<h3 id="証明の手順-1">
 <a class="header-anchor" href="#%e8%a8%bc%e6%98%8e%e3%81%ae%e6%89%8b%e9%a0%86-1"></a>
 証明の手順：
-</h4><ol>
+</h3><ol>
 <li>
 <p><strong>留数定理の適用：</strong>
 留数定理により、
@@ -122,24 +122,24 @@ $c_{-n}$を留数定理の式に代入し、高階導関数の公式を得ます
 </p>
 $$f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} \, dz$$</li>
 </ol>
-<h3 id="3-留数定理からコーシーの積分公式の証明">
+<h2 id="3-留数定理からコーシーの積分公式の証明">
 <a class="header-anchor" href="#3-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86%e3%81%8b%e3%82%89%e3%82%b3%e3%83%bc%e3%82%b7%e3%83%bc%e3%81%ae%e7%a9%8d%e5%88%86%e5%85%ac%e5%bc%8f%e3%81%ae%e8%a8%bc%e6%98%8e"></a>
 3. 留数定理からコーシーの積分公式の証明：
-</h3><h4 id="留数定理-2">
+</h2><h3 id="留数定理-2">
 <a class="header-anchor" href="#%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86-2"></a>
 留数定理：
-</h4><p>留数定理の表現は次の通りです：</p>
+</h3><p>留数定理の表現は次の通りです：</p>
 <p>$f(z)$が孤立特異点$z_0$を含む閉曲線内で至る所正則であれば、曲線内の積分は関数の特異点における留数の和に等しい。</p>
-<h4 id="コーシーの積分公式">
+<h3 id="コーシーの積分公式">
 <a class="header-anchor" href="#%e3%82%b3%e3%83%bc%e3%82%b7%e3%83%bc%e3%81%ae%e7%a9%8d%e5%88%86%e5%85%ac%e5%bc%8f"></a>
 コーシーの積分公式：
-</h4><p>コーシーの積分公式は次の通りです：
+</h3><p>コーシーの積分公式は次の通りです：
 </p>
 $$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$<p>ここで、$C$は$z_0$を囲む単純閉曲線です。</p>
-<h4 id="証明の手順-2">
+<h3 id="証明の手順-2">
 <a class="header-anchor" href="#%e8%a8%bc%e6%98%8e%e3%81%ae%e6%89%8b%e9%a0%86-2"></a>
 証明の手順：
-</h4><ol>
+</h3><ol>
 <li>
 <p><strong>留数定理の適用：</strong>
 留数定理により、

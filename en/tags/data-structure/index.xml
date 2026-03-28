@@ -204,23 +204,23 @@ f. Source Code
         <hr><p>Published on 2023-12-12 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-12-12</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Code</category></item><item><title>Data Structure Lab Report 7 – Kruskal's Algorithm and the Minimum Spanning Tree Problem, Dijkstra's Algorithm and the Shortest Path Problem in Weighted Graphs</title><link>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A7kruskal%E7%AE%97%E6%B3%95%E4%B8%8E%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98dijkstra%E7%AE%97%E6%B3%95%E4%B8%8E%E5%B8%A6%E6%9D%83%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</link><pubDate>Tue, 12 Dec 2023 14:58:44 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A7kruskal%E7%AE%97%E6%B3%95%E4%B8%8E%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98dijkstra%E7%AE%97%E6%B3%95%E4%B8%8E%E5%B8%A6%E6%9D%83%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</guid><description>
 <![CDATA[<h1>Data Structure Lab Report 7 – Kruskal's Algorithm and the Minimum Spanning Tree Problem, Dijkstra's Algorithm and the Shortest Path Problem in Weighted Graphs</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="kruskals-algorithm-for-generating-minimum-spanning-trees">
+          <h2 id="kruskals-algorithm-for-generating-minimum-spanning-trees">
 <a class="header-anchor" href="#kruskals-algorithm-for-generating-minimum-spanning-trees"></a>
 Kruskal&rsquo;s Algorithm for Generating Minimum Spanning Trees
-</h1><h2 id="a-problem-analysis">
+</h2><h3 id="a-problem-analysis">
 <a class="header-anchor" href="#a-problem-analysis"></a>
 a Problem Analysis
-</h2><p>We need to use Kruskal&rsquo;s algorithm to find the minimum spanning tree (MST) for a graph with 10 nodes and 20 edges. Kruskal&rsquo;s algorithm is based on a greedy approach, constructing the MST by iteratively selecting edges with the smallest weights while ensuring no cycles are formed.</p>
-<h2 id="b-algorithm-design">
+</h3><p>We need to use Kruskal&rsquo;s algorithm to find the minimum spanning tree (MST) for a graph with 10 nodes and 20 edges. Kruskal&rsquo;s algorithm is based on a greedy approach, constructing the MST by iteratively selecting edges with the smallest weights while ensuring no cycles are formed.</p>
+<h3 id="b-algorithm-design">
 <a class="header-anchor" href="#b-algorithm-design"></a>
 b Algorithm Design
-</h2><h3 id="key-steps-of-kruskals-algorithm">
+</h3><h4 id="key-steps-of-kruskals-algorithm">
 <a class="header-anchor" href="#key-steps-of-kruskals-algorithm"></a>
 Key Steps of Kruskal&rsquo;s Algorithm:
-</h3><h4 id="edge-sorting">
+</h4><h5 id="edge-sorting">
 <a class="header-anchor" href="#edge-sorting"></a>
 <strong>Edge Sorting:</strong>
-</h4><p>All edges are sorted in ascending order of their weights.</p>
+</h5><p>All edges are sorted in ascending order of their weights.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">sort</span><span class="p">(</span><span class="n">edges</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">edges</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[](</span><span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">weight</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">weight</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">});</span>
@@ -229,10 +229,10 @@ Key Steps of Kruskal&rsquo;s Algorithm:
 2. <code>[](const Edge&amp; a, const Edge&amp; b) { return a.weight &lt; b.weight; }</code>: This is a lambda expression that defines the comparison rule. It compares two edges <code>a</code> and <code>b</code> based on their weights and returns <code>true</code> if <code>a.weight</code> is less than <code>b.weight</code>, ensuring ascending order.
 3. <code>const Edge&amp; a</code> and <code>const Edge&amp; b</code> are the parameters of the lambda function, representing the two edges being compared.
 4. <code>return a.weight &lt; b.weight;</code> ensures that edges are sorted in ascending order of their weights.</p>
-<h4 id="union-find-initialization">
+<h5 id="union-find-initialization">
 <a class="header-anchor" href="#union-find-initialization"></a>
 <strong>Union-Find Initialization:</strong>
-</h4><p>Initialize the Union-Find (Disjoint Set Union, DSU) data structure, where each node is initially its own parent.</p>
+</h5><p>Initialize the Union-Find (Disjoint Set Union, DSU) data structure, where each node is initially its own parent.</p>
 <ul>
 <li>The Union-Find data structure is used to manage sets of elements, supporting two primary operations: <code>Find</code> (to determine the root of an element) and <code>Union</code> (to merge two sets).</li>
 <li><strong>Basic Operations:</strong>
@@ -253,14 +253,14 @@ Key Steps of Kruskal&rsquo;s Algorithm:
 </ul>
 </li>
 </ul>
-<h4 id="edge-traversal">
+<h5 id="edge-traversal">
 <a class="header-anchor" href="#edge-traversal"></a>
 <strong>Edge Traversal:</strong>
-</h4><p>Traverse the sorted edges, adding each edge to the MST if it does not form a cycle.</p>
-<h3 id="implementation">
+</h5><p>Traverse the sorted edges, adding each edge to the MST if it does not form a cycle.</p>
+<h4 id="implementation">
 <a class="header-anchor" href="#implementation"></a>
 Implementation:
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// Kruskal&#39;s Algorithm
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// Kruskal&#39;s Algorithm
 </span></span></span><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="n">Edge</span><span class="o">&gt;</span> <span class="n">kruskal</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Edge</span><span class="o">&gt;&amp;</span> <span class="n">edges</span><span class="p">,</span> <span class="kt">int</span> <span class="n">numNodes</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Input: edge list and number of nodes
 </span></span></span><span class="line"><span class="cl">    <span class="c1">// Sort edges by weight in ascending order
 </span></span></span><span class="line"><span class="cl">    <span class="n">sort</span><span class="p">(</span><span class="n">edges</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">edges</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[](</span><span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> 
@@ -287,23 +287,23 @@ Implementation:
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="c-data-structure-design">
+</span></span></code></pre></div><h3 id="c-data-structure-design">
 <a class="header-anchor" href="#c-data-structure-design"></a>
 c Data Structure Design
-</h2><h3 id="1-edge-struct">
+</h3><h4 id="1-edge-struct">
 <a class="header-anchor" href="#1-edge-struct"></a>
 1. <strong>Edge Struct:</strong>
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// Edge struct
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// Edge struct
 </span></span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Edge</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">weight</span><span class="p">;</span> <span class="c1">// Start node, end node, and weight of the edge
 </span></span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></div><ul>
 <li>The <code>Edge</code> struct represents an edge in the graph, containing the start node, end node, and weight.</li>
 </ul>
-<h3 id="2-unionfind-class">
+<h4 id="2-unionfind-class">
 <a class="header-anchor" href="#2-unionfind-class"></a>
 2. <strong>UnionFind Class:</strong>
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// Union-Find implementation
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// Union-Find implementation
 </span></span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UnionFind</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
 </span></span><span class="line"><span class="cl">    <span class="n">UnionFind</span><span class="p">(</span><span class="kt">int</span> <span class="n">size</span><span class="p">)</span> <span class="o">:</span> <span class="n">parent</span><span class="p">(</span><span class="n">size</span><span class="p">),</span> <span class="n">rank</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
@@ -347,14 +347,14 @@ c Data Structure Design
 <li>In the constructor, the <code>rank</code> array is initialized to 0, representing the approximate depth of each tree. Initially, each node is its own tree with depth 0.</li>
 <li>During <code>unite</code>, the <code>rank</code> array ensures that the smaller tree is attached to the larger one to maintain balance and efficiency.</li>
 </ul>
-<h2 id="d-debugging-process">
+<h3 id="d-debugging-process">
 <a class="header-anchor" href="#d-debugging-process"></a>
 d Debugging Process
-</h2><p>During debugging, intermediate outputs (e.g., sorted edges, MST construction steps, and Union-Find states) were examined to verify the algorithm&rsquo;s correctness. Edge cases, such as disconnected graphs, were also tested.</p>
-<h2 id="e-output">
+</h3><p>During debugging, intermediate outputs (e.g., sorted edges, MST construction steps, and Union-Find states) were examined to verify the algorithm&rsquo;s correctness. Edge cases, such as disconnected graphs, were also tested.</p>
+<h3 id="e-output">
 <a class="header-anchor" href="#e-output"></a>
 e Output
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="nl">Graph</span><span class="p">:</span>
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="nl">Graph</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl"><span class="mi">0</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">4</span>
 </span></span><span class="line"><span class="cl"><span class="mi">0</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">:</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl"><span class="mi">1</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">:</span> <span class="mi">2</span>
@@ -385,10 +385,10 @@ e Output
 </span></span><span class="line"><span class="cl"><span class="mi">3</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">:</span> <span class="mi">3</span>
 </span></span><span class="line"><span class="cl"><span class="mi">7</span> <span class="o">-</span> <span class="mi">9</span> <span class="o">:</span> <span class="mi">3</span>
 </span></span><span class="line"><span class="cl"><span class="mi">5</span> <span class="o">-</span> <span class="mi">7</span> <span class="o">:</span> <span class="mi">4</span>
-</span></span></code></pre></div><h2 id="f-source-code">
+</span></span></code></pre></div><h3 id="f-source-code">
 <a class="header-anchor" href="#f-source-code"></a>
 f Source Code
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"> </span><span class="c1">// For `sort`
 </span></span></span><span class="line"><span class="cl">
@@ -510,37 +510,37 @@ f Source Code
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h1 id="dijkstras-algorithm-for-solving-shortest-path-in-weighted-graphs">
+</span></span></code></pre></div><h2 id="dijkstras-algorithm-for-solving-shortest-path-in-weighted-graphs">
 <a class="header-anchor" href="#dijkstras-algorithm-for-solving-shortest-path-in-weighted-graphs"></a>
 Dijkstra&rsquo;s Algorithm for Solving Shortest Path in Weighted Graphs
-</h1><h2 id="a-problem-analysis-1">
+</h2><h3 id="a-problem-analysis-1">
 <a class="header-anchor" href="#a-problem-analysis-1"></a>
 a Problem Analysis
-</h2><p>The code implements Dijkstra&rsquo;s algorithm to solve the single-source shortest path problem in a weighted graph. Given an adjacency matrix representation of the graph, the algorithm computes the shortest distances from a specified start node to all other nodes.</p>
-<h2 id="b-algorithm-design-1">
+</h3><p>The code implements Dijkstra&rsquo;s algorithm to solve the single-source shortest path problem in a weighted graph. Given an adjacency matrix representation of the graph, the algorithm computes the shortest distances from a specified start node to all other nodes.</p>
+<h3 id="b-algorithm-design-1">
 <a class="header-anchor" href="#b-algorithm-design-1"></a>
 b Algorithm Design
-</h2><h3 id="1-initialization">
+</h3><h4 id="1-initialization">
 <a class="header-anchor" href="#1-initialization"></a>
 1. Initialization
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">graph</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">graph</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl"><span class="n">distances</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">INF</span><span class="p">);</span>
 </span></span></code></pre></div><ul>
 <li><strong>Analysis:</strong> The number of nodes <code>n</code> is determined from the graph&rsquo;s size. The <code>distances</code> array is initialized with <code>INF</code> (infinity), representing initially unknown distances.</li>
 </ul>
-<h3 id="2-priority-queue-setup">
+<h4 id="2-priority-queue-setup">
 <a class="header-anchor" href="#2-priority-queue-setup"></a>
 2. Priority Queue Setup
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;&gt;</span> <span class="n">pq</span><span class="p">;</span>
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;&gt;</span> <span class="n">pq</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="n">distances</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="mi">0</span><span class="p">,</span> <span class="n">start</span><span class="p">});</span>
 </span></span></code></pre></div><ul>
 <li><strong>Analysis:</strong> A priority queue <code>pq</code> is created to manage nodes by their current shortest distance. The start node&rsquo;s distance is set to 0, and it is added to the queue.</li>
 </ul>
-<h3 id="3-main-loop">
+<h4 id="3-main-loop">
 <a class="header-anchor" href="#3-main-loop"></a>
 3. Main Loop
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">pq</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">pq</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">u</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">second</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">pq</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">
@@ -554,57 +554,57 @@ b Algorithm Design
 </span></span></code></pre></div><ul>
 <li><strong>Analysis:</strong> The loop extracts the node <code>u</code> with the smallest current distance. For each neighbor <code>v</code> of <code>u</code>, if a shorter path is found via <code>u</code>, the distance is updated, and <code>v</code> is added to the queue.</li>
 </ul>
-<h3 id="4-termination">
+<h4 id="4-termination">
 <a class="header-anchor" href="#4-termination"></a>
 4. Termination
-</h3><ul>
+</h4><ul>
 <li><strong>Analysis:</strong> The algorithm terminates when the queue is empty, having processed all nodes and finalized their shortest distances.</li>
 </ul>
-<h2 id="c-data-structure-design-1">
+<h3 id="c-data-structure-design-1">
 <a class="header-anchor" href="#c-data-structure-design-1"></a>
 c Data Structure Design
-</h2><h3 id="1-graph-adjacency-matrix">
+</h3><h4 id="1-graph-adjacency-matrix">
 <a class="header-anchor" href="#1-graph-adjacency-matrix"></a>
 1. Graph (Adjacency Matrix)
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">Graph</span><span class="p">;</span>
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">Graph</span><span class="p">;</span>
 </span></span></code></pre></div><ul>
 <li><strong>Analysis:</strong> The <code>Graph</code> is represented as a 2D vector where <code>graph[u][v]</code> holds the weight of the edge from node <code>u</code> to <code>v</code>. A weight of 0 indicates no edge.</li>
 </ul>
-<h3 id="2-distances-array">
+<h4 id="2-distances-array">
 <a class="header-anchor" href="#2-distances-array"></a>
 2. Distances Array
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">distances</span><span class="p">;</span>
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">distances</span><span class="p">;</span>
 </span></span></code></pre></div><ul>
 <li><strong>Analysis:</strong> The <code>distances</code> array stores the shortest known distances from the start node to each node, initialized to <code>INF</code> and updated during the algorithm&rsquo;s execution.</li>
 </ul>
-<h3 id="3-priority-queue">
+<h4 id="3-priority-queue">
 <a class="header-anchor" href="#3-priority-queue"></a>
 3. Priority Queue
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;&gt;</span> <span class="n">pq</span><span class="p">;</span>
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;&gt;</span> <span class="n">pq</span><span class="p">;</span>
 </span></span></code></pre></div><ul>
 <li><strong>Analysis:</strong> The priority queue <code>pq</code> holds pairs of distances and nodes, ordered by distance. The <code>greater</code> comparator ensures the smallest distance is always processed first.</li>
 </ul>
-<h2 id="d-debugging-process-1">
+<h3 id="d-debugging-process-1">
 <a class="header-anchor" href="#d-debugging-process-1"></a>
 d Debugging Process
-</h2><ul>
+</h3><ul>
 <li>Intermediate outputs (e.g., queue states, distance updates) were logged to verify correctness.</li>
 <li>Edge cases (e.g., no edges, negative weights) were tested to ensure robustness.</li>
 <li>Multiple test cases confirmed the algorithm&rsquo;s accuracy and efficiency.</li>
 </ul>
-<h2 id="e-output-1">
+<h3 id="e-output-1">
 <a class="header-anchor" href="#e-output-1"></a>
 e Output
-</h2><p>The final output shows the shortest distances from the start node to all other nodes, matching expectations.</p>
+</h3><p>The final output shows the shortest distances from the start node to all other nodes, matching expectations.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Distance</span> <span class="n">from</span> <span class="n">node</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">0</span><span class="o">:</span> <span class="mi">0</span>
 </span></span><span class="line"><span class="cl"><span class="n">Distance</span> <span class="n">from</span> <span class="n">node</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">1</span><span class="o">:</span> <span class="mi">2</span>
 </span></span><span class="line"><span class="cl"><span class="n">Distance</span> <span class="n">from</span> <span class="n">node</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">2</span><span class="o">:</span> <span class="mi">3</span>
 </span></span><span class="line"><span class="cl"><span class="n">Distance</span> <span class="n">from</span> <span class="n">node</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">3</span><span class="o">:</span> <span class="mi">9</span>
 </span></span><span class="line"><span class="cl"><span class="n">Distance</span> <span class="n">from</span> <span class="n">node</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">4</span><span class="o">:</span> <span class="mi">6</span>
-</span></span></code></pre></div><h2 id="f-source-code-1">
+</span></span></code></pre></div><h3 id="f-source-code-1">
 <a class="header-anchor" href="#f-source-code-1"></a>
 f Source Code
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;queue&gt;</span><span class="cp"> </span><span class="c1">// For priority_queue
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;climits&gt;</span><span class="cp"> </span><span class="c1">// For INT_MAX

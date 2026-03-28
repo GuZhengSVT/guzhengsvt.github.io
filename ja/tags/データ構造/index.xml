@@ -204,23 +204,23 @@ f. ソースコード
         <hr><p>この記事は2023-12-12に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-12-12です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Code</category></item><item><title>データ構造実機実験レポート7——Kruskalアルゴリズムと最小全域木問題、Dijkstraアルゴリズムと重み付きグラフの最短経路問題</title><link>https://guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A7kruskal%E7%AE%97%E6%B3%95%E4%B8%8E%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98dijkstra%E7%AE%97%E6%B3%95%E4%B8%8E%E5%B8%A6%E6%9D%83%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</link><pubDate>Tue, 12 Dec 2023 14:58:44 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A7kruskal%E7%AE%97%E6%B3%95%E4%B8%8E%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98dijkstra%E7%AE%97%E6%B3%95%E4%B8%8E%E5%B8%A6%E6%9D%83%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</guid><description>
 <![CDATA[<h1>データ構造実機実験レポート7——Kruskalアルゴリズムと最小全域木問題、Dijkstraアルゴリズムと重み付きグラフの最短経路問題</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="kruskalアルゴリズムによる最小全域木の生成">
+          <h2 id="kruskalアルゴリズムによる最小全域木の生成">
 <a class="header-anchor" href="#kruskal%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e3%81%ab%e3%82%88%e3%82%8b%e6%9c%80%e5%b0%8f%e5%85%a8%e5%9f%9f%e6%9c%a8%e3%81%ae%e7%94%9f%e6%88%90"></a>
 Kruskalアルゴリズムによる最小全域木の生成
-</h1><h2 id="a-問題分析">
+</h2><h3 id="a-問題分析">
 <a class="header-anchor" href="#a-%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90"></a>
 a 問題分析
-</h2><p>10個のノードと20本のエッジを含むグラフの最小全域木を見つけるために、Kruskalアルゴリズムを使用する必要があります。Kruskalアルゴリズムは貪欲法に基づいており、重みが最小のエッジを選択し続け、そのエッジを追加してもループが形成されないことを確認することで、最小全域木を構築します。</p>
-<h2 id="b-アルゴリズム設計">
+</h3><p>10個のノードと20本のエッジを含むグラフの最小全域木を見つけるために、Kruskalアルゴリズムを使用する必要があります。Kruskalアルゴリズムは貪欲法に基づいており、重みが最小のエッジを選択し続け、そのエッジを追加してもループが形成されないことを確認することで、最小全域木を構築します。</p>
+<h3 id="b-アルゴリズム設計">
 <a class="header-anchor" href="#b-%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88"></a>
 b アルゴリズム設計
-</h2><h3 id="kruskal-アルゴリズムの主要なステップ">
+</h3><h4 id="kruskal-アルゴリズムの主要なステップ">
 <a class="header-anchor" href="#kruskal-%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e3%81%ae%e4%b8%bb%e8%a6%81%e3%81%aa%e3%82%b9%e3%83%86%e3%83%83%e3%83%97"></a>
 Kruskal アルゴリズムの主要なステップ：
-</h3><h4 id="辺のソート">
+</h4><h5 id="辺のソート">
 <a class="header-anchor" href="#%e8%be%ba%e3%81%ae%e3%82%bd%e3%83%bc%e3%83%88"></a>
 <strong>辺のソート：</strong>
-</h4><p>すべての辺を重みの昇順でソートする。</p>
+</h5><p>すべての辺を重みの昇順でソートする。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">sort</span><span class="p">(</span><span class="n">edges</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">edges</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[](</span><span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">weight</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">weight</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">});</span>
@@ -229,10 +229,10 @@ Kruskal アルゴリズムの主要なステップ：
 2. <code>[](const Edge&amp; a, const Edge&amp; b) { return a.weight &lt; b.weight; }</code>: これはラムダ式であり、ソートの比較ルールを定義する。ラムダ式は無名関数であり、ソートプロセスで2つの要素の大小を比較するために使用される。ここでは、辺の重み (<code>weight</code>) を昇順で並べ替えるための比較ルールが定義されている。
 3. <code>const Edge&amp; a</code> と <code>const Edge&amp; b</code> はラムダ式のパラメータであり、比較対象の2つの辺を表す。
 4. <code>return a.weight &lt; b.weight;</code> は、辺 <code>a</code> の重みが辺 <code>b</code> の重みより小さい場合に <code>true</code> を返し、それ以外の場合に <code>false</code> を返すことを意味する。これにより、<code>sort</code> 関数は辺を昇順でソートする。</p>
-<h4 id="union-findの初期化">
+<h5 id="union-findの初期化">
 <a class="header-anchor" href="#union-find%e3%81%ae%e5%88%9d%e6%9c%9f%e5%8c%96"></a>
 <strong>Union-Findの初期化：</strong>
-</h4><p>Union-Findを初期化し、各ノードを単独の集合とする。</p>
+</h5><p>Union-Findを初期化し、各ノードを単独の集合とする。</p>
 <ul>
 <li>Union-Find（Disjoint Set Union、略してUnion-Find）は、集合を扱うためのデータ構造であり、主に2つの操作をサポートする：Find（検索）とUnion（結合）。このデータ構造は、集合の分割に関連する問題、特にグラフ理論やネットワーク接続などの分野で使用される。</li>
 <li><strong>基本操作:</strong>
@@ -253,14 +253,14 @@ Kruskal アルゴリズムの主要なステップ：
 </ul>
 </li>
 </ul>
-<h4 id="辺の走査">
+<h5 id="辺の走査">
 <a class="header-anchor" href="#%e8%be%ba%e3%81%ae%e8%b5%b0%e6%9f%bb"></a>
 <strong>辺の走査：</strong>
-</h4><p>ソートされた辺を走査し、順番に辺を選択して最小全域木に追加し、ループが形成されないようにする。</p>
-<h3 id="具体的な実装">
+</h5><p>ソートされた辺を走査し、順番に辺を選択して最小全域木に追加し、ループが形成されないようにする。</p>
+<h4 id="具体的な実装">
 <a class="header-anchor" href="#%e5%85%b7%e4%bd%93%e7%9a%84%e3%81%aa%e5%ae%9f%e8%a3%85"></a>
 具体的な実装：
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// Kruskalアルゴリズム
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// Kruskalアルゴリズム
 </span></span></span><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="n">Edge</span><span class="o">&gt;</span> <span class="n">kruskal</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Edge</span><span class="o">&gt;&amp;</span> <span class="n">edges</span><span class="p">,</span> <span class="kt">int</span> <span class="n">numNodes</span><span class="p">)</span> <span class="p">{</span><span class="c1">//辺集合とノード数を引数として受け取る
 </span></span></span><span class="line"><span class="cl">    <span class="c1">// 辺を重みの昇順でソート
 </span></span></span><span class="line"><span class="cl">    <span class="n">sort</span><span class="p">(</span><span class="n">edges</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">edges</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[](</span><span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> 
@@ -287,23 +287,23 @@ Kruskal アルゴリズムの主要なステップ：
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="c-データ構造設計">
+</span></span></code></pre></div><h3 id="c-データ構造設計">
 <a class="header-anchor" href="#c-%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88"></a>
 c データ構造設計
-</h2><h3 id="1-edge-構造体">
+</h3><h4 id="1-edge-構造体">
 <a class="header-anchor" href="#1-edge-%e6%a7%8b%e9%80%a0%e4%bd%93"></a>
 1. <strong>Edge 構造体：</strong>
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 辺の構造体
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 辺の構造体
 </span></span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Edge</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">weight</span><span class="p">;</span><span class="c1">//辺の開始ノード、終了ノード、重み
 </span></span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></div><ul>
 <li><code>Edge</code> 構造体はグラフ内の1つの辺を表し、始点、終点、重みを含む。</li>
 </ul>
-<h3 id="2-unionfind-クラス">
+<h4 id="2-unionfind-クラス">
 <a class="header-anchor" href="#2-unionfind-%e3%82%af%e3%83%a9%e3%82%b9"></a>
 2. <strong>UnionFind クラス：</strong>
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 素集合データ構造の実装
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 素集合データ構造の実装
 </span></span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UnionFind</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
 </span></span><span class="line"><span class="cl">    <span class="n">UnionFind</span><span class="p">(</span><span class="kt">int</span> <span class="n">size</span><span class="p">)</span> <span class="o">:</span> <span class="n">parent</span><span class="p">(</span><span class="n">size</span><span class="p">),</span> <span class="n">rank</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
@@ -347,14 +347,14 @@ c データ構造設計
 <li>コンストラクタでは、<code>rank</code> 配列の初期値はすべて0に設定される。ここで、<code>rank</code> 配列の値はノードの深さではなく、木の高さを近似したものである。各ノードは初期状態で自身のみを含む木と見なされるため、初期高さは0である。</li>
 <li><code>rank</code> 配列では、各要素の値は木の近似高さを表す。結合操作を行う際に、2つの木の高さを比較し、より低い木を高い木に接続することで、木のバランスを保つ。これにより、木の高さが過度に増加するのを防ぎ、素集合データ構造の効率性を維持する。</li>
 </ul>
-<h2 id="d-デバッグプロセス">
+<h3 id="d-デバッグプロセス">
 <a class="header-anchor" href="#d-%e3%83%87%e3%83%90%e3%83%83%e3%82%b0%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9"></a>
 d デバッグプロセス
-</h2><p>デバッグプロセスでは、コードをステップごとに実行し、各ステップの出力、特にソート後の辺、最小全域木の構築プロセス、およびUnion-Findデータ構造の状態を観察できます。中間結果を出力することで、アルゴリズムが期待通りに動作しているかどうかを検証できます。</p>
-<h2 id="e-出力結果">
+</h3><p>デバッグプロセスでは、コードをステップごとに実行し、各ステップの出力、特にソート後の辺、最小全域木の構築プロセス、およびUnion-Findデータ構造の状態を観察できます。中間結果を出力することで、アルゴリズムが期待通りに動作しているかどうかを検証できます。</p>
+<h3 id="e-出力結果">
 <a class="header-anchor" href="#e-%e5%87%ba%e5%8a%9b%e7%b5%90%e6%9e%9c"></a>
 e 出力結果
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="nl">Graph</span><span class="p">:</span>
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="nl">Graph</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl"><span class="mi">0</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">4</span>
 </span></span><span class="line"><span class="cl"><span class="mi">0</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">:</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl"><span class="mi">1</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">:</span> <span class="mi">2</span>
@@ -385,10 +385,10 @@ e 出力結果
 </span></span><span class="line"><span class="cl"><span class="mi">3</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">:</span> <span class="mi">3</span>
 </span></span><span class="line"><span class="cl"><span class="mi">7</span> <span class="o">-</span> <span class="mi">9</span> <span class="o">:</span> <span class="mi">3</span>
 </span></span><span class="line"><span class="cl"><span class="mi">5</span> <span class="o">-</span> <span class="mi">7</span> <span class="o">:</span> <span class="mi">4</span>
-</span></span></code></pre></div><h2 id="f-ソースコード">
+</span></span></code></pre></div><h3 id="f-ソースコード">
 <a class="header-anchor" href="#f-%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89"></a>
 f ソースコード
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="c1">//sort関数を呼び出す
 </span></span></span><span class="line"><span class="cl">
@@ -510,37 +510,37 @@ f ソースコード
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h1 id="dijkstraアルゴリズムによる重み付きグラフの最短経路問題解決">
+</span></span></code></pre></div><h2 id="dijkstraアルゴリズムによる重み付きグラフの最短経路問題解決">
 <a class="header-anchor" href="#dijkstra%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e3%81%ab%e3%82%88%e3%82%8b%e9%87%8d%e3%81%bf%e4%bb%98%e3%81%8d%e3%82%b0%e3%83%a9%e3%83%95%e3%81%ae%e6%9c%80%e7%9f%ad%e7%b5%8c%e8%b7%af%e5%95%8f%e9%a1%8c%e8%a7%a3%e6%b1%ba"></a>
 Dijkstraアルゴリズムによる重み付きグラフの最短経路問題解決
-</h1><h2 id="a-問題分析-1">
+</h2><h3 id="a-問題分析-1">
 <a class="header-anchor" href="#a-%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90-1"></a>
 a 問題分析
-</h2><p>コードは Dijkstra アルゴリズムを実装しており、重み付きグラフにおける単一始点最短経路問題を解決します。与えられた隣接行列でグラフを表現し、指定された開始ノードから、その開始ノードからグラフ内の他のすべてのノードへの最短距離を計算します。</p>
-<h2 id="b-アルゴリズム設計-1">
+</h3><p>コードは Dijkstra アルゴリズムを実装しており、重み付きグラフにおける単一始点最短経路問題を解決します。与えられた隣接行列でグラフを表現し、指定された開始ノードから、その開始ノードからグラフ内の他のすべてのノードへの最短距離を計算します。</p>
+<h3 id="b-アルゴリズム設計-1">
 <a class="header-anchor" href="#b-%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88-1"></a>
 b アルゴリズム設計
-</h2><h3 id="1-初期化">
+</h3><h4 id="1-初期化">
 <a class="header-anchor" href="#1-%e5%88%9d%e6%9c%9f%e5%8c%96"></a>
 1. 初期化
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">graph</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">graph</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl"><span class="n">distances</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">INF</span><span class="p">);</span>
 </span></span></code></pre></div><ul>
 <li><strong>分析：</strong> グラフのノード数 <code>n</code> を取得し、距離配列 <code>distances</code> を初期化します。すべてのノードの距離初期値を無限大（<code>INF</code>）に設定します。</li>
 </ul>
-<h3 id="2-優先度付きキューを構築">
+<h4 id="2-優先度付きキューを構築">
 <a class="header-anchor" href="#2-%e5%84%aa%e5%85%88%e5%ba%a6%e4%bb%98%e3%81%8d%e3%82%ad%e3%83%a5%e3%83%bc%e3%82%92%e6%a7%8b%e7%af%89"></a>
 2. 優先度付きキューを構築
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;&gt;</span> <span class="n">pq</span><span class="p">;</span>
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;&gt;</span> <span class="n">pq</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="n">distances</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="mi">0</span><span class="p">,</span> <span class="n">start</span><span class="p">});</span>
 </span></span></code></pre></div><ul>
 <li><strong>分析：</strong> 優先度付きキュー <code>pq</code> を作成します。要素はノードとその距離の <code>pair</code> です。開始ノードの距離を0に設定し、そのノードを優先度付きキューに追加します。</li>
 </ul>
-<h3 id="3-ループ処理">
+<h4 id="3-ループ処理">
 <a class="header-anchor" href="#3-%e3%83%ab%e3%83%bc%e3%83%97%e5%87%a6%e7%90%86"></a>
 3. ループ処理
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">pq</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">pq</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">u</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">second</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">pq</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">
@@ -554,57 +554,57 @@ b アルゴリズム設計
 </span></span></code></pre></div><ul>
 <li><strong>分析：</strong> 優先度付きキューから現在の起点からの距離が最小のノード <code>u</code> を取り出し、ノード <code>u</code> の隣接ノードを走査します。ノード <code>u</code> を経由して隣接ノード <code>v</code> に到達する距離が既知の距離よりも短い場合、距離値を更新し、新しい距離とノード <code>v</code> をキューに追加します。</li>
 </ul>
-<h3 id="4-繰り返し">
+<h4 id="4-繰り返し">
 <a class="header-anchor" href="#4-%e7%b9%b0%e3%82%8a%e8%bf%94%e3%81%97"></a>
 4. 繰り返し
-</h3><ul>
+</h4><ul>
 <li><strong>分析：</strong> ステップ3を優先度付きキューが空になるまで繰り返します。各ステップで、キュー内のノードは現在の起点からの距離が最小であることが保証され、常に既知の最短経路のノードを拡張するように選択されます。</li>
 </ul>
-<h2 id="c-データ構造設計-1">
+<h3 id="c-データ構造設計-1">
 <a class="header-anchor" href="#c-%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88-1"></a>
 c データ構造設計
-</h2><h3 id="1-graphグラフの隣接行列表現">
+</h3><h4 id="1-graphグラフの隣接行列表現">
 <a class="header-anchor" href="#1-graph%e3%82%b0%e3%83%a9%e3%83%95%e3%81%ae%e9%9a%a3%e6%8e%a5%e8%a1%8c%e5%88%97%e8%a1%a8%e7%8f%be"></a>
 1. Graph（グラフの隣接行列表現）
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">Graph</span><span class="p">;</span>
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">Graph</span><span class="p">;</span>
 </span></span></code></pre></div><ul>
 <li><strong>分析：</strong> <code>Graph</code> は二次元ベクトルで、グラフの隣接行列を表します。<code>graph[u][v]</code> はノード <code>u</code> からノード <code>v</code> への辺の重みを示します。0 は直接接続がないことを意味します。</li>
 </ul>
-<h3 id="2-distancesノードから開始ノードまでの最短距離を格納">
+<h4 id="2-distancesノードから開始ノードまでの最短距離を格納">
 <a class="header-anchor" href="#2-distances%e3%83%8e%e3%83%bc%e3%83%89%e3%81%8b%e3%82%89%e9%96%8b%e5%a7%8b%e3%83%8e%e3%83%bc%e3%83%89%e3%81%be%e3%81%a7%e3%81%ae%e6%9c%80%e7%9f%ad%e8%b7%9d%e9%9b%a2%e3%82%92%e6%a0%bc%e7%b4%8d"></a>
 2. distances（ノードから開始ノードまでの最短距離を格納）
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">distances</span><span class="p">;</span>
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">distances</span><span class="p">;</span>
 </span></span></code></pre></div><ul>
 <li><strong>分析：</strong> <code>distances</code> は一次元ベクトルで、各ノードから開始ノードまでの最短距離を格納するために使用されます。初期値は無限大で、Dijkstraアルゴリズムの実行過程で更新されます。</li>
 </ul>
-<h3 id="3-pq優先度付きキュー">
+<h4 id="3-pq優先度付きキュー">
 <a class="header-anchor" href="#3-pq%e5%84%aa%e5%85%88%e5%ba%a6%e4%bb%98%e3%81%8d%e3%82%ad%e3%83%a5%e3%83%bc"></a>
 3. pq（優先度付きキュー）
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;&gt;</span> <span class="n">pq</span><span class="p">;</span>
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;&gt;</span> <span class="n">pq</span><span class="p">;</span>
 </span></span></code></pre></div><ul>
 <li><strong>分析：</strong> <code>pq</code> は優先度付きキューで、ノードの距離が小さい順に並べ替えるために使用されます。各キュー要素は <code>pair&lt;int, int&gt;</code> で、ノードとその距離を表します。<code>greater&lt;pair&lt;int, int&gt;&gt;</code> で比較ルールを指定し、先頭要素が最小になるようにします。</li>
 </ul>
-<h2 id="d-デバッグプロセス-1">
+<h3 id="d-デバッグプロセス-1">
 <a class="header-anchor" href="#d-%e3%83%87%e3%83%90%e3%83%83%e3%82%b0%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9-1"></a>
 d デバッグプロセス
-</h2><ul>
+</h3><ul>
 <li><code>dijkstra</code> 関数内で <code>cout</code> を使用して中間結果を出力し、各ステップの計算が期待通りであることを確認します。</li>
 <li>グラフに辺がない場合や負の重みの辺がある場合などの境界条件を考慮し、アルゴリズムの堅牢性を確保します。</li>
 <li>複数のテストケースを使用してアルゴリズムの正確性と効率を検証します。</li>
 </ul>
-<h2 id="e-出力結果-1">
+<h3 id="e-出力結果-1">
 <a class="header-anchor" href="#e-%e5%87%ba%e5%8a%9b%e7%b5%90%e6%9e%9c-1"></a>
 e 出力結果
-</h2><p>最終的に各ノードから開始ノードまでの最短距離が出力され、結果は予想通りであり、アルゴリズムが最短経路を正しく計算できたことを示しています。</p>
+</h3><p>最終的に各ノードから開始ノードまでの最短距離が出力され、結果は予想通りであり、アルゴリズムが最短経路を正しく計算できたことを示しています。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Distance</span> <span class="n">from</span> <span class="n">node</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">0</span><span class="o">:</span> <span class="mi">0</span>
 </span></span><span class="line"><span class="cl"><span class="n">Distance</span> <span class="n">from</span> <span class="n">node</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">1</span><span class="o">:</span> <span class="mi">2</span>
 </span></span><span class="line"><span class="cl"><span class="n">Distance</span> <span class="n">from</span> <span class="n">node</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">2</span><span class="o">:</span> <span class="mi">3</span>
 </span></span><span class="line"><span class="cl"><span class="n">Distance</span> <span class="n">from</span> <span class="n">node</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">3</span><span class="o">:</span> <span class="mi">9</span>
 </span></span><span class="line"><span class="cl"><span class="n">Distance</span> <span class="n">from</span> <span class="n">node</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">4</span><span class="o">:</span> <span class="mi">6</span>
-</span></span></code></pre></div><h2 id="f-ソースコード-1">
+</span></span></code></pre></div><h3 id="f-ソースコード-1">
 <a class="header-anchor" href="#f-%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89-1"></a>
 f ソースコード
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;queue&gt;</span><span class="c1">//優先度付きキューを導入
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;climits&gt;</span><span class="c1">//int型の最大値を導入
@@ -678,32 +678,32 @@ f ソースコード
         <hr><p>この記事は2023-12-12に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-12-12です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Code</category></item><item><title>データ構造実機実験レポート5——ハフマン木の符号化と復号、ソート二分木の構築とノード削除</title><link>https://guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A5%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E7%9A%84%E7%BC%96%E7%A0%81%E5%92%8C%E8%AF%91%E7%A0%81%E6%8E%92%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%92%8C%E8%8A%82%E7%82%B9%E5%88%A0%E9%99%A4/</link><pubDate>Tue, 12 Dec 2023 14:54:04 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A5%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E7%9A%84%E7%BC%96%E7%A0%81%E5%92%8C%E8%AF%91%E7%A0%81%E6%8E%92%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%92%8C%E8%8A%82%E7%82%B9%E5%88%A0%E9%99%A4/</guid><description>
 <![CDATA[<h1>データ構造実機実験レポート5——ハフマン木の符号化と復号、ソート二分木の構築とノード削除</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="ハフマン木の符号化と復号化の実装">
+          <h2 id="ハフマン木の符号化と復号化の実装">
 <a class="header-anchor" href="#%e3%83%8f%e3%83%95%e3%83%9e%e3%83%b3%e6%9c%a8%e3%81%ae%e7%ac%a6%e5%8f%b7%e5%8c%96%e3%81%a8%e5%be%a9%e5%8f%b7%e5%8c%96%e3%81%ae%e5%ae%9f%e8%a3%85"></a>
 ハフマン木の符号化と復号化の実装
-</h1><h3 id="a-問題分析">
+</h2><h4 id="a-問題分析">
 <a class="header-anchor" href="#a-%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90"></a>
 a. 問題分析
-</h3><h4 id="目標">
+</h4><h5 id="目標">
 <a class="header-anchor" href="#%e7%9b%ae%e6%a8%99"></a>
 目標：
-</h4><p>ハフマン木の符号化と復号化を実現する。</p>
-<h4 id="問題">
+</h5><p>ハフマン木の符号化と復号化を実現する。</p>
+<h5 id="問題">
 <a class="header-anchor" href="#%e5%95%8f%e9%a1%8c"></a>
 問題：
-</h4><ol>
+</h5><ol>
 <li>ハフマン木の構築プロセスは正しいか？</li>
 <li>ハフマン符号は正しく生成されているか？</li>
 <li>ハフマン符号化と復号化のプロセスは正しく行われているか？</li>
 <li>同じ頻度の文字を正しく処理できるか？</li>
 </ol>
-<h3 id="b-アルゴリズム設計">
+<h4 id="b-アルゴリズム設計">
 <a class="header-anchor" href="#b-%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88"></a>
 b. アルゴリズム設計
-</h3><h4 id="1-ハフマン木の構築">
+</h4><h5 id="1-ハフマン木の構築">
 <a class="header-anchor" href="#1-%e3%83%8f%e3%83%95%e3%83%9e%e3%83%b3%e6%9c%a8%e3%81%ae%e6%a7%8b%e7%af%89"></a>
 1. ハフマン木の構築：
-</h4><ul>
+</h5><ul>
 <li>入力テキストに基づいて文字の頻度を計算する。</li>
 <li>優先度付きキュー（最小ヒープ）を使用してハフマン木を構築する。</li>
 </ul>
@@ -737,10 +737,10 @@ b. アルゴリズム設計
 </span></span><span class="line"><span class="cl">    <span class="c1">// 4. ハフマン木のルートノードを返す
 </span></span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h4 id="2-ハフマン符号の生成">
+</span></span></code></pre></div><h5 id="2-ハフマン符号の生成">
 <a class="header-anchor" href="#2-%e3%83%8f%e3%83%95%e3%83%9e%e3%83%b3%e7%ac%a6%e5%8f%b7%e3%81%ae%e7%94%9f%e6%88%90"></a>
 2. ハフマン符号の生成：
-</h4><ul>
+</h5><ul>
 <li>再帰的にハフマン木を走査し、各文字のハフマン符号を生成する。
 <strong>入力：</strong> ハフマン木のルートノード <code>root</code>、空の文字列 <code>code</code>、空のマッピング <code>huffmanCodes</code>。
 <strong>出力：</strong> 文字からハフマン符号へのマッピング <code>huffmanCodes</code>。</li>
@@ -760,10 +760,10 @@ b. アルゴリズム設計
 </span></span></span><span class="line"><span class="cl">    <span class="n">generateHuffmanCodes</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">code</span> <span class="o">+</span> <span class="s">&#34;0&#34;</span><span class="p">,</span> <span class="n">huffmanCodes</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="n">generateHuffmanCodes</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">code</span> <span class="o">+</span> <span class="s">&#34;1&#34;</span><span class="p">,</span> <span class="n">huffmanCodes</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h4 id="3-ハフマン符号化">
+</span></span></code></pre></div><h5 id="3-ハフマン符号化">
 <a class="header-anchor" href="#3-%e3%83%8f%e3%83%95%e3%83%9e%e3%83%b3%e7%ac%a6%e5%8f%b7%e5%8c%96"></a>
 3. ハフマン符号化：
-</h4><ul>
+</h5><ul>
 <li>入力テキストを走査し、生成されたハフマン符号で各文字を置き換える。
 <strong>入力：</strong> 元のテキスト <code>text</code>、ハフマン符号のマッピング <code>huffmanCodes</code>。
 <strong>出力：</strong> 符号化されたテキスト <code>encodedText</code>。</li>
@@ -776,10 +776,10 @@ b. アルゴリズム設計
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">encodedText</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h4 id="4-ハフマン復号化">
+</span></span></code></pre></div><h5 id="4-ハフマン復号化">
 <a class="header-anchor" href="#4-%e3%83%8f%e3%83%95%e3%83%9e%e3%83%b3%e5%be%a9%e5%8f%b7%e5%8c%96"></a>
 4. ハフマン復号化：
-</h4><ul>
+</h5><ul>
 <li>ハフマン符号を走査し、符号の'0&rsquo;と'1&rsquo;に従ってハフマン木の左部分木または右部分木を訪問し、リーフノードに到達したらその文字を復号結果に追加する。
 <strong>入力：</strong> 符号化されたテキスト <code>encodedText</code>、ハフマン木のルートノード <code>root</code>。
 <strong>出力：</strong> 復号化されたテキスト <code>decodedText</code>。</li>
@@ -806,10 +806,10 @@ b. アルゴリズム設計
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">decodedText</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="c-データ構造設計">
+</span></span></code></pre></div><h4 id="c-データ構造設計">
 <a class="header-anchor" href="#c-%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88"></a>
 c. データ構造設計
-</h3><ul>
+</h4><ul>
 <li><strong>HuffmanNode 構造体：</strong>
 <ul>
 <li>文字、頻度、および左右の子ノードポインタを格納。</li>
@@ -831,10 +831,10 @@ c. データ構造設計
 </ul>
 </li>
 </ul>
-<h3 id="d-デバッグプロセス">
+<h4 id="d-デバッグプロセス">
 <a class="header-anchor" href="#d-%e3%83%87%e3%83%90%e3%83%83%e3%82%b0%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9"></a>
 d. デバッグプロセス
-</h3><ol>
+</h4><ol>
 <li>
 <p><strong>ハフマン木の構築：</strong></p>
 <ul>
@@ -856,10 +856,10 @@ d. デバッグプロセス
 </ul>
 </li>
 </ol>
-<h3 id="e-出力結果">
+<h4 id="e-出力結果">
 <a class="header-anchor" href="#e-%e5%87%ba%e5%8a%9b%e7%b5%90%e6%9e%9c"></a>
 e. 出力結果
-</h3><p>プログラムを実行し、テストケース（例: &ldquo;zhubingqianwoxihuanni&rdquo; を入力）を使用して出力結果を確認。出力にはハフマン符号、符号化されたテキスト、復号化されたテキストが含まれ、その正しさを検証する。
+</h4><p>プログラムを実行し、テストケース（例: &ldquo;zhubingqianwoxihuanni&rdquo; を入力）を使用して出力結果を確認。出力にはハフマン符号、符号化されたテキスト、復号化されたテキストが含まれ、その正しさを検証する。
 <img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/1993178519.png" alt="Pasted image 20231110154039.png"></p>
 <p>以下は入力textが&quot;hello world&quot;の場合の出力結果</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">Huffman Codes:
@@ -874,10 +874,10 @@ e. 出力結果
 </span></span><span class="line"><span class="cl"> : 1111
 </span></span><span class="line"><span class="cl">Encoded Text: 111000110010100010010010110111010010011110111100
 </span></span><span class="line"><span class="cl">Decoded Text: hello world
-</span></span></code></pre></div><h3 id="f-ソースコード">
+</span></span></code></pre></div><h4 id="f-ソースコード">
 <a class="header-anchor" href="#f-%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89"></a>
 f. ソースコード
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;queue&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;map&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
@@ -1010,21 +1010,21 @@ f. ソースコード
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="まとめ">
+</span></span></code></pre></div><h4 id="まとめ">
 <a class="header-anchor" href="#%e3%81%be%e3%81%a8%e3%82%81"></a>
 まとめ
-</h3><p>テストを通じて、プログラムがハフマン木の構築、符号化、復号化機能を正しく実装していることを確認。特に同じ頻度の文字の処理に注意し、その相対順序が変わらないことを確認。ハフマン木の構築時、最小ヒープを使用してノードを頻度の昇順で配置。</p>
-<h2 id="a-問題分析-1">
+</h4><p>テストを通じて、プログラムがハフマン木の構築、符号化、復号化機能を正しく実装していることを確認。特に同じ頻度の文字の処理に注意し、その相対順序が変わらないことを確認。ハフマン木の構築時、最小ヒープを使用してノードを頻度の昇順で配置。</p>
+<h3 id="a-問題分析-1">
 <a class="header-anchor" href="#a-%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90-1"></a>
 a 問題分析
-</h2><p>本実験の目標は、ソート二分木に基づくノードの挿入、中間順走査、木全体の削除、および単一ノードの削除機能を実装することである。具体的な要求には、<code>struct</code>を使用してノードを実装し、ノードの挿入と削除機能を実装することが含まれる。</p>
-<h2 id="b-アルゴリズム設計-1">
+</h3><p>本実験の目標は、ソート二分木に基づくノードの挿入、中間順走査、木全体の削除、および単一ノードの削除機能を実装することである。具体的な要求には、<code>struct</code>を使用してノードを実装し、ノードの挿入と削除機能を実装することが含まれる。</p>
+<h3 id="b-アルゴリズム設計-1">
 <a class="header-anchor" href="#b-%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88-1"></a>
 b アルゴリズム設計
-</h2><h3 id="ノード挿入アルゴリズム設計">
+</h3><h4 id="ノード挿入アルゴリズム設計">
 <a class="header-anchor" href="#%e3%83%8e%e3%83%bc%e3%83%89%e6%8c%bf%e5%85%a5%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88"></a>
 ノード挿入アルゴリズム設計
-</h3><p>ノード挿入のアルゴリズムは再帰的アルゴリズムです。ノード値と現在のノード値を比較し、左部分木または右部分木に挿入します。現在の部分木が空の場合、新しいノードを作成して返します。そうでない場合、挿入関数を再帰的に呼び出します。</p>
+</h4><p>ノード挿入のアルゴリズムは再帰的アルゴリズムです。ノード値と現在のノード値を比較し、左部分木または右部分木に挿入します。現在の部分木が空の場合、新しいノードを作成して返します。そうでない場合、挿入関数を再帰的に呼び出します。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">insert</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
@@ -1038,10 +1038,10 @@ b アルゴリズム設計
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="ソート二分木構築アルゴリズム設計">
+</span></span></code></pre></div><h4 id="ソート二分木構築アルゴリズム設計">
 <a class="header-anchor" href="#%e3%82%bd%e3%83%bc%e3%83%88%e4%ba%8c%e5%88%86%e6%9c%a8%e6%a7%8b%e7%af%89%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88"></a>
 ソート二分木構築アルゴリズム設計
-</h3><p>ソート二分木を構築するアルゴリズムでは、ノード挿入アルゴリズムを使用します。入力シーケンスを走査し、各要素に対してノード挿入関数を呼び出し、ルートノードを更新し続けることで、最終的にソート二分木を得ます。</p>
+</h4><p>ソート二分木を構築するアルゴリズムでは、ノード挿入アルゴリズムを使用します。入力シーケンスを走査し、各要素に対してノード挿入関数を呼び出し、ルートノードを更新し続けることで、最終的にソート二分木を得ます。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">buildTree</span><span class="p">(</span><span class="kt">int</span> <span class="n">input</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
@@ -1051,10 +1051,10 @@ b アルゴリズム設計
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="中間順走査アルゴリズム設計">
+</span></span></code></pre></div><h4 id="中間順走査アルゴリズム設計">
 <a class="header-anchor" href="#%e4%b8%ad%e9%96%93%e9%a0%86%e8%b5%b0%e6%9f%bb%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88"></a>
 中間順走査アルゴリズム設計
-</h3><p>中間順走査アルゴリズムは、ソート二分木のノード値を出力し、木の構築が正しいことを検証するために使用されます。</p>
+</h4><p>中間順走査アルゴリズムは、ソート二分木のノード値を出力し、木の構築が正しいことを検証するために使用されます。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">inorderTraversal</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">inorderTraversal</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
@@ -1062,10 +1062,10 @@ b アルゴリズム設計
 </span></span><span class="line"><span class="cl">        <span class="n">inorderTraversal</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="木全体削除アルゴリズム設計">
+</span></span></code></pre></div><h4 id="木全体削除アルゴリズム設計">
 <a class="header-anchor" href="#%e6%9c%a8%e5%85%a8%e4%bd%93%e5%89%8a%e9%99%a4%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88"></a>
 木全体削除アルゴリズム設計
-</h3><p>木全体を削除するアルゴリズムは再帰的アルゴリズムです。削除関数を再帰的に呼び出し、左部分木と右部分木を削除した後、現在のノードを削除します。</p>
+</h4><p>木全体を削除するアルゴリズムは再帰的アルゴリズムです。削除関数を再帰的に呼び出し、左部分木と右部分木を削除した後、現在のノードを削除します。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">deleteTree</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">deleteTree</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
@@ -1073,10 +1073,10 @@ b アルゴリズム設計
 </span></span><span class="line"><span class="cl">        <span class="k">delete</span> <span class="n">node</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="単一ノード削除アルゴリズム設計">
+</span></span></code></pre></div><h4 id="単一ノード削除アルゴリズム設計">
 <a class="header-anchor" href="#%e5%8d%98%e4%b8%80%e3%83%8e%e3%83%bc%e3%83%89%e5%89%8a%e9%99%a4%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88"></a>
 単一ノード削除アルゴリズム設計
-</h3><p>単一ノードを削除するアルゴリズムは再帰的アルゴリズムです。ノード値と削除対象の値を比較し、左部分木または右部分木で削除を行います。一致するノードが見つかった場合、3つのケース（子ノードがない場合、子ノードが1つの場合、子ノードが2つの場合）に分けて処理します。</p>
+</h4><p>単一ノードを削除するアルゴリズムは再帰的アルゴリズムです。ノード値と削除対象の値を比較し、左部分木または右部分木で削除を行います。一致するノードが見つかった場合、3つのケース（子ノードがない場合、子ノードが1つの場合、子ノードが2つの場合）に分けて処理します。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">deleteNode</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
@@ -1123,35 +1123,35 @@ b アルゴリズム設計
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="c-データ構造設計-1">
+</span></span></code></pre></div><h4 id="c-データ構造設計-1">
 <a class="header-anchor" href="#c-%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88-1"></a>
 c データ構造設計
-</h3><h4 id="ノード構造">
+</h4><h5 id="ノード構造">
 <a class="header-anchor" href="#%e3%83%8e%e3%83%bc%e3%83%89%e6%a7%8b%e9%80%a0"></a>
 ノード構造
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">TreeNode</span> <span class="p">{</span>
+</h5><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">TreeNode</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">left</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">right</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="p">(</span><span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="o">:</span> <span class="n">data</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="n">left</span><span class="p">(</span><span class="k">nullptr</span><span class="p">),</span> <span class="n">right</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span> <span class="p">{}</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></div><h2 id="d-デバッグプロセス-1">
+</span></span></code></pre></div><h3 id="d-デバッグプロセス-1">
 <a class="header-anchor" href="#d-%e3%83%87%e3%83%90%e3%83%83%e3%82%b0%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9-1"></a>
 d デバッグプロセス
-</h2><p>デバッグプロセスでは、まず <code>deleteSingleNode</code> 関数が正しく実行されることを確認します。特定のノードを削除した後、二分探索木のノード値を中順走査で検証し、削除操作の正確性を確認します。最後に、出力を通じて実装全体の正確性を検証します。</p>
-<h2 id="e-出力結果-1">
+</h3><p>デバッグプロセスでは、まず <code>deleteSingleNode</code> 関数が正しく実行されることを確認します。特定のノードを削除した後、二分探索木のノード値を中順走査で検証し、削除操作の正確性を確認します。最後に、出力を通じて実装全体の正確性を検証します。</p>
+<h3 id="e-出力結果-1">
 <a class="header-anchor" href="#e-%e5%87%ba%e5%8a%9b%e7%b5%90%e6%9e%9c-1"></a>
 e 出力結果
-</h2><p>入力シーケンス <code>7, 5, 9, 2, 5, 2, 6, 3, 7, 0</code> に対する実験の出力結果は以下の通りです：</p>
+</h3><p>入力シーケンス <code>7, 5, 9, 2, 5, 2, 6, 3, 7, 0</code> に対する実験の出力結果は以下の通りです：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ソート済み二分木: 0 2 2 3 5 5 6 7 7 9 
 </span></span><span class="line"><span class="cl">ノード 3 を削除後のソート済み二分木: 0 2 2 5 5 6 7 7 9 
 </span></span><span class="line"><span class="cl">単一ノード 5 を削除後のソート済み二分木: 0 2 2 6 7 7 9 
 </span></span></code></pre></div><p>この出力結果は、単一ノードを削除する機能が追加されていることを示し、ノード 5 を削除後に中間順走査でソート済み二分木のノード値を出力することで、削除操作の正しさを検証しています。</p>
-<h2 id="f-ソースコード-1">
+<h3 id="f-ソースコード-1">
 <a class="header-anchor" href="#f-%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89-1"></a>
 f ソースコード
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
@@ -1296,124 +1296,124 @@ f ソースコード
         <hr><p>この記事は2023-12-12に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-12-12です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Code</category></item><item><title>データ構造実機実験レポート4——二分木の構築（完全二分木BFS結果）、保存（順序保存とリンク保存）、走査（BFSとDFS）</title><link>https://guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/</link><pubDate>Tue, 12 Dec 2023 14:43:54 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91bfs%E7%BB%93%E6%9E%9C%E5%AD%98%E5%82%A8%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E9%81%8D%E5%8E%86bfs%E4%B8%8Edfs/</guid><description>
 <![CDATA[<h1>データ構造実機実験レポート4——二分木の構築（完全二分木BFS結果）、保存（順序保存とリンク保存）、走査（BFSとDFS）</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
         
-          <h2 id="a-問題分析">
+          <h3 id="a-問題分析">
 <a class="header-anchor" href="#a-%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90"></a>
 a. 問題分析：
-</h2><p>この問題では、入力された文字シーケンスに基づいて二分木を作成し、2つの異なる保存方式を実装する必要があります：順序保存とリンク保存です。入力された文字シーケンスにおいて、文字 &lsquo;@&rsquo; は空のノードを表します。</p>
-<h2 id="b-アルゴリズム設計">
+</h3><p>この問題では、入力された文字シーケンスに基づいて二分木を作成し、2つの異なる保存方式を実装する必要があります：順序保存とリンク保存です。入力された文字シーケンスにおいて、文字 &lsquo;@&rsquo; は空のノードを表します。</p>
+<h3 id="b-アルゴリズム設計">
 <a class="header-anchor" href="#b-%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88"></a>
 b. アルゴリズム設計：
-</h2><h2 id="順次記憶方式">
+</h3><h3 id="順次記憶方式">
 <a class="header-anchor" href="#%e9%a0%86%e6%ac%a1%e8%a8%98%e6%86%b6%e6%96%b9%e5%bc%8f"></a>
 順次記憶方式：
-</h2><ol>
+</h3><ol>
 <li>順次記憶の二分木を表現するために配列を初期化します。</li>
 <li>入力文字列を順番に走査し、文字を配列に順次記憶します。</li>
 <li>配列のインデックスを使用してノードの位置を表現できます。親ノードのインデックスを <code>i</code> と仮定すると、左子ノードのインデックスは <code>2*i + 1</code>、右子ノードのインデックスは <code>2*i + 2</code> となります。</li>
 <li>&lsquo;@&rsquo; 文字で表される空ノードはスキップし、実際のデータのみを記憶します。</li>
 </ol>
-<h2 id="連鎖記憶方式">
+<h3 id="連鎖記憶方式">
 <a class="header-anchor" href="#%e9%80%a3%e9%8e%96%e8%a8%98%e6%86%b6%e6%96%b9%e5%bc%8f"></a>
 連鎖記憶方式：
-</h2><ol>
+</h3><ol>
 <li>二分木のノードを表すために <code>TreeNode</code> 構造体を作成し、データ、左部分木ポインタ、右部分木ポインタを含めます。</li>
 <li>二分木の構築を補助するためにキューデータ構造を使用します。ルートノードを初期化し、それをキューに入れます。</li>
 <li>入力文字シーケンスを走査し、毎回キューからノードを取り出し、そのノードに対して左子ノードと右子ノードを作成し、それらをキューに入れます。</li>
 </ol>
-<h2 id="c-データ構造設計">
+<h3 id="c-データ構造設計">
 <a class="header-anchor" href="#c-%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88"></a>
 c. データ構造設計：
-</h2><h2 id="順次記憶方式-1">
+</h3><h3 id="順次記憶方式-1">
 <a class="header-anchor" href="#%e9%a0%86%e6%ac%a1%e8%a8%98%e6%86%b6%e6%96%b9%e5%bc%8f-1"></a>
 順次記憶方式：
-</h2><ul>
+</h3><ul>
 <li><code>struct TreeNode</code> は二分木のノードを表すために使用されます。</li>
 <li>配列は二分木ノードを順次記憶するために使用されます。</li>
 </ul>
-<h2 id="連鎖記憶方式-1">
+<h3 id="連鎖記憶方式-1">
 <a class="header-anchor" href="#%e9%80%a3%e9%8e%96%e8%a8%98%e6%86%b6%e6%96%b9%e5%bc%8f-1"></a>
 連鎖記憶方式：
-</h2><ul>
+</h3><ul>
 <li><code>struct TreeNode</code> は二分木のノードを表すために使用され、データ、左サブツリーへのポインタ、右サブツリーへのポインタを含みます。</li>
 <li>キュー（待ち行列）データ構造は、二分木の構築を補助するために使用されます。</li>
 </ul>
-<h2 id="d-デバッグプロセス">
+<h3 id="d-デバッグプロセス">
 <a class="header-anchor" href="#d-%e3%83%87%e3%83%90%e3%83%83%e3%82%b0%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9"></a>
 d. デバッグプロセス：
-</h2><ul>
+</h3><ul>
 <li>プログラムを実行し、入力例に従って文字を入力して二分木を構築します。</li>
 <li>入力文字の順序が正しいことを確認し、空ノードは &lsquo;@&rsquo; で表します。</li>
 <li>リンク方式の保存では &lsquo;#&rsquo; で入力完了を表します</li>
 <li>作成された二分木の順序保存とリンク保存が正しいことを検証します。</li>
 </ul>
-<h2 id="e-出力結果">
+<h3 id="e-出力結果">
 <a class="header-anchor" href="#e-%e5%87%ba%e5%8a%9b%e7%b5%90%e6%9e%9c"></a>
 e. 出力結果：
-</h2><ul>
+</h3><ul>
 <li>出力結果には、順序記憶された二分木ノードデータと連鎖記憶された二分木の走査結果が含まれます。</li>
 </ul>
-<h1 id="2-深さ優先走査アルゴリズムの実装">
+<h2 id="2-深さ優先走査アルゴリズムの実装">
 <a class="header-anchor" href="#2-%e6%b7%b1%e3%81%95%e5%84%aa%e5%85%88%e8%b5%b0%e6%9f%bb%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e3%81%ae%e5%ae%9f%e8%a3%85"></a>
 2. 深さ優先走査アルゴリズムの実装
-</h1><h2 id="a-問題分析-1">
+</h2><h3 id="a-問題分析-1">
 <a class="header-anchor" href="#a-%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90-1"></a>
 a. 問題分析：
-</h2><p>この問題では、深さ優先探索アルゴリズム（前順走査、中順走査、後順走査）を実装する必要があります。順序記憶方式の二分木に対して、対応する走査アルゴリズムを実装する必要があります。</p>
-<h2 id="b-アルゴリズム設計-1">
+</h3><p>この問題では、深さ優先探索アルゴリズム（前順走査、中順走査、後順走査）を実装する必要があります。順序記憶方式の二分木に対して、対応する走査アルゴリズムを実装する必要があります。</p>
+<h3 id="b-アルゴリズム設計-1">
 <a class="header-anchor" href="#b-%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88-1"></a>
 b. アルゴリズム設計：
-</h2><h2 id="前順走査">
+</h3><h3 id="前順走査">
 <a class="header-anchor" href="#%e5%89%8d%e9%a0%86%e8%b5%b0%e6%9f%bb"></a>
 前順走査：
-</h2><ul>
+</h3><ul>
 <li>根ノードを訪問し、その後左部分木と右部分木を再帰的に走査します。</li>
 </ul>
-<h2 id="中順走査">
+<h3 id="中順走査">
 <a class="header-anchor" href="#%e4%b8%ad%e9%a0%86%e8%b5%b0%e6%9f%bb"></a>
 中順走査：
-</h2><ul>
+</h3><ul>
 <li>まず左部分木を再帰的に走査し、次に根ノードにアクセスし、最後に右部分木を再帰的に走査します。</li>
 </ul>
-<h2 id="後順走査ポストオーダー">
+<h3 id="後順走査ポストオーダー">
 <a class="header-anchor" href="#%e5%be%8c%e9%a0%86%e8%b5%b0%e6%9f%bb%e3%83%9d%e3%82%b9%e3%83%88%e3%82%aa%e3%83%bc%e3%83%80%e3%83%bc"></a>
 後順走査（ポストオーダー）：
-</h2><ul>
+</h3><ul>
 <li>まず左部分木と右部分木を再帰的に走査し、その後で根ノードにアクセスします。</li>
 </ul>
-<h2 id="c-データ構造設計-1">
+<h3 id="c-データ構造設計-1">
 <a class="header-anchor" href="#c-%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88-1"></a>
 c. データ構造設計：
-</h2><ul>
+</h3><ul>
 <li>再帰アルゴリズム。</li>
 </ul>
-<h1 id="3-幅優先探索アルゴリズムの実装">
+<h2 id="3-幅優先探索アルゴリズムの実装">
 <a class="header-anchor" href="#3-%e5%b9%85%e5%84%aa%e5%85%88%e6%8e%a2%e7%b4%a2%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e3%81%ae%e5%ae%9f%e8%a3%85"></a>
 3. 幅優先探索アルゴリズムの実装
-</h1><h2 id="a-問題分析-2">
+</h2><h3 id="a-問題分析-2">
 <a class="header-anchor" href="#a-%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90-2"></a>
 a. 問題分析：
-</h2><p>この問題では、幅優先探索アルゴリズム（レベル順探索）を実装する必要があります。リンク方式で保存された二分木に対して、対応する探索アルゴリズムを実装します。</p>
-<h2 id="b-アルゴリズム設計-2">
+</h3><p>この問題では、幅優先探索アルゴリズム（レベル順探索）を実装する必要があります。リンク方式で保存された二分木に対して、対応する探索アルゴリズムを実装します。</p>
+<h3 id="b-アルゴリズム設計-2">
 <a class="header-anchor" href="#b-%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88-2"></a>
 b. アルゴリズム設計：
-</h2><ul>
+</h3><ul>
 <li>キュー（待ち行列）データ構造を使用し、ルートノードから開始して、ノードを層ごとにキューに追加し、順番にキュー内のノードにアクセスします。</li>
 </ul>
-<h2 id="c-データータ構造設計">
+<h3 id="c-データータ構造設計">
 <a class="header-anchor" href="#c-%e3%83%87%e3%83%bc%e3%82%bf%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88"></a>
 c. データータ構造設計：
-</h2><ul>
+</h3><ul>
 <li>キュー（待ち行列）データ構造。</li>
 </ul>
 <p>申し訳ありませんが、あなたの要求を理解しました。以下に具体的なサンプル <code>abc@@@d@ef@</code> と <code>abc@@@d@ef@#</code> を使用してデバッグプロセスと出力結果を詳細に説明し、提供されたコードと共に解説します。</p>
-<h1 id="サンプル">
+<h2 id="サンプル">
 <a class="header-anchor" href="#%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab"></a>
 サンプル
-</h1><p><code>abc@@@d@ef@</code>，<code>abc@@@d@ef@#</code></p>
-<h2 id="デバッグプロセス">
+</h2><p><code>abc@@@d@ef@</code>，<code>abc@@@d@ef@#</code></p>
+<h3 id="デバッグプロセス">
 <a class="header-anchor" href="#%e3%83%87%e3%83%90%e3%83%83%e3%82%b0%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9"></a>
 デバッグプロセス：
-</h2><ol>
+</h3><ol>
 <li>順次記憶方式の使用：
 <ul>
 <li>順番に文字 &lsquo;a&rsquo;、&lsquo;b&rsquo;、&lsquo;c&rsquo;、&rsquo;@&rsquo;、&rsquo;@&rsquo;、&rsquo;@&rsquo;、&rsquo;d&rsquo;、&rsquo;@&rsquo;、&rsquo;e&rsquo;、&lsquo;f&rsquo; を読み込む。</li>
@@ -1434,10 +1434,10 @@ c. データータ構造設計：
 </ul>
 </li>
 </ol>
-<h2 id="出力結果">
+<h3 id="出力結果">
 <a class="header-anchor" href="#%e5%87%ba%e5%8a%9b%e7%b5%90%e6%9e%9c"></a>
 出力結果：
-</h2><ol>
+</h3><ol>
 <li>順次記憶方式：
 <ul>
 <li>先行順走査結果： <code>a b d c e f</code></li>
@@ -1454,13 +1454,13 @@ c. データータ構造設計：
 </ul>
 </li>
 </ol>
-<h1 id="ソースコード">
+<h2 id="ソースコード">
 <a class="header-anchor" href="#%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89"></a>
 ソースコード
-</h1><h2 id="順次記憶">
+</h2><h3 id="順次記憶">
 <a class="header-anchor" href="#%e9%a0%86%e6%ac%a1%e8%a8%98%e6%86%b6"></a>
 順次記憶
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
 </span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="cp">#define MAX_NODES 1000  </span><span class="c1">// 最大ノード数
 </span></span></span><span class="line"><span class="cl"><span class="c1">// 二分木ノード構造を定義
@@ -1570,10 +1570,10 @@ c. データータ構造設計：
 </span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="連鎖記憶域">
+</span></span></code></pre></div><h3 id="連鎖記憶域">
 <a class="header-anchor" href="#%e9%80%a3%e9%8e%96%e8%a8%98%e6%86%b6%e5%9f%9f"></a>
 連鎖記憶域
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
 </span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="c1">// 二分木ノード構造
 </span></span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">TreeNode</span> <span class="p">{</span>
@@ -1670,46 +1670,46 @@ c. データータ構造設計：
         <hr><p>この記事は2023-12-12に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-12-12です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Code</category></item><item><title>データ構造実機実験レポート3——KMPアルゴリズムを用いた文字列検索</title><link>https://guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A3kmp%E7%AE%97%E6%B3%95%E7%94%A8%E4%BA%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2/</link><pubDate>Tue, 12 Dec 2023 14:42:01 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A3kmp%E7%AE%97%E6%B3%95%E7%94%A8%E4%BA%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2/</guid><description>
 <![CDATA[<h1>データ構造実機実験レポート3——KMPアルゴリズムを用いた文字列検索</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="実験目的">
+          <h2 id="実験目的">
 <a class="header-anchor" href="#%e5%ae%9f%e9%a8%93%e7%9b%ae%e7%9a%84"></a>
 <strong>実験目的：</strong>
-</h1><p>本実験は、KMPアルゴリズムの実装を分析・テストし、文字列検索への応用を研究することを目的とする。</p>
-<h1 id="実験内容">
+</h2><p>本実験は、KMPアルゴリズムの実装を分析・テストし、文字列検索への応用を研究することを目的とする。</p>
+<h2 id="実験内容">
 <a class="header-anchor" href="#%e5%ae%9f%e9%a8%93%e5%86%85%e5%ae%b9"></a>
 <strong>実験内容：</strong>
-</h1><h2 id="a-問題分析">
+</h2><h3 id="a-問題分析">
 <a class="header-anchor" href="#a-%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90"></a>
 <strong>a 問題分析：</strong>
-</h2><ul>
+</h3><ul>
 <li>最長接頭辞接尾辞マッチングテーブル（LPS配列）を構築し、検索効率を向上させる方法は？</li>
 <li>テキスト文字列でマッチングを実行し、LPS配列を利用して不要な文字比較を回避する方法は？</li>
 <li>パターン文字列の検索を実現するアルゴリズムを設計する方法は？</li>
 </ul>
-<h2 id="b-アルゴリズム設計">
+<h3 id="b-アルゴリズム設計">
 <a class="header-anchor" href="#b-%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88"></a>
 <strong>b アルゴリズム設計：</strong>
-</h2><p>KMPアルゴリズムの設計には以下の主要なステップが含まれる：</p>
+</h3><p>KMPアルゴリズムの設計には以下の主要なステップが含まれる：</p>
 <ul>
 <li>LPS配列の構築：<code>computeLPSArray</code>関数を使用してパターン文字列のLPS配列を計算し、各位置の接頭辞と接尾辞の最長マッチング長を示す。</li>
 <li>テキストでのマッチング実行：<code>KMPSearch</code>関数を使用してテキスト文字列内でパターン文字列のマッチングを実行する。LPS配列を利用してインテリジェントにバックトラックし、検索効率を向上させる。</li>
 </ul>
-<h2 id="c-データ構造設計">
+<h3 id="c-データ構造設計">
 <a class="header-anchor" href="#c-%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88"></a>
 <strong>c データ構造設計：</strong>
-</h2><p>本実験では以下のデータ構造を使用した：</p>
+</h3><p>本実験では以下のデータ構造を使用した：</p>
 <ul>
 <li>文字列：テキスト文字列とパターン文字列を表す。</li>
 <li>ベクトル（vector）：LPS配列を格納する。</li>
 <li>整数変数：マッチングプロセス中のインデックスを表す。</li>
 </ul>
-<h2 id="d-デバッグ過程">
+<h3 id="d-デバッグ過程">
 <a class="header-anchor" href="#d-%e3%83%87%e3%83%90%e3%83%83%e3%82%b0%e9%81%8e%e7%a8%8b"></a>
 <strong>d デバッグ過程：</strong>
-</h2><p>コードの作成とテスト中に、論理エラーや境界条件などの問題が発生した。これらの問題はアルゴリズムの正確性と性能を確保するために注意深くデバッグする必要があった。段階的なデバッグと出力結果の確認を通じて、コードがテキスト内のパターン文字列のマッチング位置を正しく見つけられることを確認した。</p>
-<h2 id="e-出力結果">
+</h3><p>コードの作成とテスト中に、論理エラーや境界条件などの問題が発生した。これらの問題はアルゴリズムの正確性と性能を確保するために注意深くデバッグする必要があった。段階的なデバッグと出力結果の確認を通じて、コードがテキスト内のパターン文字列のマッチング位置を正しく見つけられることを確認した。</p>
+<h3 id="e-出力結果">
 <a class="header-anchor" href="#e-%e5%87%ba%e5%8a%9b%e7%b5%90%e6%9e%9c"></a>
 <strong>e 出力結果：</strong>
-</h2><p>以下はいくつかの出力例である：</p>
+</h3><p>以下はいくつかの出力例である：</p>
 <ul>
 <li>テキスト文字列が&quot;ABABDABACDABABCABAB&quot;、パターン文字列が&quot;ABABCABAB&quot;の場合、KMPアルゴリズムはテキスト内のマッチング位置を見つけた：</li>
 </ul>
@@ -1717,10 +1717,10 @@ c. データータ構造設計：
 </span></span></code></pre></div><ul>
 <li>ユーザーが入力したテキスト文字列とパターン文字列の場合、KMPアルゴリズムはユーザー提供のテキスト内でパターンを検索し、マッチング位置を出力する。</li>
 </ul>
-<h2 id="f-ソースコード">
+<h3 id="f-ソースコード">
 <a class="header-anchor" href="#f-%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89"></a>
 f ソースコード：
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
 </span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// マッチング文字列の最長接頭辞接尾辞マッチングテーブル（LPS配列）を計算
@@ -1803,51 +1803,51 @@ f ソースコード：
         <hr><p>この記事は2023-12-12に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-12-12です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Code</category></item><item><title>データ構造実機実験レポート2——疎行列乗算</title><link>https://guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A2%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</link><pubDate>Tue, 12 Dec 2023 14:38:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A2%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</guid><description>
 <![CDATA[<h1>データ構造実機実験レポート2——疎行列乗算</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="問題分析">
+          <h2 id="問題分析">
 <a class="header-anchor" href="#%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90"></a>
 問題分析
-</h1><p>本実験の主な目標は、2つの疎行列AとBを乗算し、結果行列Cを出力する疎行列乗算アルゴリズムを開発することです。このアルゴリズムでは、疎行列は3項組で表現され、ユーザーは異なる行列データを複数回入力し、それらの積を計算できます。</p>
-<h1 id="アルゴリズム設計">
+</h2><p>本実験の主な目標は、2つの疎行列AとBを乗算し、結果行列Cを出力する疎行列乗算アルゴリズムを開発することです。このアルゴリズムでは、疎行列は3項組で表現され、ユーザーは異なる行列データを複数回入力し、それらの積を計算できます。</p>
+<h2 id="アルゴリズム設計">
 <a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88"></a>
 アルゴリズム設計
-</h1><p>疎行列乗算アルゴリズムの設計は以下の通りです：</p>
+</h2><p>疎行列乗算アルゴリズムの設計は以下の通りです：</p>
 <ul>
 <li>行列を表現するために<code>struct</code>構造体を使用し、行列の行数、列数、疎行列要素の数、およびノード情報を格納する配列を含みます。</li>
 <li>入力関数<code>input</code>は行列の3項組表現を取得し、入力の合法性をチェックしてからメモリ内の構造体に格納します。</li>
 <li>出力関数<code>output</code>は疎行列を標準的な行列形式で表示し、ユーザーが確認できるようにします。</li>
 <li>行列乗算関数<code>multiplier</code>は2つの入力行列AとBを受け取り、それらの積を計算して結果を行列Cに格納します。</li>
 </ul>
-<h1 id="データ構造設計">
+<h2 id="データ構造設計">
 <a class="header-anchor" href="#%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88"></a>
 データ構造設計
-</h1><ul>
+</h2><ul>
 <li><code>matrix</code>構造体には、行数<code>m</code>、列数<code>n</code>、疎行列要素の数<code>L</code>、およびノード情報を格納する<code>Ma</code>配列が含まれます。</li>
 <li><code>node</code>構造体は疎行列の各非ゼロ要素を表し、行インデックス<code>i</code>、列インデックス<code>j</code>、および要素の値<code>data</code>を含みます。</li>
 </ul>
-<h1 id="デバッグ過程">
+<h2 id="デバッグ過程">
 <a class="header-anchor" href="#%e3%83%87%e3%83%90%e3%83%83%e3%82%b0%e9%81%8e%e7%a8%8b"></a>
 デバッグ過程
-</h1><ul>
+</h2><ul>
 <li>コードには、入力が合法かどうかのチェック、メモリ割り当てが成功したかどうかのチェック、行列乗算が合法かどうかのチェックなど、いくつかのエラー処理メカニズムがあります。</li>
 <li>疎行列データを入力する際、ユーザーはエラーメッセージを受け取り、行列のサイズに合致するデータを再入力するよう求められます。</li>
 <li>疎行列乗算アルゴリズムでは、行列の列と行が一致するかどうかがチェックされ、乗算可能かどうかが確認されます。</li>
 </ul>
-<h1 id="出力結果">
+<h2 id="出力結果">
 <a class="header-anchor" href="#%e5%87%ba%e5%8a%9b%e7%b5%90%e6%9e%9c"></a>
 出力結果
-</h1><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/1074652966.png" alt="Pasted image 20231020161652.png">
+</h2><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/1074652966.png" alt="Pasted image 20231020161652.png">
 Matlab検証結果：
 <img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/4226980695.png" alt="Pasted image 20231020161908.png">
 <img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/2855363853.png" alt="Pasted image 20231020161929.png"></p>
 <p>ユーザーは2つの行列AとBを入力でき、プログラムはそれらの積を計算して結果行列Cを出力します。ユーザーは疎行列乗算計算を続けるか、プログラムを終了するかを選択できます。プログラムはユーザーが終了を選択するまで実行され続けます。</p>
-<h1 id="まとめ">
+<h2 id="まとめ">
 <a class="header-anchor" href="#%e3%81%be%e3%81%a8%e3%82%81"></a>
 まとめ
-</h1><p>全体として、この実験は疎行列の乗算操作を成功裏に実装し、入力行列データが有効であることを保証するためのユーザーフレンドリーなインターフェースとエラー処理メカニズムを提供しました。そして、2つの疎行列の積を正しく計算し、結果を標準的な行列形式で出力しました。</p>
-<h1 id="ソースコード">
+</h2><p>全体として、この実験は疎行列の乗算操作を成功裏に実装し、入力行列データが有効であることを保証するためのユーザーフレンドリーなインターフェースとエラー処理メカニズムを提供しました。そして、2つの疎行列の積を正しく計算し、結果を標準的な行列形式で出力しました。</p>
+<h2 id="ソースコード">
 <a class="header-anchor" href="#%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89"></a>
 ソースコード
-</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
 </span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="cp">#define MAX 1000
 </span></span></span><span class="line"><span class="cl">
@@ -1975,17 +1975,17 @@ Matlab検証結果：
         <hr><p>この記事は2023-12-12に<a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-12-12です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Code</category></item><item><title>データ構造実習レポート1——フィボナッチ数列、部分集合分割問題</title><link>https://guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1fibonacci%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86%E5%AD%90%E9%9B%86%E9%97%AE%E9%A2%98/</link><pubDate>Tue, 12 Dec 2023 14:31:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1fibonacci%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86%E5%AD%90%E9%9B%86%E9%97%AE%E9%A2%98/</guid><description>
 <![CDATA[<h1>データ構造実習レポート1——フィボナッチ数列、部分集合分割問題</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="フィボナッチ数列">
+          <h2 id="フィボナッチ数列">
 <a class="header-anchor" href="#%e3%83%95%e3%82%a3%e3%83%9c%e3%83%8a%e3%83%83%e3%83%81%e6%95%b0%e5%88%97"></a>
 <strong>フィボナッチ数列</strong>
-</h1><h2 id="問題分析">
+</h2><h3 id="問題分析">
 <a class="header-anchor" href="#%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90"></a>
 <strong>問題分析</strong>
-</h2><p>プログラムの再帰呼び出しと戻りを正しく実装するには、パラメータの受け渡しと戻りアドレスの問題を解決する必要がある。具体的には、呼び出しを行う際に、再帰が発生するたびにすべてのパラメータ変数に対して新しい記憶領域を割り当て、前回の呼び出し時の実引数と今回の呼び出し後の戻りアドレスを保持しなければならない。</p>
-<h2 id="アルゴリズム設計">
+</h3><p>プログラムの再帰呼び出しと戻りを正しく実装するには、パラメータの受け渡しと戻りアドレスの問題を解決する必要がある。具体的には、呼び出しを行う際に、再帰が発生するたびにすべてのパラメータ変数に対して新しい記憶領域を割り当て、前回の呼び出し時の実引数と今回の呼び出し後の戻りアドレスを保持しなければならない。</p>
+<h3 id="アルゴリズム設計">
 <a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88"></a>
 <strong>アルゴリズム設計</strong>
-</h2><p>アルゴリズムの説明は以下の通りです：</p>
+</h3><p>アルゴリズムの説明は以下の通りです：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">Fib</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">fib</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="n">fib</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
@@ -1993,23 +1993,23 @@ Matlab検証結果：
 </span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="n">fib</span><span class="o">=</span><span class="n">Fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">fib</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="データ構造設計">
+</span></span></code></pre></div><h3 id="データ構造設計">
 <a class="header-anchor" href="#%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88"></a>
 <strong>データ構造設計</strong>
-</h2><p>スタックを使用して記憶領域を割り当ておよび管理します。システムは、呼び出しプロセスを実行するたびに「作業記録」を作成し、呼び出し前のプロセス内のすべてのパラメータ変数の値と呼び出し後の戻りアドレスを保存します。この作業記録をスタックに保存することで、戻り時にスタックの最上部から正しい情報を見つけることができます。</p>
-<h2 id="デバッグプロセス">
+</h3><p>スタックを使用して記憶領域を割り当ておよび管理します。システムは、呼び出しプロセスを実行するたびに「作業記録」を作成し、呼び出し前のプロセス内のすべてのパラメータ変数の値と呼び出し後の戻りアドレスを保存します。この作業記録をスタックに保存することで、戻り時にスタックの最上部から正しい情報を見つけることができます。</p>
+<h3 id="デバッグプロセス">
 <a class="header-anchor" href="#%e3%83%87%e3%83%90%e3%83%83%e3%82%b0%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9"></a>
 <strong>デバッグプロセス</strong>
-</h2><p>関数が呼び出されるたびに、渡されたパラメータを出力することで、スタックの呼び出しプロセスをより直感的に確認できます。
+</h3><p>関数が呼び出されるたびに、渡されたパラメータを出力することで、スタックの呼び出しプロセスをより直感的に確認できます。
 最初のFib（2）の再帰呼び出しを例にとると、プログラムはまずFib（5）、Fib（4）…Fib（1）をスタックに保存し、n==1のときに値を前のアドレスに返します。同様にn==0のときの値も返すため、Fib（2）の値が得られ、さらにFib（2）の上位であるFib（3）に戻ります。</p>
-<h2 id="出力結果">
+<h3 id="出力結果">
 <a class="header-anchor" href="#%e5%87%ba%e5%8a%9b%e7%b5%90%e6%9e%9c"></a>
 <strong>出力結果</strong>
-</h2><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/3648031837.png" alt="Pasted image 20231020121850.png"></p>
-<h2 id="ソースコード">
+</h3><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/3648031837.png" alt="Pasted image 20231020121850.png"></p>
+<h3 id="ソースコード">
 <a class="header-anchor" href="#%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89"></a>
 ソースコード
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
 </span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">Fibonacci</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
@@ -2046,32 +2046,32 @@ Matlab検証結果：
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h1 id="部分集合分割問題">
+</span></span></code></pre></div><h2 id="部分集合分割問題">
 <a class="header-anchor" href="#%e9%83%a8%e5%88%86%e9%9b%86%e5%90%88%e5%88%86%e5%89%b2%e5%95%8f%e9%a1%8c"></a>
 <strong>部分集合分割問題</strong>
-</h1><h2 id="問題分析-1">
+</h2><h3 id="問題分析-1">
 <a class="header-anchor" href="#%e5%95%8f%e9%a1%8c%e5%88%86%e6%9e%90-1"></a>
 <strong>問題分析</strong>
-</h2><p>問題は、集合を互いに交わらない部分集合に分割し、どの部分集合の要素間にも衝突がなく、分割される部分集合の数が少ないようにすることを要求しています。この種の問題は、スケジュール調整などでよく使用されます。</p>
-<h2 id="アルゴリズム設計-1">
+</h3><p>問題は、集合を互いに交わらない部分集合に分割し、どの部分集合の要素間にも衝突がなく、分割される部分集合の数が少ないようにすることを要求しています。この種の問題は、スケジュール調整などでよく使用されます。</p>
+<h3 id="アルゴリズム設計-1">
 <a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%a8%ad%e8%a8%88-1"></a>
 <strong>アルゴリズム設計</strong>
-</h2><p>衝突関係はまず二次元配列で表現され、衝突関係がある場合は1を、ない場合は0を割り当てます。循環フィルタリング法によって分割を行います。つまり、最初の要素から始めて、要素1を単独で取り出し、他の要素が取り出したすべての要素と衝突関係があるかどうかを一つずつ判断します。衝突がなければその要素を取り出し、一つのグループに分類します。このように一周循環させると、互いに衝突関係のない要素が一つのグループに分類されます。この操作を繰り返すことで、分割要件を満たすことができます。</p>
-<h2 id="データ構造設計-1">
+</h3><p>衝突関係はまず二次元配列で表現され、衝突関係がある場合は1を、ない場合は0を割り当てます。循環フィルタリング法によって分割を行います。つまり、最初の要素から始めて、要素1を単独で取り出し、他の要素が取り出したすべての要素と衝突関係があるかどうかを一つずつ判断します。衝突がなければその要素を取り出し、一つのグループに分類します。このように一周循環させると、互いに衝突関係のない要素が一つのグループに分類されます。この操作を繰り返すことで、分割要件を満たすことができます。</p>
+<h3 id="データ構造設計-1">
 <a class="header-anchor" href="#%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0%e8%a8%ad%e8%a8%88-1"></a>
 <strong>データ構造設計</strong>
-</h2><p>循環キューを使用してデータを格納し、毎回一周ループしてデータを繰り返し処理し、新しい記憶領域を割り当てる必要はありません。</p>
-<h2 id="デバッグ過程">
+</h3><p>循環キューを使用してデータを格納し、毎回一周ループしてデータを繰り返し処理し、新しい記憶領域を割り当てる必要はありません。</p>
+<h3 id="デバッグ過程">
 <a class="header-anchor" href="#%e3%83%87%e3%83%90%e3%83%83%e3%82%b0%e9%81%8e%e7%a8%8b"></a>
 <strong>デバッグ過程</strong>
-</h2><h2 id="出力結果-1">
+</h3><h3 id="出力結果-1">
 <a class="header-anchor" href="#%e5%87%ba%e5%8a%9b%e7%b5%90%e6%9e%9c-1"></a>
 <strong>出力結果</strong>
-</h2><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/3486074357.png" alt="Pasted image 20231020123220.png"></p>
-<h2 id="ソースコード-1">
+</h3><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/3486074357.png" alt="Pasted image 20231020123220.png"></p>
+<h3 id="ソースコード-1">
 <a class="header-anchor" href="#%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89-1"></a>
 ソースコード
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include&lt;bits/stdc++.h&gt;
 </span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">newr</span><span class="p">[</span><span class="mi">9</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">

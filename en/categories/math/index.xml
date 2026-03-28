@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Math on 孤筝の温暖小家</title><link>https://guzhengsvt.cn/en/categories/math/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright><lastBuildDate>Sat, 10 May 2025 18:48:10 +0800</lastBuildDate><atom:link href="https://guzhengsvt.cn/en/categories/math/index.xml" rel="self" type="application/rss+xml"/><item><title>Optimization Theory and Methods</title><link>https://guzhengsvt.cn/en/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</link><pubDate>Sat, 10 May 2025 18:48:10 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</guid><description>
 <![CDATA[<h1>Optimization Theory and Methods</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="optimization-problems">
+          <h2 id="optimization-problems">
 <a class="header-anchor" href="#optimization-problems"></a>
 Optimization Problems
-</h1><h2 id="mathematical-model">
+</h2><h3 id="mathematical-model">
 <a class="header-anchor" href="#mathematical-model"></a>
 Mathematical Model
-</h2>$$
+</h3>$$
 \min f(\vec{x}),\vec{x}\in \vec{R^{n}}
 $$$$
 \text{s.t.}{
@@ -22,10 +22,10 @@ where</p>
 <li>$f(\vec{x})$ is the objective function</li>
 <li>s.t. means subject to, that is, the constraints</li>
 </ul>
-<h2 id="classification">
+<h3 id="classification">
 <a class="header-anchor" href="#classification"></a>
 Classification
-</h2><ol>
+</h3><ol>
 <li>By time
 <ol>
 <li>Static problems</li>
@@ -51,10 +51,10 @@ Classification
 </ol>
 </li>
 </ol>
-<h2 id="quadratic-form-matrix">
+<h3 id="quadratic-form-matrix">
 <a class="header-anchor" href="#quadratic-form-matrix"></a>
 Quadratic Form Matrix
-</h2><p>Quadratic form:
+</h3><p>Quadratic form:
 </p>
 $$
 \begin{align}
@@ -81,10 +81,10 @@ $$
 -2 & 0 & \frac{1}{2}\\
 0 & \frac{1}{2} & -3\\
 \end{bmatrix}
-$$<h2 id="hessian-matrix">
+$$<h3 id="hessian-matrix">
 <a class="header-anchor" href="#hessian-matrix"></a>
 Hessian Matrix
-</h2><p>Take a two-variable quadratic function as an example:
+</h3><p>Take a two-variable quadratic function as an example:
 </p>
 $$
 \nabla^2 f(x_1,x_2)=
@@ -92,27 +92,27 @@ $$
 \frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2}\\
 \frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2}\\
 \end{bmatrix}
-$$<h2 id="feasible-solutions">
+$$<h3 id="feasible-solutions">
 <a class="header-anchor" href="#feasible-solutions"></a>
 Feasible Solutions
-</h2><ul>
+</h3><ul>
 <li>Feasible solution: a solution satisfying all constraints.</li>
 <li>Feasible set (admissible set, feasible region): the set of all feasible solutions.</li>
 <li>Optimization problem: find the point in the feasible set at which the objective function attains its maximum or minimum.</li>
 <li>Stationary point: if $\nabla f(x_0)=0$, then $x_0$ is called a stationary point.</li>
 <li>Saddle point: if $x_0$ is a stationary point but not an extremum point, then it is called a saddle point.</li>
 </ul>
-<h2 id="convex-sets">
+<h3 id="convex-sets">
 <a class="header-anchor" href="#convex-sets"></a>
 Convex Sets
-</h2><h3 id="definition">
+</h3><h4 id="definition">
 <a class="header-anchor" href="#definition"></a>
 Definition
-</h3><p>In the plane, if the line segment joining any two points inside a figure still lies entirely inside the figure, then the figure is called a convex set.</p>
-<h3 id="properties">
+</h4><p>In the plane, if the line segment joining any two points inside a figure still lies entirely inside the figure, then the figure is called a convex set.</p>
+<h4 id="properties">
 <a class="header-anchor" href="#properties"></a>
 Properties
-</h3><ol>
+</h4><ol>
 <li>The intersection of convex sets is convex.</li>
 <li>A scaled convex set is still convex.</li>
 <li>The sum set of convex sets, not the union, is convex.
@@ -122,68 +122,68 @@ Properties
 </li>
 <li>A linear combination of convex sets is convex.</li>
 </ol>
-<h3 id="common-convex-sets">
+<h4 id="common-convex-sets">
 <a class="header-anchor" href="#common-convex-sets"></a>
 Common Convex Sets
-</h3><ol>
+</h4><ol>
 <li>The empty set</li>
 <li>The whole Euclidean space $\vec{R^n}$</li>
 <li>A hyperplane $H=\{x \in \vec{R^n} | a_1x_1+a_2x_2+\cdots +a_nx_n=b\}$</li>
 <li>A half-space $H^+=\{x \in \vec{R^n} | a_1x_1+a_2x_2+\cdots +a_nx_n \ge b\}$</li>
 </ol>
-<h3 id="convex-combination">
+<h4 id="convex-combination">
 <a class="header-anchor" href="#convex-combination"></a>
 Convex Combination
-</h3><p>Let $x_i \in \vec{R^n},i=1,2,\cdots ,k$, and let $\lambda_i \ge 0,\sum^k_{i=1}\lambda_i=1$. Then $x=\sum^k_{i=1}\lambda_ix_i$ is called a convex combination of $x_1,x_2,\cdots , x_k$.<br>
+</h4><p>Let $x_i \in \vec{R^n},i=1,2,\cdots ,k$, and let $\lambda_i \ge 0,\sum^k_{i=1}\lambda_i=1$. Then $x=\sum^k_{i=1}\lambda_ix_i$ is called a convex combination of $x_1,x_2,\cdots , x_k$.<br>
 Any finite convex combination of points in a convex set still belongs to that convex set.</p>
-<h3 id="extreme-points">
+<h4 id="extreme-points">
 <a class="header-anchor" href="#extreme-points"></a>
 Extreme Points
-</h3><p>Let $D$ be a convex set and $x \in D$. If there do not exist two distinct points $y,z \in D$ and a real number $\alpha \in (0,1)$ such that $x=\alpha y+(1-\alpha)z$, then $x$ is called an extreme point of $D$.</p>
+</h4><p>Let $D$ be a convex set and $x \in D$. If there do not exist two distinct points $y,z \in D$ and a real number $\alpha \in (0,1)$ such that $x=\alpha y+(1-\alpha)z$, then $x$ is called an extreme point of $D$.</p>
 <p>In plain words: for a pentagon, the extreme points are its vertices; for a semicircle, the extreme points are the two endpoints of its diameter together with the top point on the arc.</p>
-<h2 id="convex-functions">
+<h3 id="convex-functions">
 <a class="header-anchor" href="#convex-functions"></a>
 Convex Functions
-</h2><h3 id="definition-1">
+</h3><h4 id="definition-1">
 <a class="header-anchor" href="#definition-1"></a>
 Definition
-</h3><p>Let $f(x)$ be defined on a convex set. If for any two points $x_1,x_2$ in the convex set,
+</h4><p>Let $f(x)$ be defined on a convex set. If for any two points $x_1,x_2$ in the convex set,
 </p>
 $$
 f(\alpha x_1+(1-\alpha)x_2) \le \alpha f(x_1)+(1-\alpha)f(x_2)
 $$<p>
 then $f$ is called a convex function.<br>
 If the inequality is strict, $\lt$, then it is called a strictly convex function.</p>
-<h3 id="criteria">
+<h4 id="criteria">
 <a class="header-anchor" href="#criteria"></a>
 Criteria
-</h3><ol>
+</h4><ol>
 <li>If the Hessian matrix of a multivariable function is positive semidefinite, then the function is convex.</li>
 <li>If the Hessian matrix is positive definite, then the function is strictly convex.</li>
 <li>A multivariable linear function is convex on $\vec{R^n}$.</li>
 </ol>
-<h2 id="convex-optimization-problems">
+<h3 id="convex-optimization-problems">
 <a class="header-anchor" href="#convex-optimization-problems"></a>
 Convex Optimization Problems
-</h2><h3 id="definition-2">
+</h3><h4 id="definition-2">
 <a class="header-anchor" href="#definition-2"></a>
 Definition
-</h3><p>An optimization problem in which the objective function and all constraint functions are convex functions.</p>
+</h4><p>An optimization problem in which the objective function and all constraint functions are convex functions.</p>
 <ul>
 <li>The feasible set of a convex optimization problem is convex.</li>
 <li>Any local optimum is also a global optimum.</li>
 <li>If the objective function is strictly convex, then the local optimum exists and is unique.</li>
 </ul>
-<h1 id="linear-programming">
+<h2 id="linear-programming">
 <a class="header-anchor" href="#linear-programming"></a>
 Linear Programming
-</h1><h2 id="forms">
+</h2><h3 id="forms">
 <a class="header-anchor" href="#forms"></a>
 Forms
-</h2><h3 id="nonstandard-form">
+</h3><h4 id="nonstandard-form">
 <a class="header-anchor" href="#nonstandard-form"></a>
 Nonstandard Form
-</h3><ul>
+</h4><ul>
 <li>Objective function: $\max z=\sum^{n}_{j=1}c_jx_j=CX$</li>
 <li>Coefficient matrix:
 
@@ -214,10 +214,10 @@ X \ge \vec{0}
 \end{cases}
 $$</li>
 </ul>
-<h3 id="standard-form">
+<h4 id="standard-form">
 <a class="header-anchor" href="#standard-form"></a>
 Standard Form
-</h3><ol>
+</h4><ol>
 <li>Convert a maximization problem into minimization</li>
 <li>Slack variables: for $\le$ constraints, introduce slack variables to turn inequalities into equalities</li>
 <li>Surplus variables: for $\ge$ constraints, introduce surplus variables to turn inequalities into equalities</li>
@@ -232,10 +232,10 @@ h_j(x_1,x_2,\cdots,x_n)=0&(j=1,2,\cdots)\\
 x_j \ge 0\\
 \end{cases}
 \end{cases}
-$$<h2 id="basis-matrix">
+$$<h3 id="basis-matrix">
 <a class="header-anchor" href="#basis-matrix"></a>
 Basis Matrix
-</h2><ul>
+</h3><ul>
 <li>Basis (basis matrix): a largest nonsingular submatrix of the coefficient matrix.
 <ul>
 <li>If the coefficient matrix $A$ is an $m \times n$ matrix with $rank(A)=m$, then any nonsingular $m \times m$ submatrix may serve as a basis matrix.</li>
@@ -248,20 +248,20 @@ Basis Matrix
 <li>Basic feasible solution: a basic solution satisfying the nonnegativity conditions in $\text{s.t.}$.</li>
 <li>Optimal basic feasible solution: among all basic feasible solutions, the one that gives the optimal objective value.</li>
 </ul>
-<h2 id="properties-of-linear-programming-solutions">
+<h3 id="properties-of-linear-programming-solutions">
 <a class="header-anchor" href="#properties-of-linear-programming-solutions"></a>
 Properties of Linear Programming Solutions
-</h2><ol>
+</h3><ol>
 <li>The feasible set of a linear programming problem is convex.</li>
 <li>If an optimal solution exists, it must be attained at a vertex of the feasible set.</li>
 </ol>
-<h2 id="simplex-method">
+<h3 id="simplex-method">
 <a class="header-anchor" href="#simplex-method"></a>
 Simplex Method
-</h2><h3 id="reduced-costs">
+</h3><h4 id="reduced-costs">
 <a class="header-anchor" href="#reduced-costs"></a>
 Reduced Costs
-</h3><p>Each unknown corresponds to a reduced cost:
+</h4><p>Each unknown corresponds to a reduced cost:
 </p>
 $$
 \sigma_j=C^T_J \vec{P_j}-c_j=\sum^{m}_{i=1}c_ia_{ij}-c_j
@@ -274,17 +274,17 @@ $$<ul>
 </ul>
 <p><strong>When all reduced costs are less than or equal to zero, the current basic feasible solution is optimal.</strong></p>
 <p>In general, the reduced costs of basic variables are zero.</p>
-<h3 id="basis-transformation">
+<h4 id="basis-transformation">
 <a class="header-anchor" href="#basis-transformation"></a>
 Basis Transformation
-</h3><h4 id="choosing-the-basis-matrix">
+</h4><h5 id="choosing-the-basis-matrix">
 <a class="header-anchor" href="#choosing-the-basis-matrix"></a>
 Choosing the Basis Matrix
-</h4><p>Prefer the identity matrix as the initial basis matrix. Compute the initial basic feasible solution and the reduced costs.</p>
-<h4 id="constructing-the-initial-simplex-tableau">
+</h5><p>Prefer the identity matrix as the initial basis matrix. Compute the initial basic feasible solution and the reduced costs.</p>
+<h5 id="constructing-the-initial-simplex-tableau">
 <a class="header-anchor" href="#constructing-the-initial-simplex-tableau"></a>
 Constructing the Initial Simplex Tableau
-</h4><table>
+</h5><table>
   <thead>
       <tr>
           <th></th>
@@ -338,75 +338,75 @@ Constructing the Initial Simplex Tableau
       </tr>
   </tbody>
 </table>
-<h4 id="selecting-an-entering-column">
+<h5 id="selecting-an-entering-column">
 <a class="header-anchor" href="#selecting-an-entering-column"></a>
 Selecting an Entering Column
-</h4><p>If a reduced cost is greater than zero, then the corresponding column has improving potential. Choose this column as the entering column $P_j$, and the corresponding variable $x_j$ is the entering variable.</p>
-<h4 id="selecting-the-pivot-element">
+</h5><p>If a reduced cost is greater than zero, then the corresponding column has improving potential. Choose this column as the entering column $P_j$, and the corresponding variable $x_j$ is the entering variable.</p>
+<h5 id="selecting-the-pivot-element">
 <a class="header-anchor" href="#selecting-the-pivot-element"></a>
 Selecting the Pivot Element
-</h4><p>Among the positive entries $a_{ij}$ in the entering column, divide the corresponding entry of $b$ by each such element and choose the smallest ratio. The corresponding element $a_{ij}$ is the pivot.<br>
+</h5><p>Among the positive entries $a_{ij}$ in the entering column, divide the corresponding entry of $b$ by each such element and choose the smallest ratio. The corresponding element $a_{ij}$ is the pivot.<br>
 <em><strong>If a reduced cost is greater than zero but all entries in that column are negative, then the linear program has no optimal solution.</strong></em></p>
-<h4 id="elementary-row-operations">
+<h5 id="elementary-row-operations">
 <a class="header-anchor" href="#elementary-row-operations"></a>
 Elementary Row Operations
-</h4><p>Transform the pivot into 1 and all other entries in that column into 0.<br>
+</h5><p>Transform the pivot into 1 and all other entries in that column into 0.<br>
 <strong>Geometric meaning: moving to another vertex of the feasible region.</strong></p>
-<h4 id="leaving-column">
+<h5 id="leaving-column">
 <a class="header-anchor" href="#leaving-column"></a>
 Leaving Column
-</h4><p>Select the new basis matrix according to the updated coefficient matrix. Compared with the old basis, the replaced column is the leaving column, and its corresponding variable is the leaving variable.<br>
+</h5><p>Select the new basis matrix according to the updated coefficient matrix. Compared with the old basis, the replaced column is the leaving column, and its corresponding variable is the leaving variable.<br>
 Then recompute the reduced costs and form the new simplex tableau.</p>
-<h4 id="a-new-basis-transformation">
+<h5 id="a-new-basis-transformation">
 <a class="header-anchor" href="#a-new-basis-transformation"></a>
 A New Basis Transformation
-</h4><p>If the reduced-cost row changes and new positive reduced costs appear, choose the corresponding column as the new entering column, select a pivot, and perform elementary row operations again.</p>
-<h4 id="result">
+</h5><p>If the reduced-cost row changes and new positive reduced costs appear, choose the corresponding column as the new entering column, select a pivot, and perform elementary row operations again.</p>
+<h5 id="result">
 <a class="header-anchor" href="#result"></a>
 Result
-</h4><p>When all reduced costs are less than or equal to zero, the entries of $\vec{b}$ are the values of the basic variables, while the nonbasic variables are set to 0. Together these form the optimal solution, and substituting them into the objective function gives the minimum value.</p>
-<h3 id="conditions-for-applying-the-simplex-method">
+</h5><p>When all reduced costs are less than or equal to zero, the entries of $\vec{b}$ are the values of the basic variables, while the nonbasic variables are set to 0. Together these form the optimal solution, and substituting them into the objective function gives the minimum value.</p>
+<h4 id="conditions-for-applying-the-simplex-method">
 <a class="header-anchor" href="#conditions-for-applying-the-simplex-method"></a>
 Conditions for Applying the Simplex Method
-</h3><ol>
+</h4><ol>
 <li>All elements in the nonhomogeneous term are nonnegative.</li>
 <li>A feasible solution exists.</li>
 <li>The sum of products of slack variables and nonbasic variables is zero.</li>
 <li>The problem is a linear programming problem on a convex feasible region.</li>
 <li>The feasible solution set is finite.</li>
 </ol>
-<h2 id="artificial-variable-method">
+<h3 id="artificial-variable-method">
 <a class="header-anchor" href="#artificial-variable-method"></a>
 Artificial Variable Method
-</h2><p>When the coefficient matrix does not contain an identity matrix, one usually introduces artificial variables to construct one artificially.</p>
+</h3><p>When the coefficient matrix does not contain an identity matrix, one usually introduces artificial variables to construct one artificially.</p>
 <p>Suppose the constraints of the linear programming problem are $\sum^{n}_{j=1}a_{ij}=b_i(i=1,2,\cdots ,m)$. Add artificial variables $x_{n+1},x_{n+2},\cdots,x_{n+m}$ to each constraint and use them as the basic variables, so that they form an identity matrix and all other variables are zero. In this way we obtain an initial feasible solution $x^{(0)}=(0,0,\cdots,0,b_1,b_2,\cdots,b_m)^T$.<br>
 Starting from this point, carry out basis transformations to obtain an optimal solution without nonzero artificial variables.</p>
 <p>If all reduced costs are negative but nonzero artificial variables still remain, then the original problem has no feasible solution.</p>
-<h2 id="big-m-method">
+<h3 id="big-m-method">
 <a class="header-anchor" href="#big-m-method"></a>
 Big-M Method
-</h2><p>For a minimization problem, after introducing artificial variables into the constraints, assign the coefficient $M$ to the artificial variables in the objective function, where $M \in \vec{R^+}$.<br>
+</h3><p>For a minimization problem, after introducing artificial variables into the constraints, assign the coefficient $M$ to the artificial variables in the objective function, where $M \in \vec{R^+}$.<br>
 To obtain the minimum objective value, one keeps carrying out basis transformations until the artificial variables become zero. For a maximization problem, $M \in \vec{R^-}$.</p>
-<h2 id="degenerate-cases">
+<h3 id="degenerate-cases">
 <a class="header-anchor" href="#degenerate-cases"></a>
 Degenerate Cases
-</h2><p>If the simplex method falls into cycling while the problem does have an optimal solution, the following methods may be used to avoid cycling.</p>
-<h3 id="perturbation-method">
+</h3><p>If the simplex method falls into cycling while the problem does have an optimal solution, the following methods may be used to avoid cycling.</p>
+<h4 id="perturbation-method">
 <a class="header-anchor" href="#perturbation-method"></a>
 Perturbation Method
-</h3><h3 id="revised-simplex-method">
+</h4><h4 id="revised-simplex-method">
 <a class="header-anchor" href="#revised-simplex-method"></a>
 Revised Simplex Method
-</h3><h1 id="duality-theory-of-linear-programming">
+</h4><h2 id="duality-theory-of-linear-programming">
 <a class="header-anchor" href="#duality-theory-of-linear-programming"></a>
 Duality Theory of Linear Programming
-</h1><h2 id="forms-of-the-dual-problem">
+</h2><h3 id="forms-of-the-dual-problem">
 <a class="header-anchor" href="#forms-of-the-dual-problem"></a>
 Forms of the Dual Problem
-</h2><h3 id="symmetric-form">
+</h3><h4 id="symmetric-form">
 <a class="header-anchor" href="#symmetric-form"></a>
 Symmetric Form
-</h3><p>Primal problem
+</h4><p>Primal problem
 </p>
 $$
 \begin{cases}
@@ -435,10 +435,10 @@ $$<p>Correspondence:</p>
 <li>(3) If the primal objective is minimization, then the dual objective is maximization.</li>
 <li>(4) If the primal constraints are of type “$\ge$”, then the dual constraints are of type “$\le$”.</li>
 </ul>
-<h3 id="asymmetric-form">
+<h4 id="asymmetric-form">
 <a class="header-anchor" href="#asymmetric-form"></a>
 Asymmetric Form
-</h3><p>Primal problem
+</h4><p>Primal problem
 </p>
 $$
 \begin{cases}
@@ -460,48 +460,48 @@ $$
 \vec{y} \text{ is unrestricted}
 \end{cases}
 \end{cases}
-$$<h3 id="general-case">
+$$<h4 id="general-case">
 <a class="header-anchor" href="#general-case"></a>
 General Case
-</h3><p>If the primal problem contains a mixture of $\le,\ge,=$ constraints, first introduce slack and surplus variables so that all constraints become equalities, and then construct the dual using the asymmetric form.</p>
+</h4><p>If the primal problem contains a mixture of $\le,\ge,=$ constraints, first introduce slack and surplus variables so that all constraints become equalities, and then construct the dual using the asymmetric form.</p>
 <p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E5%8E%9F%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB%E8%A1%A81.png" alt="原问题与对偶问题对应关系表1.png">
 <img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E5%8E%9F%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB%E8%A1%A82.png" alt="原问题与对偶问题对应关系表2.png"></p>
-<h2 id="dual-simplex-method">
+<h3 id="dual-simplex-method">
 <a class="header-anchor" href="#dual-simplex-method"></a>
 Dual Simplex Method
-</h2><ul>
+</h3><ul>
 <li>Simplex method: first ensure $\vec{b} \ge 0$, then iterate based on reduced costs $\le 0$.</li>
 <li>Dual simplex method: first ensure reduced costs $\le 0$, then iterate based on $\vec{b} \ge 0$.</li>
 </ul>
-<h3 id="ensuring-reduced-costs">
+<h4 id="ensuring-reduced-costs">
 <a class="header-anchor" href="#ensuring-reduced-costs"></a>
 Ensuring Reduced Costs $\le 0$
-</h3><h3 id="choosing-the-leaving-variable">
+</h4><h4 id="choosing-the-leaving-variable">
 <a class="header-anchor" href="#choosing-the-leaving-variable"></a>
 Choosing the Leaving Variable
-</h3><p>If there exists a negative $b_i \lt 0$, then the row containing the smallest $\min b_i$ is chosen as the leaving row, and the corresponding variable is the leaving variable.</p>
-<h3 id="choosing-the-entering-variable">
+</h4><p>If there exists a negative $b_i \lt 0$, then the row containing the smallest $\min b_i$ is chosen as the leaving row, and the corresponding variable is the leaving variable.</p>
+<h4 id="choosing-the-entering-variable">
 <a class="header-anchor" href="#choosing-the-entering-variable"></a>
 Choosing the Entering Variable
-</h3><p>Divide each reduced cost by the negative coefficient in the leaving row, that is, $a_{ij} \lt 0$. The column corresponding to the smallest resulting value is chosen as the entering column, and the corresponding variable is the entering variable.</p>
-<h3 id="row-operations">
+</h4><p>Divide each reduced cost by the negative coefficient in the leaving row, that is, $a_{ij} \lt 0$. The column corresponding to the smallest resulting value is chosen as the entering column, and the corresponding variable is the entering variable.</p>
+<h4 id="row-operations">
 <a class="header-anchor" href="#row-operations"></a>
 Row Operations
-</h3><p>Use elementary row operations to transform the entering column into one that matches the basis matrix, that is, an identity column. At this point $\vec{b}$ changes as well.<br>
+</h4><p>Use elementary row operations to transform the entering column into one that matches the basis matrix, that is, an identity column. At this point $\vec{b}$ changes as well.<br>
 Then recompute the reduced costs and ensure that they remain less than or equal to zero.</p>
-<h3 id="a-new-basis-transformation-1">
+<h4 id="a-new-basis-transformation-1">
 <a class="header-anchor" href="#a-new-basis-transformation-1"></a>
 A New Basis Transformation
-</h3><p>If there is still a negative value $b_i \lt 0$, choose the smallest $\min b_i$ and perform another basis transformation.</p>
-<h3 id="result-1">
+</h4><p>If there is still a negative value $b_i \lt 0$, choose the smallest $\min b_i$ and perform another basis transformation.</p>
+<h4 id="result-1">
 <a class="header-anchor" href="#result-1"></a>
 Result
-</h3><p>When all $b_i \ge 0$, the vector $\vec{b}$ gives the optimal values of the basic variables, while the nonbasic variables are 0.<br>
+</h4><p>When all $b_i \ge 0$, the vector $\vec{b}$ gives the optimal values of the basic variables, while the nonbasic variables are 0.<br>
 Substitute them into the objective function to obtain the optimal value, whether maximum or minimum.</p>
-<h1 id="sensitivity-analysis">
+<h2 id="sensitivity-analysis">
 <a class="header-anchor" href="#sensitivity-analysis"></a>
 Sensitivity Analysis
-</h1>
+</h2>
         
         <hr><p>Published on 2025-05-10 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-05-10</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Math</category></item><item><title>Probability Theory and Mathematical Statistics</title><link>https://guzhengsvt.cn/en/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</link><pubDate>Tue, 10 Sep 2024 01:14:05 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</guid><description>
 <![CDATA[<h1>Probability Theory and Mathematical Statistics</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
@@ -1188,55 +1188,55 @@ Here:</p>
         <hr><p>Published on 2024-09-10 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-09-10</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Math</category></item><item><title>Real Number Construction Reading Report</title><link>https://guzhengsvt.cn/en/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</link><pubDate>Wed, 27 Dec 2023 21:40:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/math/%E5%AE%9E%E6%95%B0%E5%BB%BA%E7%AB%8B%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</guid><description>
 <![CDATA[<h1>Real Number Construction Reading Report</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="foundations-of-real-numbers-book-report">
+          <h2 id="foundations-of-real-numbers-book-report">
 <a class="header-anchor" href="#foundations-of-real-numbers-book-report"></a>
 Foundations of Real Numbers Book Report
-</h1><p>Taking advantage of this mathematical analysis assignment, I&rsquo;d like to document the construction of real numbers.</p>
+</h2><p>Taking advantage of this mathematical analysis assignment, I&rsquo;d like to document the construction of real numbers.</p>
 <p>The establishment of real numbers forms part of the foundational theories in mathematics, intersecting with multiple branches such as mathematical logic, set theory, and algebraic structures. Through rigorous derivation of these fundamental concepts and properties, mathematicians have constructed the real number system, providing a solid foundation for mathematical development. This process has evolved over a long history with contributions from numerous mathematicians.</p>
-<h2 id="1-book-information">
+<h3 id="1-book-information">
 <a class="header-anchor" href="#1-book-information"></a>
 1. Book Information
-</h2><h3 id="11-mathematical-analysis">
+</h3><h4 id="11-mathematical-analysis">
 <a class="header-anchor" href="#11-mathematical-analysis"></a>
 1.1 Mathematical Analysis
-</h3><ul>
+</h4><ul>
 <li><strong>Author:</strong> Tom A. Apostol</li>
 <li><strong>Year of Publication:</strong> 1973</li>
 <li><strong>Introduction:</strong> <em>Mathematical Analysis</em> is a classic work by Tom M. Apostol, systematically introducing foundational knowledge in mathematical analysis, including the real number system, limits, continuity, and more. With clear logic and profound insight, the author helps readers develop a deep understanding of real numbers.</li>
 </ul>
-<h3 id="12-real-analysis-and-functional-analysis">
+<h4 id="12-real-analysis-and-functional-analysis">
 <a class="header-anchor" href="#12-real-analysis-and-functional-analysis"></a>
 1.2 Real Analysis and Functional Analysis
-</h3><ul>
+</h4><ul>
 <li><strong>Author:</strong> Kuang Jichang</li>
 <li><strong>Year of Publication:</strong> 2002</li>
 <li><strong>Introduction:</strong> <em>Real Analysis and Functional Analysis</em> is an advanced mathematics textbook by Professor Kuang Jichang, primarily covering the basic concepts, theories, and methods of real analysis and functional analysis. A distinctive feature of this book is its integration of traditional real-variable function theory, measure theory, and functional analysis into a modern foundational course using sets and mappings.</li>
 </ul>
-<h3 id="13-real-and-complex-analysis">
+<h4 id="13-real-and-complex-analysis">
 <a class="header-anchor" href="#13-real-and-complex-analysis"></a>
 1.3 Real and Complex Analysis
-</h3><ul>
+</h4><ul>
 <li><strong>Author:</strong> Walter Rudin</li>
 <li><strong>Year of Publication:</strong> 2006</li>
 <li><strong>Introduction:</strong> This book is a classic in the field of analysis. Its elegant structure and practical utility are complemented by concise and brilliant examples. Both the real and complex analysis sections rigorously prove nearly all propositions presented.</li>
 </ul>
-<h3 id="14-real-analysis">
+<h4 id="14-real-analysis">
 <a class="header-anchor" href="#14-real-analysis"></a>
 1.4 Real Analysis
-</h3><ul>
+</h4><ul>
 <li><strong>Author:</strong> Halsey Royden, Patrick Fitzpatrick</li>
 <li><strong>Year of Publication:</strong> 2010</li>
 <li><strong>Introduction:</strong> This book has become a classic in mathematical analysis, offering students a profound theoretical foundation. The fifth edition includes significant updates, comprehensively covering measure theory, integration theory, and topics essential for modern analysts, such as metric, topological, Hilbert, and Banach spaces.</li>
 </ul>
-<h2 id="2-the-real-number-system">
+<h3 id="2-the-real-number-system">
 <a class="header-anchor" href="#2-the-real-number-system"></a>
 2. The Real Number System
-</h2><p>The real number system is the cornerstone of mathematical analysis. Apostol&rsquo;s book details the <strong>definition</strong> and <strong>properties</strong> of real numbers. Key features such as <strong>completeness</strong> and <strong>density</strong> make real numbers fundamental to mathematical analysis.</p>
+</h3><p>The real number system is the cornerstone of mathematical analysis. Apostol&rsquo;s book details the <strong>definition</strong> and <strong>properties</strong> of real numbers. Key features such as <strong>completeness</strong> and <strong>density</strong> make real numbers fundamental to mathematical analysis.</p>
 <p>The <strong>construction of real numbers</strong> involves basic mathematical concepts and systematic development. The real number system provides a complete description of quantities, <strong>including integers, rational numbers, and irrational numbers</strong>.</p>
-<h3 id="21-introduction-to-rational-numbers">
+<h4 id="21-introduction-to-rational-numbers">
 <a class="header-anchor" href="#21-introduction-to-rational-numbers"></a>
 2.1 Introduction to Rational Numbers
-</h3><ol>
+</h4><ol>
 <li>
 <p><strong>Natural Numbers:</strong> The starting point is the natural numbers: 1, 2, 3, 4, &hellip;, used for counting and ordering.</p>
 </li>
@@ -1250,10 +1250,10 @@ Foundations of Real Numbers Book Report
 <p><strong>Properties of Rational Numbers:</strong> Rational numbers are closed under addition, subtraction, multiplication, and division (except by zero). These properties make rational numbers a complete number system.</p>
 </li>
 </ol>
-<h3 id="22-introduction-to-irrational-numbers">
+<h4 id="22-introduction-to-irrational-numbers">
 <a class="header-anchor" href="#22-introduction-to-irrational-numbers"></a>
 2.2 Introduction to Irrational Numbers
-</h3><ol>
+</h4><ol>
 <li>
 <p><strong>Limitations of Rational Numbers:</strong> Although rational numbers represent most quantities, some numbers, like $\sqrt{2}$, cannot be expressed as a ratio of integers. No integers $a$ and $b$ satisfy $\frac{a}{b} = \sqrt{2}$.</p>
 </li>
@@ -1264,28 +1264,28 @@ Foundations of Real Numbers Book Report
 <p><strong>Transcendental Irrational Numbers:</strong> These are irrational numbers that cannot be roots of any algebraic equation, e.g., $e$ and $\pi$. They cannot be derived through finite algebraic operations.</p>
 </li>
 </ol>
-<h3 id="23-proof-of-real-number-completeness">
+<h4 id="23-proof-of-real-number-completeness">
 <a class="header-anchor" href="#23-proof-of-real-number-completeness"></a>
 2.3 Proof of Real Number Completeness
-</h3><p>The real number system is complete: any infinite sequence on the real line has a limit. This property is crucial in mathematical analysis, especially for limits, continuity, and convergence.</p>
-<h4 id="methods-of-proof">
+</h4><p>The real number system is complete: any infinite sequence on the real line has a limit. This property is crucial in mathematical analysis, especially for limits, continuity, and convergence.</p>
+<h5 id="methods-of-proof">
 <a class="header-anchor" href="#methods-of-proof"></a>
 Methods of Proof
-</h4><h5 id="supremum-principle">
+</h5><h5 id="supremum-principle">
 <a class="header-anchor" href="#supremum-principle"></a>
 Supremum Principle
-</h5><h6 id="definition-of-supremum">
+</h5><h5 id="definition-of-supremum">
 <a class="header-anchor" href="#definition-of-supremum"></a>
 Definition of Supremum:
-</h6><p>For a set $S$ of real numbers, if a real number $M$ is an upper bound of $S$ and any number less than $M$ is not an upper bound, then $M$ is the supremum of $S$.</p>
-<h6 id="example">
+</h5><p>For a set $S$ of real numbers, if a real number $M$ is an upper bound of $S$ and any number less than $M$ is not an upper bound, then $M$ is the supremum of $S$.</p>
+<h5 id="example">
 <a class="header-anchor" href="#example"></a>
 Example:
-</h6><p>For $S = \{ x \in \mathbb{R} \mid 0  \lt  x  \lt  1 \}$, the supremum is 1.</p>
-<h6 id="completeness-of-real-numbers">
+</h5><p>For $S = \{ x \in \mathbb{R} \mid 0  \lt  x  \lt  1 \}$, the supremum is 1.</p>
+<h5 id="completeness-of-real-numbers">
 <a class="header-anchor" href="#completeness-of-real-numbers"></a>
 Completeness of Real Numbers:
-</h6><ul>
+</h5><ul>
 <li><strong>Monotone Convergence Theorem:</strong> A bounded monotonic sequence converges.</li>
 <li><strong>Existence of Supremum:</strong> Every non-empty bounded set of real numbers has a supremum.</li>
 </ul>
@@ -1309,10 +1309,10 @@ Bolzano-Weierstrass Theorem
 <a class="header-anchor" href="#cauchy-convergence-criterion"></a>
 Cauchy Convergence Criterion
 </h5><p>A sequence of real numbers converges if and only if it is a Cauchy sequence.</p>
-<h3 id="24-algebraic-structure-of-real-numbers">
+<h4 id="24-algebraic-structure-of-real-numbers">
 <a class="header-anchor" href="#24-algebraic-structure-of-real-numbers"></a>
 2.4 Algebraic Structure of Real Numbers
-</h3><p>The real number system adheres to algebraic properties:</p>
+</h4><p>The real number system adheres to algebraic properties:</p>
 <ol>
 <li><strong>Addition:</strong> Commutative, associative, identity element (0), and inverses.</li>
 <li><strong>Multiplication:</strong> Commutative, associative, identity element (1), and inverses (for non-zero elements).</li>
@@ -1320,124 +1320,124 @@ Cauchy Convergence Criterion
 <li><strong>Order Relation:</strong> Real numbers are ordered, with properties like transitivity and antisymmetry.</li>
 </ol>
 <p>These properties make real numbers an ordered field, providing robust tools for mathematical analysis.</p>
-<h2 id="3-limits-and-continuity">
+<h3 id="3-limits-and-continuity">
 <a class="header-anchor" href="#3-limits-and-continuity"></a>
 3. Limits and Continuity
-</h2><p>Limits and continuity are central to mathematical analysis.</p>
-<h3 id="31-limits-of-real-numbers">
+</h3><p>Limits and continuity are central to mathematical analysis.</p>
+<h4 id="31-limits-of-real-numbers">
 <a class="header-anchor" href="#31-limits-of-real-numbers"></a>
 3.1 Limits of Real Numbers
-</h3><h4 id="definition">
+</h4><h5 id="definition">
 <a class="header-anchor" href="#definition"></a>
 Definition:
-</h4><p>A sequence $\{a_n\}$ converges to $L$ if, for any $\varepsilon \gt 0$, there exists $N$ such that for all $n \gt N$, $|a_n - L|  \lt  \varepsilon$.</p>
-<h4 id="example-1">
+</h5><p>A sequence $\{a_n\}$ converges to $L$ if, for any $\varepsilon \gt 0$, there exists $N$ such that for all $n \gt N$, $|a_n - L|  \lt  \varepsilon$.</p>
+<h5 id="example-1">
 <a class="header-anchor" href="#example-1"></a>
 Example:
-</h4><p>$\lim_{n \to \infty} \frac{1}{n} = 0$.</p>
-<h4 id="properties">
+</h5><p>$\lim_{n \to \infty} \frac{1}{n} = 0$.</p>
+<h5 id="properties">
 <a class="header-anchor" href="#properties"></a>
 Properties:
-</h4><ul>
+</h5><ul>
 <li>Uniqueness of limits.</li>
 <li>Bounded monotonic sequences converge.</li>
 </ul>
-<h3 id="32-continuity-of-real-numbers">
+<h4 id="32-continuity-of-real-numbers">
 <a class="header-anchor" href="#32-continuity-of-real-numbers"></a>
 3.2 Continuity of Real Numbers
-</h3><h4 id="definition-1">
+</h4><h5 id="definition-1">
 <a class="header-anchor" href="#definition-1"></a>
 Definition:
-</h4><p>A function $f(x)$ is continuous at $x = a$ if:</p>
+</h5><p>A function $f(x)$ is continuous at $x = a$ if:</p>
 <ol>
 <li>$f(a)$ exists.</li>
 <li>$\lim_{x \to a} f(x)$ exists.</li>
 <li>$\lim_{x \to a} f(x) = f(a)$.</li>
 </ol>
-<h4 id="properties-1">
+<h5 id="properties-1">
 <a class="header-anchor" href="#properties-1"></a>
 Properties:
-</h4><ul>
+</h5><ul>
 <li>Sums, products, and compositions of continuous functions are continuous.</li>
 </ul>
-<h3 id="33-key-theorems">
+<h4 id="33-key-theorems">
 <a class="header-anchor" href="#33-key-theorems"></a>
 3.3 Key Theorems
-</h3><h4 id="intermediate-value-theorem">
+</h4><h5 id="intermediate-value-theorem">
 <a class="header-anchor" href="#intermediate-value-theorem"></a>
 Intermediate Value Theorem:
-</h4><p>If $f$ is continuous on $[a, b]$ and $f(a) \neq f(b)$, then for any $c$ between $f(a)$ and $f(b)$, there exists $x_0 \in (a, b)$ such that $f(x_0) = c$.</p>
-<h4 id="extreme-value-theorem">
+</h5><p>If $f$ is continuous on $[a, b]$ and $f(a) \neq f(b)$, then for any $c$ between $f(a)$ and $f(b)$, there exists $x_0 \in (a, b)$ such that $f(x_0) = c$.</p>
+<h5 id="extreme-value-theorem">
 <a class="header-anchor" href="#extreme-value-theorem"></a>
 Extreme Value Theorem:
-</h4><p>A continuous function on a closed interval attains its maximum and minimum.</p>
-<h2 id="4-comparative-analysis">
+</h5><p>A continuous function on a closed interval attains its maximum and minimum.</p>
+<h3 id="4-comparative-analysis">
 <a class="header-anchor" href="#4-comparative-analysis"></a>
 4. Comparative Analysis
-</h2><h3 id="41-mathematical-analysis">
+</h3><h4 id="41-mathematical-analysis">
 <a class="header-anchor" href="#41-mathematical-analysis"></a>
 4.1 <strong>Mathematical Analysis</strong>:
-</h3><ul>
+</h4><ul>
 <li>Covers basic real analysis: construction of real numbers, continuity, limits, derivatives, and integrals.</li>
 <li>Emphasizes mathematical logic and set theory.<br>
 <img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/330423610.png" alt="Mathematical Analysis-1.png"></li>
 </ul>
-<h3 id="42-real-analysis-and-functional-analysis">
+<h4 id="42-real-analysis-and-functional-analysis">
 <a class="header-anchor" href="#42-real-analysis-and-functional-analysis"></a>
 4.2 <strong>Real Analysis and Functional Analysis</strong>:
-</h3><ul>
+</h4><ul>
 <li>Discusses advanced constructions like Dedekind cuts.</li>
 <li>Includes measure theory and functional analysis basics.<br>
 <img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/1611562658.png" alt="实分析与泛函分析-1.png"></li>
 </ul>
-<h3 id="43-real-and-complex-analysis">
+<h4 id="43-real-and-complex-analysis">
 <a class="header-anchor" href="#43-real-and-complex-analysis"></a>
 4.3 <strong>Real and Complex Analysis</strong>:
-</h3><ul>
+</h4><ul>
 <li>Comprehensive coverage of real and complex analysis.</li>
 <li>Highlights measure theory and holomorphic functions.<br>
 <img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/3544421365.png" alt="实分析与复分析-1.png"></li>
 </ul>
-<h3 id="44-real-analysis">
+<h4 id="44-real-analysis">
 <a class="header-anchor" href="#44-real-analysis"></a>
 4.4 <strong>Real Analysis</strong>:
-</h3><ul>
+</h4><ul>
 <li>Focuses on the real number system&rsquo;s construction and completeness.</li>
 <li>Explores metric spaces for deeper understanding.<br>
 <img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2023/12/2948448354.png" alt="Real Analysis-1.png"></li>
 </ul>
-<h2 id="7-personal-reflection">
+<h3 id="7-personal-reflection">
 <a class="header-anchor" href="#7-personal-reflection"></a>
 7. Personal Reflection
-</h2><p>Studying the construction of real numbers has expanded my mathematical perspective. Understanding the transition from rational to irrational numbers and proofs like the supremum principle has deepened my appreciation for the completeness of real numbers.</p>
+</h3><p>Studying the construction of real numbers has expanded my mathematical perspective. Understanding the transition from rational to irrational numbers and proofs like the supremum principle has deepened my appreciation for the completeness of real numbers.</p>
 <p>The concepts of limits and continuity reveal a profound and elegant aspect of mathematics. Limits provide tools for analyzing trends, while continuity ensures smooth transitions in functions, forming the backbone of mathematical analysis.</p>
 
         
         <hr><p>Published on 2023-12-27 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-12-27</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Math</category></item><item><title>The Relationship Between the Residue Theorem and Laurent Series, Higher-Order Derivative Formulas, and Cauchy's Integral Formula</title><link>https://guzhengsvt.cn/en/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link><pubDate>Wed, 20 Dec 2023 08:54:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid><description>
 <![CDATA[<h1>The Relationship Between the Residue Theorem and Laurent Series, Higher-Order Derivative Formulas, and Cauchy's Integral Formula</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
-          <h3 id="1-residue-theorem">
+          <h2 id="1-residue-theorem">
 <a class="header-anchor" href="#1-residue-theorem"></a>
 1. Residue Theorem
-</h3><p>The Residue Theorem is a pivotal result in complex function theory, built upon the concept of residues. Its core idea states that if a function is analytic everywhere on and within a closed contour enclosing isolated singularities, the integral around the contour equals the sum of the residues at those singularities.</p>
-<h3 id="2-laurent-series">
+</h2><p>The Residue Theorem is a pivotal result in complex function theory, built upon the concept of residues. Its core idea states that if a function is analytic everywhere on and within a closed contour enclosing isolated singularities, the integral around the contour equals the sum of the residues at those singularities.</p>
+<h2 id="2-laurent-series">
 <a class="header-anchor" href="#2-laurent-series"></a>
 2. Laurent Series
-</h3><p>A Laurent series is an expansion of a complex function into an infinite series, including both positive and negative powers. Specifically, a complex function in an annular region can be expressed as:<br>
+</h2><p>A Laurent series is an expansion of a complex function into an infinite series, including both positive and negative powers. Specifically, a complex function in an annular region can be expressed as:<br>
 </p>
 $$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<p>Here, \( c_n \) are the coefficients, and \( z_0 \) is the expansion point.</p>
-<h3 id="3-higher-order-derivative-formula">
+<h2 id="3-higher-order-derivative-formula">
 <a class="header-anchor" href="#3-higher-order-derivative-formula"></a>
 3. Higher-Order Derivative Formula
-</h3><p>The higher-order derivative formula for complex functions resembles that of real functions but requires careful consideration in the complex plane. If a function is analytic at a point, its higher-order derivatives at that point can be obtained by term-wise differentiation of its power series.</p>
-<h3 id="4-cauchys-integral-formula">
+</h2><p>The higher-order derivative formula for complex functions resembles that of real functions but requires careful consideration in the complex plane. If a function is analytic at a point, its higher-order derivatives at that point can be obtained by term-wise differentiation of its power series.</p>
+<h2 id="4-cauchys-integral-formula">
 <a class="header-anchor" href="#4-cauchys-integral-formula"></a>
 4. Cauchy&rsquo;s Integral Formula
-</h3><p>Cauchy&rsquo;s Integral Formula is a fundamental result in complex analysis, establishing a relationship between an analytic function and its integral over a contour. Specifically, if \( f(z) \) is analytic inside and on a simple closed contour \( C \), then for any point \( z_0 \) inside \( C \):</p>
-$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$<h3 id="relationships-and-connections">
+</h2><p>Cauchy&rsquo;s Integral Formula is a fundamental result in complex analysis, establishing a relationship between an analytic function and its integral over a contour. Specifically, if \( f(z) \) is analytic inside and on a simple closed contour \( C \), then for any point \( z_0 \) inside \( C \):</p>
+$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$<h2 id="relationships-and-connections">
 <a class="header-anchor" href="#relationships-and-connections"></a>
 Relationships and Connections
-</h3><ol>
+</h2><ol>
 <li>
 <p><strong>Residue Theorem and Laurent Series</strong>:<br>
 The Residue Theorem computes integrals over closed contours, while the Laurent series helps analyze the behavior of functions near singularities, facilitating residue calculation.</p>
@@ -1452,21 +1452,21 @@ Cauchy&rsquo;s Integral Formula evaluates contour integrals, while the Residue T
 </li>
 </ol>
 <hr>
-<h3 id="1-proof-of-the-residue-theorem-via-laurent-series">
+<h2 id="1-proof-of-the-residue-theorem-via-laurent-series">
 <a class="header-anchor" href="#1-proof-of-the-residue-theorem-via-laurent-series"></a>
 1. Proof of the Residue Theorem via Laurent Series
-</h3><h4 id="residue-theorem">
+</h2><h3 id="residue-theorem">
 <a class="header-anchor" href="#residue-theorem"></a>
 Residue Theorem:
-</h4><p>If \( f(z) \) is analytic everywhere inside and on a closed contour \( C \) except for isolated singularities, then:<br>
+</h3><p>If \( f(z) \) is analytic everywhere inside and on a closed contour \( C \) except for isolated singularities, then:<br>
 </p>
-$$\oint_C f(z) \, dz = 2\pi i \cdot \sum \text{Res}(f, z_k)$$<h4 id="laurent-series-expansion">
+$$\oint_C f(z) \, dz = 2\pi i \cdot \sum \text{Res}(f, z_k)$$<h3 id="laurent-series-expansion">
 <a class="header-anchor" href="#laurent-series-expansion"></a>
 Laurent Series Expansion:
-</h4>$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<h4 id="proof-steps">
+</h3>$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<h3 id="proof-steps">
 <a class="header-anchor" href="#proof-steps"></a>
 Proof Steps:
-</h4><ol>
+</h3><ol>
 <li>
 <p><strong>Laurent Series Expansion</strong>:<br>
 Expand \( f(z) \) around \( z_0 \):<br>
@@ -1494,21 +1494,21 @@ The residue \( \text{Res}(f, z_0) = c_{-1} \), yielding:<br>
 $$\oint_C f(z) \, dz = 2\pi i \cdot \text{Res}(f, z_0)$$</li>
 </ol>
 <hr>
-<h3 id="2-deriving-the-higher-order-derivative-formula-from-the-residue-theorem">
+<h2 id="2-deriving-the-higher-order-derivative-formula-from-the-residue-theorem">
 <a class="header-anchor" href="#2-deriving-the-higher-order-derivative-formula-from-the-residue-theorem"></a>
 2. Deriving the Higher-Order Derivative Formula from the Residue Theorem
-</h3><h4 id="residue-theorem-1">
+</h2><h3 id="residue-theorem-1">
 <a class="header-anchor" href="#residue-theorem-1"></a>
 Residue Theorem:
-</h4>$$\oint_C f(z) \, dz = 2\pi i \cdot \text{Res}(f, z_0)$$<h4 id="higher-order-derivative-formula">
+</h3>$$\oint_C f(z) \, dz = 2\pi i \cdot \text{Res}(f, z_0)$$<h3 id="higher-order-derivative-formula">
 <a class="header-anchor" href="#higher-order-derivative-formula"></a>
 Higher-Order Derivative Formula:
-</h4><p>For \( f(z) \) analytic at \( z_0 \), the \( n \)-th derivative is:<br>
+</h3><p>For \( f(z) \) analytic at \( z_0 \), the \( n \)-th derivative is:<br>
 </p>
-$$f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} \, dz$$<h4 id="proof-steps-1">
+$$f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} \, dz$$<h3 id="proof-steps-1">
 <a class="header-anchor" href="#proof-steps-1"></a>
 Proof Steps:
-</h4><ol>
+</h3><ol>
 <li>
 <p><strong>Residue Theorem Setup</strong>:<br>
 Consider \( g(z) = \frac{f(z)}{(z - z_0)^{n+1}} \). Its residue at \( z_0 \) is:<br>
@@ -1524,19 +1524,19 @@ $$\oint_C \frac{f(z)}{(z - z_0)^{n+1}} \, dz = 2\pi i \cdot \text{Res}(g, z_0) =
 $$f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} \, dz$$</li>
 </ol>
 <hr>
-<h3 id="3-proving-cauchys-integral-formula-via-the-residue-theorem">
+<h2 id="3-proving-cauchys-integral-formula-via-the-residue-theorem">
 <a class="header-anchor" href="#3-proving-cauchys-integral-formula-via-the-residue-theorem"></a>
 3. Proving Cauchy&rsquo;s Integral Formula via the Residue Theorem
-</h3><h4 id="residue-theorem-2">
+</h2><h3 id="residue-theorem-2">
 <a class="header-anchor" href="#residue-theorem-2"></a>
 Residue Theorem:
-</h4>$$\oint_C f(z) \, dz = 2\pi i \cdot \text{Res}(f, z_0)$$<h4 id="cauchys-integral-formula">
+</h3>$$\oint_C f(z) \, dz = 2\pi i \cdot \text{Res}(f, z_0)$$<h3 id="cauchys-integral-formula">
 <a class="header-anchor" href="#cauchys-integral-formula"></a>
 Cauchy&rsquo;s Integral Formula:
-</h4>$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$<h4 id="proof-steps-2">
+</h3>$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$<h3 id="proof-steps-2">
 <a class="header-anchor" href="#proof-steps-2"></a>
 Proof Steps:
-</h4><ol>
+</h3><ol>
 <li>
 <p><strong>Identify the Residue</strong>:<br>
 For \( g(z) = \frac{f(z)}{z - z_0} \), the residue at \( z_0 \) is \( \text{Res}(g, z_0) = f(z_0) \).</p>
@@ -1555,10 +1555,10 @@ $$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
         <hr><p>Published on 2023-12-20 at <a href='https://guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-12-20</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Math</category></item><item><title>Complex Analysis</title><link>https://guzhengsvt.cn/en/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link><pubDate>Fri, 17 Nov 2023 19:42:47 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://guzhengsvt.cn/en/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid><description>
 <![CDATA[<h1>Complex Analysis</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
-          <h1 id="complex-numbers">
+          <h2 id="complex-numbers">
 <a class="header-anchor" href="#complex-numbers"></a>
 Complex Numbers
-</h1><ol>
+</h2><ol>
 <li>Representation of complex numbers:
 $$z = r\cdot e^{i\theta} = r(\cos\theta +i\cdot \sin\theta)$$</li>
 <li>Elementary functions
@@ -1583,10 +1583,10 @@ $$z = r\cdot e^{i\theta} = r(\cos\theta +i\cdot \sin\theta)$$</li>
 </ol>
 </li>
 </ol>
-<h1 id="analytic-functions">
+<h2 id="analytic-functions">
 <a class="header-anchor" href="#analytic-functions"></a>
 Analytic Functions
-</h1><ol>
+</h2><ol>
 <li>Definition of differentiability:<br>
 
 $$\lim_{\Delta z \to 0} \frac{f(z_0 + \Delta z) - f(z_0)}{\Delta z} \text{ exists, then } f(z) \text{ is differentiable at } z_0.$$</li>
@@ -1603,10 +1603,10 @@ Corollary:<br>
 
 $$f'(z) = \frac{\partial u}{\partial x} + i \frac{\partial v}{\partial x} = \frac{1}{i} \frac{\partial u}{\partial y} + \frac{\partial v}{\partial y}.$$</li>
 </ol>
-<h1 id="complex-integration">
+<h2 id="complex-integration">
 <a class="header-anchor" href="#complex-integration"></a>
 Complex Integration
-</h1><p><strong>Key Formula</strong><br>
+</h2><p><strong>Key Formula</strong><br>
 </p>
 $$\oint_{|z - z_0| = r} \frac{1}{(z - z_0)^n} dz = \begin{cases}  
 2\pi i, & n = 1 \\  
@@ -1628,13 +1628,13 @@ $$2\pi i \cdot f(z_0) = \oint_C \frac{f(z)}{z - z_0} dz.$$</li>
 
 $$f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} dz.$$</li>
 </ol>
-<h1 id="series">
+<h2 id="series">
 <a class="header-anchor" href="#series"></a>
 Series
-</h1><h2 id="power-series">
+</h2><h3 id="power-series">
 <a class="header-anchor" href="#power-series"></a>
 Power Series
-</h2><ol>
+</h3><ol>
 <li>Two properties of analytic functions
 <ol>
 <li>Analytic functions have derivatives of all orders.</li>
@@ -1646,10 +1646,10 @@ Power Series
 $$f(z) = \sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!} z^n.$$</li>
 <li>Methods for finding Taylor expansions [[Advanced Mathematics#Expansion of Functions into Power Series]]</li>
 </ol>
-<h2 id="laurent-series">
+<h3 id="laurent-series">
 <a class="header-anchor" href="#laurent-series"></a>
 Laurent Series
-</h2><ol>
+</h3><ol>
 <li>Bilateral power series
 <ol>
 <li>The region of convergence is an annulus $R_1  \lt  |z - z_0|  \lt  R_2$.</li>
@@ -1666,13 +1666,13 @@ Corollary: When $n = -1$, $c_{-1} \cdot 2\pi i = \oint_C f(z) dz$.</li>
 </ol>
 </li>
 </ol>
-<h1 id="residues">
+<h2 id="residues">
 <a class="header-anchor" href="#residues"></a>
 Residues
-</h1><h2 id="isolated-singularities">
+</h2><h3 id="isolated-singularities">
 <a class="header-anchor" href="#isolated-singularities"></a>
 Isolated Singularities
-</h2><ol>
+</h3><ol>
 <li>Definition: $f(z)$ is not analytic at $z_0$ but is analytic in some punctured neighborhood of $z_0$.</li>
 <li>Classification of isolated singularities (based on negative power terms in the Laurent series)
 <ol>
@@ -1689,10 +1689,10 @@ Necessary and sufficient condition: $f^{(n)}(z_0) = 0$ for $n  \lt  m$, and $f^{
 </ol>
 </li>
 </ol>
-<h2 id="residues-1">
+<h3 id="residues-1">
 <a class="header-anchor" href="#residues-1"></a>
 Residues
-</h2><ol>
+</h3><ol>
 <li>Definition:<br>
 
 $$\text{Res}[f(z), z_0] = c_{-1} = \frac{1}{2\pi i} \oint_C f(z) dz.$$</li>
