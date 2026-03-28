@@ -1,4 +1,5 @@
-User-agent: Baiduspider
-Disallow:
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://www.guzhengsvt.cn/sitemap.xml
+Host: www.guzhengsvt.cn
