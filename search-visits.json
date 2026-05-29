@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-28T06:59:41.762Z",
+  "updatedAt": "2026-05-29T07:01:22.670Z",
   "sources": [
     {
       "name": "Baidu",
@@ -7,7 +7,7 @@
     },
     {
       "name": "Bing",
-      "visits": 2
+      "visits": 0
     },
     {
       "name": "Google",
