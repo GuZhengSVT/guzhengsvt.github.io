@@ -1,4 +1,716 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Notes on 孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/en/tags/notes/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright><lastBuildDate>Fri, 05 Sep 2025 11:05:15 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/en/tags/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Quantum Physics</title><link>https://www.guzhengsvt.cn/en/post/physics/quantum-physics/</link><pubDate>Fri, 05 Sep 2025 11:05:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/physics/quantum-physics/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Notes on 孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/en/tags/notes/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright><lastBuildDate>Sat, 28 Mar 2026 17:40:00 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/en/tags/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Ansys HFSS Beginner's Systematic Hands-On Tutorial</title><link>https://www.guzhengsvt.cn/en/post/othernotes/ansys-hfss-tutorial/</link><pubDate>Sat, 28 Mar 2026 17:40:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/othernotes/ansys-hfss-tutorial/</guid><description>
+<![CDATA[<h1>Ansys HFSS Beginner's Systematic Hands-On Tutorial</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
+        
+          <blockquote>
+<p><strong>Design Note</strong>: Aimed at university students with strong learning ability, this tutorial outline deliberately de-emphasizes mechanical &ldquo;step-by-step screenshots&rdquo; and instead focuses on the underlying electromagnetics and numerical computation logic of <em>why</em> things are set up this way. Mastering the physical and mathematical core is the key to applying knowledge flexibly.</p>
+</blockquote>
+<h2 id="1-software-overview-and-computational-electromagnetics-fundamentals">
+<a class="header-anchor" href="#1-software-overview-and-computational-electromagnetics-fundamentals"></a>
+1. Software Overview and Computational Electromagnetics Fundamentals
+</h2><p>This chapter aims to build a foundational understanding of Ansys HFSS (High Frequency Structure Simulator). For beginners, the biggest pitfall is treating the simulation software as a &ldquo;black box&rdquo; and staying at the level of clicking through the interface. Understanding HFSS&rsquo;s applicable boundaries and computational core (the Finite Element Method) is a prerequisite for evaluating simulation result credibility and diagnosing non-convergence issues.</p>
+<h3 id="11-ansys-hfss-introduction-and-applicable-boundaries">
+<a class="header-anchor" href="#11-ansys-hfss-introduction-and-applicable-boundaries"></a>
+1.1 Ansys HFSS Introduction and Applicable Boundaries
+</h3><ul>
+<li><strong>Core Positioning</strong>: HFSS is a commercial software based on full-wave 3D electromagnetic field solving (Full-wave solver), with a computational foundation built on the rigorous solution of Maxwell&rsquo;s Equations.</li>
+<li><strong>Strengths</strong>: It excels at handling high-frequency electromagnetic field problems for arbitrary complex 3D structures, such as antenna design, microwave passive components (filters, couplers), RF connectors, package structures, and Radar Cross Section (RCS) analysis.</li>
+<li><strong>Applicable Boundaries (When Not to Use HFSS)</strong>:
+<ul>
+<li><strong>Ultra-Low Frequency / Pure Circuit Problems</strong>: For lumped-parameter circuits or low-frequency motor designs, HFSS&rsquo;s computational cost is excessively high and it is prone to low-frequency breakdown. In such cases, you should turn to SPICE or Maxwell (based on time-domain or low-frequency domain solvers).</li>
+<li><strong>Electrically Very Large Targets</strong>: When the physical dimensions of the simulation target (e.g., an entire aircraft or a large ship) are far greater than the operating wavelength, the finite element mesh scale typically grows rapidly with the electrical size (often approaching cubic growth in practice), and HFSS will consume massive amounts of memory. These problems are better suited to the Method of Moments (MoM) or Physical Optics (PO/SBR) solvers (such as Ansys Savant or HFSS&rsquo;s SBR+ solution domain).</li>
+<li><strong>Pure 2D Layered Structures</strong>: For standard microstrip lines or multilayer PCB boards, using a 2.5D planar solver (such as HFSS 3D Layout or Siwave) is far more efficient than a full 3D solver.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: Ansys official training document <em>Ansys HFSS User&rsquo;s Guide</em>, Chapter 1: HFSS Overview and Solver Technology.</p>
+</blockquote>
+<h3 id="12-finite-element-method-fem-core-logic-overview">
+<a class="header-anchor" href="#12-finite-element-method-fem-core-logic-overview"></a>
+1.2 Finite Element Method (FEM) Core Logic Overview
+</h3><p>The Finite Element Method (FEM) is the underlying mathematical engine of HFSS. Computers cannot directly parse and process arbitrarily complex geometries in continuous space. The core idea of FEM is to <strong>&ldquo;divide the whole into parts, and then reassemble the parts into the whole.&rdquo;</strong></p>
+<ul>
+<li><strong>Spatial Discretization (Meshing)</strong>: HFSS cuts the user-drawn 3D continuous space (solution domain) into hundreds of thousands or even millions of non-overlapping tiny &ldquo;tetrahedra.&rdquo; This process is called mesh generation.</li>
+<li><strong>Basis Functions and Local Solving</strong>: Inside each tetrahedron, the electromagnetic field distribution is assumed to follow a simple mathematical polynomial (basis function). HFSS approximates the true electromagnetic field distribution by solving for the field strength at each tetrahedron&rsquo;s nodes or edges.</li>
+<li><strong>Assembly and Global Solving (Matrix Equation)</strong>: All tetrahedron equations are assembled according to boundary conditions to form a massive sparse matrix equation (Ax = b). The HFSS solving process is essentially performing matrix inversion or iterative solving on this enormous matrix.</li>
+<li><strong>Engineering Implications (Why FEM Matters)</strong>:
+<ul>
+<li><strong>Mesh Density Determines Accuracy</strong>: In regions where the electromagnetic field changes most dramatically (e.g., metal edges, gaps), a denser tetrahedral mesh is required.</li>
+<li><strong>Adaptive Meshing</strong>: What sets HFSS apart from other software is its automation. It first performs a trial calculation with a sparse mesh, identifies regions with high error, then automatically refines the mesh in those regions and recalculates—until the S-parameter variation (Delta S) between two consecutive calculations falls below a set threshold.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: Jian-Ming Jin, <em>The Finite Element Method in Electromagnetics</em>, with emphasis on the mathematical derivations of 3D vector finite elements and tetrahedral meshing.</p>
+</blockquote>
+<h3 id="13-standard-simulation-workflow-analysis">
+<a class="header-anchor" href="#13-standard-simulation-workflow-analysis"></a>
+1.3 Standard Simulation Workflow Analysis
+</h3><p>Every HFSS project follows a rigorous linear logic loop. Skipping or reversing steps often leads to physical model contradictions or solver failures. The standard workflow can be broken down into the following six core steps:</p>
+<ul>
+<li><strong>Step 1: Geometry Modeling</strong>
+<ul>
+<li>Draw the physical shape of objects in the 3D modeling interface, or import CAD models from external software such as SolidWorks or AutoCAD.</li>
+<li><strong>Key Point</strong>: Simplify mechanical features that have no impact on electromagnetic characteristics—such as chamfers and screw holes—to reduce unnecessary mesh generation.</li>
+</ul>
+</li>
+<li><strong>Step 2: Materials Assignment</strong>
+<ul>
+<li>Assign physical properties (dielectric constant, permeability, conductivity, loss tangent, etc.) to all geometric bodies.</li>
+<li><strong>Key Point</strong>: By default, HFSS treats the unassigned background space as absolute vacuum. If geometric bodies overlap, you must explicitly define material override priority (Material Override rules).</li>
+</ul>
+</li>
+<li><strong>Step 3: Boundaries</strong>
+<ul>
+<li>Define the boundary characteristics of the computational space. Since a computer cannot simulate an infinitely large universe, a boundary layer (such as an absorbing Radiation boundary or a Perfectly Matched Layer—PML) must be wrapped around the finite model exterior to simulate electromagnetic waves radiating toward infinity.</li>
+<li><strong>Key Point</strong>: Boundaries are also used to idealize object surfaces (e.g., setting them to Perfect E), eliminating the need to compute fields inside the metal and drastically reducing computational cost.</li>
+</ul>
+</li>
+<li><strong>Step 4: Excitations (Ports)</strong>
+<ul>
+<li>Define the &ldquo;gateway&rdquo; through which electromagnetic waves enter or leave the system. Common types include Wave Ports (for external feeding, such as waveguides or coaxial lines) and Lumped Ports (for internal feeding, such as microstrip lines).</li>
+<li><strong>Key Point</strong>: Excitations not only input energy but also compute the characteristic impedance (Z₀) at the port.</li>
+</ul>
+</li>
+<li><strong>Step 5: Analysis Setup (Solver Settings)</strong>
+<ul>
+<li>Define the solution frequency (typically set to the highest operating frequency or resonant frequency, to guide the adaptive meshing size), convergence criteria (Delta S), and sweep frequency range.</li>
+</ul>
+</li>
+<li><strong>Step 6: Post-Processing</strong>
+<ul>
+<li>After solving, extract the engineering-required data representations. This includes network parameters (S/Y/Z parameter matrices), spatial field distributions (3D color maps or vector plots of electric/magnetic fields), and antenna radiation characteristics (radiation patterns, gain, axial ratio).</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: David M. Pozar, <em>Microwave Engineering</em>, on network analysis and the theoretical definition of S-parameters for microwave networks, mapped to the practical application of HFSS post-processing parameter extraction.</p>
+</blockquote>
+<h2 id="2-project-management-and-interface-navigation">
+<a class="header-anchor" href="#2-project-management-and-interface-navigation"></a>
+2. Project Management and Interface Navigation
+</h2><p>This chapter focuses on analyzing the top-level architecture and interaction logic of the Ansys software. For beginners, clarifying the data hierarchy of project files and selecting the correct &ldquo;Design Type&rdquo; according to project goals is the cornerstone of avoiding later rework.</p>
+<h3 id="21-ansys-electronics-desktop-aedt-architecture">
+<a class="header-anchor" href="#21-ansys-electronics-desktop-aedt-architecture"></a>
+2.1 Ansys Electronics Desktop (AEDT) Architecture
+</h3><p>Earlier versions of HFSS were standalone software, but modern versions have all been integrated into the unified Ansys Electronics Desktop (AEDT) desktop environment. Understanding AEDT&rsquo;s hierarchical architecture is crucial for managing complex multi-physics co-simulations.</p>
+<ul>
+<li><strong>AEDT&rsquo;s &ldquo;Shell&rdquo; and &ldquo;Engine&rdquo;</strong>: AEDT itself is merely a Graphical User Interface (GUI) and project management platform. Internally, it encapsulates multiple solver engines (e.g., HFSS for high-frequency, Maxwell for low-frequency motors, Q3D for parasitic parameters, Icepak for thermodynamics).</li>
+<li><strong>Data Hierarchy</strong>: In the AEDT Project Manager tree view, the following nesting logic is strictly followed:
+<ul>
+<li><strong>Project</strong>: The highest level, corresponding to a single <code>.aedt</code> file on disk. A project can contain multiple different designs.</li>
+<li><strong>Design</strong> (e.g., <code>HFSSDesign1</code>): This is the specific workspace containing a particular geometry model, boundary conditions, and solution setup. You can create an antenna design (HFSS) and an RF circuit design (Circuit) within the same project and co-link them.</li>
+<li><strong>Setup</strong>: Mounted under a specific design, defining at what precision and what frequency the model will be computed by the engine.</li>
+</ul>
+</li>
+<li><strong>Underlying Logic</strong>: All geometry modifications, material assignments, and boundary conditions are reflected in real time in the Project Manager tree nodes. When debugging, checking the tree nodes top-to-bottom (looking for red X marks or yellow warnings) is the most efficient method.</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: Ansys official documentation <em>Ansys Electronics Desktop Help</em>, System Architecture and Project Management chapter.</p>
+</blockquote>
+<h3 id="22-core-design-type-analysis-3d-vs-3d-layout">
+<a class="header-anchor" href="#22-core-design-type-analysis-3d-vs-3d-layout"></a>
+2.2 Core Design Type Analysis: 3D vs 3D Layout
+</h3><p>When creating a new HFSS project in AEDT, beginners are often confused by <code>Insert HFSS Design</code> and <code>Insert HFSS 3D Layout Design</code>. Both invoke the same underlying FEM full-wave solver engine, but the target physical forms and modeling logic are entirely different.</p>
+<ul>
+<li><strong>HFSS (3D / MCAD Mode)</strong>:
+<ul>
+<li><strong>Applicable Scenarios</strong>: Complex structures in arbitrary 3D space, such as horn antennas, waveguide cavities, coaxial connectors, radar reflectors, etc.</li>
+<li><strong>Modeling Logic</strong>: Based on mechanical CAD (MCAD) Boolean operation thinking. Space is free—you can extrude or rotate solids along any X, Y, or Z axis.</li>
+</ul>
+</li>
+<li><strong>HFSS 3D Layout (ECAD Mode)</strong>:
+<ul>
+<li><strong>Applicable Scenarios</strong>: Layered structures, printed circuit boards (PCB), chip packages, microstrip line networks.</li>
+<li><strong>Modeling Logic</strong>: Based on electronic CAD (ECAD) 2.5D thinking. It pre-defines the concept of &ldquo;layers (stackup)&rdquo; (e.g., Top layer, Dielectric layer, Bottom layer). You only need to draw traces and vias on a 2D plane, and the software automatically assigns Z-axis thickness based on the stackup.</li>
+</ul>
+</li>
+<li><strong>Engineering Implication</strong>: Never manually draw a 10-layer complex PCB in the HFSS 3D environment—this will result in extremely low modeling efficiency and massive mesh fragmentation. Similarly, do not attempt to build a spherical lens antenna in 3D Layout.</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: Eric Bogatin, <em>Signal and Power Integrity - Simplified</em>, combined with Ansys SI/PI training materials on ECAD model extraction engineering practices.</p>
+</blockquote>
+<h3 id="23-view-controls-shortcuts-and-underlying-options">
+<a class="header-anchor" href="#23-view-controls-shortcuts-and-underlying-options"></a>
+2.3 View Controls, Shortcuts, and Underlying Options
+</h3><p>Familiarity with shortcuts is not just about efficiency—it is key to building spatial awareness. HFSS&rsquo;s 3D interaction logic differs slightly from traditional mechanical drafting software.</p>
+<ul>
+<li><strong>Frequently Used Navigation Shortcuts</strong>:
+<ul>
+<li><strong>Rotate</strong>: Hold <code>Alt</code> key + left mouse button drag.</li>
+<li><strong>Pan</strong>: Hold <code>Shift</code> key + left mouse button drag.</li>
+<li><strong>Zoom</strong>: Scroll the mouse wheel, or hold <code>Alt + Shift</code> + left mouse button drag up/down.</li>
+<li><strong>Fit All</strong>: Shortcut <code>Ctrl + D</code>—recovers the view in one click when the model flies off screen.</li>
+</ul>
+</li>
+<li><strong>Smart Selection Filters</strong>:
+<ul>
+<li>When applying boundary conditions or meshing, accurately selecting the target is critical.</li>
+<li><strong>Shortcut <code>O</code> (Object)</strong>: Default state; selects the entire 3D solid.</li>
+<li><strong>Shortcut <code>F</code> (Face)</strong>: Extremely commonly used; selects only the solid&rsquo;s surface (for specifying surface current or surface boundary conditions).</li>
+<li><strong>Shortcut <code>E</code> (Edge) / <code>V</code> (Vertex)</strong>: Selects edges or vertices (usually for measurements or establishing local coordinate systems).</li>
+</ul>
+</li>
+<li><strong>Essential Underlying Options (Tools &gt; Options)</strong>:
+<ul>
+<li><strong>Auto-Save Mechanism</strong>: Since high-frequency simulations can easily exhaust memory and crash the software, always enable <code>Auto Save</code> in <code>General Options &gt; Project Options</code> (recommended interval: 15–30 minutes).</li>
+<li><strong>Default Material Override</strong>: In <code>HFSS Options</code>, understand the <code>Material Override</code> mechanism. By default, HFSS allows the material of an inner solid to override that of an outer solid (e.g., drawing a copper block inside a vacuum cavity—the overlapping region is automatically treated as copper). If you are unaware of this mechanism, it is very easy to end up with a physical model that doesn&rsquo;t match your intentions.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: Ansys software built-in <code>Help</code> Keyboard Shortcuts manual and engineering application best practices summary.</p>
+</blockquote>
+<h2 id="3-geometry-modeling-and-parametrics">
+<a class="header-anchor" href="#3-geometry-modeling-and-parametrics"></a>
+3. Geometry Modeling and Parametrics
+</h2><p>This chapter explores how to build a digital twin of the physical world in HFSS. For advanced users, modeling is not just about &ldquo;drawing a shape&rdquo;—it is about establishing a mathematically topologically connected model. Poor modeling habits can cause severe mesh degradation or make automated optimization impossible later.</p>
+<h3 id="31-3d-solid-modeling-based-on-boolean-operations">
+<a class="header-anchor" href="#31-3d-solid-modeling-based-on-boolean-operations"></a>
+3.1 3D Solid Modeling Based on Boolean Operations
+</h3><p>HFSS&rsquo;s built-in 3D modeler adopts a typical Constructive Solid Geometry (CSG) logic. Unlike artistic polygon modeling, the core idea here is to &ldquo;assemble&rdquo; and &ldquo;carve&rdquo; complex structures from primitive solids through logical operations.</p>
+<ul>
+<li><strong>Reduction to Primitives</strong>: Every complex structure can be decomposed into combinations of boxes, cylinders, spheres, or 2D sheets.</li>
+<li><strong>The Three Core Boolean Operations</strong>:
+<ul>
+<li><strong>Unite (Union)</strong>: Merges multiple intersecting solids of the same material into one, eliminating interior redundant faces. This effectively reduces the mesh generator&rsquo;s computational burden at interfaces.</li>
+<li><strong>Subtract (Difference)</strong>: Uses one solid (tool) to &ldquo;hollow out&rdquo; another solid (blank). Commonly used for constructing resonant cavities, coaxial cable insulation, or waveguide slots.</li>
+<li><strong>Intersect</strong>: Retains only the overlapping spatial volume of two solids.</li>
+</ul>
+</li>
+<li><strong>Underlying Modeling Philosophy</strong>: <strong>&ldquo;Do not add entities unless necessary.&rdquo;</strong> In electromagnetic simulation, you must resolutely remove mechanical details that have minimal impact on electromagnetic wave propagation (such as screw threads, tiny chamfers, and non-critical support structures). These minute features (sliver faces) will force the FEM engine to generate extremely dense, deformed tetrahedral meshes in those regions, directly causing out-of-memory errors.</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: Ansys official training document <em>Ansys HFSS 3D Modeler User&rsquo;s Guide</em>, chapters on Boolean operations and model simplification.</p>
+</blockquote>
+<h3 id="32-variables-and-parametric-structure-creation">
+<a class="header-anchor" href="#32-variables-and-parametric-structure-creation"></a>
+3.2 Variables and Parametric Structure Creation
+</h3><p>Parametrics is the dividing line between a &ldquo;novice&rdquo; and an &ldquo;engineer.&rdquo; In HFSS, never hard-code specific values in dimension input fields (e.g., directly entering <code>5mm</code>). Instead, always input variable names (e.g., <code>patch_length</code>). Because simulation is fundamentally a process of continuous trial-and-error and optimization.</p>
+<ul>
+<li><strong>Local Variables vs Project Variables (Global Variables)</strong>:
+<ul>
+<li><strong>Local Variables</strong>: Defined directly (e.g., <code>radius = 2mm</code>), with scope limited to the current Design (e.g., effective only in this particular antenna design).</li>
+<li><strong>Global Variables</strong>: Prefixed with <code>$</code> (e.g., <code>$substrate_h = 1.6mm</code>), with scope spanning the entire Project file. When performing multi-physics co-simulation (e.g., HFSS for electromagnetic, Icepak for thermal) and unified dimensions are required, global variables must be used.</li>
+</ul>
+</li>
+<li><strong>Mathematical Expressions and Topological Constraints</strong>: Variables are not just static values—they can be trigonometric functions or interdependent equations. For example, when defining a quarter-wavelength impedance transformer, the length can be written as <code>lambda/4</code> (where <code>lambda</code> is derived from the speed of light and the center frequency).</li>
+<li><strong>Underlying Logic of Parametrics</strong>: Establish constraint relationships. For example, when placing a microstrip patch on a dielectric substrate, the patch&rsquo;s Z-axis coordinate should not be hard-coded—it should be set to the substrate thickness variable <code>h</code>. This way, when you later sweep the substrate thickness during optimization, the patch will automatically &ldquo;float&rdquo; on the surface rather than sinking into the substrate or hanging in mid-air.</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: Stephen H. Hall, <em>Advanced Signal Integrity for High-Speed Digital Designs</em>, borrowing its engineering specification for building fully parametric topological structures in channel modeling.</p>
+</blockquote>
+<h3 id="33-material-library-management">
+<a class="header-anchor" href="#33-material-library-management"></a>
+3.3 Material Library Management
+</h3><p>The propagation speed and attenuation characteristics of electromagnetic waves in different media are entirely governed by the material&rsquo;s constitutive parameters: relative permittivity ($\varepsilon_r$), relative permeability ($\mu_r$), conductivity ($\sigma$), and dielectric loss tangent ($\tan\delta$).</p>
+<ul>
+<li><strong>Material Assignment Mechanism and Override Rules</strong>: By default, the HFSS background is vacuum. In practice, solid overlaps should be avoided as much as possible. If overlaps exist for modeling convenience, you can enable <code>Enable material override</code> in <code>HFSS &gt; Design Settings</code> and explicitly define which category of geometry overrides the other (e.g., a via overrides the corresponding volume in the dielectric substrate).</li>
+<li><strong>Anisotropic Materials</strong>: The vast majority of basic simulations assume materials are isotropic (i.e., the permittivity is the same in all directions). However, in advanced designs (e.g., using sapphire substrates or special liquid crystal polymer—LCP), the $\varepsilon_r$ along the X, Y, and Z axes differs. HFSS allows inputting these anisotropic parameters via tensor notation, which is critical for high-frequency millimeter-wave circuits.</li>
+<li><strong>Dispersive Materials</strong>: For ultra-wideband (UWB) antennas or optical-frequency simulations, $\varepsilon_r$ and loss vary dramatically with frequency. In such cases, you cannot input a constant—you must introduce a dispersion model (such as Debye or Drude models) or import frequency-dependent measured datasets.</li>
+<li><strong>Underlying Logic</strong>: Pay close attention to $\tan\delta$. Many beginners find that their simulated insertion loss (S₂₁) doesn&rsquo;t match measurements—this is often because they overlooked conductor surface roughness and the nonlinear variation of the dielectric loss tangent at high frequencies.</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: Constantine A. Balanis, <em>Advanced Engineering Electromagnetics</em>, on constitutive relations and dielectric polarization theory.</p>
+</blockquote>
+<h2 id="4-boundary-conditions-spatial-truncation-and-physical-idealization">
+<a class="header-anchor" href="#4-boundary-conditions-spatial-truncation-and-physical-idealization"></a>
+4. Boundary Conditions: Spatial Truncation and Physical Idealization
+</h2><p>This chapter explores the extremely core concept of &ldquo;boundary conditions&rdquo; in HFSS. Electromagnetic fields extend infinitely in the real universe, but computer memory is finite. The essence of boundary conditions is to use the laws of electromagnetics and mathematical boundary value problems (BVP) to trick the computer within a finite computational domain, making its solution equivalent to that of an infinite space or an extremely complex physical structure.</p>
+<h3 id="41-physical-meaning-of-boundary-conditions">
+<a class="header-anchor" href="#41-physical-meaning-of-boundary-conditions"></a>
+4.1 Physical Meaning of Boundary Conditions
+</h3><ul>
+<li><strong>Spatial Truncation</strong>: The Finite Element Method (FEM) cannot handle an infinitely large mesh matrix. Boundary conditions act as a &ldquo;wall&rdquo; built around the computational domain, telling the solver: &ldquo;At this boundary, the electromagnetic wave behavior follows a specific mathematical rule—there&rsquo;s no need to compute further outward.&rdquo;</li>
+<li><strong>Physical Idealization and Dimensionality Reduction</strong>: In the microwave frequency range, the skin depth of metals is extremely shallow (typically on the order of micrometers). If 3D meshing were used to partition the interior of a thick copper plate, the mesh count would explode. By applying boundary conditions on the metal surface, we can reduce a 3D solid problem to a 2D surface current problem, saving at least 90% of computational resources.</li>
+<li><strong>Underlying Logic</strong>: If no open boundary (such as Radiation or PML) is explicitly set, the outer boundary of the finite solution domain will behave as a closed boundary. The model effectively becomes enclosed in a cavity, which can introduce non-physical reflections.</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: Constantine A. Balanis, <em>Advanced Engineering Electromagnetics</em>, on the mathematical uniqueness theorem for electromagnetic field boundary value problems (BVP).</p>
+</blockquote>
+<h3 id="42-common-material-surface-boundaries">
+<a class="header-anchor" href="#42-common-material-surface-boundaries"></a>
+4.2 Common Material Surface Boundaries
+</h3><ul>
+<li><strong>Perfect E (Perfect Electric Conductor)</strong>:
+<ul>
+<li><strong>Physical Characteristics</strong>: Represents an ideal conductor with infinite conductivity. The electric field vector must be perpendicular to this surface; the tangential electric field is zero ($E_{tan} = 0$).</li>
+<li><strong>Engineering Application</strong>: Used to simulate ideal metal ground planes, waveguide inner walls, or antenna radiating patches.</li>
+</ul>
+</li>
+<li><strong>Perfect H (Perfect Magnetic Conductor)</strong>:
+<ul>
+<li><strong>Physical Characteristics</strong>: A true magnetic conductor does not exist in nature. It forces the magnetic field vector to be perpendicular to the surface; the tangential magnetic field is zero ($H_{tan} = 0$).</li>
+<li><strong>Engineering Application (Core Technique)</strong>: Often used in conjunction with Perfect E to exploit electromagnetic symmetry (Symmetry) to bisect the model. For example, cutting a symmetric horn antenna into quarters along its symmetry planes and assigning Perfect E and Perfect H boundaries yields identical radiation characteristics, while memory consumption and solution time are each reduced to 1/4 of the original.</li>
+</ul>
+</li>
+<li><strong>Finite Conductivity (Finite Conductivity Boundary)</strong>:
+<ul>
+<li><strong>Physical Characteristics</strong>: Accounts for ohmic losses in real metals (e.g., copper, aluminum, gold). It allows a minuscule electromagnetic wave transmission (skin depth) and computes the active power loss on the surface.</li>
+<li><strong>Engineering Application</strong>: When calculating the quality factor of a high-Q resonant cavity or precisely evaluating the insertion loss of a microstrip line at millimeter-wave frequencies, this boundary must be used. Surface roughness models (e.g., Groisse or Huray models) can be further introduced.</li>
+</ul>
+</li>
+</ul>
+<h3 id="43-open-space-truncation-strategies">
+<a class="header-anchor" href="#43-open-space-truncation-strategies"></a>
+4.3 Open-Space Truncation Strategies
+</h3><p>For problems involving outward-radiating energy such as antennas or Radar Cross Section (RCS), the outermost layer of the model must be wrapped with an &ldquo;absorbing material&rdquo; to ensure zero reflection when electromagnetic waves pass through the boundary.</p>
+<ul>
+<li><strong>Radiation (Absorbing Boundary Condition — ABC)</strong>:
+<ul>
+<li><strong>Principle</strong>: An approximate mathematical boundary based on the Sommerfeld radiation condition. It assumes that electromagnetic waves arriving at this boundary are normally incident plane waves, thereby absorbing them completely.</li>
+<li><strong>Sizing Specification (λ/4 Rule)</strong>: Since it only absorbs normally incident waves effectively, it must be placed at least λ/4 (quarter-wavelength at the operating frequency) away from the radiating body. This is because within the reactive near-field region (less than λ/4), electromagnetic energy exists in the form of stored energy rather than radiation. Forcing a truncation here causes severe non-physical reflections that directly compromise the accuracy of S-parameters.</li>
+</ul>
+</li>
+<li><strong>PML (Perfectly Matched Layer)</strong>:
+<ul>
+<li><strong>Principle</strong>: PML is not a simple boundary but an artificially constructed, extremely special anisotropic non-physical &ldquo;lossy material.&rdquo; Theoretically, it can perfectly absorb electromagnetic waves from any angle of incidence at any frequency.</li>
+<li><strong>Engineering Comparison and Application</strong>: Compared to an ordinary Radiation boundary, PML&rsquo;s absorption performance is far superior. Therefore, it can be placed much closer to the radiating body (e.g., λ/10), reducing the total computational volume. The trade-off is that PML itself requires a denser mesh and more complex matrix solving. Generally, PML is mandatory for extremely high-precision antenna gain calculations or grazing-incidence scattering problems.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: Ansys official documentation <em>HFSS Boundaries and Excitations</em>; theoretical derivation references Jean-Pierre Bérenger&rsquo;s original paper on PML invention and <em>Antenna Theory: Analysis and Design</em>.</p>
+</blockquote>
+<h2 id="5-excitations-electromagnetic-wave-input-and-extraction">
+<a class="header-anchor" href="#5-excitations-electromagnetic-wave-input-and-extraction"></a>
+5. Excitations: Electromagnetic Wave Input and Extraction
+</h2><p>This chapter analyzes how electromagnetic energy enters and exits the simulation model. The port is not only a physical interface for feeding but also the absolute reference plane for computing S-parameters (scattering parameters) and extracting characteristic impedance ($Z_0$). Incorrect port configuration is the most common cause of S-parameter divergence and impedance mismatch artifacts.</p>
+<h3 id="51-core-concepts-of-excitations-dimensionality-reduction-and-expansion-from-2d-to-3d">
+<a class="header-anchor" href="#51-core-concepts-of-excitations-dimensionality-reduction-and-expansion-from-2d-to-3d"></a>
+5.1 Core Concepts of Excitations: Dimensionality Reduction and Expansion from 2D to 3D
+</h3><ul>
+<li><strong>Two-Step Solving Mechanism</strong>: When HFSS begins computing, it first performs a <strong>2D Eigenmode Solution</strong> on the port cross-section you defined. The purpose of this step is to determine which electromagnetic wave modes (Modes)—such as TE, TM, or TEM—the cross-section (e.g., a microstrip line or waveguide cross-section) can support, and to compute the characteristic impedance of that cross-section.</li>
+<li><strong>Transfer to the Volumetric Solver</strong>: HFSS then takes the field distribution obtained from the 2D solution and injects it as a boundary condition into the <strong>3D Full-Wave Solution</strong> domain.</li>
+<li><strong>Underlying Logic</strong>: Understanding this mechanism is critical. If your port cross-section is drawn too small, the 2D solution will fail to capture the complete fringing fields; if drawn too large, the port itself may become a waveguide and excite higher-order modes that don&rsquo;t exist in reality.</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: Ansys official documentation <em>HFSS Excitations and Ports</em>, on the underlying mathematical principles of the 2D port solver.</p>
+</blockquote>
+<h3 id="52-wave-port-principles-and-specifications">
+<a class="header-anchor" href="#52-wave-port-principles-and-specifications"></a>
+5.2 Wave Port Principles and Specifications
+</h3><p>The Wave Port is the most precise and most commonly used external excitation method in HFSS. It assumes the port is connected to an infinitely long semi-rigid transmission line.</p>
+<ul>
+<li><strong>Applicable Scenarios</strong>: Waveguide cavity end faces, coaxial line cross-sections, microstrip lines/striplines located at the edge of an absorbing boundary.</li>
+<li><strong>External vs Internal Wave Ports</strong>:
+<ul>
+<li><strong>External (Default)</strong>: The Wave Port must be placed on the outermost boundary (background) of the entire 3D model. Waves can only radiate inward in a single direction.</li>
+<li><strong>Internal Wave Port</strong>: If forced to use a Wave Port inside the model, you must draw a Perfect E (ideal conductor) cap on the back of the port, equal in size to the port, to force the electromagnetic wave to propagate in only one direction. Otherwise, the wave radiates in both directions, causing completely incorrect S-parameter calculations.</li>
+</ul>
+</li>
+<li><strong>Sizing Empirical Formulas (Microstrip Line Example)</strong>:
+<ul>
+<li>A Wave Port cannot be placed only on the metal trace—it must include the dielectric and air surrounding the trace to fully encapsulate the electromagnetic field.</li>
+<li><strong>Height</strong>: Typically set to 6 to 10 times the dielectric substrate thickness $h$ ($6h \sim 10h$).</li>
+<li><strong>Width</strong>: Typically set to about 10 times the trace width $w$, or dynamically adjusted based on the ratio of $w$ to $h$ (e.g., when $w \ge h$, the width is set to $10w$).</li>
+<li><strong>Pitfall to Avoid</strong>: Never let the edge of the Wave Port intersect with or be too close to the model&rsquo;s Radiation (absorbing) boundary—this will cause severe boundary conflict errors.</li>
+</ul>
+</li>
+</ul>
+<h3 id="53-lumped-port-details">
+<a class="header-anchor" href="#53-lumped-port-details"></a>
+5.3 Lumped Port Details
+</h3><p>A Lumped Port is analogous to an ideal voltage/current source in a circuit—it directly imposes an electric field between two metal surfaces.</p>
+<ul>
+<li><strong>Applicable Scenarios</strong>: Internal feeding (e.g., coaxial feed probes inside microstrip antennas, equivalent excitation for SMT pads of patch components), low-frequency bands or extremely electrically small slots.</li>
+<li><strong>Internal Excitation Characteristics</strong>: Lumped Ports <strong>must</strong> be located inside the model and <strong>must</strong> connect two conducting surfaces (e.g., connecting a signal line to a ground plane). It does not perform 2D eigenmode pre-computation; instead, it forces the assumption that the electric field on the port face is uniform (TEM mode).</li>
+<li><strong>Normalized Impedance Setting</strong>: Since it does not perform a 2D computation, a Lumped Port cannot automatically determine the characteristic impedance. The user must manually specify a reference impedance (typically $50\Omega$). All computed S-parameters will be normalized based on this given impedance.</li>
+<li><strong>Usage Constraints</strong>: The physical length and width of a Lumped Port must be much smaller than one-tenth of the wavelength at the highest operating frequency ($< \lambda/10$); otherwise, the uniform field assumption breaks down, producing severe parasitic inductance and capacitance.</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: David M. Pozar, <em>Microwave Engineering</em>, on the theory of equivalent differences between lumped elements and distributed transmission lines at microwave frequencies.</p>
+</blockquote>
+<h3 id="54-modes-and-integration-lines">
+<a class="header-anchor" href="#54-modes-and-integration-lines"></a>
+5.4 Modes and Integration Lines
+</h3><ul>
+<li><strong>The Bridge to Impedance Calculation</strong>: In microwave engineering, &ldquo;voltage&rdquo; and &ldquo;current&rdquo; at high frequencies are ambiguous concepts (because the field is distributed in space). HFSS calculates voltage by defining an <strong>Integration Line</strong> on the port face: $V = \int E \cdot dl$. The characteristic impedance of the mode is then computed via $Z = V^2 / (2 \cdot Power)$.</li>
+<li><strong>Phase Reference</strong>: The integration line specifies the positive direction of the electric field vector (typically from ground toward the signal line). In multi-port networks (such as power dividers and couplers), if the integration line directions are inconsistent across ports, the extracted S-parameter phases (e.g., the phase of $S_{21}$) will have a 180-degree inversion error.</li>
+<li><strong>Multi-Mode Transmission</strong>: For structures like waveguides that may simultaneously transmit the dominant mode (e.g., $TE_{10}$) and higher-order modes, you must increase the &ldquo;Number of Modes&rdquo; in the port settings and draw separate integration lines for each potential mode to extract their respective S-parameters. This is critical when designing mode converters or filters.</li>
+</ul>
+<h2 id="6-solver-configuration-and-adaptive-meshing-mechanism">
+<a class="header-anchor" href="#6-solver-configuration-and-adaptive-meshing-mechanism"></a>
+6. Solver Configuration and Adaptive Meshing Mechanism
+</h2><p>This chapter explains the configuration logic of HFSS&rsquo;s core computational engine. Properly setting solution parameters is a critical step in ensuring that Finite Element Analysis (FEM) results are physically meaningful and that computational resource consumption remains within a controllable range.</p>
+<h3 id="61-solution-type-selection-criteria">
+<a class="header-anchor" href="#61-solution-type-selection-criteria"></a>
+6.1 Solution Type Selection Criteria
+</h3><p>HFSS offers three mainstream full-wave 3D solution modes, with fundamentally different underlying mathematical derivations and boundary condition settings. Before designing, you must accurately select based on the physical characteristics of the Device Under Test (DUT).</p>
+<ul>
+<li><strong>Driven Modal</strong>:
+<ul>
+<li><strong>Computational Basis</strong>: Based on microwave network theory. By solving for the eigenmode distribution at the port (e.g., TE, TM, TEM modes), it calculates the ratio of incident to reflected power for different modes, yielding a generalized S-parameter matrix based on modes.</li>
+<li><strong>Applicable Scenarios</strong>: The vast majority of passive microwave devices, such as antennas, waveguide cavities, microstrip filters, power dividers, and Radar Cross Section (RCS) calculations.</li>
+</ul>
+</li>
+<li><strong>Driven Terminal</strong>:
+<ul>
+<li><strong>Computational Basis</strong>: Based on multi-conductor transmission line theory. It models the system in terms of &ldquo;node voltages&rdquo; and &ldquo;branch currents,&rdquo; directly extracting the terminal S-parameter matrix and corresponding node impedances for multi-port networks.</li>
+<li><strong>Applicable Scenarios</strong>: Signal Integrity (SI) and Power Integrity (PI) analysis, multi-pin IC package modeling, differential pair routing. In this mode, extracting differential-mode/common-mode impedance is more straightforward.</li>
+</ul>
+</li>
+<li><strong>Eigenmode</strong>:
+<ul>
+<li><strong>Computational Basis</strong>: A pure mathematical eigenvalue solving problem (passive, no external excitation). By solving Maxwell&rsquo;s equations for resonant solutions, it obtains the natural resonant frequencies of the structure and their corresponding 3D field distributions.</li>
+<li><strong>Applicable Scenarios</strong>: Designing high quality factor (Q) resonant cavities and dielectric resonators, and extracting the unloaded Q ($Q_u$) of specific cavities.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: Ansys Electronics Desktop official Help documentation: <em>HFSS Solution Types and Excitation Fundamentals</em>.</p>
+</blockquote>
+<h3 id="62-solution-frequency-specification">
+<a class="header-anchor" href="#62-solution-frequency-specification"></a>
+6.2 Solution Frequency Specification
+</h3><p>The Solution Frequency determines the target wavelength ($\lambda = c/f$) for HFSS&rsquo;s adaptive meshing. Since FEM requires a sufficient number of tetrahedral elements per wavelength (typically 6–10), the choice of solution frequency directly determines the mesh density and computational accuracy.</p>
+<ul>
+<li><strong>Narrowband and Resonant Structures (e.g., microstrip antennas, narrowband filters)</strong>:
+<ul>
+<li><strong>Specification</strong>: Set to the expected center resonant frequency. Near the resonant frequency, the standing-wave distribution of the electromagnetic field is most intense and the gradient variation is greatest. Meshing at this frequency captures the critical electric field characteristics with the greatest precision.</li>
+</ul>
+</li>
+<li><strong>Broadband Structures (e.g., broadband antennas, high-speed connectors)</strong>:
+<ul>
+<li><strong>Specification</strong>: Set to the <strong>highest operating frequency</strong> in the sweep range. The highest frequency corresponds to the shortest spatial wavelength; the mesh generated based on this baseline is the finest and can accommodate lower frequency accuracy requirements by downward coverage. If set to the center frequency or a lower frequency, the mesh at high frequencies will be too coarse, causing non-physical divergence in high-frequency S-parameters.</li>
+</ul>
+</li>
+<li><strong>Multi-Band and Filter Passbands</strong>:
+<ul>
+<li><strong>Specification</strong>: For multi-band antennas, enable the <code>Multi-Frequencies</code> option in Setup and input multiple frequency points to guide meshing separately. For wide stopband filters, it is recommended to set the solution frequency at the highest edge frequency of the passband.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: David M. Pozar, <em>Microwave Engineering</em>, combined with wavelength and mesh discretization error theory from finite element analysis.</p>
+</blockquote>
+<h3 id="63-frequency-sweep-algorithm-comparison">
+<a class="header-anchor" href="#63-frequency-sweep-algorithm-comparison"></a>
+6.3 Frequency Sweep Algorithm Comparison
+</h3><p>After obtaining the mesh at the center frequency, an appropriate algorithm must be selected to compute the response curve across the entire frequency band. A trade-off between computation time and data accuracy is required.</p>
+<ul>
+<li><strong>Discrete Sweep</strong>:
+<ul>
+<li><strong>Mechanism</strong>: At each user-specified frequency point, a complete matrix equation solving is performed from scratch.</li>
+<li><strong>Characteristics</strong>: Highest data accuracy (considered the ground truth), but extremely long computation time and large storage requirements.</li>
+<li><strong>Scope</strong>: Strict verification of final results, or a mandatory choice when the DUT has a very high Q value with multiple extremely sharp resonant peaks (interpolation algorithms may miss peaks).</li>
+</ul>
+</li>
+<li><strong>Fast Sweep</strong>:
+<ul>
+<li><strong>Mechanism</strong>: Based on the ALWE (Asymptotic Linear Waveform Evaluation) algorithm, it extracts derivative information of the electromagnetic field at the solution frequency and uses Taylor series or Padé approximation to extrapolate the response at adjacent frequencies.</li>
+<li><strong>Characteristics</strong>: Fastest computation speed, but error increases exponentially in frequency bands far from the solution frequency.</li>
+<li><strong>Scope</strong>: Extremely narrowband structures (e.g., high-frequency narrowband bandpass filters); the applicable bandwidth typically does not exceed 10%–15% of the center frequency.</li>
+</ul>
+</li>
+<li><strong>Interpolating Sweep</strong>:
+<ul>
+<li><strong>Mechanism</strong>: Automatically selects key frequency points within the band for Discrete solving, then uses rational function fitting to smoothly interpolate these discrete points. If the fitting error between adjacent points exceeds the set threshold, the algorithm automatically adds solution frequency points until the entire S-parameter curve meets the convergence criterion.</li>
+<li><strong>Characteristics</strong>: Achieves the optimal balance between computational efficiency and broadband accuracy.</li>
+<li><strong>Scope</strong>: Broadband antennas, high-speed digital signal links, and most other modern microwave engineering scenarios—it is currently the default and preferred method.</li>
+</ul>
+</li>
+</ul>
+<h3 id="64-adaptive-meshing-mechanism-analysis">
+<a class="header-anchor" href="#64-adaptive-meshing-mechanism-analysis"></a>
+6.4 Adaptive Meshing Mechanism Analysis
+</h3><p>HFSS&rsquo;s core advantage lies in its automated error control and mesh refinement process. Understanding this mechanism helps diagnose &ldquo;non-convergence&rdquo; engineering errors.</p>
+<ul>
+<li><strong>Iteration Process (Passes)</strong>:
+<ol>
+<li>Generate an initial coarse mesh (Initial Mesh) covering the entire physical space.</li>
+<li>Perform a full-wave calculation at the set solution frequency.</li>
+<li>Evaluate the electric field gradient and error throughout the space, identifying regions with the highest error (e.g., metal edges, gaps, near ports).</li>
+<li>Perform mesh refinement in high-error regions, increasing the number of tetrahedral elements (by default, 30% per iteration).</li>
+<li>Repeat step 2 and compare the S-parameter matrix differences between consecutive iterations.</li>
+</ol>
+</li>
+<li><strong>Core Convergence Criterion: Delta S ($|\Delta S|$)</strong>:
+<ul>
+<li><strong>Mathematical Definition</strong>: The maximum absolute value of the variation of all elements in the entire S-parameter matrix between two consecutive mesh iterations. The formula can be simplified as $\max_{i,j} |S_{ij}^{N} - S_{ij}^{N-1}|$.</li>
+<li><strong>Typical Values</strong>:
+<ul>
+<li>Basic antennas and microwave passive devices: Typically set to <code>0.02</code> (i.e., allowing a maximum 2% error).</li>
+<li>High-precision multiplexers, strongly coupled arrays, or high-speed differential lines: Must be increased to <code>0.01</code> or lower.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Maximum Number of Passes</strong>:
+<ul>
+<li><strong>Function</strong>: A forced termination mechanism. Because certain geometric models contain non-physical singularities (e.g., the electric field strength at the edge of an infinitely thin ideal metal is theoretically infinite), these regions may never converge, causing the mesh to enter an infinite refinement loop.</li>
+<li><strong>Recommendation</strong>: Typically set between 15 and 20. If Delta S still hasn&rsquo;t dropped below the threshold after reaching the maximum, the model likely contains small unreasonable gaps or self-intersecting boundaries. You should return to the 3D Modeler to check the geometry topology rather than blindly increasing the iteration count.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: Ansys official training material <em>HFSS Solvers and Meshing Strategies</em>, on error calculation and matrix convergence criteria.</p>
+</blockquote>
+<h2 id="7-simulation-verification-and-multi-dimensional-post-processing">
+<a class="header-anchor" href="#7-simulation-verification-and-multi-dimensional-post-processing"></a>
+7. Simulation Verification and Multi-Dimensional Post-Processing
+</h2><p>This chapter details data extraction and physical characterization analysis after the simulation computation is complete. The HFSS solver essentially generates a massive electromagnetic field database. The core capability of post-processing lies in extracting S-parameter network characteristics, spatial field distributions, and far-field radiation performance from this database according to engineering requirements, thereby providing an objective evaluation of the design.</p>
+<h3 id="71-validation-check-and-hpc-settings">
+<a class="header-anchor" href="#71-validation-check-and-hpc-settings"></a>
+7.1 Validation Check and HPC Settings
+</h3><p>Before clicking &ldquo;Analyze All&rdquo; to launch the solver, strict pre-project checks and computational resource configuration must be performed to avoid computational resource waste caused by trivial errors.</p>
+<ul>
+<li><strong>Validation Check (Automatic Verification Mechanism)</strong>:
+<ul>
+<li><strong>Execution Logic</strong>: The software sequentially checks the project&rsquo;s 3D geometry topology (inspecting for unprocessed solid intersections), material properties, boundary condition assignment conflicts, and whether excitation port settings conform to the selected solution mode (e.g., whether a reference ground is missing in Terminal mode).</li>
+<li><strong>Engineering Standard</strong>: You must ensure all items in the Validation Check window display a green checkmark. Any yellow warnings must be investigated, and red errors prevent the simulation from running.</li>
+</ul>
+</li>
+<li><strong>HPC (High-Performance Computing) Hardware Resource Scheduling</strong>:
+<ul>
+<li><strong>Multi-Core Parallel Allocation</strong>: The FEM matrix solving in HFSS is highly dependent on CPU performance and memory throughput. In <code>Simulation Setup &gt; HPC and Analysis Options</code>, you need to allocate <code>Tasks</code> and <code>Cores per Task</code> based on the workstation&rsquo;s actual physical core count.</li>
+<li><strong>Sweep Parallelization</strong>: For projects using Discrete sweeps with many frequency points, frequency-parallel computation can be enabled through HPC settings, distributing computation tasks for different frequency points across multiple cores or even multiple cluster nodes simultaneously, reducing computation time in a roughly linear fashion.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: Ansys official documentation <em>Ansys Electronics Desktop HPC Admin Guide</em>.</p>
+</blockquote>
+<h3 id="72-network-parameter-extraction">
+<a class="header-anchor" href="#72-network-parameter-extraction"></a>
+7.2 Network Parameter Extraction
+</h3><p>Network parameters are the most intuitive frequency-domain metrics for evaluating microwave passive devices and antenna feed networks, located at <code>Results &gt; Create Modal Solution Data Report</code>.</p>
+<ul>
+<li><strong>S-Parameter Matrix (Scattering Parameters)</strong>:
+<ul>
+<li><strong>$S_{11}$ (Return Loss)</strong>: The core metric characterizing the impedance matching quality of a port. Typically, $S_{11} < -10 \text{ dB}$ (i.e., reflected power less than 10%) is required across the operating band.</li>
+<li><strong>$S_{21}$ (Insertion Loss)</strong>: Characterizes the efficiency of energy transfer from Port 1 to Port 2. An ideal filter&rsquo;s passband $S_{21}$ should be close to $0 \text{ dB}$, and the stopband should be well below $-30 \text{ dB}$.</li>
+<li><strong>Plotting Standard</strong>: In engineering plots, the S-parameter vertical axis must use a logarithmic decibel (dB) scale, and the horizontal axis uses a linear frequency scale.</li>
+</ul>
+</li>
+<li><strong>Smith Chart</strong>:
+<ul>
+<li><strong>Analytical Value</strong>: A polar plot that maps the complex reflection coefficient ($\Gamma$) to the normalized complex impedance ($Z/Z_0$) plane. By observing the trajectory of the frequency band curve on the Smith Chart, you can intuitively determine whether the device is capacitive or inductive.</li>
+<li><strong>Engineering Application</strong>: Combined with broadband matching theory, design matching networks (L-type, $\pi$-type circuits) to converge the core portion of the curve to the $50\Omega$ matching point at the center of the chart.</li>
+</ul>
+</li>
+<li><strong>Y Parameters and Z Parameters</strong>: Typically used to export the HFSS 3D model as a broadband equivalent circuit model (SPICE netlist) for subsequent system-level circuit simulation.</li>
+</ul>
+<h3 id="73-spatial-field-distribution-visualization">
+<a class="header-anchor" href="#73-spatial-field-distribution-visualization"></a>
+7.3 Spatial Field Distribution Visualization
+</h3><p>Field Overlays can intuitively reveal the propagation path, resonant modes, and energy dissipation regions of electromagnetic waves within the structure, forming the core basis for optimizing structural design.</p>
+<ul>
+<li><strong>Prerequisites for Plotting</strong>: You must select a specific solid face or spatial cross-section plane in the 3D Modeler interface before you can add a Field Plot via right-click.</li>
+<li><strong>Mag E / Mag H (Scalar Field Intensity Distribution)</strong>:
+<ul>
+<li>Displays color maps of the absolute magnitude of the electric or magnetic field.</li>
+<li><strong>Debugging Application</strong>: Used to locate electric field breakdown risk points in high-power microwave devices (regions of concentrated field intensity) or magnetic field energy accumulation zones within filter cavities.</li>
+</ul>
+</li>
+<li><strong>Vector E / Vector H (Vector Field Distribution)</strong>:
+<ul>
+<li>Displays both the direction and magnitude of the field in arrow form.</li>
+<li><strong>Physical Analysis</strong>: Allows clear observation of TE/TM mode distribution in waveguides or the coupling path of fringing fields along microstrip line edges.</li>
+</ul>
+</li>
+<li><strong>Surface Current ($J_{surf}$)</strong>:
+<ul>
+<li><strong>Core for Antenna Design</strong>: Current is the source of radiation. Surface current plots precisely show the resonant path on the antenna and inactive regions (where current is minimal—structure can typically be trimmed here without affecting performance).</li>
+<li><strong>Dynamic Animation</strong>: By performing a phase ($\omega t$) sweep animation, you can observe the current flow process on the conductor surface and the wave propagation pattern.</li>
+</ul>
+</li>
+</ul>
+<h3 id="74-far-field-radiation-characteristics">
+<a class="header-anchor" href="#74-far-field-radiation-characteristics"></a>
+7.4 Far-Field Radiation Characteristics
+</h3><p>For antenna and Radar Cross Section (RCS) analysis, all core performance metrics are extracted based on the far-field environment. You must pre-define an infinite radiation sphere in <code>Radiation &gt; Insert Far Field Setup</code>, typically covering the full $\theta$ ($0^\circ \sim 180^\circ$) and $\phi$ ($0^\circ \sim 360^\circ$) angular sweeps.</p>
+<ul>
+<li><strong>Radiation Pattern</strong>:
+<ul>
+<li><strong>2D Polar Pattern</strong>: Select specific cut planes (e.g., E-plane, H-plane) and plot radiation intensity versus angle. Used to evaluate Half-Power Beamwidth (HPBW) and Side Lobe Level (SLL).</li>
+<li><strong>3D Pattern</strong>: Intuitively displays the antenna&rsquo;s beam coverage shape in 3D space.</li>
+</ul>
+</li>
+<li><strong>Gain and Directivity</strong>:
+<ul>
+<li><strong>Directivity</strong>: Depends only on antenna geometry and pattern focusing, assuming no internal losses and perfect matching.</li>
+<li><strong>Gain</strong>: Accounts for dielectric losses and metallic ohmic losses of the antenna materials ($Gain = e_{rad} \times Directivity$).</li>
+<li><strong>Realized Gain</strong>: The most rigorous metric in engineering. Building on gain, it further deducts the reflection loss due to port impedance mismatch ($Realized Gain = Gain \times (1 - |S_{11}|^2)$).</li>
+</ul>
+</li>
+<li><strong>Axial Ratio (AR)</strong>:
+<ul>
+<li>The decisive parameter for characterizing circularly polarized antenna performance.</li>
+<li><strong>Evaluation Criterion</strong>: An ideal circular polarization has an AR of $0 \text{ dB}$. In engineering, the frequency band where $AR < 3 \text{ dB}$ is typically defined as the effective operating bandwidth of a circularly polarized antenna.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: Constantine A. Balanis, <em>Antenna Theory: Analysis and Design</em>, chapters on far-field radiation region parameter definitions.</p>
+</blockquote>
+<h2 id="8-advanced-capabilities-parametric-sweeps-and-engineering-optimization-optimetrics">
+<a class="header-anchor" href="#8-advanced-capabilities-parametric-sweeps-and-engineering-optimization-optimetrics"></a>
+8. Advanced Capabilities: Parametric Sweeps and Engineering Optimization (Optimetrics)
+</h2><p>This chapter introduces HFSS&rsquo;s automated optimization module (Optimetrics). After completing a basic single-dimension simulation, the core challenge of engineering design lies in multi-variable coupled tuning. Using Optimetrics, you can transform manual &ldquo;trial-and-error&rdquo; into an automated global optimization mechanism based on mathematical algorithms.</p>
+<h3 id="81-parametric-sweep-quick-start">
+<a class="header-anchor" href="#81-parametric-sweep-quick-start"></a>
+8.1 Parametric Sweep Quick Start
+</h3><p>Parametric sweeps are the most fundamental method for establishing the mapping between multiple variables and electromagnetic performance. Their essence is to have the solver automatically execute exhaustive calculations based on pre-set variable step sizes.</p>
+<ul>
+<li><strong>Prerequisite</strong>: The 3D model must be fully parameterized (i.e., all key dimensions are driven by local or global variables rather than fixed numerical values).</li>
+<li><strong>Sweep Space Definition</strong>:
+<ul>
+<li><strong>Linear Step</strong>: Specify the variable&rsquo;s start value, end value, and step size (e.g., width from <code>1mm</code> to <code>5mm</code>, step <code>0.5mm</code>).</li>
+<li><strong>Linear Count</strong>: Specify the range and total number of calculation points; the software automatically divides the interval evenly.</li>
+<li><strong>Multi-Variable Nested Computation</strong>: When scanning multiple variables simultaneously (e.g., Variable A scans 5 points, Variable B scans 5 points), the computational cost grows exponentially ($5 \times 5 = 25$ complete full-wave solutions). When computational resources are limited, combinations must be chosen carefully.</li>
+</ul>
+</li>
+<li><strong>Result Representation and Stacked Comparison</strong>:
+<ul>
+<li>In the Report interface, setting the variable as a <code>Family</code> attribute allows you to plot all scanned S-parameter curves or antenna radiation patterns on a single 2D chart. This is used to intuitively identify the optimal parameter range.</li>
+</ul>
+</li>
+<li><strong>Computational Resource Optimization</strong>: Exercise extreme caution when checking <code>Save Fields and Mesh</code> in Optimetrics settings. Saving 3D field data for every sweep point will rapidly exhaust hard drive storage. Usually, saving only network parameters (S/Y/Z) is sufficient for evaluation purposes.</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: Ansys Electronics Desktop Help - <em>Optimetrics: Parametric Analysis</em>.</p>
+</blockquote>
+<h3 id="82-optimization-algorithms">
+<a class="header-anchor" href="#82-optimization-algorithms"></a>
+8.2 Optimization Algorithms
+</h3><p>When design variables exceed 3 and are mutually coupled, the computational cost of exhaustive scanning becomes unacceptable. The optimization module introduces mathematical algorithms to automatically search the multi-dimensional solution space for the optimal parameter combination that satisfies engineering objectives.</p>
+<ul>
+<li><strong>Cost Function Setup</strong>:
+<ul>
+<li>The core of optimization lies in converting physical requirements into mathematical criteria.</li>
+<li>You can set multiple objectives in <code>Optimizer Setup &gt; Goals</code>. For example: require $S_{11} < -15 \text{ dB}$ at a target frequency point while setting Gain $> 5 \text{ dBi}$.</li>
+<li><strong>Weight</strong>: When multiple objectives have physical conflicts (e.g., simultaneously requiring very wide bandwidth and very high gain), different weight values (e.g., setting return loss weight to 1 and gain to 2) must be assigned to guide the algorithm&rsquo;s emphasis.</li>
+</ul>
+</li>
+<li><strong>Core Optimization Algorithm Comparison and Application</strong>:
+<ul>
+<li><strong>SNLP (Sequential Non-Linear Programming) / Gradient Descent</strong>:
+<ul>
+<li><strong>Mechanism</strong>: Computes the partial derivatives of the cost function with respect to each variable and follows the direction of steepest gradient descent to find a minimum.</li>
+<li><strong>Characteristics</strong>: Extremely fast convergence.</li>
+<li><strong>Applicable Boundary</strong>: A local optimizer. Effective only when the initial design parameters are already close to the optimal solution. If the solution space is complex, it easily gets trapped in local minima.</li>
+</ul>
+</li>
+<li><strong>Genetic Algorithm (GA) / Particle Swarm Optimization (PSO)</strong>:
+<ul>
+<li><strong>Mechanism</strong>: Simulates crossover, mutation, and selection in biological evolution, or the information-sharing mechanism of bird flocking foraging.</li>
+<li><strong>Characteristics</strong>: Global optimizers. Capable of large-scale search across the full parameter space with the ability to escape local minima.</li>
+<li><strong>Applicable Boundary</strong>: Must be used when no good initial reference dimensions are available and complex structures need to be explored from scratch. The downside is the need to compute massive sample sets, which is extremely time-consuming.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: Kalyanmoy Deb, <em>Multi-Objective Optimization using Evolutionary Algorithms</em>, on convergence theory of engineering optimization algorithms.</p>
+</blockquote>
+<h3 id="83-sensitivity-and-tuning-analysis">
+<a class="header-anchor" href="#83-sensitivity-and-tuning-analysis"></a>
+8.3 Sensitivity and Tuning Analysis
+</h3><p>After achieving optimal electromagnetic performance, the design must be transitioned to manufacturing. Since machining inevitably involves tolerances, you must evaluate the robustness of the design to manufacturing errors.</p>
+<ul>
+<li><strong>Sensitivity Analysis</strong>:
+<ul>
+<li><strong>Physical Meaning</strong>: Quantifies the sensitivity of model output results to small variations in a single input variable. Its mathematical essence is extracting the first-order derivative (linear sensitivity) of the cost function at the current design point via Taylor series.</li>
+<li><strong>Engineering Application</strong>: Analysis identifies the &ldquo;high-sensitivity variables&rdquo; with the greatest impact on performance (e.g., the distance between the microstrip line edge and the resonant cavity wall). In manufacturing drawings, stricter tolerance classes must be specified for these critical dimensions, while requirements for low-sensitivity variables can be relaxed to reduce machining costs.</li>
+</ul>
+</li>
+<li><strong>Tuning Analysis</strong>:
+<ul>
+<li><strong>Execution Logic</strong>: HFSS does not recompute the full-wave matrix every time the user drags a slider. Instead, the user pre-defines the variable tuning range, and the software automatically pre-computes the solution space matrix for these variable combinations in the background.</li>
+<li><strong>Interactive Representation</strong>: Generates a control panel with real-time sliders. As you drag the sliders, the S-parameter curves on the chart update smoothly in real time, providing excellent physical intuition and a &ldquo;what you see is what you get&rdquo; parameter tuning experience. This is commonly used for final fine-tuning of impedance matching points.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Source</strong>: Ansys official training document <em>Optimetrics Sensitivity and Tuning Analysis</em>.</p>
+</blockquote>
+<h2 id="9-troubleshooting-guide-and-authoritative-data-source-index">
+<a class="header-anchor" href="#9-troubleshooting-guide-and-authoritative-data-source-index"></a>
+9. Troubleshooting Guide and Authoritative Data Source Index
+</h2><p>This chapter focuses on the exception diagnosis logic in engineering practice and the expansion framework of the knowledge system. The ability to independently resolve errors and the knowledge of how to access underlying documentation are core markers of graduating from the &ldquo;beginner phase.&rdquo;</p>
+<h3 id="91-high-frequency-beginner-error-quick-reference-and-troubleshooting-chains">
+<a class="header-anchor" href="#91-high-frequency-beginner-error-quick-reference-and-troubleshooting-chains"></a>
+9.1 High-Frequency Beginner Error Quick Reference and Troubleshooting Chains
+</h3><p>In HFSS simulation, errors generally fall into three categories: geometry topology errors, physical definition conflicts, and computational resource exhaustion. Mastering structured troubleshooting chains can dramatically reduce trial-and-error time.</p>
+<ul>
+<li><strong>Wave Port Location Error (Port Setup Error)</strong>:
+<ul>
+<li><strong>Error Signature</strong>: The message indicates that the Wave Port is not in contact with the Background, or that the port area is insufficient to support the specified number of modes.</li>
+<li><strong>Troubleshooting Chain</strong>: Check whether the Wave Port is completely flush with the outermost radiation boundary. If a Wave Port is forced to be used inside the model, check whether a Perfect E (ideal electric conductor) material has been manually drawn and assigned on the back of the port as a wave reflection truncation surface (Cap).</li>
+</ul>
+</li>
+<li><strong>Mesh Non-Convergence</strong>:
+<ul>
+<li><strong>Error Signature</strong>: Adaptive meshing has reached the maximum number of passes, but Delta S ($|\Delta S|$) is still far above the convergence threshold.</li>
+<li><strong>Troubleshooting Chain</strong>:
+<ol>
+<li>Check the physical model for singularities: such as infinitely sharp metal thin-plate edges, or extremely small (nanometer-scale) unintended gaps between solids. These regions cause the electric field strength to theoretically approach infinity, and the mesh can never converge.</li>
+<li>Return to the 3D Modeler for geometry cleanup (defeaturing), removing tiny chamfers, threads, or extremely fragmented solid surfaces (sliver faces) that have no impact on electromagnetic propagation.</li>
+<li>For high-Q resonant cavities, convergence is inherently very slow. Confirm whether this is caused by physical phenomena and consider increasing the minimum number of passes as appropriate.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>Out of Memory (OOM)</strong>:
+<ul>
+<li><strong>Error Signature</strong>: The solving process is interrupted, and the system reports insufficient memory to parse the current finite element matrix.</li>
+<li><strong>Troubleshooting Chain</strong>:
+<ol>
+<li>Check whether the Solution Frequency is set too high. If the solution frequency is mistakenly set to an extremely high band, a massive number of tiny tetrahedral meshes will be generated.</li>
+<li>Assess the electrical size. If the DUT&rsquo;s physical dimensions exceed tens of wavelengths (e.g., large reflector antennas, full-vehicle RCS), switch to an integral-equation-based MoM solver or SBR+ (ray-tracing) solver.</li>
+<li>Exploit electromagnetic symmetry: bisect the model along a symmetry plane to one-half or one-quarter, apply Perfect E / Perfect H boundaries, and directly reduce memory consumption to the corresponding fraction.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="92-references-and-theoretical-foundations">
+<a class="header-anchor" href="#92-references-and-theoretical-foundations"></a>
+9.2 References and Theoretical Foundations
+</h3><p>The HFSS interface is merely the surface; its core lies in computational electromagnetics and microwave network theory. The following literature forms the knowledge anchors for understanding the software&rsquo;s underlying logic:</p>
+<ul>
+<li><strong>Software Mechanism and Underlying Algorithm References</strong>:
+<ul>
+<li><strong>&ldquo;Ansys HFSS User&rsquo;s Guide&rdquo; and &ldquo;Ansys Electronics Desktop Help&rdquo;</strong>: Ansys official documentation. Provides the most rigorous mathematical explanations for every boundary condition, port definition, and solving engine.</li>
+<li><strong>&ldquo;The Finite Element Method in Electromagnetics&rdquo; (by Jian-Ming Jin)</strong>: For in-depth understanding of 3D vector finite element methods, mathematical convergence of adaptive meshing, and the underlying matrix inversion logic of high-frequency computational electromagnetics.</li>
+</ul>
+</li>
+<li><strong>Microwave Network and Electromagnetic Theory Anchors</strong>:
+<ul>
+<li><strong>&ldquo;Microwave Engineering&rdquo; (by David M. Pozar)</strong>: Corresponds to HFSS&rsquo;s multi-mode Wave Port theory, S/Y/Z parameter matrix derivations, characteristic impedance definitions, and Smith Chart matching network design—the theoretical cornerstone.</li>
+<li><strong>&ldquo;Antenna Theory: Analysis and Design&rdquo; (by Constantine A. Balanis)</strong>: Corresponds to HFSS&rsquo;s mathematical definitions for the far-field radiation region, the physical mechanisms of absorbing boundary conditions (ABC) and PML, and theoretical derivations of antenna gain and directivity.</li>
+</ul>
+</li>
+<li><strong>Practical Engineering References</strong>:
+<ul>
+<li><strong>&ldquo;Ansys HFSS Electromagnetic Simulation Design Application Detailed&rdquo; (by Li Mingyang et al.)</strong>: A widely used practical reference in China. Provides numerous localized engineering examples and standard operating procedures based on classic microwave devices (microstrip antennas, waveguide filters, power dividers).</li>
+</ul>
+</li>
+</ul>
+<h3 id="93-continuous-learning-path-recommendations">
+<a class="header-anchor" href="#93-continuous-learning-path-recommendations"></a>
+9.3 Continuous Learning Path Recommendations
+</h3><ul>
+<li><strong>Deep Utilization of Official Help Documentation (F1)</strong>:
+<ul>
+<li>HFSS has an extremely detailed built-in documentation system. Pressing <code>F1</code> in any settings window will jump directly to the underlying mathematical and physical mechanism explanation for that window. For unknown error codes, the first step should be to enter the code in the Help search engine for investigation.</li>
+</ul>
+</li>
+<li><strong>Reverse Engineering of Built-in Examples</strong>:
+<ul>
+<li>Via <code>File &gt; Open Examples</code>, you can access a large number of standardized project files provided by the official source. Reverse-engineering these officially verified models (observing their material settings, boundary condition override priorities, and adaptive meshing settings) is the fastest path to mastering advanced engineering standards.</li>
+</ul>
+</li>
+<li><strong>Verification Simulation</strong>:
+<ul>
+<li>Before applying any complex or unfamiliar new software feature, always first build an extremely simple model with a known analytical solution (such as a standard rectangular waveguide or a 50-ohm coaxial line). By comparing the software simulation results with analytical formula calculations, you can verify whether your understanding of the software settings is correct.</li>
+</ul>
+</li>
+</ul>
+        
+        <hr><p>Published on 2026-03-28 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2026-03-28</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>OtherNotes</category></item><item><title>Quantum Physics</title><link>https://www.guzhengsvt.cn/en/post/physics/quantum-physics/</link><pubDate>Fri, 05 Sep 2025 11:05:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/physics/quantum-physics/</guid><description>
 <![CDATA[<h1>Quantum Physics</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
           <h2 id="chapter-1-wave-particle-duality-and-state-description">
@@ -3815,2345 +4527,4 @@ Auto-Dial on Boot &amp; Reconnect
 <p>Confirm (requires entering your Microsoft account password, not PIN. If errors persist, check the &ldquo;General&rdquo; tab for correct user account matching.)</p>
 
         
-        <hr><p>Published on 2024-06-12 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-06-12</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>OtherNotes</category></item><item><title>Thermodynamics and Statistical Physics</title><link>https://www.guzhengsvt.cn/en/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</link><pubDate>Thu, 06 Jun 2024 00:00:59 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/physics/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</guid><description>
-<![CDATA[<h1>Thermodynamics and Statistical Physics</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
-        
-          <h2 id="physical-quantities">
-<a class="header-anchor" href="#physical-quantities"></a>
-Physical Quantities
-</h2><h3 id="internal-energy-u">
-<a class="header-anchor" href="#internal-energy-u"></a>
-Internal Energy U
-</h3>$$
-\Delta U=Q+W
-$$<p>
-Q is the heat absorbed by the system, W is the work done by the system</p>
-<h3 id="entropy-s">
-<a class="header-anchor" href="#entropy-s"></a>
-Entropy S
-</h3><p>Entropy is a measure of the total amount of energy that <strong>cannot perform work</strong> in terms of dynamics. That is, when the total entropy increases, the ability to perform work decreases, and the measure of entropy is an indicator of energy degradation.<br>
-In a ==reversible process==<br>
-</p>
-$$
-\Delta S=\frac {Q}{T}
-$$<p><br>
-Q: In a reversible process, the system absorbs heat at a constant temperature.</p>
-<h3 id="焓-h">
-<a class="header-anchor" href="#%e7%84%93-h"></a>
-焓 H
-</h3>$$
-H=U+pV
-$$<h3 id="free-energy-f">
-<a class="header-anchor" href="#free-energy-f"></a>
-Free Energy F
-</h3>$$
-F=U-TS
-$$<p>
-Internal energy of the system - energy that cannot do work = energy that can do work (free energy)</p>
-<h3 id="gibbs-function-free-enthalpy-g">
-<a class="header-anchor" href="#gibbs-function-free-enthalpy-g"></a>
-Gibbs Function (Free Enthalpy) G
-</h3>$$
-G=F+pV=U-TS+pV=H-TS
-$$<h3 id="chemical-potential">
-<a class="header-anchor" href="#chemical-potential"></a>
-Chemical Potential $\mu$
-</h3>$$
-\mu=(\frac{\partial G}{\partial n})_{T,p}=G_m
-$$<p>
-Where:</p>
-<ul>
-<li>n: Amount of substance ($mol$)</li>
-<li>$G_m$: Molar Gibbs function</li>
-</ul>
-<h2 id="equation">
-<a class="header-anchor" href="#equation"></a>
-Equation
-</h2><h3 id="state-function-total-differential-reversible-process">
-<a class="header-anchor" href="#state-function-total-differential-reversible-process"></a>
-State Function Total Differential (Reversible Process)
-</h3><h1 id="">
-<a class="header-anchor" href="#"></a>
-
-</h1><h3 id="total-differential-of-internal-energy-fundamental-equation-of-thermodynamics">
-<a class="header-anchor" href="#total-differential-of-internal-energy-fundamental-equation-of-thermodynamics"></a>
-Total Differential of Internal Energy (Fundamental Equation of Thermodynamics)
-</h3>$$
-dU=dQ+dW=TdS-pdV
-$$<p>
-i.e., $U=U(S,V)$
-</p>
-$$
-(\frac{\partial U}{\partial S})_V=T,(\frac{\partial U}{\partial V})_S=-p
-$$<p>
-$\because$ The second-order partial derivatives of U are equal<br>
-$\therefore$ We obtain the <strong>first Maxwell relation</strong>:
-</p>
-$$
-(\frac{\partial T}{\partial V})_S=-(\frac{\partial p}{\partial S})_V
-$$<h3 id="enthalpy-total-differential">
-<a class="header-anchor" href="#enthalpy-total-differential"></a>
-Enthalpy Total Differential
-</h3>$$
-dH=dU+d(pV)=TdS-pdV+pdV+Vdp=TdS+Vdp
-$$<h3 id="differential-of-free-energy">
-<a class="header-anchor" href="#differential-of-free-energy"></a>
-Differential of Free Energy
-</h3>$$
-dF=-SdT-pdV
-$$<h3 id="gibbs-function-total-differential">
-<a class="header-anchor" href="#gibbs-function-total-differential"></a>
-Gibbs Function Total Differential
-</h3>$$
-dG=-SdT+Vdp
-$$<h3 id="total-differential-of-entropy">
-<a class="header-anchor" href="#total-differential-of-entropy"></a>
-Total Differential of Entropy
-</h3>$$
-dS=\frac{dU+pdV}{T}
-$$<h3 id="maxwell-relations">
-<a class="header-anchor" href="#maxwell-relations"></a>
-Maxwell Relations
-</h3><p>The Maxwell Relations are important equations in thermodynamics that describe the relationships between state variables.<br>
-Here are the four Maxwell Relations:</p>
-<ol>
-<li>
-<p><strong>First Maxwell Relation</strong>:
-</p>
-$$
-\left ( \frac{\partial T}{\partial V} \right)_S = - \left ( \frac{\partial P}{\partial S} \right)_V
-$$</li>
-<li>
-<p><strong>Second Maxwell Relation</strong>:
-</p>
-$$
-\left ( \frac{\partial T}{\partial P} \right)_S = \left ( \frac{\partial V}{\partial S} \right)_P
-$$</li>
-<li>
-<p><strong>Third Maxwell Relation</strong>:
-</p>
-$$
-\left ( \frac{\partial S}{\partial V} \right)_T = \left ( \frac{\partial P}{\partial T} \right)_V
-$$</li>
-<li>
-<p><strong>Fourth Maxwell Relation</strong>:
-</p>
-$$
-\left ( \frac{\partial S}{\partial P} \right)_T = -\left ( \frac{\partial V}{\partial T} \right)_P
-$$</li>
-</ol>
-<p><strong>Corollary</strong>:
-</p>
-$$
-C_p-C_V=T(\frac{\partial p}{\partial T})_V(\frac{\partial V}{\partial T})_p
-$$<p>For an ideal gas $pV=nRT$, substituting yields:
-</p>
-$$
-C_p-C_V=nR, \text{which is a constant.}
-$$<h3 id="equation-of-state">
-<a class="header-anchor" href="#equation-of-state"></a>
-Equation of State
-</h3><p>Definition: The functional relationship equation between temperature and state parameters.
-</p>
-$$
-f(p,V,T)=0
-$$<h3 id="ideal-gas-equation-of-state">
-<a class="header-anchor" href="#ideal-gas-equation-of-state"></a>
-Ideal Gas Equation of State
-</h3>$$
-pV=nRT=NkT
-$$<ul>
-<li>n: Amount of substance</li>
-<li>R: Gas constant</li>
-<li>N: Total number of particles in the system</li>
-<li>k: Boltzmann constant</li>
-</ul>
-<h3 id="van-der-waals-equation">
-<a class="header-anchor" href="#van-der-waals-equation"></a>
-Van der Waals Equation
-</h3>$$
-(p+\frac{an^2}{V^2})(V-nb)=nRT
-$$<ul>
-<li>a、b are constants</li>
-</ul>
-<h3 id="common-coefficients">
-<a class="header-anchor" href="#common-coefficients"></a>
-Common Coefficients
-</h3><h3 id="coefficient-of-volume-expansion">
-<a class="header-anchor" href="#coefficient-of-volume-expansion"></a>
-Coefficient of Volume Expansion $\alpha$
-</h3>$$
-\alpha=\frac{1}{V}(\frac{\partial V}{\partial T})_p=\frac{1}{T}, \text{ideal gas}
-$$<h1 id="">
-<a class="header-anchor" href="#"></a>
-
-</h1><h3 id="pressure-coefficient">
-<a class="header-anchor" href="#pressure-coefficient"></a>
-Pressure Coefficient $\beta$
-</h3>$$
-\beta=\frac{1}{V}(\frac{\partial p}{\partial T})_V=\frac{1}{T}, \text{ideal gas}
-$$<h3 id="isothermal-compressibility">
-<a class="header-anchor" href="#isothermal-compressibility"></a>
-Isothermal Compressibility $\kappa_T$
-</h3>$$
-\kappa_T=-\frac{1}{V}(\frac{\partial V}{\partial P})_T=\frac{1}{p}, \text{ideal gas}
-$$<h3 id="heat-capacity-c">
-<a class="header-anchor" href="#heat-capacity-c"></a>
-Heat Capacity C
-</h3>$$
-C=\lim_{\Delta T \to 0}\frac{\Delta Q}{\Delta T}
-$$<h3 id="constant-volume-heat-capacity">
-<a class="header-anchor" href="#constant-volume-heat-capacity"></a>
-Constant Volume Heat Capacity $C_V$
-</h3>$$
-C_V=(\frac{\partial U}{\partial T})_V=T(\frac{\partial S}{\partial T})_V
-$$<h3 id="heat-capacity-at-constant-pressure">
-<a class="header-anchor" href="#heat-capacity-at-constant-pressure"></a>
-Heat Capacity at Constant Pressure $C_p$
-</h3>$$
-C_p=(\frac{\partial H}{\partial T})_p=T(\frac{\partial S}{\partial T})_p
-$$<h3 id="multipartite-heat-capacity">
-<a class="header-anchor" href="#multipartite-heat-capacity"></a>
-Multipartite Heat Capacity $C_n$
-</h3>$$
-C_n=T(\frac{\partial S}{\partial T})_n
-$$<h3 id="adiabatic-equation-for-ideal-gas">
-<a class="header-anchor" href="#adiabatic-equation-for-ideal-gas"></a>
-Adiabatic Equation for Ideal Gas
-</h3><p>$\gamma$：[[#Adiabatic Index]]
-C: Constant
-</p>
-$$
-pV^\gamma=C_1
-$$<p>
-</p>
-$$
-TV^{\gamma-1}=C_2
-$$<p>
-</p>
-$$
-P^{1-\gamma}T^\gamma=C_3
-$$<h3 id="the-second-law-of-thermodynamics">
-<a class="header-anchor" href="#the-second-law-of-thermodynamics"></a>
-==The Second Law of Thermodynamics==
-</h3>$$
-dS\ge \frac{dQ}{T}
-$$<ol>
-<li>Two adiabatic lines cannot intersect.</li>
-<li>T: External temperature</li>
-<li>The external temperature equals the system temperature (T) if and only if the process is reversible.</li>
-</ol>
-<h3 id="efficiency-of-reversible-heat-engine">
-<a class="header-anchor" href="#efficiency-of-reversible-heat-engine"></a>
-Efficiency of Reversible Heat Engine $\eta$
-</h3><p>[[#Carnot&rsquo;s Theorem]]
-</p>
-$$
-\eta=1-\frac{T_1}{T_2}
-$$<ul>
-<li>$T_2$: Temperature of the high-temperature heat reservoir</li>
-<li>$T_1$: Temperature of the low-temperature heat reservoir</li>
-<li>$0 \lt \eta \lt 1$</li>
-</ul>
-<h3 id="energy-equation-in-throttling-process">
-<a class="header-anchor" href="#energy-equation-in-throttling-process"></a>
-Energy Equation in Throttling Process
-</h3><p>For the throttling process, the following energy balance equation can be written:
-</p>
-$$
-H_1 = H_2
-$$<p>where, $H_1$ and $H_2$ are the enthalpies before and after throttling, respectively.
-<strong>Proof</strong>:
-The system is adiabatic, $\Delta U=W$
-$U_2-U_1=p_1V_1-p_2V_2$
-$U_2+p_2V_2=U_1+p_1V_1$
-$H_2=H_1$</p>
-<h3 id="joule-thomson-coefficient">
-<a class="header-anchor" href="#joule-thomson-coefficient"></a>
-Joule-Thomson Coefficient
-</h3><p>[[#Throttling Process]]
-</p>
-$$
-\mu=(\frac{\partial T}{\partial p})_H=\frac{V}{C_p}(T\alpha-1)
-$$<h3 id="fundamental-equations-of-thermodynamics-for-open-systems-">
-<a class="header-anchor" href="#fundamental-equations-of-thermodynamics-for-open-systems-"></a>
-Fundamental Equations of Thermodynamics for Open Systems ($+\mu dn$)
-</h3><h1 id="">
-<a class="header-anchor" href="#"></a>
-
-</h1><h3 id="total-differential-of-internal-energy">
-<a class="header-anchor" href="#total-differential-of-internal-energy"></a>
-Total Differential of Internal Energy
-</h3>$$
-dU=dQ+dW+\mu dn=TdS-pdV+\mu dn
-$$<h3 id="enthalpy-total-differential-1">
-<a class="header-anchor" href="#enthalpy-total-differential-1"></a>
-Enthalpy Total Differential
-</h3>$$
-dH=dU+d(pV)+\mu dn=TdS+Vdp+\mu dn
-$$<h3 id="differential-of-free-energy-1">
-<a class="header-anchor" href="#differential-of-free-energy-1"></a>
-Differential of Free Energy
-</h3>$$
-dF=-SdT-pdV+\mu dn
-$$<h3 id="gibbs-function-total-differential-1">
-<a class="header-anchor" href="#gibbs-function-total-differential-1"></a>
-Gibbs Function Total Differential
-</h3>$$
-dG=-SdT+Vdp+\mu dn
-$$<h3 id="grand-potential">
-<a class="header-anchor" href="#grand-potential"></a>
-Grand Potential
-</h3>$$
-J=-pV
-$$<h3 id="the-clausius-clapeyron-equation">
-<a class="header-anchor" href="#the-clausius-clapeyron-equation"></a>
-The Clausius-Clapeyron Equation
-</h3>$$
-\frac{dp}{dT}=\frac{S_m^\beta-S_m^\alpha}{V_m^\beta-V_m^\alpha}=\frac{L}{T(V_m^\beta-V_m^\alpha)}=\frac{s^\beta-s^\alpha}{v^\beta-v^\alpha}
-$$<p>
-Where:</p>
-<ul>
-<li>$L=T(S_m^\beta-S_m^\alpha)$ is the latent heat of phase transition.</li>
-<li>$S_m$ is the molar entropy</li>
-<li>$s$ is the specific entropy (entropy per unit mass)</li>
-<li>$v$ is the specific volume (volume per unit mass)</li>
-</ul>
-<h3 id="ehrenfest-equations">
-<a class="header-anchor" href="#ehrenfest-equations"></a>
-Ehrenfest Equations
-</h3><p>In [[#second-order phase transitions]], the Clapeyron equation becomes an indeterminate form of $\frac{0}{0}$. By applying L&rsquo;Hôpital&rsquo;s rule and taking partial derivatives of the numerator and denominator with respect to $T$, we obtain
-</p>
-$$
-\frac{d𝑝}{d𝑇}=\frac{\Delta c_𝑝}{𝑇𝑣\Delta\alpha}
-$$<p>
-Alternatively, taking partial derivatives with respect to $𝑝$ yields
-</p>
-$$
-\frac{d𝑝}{d𝑇}=\frac{\Delta\alpha}{\Delta\kappa_T}
-$$<p>
-These two equations are known as the <strong>Ehrenfest equations</strong>.</p>
-<h3 id="first-order-phase-transition-equation">
-<a class="header-anchor" href="#first-order-phase-transition-equation"></a>
-First-Order Phase Transition Equation
-</h3><h3 id="formula">
-<a class="header-anchor" href="#formula"></a>
-Formula
-</h3><p>For first-order phase transitions, at the transition temperature $T_c$, the Gibbs free energy $G$ itself is continuous, but its first derivatives with respect to temperature and pressure exhibit discontinuities:</p>
-<ul>
-<li>$\left ( \frac{\partial G}{\partial T} \right)_P = -S$</li>
-<li>$\left ( \frac{\partial G}{\partial P} \right)_T = V$</li>
-</ul>
-<p>At the transition point $T_c$, these first derivatives undergo jumps:
-</p>
-$$
-\Delta S = S_2 - S_1 \neq 0
-$$<p>
-</p>
-$$
-\Delta V = V_2 - V_1 \neq 0
-$$<p>
-Here, $S$ represents entropy, $V$ represents volume, and the subscripts 1 and 2 denote the two phases before and after the phase transition.</p>
-<h3 id="proof">
-<a class="header-anchor" href="#proof"></a>
-Proof
-</h3><p>The characteristic of a first-order phase transition lies in the <strong>discontinuity</strong> of <strong>certain first-order derivatives of the thermodynamic potential function</strong> at the transition point. Taking entropy as an example:</p>
-<ol>
-<li><strong>Continuity of Gibbs Free Energy</strong>:
-At the transition temperature $T_c$, the Gibbs free energy $G$ is continuous:
-
-$$
-   G_1 (T_c, P) = G_2 (T_c, P)
-   $$</li>
-<li><strong>Discontinuity of Entropy</strong>:
-Taking the partial derivative of $G$ with respect to temperature yields the expression for entropy:
-
-$$
-   S = -\left ( \frac{\partial G}{\partial T} \right)_P
-   $$
-At $T_c$, the jump in entropy is:
-
-$$
-   \Delta S = S_2 - S_1 = -\left ( \frac{\partial G_2}{\partial T} \right)_P + \left ( \frac{\partial G_1}{\partial T} \right)_P \neq 0
-   $$</li>
-</ol>
-<p>This demonstrates the discontinuity of entropy at the phase transition point.</p>
-<h3 id="second-order-phase-transition-equations">
-<a class="header-anchor" href="#second-order-phase-transition-equations"></a>
-Second-Order Phase Transition Equations
-</h3><h2 id="">
-<a class="header-anchor" href="#"></a>
-
-</h2><h3 id="formula-1">
-<a class="header-anchor" href="#formula-1"></a>
-Formula
-</h3><p>For second-order phase transitions, at the critical temperature $T_c$, the Gibbs free energy $G$ and its first derivatives (such as entropy and volume) are continuous, but its second derivatives (such as heat capacity, compressibility, and thermal expansion coefficient) are discontinuous:</p>
-<ul>
-<li>$\left ( \frac{\partial^2 G}{\partial T^2} \right)_P = \frac{\partial S}{\partial T} = \frac{C_P}{T}$</li>
-<li>$\left ( \frac{\partial^2 G}{\partial P^2} \right)_T = \frac{\partial V}{\partial P} = -\kappa_T V$</li>
-</ul>
-<p>At the phase transition point $T_c$, these second derivatives exhibit jumps:
-</p>
-$$
-\Delta C_P = C_{P 2} - C_{P 1} \neq 0
-$$<p>
-</p>
-$$
-\Delta \kappa_T = \kappa_{T 2} - \kappa_{T 1} \neq 0
-$$<p>
-Here, $C_P$ is the constant-pressure heat capacity, and $\kappa_T$ is the isothermal compressibility.</p>
-<h3 id="proof-1">
-<a class="header-anchor" href="#proof-1"></a>
-Proof
-</h3><p>The characteristics of second-order phase transitions lie in <strong>the discontinuity of certain second derivatives of the thermodynamic potential function at the phase transition point</strong>. Taking heat capacity as an example:</p>
-<ol>
-<li><strong>Continuity of Entropy</strong>:
-At the phase transition temperature $T_c$, the entropy $S$ is continuous:
-
-$$
-   S_1 (T_c, P) = S_2 (T_c, P)
-   $$</li>
-<li><strong>Discontinuity of Heat Capacity</strong>:
-Taking the partial derivative of entropy with respect to temperature yields the expression for heat capacity:
-
-$$
-   C_P = T \left ( \frac{\partial S}{\partial T} \right)_P
-   $$
-At $T_c$, the jump in heat capacity is:
-
-$$
-   \Delta C_P = C_{P 2} - C_{P 1} = T \left ( \left ( \frac{\partial S_2}{\partial T} \right)_P - \left ( \frac{\partial S_1}{\partial T} \right)_P \right) \neq 0
-   $$</li>
-</ol>
-<p>This indicates that heat capacity exhibits discontinuity at the phase transition point.</p>
-<h3 id="differential-of-the-gibbs-function-for-multicomponent-systems">
-<a class="header-anchor" href="#differential-of-the-gibbs-function-for-multicomponent-systems"></a>
-Differential of the Gibbs Function for Multicomponent Systems
-</h3>$$
-dG=-SdT+Vdp+\sum_i\mu_i dn_i
-$$<h3 id="gibbs-phase-rule">
-<a class="header-anchor" href="#gibbs-phase-rule"></a>
-Gibbs Phase Rule
-</h3>$$
-f=k+2-\varphi
-$$<p>
-Where:</p>
-<ul>
-<li>$f$: Degrees of freedom in a multicomponent multiphase system, i.e., the number of independently variable intensive properties</li>
-<li>$k$: Number of components</li>
-<li>$\varphi$: Number of phases</li>
-</ul>
-<h3 id="de-broglie-relations">
-<a class="header-anchor" href="#de-broglie-relations"></a>
-de Broglie Relations
-</h3><p>[[#de Broglie Wave]]
-</p>
-$$
-\begin{cases}
-\varepsilon=\hbar\omega\\
-\vec{p}=\hbar\vec{k}
-\end{cases}
-$$<h3 id="planck-constant">
-<a class="header-anchor" href="#planck-constant"></a>
-Planck Constant
-</h3>$$
-\begin{align}
-h & =6.626069934(89)×10^{-34}J\cdot s \\
-& =4.135667662(25)×10^{-15}eV\cdot s
-\end{align}
-$$<p>
-Reduced Planck Constant (Dirac Constant):
-</p>
-$$
-\hbar \equiv \frac{h}{2\pi}=1.054571800(13)\times10^{-34}J\cdot s
-$$<h3 id="uncertainty-relation">
-<a class="header-anchor" href="#uncertainty-relation"></a>
-Uncertainty Relation
-</h3>$$
-\Delta q\Delta p\ge h
-$$<p>
-<strong>Or</strong>
-</p>
-$$
-\Delta q\Delta p\ge \frac{\hbar}{2}
-$$<p>
-==Generally==, take
-</p>
-$$
-\Delta q\Delta p\approx h
-$$<h3 id="three-dimensional-free-particle-quantum-state-count">
-<a class="header-anchor" href="#three-dimensional-free-particle-quantum-state-count"></a>
-Three-Dimensional Free Particle Quantum State Count
-</h3><p>==Temporarily disregarding quantum spin==</p>
-<blockquote>
-<p>When particles move within a macroscopically sized container, their momentum and energy values are <strong>quasi-continuous</strong>.</p>
-</blockquote>
-<h3 id="cartesian-momentum-representation">
-<a class="header-anchor" href="#cartesian-momentum-representation"></a>
-Cartesian Momentum Representation
-</h3><p>Find the <strong>number of quantum states for free particles</strong> within a volume $V=L^3$, in the momentum range from $p_x$ to $p_x+dp_x$, $p_y$ to $p_y+dp_y$, and $p_z$ to $p_z+dp_z$.<br>
-Solution 1:<br>
-From the relationship between momentum and quantum numbers for [[#Three-Dimensional Free Particles]], the possible number of $p_x$ states is:<br>
-</p>
-$$
-dn_x=\frac{L}{2\pi\hbar}dp_x
-$$<p><br>
-This means $dn_x$ is characterized by $dp_x$.<br>
-The same applies to the other two directions.<br>
-</p>
-$$
-dn_xdn_ydn_z=\frac{V}{h^3}dp_xdp_ydp_z
-$$<p><br>
-Solution 2:<br>
-From the definition of [[#Phase Cell]], the phase cell size for a three-dimensional free particle is $\Delta q_1\cdots \Delta q_r\Delta p_1\cdots \Delta p_r\approx h^3$. In this problem, the $\mu$-space volume is $d\Omega=Vdp_xdp_ydp_z$.<br>
-The number of phase cells that can fit into this volume is the number of quantum states for free particles.<br>
-</p>
-$$
-dn_xdn_ydn_z=\frac{d\Omega}{h^3}=\frac{Vdp_xdp_ydp_z}{h^3}
-$$<h3 id="momentum-representation-in-spherical-coordinates">
-<a class="header-anchor" href="#momentum-representation-in-spherical-coordinates"></a>
-Momentum Representation in Spherical Coordinates
-</h3>$$
-\displaylines{p_x=p\sin \theta \cos \varphi 
-\\p_y=p\sin \theta \sin \varphi 
-\\p_z=p\cos \theta}
-$$<p>
-</p>
-$$
-dp_xdp_ydp_z=p^2\sin \theta dp d\theta d\varphi
-$$<p>
-Within volume $V$, for momentum magnitude ranging from $p$ to $p+dp$, direction from $\theta$ to $d\theta$, and $\varphi$ to $\varphi+d\varphi$, the number of possible states for a free particle is
-</p>
-$$
-\frac{Vp^2\sin \theta dp d\theta d\varphi}{h^3}
-$$<p>
-<em>There are three quantum numbers $p,\theta,\varphi$ in total, corresponding to three degrees of freedom.</em></p>
-<h3 id="energy-representation">
-<a class="header-anchor" href="#energy-representation"></a>
-Energy Representation
-</h3><p>Integrating over $\theta,\varphi$ ($0 \lt \theta \lt \pi,0 \lt \varphi \lt 2\pi$) gives:
-</p>
-$$
-\frac{4\pi Vp^2}{h^3}dp
-$$<p>
-Here the momentum can be in any direction, with 1 degree of freedom.
-$\because$ $\varepsilon=\frac{p^2}{2m}$
-$\therefore$ Within volume $V$, the number of possible quantum states for free particles in the energy range from $\varepsilon$ to $\varepsilon+d\varepsilon$ is
-</p>
-$$
-D(\varepsilon)d\varepsilon=\frac{2\pi V}{h^3}(2m)^{3/2}\varepsilon^{1/2}d\varepsilon
-$$<p>
-where $D(\varepsilon)$ represents the number of possible states per unit energy interval, known as the ==density of states==.</p>
-<h3 id="considering-quantum-spin">
-<a class="header-anchor" href="#considering-quantum-spin"></a>
-Considering Quantum Spin
-</h3><p>[[#Spin Angular Momentum]]
-Number of quantum states = Number of momentum quantum states obtained above * Possible spin states of the particle
-eg. If the particle&rsquo;s spin quantum number is $\frac{1}{2}$, $S_z=2s+1=1$, the above result should be multiplied by 2.</p>
-<h2 id="definitions-and-theorems">
-<a class="header-anchor" href="#definitions-and-theorems"></a>
-Definitions and Theorems
-</h2><h3 id="basic-definitions">
-<a class="header-anchor" href="#basic-definitions"></a>
-Basic Definitions
-</h3><h1 id="">
-<a class="header-anchor" href="#"></a>
-
-</h1><h3 id="equilibrium-state">
-<a class="header-anchor" href="#equilibrium-state"></a>
-Equilibrium State
-</h3><p>The definition of equilibrium state focuses on two points:</p>
-<ol>
-<li>There is <strong>no macroscopic</strong> exchange of energy or matter between the system and its surroundings (distinguished from <strong>steady state</strong>). Microscopic exchanges are allowed.</li>
-<li>The macroscopic properties of all parts of the system remain unchanged over a long period of time. Equilibrium state is <strong>thermodynamic equilibrium</strong>, with <strong>fluctuations</strong> present.</li>
-</ol>
-<p><strong>Relaxation time</strong>: The time required for a system to return to equilibrium from a non-equilibrium state.</p>
-<h3 id="methods-for-describing-equilibrium-properties-macroscopic-description">
-<a class="header-anchor" href="#methods-for-describing-equilibrium-properties-macroscopic-description"></a>
-Methods for Describing Equilibrium Properties: Macroscopic Description
-</h3><ul>
-<li>State parameters: Macroscopic variables that determine equilibrium properties</li>
-<li>State functions: Macroscopic variables determined by state parameters</li>
-</ul>
-<h3 id="extensive-and-intensive-quantities">
-<a class="header-anchor" href="#extensive-and-intensive-quantities"></a>
-Extensive and Intensive Quantities
-</h3><p>In thermodynamics, the <strong>macroscopic variables</strong> of a homogeneous system can be divided into two categories: extensive and intensive quantities.</p>
-<h3 id="广延量extensive-variables">
-<a class="header-anchor" href="#%e5%b9%bf%e5%bb%b6%e9%87%8fextensive-variables"></a>
-广延量（Extensive Variables）
-</h3><blockquote>
-<p>广延量是指<strong>依赖于系统规模或大小的热力学变量</strong>。这些变量随着系统的大小成比例地增加或减少。</p>
-</blockquote>
-<ul>
-<li><strong>质量（Mass）</strong>：整个系统的质量。</li>
-<li><strong>体积（Volume, V）</strong>：系统占据的空间体积。</li>
-<li><strong>能量（Energy, E）</strong>：包括内部能量、动能和势能。</li>
-<li><strong>熵（Entropy, S）</strong>：表示系统微观状态的不确定性和混乱度。</li>
-<li><strong>粒子数（Number of particles, N）</strong>：系统中粒子的总数。</li>
-<li><strong>热量（Heat, Q）</strong>：系统所包含或传递的热量。</li>
-<li><strong>电荷（Charge, Q）</strong>：系统中的电荷总量。</li>
-</ul>
-<h3 id="强度量intensive-variables">
-<a class="header-anchor" href="#%e5%bc%ba%e5%ba%a6%e9%87%8fintensive-variables"></a>
-强度量（Intensive Variables）
-</h3><blockquote>
-<p>强度量是指<strong>与系统的大小无关</strong>的热力学变量，这些变量<strong>在系统内的任一点都保持一致</strong>，不随系统规模而变化。</p>
-</blockquote>
-<ul>
-<li><strong>温度（Temperature, T）</strong>：表示系统的热状态。</li>
-<li><strong>压强（Pressure, P）</strong>：系统单位面积上所受的力。</li>
-<li><strong>化学势（Chemical potential, μ）</strong>：系统中每增加一个粒子所需要的自由能。</li>
-<li><strong>浓度（Concentration）</strong>：单位体积内粒子的数量。</li>
-<li><strong>电场（Electric field, E）</strong>：单位电荷所受的力。</li>
-<li><strong>磁场（Magnetic field, H）</strong>：单位磁偶极子所受的力矩。</li>
-</ul>
-<h3 id="the-relationship-between-extensive-and-intensive-quantities">
-<a class="header-anchor" href="#the-relationship-between-extensive-and-intensive-quantities"></a>
-The Relationship Between Extensive and Intensive Quantities
-</h3><p>Extensive and intensive quantities are closely related. Typically, <strong>extensive quantities can be calculated through the product or integral of intensive quantities</strong>. For example:</p>
-<ul>
-<li><strong>Internal energy</strong> (U): Can be determined by the system&rsquo;s temperature, volume, and particle count.</li>
-<li><strong>Volume</strong>: Can be calculated by integrating the density of each unit volume within the system.</li>
-<li><strong>Heat and work</strong>: Are the products of intensive quantities (such as temperature and pressure) and extensive quantities (such as entropy and volume change).</li>
-</ul>
-<h3 id="temperature">
-<a class="header-anchor" href="#temperature"></a>
-Temperature
-</h3><blockquote>
-<p><strong>Law of Thermal Equilibrium</strong>: If object A is in thermal equilibrium with objects B and C respectively, then B and C must also be in thermal equilibrium when they are in thermal contact.</p>
-</blockquote>
-<ul>
-<li>Definition of temperature: Objects in mutual thermal equilibrium must possess a physical quantity intrinsic to the object itself, which is defined as temperature.</li>
-<li>Temperature scale: A numerical representation method for temperature.</li>
-<li>Three essential elements: Thermometric property of the thermometric substance, fixed points, and scale division.</li>
-</ul>
-<h3 id="work-in-thermodynamic-processes">
-<a class="header-anchor" href="#work-in-thermodynamic-processes"></a>
-Work in Thermodynamic Processes
-</h3><p><strong>Quasi-static process</strong>: $W=\int_{V_1}^{V_2}pdV$, where $V_1$ is the initial volume of the system and $V_2$ is the final volume.</p>
-<p><strong>Reversible process: A quasi-static process without dissipation</strong></p>
-<blockquote>
-<p>In a reversible process, the work done by the surroundings on the system can be expressed using the system&rsquo;s state parameters.</p>
-</blockquote>
-<p><strong>State space: A space constructed with independent state parameters as coordinate axes.</strong></p>
-<blockquote>
-<p>In state space, a point represents an equilibrium state of the system, and a curve represents a quasi-static process.</p>
-</blockquote>
-<p><strong>Process equation: The functional relationship between independent state parameters during a quasi-static process.</strong></p>
-<p>Expressions for work (considering only reversible processes):</p>
-<ul>
-<li>Fluid volume change process: −𝑝d𝑉</li>
-<li>Surface film area change process: 𝜎d𝐴</li>
-<li>Elastic wire length change: 𝐹d𝐿</li>
-<li>Polarization work (ignoring dielectric volume change):</li>
-<li>Magnetization work (ignoring magnetic medium volume change):</li>
-</ul>
-<p><strong>Work in special non-static processes</strong>:</p>
-<ul>
-<li>Isochoric (constant volume) $𝑊=0$</li>
-<li>Isobaric (constant pressure) $𝑊=−𝑝 \Delta 𝑉$</li>
-</ul>
-<h3 id="carnots-theorem">
-<a class="header-anchor" href="#carnots-theorem"></a>
-Carnot&rsquo;s Theorem
-</h3><p><strong>Among all heat engines operating between two fixed temperatures, reversible heat engines have the highest efficiency.</strong>
-Corollary: If two reversible heat engines operate at the same temperatures, their efficiencies are equal.
-[[#Reversible Heat Engine Efficiency $ eta$]]</p>
-<h3 id="principle-of-entropy-increase">
-<a class="header-anchor" href="#principle-of-entropy-increase"></a>
-Principle of Entropy Increase
-</h3><blockquote>
-<p>Under <strong>adiabatic conditions</strong>, processes that decrease entropy are impossible (entropy never decreases).</p>
-</blockquote>
-<p><strong>Proof</strong>: From the second law of thermodynamics:
-</p>
-$$
-dS\ge \frac{dQ}{T}
-$$<p>
-For an adiabatic system, $dQ$=0, thus $dS\ge 0$.</p>
-<p><strong>Corollary</strong>: In an isolated (adiabatic) system, <strong>irreversible processes</strong> always proceed in the direction of increasing entropy, i.e., $dS \gt 0$.</p>
-<h3 id="throttling-process">
-<a class="header-anchor" href="#throttling-process"></a>
-Throttling Process
-</h3><p>In thermodynamics, the throttling process (or Joule-Thomson process) is a typical adiabatic irreversible process characterized by a significant pressure drop as the fluid passes through a throttling device (such as an orifice, valve, or porous plug), while the enthalpy remains constant. Below is a detailed analysis of this process:</p>
-<h3 id="characteristics-of-throttling-process">
-<a class="header-anchor" href="#characteristics-of-throttling-process"></a>
-Characteristics of Throttling Process
-</h3><ol>
-<li><strong>Adiabatic Nature</strong>: The throttling process is typically considered adiabatic because there is insufficient time for heat exchange during rapid flow.</li>
-<li><strong>Isenthalpic Property</strong>: The most important characteristic is that the throttling process is isenthalpic, meaning the enthalpy ($H$) remains unchanged before and after throttling. This property plays a key role in the throttling process. [[#Energy Equation in Throttling Process]]</li>
-<li><strong>Irreversibility</strong>: The throttling process is an <strong>irreversible process</strong>, and the <strong>entropy of the system usually increases</strong>.</li>
-<li><strong>Pressure Drop</strong>: During the throttling process, the pressure of the fluid drops significantly.</li>
-</ol>
-<h3 id="relationship-between-enthalpy-temperature-and-pressure">
-<a class="header-anchor" href="#relationship-between-enthalpy-temperature-and-pressure"></a>
-Relationship Between Enthalpy, Temperature, and Pressure
-</h3><p>For an ideal gas, enthalpy is solely a function of temperature, so the temperature remains constant during a throttling process (a special case of the Joule-Thomson effect). However, for real gases, the situation is more complex—the temperature may increase or decrease depending on the gas&rsquo;s ==Joule-Thomson coefficient== ([[#Joule-Thomson Coefficient]]), defined as:
-</p>
-$$
-\mu_{JT} = \left ( \frac{\partial T}{\partial P} \right)_H
-$$<ul>
-<li>If $\mu_{JT}  \gt  0$, the gas temperature decreases during throttling.</li>
-<li>If $\mu_{JT}  \lt  0$, the gas temperature increases during throttling.</li>
-</ul>
-<h3 id="applications-of-throttling-process">
-<a class="header-anchor" href="#applications-of-throttling-process"></a>
-Applications of Throttling Process
-</h3><p>The throttling process is crucial in many industrial applications, such as:</p>
-<ul>
-<li><strong>Refrigeration Systems</strong>: Utilizing throttling valves (e.g., expansion valves) to reduce the temperature and pressure of refrigerants, thereby achieving cooling effects.</li>
-<li><strong>Gas Separation</strong>: Cooling certain gases to their liquefaction temperature through throttling to separate different gas components.</li>
-</ul>
-<h3 id="characteristic-functions">
-<a class="header-anchor" href="#characteristic-functions"></a>
-Characteristic Functions
-</h3><p>Characteristic functions (also known as thermodynamic potential functions or thermodynamic potentials) are used to describe the state of a thermodynamic system. Various thermodynamic properties and relationships can be derived from these functions.<br>
-There are four main characteristic functions: internal energy, Helmholtz free energy, enthalpy, and Gibbs free energy.</p>
-<ul>
-<li>Internal energy $U(S,V)$: For adiabatic isochoric systems, U remains constant</li>
-<li>Enthalpy $H(S,p)$: For adiabatic isobaric systems, H remains constant</li>
-<li>Free energy $F(T,V)$: For isothermal isochoric systems, F remains constant</li>
-<li>Gibbs function $G(T,p)$: For isothermal isobaric systems, G remains constant</li>
-</ul>
-<h3 id="radiation">
-<a class="header-anchor" href="#radiation"></a>
-Radiation
-</h3><h3 id="equilibrium-radiation">
-<a class="header-anchor" href="#equilibrium-radiation"></a>
-Equilibrium Radiation
-</h3><p>Equilibrium Radiation refers to the electromagnetic radiation characteristics of a system in a state of <strong>thermodynamic equilibrium</strong>. In this state, the processes of radiation and absorption within the system reach a dynamic balance, and the spectrum and intensity of electromagnetic radiation are solely determined by the system&rsquo;s temperature.</p>
-<h3 id="characteristics-of-equilibrium-radiation">
-<a class="header-anchor" href="#characteristics-of-equilibrium-radiation"></a>
-Characteristics of Equilibrium Radiation
-</h3><ol>
-<li><strong>Thermal Equilibrium</strong>:
-<ul>
-<li>The system is in a state of thermal equilibrium, meaning the temperature is uniform across all parts, with no net heat flow.</li>
-</ul>
-</li>
-<li><strong>Blackbody Radiation</strong>:
-<ul>
-<li>Under thermal equilibrium, the radiation exhibits blackbody characteristics. Blackbody radiation is an idealized form of radiation that perfectly absorbs and re-emits all frequencies, with its spectrum depending solely on temperature.</li>
-</ul>
-</li>
-</ol>
-<h3 id="radiative-flux-density">
-<a class="header-anchor" href="#radiative-flux-density"></a>
-Radiative Flux Density
-</h3><p>辐射通量密度（Radiative Flux Density），也称为辐射出射度或辐射强度，是指单位时间内通过单位面积的辐射能量。它是描述辐射场的重要物理量，在热力学、气象学、天文学等领域有广泛应用。</p>
-<h3 id="definition">
-<a class="header-anchor" href="#definition"></a>
-Definition
-</h3><p>The radiant flux density E is expressed as:
-</p>
-$$
-E = \frac{d\Phi}{dA}
-$$<p>
-where:</p>
-<ul>
-<li>E is the radiant flux density, measured in watts per square meter ($W/m^2$).</li>
-<li>$d\Phi$ is the radiant energy flux passing through area $dA$, measured in watts ($W$).</li>
-<li>$dA$ is the area, measured in square meters ($m^2$).</li>
-</ul>
-<p>==Or==
-</p>
-$$
-J_u=\frac{c}{4}\frac{U}{V}=\frac{1}{4}cu
-$$<p>
-where:</p>
-<ul>
-<li>$c$: speed of light</li>
-<li>$u$: radiant energy density, $u=\frac{U}{V}$, the equilibrium radiant energy per unit volume</li>
-</ul>
-<h3 id="applications-of-the-stefan-boltzmann-law">
-<a class="header-anchor" href="#applications-of-the-stefan-boltzmann-law"></a>
-Applications of the Stefan-Boltzmann Law
-</h3><p>For an ideal black body, its radiant flux density is proportional to the fourth power of its temperature, as described by the Stefan-Boltzmann law:
-</p>
-$$
-E = \sigma T^4
-$$<p>
-where:</p>
-<ul>
-<li>$E$ is the radiant flux density of the black body.</li>
-<li>$\sigma$ is the Stefan-Boltzmann constant, with a value of $5.67 \times 10^{-8} \, W \, m^{-2} \, K^{-4}$.</li>
-<li>$T$ is the absolute temperature of the black body, in Kelvin ($K$).</li>
-</ul>
-<h3 id="directionality-of-radiant-flux-density">
-<a class="header-anchor" href="#directionality-of-radiant-flux-density"></a>
-Directionality of Radiant Flux Density
-</h3><p>辐射通量密度是一个矢量量，考虑其方向性时称为辐射强度 $I$，表示为单位立体角上的辐射通量密度：
-</p>
-$$
-I = \frac{d\Phi}{dA \cos \theta \, d\Omega}
-$$<p>
-其中：</p>
-<ul>
-<li>$I$ 是辐射强度，单位是瓦特每平方米每立体角（$W/m^2/sr$）。</li>
-<li>$d\Omega$ 是立体角，单位是球面度（sr）。</li>
-<li>$\theta$ 是辐射方向与法线之间的夹角。</li>
-</ul>
-<h3 id="blackbody-radiation-cavity-radiation">
-<a class="header-anchor" href="#blackbody-radiation-cavity-radiation"></a>
-Blackbody Radiation (Cavity Radiation)
-</h3><p>黑体辐射（Blackbody Radiation）是指一个理想化的物体（称为黑体）在热平衡状态下发出的电磁辐射。黑体是一个理想化的概念，它具有完全吸收和完全辐射所有频率电磁波的能力。黑体辐射的特性只取决于黑体的温度，而与其材料或表面性质无关。</p>
-<h2 id="">
-<a class="header-anchor" href="#"></a>
-
-</h2><h3 id="characteristics-of-blackbody-radiation">
-<a class="header-anchor" href="#characteristics-of-blackbody-radiation"></a>
-Characteristics of Blackbody Radiation
-</h3><ol>
-<li><strong>Perfect Absorption</strong>:
-<ul>
-<li>A blackbody can completely absorb all incident electromagnetic radiation, regardless of wavelength or direction. Thus, a blackbody exhibits no reflection or transmission at any wavelength.</li>
-</ul>
-</li>
-<li><strong>Perfect Emission</strong>:
-<ul>
-<li>A blackbody emits electromagnetic radiation at any temperature, radiating across all wavelengths. This radiation is solely determined by the blackbody&rsquo;s temperature.</li>
-</ul>
-</li>
-</ol>
-<h3 id="practical-applications-of-blackbody-radiation">
-<a class="header-anchor" href="#practical-applications-of-blackbody-radiation"></a>
-Practical Applications of Blackbody Radiation
-</h3><ol>
-<li><strong>Cosmic Background Radiation</strong>:
-<ul>
-<li>The cosmic microwave background radiation closely approximates blackbody radiation at a temperature of 2.725 K, serving as crucial evidence for the Big Bang theory.</li>
-</ul>
-</li>
-<li><strong>Stellar Spectra</strong>:
-<ul>
-<li>The radiation from stars approximates blackbody radiation, allowing their surface temperatures to be deduced by analyzing their spectra.</li>
-</ul>
-</li>
-<li><strong>Infrared Thermometry</strong>:
-<ul>
-<li>Based on the principle of blackbody radiation, the surface temperature of an object can be inferred by measuring the intensity of the infrared radiation it emits.</li>
-</ul>
-</li>
-<li><strong>Thermal Imaging</strong>:
-<ul>
-<li>Thermal imaging devices utilize the principle of blackbody radiation, detecting infrared radiation emitted from an object&rsquo;s surface to create temperature-based images.</li>
-</ul>
-</li>
-</ol>
-<h3 id="criteria-for-thermodynamic-equilibrium">
-<a class="header-anchor" href="#criteria-for-thermodynamic-equilibrium"></a>
-Criteria for Thermodynamic Equilibrium
-</h3><h3 id="isolated-system">
-<a class="header-anchor" href="#isolated-system"></a>
-Isolated System
-</h3><p>For an isolated (adiabatic) system, S increases or remains constant, reaching $S_\max$ at equilibrium.
-If a small disturbance occurs, $\Delta S \lt 0$, expand it to a second-order Taylor series $\Delta S=\delta S+\frac{1}{2}\delta^2 S$
-At equilibrium, the conditions $\delta S=0,\delta^2 S \lt 0$ must be satisfied.</p>
-<h3 id="isothermal-isochoric-system">
-<a class="header-anchor" href="#isothermal-isochoric-system"></a>
-Isothermal-Isochoric System
-</h3><p>等温等容系统 F decreases or remains constant, reaching $F_\min$ at equilibrium.
-If a small disturbance occurs, $\Delta F \gt 0$, which can be expanded as a second-order Taylor series $\Delta F=\delta F+\frac{1}{2}\delta^2 F$.
-At equilibrium, the conditions $\delta F=0,\delta^2 F \gt 0$ are satisfied.</p>
-<h3 id="isothermal-isobaric-system">
-<a class="header-anchor" href="#isothermal-isobaric-system"></a>
-Isothermal-Isobaric System
-</h3><p>In an isothermal-isobaric system, G decreases or remains constant, reaching $G_\min$ at equilibrium.
-If a slight perturbation occurs, $\Delta G \gt 0$, which can be expanded as a second-order Taylor series: $\Delta G=\delta G+\frac{1}{2}\delta^2 G$.
-At equilibrium, the conditions $\delta G=0$ and $\delta^2 G>0$ must be satisfied.</p>
-<h3 id="equilibrium-conditions-for-two-phase-systems-in-a-unit">
-<a class="header-anchor" href="#equilibrium-conditions-for-two-phase-systems-in-a-unit"></a>
-Equilibrium Conditions for Two-Phase Systems in a Unit
-</h3>$$
-\begin{cases}  
-T^\alpha=T^\beta \\  
-p^\alpha=p^\beta \\  
-\mu^\alpha=\mu^\beta  
-\end{cases}  
-$$<h3 id="classification-of-phase-transitions">
-<a class="header-anchor" href="#classification-of-phase-transitions"></a>
-Classification of Phase Transitions
-</h3><p>[[#Ehrenfest Equations]]
-Ehrenfest (Paul Ehrenfest) classified phase transitions <strong>based on the continuity of thermodynamic potential functions and their derivatives at the phase transition point</strong>.
-Ehrenfest categorized phase transitions into first-order and second-order phase transitions.</p>
-<h3 id="first-order-phase-transition">
-<a class="header-anchor" href="#first-order-phase-transition"></a>
-First-Order Phase Transition
-</h3><blockquote>
-<p>A first-order phase transition refers to a phase transition where the first derivatives of the thermodynamic potential (such as Gibbs free energy), like entropy and volume, are discontinuous at the transition point.</p>
-</blockquote>
-<p>Typical first-order phase transitions include melting, vaporization, and sublimation.
-[[#First-Order Phase Transition Equations]]</p>
-<h3 id="second-order-phase-transition">
-<a class="header-anchor" href="#second-order-phase-transition"></a>
-Second-order Phase Transition
-</h3><blockquote>
-<p>A second-order phase transition refers to a phase transition process where the first derivative of the thermodynamic potential function is continuous at the transition point, but its second derivative exhibits discontinuity.</p>
-</blockquote>
-<p>Typical second-order phase transitions include the transition of superconductors and liquid crystal phase transitions.<br>
-[[#Second-order Phase Transition Equations]]</p>
-<h3 id="multicomponent-system-phase-equilibrium-conditions">
-<a class="header-anchor" href="#multicomponent-system-phase-equilibrium-conditions"></a>
-Multicomponent System Phase Equilibrium Conditions
-</h3><h3 id="equilibrium-conditions-for-isothermal-isobaric-systems">
-<a class="header-anchor" href="#equilibrium-conditions-for-isothermal-isobaric-systems"></a>
-Equilibrium Conditions for Isothermal-Isobaric Systems
-</h3>$$
-\begin{cases}
-T^\alpha=T^\beta \\
-p^\alpha=p^\beta \\
-\mu_i^\alpha=\mu_i^\beta
-\end{cases}
-$$<h3 id="the-same-applies-to-other-systems">
-<a class="header-anchor" href="#the-same-applies-to-other-systems"></a>
-The same applies to other systems
-</h3><h3 id="gibbs-paradox">
-<a class="header-anchor" href="#gibbs-paradox"></a>
-Gibbs Paradox
-</h3><p><strong>Description</strong>: The entropy increases abruptly from $2nR\ln 2$ to 0 when transitioning from two arbitrarily similar gases to the same gas.<br>
-<strong>Reason</strong>: Indistinguishability of identical particles.</p>
-<h3 id="the-third-law-of-thermodynamics">
-<a class="header-anchor" href="#the-third-law-of-thermodynamics"></a>
-The Third Law of Thermodynamics
-</h3><h3 id="nernsts-theorem">
-<a class="header-anchor" href="#nernsts-theorem"></a>
-Nernst&rsquo;s Theorem
-</h3><p>The change in entropy of a condensed system during an isothermal process approaches zero as the thermodynamic temperature tends to zero.
-</p>
-$$
-\lim_{T \to 0}(\Delta S)_T=0
-$$<h3 id="principle-of-the-unattainability-of-absolute-zero">
-<a class="header-anchor" href="#principle-of-the-unattainability-of-absolute-zero"></a>
-Principle of the Unattainability of Absolute Zero
-</h3><p>It is impossible to cool an object to thermodynamic zero through <strong>a finite number of steps</strong>.</p>
-<h3 id="corollaries">
-<a class="header-anchor" href="#corollaries"></a>
-Corollaries
-</h3><ol>
-<li>$\lim_{T \to 0}C_n=0$ This corollary is proven by Einstein&rsquo;s quantum statistics in the [[#solid]] section.</li>
-<li>$\lim_{T \to 0}\alpha=0,\lim_{T \to 0}\beta=0$</li>
-<li>At absolute zero, the entropy value can be 0</li>
-</ol>
-<h3 id="classical-description-of-particle-motion-states">
-<a class="header-anchor" href="#classical-description-of-particle-motion-states"></a>
-Classical Description of Particle Motion States
-</h3><h3 id="space">
-<a class="header-anchor" href="#space"></a>
-$\mu$ Space
-</h3><blockquote>
-<p>Describes the mechanical motion state of particles using position and momentum coordinates. The $2r$ variables $q_1,q_2,...,q_r;p_1,p_2,...,p_r$ form a $2r$-dimensional space with Cartesian coordinates, known as $\mu$ space.</p>
-</blockquote>
-<p><strong>Degrees of Freedom of a Particle</strong>: The minimum number of coordinates required to determine the spatial position <strong>or</strong> configuration position of a particle.</p>
-<h3 id="phase-cell">
-<a class="header-anchor" href="#phase-cell"></a>
-Phase Cell
-</h3><blockquote>
-<p>The volume of a particle&rsquo;s motion state in $\mu$ space</p>
-</blockquote>
-<p>For a particle with $r$ degrees of freedom, the size of the phase cell is $\Delta q_1\cdots \Delta q_r\Delta p_1\cdots \Delta p_r$
-When it satisfies the [[#Uncertainty Relation]] $\Delta q_i\Delta p_i\approx h$, the size of the phase cell $\approx h^r$</p>
-<h3 id="free-particle">
-<a class="header-anchor" href="#free-particle"></a>
-Free Particle
-</h3><blockquote>
-<p>A free particle is a particle that moves freely without the influence of any force.
-In the absence of an external field, molecules of an ideal gas or free electrons in a metal can be approximately regarded as free particles.</p>
-</blockquote>
-<p><strong>Momentum of a free particle</strong>: $p_x=m\dot{x}$, the momentum of the particle in the x-axis direction. Here, m is the mass of the particle, and $\dot{x}$ is the velocity of the particle in the x-axis direction (the first derivative of position with respect to time).
-<strong>Energy of a free particle</strong>:
-</p>
-$$
-\varepsilon=\frac{1}{2m}\sum_ip_i^2
-$$<h3 id="linear-harmonic-oscillator">
-<a class="header-anchor" href="#linear-harmonic-oscillator"></a>
-Linear Harmonic Oscillator
-</h3><blockquote>
-<p>Classical mechanics tells us that a particle with mass $m$ under the action of an elastic force $F = -Ax$ will perform simple harmonic motion along the $x$-axis near the origin, known as a linear harmonic oscillator.</p>
-</blockquote>
-<ul>
-<li>Angular frequency of oscillation:
-$$\omega=\sqrt{\frac{A}{m}}$$</li>
-<li>$A$: Elastic coefficient</li>
-</ul>
-<h3 id="energy-of-a-linear-harmonic-oscillator-with-one-degree-of-freedom">
-<a class="header-anchor" href="#energy-of-a-linear-harmonic-oscillator-with-one-degree-of-freedom"></a>
-Energy of a Linear Harmonic Oscillator with One Degree of Freedom
-</h3><p>The sum of kinetic and potential energy
-</p>
-$$
-\varepsilon=\frac{p^2}{2m}+\frac{A}{2}x^2=\frac{p^2}{2m}+\frac{1}{2}m\omega^2x^2
-$$<p>
-Written in the standard form of an ellipse equation
-</p>
-$$
-\frac{p^2}{2m\varepsilon}+\frac{x^2}{\frac{2\varepsilon}{m\omega^2}}=1
-$$<h3 id="rotor-degree-of-freedom-2">
-<a class="header-anchor" href="#rotor-degree-of-freedom-2"></a>
-Rotor (Degree of Freedom: 2)
-</h3><blockquote>
-<p>Consider the motion of a particle \( P \) with mass \( m \) attached to the origin \( O \) by a light rod of fixed length.</p>
-</blockquote>
-<ul>
-<li>In Cartesian coordinates, the position of the particle is determined by coordinates \( x, y, z \).</li>
-</ul>
-<p>Particle energy (kinetic energy):
-</p>
-$$
-\varepsilon=\frac{1}{2}m(\dot{x}^2+\dot{y}^2+\dot{z}^2)
-$$<ul>
-<li>Using spherical coordinates \( r, \theta, \varphi \) to describe the particle&rsquo;s position: \( x = r\sin \theta \cos \varphi, y = r\sin \theta \sin \varphi, z = r\cos \theta \)</li>
-</ul>
-<p>Particle energy:
-</p>
-$$
-\begin{align}
-\varepsilon &=\frac{1}{2}m(\dot{r}^2+r^2\dot{\theta}^2+r^2\sin^2\theta\dot{\varphi}^2)\\
-&=\frac{1}{2}m(r^2\dot{\theta}^2+r^2\sin^2\dot{\varphi}^2)
-\end{align}
-$$<ul>
-<li>Introducing conjugate momenta \( p_\theta = mr^2\dot{\theta}, p_\varphi = mr^2\sin^2\theta \dot{\varphi} \), and the moment of inertia \( I \) of the particle relative to \( O \).</li>
-<li>\( 0  \lt  \theta  \lt  \pi, 0  \lt  \varphi  \lt  2\pi \), two degrees of freedom.</li>
-</ul>
-$$
-\varepsilon=\frac{1}{2I}(p_\theta^2+\frac{1}{\sin^2\theta}p_\varphi^2)
-$$<h3 id="diatomic-molecules">
-<a class="header-anchor" href="#diatomic-molecules"></a>
-Diatomic Molecules
-</h3><blockquote>
-<p>The two-body problem can be reduced to a single-body problem. In statistical physics, the rotation of a diatomic molecule about its center of mass is treated as a rotor.</p>
-</blockquote>
-<p>According to classical mechanics, in the absence of external forces, the total angular momentum of the rotor $\vec L=\vec r\times \vec p$ is a conserved quantity, meaning neither its magnitude nor direction changes over time. Since $\vec r$ is perpendicular to $\vec L$, the motion of the particle lies in a plane perpendicular to $\vec L$. If we choose the $z$-axis to be parallel to $\vec L$, the particle&rsquo;s motion must lie within the $xy$-plane. This is equivalent to fixing $\theta=\frac{\pi}{2}, p_\theta=0$.</p>
-<p>The particle&rsquo;s energy in this case is:
-</p>
-$$
-\varepsilon=\frac{p_\varphi^2}{2I}=\frac{L^2}{2I}
-$$<p>
-where: $L^2=\vec{L}\cdot \vec{L}$<br>
-<strong>Here, the particle has 1 degree of freedom</strong>, namely $\varphi$.</p>
-<h3 id="quantum-description-of-particle-motion-states">
-<a class="header-anchor" href="#quantum-description-of-particle-motion-states"></a>
-Quantum Description of Particle Motion States
-</h3><h3 id="de-broglie-wave">
-<a class="header-anchor" href="#de-broglie-wave"></a>
-de Broglie Wave
-</h3><blockquote>
-<p>Microscopic particles (photons, electrons, protons, neutrons, and even atoms, molecules, etc.) universally exhibit wave-particle duality.
-A free particle with energy $\varepsilon$ and momentum $\vec{p}$ is associated with a plane wave of circular frequency $\omega$ and wave vector $\vec{k}$, known as the de Broglie wave.</p>
-</blockquote>
-<p>[[#de Broglie Relations]]</p>
-<h3 id="quantum-state">
-<a class="header-anchor" href="#quantum-state"></a>
-Quantum State
-</h3><blockquote>
-<p>In quantum mechanics, the motion state of microscopic particles is called the quantum state.
-The quantum state is characterized by a set of quantum numbers, and the <strong>number of quantum numbers</strong> is equal to the degrees of freedom of the particle.</p>
-</blockquote>
-<h1 id="">
-<a class="header-anchor" href="#"></a>
-
-</h1><h3 id="linear-harmonic-oscillator-energy">
-<a class="header-anchor" href="#linear-harmonic-oscillator-energy"></a>
-==Linear Harmonic Oscillator Energy==
-</h3><p>[[#Energy of a Linear Harmonic Oscillator with 1 Degree of Freedom]]
-In ==quantum physics==, the possible energy values of a linear harmonic oscillator with angular frequency $\omega$ are:
-</p>
-$$
-\varepsilon_n=\hbar\omega(n+\frac{1}{2}),n=0,1,2,\cdots
-$$<p>
-Here, n is the quantum number representing the oscillator&rsquo;s motion state and energy, with only one such number—meaning the linear harmonic oscillator has 1 degree of freedom.
-Clearly, the values of $\varepsilon_n$ are <strong>discrete</strong>.</p>
-<h3 id="energy-levels">
-<a class="header-anchor" href="#energy-levels"></a>
-Energy Levels
-</h3><blockquote>
-<p>Discrete energies are called energy levels.</p>
-</blockquote>
-<p>In $\mu$ space, surfaces with equal energy are called ==equipotential surfaces==. Since these surfaces are discontinuous, each equipotential surface is referred to as an <strong>energy level</strong>.
-[[#$ mu$ space]]</p>
-<h3 id="rotor-energy">
-<a class="header-anchor" href="#rotor-energy"></a>
-Rotor Energy
-</h3><p>[[#Diatomic Molecule]]
-In quantum physics, the value of $L^2$ can only take discrete values:
-</p>
-$$
-L^2=l(l_1)\hbar^2,l=0,1,2,\cdots
-$$<p>
-For a given angular momentum $L$, its projection $L_z$ along its eigen-direction (taken as the $z$-axis) can only take discrete values:
-</p>
-$$
-L_z=m_l\hbar,m_l=-l,-l+1,\cdots,l
-$$<p>
-Clearly, there are $2l+1$ possible values for $m_l$.</p>
-<blockquote>
-<p>A rotor&rsquo;s motion state with <strong>2 degrees of freedom</strong> is characterized by <strong>two quantum numbers</strong> $l,m_l$.
-In classical theory, the spatial orientation of the motion plane is arbitrary, whereas in quantum theory, $m_l$ can only take the above discrete values, known as <strong>spatial quantization</strong>.</p>
-</blockquote>
-<p>Thus, the rotor&rsquo;s energy is also quantized:
-</p>
-$$
-\varepsilon_l=\frac{l(l+1)\hbar^2}{2I},l=0,1,2,\cdots
-$$<h3 id="degeneracy">
-<a class="header-anchor" href="#degeneracy"></a>
-Degeneracy $\omega_l$
-</h3><p>$\because$ It is observed that: the energy depends only on the quantum number $l$, and the quantum state depends on the two quantum numbers $m_l, l$.
-$\therefore$ There are $2l+1$ quantum states for the energy level $\varepsilon_l$.</p>
-<blockquote>
-<p>Generally speaking, if a given energy level has more than one quantum state, it is called degenerate.
-If an energy level has only one quantum state, it is called non-degenerate.
-If an energy level has k quantum states, its degeneracy is k.</p>
-</blockquote>
-<p>Between two adjacent [[#Energy Levels]], there are several [[#Phase Cells]], and the number of phase cells is the <strong>degeneracy</strong> of the energy level.</p>
-<h3 id="spin-angular-momentum">
-<a class="header-anchor" href="#spin-angular-momentum"></a>
-Spin Angular Momentum
-</h3><blockquote>
-<p>Certain fundamental particles possess intrinsic angular momentum, known as spin angular momentum $S$.</p>
-</blockquote>
-$$
-S^2=s(s+1)\hbar^2
-$$<p>
-$s$: ==Spin quantum number==. Can be integer or half-integer, an inherent property of particles that can be summed. [[#Bosons and Fermions]]
-The state of spin angular momentum is determined by its magnitude (spin quantum number $s$) and its projection along its <strong>eigenaxis</strong>. Using $z$ to denote the eigenaxis, the possible values of $S_z$ are
-</p>
-$$
-S_z=m_s\hbar,m_s=s,s-1,\cdots,-s
-$$<p>
-totaling $2s+1$ values.</p>
-<h3 id="energy-of-free-particles">
-<a class="header-anchor" href="#energy-of-free-particles"></a>
-Energy of Free Particles
-</h3><h2 id="">
-<a class="header-anchor" href="#"></a>
-
-</h2><h3 id="boundary-conditions">
-<a class="header-anchor" href="#boundary-conditions"></a>
-Boundary Conditions
-</h3><blockquote>
-<p>To determine the possible states of motion of a particle, it is necessary to know the boundary conditions of the de Broglie wave at the container walls.
-Typically, standing wave conditions or periodic boundary conditions are employed.</p>
-</blockquote>
-<p>For a <strong>one-dimensional</strong> free particle in a container of length $L$, the periodic boundary condition requires that the possible states of motion must satisfy that an integer multiple of the de Broglie wavelength $\lambda$ equals the container length $L$. That is,
-</p>
-$$
-L=\left\vert n_x \right\vert\lambda,\left\vert n_x \right\vert=0,1,2,\cdots
-$$<ul>
-<li>$n_x$: The projection of the quantum number $n$ in the $x$-direction. For a one-dimensional free particle, the quantum number is simply $n_x$.</li>
-</ul>
-<h3 id="one-dimensional-free-particle">
-<a class="header-anchor" href="#one-dimensional-free-particle"></a>
-One-Dimensional Free Particle
-</h3><ul>
-<li>Wave vector $k_x$:
-
-$$
-k_x=\frac{2\pi}{L}n_x,n_x=0,\pm 1,\pm 2,\cdots
-$$</li>
-<li>Momentum $p_x$:
-
-$$
-p_x=\frac{2\pi\hbar}{L}n_x,n_x=0,\pm 1,\pm 2,\cdots
-$$</li>
-<li>Energy $\varepsilon_{n_x}$
-
-$$
-\varepsilon_{n_x}=\frac{p_x^2}{2m}=\frac{2\pi^2\hbar^2}{m}\cdot\frac{n_x^2}{L^2},n_x=0,\pm 1,\pm 2,\cdots
-$$</li>
-</ul>
-<h3 id="three-dimensional-free-particle">
-<a class="header-anchor" href="#three-dimensional-free-particle"></a>
-Three-Dimensional Free Particle
-</h3><ul>
-<li>Momentum:
-
-$$
-\begin{cases}
-p_x=\frac{2\pi\hbar}{L}n_x,n_x=0,\pm 1,\pm 2,\cdots\\
-p_y=\frac{2\pi\hbar}{L}n_y,n_y=0,\pm 1,\pm 2,\cdots\\
-p_z=\frac{2\pi\hbar}{L}n_z,n_z=0,\pm 1,\pm 2,\cdots
-\end{cases}
-$$</li>
-<li>Energy:
-
-$$
-\varepsilon=\frac{1}{2m}(p_x^2+p_y^2+p_z^2)=\frac{2\pi^2\hbar^2}{m}\frac{n_x^2+n_y^2+n_z^2}{L^2}
-$$</li>
-<li>Quantum numbers: $n_x,n_y,n_z$ (three in total, corresponding to three degrees of freedom)</li>
-<li>Energy levels: Determined by $n_x^2+n_y^2+n_z^2$</li>
-</ul>
-<h3 id="description-of-the-microscopic-motion-states-of-a-system">
-<a class="header-anchor" href="#description-of-the-microscopic-motion-states-of-a-system"></a>
-Description of the Microscopic Motion States of a System
-</h3><h3 id="microstates">
-<a class="header-anchor" href="#microstates"></a>
-Microstates
-</h3><blockquote>
-<p>The microscopic state of a system is its mechanical motion state.<br>
-It manifests as different occupation patterns where particles occupy different energy levels and phase cells.</p>
-</blockquote>
-<h3 id="system">
-<a class="header-anchor" href="#system"></a>
-System
-</h3><p>==Limited to systems composed of identical and nearly independent particles==</p>
-<ul>
-<li><strong>System composed of identical particles</strong>: A system consisting of the same type of particles with identical intrinsic properties (same mass, charge, spin, etc.).
-Examples include a free electron gas composed of free electrons, helium gas composed of $^4He$ atoms, etc. ^f1b50b</li>
-<li><strong>System composed of nearly independent particles</strong>: The interaction between particles is very weak, and the average energy of interaction is much smaller than the average energy of a single particle, so the interaction between particles can be ignored, and the total energy of the system can be expressed as the sum of the energies of individual particles.
-Examples include systems composed of ideal gases. ^24ebad
-
-$$
-E=\sum^{N}_{i=1}\varepsilon_i
-$$
-Where:</li>
-<li>$\varepsilon_i$: Energy of the i-th particle</li>
-<li>$N$: Total number of particles</li>
-</ul>
-<h3 id="classical-mechanics-description">
-<a class="header-anchor" href="#classical-mechanics-description"></a>
-Classical Mechanics Description
-</h3><blockquote>
-<p>In classical physics, identical particles [[#^f1b50b]] are distinguishable.
-Determining the microscopic state of motion of a system requires determining the mechanical state of motion (individual quantum state) of each particle.</p>
-</blockquote>
-<p>Number of variables: $2Nr$<br>
-$r$: degrees of freedom of a single particle</p>
-<h3 id="bosons-and-fermions">
-<a class="header-anchor" href="#bosons-and-fermions"></a>
-Bosons and Fermions
-</h3><blockquote>
-<p>In nature, microscopic particles can be divided into two categories, known as bosons and fermions.</p>
-</blockquote>
-<p>[[#Spin Angular Momentum]]</p>
-<h2 id="">
-<a class="header-anchor" href="#"></a>
-
-</h2><h3 id="fermion">
-<a class="header-anchor" href="#fermion"></a>
-Fermion
-</h3><blockquote>
-<p>Spin quantum number is a half-integer</p>
-</blockquote>
-<p>Examples: electron, proton, neutron, $\mu$ meson (all with $\frac{1}{2}$ spin); $^2H$ atom, $^3H$ nucleus (with $\frac{3}{2}$ spin), etc.</p>
-<h3 id="boson">
-<a class="header-anchor" href="#boson"></a>
-Boson
-</h3><blockquote>
-<p>Spin quantum number is an integer</p>
-</blockquote>
-<p>Examples: photon (1), $\pi$ meson (0), $^1H$ atom (1), $^4He$ atom (4), etc.</p>
-<h3 id="pauli-exclusion-principle">
-<a class="header-anchor" href="#pauli-exclusion-principle"></a>
-Pauli Exclusion Principle
-</h3><blockquote>
-<p>In a system containing multiple identical and nearly independent fermions, an individual quantum state can accommodate at most one fermion.</p>
-</blockquote>
-<h3 id="distribution">
-<a class="header-anchor" href="#distribution"></a>
-Distribution
-</h3><blockquote>
-<p>A set composed of the number of particles at each <strong>energy level</strong>, this set is called a distribution.</p>
-</blockquote>
-$$
-\{a_l\}=a_1,a_2,\cdots,a_l,\cdots
-$$<p>
-$a_l$: The number of particles at energy level $\varepsilon_l$
-Satisfies:
-</p>
-$$
-\sum_la_l=N,\sum_la_l\varepsilon_l=E
-$$<p>
-A distribution encompasses a large number of possible microstates, and a microstate corresponds to a distribution.</p>
-<h3 id="three-systems">
-<a class="header-anchor" href="#three-systems"></a>
-Three Systems
-</h3><h2 id="">
-<a class="header-anchor" href="#"></a>
-
-</h2><h3 id="boltzmann-system">
-<a class="header-anchor" href="#boltzmann-system"></a>
-Boltzmann System
-</h3><p>A system composed of <strong>identical</strong> [[#^f1b50b]]<strong>nearly independent particles</strong>[[#^24ebad]] that are ==distinguishable==, with <strong>no restriction on the number of particles</strong> occupying a single quantum state, is called a Boltzmann system.</p>
-<h3 id="bose-system">
-<a class="header-anchor" href="#bose-system"></a>
-Bose System
-</h3><p>A system composed of bosons, not constrained by the Pauli exclusion principle.
-In a Bose system consisting of multiple <strong>identical and nearly independent</strong> bosons, <strong>the number of bosons occupying the same individual quantum state</strong> is unrestricted.</p>
-<h3 id="fermi-system">
-<a class="header-anchor" href="#fermi-system"></a>
-Fermi System
-</h3><p>A system composed of fermions, obeying the Pauli exclusion principle.</p>
-<h3 id="three-types-of-statistics">
-<a class="header-anchor" href="#three-types-of-statistics"></a>
-Three Types of Statistics
-</h3><h2 id="">
-<a class="header-anchor" href="#"></a>
-
-</h2><h3 id="boltzmann-statistics-classical-statistics">
-<a class="header-anchor" href="#boltzmann-statistics-classical-statistics"></a>
-Boltzmann Statistics (Classical Statistics)
-</h3><p>Distinguishable identical particles, with no restriction on the number of particles per phase cell.</p>
-<h3 id="bose-statistics">
-<a class="header-anchor" href="#bose-statistics"></a>
-Bose Statistics
-</h3><p>Indistinguishable identical particles, with no restriction on the number of particles per phase cell.</p>
-<h3 id="fermi-statistics">
-<a class="header-anchor" href="#fermi-statistics"></a>
-Fermi Statistics
-</h3><p>Indistinguishable identical particles, with a maximum of one particle per phase cell.</p>
-<h3 id="principle-of-equal-probability">
-<a class="header-anchor" href="#principle-of-equal-probability"></a>
-Principle of Equal Probability
-</h3><blockquote>
-<p>For an <strong>isolated</strong> system in <strong>equilibrium</strong>, all possible microstates of the system are equally probable.</p>
-</blockquote>
-<h3 id="most-probable-distribution">
-<a class="header-anchor" href="#most-probable-distribution"></a>
-Most Probable Distribution
-</h3><blockquote>
-<p>According to the principle of equal a priori probabilities, for an isolated system in equilibrium, the distribution with the greatest number of microscopic states has the highest probability of occurrence, known as the most probable distribution.</p>
-</blockquote>
-<h3 id="boltzmann-distribution">
-<a class="header-anchor" href="#boltzmann-distribution"></a>
-Boltzmann Distribution
-</h3><blockquote>
-<p>The most probable distribution of particles in a Boltzmann system is called the <strong>Maxwell-Boltzmann distribution</strong>, or simply the Boltzmann distribution.</p>
-</blockquote>
-<ul>
-<li>Approximate equation: $\ln m!=m (\ln m-1),m\gg 1$</li>
-<li>Denote $\Omega_{m.B.}$ as $\Omega$<br>
-Under Boltzmann statistics, this distribution contains the most microstates, with the maximum number of microstates $\Omega$.<br>
-
-$$
-a_l=\omega_le^{-\alpha-\beta\varepsilon_l}=e^{-\alpha-\beta\varepsilon_l}\frac{\Delta\omega_l}{h_0^r}
-$$<br>
-The latter is the ==classical expression of the Boltzmann distribution==.<br>
-
-$$
-N=\sum_la_l=\sum_l\omega_le^{-\alpha-\beta\varepsilon_l}=\sum_se^{-\alpha-\beta\varepsilon_s}
-$$<br>
-
-$$
-E=\sum_l\varepsilon_la_l=\sum_l\omega_l\varepsilon_le^{-\alpha-\beta\varepsilon_l}=\sum_s\varepsilon_se^{-\alpha-\beta\varepsilon_s}
-$$<br>
-
-$$
-f_s=\frac{a_l}{\omega_l}=e^{-\alpha-\beta\varepsilon_l}
-$$</li>
-<li>$a_l$: The most probable number of particles (average number of particles) at energy level $\varepsilon_l$, which should satisfy the condition $a_l\gg 1$.</li>
-<li>$\alpha$: Lagrange multiplier.</li>
-<li>$\beta$: Lagrange multiplier, generally determined by experimental conditions.</li>
-<li>$\omega_l$: The number of quantum states at energy level $\varepsilon_l$, i.e., the degeneracy. Should satisfy the condition $\omega_l\gg 1$.</li>
-<li>$s$: A quantum state at energy level $\varepsilon_l$.</li>
-<li>$\sum_l$: Sum over quantum number $l$.</li>
-<li>$\sum_s$: Sum over all quantum states.</li>
-<li>$f_s$: The average number of particles in quantum state $s$.</li>
-</ul>
-<h3 id="bose-distribution">
-<a class="header-anchor" href="#bose-distribution"></a>
-Bose Distribution
-</h3><blockquote>
-<p>The most probable distribution of particles in a Bose system is called the Bose-Einstein distribution, abbreviated as the Bose distribution.</p>
-</blockquote>
-$$
-a_l=\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}
-$$<p>
-</p>
-$$
-N=\sum_la_l=\sum_l\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}
-$$<p>
-</p>
-$$
-E=\sum_l\varepsilon_la_l=\sum_l\frac{\varepsilon_l\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}
-$$<p>
-</p>
-$$
-F_s=\frac{a_l}{\omega_l}=\frac{1}{e^{\alpha+\beta\varepsilon_l}-1}
-$$<h3 id="fermi-distribution">
-<a class="header-anchor" href="#fermi-distribution"></a>
-Fermi Distribution
-</h3><blockquote>
-<p>The most probable distribution of a Fermi system.</p>
-</blockquote>
-$$
-a_l=\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}+1}
-$$<p>
-</p>
-$$
-N=\sum_la_l=\sum_l\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}+1}
-$$<p>
-</p>
-$$
-E=\sum_l\varepsilon_la_l=\sum_l\frac{\varepsilon_l\omega_l}{e^{\alpha+\beta\varepsilon_l}+1}
-$$<p>
-</p>
-$$
-F_s=\frac{a_l}{\omega_l}=\frac{1}{e^{\alpha+\beta\varepsilon_l}+1}
-$$<h3 id="relationship-among-the-three-distributions">
-<a class="header-anchor" href="#relationship-among-the-three-distributions"></a>
-Relationship Among the Three Distributions
-</h3><p>If $\alpha$ satisfies the condition ([[#Classical Limit Condition]], non-degeneracy condition)
-</p>
-$$
-e^\alpha \gg 1
-$$<p>
-then the $\pm$ in the Bose and Fermi distributions can be neglected, and both distributions transition to the Boltzmann distribution.
-In this case, for all $l$, we have
-</p>
-$$
-\frac{a_l}{\omega_l}\ll 1
-$$<p>
-</p>
-$$
-\Omega_{B.E.}\approx\frac{\Omega_{M.B.}}{N!}\approx\Omega_{F.D.}
-$$<h3 id="localization">
-<a class="header-anchor" href="#localization"></a>
-Localization
-</h3><ul>
-<li>In nature, some systems can be considered as composed of localized particles.
-For example, atoms or ions in a crystal oscillate slightly around their equilibrium positions.</li>
-<li>Although these particles are <strong>indistinguishable by their quantum nature</strong>, they can be distinguished based on their positions, so ==localized particles== can be treated as distinguishable particles.</li>
-<li>Systems composed of localized particles are called <em>localized systems</em>.
-Examples include paramagnetic solids and nuclear spin systems.</li>
-</ul>
-<blockquote>
-<p>Localized systems and Bose (Fermi) systems that satisfy classical limit conditions both obey the Boltzmann distribution.
-However, their microscopic state numbers are different.</p>
-</blockquote>
-<h3 id="statistical-expressions-of-thermodynamic-quantities">
-<a class="header-anchor" href="#statistical-expressions-of-thermodynamic-quantities"></a>
-Statistical Expressions of Thermodynamic Quantities
-</h3><h1 id="">
-<a class="header-anchor" href="#"></a>
-
-</h1><h3 id="internal-energy">
-<a class="header-anchor" href="#internal-energy"></a>
-Internal Energy
-</h3>$$
-U=\sum_la_l\varepsilon_l=\sum_l\varepsilon_l\omega_le^{-\alpha-\beta\varepsilon_l}
-$$<h3 id="particle-partition-function">
-<a class="header-anchor" href="#particle-partition-function"></a>
-Particle Partition Function
-</h3><p>Abbreviated as partition function
-</p>
-$$
-Z_1=\sum_l\omega_le^{-\beta\varepsilon_l}=\sum_se^{-\beta\varepsilon_s}
-$$<p>
-<strong>Applicable scope: Nearly independent particle system, particles are distinguishable, and the number of particles each phase cell (quantum state) can accommodate is not limited.</strong></p>
-$$
-N=e^{-\alpha}\sum_l\omega_le^{-\beta\varepsilon_l}=e^{-\alpha}Z_1
-$$<p>By eliminating $\alpha$ from the above three equations, we obtain the ==statistical expression of internal energy==:
-</p>
-$$
-U=-N\frac{\partial}{\partial\beta}\ln Z_1
-$$<h3 id="total-differential-of-internal-energy-1">
-<a class="header-anchor" href="#total-differential-of-internal-energy-1"></a>
-Total Differential of Internal Energy
-</h3>$$
-dU=\sum_la_ld\varepsilon_l+\sum_l\varepsilon_lda_l
-$$<ul>
-<li>$\sum_la_ld\varepsilon_l$: The change in internal energy caused by the alteration of energy levels due to changes in external parameters while the particle distribution remains unchanged, which represents <strong>the work done by the surroundings on the system</strong> during the process.</li>
-<li>$\sum_l\varepsilon_lda_l$: The change in internal energy caused by the redistribution of particles while the energy levels remain unchanged, which represents <strong>the heat absorbed by the system from the surroundings</strong> during the process.</li>
-<li>In an infinitesimal quasi-static process, the heat absorbed by the system from the surroundings equals the increase in internal energy due to <strong>the redistribution of particles among energy levels</strong>.
-Clearly, heat has no microscopic counterpart and is a unique <strong>macroscopic quantity</strong> in thermal phenomena.
-$dQ$ is not a total differential but merely an <strong>infinitesimal quantity</strong>.</li>
-</ul>
-<h3 id="entropy">
-<a class="header-anchor" href="#entropy"></a>
-Entropy
-</h3>$$
-dS=\frac{1}{T}dQ=\frac{1}{T}(dU-Ydy)
-$$<p>
-</p>
-$$
-\beta(dU-Ydy)=Nd(\ln Z_1-\beta\frac{\partial}{\partial\beta}\ln Z_1)
-$$<p>
-$\beta$ is a function of temperature, let
-</p>
-$$
-\beta=\frac{1}{kT}
-$$<p>
-</p>
-$$
-k=R/N_A
-$$<ul>
-<li>$k$: Boltzmann constant, $k=1.381\times10^{-23}J\cdot K^{-1}$</li>
-<li>$N_A$: Avogadro&rsquo;s number, $N_A=6.022\times10^{23}mol^{-1}$</li>
-<li>$R$: Molar gas constant, $R=8.314J\cdot K^{-1}\cdot mol^{-1}$</li>
-</ul>
-$$
-dS=Nkd(\ln Z_1-\beta\frac{\partial}{\partial \beta}\ln Z_1)
-$$<p>
-Integrating gives:
-</p>
-$$
-S=Nk(\ln Z_1-\beta\frac{\partial}{\partial \beta}\ln Z_1)
-$$<p>
-The integration constant is chosen to be 0.</p>
-$$
-\ln Z_1=\ln N+\alpha
-$$<p>
-From the Boltzmann distribution
-</p>
-$$
-a_l=\omega_le^{-\alpha-\beta\varepsilon_l}
-$$<p>
-we obtain
-</p>
-$$
-\alpha+\beta\varepsilon_l=\ln\frac{\omega_l}{\alpha_l}
-$$<p>
-Simplifying the entropy gives
-</p>
-$$
-\begin{align}
-S&=k(N\ln N+\sum_l(\alpha+\beta\varepsilon_l)a_l)\\
-&=k(N\ln N+\sum_la_l\ln \omega_l-\sum_la_l\ln a_l)\\
-&=k\ln \Omega
-\end{align}
-$$<h3 id="boltzmann-relation">
-<a class="header-anchor" href="#boltzmann-relation"></a>
-Boltzmann Relation
-</h3>$$
-S=k\ln \Omega
-$$<blockquote>
-<p>The more microstates a macrostate corresponds to, the greater its disorder and the larger its entropy.</p>
-</blockquote>
-<ul>
-<li>For distinguishable particle systems (localized systems), $\Omega=\Omega_{M.B.}$</li>
-<li>For Bose (Fermi) systems satisfying the classical limit condition, $\Omega=\frac{\Omega_{M.B.}}{N!}$</li>
-</ul>
-<h3 id="free-energy">
-<a class="header-anchor" href="#free-energy"></a>
-Free Energy
-</h3>$$
-F=
-\begin{cases}
--NkT\ln Z_1, \text{localized system}\\
--NkT\ln Z_1+kT\ln N!, \text{Bose/Fermi systems satisfying classical limit conditions}
-\end{cases}
-$$<h3 id="equation-of-state-for-ideal-gas">
-<a class="header-anchor" href="#equation-of-state-for-ideal-gas"></a>
-Equation of State for Ideal Gas
-</h3>$$
-p=\frac{N}{\beta}\frac{\partial}{\partial V}\ln Z_1=\frac{NkT}{V}
-$$<h3 id="classical-limit-conditions">
-<a class="header-anchor" href="#classical-limit-conditions"></a>
-Classical Limit Conditions
-</h3><p>[[#Three Distribution Relations]]
-</p>
-$$
-e^\alpha=\frac{Z_1}{N}=\frac{V}{N}(\frac{2\pi mkT}{h^2})^{\frac{3}{2}}\gg 1
-$$<ol>
-<li>The smaller $N/V$, the more rarefied the gas;</li>
-<li>The higher the temperature $T$;</li>
-<li>The larger the molecular mass $m$
-The easier it is to satisfy the classical limit conditions.
-Another expression:
-
-$$
-n\lambda^3=e^{-\alpha}\ll 1
-$$</li>
-</ol>
-<h3 id="maxwells-velocity-distribution-law">
-<a class="header-anchor" href="#maxwells-velocity-distribution-law"></a>
-Maxwell&rsquo;s Velocity Distribution Law
-</h3><p>Under general conditions, <strong>gases satisfy the classical limit condition</strong>.</p>
-<blockquote>
-<p>Based on the <strong>Boltzmann distribution</strong>, the translational motion of the center of mass of gas molecules is studied, and the velocity distribution law of gas molecules is derived.</p>
-</blockquote>
-<h3 id="maxwell-velocity-distribution-law">
-<a class="header-anchor" href="#maxwell-velocity-distribution-law"></a>
-Maxwell Velocity Distribution Law
-</h3>$$
-f(v_x,x_y,x_z)dv_xdv_ydv_z=n(\frac{m}{2\pi kT})^{3/2}e^{-\frac{m}{2kT}(v_x^2+v_y^2+v_z^2)}dv_xdv_ydv_z
-$$<p>
-$f(v_x,x_y,x_z)$ should satisfy
-</p>
-$$
-f(v_x,x_y,x_z)=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(v_x,x_y,x_z)dv_xdv_ydv_z=n
-$$<p>
-$n=\frac{N}{V}$: number of molecules per unit volume</p>
-<h3 id="maxwells-speed-distribution-law">
-<a class="header-anchor" href="#maxwells-speed-distribution-law"></a>
-Maxwell&rsquo;s Speed Distribution Law
-</h3><p>Using the <strong>spherical polar coordinates</strong> volume element $v^2\sin \theta dv d \theta d \varphi$ to replace the Cartesian volume element $dv_xdv_ydv_z$, integrating over $\theta,\varphi$ gives the number of molecules per unit volume with speeds in the range $dv$ as:
-</p>
-$$
-f(v)dv=4\pi n(\frac{m}{2\pi kT})^{3/2}e^{-\frac{m}{2kT}v^2}v^2dv
-$$<p>
-This equation is called the molecular speed distribution of gases.
-</p>
-$$
-f(v)=4\pi n(\frac{m}{2\pi kT})^{3/2}\int_{0}^{\infty}e^{-\frac{m}{2kT}v^2}v^2dv=n
-$$<h3 id="most-probable-speed">
-<a class="header-anchor" href="#most-probable-speed"></a>
-Most Probable Speed $v_p$
-</h3><blockquote>
-<p>The speed distribution function has a maximum value. The speed at which the speed distribution function reaches its maximum is called the most probable speed.
-If the speed is divided into equal intervals, the interval containing $v_p$ has the highest number of molecules.</p>
-</blockquote>
-$$
-\frac{d}{dv}(e^{-\frac{m}{2kT}v^2}v^2)=0
-$$<p>
-</p>
-$$
-v_p=\sqrt{\frac{2kT}{m}}
-$$<p>
-Average speed $\overline{v}$: the average value of speed $v$
-</p>
-$$
-\overline{v}=4\pi(\frac{m}{2\pi kT})^{3/2}\int_{0}^{\infty}ve^{-\frac{m}{2kT}v^2}v^2dv=\sqrt{\frac{8kT}{\pi m}}
-$$<p>
-Root-mean-square speed $v_s$: the square root of the average value of $v^2$
-</p>
-$$
-v_s^2=\overline{v_2}=4\pi(\frac{m}{2\pi kT})^{3/2}\int_{0}^{\infty}v^2e^{-\frac{m}{2kT}v^2}v^2dv=\frac{3kT}{m}
-$$<p>
-</p>
-$$
-v_s=\sqrt{\frac{3kT}{m}}=\sqrt{\frac{3RT}{M}}
-$$<p>
-$M$: molar mass</p>
-<h3 id="wall-collision-number-effusion">
-<a class="header-anchor" href="#wall-collision-number-effusion"></a>
-Wall Collision Number (Effusion)
-</h3><blockquote>
-<p>The number of molecules colliding with a unit area of the container wall per unit time is called the wall collision number.
-The number of particles escaping per unit time through a unit area hole in the container wall is called effusion.
-Clearly: Wall collision number = Effusion</p>
-</blockquote>
-<p>$dA$ is an infinitesimal area element on the container wall, with its normal direction along the $x$-axis. Let $d\varGamma dA dt$ represent the number of molecules that collide with area $dA$ within time $dt$, with velocities in the range $dv_xdv_ydv_z$.
-</p>
-$$
-d\varGamma dA dt=fv_xdv_xdv_ydv_zdAdt
-$$<p>
-</p>
-$$
-d\varGamma=fv_xdv_xdv_ydv_z
-$$<p>
-Integrating over velocities,
-</p>
-$$
-\begin{cases}
-v_x,0\to \infty\\
-v_y,-\infty \to +\infty\\
-v_z,-\infty \to +\infty
-\end{cases}
-$$<p>
-we obtain
-</p>
-$$
-\varGamma=n\sqrt{\frac{kT}{2\pi m}}=
-\frac{1}{4}n\overline{v}
-$$<h3 id="equipartition-theorem-classical-statistics">
-<a class="header-anchor" href="#equipartition-theorem-classical-statistics"></a>
-Equipartition Theorem (Classical Statistics)
-</h3><blockquote>
-<p>For a <strong>classical system</strong> in equilibrium at temperature $T$, the <strong>average value</strong> of each independent quadratic term in the particle energy equals $\frac{1}{2}kT$.</p>
-</blockquote>
-<h3 id="monatomic-ideal-gas">
-<a class="header-anchor" href="#monatomic-ideal-gas"></a>
-Monatomic Ideal Gas
-</h3>$$
-\varepsilon=\frac{1}{2m}(p_x^2+p_y^2+p_z^2)
-$$<p>
-The above equation has three squared terms. Applying the equipartition theorem gives:
-</p>
-$$
-\overline{\varepsilon}=\frac{3}{2}kT
-$$<p>
-Thus, the internal energy of a monatomic <strong>ideal gas</strong> is:
-</p>
-$$
-U=\frac{3}{2}NkT
-$$<p>
-</p>
-$$
-C_V=\frac{3}{2}Nk
-$$<p>
-Using the thermodynamic relation $C_p-C_V=Nk$, the isobaric heat capacity is obtained as:
-</p>
-$$
-C_p=\frac{5}{2}Nk
-$$<h3 id="adiabatic-index">
-<a class="header-anchor" href="#adiabatic-index"></a>
-Adiabatic Index
-</h3>$$
-\gamma=\frac{C_p}{C_V}=\frac{5}{3}=1.667
-$$<p>
-[[#Ideal Gas Adiabatic Equation]]</p>
-<h3 id="diatomic-molecular-gas">
-<a class="header-anchor" href="#diatomic-molecular-gas"></a>
-Diatomic Molecular Gas
-</h3><blockquote>
-<p>The energy of a diatomic molecule has five quadratic terms (momentum in three directions of the molecule, the motion between the two atoms can be reduced to a rotor, two degrees of freedom, i.e., two quadratic terms).</p>
-</blockquote>
-$$
-\overline{\varepsilon}=\frac{5}{2}kT
-$$<p>
-</p>
-$$
-U=\frac{5}{2}NkT
-$$<p>
-</p>
-$$
-C_V=\frac{5}{2}Nk
-$$<p>
-</p>
-$$
-C_p=\frac{7}{2}Nk
-$$<p>
-</p>
-$$
-\gamma=\frac{C_p}{C_V}=\frac{7}{5}=1.4
-$$<h3 id="solids">
-<a class="header-anchor" href="#solids"></a>
-Solids
-</h3><blockquote>
-<p>Atoms in a solid can undergo small vibrations around their equilibrium positions.
-Assuming each atom&rsquo;s vibration is an independent simple harmonic motion,
-the atomic model of a solid simplifies to a <strong>three-dimensional linear oscillator</strong>.</p>
-</blockquote>
-<p>The energy of an atom in <strong>one degree of freedom</strong> is:
-</p>
-$$
-\varepsilon=\frac{1}{2m}p^2+\frac{1}{2}m\omega^2q^2
-$$<p>
-with two quadratic terms.<br>
-The average energy per atom is:
-</p>
-$$
-\overline{\varepsilon}=3kT
-$$<p>
-The internal energy of the solid is:
-</p>
-$$
-U=3NkT
-$$<p>
-The heat capacity at constant volume is:
-</p>
-$$
-C_V=3Nk
-$$<p>
-In experiments, $C_p$ is usually measured. Using the thermodynamic relation:
-</p>
-$$
-C_p-C_V=\frac{TV\alpha^2}{\kappa T}
-$$<p>
-$C_V$ can be derived.<br>
-At room temperature and high temperatures, $C_V$ matches predictions, but <strong>at low temperatures, the heat capacity drops rapidly with decreasing temperature—a phenomenon unexplained by classical theory.</strong><br>
-[[#Principle of Unattainability of Absolute Zero]]</p>
-<h3 id="metal">
-<a class="header-anchor" href="#metal"></a>
-Metal
-</h3><p>There are free electrons in metals. If the equipartition theorem is applied to the electrons, the heat capacity of the free electrons would be of the same order of magnitude as the heat capacity of the ionic vibrations.
-Experimental results show that above $3K$, the heat capacity of free electrons is negligible compared to the heat capacity of ionic vibrations.</p>
-<h3 id="quantum-statistics-of-localizednearly-independent-particle-systems-satisfying-classical-limit-conditions">
-<a class="header-anchor" href="#quantum-statistics-of-localizednearly-independent-particle-systems-satisfying-classical-limit-conditions"></a>
-Quantum Statistics of Localized/Nearly Independent Particle Systems Satisfying Classical Limit Conditions
-</h3><h3 id="diatomic-ideal-gas">
-<a class="header-anchor" href="#diatomic-ideal-gas"></a>
-Diatomic Ideal Gas
-</h3><p>An ideal gas is a ==non-localized system==. Since it satisfies the [[#Classical Limit Condition]], it can be discussed using the Boltzmann distribution.</p>
-<blockquote>
-<p>Under certain approximations, the motion of diatomic molecules can be divided into <strong>translation $t$, vibration $v$, and rotation $r$</strong>.</p>
-</blockquote>
-$$
-\varepsilon=\varepsilon^t+\varepsilon^v+\varepsilon^r
-$$<p>
-</p>
-$$
-\omega=\omega_t+\omega_v+\omega r
-$$<p>
-</p>
-$$
-Z_1=Z_1^t\cdot Z_1^v \cdot Z_1^r
-$$<p>
-</p>
-$$
-U=-N\frac{\partial}{\partial \beta}\ln Z_1=-N\frac{\partial}{\partial \beta}(\ln Z_1^t+\ln Z_1^v+\ln Z_1^r)=U^t+U^v+U^r
-$$<p>
-</p>
-$$
-C_V=C_V^t+C_V^v+C_V^r
-$$<h3 id="translational-energy">
-<a class="header-anchor" href="#translational-energy"></a>
-Translational Energy
-</h3>$$
-\begin{cases}
-Z_1^t=V(\frac{2\pi m}{h^2\beta})^{3/2}\\
-U^t=\frac{3N}{2\beta}=\frac{3}{2}NkT\\
-C_V^t=\frac{3}{2}Nk
-\end{cases}
-$$<p>
-Consistent with the results obtained from the equipartition theorem of classical statistics.</p>
-<h3 id="vibrational-energy-and-characteristic-temperature">
-<a class="header-anchor" href="#vibrational-energy-and-characteristic-temperature"></a>
-Vibrational Energy and Characteristic Temperature
-</h3>$$
-\begin{cases}
-Z_1^v=\frac{e^{-\frac{\beta\hbar\omega}{2}}}{1-e^{-\beta\hbar\omega}}\\
-U^v=\frac{N\hbar\omega}{2}+\frac{N\hbar\omega}{e^{\beta\hbar\omega}-1}\\
-C_V^v=Nk(\frac{\hbar \omega}{kT})^2\cdot \frac{e^{\hbar \omega /kT}}{(e^{\hbar \omega/kT}-1)^2}
-\end{cases}
-$$<p>$U^v$:</p>
-<ul>
-<li>The first term is temperature-independent and represents the ==zero-point energy== of $N$ oscillators.</li>
-<li>The second term is the ==thermal excitation energy== of $N$ oscillators at temperature $T$.</li>
-</ul>
-<p>Introducing the ==vibrational characteristic temperature== $\theta_v$, which satisfies:
-</p>
-$$
-k\theta_v=\hbar\omega
-$$<p>
-Substituting into the above system of equations yields:
-</p>
-$$
-\begin{cases}
-U_v=\frac{Nk \theta_v}{e^{\frac{\theta_v}{T}}-1}\\
-C_V^v=Nk(\frac{\theta_v}{T})^2\frac{e^{\frac{\theta_v}{T}}}{(e^{\frac{\theta_v}{T}}-1)^2}
-\end{cases}
-$$<p>
-$\because$ The ==characteristic temperature of diatomic molecules== is on the order of $10^3K$,
-$\therefore$ In the room temperature range, $T\ll \theta_v$. Within this range, the contribution of vibrational degrees of freedom to heat capacity is nearly zero.<br>
-At room temperature, the energy level spacing $\hbar \omega$ of diatomic molecules is much larger than $kT$. Due to the discrete energy levels, oscillators must acquire energy $\hbar \omega$ to transition to an excited state.</p>
-<ul>
-<li>In the case of $T \ll \theta_v$, the probability of an oscillator acquiring thermal energy $\hbar \omega$ and transitioning to an excited state is extremely low. Thus, on average, <strong>almost all oscillators remain frozen in the ground state</strong>.<br>
-When the gas temperature rises, they hardly absorb any energy (unable to transition to higher energy levels). This explains why ==vibrational degrees of freedom do not participate in energy equipartition at room temperature==.</li>
-<li>In the case of $T \gg \theta_v$, $C_V^v \to Nk$ (can be proven using L&rsquo;Hôpital&rsquo;s rule).</li>
-</ul>
-<h3 id="rotational-energy">
-<a class="header-anchor" href="#rotational-energy"></a>
-Rotational Energy
-</h3><p>Rotational energy levels
-</p>
-$$
-\varepsilon^r=\frac{l(l+1)\hbar^2}{2I},l=0,1,2,\cdots
-$$<p>
-Degeneracy
-</p>
-$$
-\omega^r=2l+1
-$$<p>
-Partition function
-</p>
-$$
-Z_1^r=\sum_{i=0}^\infty(2l+1)e^{-\beta\frac{l(l+1)\hbar^2}{2I}}
-$$<p>
-Characteristic rotational temperature
-</p>
-$$
-\theta_r=\frac{\hbar^2}{2Ik} \lt 100K
-$$<p>
-</p>
-$$
-Z_1^r=\sum_{i=0}^{\infty}(2l+1)e^{-l(l+1)\frac{\theta_r}{T}}
-$$<p>
-==At room temperature== $\frac{\theta_r}{T}\ll 1$, integration yields
-</p>
-$$
-Z_1^r=\frac{2I}{\beta \hbar^2}
-$$<p>
-From this we obtain
-</p>
-$$
-\begin{cases}
-U^r=NkT\\
-C_V^r=Nk
-\end{cases}
-$$<p>Consistent with classical statistics.</p>
-<h3 id="heteronuclear-diatomic-molecules">
-<a class="header-anchor" href="#heteronuclear-diatomic-molecules"></a>
-Heteronuclear Diatomic Molecules
-</h3>$$
-\begin{cases}
-Z_1^t=V(\frac{2\pi m}{h_0^2\beta})^{3/2}\\
-Z_1^v=\frac{2\pi}{h_0\beta \omega}\\
-Z_1^r=\frac{8\pi^2I}{h_0^2\beta}
-\end{cases}
-$$<p>
-</p>
-$$
-\begin{cases}
-C_V^t=\frac{3}{2}Nk\\
-C_V^v=Nk\\
-C_V^r=Nk
-\end{cases}
-$$<h3 id="monatomic-ideal-gas-1">
-<a class="header-anchor" href="#monatomic-ideal-gas-1"></a>
-Monatomic Ideal Gas
-</h3><h2 id="">
-<a class="header-anchor" href="#"></a>
-
-</h2><h3 id="entropy-1">
-<a class="header-anchor" href="#entropy-1"></a>
-Entropy
-</h3><p>==Monatomic Ideal Gas==
-</p>
-$$
-S=Nk(\ln Z_1-\beta\frac{\partial}{\partial \beta})-k \ln N!
-$$<p>
-Using the approximation $\ln N!=N(\ln N-1)$, it simplifies to
-</p>
-$$
-S=\frac{3}{2}Nk \ln T+Nk \ln\frac{V}{N}+\frac{3}{2}Nk[\frac{5}{3}+\ln(\frac{2\pi mk}{h^2})]
-$$<p>
-The entropy in the above equation is an extensive quantity and represents absolute entropy.</p>
-<h3 id="vapor-pressure-equation">
-<a class="header-anchor" href="#vapor-pressure-equation"></a>
-Vapor Pressure Equation
-</h3><p>Sackur-Tetrode equation
-</p>
-$$
-\ln p=-\frac{L}{RT}+\frac{5}{2}\ln T+\frac{5}{2}+\ln[k^5/2(\frac{2\pi m}{h^2})^3/2]
-$$<h3 id="chemical-potential-1">
-<a class="header-anchor" href="#chemical-potential-1"></a>
-Chemical Potential
-</h3>$$
-\begin{align}
-\mu &=(\frac{\partial F}{\partial N})_{T,V}\\
-&=-kT \ln \frac{Z_1}{N}\\
-&=kT \ln[\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2]
-\end{align}
-$$<p>
-$\because$ For an ideal gas, $\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2\ll 1$<br>
-$\therefore$ ==The chemical potential of an ideal gas is negative==.</p>
-<h3 id="solids-1">
-<a class="header-anchor" href="#solids-1"></a>
-Solids
-</h3><p>The thermal motion of atoms in a solid can be regarded as the vibration of $3N$ oscillators. <em>Einstein assumed that these $3N$ oscillators all have the same frequency.</em> Let $\omega$ denote the angular frequency of the oscillators, the energy levels of the oscillators are
-</p>
-$$
-\varepsilon_n=\hbar \omega(n+\frac{1}{2}),n=0,1,2,\cdots
-$$<p>
-The partition function
-</p>
-$$
-Z_1=\frac{e^{-\frac{\beta\hbar\omega}{2}}}{1-e^{-\beta\hbar\omega}}
-$$<p>
-Internal energy
-</p>
-$$
-U=-3N \frac{\partial}{\partial \beta}\ln Z_1=3N \frac{\hbar \omega}{2}+3N\frac{\hbar \omega}{e^{\beta \hbar \omega}-1}
-$$<p>
-Heat capacity
-</p>
-$$
-C_V=(\frac{\partial U}{\partial T})_V=3Nk(\frac{\hbar \omega}{kT})^2\frac{e^{\frac{\hbar \omega}{kT}}}{(e^{\frac{\hbar \omega}{kT}}-1)^2}
-$$<p>
-Introducing the ==Einstein characteristic temperature== $\theta_E=\frac{\hbar \omega}{k}$, the heat capacity can be rewritten as
-</p>
-$$
-C_V=3Nk(\frac{\theta_E}{T})^2\frac{e^{\frac{\theta_E}{T}}}{(e^{\frac{\theta_E}{T}}-1)^2}
-$$<ul>
-<li>When $T \gg \theta_E$, the approximation $e^{\theta_E/T}-1\approx \theta_E/T$ can be made, yielding
-
-$$
-    C_V=3Nk
-    $$
-which is consistent with the result from the equipartition theorem.
-At this point, the energy level spacing is much smaller than $kT$, and the quantization effect can be ignored.</li>
-<li>When $T \ll \theta_E$, the approximation $e^{\frac{\theta_E}{T}}-1 \approx e^{\frac{\theta_E}{T}}$ holds,
-
-$$
-    C_V=3Nk(\frac{\theta_E}{T})^2e^{-\frac{\theta_E}{T}}
-    $$
-As $T \to 0$, $C_V \to 0$.
-This proves the third law of thermodynamics[[#推论]].</li>
-</ul>
-<h3 id="bosefermi-systems">
-<a class="header-anchor" href="#bosefermi-systems"></a>
-Bose/Fermi Systems
-</h3><p>[[#Bose Systems]], [[#Fermi Systems]].</p>
-<h3 id="grand-partition-function-for-bosonic-systems">
-<a class="header-anchor" href="#grand-partition-function-for-bosonic-systems"></a>
-Grand Partition Function for Bosonic Systems
-</h3>$$
-\varXi=\prod_{l}\varXi_l=\prod_{l}(1-e^{-\alpha-\beta \varepsilon_l})^{-\omega_l}
-$$<p>
-</p>
-$$
-\ln \varXi=-\sum_i \omega_l \ln(1-e^{-\alpha-\beta \varepsilon_l})
-$$<h3 id="average-particle-number">
-<a class="header-anchor" href="#average-particle-number"></a>
-Average Particle Number
-</h3>$$
-\overline{N}=\sum_l \frac{\omega_l}{e^{\alpha+\beta \varepsilon_l}-1}=-\frac{\partial}{\partial \alpha}\ln \varXi
-$$<h3 id="internal-energy-1">
-<a class="header-anchor" href="#internal-energy-1"></a>
-Internal Energy
-</h3>$$
-U=\sum_l \frac{\varepsilon_l \omega_l}{e^{\alpha+\beta \varepsilon_l}-1}=-\frac{\partial}{\partial \beta}\ln \varXi
-$$<h3 id="grand-partition-function-for-fermi-systems">
-<a class="header-anchor" href="#grand-partition-function-for-fermi-systems"></a>
-Grand Partition Function for Fermi Systems
-</h3>$$
-\varXi=\prod_{l}\varXi_l=\prod_{l}(1+e^{-\alpha-\beta \varepsilon_l})^{\omega_l}
-$$<p>
-</p>
-$$
-\ln \varXi=\sum_i \omega_l \ln(1+e^{-\alpha-\beta \varepsilon_l})
-$$<h2 id="">
-<a class="header-anchor" href="#"></a>
-
-</h2><h3 id="average-particle-number-1">
-<a class="header-anchor" href="#average-particle-number-1"></a>
-Average Particle Number
-</h3>$$
-\overline{N}=\sum_l \frac{\omega_l}{e^{\alpha+\beta \varepsilon_l}+1}=-\frac{\partial}{\partial \alpha}\ln \varXi
-$$<h3 id="internal-energy-2">
-<a class="header-anchor" href="#internal-energy-2"></a>
-Internal Energy
-</h3>$$
-U=\sum_l \frac{\varepsilon_l \omega_l}{e^{\alpha+\beta \varepsilon_l}+1}=-\frac{\partial}{\partial \beta}\ln \varXi
-$$<h3 id="generalized-force">
-<a class="header-anchor" href="#generalized-force"></a>
-Generalized Force
-</h3>$$
-Y=-\frac{1}{\beta}\frac{\partial}{\partial y}\ln \varXi
-$$<h3 id="equation-of-state-1">
-<a class="header-anchor" href="#equation-of-state-1"></a>
-Equation of State
-</h3>$$
-p=\frac{1}{\beta}\frac{\partial}{\partial V}\ln \varXi
-$$<h3 id="entropy-2">
-<a class="header-anchor" href="#entropy-2"></a>
-Entropy
-</h3>$$
-\begin{align}
-S &=k(\ln \varXi-\alpha \frac{\partial}{\partial \alpha}\ln \varXi-\beta \frac{\partial}{\partial \beta}\ln \varXi)\\
-&=k(\ln \varXi+\alpha \overline{N}+\beta U)\\
-&=k \ln \Omega
-\end{align}
-$$<h3 id="grand-potential-1">
-<a class="header-anchor" href="#grand-potential-1"></a>
-Grand Potential
-</h3><p>[[#Grand Potential]]
-</p>
-$$
-J=U-TS-\overline{N}\mu=-kT \ln \varXi
-$$<h1 id="">
-<a class="header-anchor" href="#"></a>
-
-</h1><h3 id="lagrange-multiplier">
-<a class="header-anchor" href="#lagrange-multiplier"></a>
-Lagrange Multiplier
-</h3>$$
-\beta=\frac{1}{kT},\alpha=-\frac{\mu}{kT}
-$$<hr>
-<h2 id="tags">
-<a class="header-anchor" href="#tags"></a>
-title: Bose-Einstein Condensation
-description:
-keywords:
-tags:
-</h2><h3 id="system-properties">
-<a class="header-anchor" href="#system-properties"></a>
-System Properties
-</h3><blockquote>
-<p>Consider a system composed of $N$ identical, nearly independent bosons, with temperature $T$ and volume $V$. For clarity, assume the particles have zero spin.</p>
-</blockquote>
-<p>According to the Bose distribution, the number of particles in each energy level is
-</p>
-$$
-a_l=\frac{\omega_l}{e^{\alpha+\beta \varepsilon_l}-1}=\frac{\omega_l}{e^{\frac{\varepsilon_l-\mu}{kT}}-1}
-$$<p>
-$\because$ The number of particles in an energy level cannot be negative,
-$\therefore$ Let $\varepsilon_0$ denote the lowest energy level, $\varepsilon_0 \gt \mu$.
-If the lowest energy level is 0, then $\mu \lt 0$.</p>
-<h3 id="chemical-potential-2">
-<a class="header-anchor" href="#chemical-potential-2"></a>
-Chemical Potential
-</h3><p>The chemical potential of a Bose system is less than 0. The chemical potential increases as the temperature decreases. When the temperature drops to a certain critical temperature $T_C$, $\mu \to 0$.
-$T_C$ is determined by the following equation:
-</p>
-$$
-\frac{2\pi}{h^3}(2m)^{3/2}\int_0^{\infty}\frac{\varepsilon^{1/2d \varepsilon}}{e^{\frac{\varepsilon}{kT_C}}-1}=n
-$$<p>
-</p>
-$$
-T_C=\frac{2\pi}{2.612^{2/3}}\frac{\hbar^2}{mk}n^{3/2}
-$$<h3 id="condensation-phenomenon">
-<a class="header-anchor" href="#condensation-phenomenon"></a>
-Condensation Phenomenon
-</h3><p>When $T \le T_C$, the ==particle number density== accumulated at the lowest energy level $\varepsilon=0$ is given by
-</p>
-$$
-n_0(T)=n[1-(\frac{T}{T_C})^{3/2}]
-$$<p>
-At <strong>absolute zero</strong>, particles will occupy the lowest energy states as much as possible. For <strong>bosons</strong>, the number of particles that can occupy a single quantum state is unrestricted. Therefore, at absolute zero, all bosonic particles will be in the lowest energy level $\varepsilon=0$.</p>
-<p>The above equation shows that:</p>
-<blockquote>
-<p>When $T  \lt  T_C$, a <strong>macroscopic number</strong> of particles condense into the lowest energy level. This phenomenon is called ==Bose-Einstein condensation==.</p>
-</blockquote>
-$$
-U=0.770NkT(\frac{T}{T_C})^{3/2}
-$$<p>
-</p>
-$$
-C_V=(\frac{\partial U}{\partial T})_V=\frac{5}{2}\frac{U}{T}=1.925Nk(\frac{T}{T_C})^{3/2}
-$$<p>
-At $T=T_C$, $C_V$ reaches its maximum value of $1.925Nk$.<br>
-When the <strong>temperature is sufficiently high</strong>,
-</p>
-$$
-C_V=\frac{3}{2}Nk
-$$<h3 id="critical-condition-for-bose-einstein-condensation-in-an-ideal-bose-gas">
-<a class="header-anchor" href="#critical-condition-for-bose-einstein-condensation-in-an-ideal-bose-gas"></a>
-Critical Condition for Bose-Einstein Condensation in an Ideal Bose Gas
-</h3>$$
-n(\frac{h}{\sqrt{2\pi mkT_C}})^3=n \lambda^3 \ge 2.612
-$$<p>
-$\lambda$: thermal de Broglie wavelength of atoms</p>
-<h3 id="photon-gas-bose-gas">
-<a class="header-anchor" href="#photon-gas-bose-gas"></a>
-Photon Gas (Bose Gas)
-</h3><blockquote>
-<p>From the particle perspective, the radiation field inside an empty cavity can be regarded as a <strong>photon gas</strong>.
-The radiation field inside the empty cavity can be decomposed into the superposition of infinitely many <strong>monochromatic plane waves</strong>.</p>
-</blockquote>
-<p>Based on the [[#de Broglie relations]], and the photon $\omega=ck$, we obtain the ==energy-momentum relation for photons==
-</p>
-$$
-\varepsilon=cp
-$$<ul>
-<li>Photons are bosons with a spin quantum number of 1, and they obey Bose-Einstein statistics when in equilibrium.</li>
-<li>Since the cavity walls continuously emit and absorb photons, the number of photons in the photon gas is not conserved. When deriving the Bose distribution, only the condition that $E$ is constant exists, and not the condition that $N$ is constant. Therefore, only one Lagrange multiplier $\beta$ should be introduced, with $\alpha=0$.</li>
-</ul>
-<h3 id="photon-gas-statistical-distribution">
-<a class="header-anchor" href="#photon-gas-statistical-distribution"></a>
-Photon Gas Statistical Distribution
-</h3>$$
-a_l=\frac{\omega_l}{e^{\beta \omega_l}-1}
-$$<h3 id="thermodynamic-potential">
-<a class="header-anchor" href="#thermodynamic-potential"></a>
-Thermodynamic Potential
-</h3><p>From
-</p>
-$$
-\alpha=-\frac{\mu}{kT}=0
-$$<p>
-we obtain the thermodynamic potential of the photon gas as $\mu=0$.</p>
-<h3 id="number-of-quantum-states">
-<a class="header-anchor" href="#number-of-quantum-states"></a>
-Number of Quantum States
-</h3><p>The spin quantum number of a photon is 1, and its spin projection along the momentum direction can take two possible values, $\pm \hbar$, corresponding to left and right circular polarization. Considering that the photon spin has 2 projections, as shown in the [[#Energy Representation]] section of [[#Number of Quantum States for a Three-Dimensional Free Particle]],</p>
-<blockquote>
-<p>Within a cavity of volume $V$, in the momentum range from $p$ to $p+dp$,</p>
-</blockquote>
-<p>the number of quantum states for photons is
-</p>
-$$
-\Omega=\frac{8\pi V}{h^3}p^2dp
-$$<blockquote>
-<p>Within a cavity of volume $V$, in the angular frequency range from $\omega$ to $\omega+d \omega$,</p>
-</blockquote>
-<p>the number of quantum states for photons is
-</p>
-$$
-\Omega=\frac{V}{\pi^2c^3}\omega^2d \omega
-$$<h3 id="energy-distribution-function">
-<a class="header-anchor" href="#energy-distribution-function"></a>
-Energy Distribution Function
-</h3><blockquote>
-<p>In a cavity of volume $V$, within the frequency range from $\omega$ to $\omega+d \omega$,</p>
-</blockquote>
-<p>The average number of photons
-</p>
-$$
-\overline{N}=\frac{V}{\pi^2c^3}\frac{\omega^2d \omega}{e^{\hbar \omega/kT}-1}
-$$<p>
-The energy of the radiation field
-</p>
-$$
-U(\omega,T)d \omega=\overline{N}\hbar \omega=\frac{V}{\pi^2c^3}\frac{\hbar \omega^3}{e^{\hbar \omega/kT}-1}d \omega
-$$<h2 id="">
-<a class="header-anchor" href="#"></a>
-
-</h2><h3 id="rayleigh-jeans-law">
-<a class="header-anchor" href="#rayleigh-jeans-law"></a>
-Rayleigh-Jeans Law
-</h3><p>In the low-frequency range where $\frac{\hbar \omega}{kT}\ll 1$, $e^{\frac{\hbar \omega}{kT}}\approx 1+\frac{\hbar \omega}{kT}$, the above equation can be approximated as
-</p>
-$$
-U(\omega,T)d \omega=\frac{V}{\pi^2c^3}\omega^2kTd \omega
-$$<p>
-This equation is known as the ==Rayleigh-Jeans Law==, which <strong>fits well at low frequencies</strong> but leads to the ultraviolet catastrophe at high frequencies.</p>
-<h3 id="wiens-law">
-<a class="header-anchor" href="#wiens-law"></a>
-Wien&rsquo;s Law
-</h3><p>In the high-frequency range where $\frac{\hbar \omega}{kT}\gg 1$, $e^{\frac{\hbar \omega}{kT}}-1\approx e^{\frac{\hbar \omega}{kT}}$, the above equation can be approximated as
-</p>
-$$
-U(\omega,T)d \omega=\frac{V}{\pi^2c^3}\hbar \omega^3e^{-\frac{\hbar \omega}{kT}}d \omega
-$$<p>
-This formula matches Wien&rsquo;s Law, providing good agreement at high frequencies but poor agreement at low frequencies.</p>
-<blockquote>
-<p>Inside a cavity of volume $V$</p>
-</blockquote>
-<p>The internal energy of equilibrium radiation is
-</p>
-$$
-U=\frac{\pi^2k^4}{15c^3\hbar^3}VT^4
-$$<h3 id="grand-partition-function">
-<a class="header-anchor" href="#grand-partition-function"></a>
-Grand Partition Function
-</h3>$$
-\ln \varXi=\frac{pi^2V}{45c^3}\frac{1}{(\beta \hbar)^3}
-$$<h3 id="photon-gas-internal-energy">
-<a class="header-anchor" href="#photon-gas-internal-energy"></a>
-Photon Gas Internal Energy
-</h3>$$
-U=-\frac{\partial}{\partial \beta}\ln \varXi=\frac{\pi^2k^4V}{15c^3\hbar^3}T^4
-$$<p>
-Consistent with [[#Internal Energy Distribution Function]]</p>
-<h3 id="pressure">
-<a class="header-anchor" href="#pressure"></a>
-Pressure
-</h3>$$
-p=-\frac{1}{\beta}\frac{\partial}{\partial V}\ln \varXi=\frac{\pi^2k^4}{45c^3\hbar^3}T^4
-$$<p>
-Comparing the above two equations gives
-</p>
-$$
-p=\frac{1}{3}\frac{U}{V}
-$$<h3 id="entropy-3">
-<a class="header-anchor" href="#entropy-3"></a>
-Entropy
-</h3>$$
-S=k(\ln \varXi+\beta U)=\frac{4}{45}\frac{\pi^2k^4}{c^3\hbar^3}T^3V
-$$<p>
-When $T \to 0$, $S \to 0$, consistent with [[#Third Law of Thermodynamics]]</p>
-<h3 id="radiation-flux-density">
-<a class="header-anchor" href="#radiation-flux-density"></a>
-Radiation Flux Density
-</h3><p>The formula for [[#Radiation Flux Density]] derived from [[#Radiation]] is
-</p>
-$$
-J_u=\frac{c}{4}\frac{U}{V}=\frac{1}{4}cu
-$$<p>
-Based on the concept of [[#Wall Collision Rate (Effusion)]], the radiation flux density of a photon gas is obtained as
-</p>
-$$
-J_u=\frac{\pi^2k^4}{60c^2\hbar^3}T^4
-$$<h3 id="free-electron-gas-in-metals-fermi-gas">
-<a class="header-anchor" href="#free-electron-gas-in-metals-fermi-gas"></a>
-Free Electron Gas in Metals (Fermi Gas)
-</h3><blockquote>
-<p>The free electrons in metals form a highly degenerate Fermi gas.</p>
-</blockquote>
-<h3 id="average-electron-number">
-<a class="header-anchor" href="#average-electron-number"></a>
-Average Electron Number
-</h3><p>According to the Fermi distribution, at temperature $T$, the average number of electrons occupying a quantum state with energy $\varepsilon$ is:
-</p>
-$$
-f=\frac{1}{e^{\frac{\varepsilon-\mu}{kT}}+1}
-$$<p>
-The electron spin has 2 possible projections along its momentum direction. Based on the [[#Energy Representation]] in [[#Three-Dimensional Free Particle Quantum State Number]],</p>
-<blockquote>
-<p>Within volume $V$, the number of electron quantum states in the energy range from $\varepsilon$ to $\varepsilon+d \varepsilon$ is:</p>
-</blockquote>
-$$
-D(\varepsilon)d\varepsilon=\frac{4\pi V}{h^3}(2m)^{3/2}\varepsilon^{1/2}d\varepsilon
-$$<p>
-Thus, the average number of electrons in this range is:
-</p>
-$$
-dN=f \cdot D(\varepsilon)d\varepsilon=\frac{4\pi V}{h^3}(2m)^{3/2}\frac{\varepsilon^{1/2}d\varepsilon}{e^{\frac{\varepsilon-\mu}{kT}}+1}
-$$<h3 id="total-number-of-electrons">
-<a class="header-anchor" href="#total-number-of-electrons"></a>
-Total Number of Electrons
-</h3><p>Integrating over $d \varepsilon$ gives
-</p>
-$$
-\frac{4\pi V}{h^3}(2m)^{3/2}\int_0^{\infty}\frac{\varepsilon^{1/2}d\varepsilon}{e^{\frac{\varepsilon-\mu}{kT}}+1}=N
-$$<p>
-Given the number of electrons $N$, temperature $T$, and volume $V$, the chemical potential $\mu$ can be determined from the above equation.</p>
-<h3 id="system-properties-at">
-<a class="header-anchor" href="#system-properties-at"></a>
-System Properties at $T=0$
-</h3><h3 id="average-electron-number-per-quantum-state">
-<a class="header-anchor" href="#average-electron-number-per-quantum-state"></a>
-Average Electron Number per Quantum State
-</h3>$$
-\begin{cases}
-f=1,\varepsilon \lt \mu(0)\\
-f=0,\varepsilon \gt \mu(0)
-\end{cases}
-$$<h3 id="fermi-level">
-<a class="header-anchor" href="#fermi-level"></a>
-Fermi Level
-</h3><blockquote>
-<p>The chemical potential at zero temperature is also known as the Fermi level, $\mu(0)$, which is the chemical potential when $T=0$.</p>
-</blockquote>
-<p>From
-</p>
-$$
-\frac{4\pi V}{h^3}(2m)^{3/2}\int_0^{\mu(0)}\varepsilon^{1/2}d \varepsilon=N
-$$<p>
-we obtain
-</p>
-$$
-\mu(0)=\frac{\hbar^2}{2m}(3\pi^2\frac{N}{V})^{2/3}
-$$<h3 id="fermi-momentum">
-<a class="header-anchor" href="#fermi-momentum"></a>
-Fermi Momentum
-</h3><p>Let
-</p>
-$$
-\mu(0)=\frac{p_F^2}{2m}
-$$<p>
-we obtain
-</p>
-$$
-p_F=(3\pi^2n)^{1/3}\hbar
-$$<p>
-This momentum is called ==Fermi momentum==.</p>
-<h3 id="fermi-velocity">
-<a class="header-anchor" href="#fermi-velocity"></a>
-Fermi Velocity
-</h3>$$
-v_F=\frac{p_F}{m}
-$$<p>
-This velocity is called the ==Fermi velocity==.</p>
-<h3 id="fermi-temperature">
-<a class="header-anchor" href="#fermi-temperature"></a>
-Fermi Temperature
-</h3>$$
-kT_F=\mu(0)
-$$<p>
-</p>
-$$
-T_F=\frac{\mu(0)}{k}
-$$<p>
-This temperature is called the ==Fermi temperature==.</p>
-<h3 id="energy-of-electron-gas">
-<a class="header-anchor" href="#energy-of-electron-gas"></a>
-Energy of Electron Gas
-</h3>$$
-U(0)=\frac{4\pi V}{h^3}(2m)^{3/2}\int_0^{\mu(0)}\varepsilon^{3/2}d \varepsilon=\frac{3N}{5}\mu(0)
-$$<h2 id="">
-<a class="header-anchor" href="#"></a>
-
-</h2><h3 id="electron-average-energy">
-<a class="header-anchor" href="#electron-average-energy"></a>
-Electron Average Energy
-</h3>$$
-u(0)=\frac{U(0)}{N}=\frac{3}{5}\mu(0)
-$$<h2 id="">
-<a class="header-anchor" href="#"></a>
-
-</h2><h3 id="electron-gas-pressure">
-<a class="header-anchor" href="#electron-gas-pressure"></a>
-Electron Gas Pressure
-</h3>$$
-p(0)=\frac{2}{3}\frac{U(0)}{V}=\frac{2}{5}n \mu(0)
-$$<h3 id="comparison-of-bose-and-fermi-gases-at">
-<a class="header-anchor" href="#comparison-of-bose-and-fermi-gases-at"></a>
-Comparison of Bose and Fermi Gases at $T=0$
-</h3><p>In stark contrast to an ideal Bose gas, where all particles occupy the zero-energy, zero-momentum ground state with zero pressure at absolute zero temperature, a Fermi gas possesses extremely high average energy and momentum, generating substantial pressure at absolute zero.</p>
-
-        
-        <hr><p>Published on 2024-06-06 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-06-06</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Physics</category></item></channel></rss>
+        <hr><p>Published on 2024-06-12 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-06-12</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>OtherNotes</category></item></channel></rss>
