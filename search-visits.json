@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-14T12:06:32.495Z",
+  "updatedAt": "2026-09-14T12:09:01.146Z",
   "provider": "ga4",
   "timeZone": "Asia/Shanghai",
   "windows": {
@@ -20,28 +20,28 @@
     {
       "key": "baidu",
       "name": "Baidu",
-      "weekly": 26,
-      "yearly": 0,
-      "total": 0
+      "weekly": 0,
+      "yearly": 2,
+      "total": 24
     },
     {
       "key": "bing",
       "name": "Bing",
-      "weekly": 30,
-      "yearly": 0,
-      "total": 0
+      "weekly": 2,
+      "yearly": 14,
+      "total": 14
     },
     {
       "key": "google",
       "name": "Google",
-      "weekly": 145,
-      "yearly": 0,
-      "total": 0
+      "weekly": 8,
+      "yearly": 59,
+      "total": 78
     }
   ],
   "totals": {
-    "weekly": 201,
-    "yearly": 0,
-    "total": 0
+    "weekly": 10,
+    "yearly": 75,
+    "total": 116
   }
 }
