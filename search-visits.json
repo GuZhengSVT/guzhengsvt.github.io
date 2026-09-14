@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-14T11:48:44.188Z",
+  "updatedAt": "2026-09-14T11:50:15.098Z",
   "provider": "ga4",
   "timeZone": "Asia/Shanghai",
   "windows": {
@@ -44,5 +44,5 @@
     "yearly": null,
     "total": null
   },
-  "error": "GA4 runReport HTTP 403: { \"error\": { \"code\": 403, \"message\": \"User does not have sufficient permissions for this property. To learn more about Property ID, see https://developers.google.com/analytics/devguides/reporting/data/v1/property-id.\", \"status\": \"PERMISSION_DENIED\" } }"
+  "unavailable": true
 }
