@@ -1,17 +1,48 @@
 {
-  "updatedAt": "2026-09-14T10:50:33.867Z",
+  "updatedAt": "2026-09-14T11:48:44.188Z",
+  "provider": "ga4",
+  "timeZone": "Asia/Shanghai",
+  "windows": {
+    "weekly": {
+      "start": "2026-09-07",
+      "end": "2026-09-13"
+    },
+    "yearly": {
+      "start": "2025-09-14",
+      "end": "2026-09-13"
+    },
+    "total": {
+      "start": "2020-01-01",
+      "end": "2026-09-13"
+    }
+  },
   "sources": [
     {
+      "key": "baidu",
       "name": "Baidu",
-      "visits": 0
+      "weekly": null,
+      "yearly": null,
+      "total": null
     },
     {
+      "key": "bing",
       "name": "Bing",
-      "visits": 16
+      "weekly": null,
+      "yearly": null,
+      "total": null
     },
     {
+      "key": "google",
       "name": "Google",
-      "visits": 0
+      "weekly": null,
+      "yearly": null,
+      "total": null
     }
-  ]
+  ],
+  "totals": {
+    "weekly": null,
+    "yearly": null,
+    "total": null
+  },
+  "error": "GA4 runReport HTTP 403: { \"error\": { \"code\": 403, \"message\": \"User does not have sufficient permissions for this property. To learn more about Property ID, see https://developers.google.com/analytics/devguides/reporting/data/v1/property-id.\", \"status\": \"PERMISSION_DENIED\" } }"
 }
