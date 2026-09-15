@@ -1,24 +1,24 @@
 {
-  "updatedAt": "2026-09-14T12:14:32.549Z",
+  "updatedAt": "2026-09-15T08:34:53.322Z",
   "provider": "ga4",
   "timeZone": "Asia/Shanghai",
   "windows": {
     "weekly": {
-      "start": "2026-09-07",
-      "end": "2026-09-13"
+      "start": "2026-09-08",
+      "end": "2026-09-14"
     },
     "yearly": {
-      "start": "2025-09-14",
-      "end": "2026-09-13"
+      "start": "2025-09-15",
+      "end": "2026-09-14"
     },
     "total": {
       "start": "2020-01-01",
-      "end": "2026-09-13"
+      "end": "2026-09-14"
     }
   },
   "totals": {
-    "weekly": 60,
-    "yearly": 1118,
-    "total": 1486
+    "weekly": 62,
+    "yearly": 1132,
+    "total": 1501
   }
 }
