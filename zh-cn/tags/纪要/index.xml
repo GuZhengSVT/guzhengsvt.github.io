@@ -1,4 +1,73 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>纪要 on 孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/zh-cn/tags/%E7%BA%AA%E8%A6%81/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Tue, 20 May 2025 12:18:48 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/zh-cn/tags/%E7%BA%AA%E8%A6%81/index.xml" rel="self" type="application/rss+xml"/><item><title>故事新编</title><link>https://www.guzhengsvt.cn/zh-cn/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</link><pubDate>Tue, 20 May 2025 12:18:48 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-cn/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>纪要 on 孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/zh-cn/tags/%E7%BA%AA%E8%A6%81/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Fri, 18 Sep 2026 20:00:00 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/zh-cn/tags/%E7%BA%AA%E8%A6%81/index.xml" rel="self" type="application/rss+xml"/><item><title>给博客做了个新主题——Ruri 开发记录</title><link>https://www.guzhengsvt.cn/zh-cn/post/code/ruri-theme-development/</link><pubDate>Fri, 18 Sep 2026 20:00:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-cn/post/code/ruri-theme-development/</guid><description>
+<![CDATA[<h1>给博客做了个新主题——Ruri 开发记录</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <p>博客又装修了。这回没有换一个现成主题，而是借助 Codex，做了一个自己的 Hugo 主题，叫 Ruri（日语，琉璃）。</p>
+<p>要求说起来不复杂：原来的壁纸、头像、文章、分类、歌单都留下，页面重新设计。极简，平面，加载快，占用少。毕竟折腾了这么多年博客，东西越攒越多，加载总是很慢（可能是图片太多了）。</p>
+<p>主题已经放到 GitHub：<a href="https://github.com/GuZhengSVT/hugo-theme-ruri">GuZhengSVT/hugo-theme-ruri</a>。这里不写安装教程，简单记一下这次主要折腾了什么。</p>
+<h2 id="先把样子定下来">
+<a class="header-anchor" href="#%e5%85%88%e6%8a%8a%e6%a0%b7%e5%ad%90%e5%ae%9a%e4%b8%8b%e6%9d%a5"></a>
+先把样子定下来
+</h2><p>之前用的是 <a href="https://github.com/D-Sketon/hugo-theme-reimu">D-Sketon/hugo-theme-reimu
+</a>，功能很全，也给这次开发省了不少事。Ruri 借鉴并沿用了其中一部分代码，不过页面布局和主要交互重新做了。开发时先复制整个博客，在副本里改，本地预览，原来的 Hugo 项目不动。</p>
+<p>底色用暖白，强调色用雾蓝，靠文字、细线和留白区分内容。没有再引入前端框架、动画库和图标字体，常用按钮用 SVG，字体优先用系统已有的。二次元图片该留的还是留，尤其是首页壁纸和文章封面。真做成纯文字博客，我也没有好的纯文字平面设计功底。</p>
+<p>首页左边放“素月分辉，明河共影，表里俱澄澈。”，右边放Noa大图；Poetry 和 Thoughts 两个分类还是放在最新文章前，用图片作入口。顶部留一句斜体的 <em>Per aspera ad astra.</em>，页脚则是 <em>Life is too long to end at a grave.</em>。这些小字和图片一样，算是这个家的装饰。</p>
+<p>真正费时间的是间距。文章封面先放大，后来又觉得文章卡片太空，缩小；时间、标签、字数、阅读时长挪到同一行；菜单栏压矮，页尾留白收紧。reimu的友链最初一行两个，空得能跑马，我的友链又越来越多。将其改成紧凑的多列卡片，描述太长就换行。</p>
+<h2 id="长文章和归档单独处理">
+<a class="header-anchor" href="#%e9%95%bf%e6%96%87%e7%ab%a0%e5%92%8c%e5%bd%92%e6%a1%a3%e5%8d%95%e7%8b%ac%e5%a4%84%e7%90%86"></a>
+长文章和归档，单独处理
+</h2><p>许多侧边栏静态博客的侧边栏总是固定显示个人信息，感觉不是很有必要，放在首页和个人介绍页就够了。文章页不再塞一整套个人资料侧栏，主要留给目录。<br>
+我的博客不只有短文，还有学习笔记和毕设论文。拿《低剖面天线的研究与设计》做目录侧边栏宽高压力测试、标题显示效果测试。<br>
+默认看到二级标题，读到哪里，就展开对应的小标题；长标题换行，避免丑陋的滚动条设计。在原来reimu的基础上，增加直达评论区按钮，放在目录下面，和目录本身分开，主要是方便我回复。封面在文章开头按原比例显示，列表里的缩略图则统一比例。</p>
+<p>归档也没必要重复首页文章卡片。改成按年、月排列的时间树，只留标题，向下滚动时逐年展开。我想首页就有翻页按顺序看文章大卡片功能，归档页可以提高信息密度，顺便把占据巨量篇幅的标签分类折叠。原来关于页的文章更新热力图一起搬过来，分类置顶。</p>
+<h2 id="音乐播放器">
+<a class="header-anchor" href="#%e9%9f%b3%e4%b9%90%e6%92%ad%e6%94%be%e5%99%a8"></a>
+音乐播放器
+</h2><p>最初Astra为了省事，用了一个很轻的原生播放器。但切个页面歌就断了，也巨丑无比，这肯定不行。</p>
+<p>改成左下角的浮动播放器，平时只露出一张方形封面，鼠标移上去再展开控制项。进度、音量、歌单、播放顺序都重新做，图标统一大小。长歌名滚动显示，歌词放在页面底部中间。原本设想有翻译就原文一行、译文一行，没有就不硬留空位。但meting服务带的歌词是“原文（译文）”的格式，自己再手动拆分显示不是很有必要。</p>
+<p>为了切换文章时不断歌，站内导航改成局部替换页面内容，播放器和音频实例留在替换区域之外。这样换文章、换语言时，音乐还在原地继续播。</p>
+<h2 id="保留一些实用小功能">
+<a class="header-anchor" href="#%e4%bf%9d%e7%95%99%e4%b8%80%e4%ba%9b%e5%ae%9e%e7%94%a8%e5%b0%8f%e5%8a%9f%e8%83%bd"></a>
+保留一些实用小功能
+</h2><p>第一轮做完，又把 Ruri 和原来的 Reimu 博客对照了一遍。结果发现，页面大体齐了，一些小细节还没做。</p>
+<p>比如代码块只剩语法高亮，没有复制和折叠；图片能显示，但点不开大图；配置里还开着阅读统计，模板里却没有展示数字的位置。搜索也从 Pagefind 换成了简单的文本匹配，长文章后半截还可能搜不到，搜索效果差。</p>
+<p>后面把代码语言栏、复制和折叠、图片灯箱补回来，恢复 Pagefind 全文搜索；文章阅读数和评论数、页脚字数与阅读时长也补上。微信分享生成二维码，个人二维码可以在站内弹窗看，版权信息支持文章单独设置，不再把许可证写死在模板里。</p>
+<p>舍弃了reimu的AOS入场动画、装饰图标之类，加快加载。</p>
+<h2 id="将私人ruri改为面向hugo用户的主题">
+<a class="header-anchor" href="#%e5%b0%86%e7%a7%81%e4%ba%baruri%e6%94%b9%e4%b8%ba%e9%9d%a2%e5%90%91hugo%e7%94%a8%e6%88%b7%e7%9a%84%e4%b8%bb%e9%a2%98"></a>
+将私人Ruri改为面向Hugo用户的主题
+</h2><p>以Hugo最小站点为前置，要让ruri安装即用，需要将现有的各种设置和模板重新整理。于是又做了一轮拆分，把个人文案移到配置里，给可选功能补默认处理，做不带个人资料的示例站点。</p>
+<p>现在分成两处维护：<code>Ruri</code> 是我的博客，<code>hugo-theme-ruri</code> 是独立主题。博客通过 <code>hugo.toml</code> 选择主题，<code>params.yaml</code> 配置外观和功能，文章、图片、友链数据各放各的位置。主题示例里的可设置项也补了中英文说明，即使两年前毫无技术背景的我来了也能看懂。</p>
+<p>发布前检查了最小站点、四语言和子目录部署。Reimu 的借鉴范围、署名和许可证也保留下来，主题代码用 MIT 协议。</p>
+<h2 id="暂且完工">
+<a class="header-anchor" href="#%e6%9a%82%e4%b8%94%e5%ae%8c%e5%b7%a5"></a>
+暂且完工
+</h2><p>一边感叹Astra神力，一边心疼token。中转站前前后后充了 15 $，这次做主题用了 9 $ / 39M tokens，一天登完60多人民币。夸脏哦<br>
+<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/A6api%E6%B6%88%E8%80%97.png" alt=""></p>
+<p>在这之前用DeepSeek V4.1 flash试着做一个Liquid Glass版，即使提供现成库仍做的一坨。可能是模型视觉能力太差了，不能自己检验迭代。</p>
+<p>从当年搭 Hexo，到现在给 Hugo 做自己的主题，这片互联网自留地倒是一直在修修补补。感谢 Reimu 的作者和开源社区，也希望 Ruri 能给喜欢这套样式的人省一点折腾时间。</p>
+<p>接下来该多写点文章了（</p>
+<p>自从AI能写文章，尤其是技术类的，写得比我严谨、详细得多，我就很懒不想写。<br>
+交给AI吧，写出来一股味儿怎么也去不掉，大多不合我心意。似乎越是编程和Agent能力强的LLM，其文本越是远离人类。</p>
+<p>这一篇开发记录先交给GPT-6-Astra(medium)，根据两个历史会话生成。然后我审阅改了大半。好在多语言翻译交给AI问题不大。</p>
+<h2 id="后续开发计划">
+<a class="header-anchor" href="#%e5%90%8e%e7%bb%ad%e5%bc%80%e5%8f%91%e8%ae%a1%e5%88%92"></a>
+后续开发计划
+</h2><ol>
+<li>增加鼠标特效、简单背景动效。</li>
+<li>调整黑暗模式配色，增强阅读体验。</li>
+<li>微调部分字体及字号。</li>
+<li>增加部分obsidian语法适配。</li>
+</ol>
+        
+        <hr><p>本文2026-09-18首发于<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于2026-09-18</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文标题：</strong> 给博客做了个新主题——Ruri 开发记录</p>
+
+<p><strong>本文发布时间：</strong> 2026-09-18</p>
+<p><strong>本文更新时间：</strong> 2026-09-18</p>
+<p><strong>本文版权：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item><item><title>故事新编</title><link>https://www.guzhengsvt.cn/zh-cn/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</link><pubDate>Tue, 20 May 2025 12:18:48 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-cn/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</guid><description>
 <![CDATA[<h1>故事新编</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h2 id="故事新编">
@@ -493,27 +562,4 @@ People Change
 <p><strong>本文更新时间：</strong> 2024-01-05</p>
 <p><strong>本文版权：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
 </div>
-]]></description><category>Thoughts</category></item><item><title>旅人与花儿</title><link>https://www.guzhengsvt.cn/zh-cn/post/poetry/%E6%97%85%E4%BA%BA%E4%B8%8E%E8%8A%B1%E5%84%BF/</link><pubDate>Mon, 18 Dec 2023 20:13:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-cn/post/poetry/%E6%97%85%E4%BA%BA%E4%B8%8E%E8%8A%B1%E5%84%BF/</guid><description>
-<![CDATA[<h1>旅人与花儿</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
-        
-          <p>一位可爱的旅人途经一片无人欣赏的风景，她带来这异域的暖风吹过干涸的田野，拂过树梢又在湖面荡漾出波光粼粼。</p>
-<p>果树们纷纷为这美人倾倒，急急忙忙开花又结果；林中的鸟儿四处寻觅为数不多的花枝，编成花环戴在她头上。</p>
-<p>旅人漫步于这落英缤纷，盛情难却，摘下几个鲜红的果实；又不好意思一味索取，便掏出口袋里所有鲜花的种子，播撒在所有龟裂的地皮。</p>
-<p>唯有田野荒芜，他羞涩又内疚——有什么可以拿出来献给这位可爱的姑娘吗？</p>
-<p>他使出吃奶的力气催促花种们快快长大，希望能让她看到田野里盛放的鲜花。</p>
-<p>可旅人注定不会在这儿久留——这里的风景确实很好，树和鸟儿都很殷勤，只是，这里不是一个适合当家的地方。</p>
-<p>旅人走了，果树、鸟儿、田野都有些不舍。</p>
-<p>田野的花儿还是没有送出去，可能下一位旅人到来就能看到一座美丽的花园吧。</p>
-<p><strong>但大家并不为此感到悲伤，</strong></p>
-<p><strong>因为春天来过。</strong></p>
-
-        
-        <hr><p>本文2023-12-18首发于<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于2023-12-18</p><div class="notice article-copyright" data-pagefind-ignore>
-<p><strong>本文作者：</strong> 孤筝</p>
-<p><strong>本文标题：</strong> 旅人与花儿</p>
-
-<p><strong>本文发布时间：</strong> 2023-12-18</p>
-<p><strong>本文更新时间：</strong> 2023-12-18</p>
-<p><strong>本文版权：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
-</div>
-]]></description><category>Poetry</category></item></channel></rss>
+]]></description><category>Thoughts</category></item></channel></rss>
