@@ -287,58 +287,58 @@ $$<ul>
 <a class="header-anchor" href="#%e5%88%9d%e6%9c%9f%e5%8d%98%e4%bd%93%e8%a1%a8%e3%81%ae%e4%bd%9c%e6%88%90"></a>
 初期単体表の作成
 </h5><table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>$P_1$</th>
-          <th>$P_2$</th>
-          <th>$\cdots$</th>
-          <th>$P_n$</th>
-          <th>$\vec{b}$</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>係数行列</td>
-          <td>$a_{11}$</td>
-          <td>$a_{12}$</td>
-          <td>$\cdots$</td>
-          <td>$a_{1n}$</td>
-          <td>$b_1$</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>$a_{21}$</td>
-          <td>$a_{22}$</td>
-          <td>$\cdots$</td>
-          <td>$a_{2n}$</td>
-          <td>$b_2$</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>$\vdots$</td>
-          <td>$\vdots$</td>
-          <td>$\ddots$</td>
-          <td>$\vdots$</td>
-          <td>$\vdots$</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>$a_{m1}$</td>
-          <td>$a_{m2}$</td>
-          <td>$\cdots$</td>
-          <td>$a_{mn}$</td>
-          <td>$b_m$</td>
-      </tr>
-      <tr>
-          <td>判定数</td>
-          <td>$\sigma_1$</td>
-          <td>$\sigma_2$</td>
-          <td>$\cdots$</td>
-          <td>$\sigma_n$</td>
-          <td>最適値</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>$P_1$</th>
+					<th>$P_2$</th>
+					<th>$\cdots$</th>
+					<th>$P_n$</th>
+					<th>$\vec{b}$</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>係数行列</td>
+					<td>$a_{11}$</td>
+					<td>$a_{12}$</td>
+					<td>$\cdots$</td>
+					<td>$a_{1n}$</td>
+					<td>$b_1$</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>$a_{21}$</td>
+					<td>$a_{22}$</td>
+					<td>$\cdots$</td>
+					<td>$a_{2n}$</td>
+					<td>$b_2$</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>$\vdots$</td>
+					<td>$\vdots$</td>
+					<td>$\ddots$</td>
+					<td>$\vdots$</td>
+					<td>$\vdots$</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>$a_{m1}$</td>
+					<td>$a_{m2}$</td>
+					<td>$\cdots$</td>
+					<td>$a_{mn}$</td>
+					<td>$b_m$</td>
+			</tr>
+			<tr>
+					<td>判定数</td>
+					<td>$\sigma_1$</td>
+					<td>$\sigma_2$</td>
+					<td>$\cdots$</td>
+					<td>$\sigma_n$</td>
+					<td>最適値</td>
+			</tr>
+	</tbody>
 </table>
 <h5 id="入る列の選択">
 <a class="header-anchor" href="#%e5%85%a5%e3%82%8b%e5%88%97%e3%81%ae%e9%81%b8%e6%8a%9e"></a>
@@ -505,4 +505,12 @@ $$<h4 id="一般の場合">
 感度分析
 </h2>
         
-        <hr><p>この記事は2025-05-10に<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-05-10です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Math</category></item></channel></rss>
+        <hr><p>この記事は2025-05-10に<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-05-10です</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>著者: </strong> 孤筝</p>
+<p><strong>タイトル: </strong> 最適化理論と方法</p>
+
+<p><strong>公開日: </strong> 2025-05-10</p>
+<p><strong>更新日: </strong> 2025-05-10</p>
+<p><strong>ライセンス: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Math</category></item></channel></rss>

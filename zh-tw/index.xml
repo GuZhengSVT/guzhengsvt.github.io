@@ -710,7 +710,15 @@
 </li>
 </ul>
         
-        <hr><p>本文2026-03-28首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2026-03-28</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>OtherNotes</category></item><item><title>與Gemini的一次對談</title><link>https://www.guzhengsvt.cn/zh-tw/post/thoughts/a-conversation-with-gemini/</link><pubDate>Sat, 20 Dec 2025 12:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/thoughts/a-conversation-with-gemini/</guid><description>
+        <hr><p>本文2026-03-28首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2026-03-28</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文標題：</strong> Ansys HFSS 零基礎系統化實戰教程</p>
+
+<p><strong>本文發佈時間：</strong> 2026-03-28</p>
+<p><strong>本文更新時間：</strong> 2026-03-28</p>
+<p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>OtherNotes</category></item><item><title>與Gemini的一次對談</title><link>https://www.guzhengsvt.cn/zh-tw/post/thoughts/a-conversation-with-gemini/</link><pubDate>Sat, 20 Dec 2025 12:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/thoughts/a-conversation-with-gemini/</guid><description>
 <![CDATA[<h1>與Gemini的一次對談</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h2 id="前言">
@@ -802,28 +810,28 @@
 3. 反烏托邦的警示：當「幸福」變成一種強制
 </h3><p>許多反烏托邦文學深刻地描繪了「用自由換幸福」的極端後果：</p>
 <table>
-  <thead>
-      <tr>
-          <th>作品</th>
-          <th>犧牲了什麼？</th>
-          <th>得到了什麼？</th>
-          <th>結局與啟示</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>《美麗新世界》</strong></td>
-          <td>隱私、痛苦、深刻的思想、家庭</td>
-          <td>廉價的感官娛樂（索瑪）、性自由、無憂無慮</td>
-          <td>這種幸福是淺薄的。當人不再有痛苦，也就失去了作為人的深度。</td>
-      </tr>
-      <tr>
-          <td><strong>《一九八四》</strong></td>
-          <td>隱私、真相、語言的豐富性</td>
-          <td>集體的「統一感」、戰爭帶來的狂熱</td>
-          <td>這種幸福是虛假的。它建立在對真相的徹底剝奪和思想的徹底鉗制之上。</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>作品</th>
+					<th>犧牲了什麼？</th>
+					<th>得到了什麼？</th>
+					<th>結局與啟示</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>《美麗新世界》</strong></td>
+					<td>隱私、痛苦、深刻的思想、家庭</td>
+					<td>廉價的感官娛樂（索瑪）、性自由、無憂無慮</td>
+					<td>這種幸福是淺薄的。當人不再有痛苦，也就失去了作為人的深度。</td>
+			</tr>
+			<tr>
+					<td><strong>《一九八四》</strong></td>
+					<td>隱私、真相、語言的豐富性</td>
+					<td>集體的「統一感」、戰爭帶來的狂熱</td>
+					<td>這種幸福是虛假的。它建立在對真相的徹底剝奪和思想的徹底鉗制之上。</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="結論這是一個虛假的選擇嗎">
@@ -948,30 +956,30 @@
 4. 這種社會的可能性條件
 </h3><p>要讓這種社會運轉，必須滿足一個近乎神性的前提：<strong>人類徹底消滅了「偏見」和「嫉妒」。</strong></p>
 <table>
-  <thead>
-      <tr>
-          <th>要素</th>
-          <th>傳統社會</th>
-          <th>你設想的透明包容社會</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>社會回饋</strong></td>
-          <td>羞辱、隔離、同化</td>
-          <td>好奇、欣賞、技術支持</td>
-      </tr>
-      <tr>
-          <td><strong>衝突處理</strong></td>
-          <td>法律與道德禁錮</td>
-          <td>透明的溝通與無條件理解</td>
-      </tr>
-      <tr>
-          <td><strong>個人動力</strong></td>
-          <td>競爭與恐懼</td>
-          <td>自我實現與群體共鳴</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>要素</th>
+					<th>傳統社會</th>
+					<th>你設想的透明包容社會</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>社會回饋</strong></td>
+					<td>羞辱、隔離、同化</td>
+					<td>好奇、欣賞、技術支持</td>
+			</tr>
+			<tr>
+					<td><strong>衝突處理</strong></td>
+					<td>法律與道德禁錮</td>
+					<td>透明的溝通與無條件理解</td>
+			</tr>
+			<tr>
+					<td><strong>個人動力</strong></td>
+					<td>競爭與恐懼</td>
+					<td>自我實現與群體共鳴</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="總結這是人類進化的終點嗎">
@@ -1341,30 +1349,30 @@ C. 作為「對自然的重塑」
 3. 實現「各取所需」的心理機制：從「佔有」到「使用」
 </h3><p>要真正實現「各取所需」，人類的心理範式需要發生一次從**「擁有權」到「使用權」**的根本轉變。</p>
 <table>
-  <thead>
-      <tr>
-          <th>心理範式</th>
-          <th>佔有式（當前社會）</th>
-          <th>接入式（理想社會）</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>核心邏輯</strong></td>
-          <td>「它是我的，所以我安全。」</td>
-          <td>「我需要時它就在，所以我自由。」</td>
-      </tr>
-      <tr>
-          <td><strong>價值來源</strong></td>
-          <td>囤積與排他性。</td>
-          <td>體驗與創造性。</td>
-      </tr>
-      <tr>
-          <td><strong>社會結果</strong></td>
-          <td>資源浪費與階級固化。</td>
-          <td>資源急速流轉與按需流動。</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>心理範式</th>
+					<th>佔有式（當前社會）</th>
+					<th>接入式（理想社會）</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>核心邏輯</strong></td>
+					<td>「它是我的，所以我安全。」</td>
+					<td>「我需要時它就在，所以我自由。」</td>
+			</tr>
+			<tr>
+					<td><strong>價值來源</strong></td>
+					<td>囤積與排他性。</td>
+					<td>體驗與創造性。</td>
+			</tr>
+			<tr>
+					<td><strong>社會結果</strong></td>
+					<td>資源浪費與階級固化。</td>
+					<td>資源急速流轉與按需流動。</td>
+			</tr>
+	</tbody>
 </table>
 <p>透過教育，我們可能讓下一代意識到：<strong>佔有本身是一種沉重的負擔。</strong> 就像現在的數位音樂取代了CD實體收藏，當人們確信「資源永遠在線」時，佔有的慾望會自然消退。</p>
 <hr>
@@ -1429,30 +1437,30 @@ C. 作為「對自然的重塑」
 4. 兩種極端結局的博弈
 </h3><p>結合當前的時勢，我們可能面臨兩種截然不同的未來：</p>
 <table>
-  <thead>
-      <tr>
-          <th>特徵</th>
-          <th><strong>技術大同（樂觀路徑）</strong></th>
-          <th><strong>數位反烏托邦（悲觀路徑）</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>分配方式</strong></td>
-          <td>全民共享自動化成果，按需分配。</td>
-          <td>資源極度壟斷，透過廉價娛樂麻痺大眾。</td>
-      </tr>
-      <tr>
-          <td><strong>社會形態</strong></td>
-          <td>極度包容、透明、人人追求自我實現。</td>
-          <td>極度監控、階級固化、思想整齊劃一。</td>
-      </tr>
-      <tr>
-          <td><strong>人類狀態</strong></td>
-          <td>探索星辰大海，追求精神昇華。</td>
-          <td>陷入虛擬夢境，種族在舒適中退化。</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>特徵</th>
+					<th><strong>技術大同（樂觀路徑）</strong></th>
+					<th><strong>數位反烏托邦（悲觀路徑）</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>分配方式</strong></td>
+					<td>全民共享自動化成果，按需分配。</td>
+					<td>資源極度壟斷，透過廉價娛樂麻痺大眾。</td>
+			</tr>
+			<tr>
+					<td><strong>社會形態</strong></td>
+					<td>極度包容、透明、人人追求自我實現。</td>
+					<td>極度監控、階級固化、思想整齊劃一。</td>
+			</tr>
+			<tr>
+					<td><strong>人類狀態</strong></td>
+					<td>探索星辰大海，追求精神昇華。</td>
+					<td>陷入虛擬夢境，種族在舒適中退化。</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="總結我們的角色">
@@ -1656,7 +1664,15 @@ C. 作為「對自然的重塑」
 <p><strong>那麼，現在，你敢不敢推翻我們之前討論的所有關於「隱私、幸福、烏托邦」的結論，嘗試站在它們的對立面，為「混亂、痛苦與隔閡」辯護一次？</strong></p>
 
         
-        <hr><p>本文2025-12-20首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-12-20</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Thoughts</category></item><item><title>從零入門業餘無線電之路</title><link>https://www.guzhengsvt.cn/zh-tw/post/othernotes/the-path-to-amateur-radio-from-scratch/</link><pubDate>Tue, 03 Jun 2025 20:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/othernotes/the-path-to-amateur-radio-from-scratch/</guid><description>
+        <hr><p>本文2025-12-20首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-12-20</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文標題：</strong> 與Gemini的一次對談</p>
+
+<p><strong>本文發佈時間：</strong> 2025-12-20</p>
+<p><strong>本文更新時間：</strong> 2025-12-20</p>
+<p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Thoughts</category></item><item><title>從零入門業餘無線電之路</title><link>https://www.guzhengsvt.cn/zh-tw/post/othernotes/the-path-to-amateur-radio-from-scratch/</link><pubDate>Tue, 03 Jun 2025 20:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/othernotes/the-path-to-amateur-radio-from-scratch/</guid><description>
 <![CDATA[<h1>從零入門業餘無線電之路</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h2 id="取得-a-類操作證">
@@ -1790,7 +1806,15 @@ QSL 卡片
 之後也許會慢慢攢錢買協谷，或者乾脆自己做一台 μSDX。</p>
 
         
-        <hr><p>本文2025-06-03首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-11-11</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>OtherNotes</category></item><item><title>利用舊電腦和飛牛OS自建NAS</title><link>https://www.guzhengsvt.cn/zh-tw/post/othernotes/use-old-computers-and-fnos-to-build-your-own-nas/</link><pubDate>Thu, 16 Oct 2025 23:04:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/othernotes/use-old-computers-and-fnos-to-build-your-own-nas/</guid><description>
+        <hr><p>本文2025-06-03首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-11-11</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文標題：</strong> 從零入門業餘無線電之路</p>
+
+<p><strong>本文發佈時間：</strong> 2025-06-03</p>
+<p><strong>本文更新時間：</strong> 2025-11-11</p>
+<p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>OtherNotes</category></item><item><title>利用舊電腦和飛牛OS自建NAS</title><link>https://www.guzhengsvt.cn/zh-tw/post/othernotes/use-old-computers-and-fnos-to-build-your-own-nas/</link><pubDate>Thu, 16 Oct 2025 23:04:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/othernotes/use-old-computers-and-fnos-to-build-your-own-nas/</guid><description>
 <![CDATA[<h1>利用舊電腦和飛牛OS自建NAS</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h2 id="前言">
@@ -1941,7 +1965,15 @@ NAS 會員拆開單賣差評。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/Soyo.JPG" alt="无语"></p>
 
         
-        <hr><p>本文2025-10-16首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-10-16</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>OtherNotes</category></item><item><title>量子物理學</title><link>https://www.guzhengsvt.cn/zh-tw/post/physics/quantum-physics/</link><pubDate>Fri, 05 Sep 2025 11:05:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/physics/quantum-physics/</guid><description>
+        <hr><p>本文2025-10-16首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-10-16</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文標題：</strong> 利用舊電腦和飛牛OS自建NAS</p>
+
+<p><strong>本文發佈時間：</strong> 2025-10-16</p>
+<p><strong>本文更新時間：</strong> 2025-10-16</p>
+<p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>OtherNotes</category></item><item><title>量子物理學</title><link>https://www.guzhengsvt.cn/zh-tw/post/physics/quantum-physics/</link><pubDate>Fri, 05 Sep 2025 11:05:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/physics/quantum-physics/</guid><description>
 <![CDATA[<h1>量子物理學</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h2 id="第一章-微粒二象性與狀態描述">
@@ -3406,7 +3438,15 @@ $$
 </ol>
 
         
-        <hr><p>本文2025-09-05首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-09-05</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Physics</category></item><item><title>考研日記001</title><link>https://www.guzhengsvt.cn/zh-tw/post/diary/diary-001-of-postgraduate-entrance-examination/</link><pubDate>Mon, 01 Sep 2025 22:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/diary/diary-001-of-postgraduate-entrance-examination/</guid><description>
+        <hr><p>本文2025-09-05首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-09-05</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文標題：</strong> 量子物理學</p>
+
+<p><strong>本文發佈時間：</strong> 2025-09-05</p>
+<p><strong>本文更新時間：</strong> 2025-09-05</p>
+<p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Physics</category></item><item><title>考研日記001</title><link>https://www.guzhengsvt.cn/zh-tw/post/diary/diary-001-of-postgraduate-entrance-examination/</link><pubDate>Mon, 01 Sep 2025 22:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/diary/diary-001-of-postgraduate-entrance-examination/</guid><description>
 <![CDATA[<h1>考研日記001</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h2 id="前言">
@@ -3506,7 +3546,15 @@ $$</li>
 
 
         
-        <hr><p>本文2025-09-01首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-09-01</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Diary</category></item><item><title>QSL卡片展</title><link>https://www.guzhengsvt.cn/zh-tw/post/othernotes/qsl-card-exhibition/</link><pubDate>Thu, 21 Aug 2025 18:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/othernotes/qsl-card-exhibition/</guid><description>
+        <hr><p>本文2025-09-01首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-09-01</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文標題：</strong> 考研日記001</p>
+
+<p><strong>本文發佈時間：</strong> 2025-09-01</p>
+<p><strong>本文更新時間：</strong> 2025-09-01</p>
+<p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Diary</category></item><item><title>QSL卡片展</title><link>https://www.guzhengsvt.cn/zh-tw/post/othernotes/qsl-card-exhibition/</link><pubDate>Thu, 21 Aug 2025 18:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/othernotes/qsl-card-exhibition/</guid><description>
 <![CDATA[<h1>QSL卡片展</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h2 id="1-noa-1">
@@ -3591,7 +3639,15 @@ $$</li>
 </ul>
 
         
-        <hr><p>本文2025-08-21首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-08-21</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>OtherNotes</category></item><item><title>故事新編</title><link>https://www.guzhengsvt.cn/zh-tw/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</link><pubDate>Tue, 20 May 2025 12:18:48 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</guid><description>
+        <hr><p>本文2025-08-21首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-08-21</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文標題：</strong> QSL卡片展</p>
+
+<p><strong>本文發佈時間：</strong> 2025-08-21</p>
+<p><strong>本文更新時間：</strong> 2025-08-21</p>
+<p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>OtherNotes</category></item><item><title>故事新編</title><link>https://www.guzhengsvt.cn/zh-tw/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</link><pubDate>Tue, 20 May 2025 12:18:48 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</guid><description>
 <![CDATA[<h1>故事新編</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h2 id="故事新編">
@@ -3624,7 +3680,15 @@ $$</li>
 於西安</strong></em></p>
 
         
-        <hr><p>本文2025-05-20首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-05-20</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Poetry</category></item><item><title>最佳化理論與方法</title><link>https://www.guzhengsvt.cn/zh-tw/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</link><pubDate>Sat, 10 May 2025 18:48:10 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</guid><description>
+        <hr><p>本文2025-05-20首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-05-20</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文標題：</strong> 故事新編</p>
+
+<p><strong>本文發佈時間：</strong> 2025-05-20</p>
+<p><strong>本文更新時間：</strong> 2025-05-20</p>
+<p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Poetry</category></item><item><title>最佳化理論與方法</title><link>https://www.guzhengsvt.cn/zh-tw/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</link><pubDate>Sat, 10 May 2025 18:48:10 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</guid><description>
 <![CDATA[<h1>最佳化理論與方法</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h2 id="最佳化問題">
@@ -3911,58 +3975,58 @@ $$<ul>
 <a class="header-anchor" href="#%e7%95%ab%e5%87%ba%e5%88%9d%e5%a7%8b%e5%96%ae%e7%b4%94%e5%bd%a2%e8%a1%a8"></a>
 畫出初始單純形表
 </h5><table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>$P_1$</th>
-          <th>$P_2$</th>
-          <th>$\cdots$</th>
-          <th>$P_n$</th>
-          <th>$\vec{b}$</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>係數矩陣</td>
-          <td>$a_{11}$</td>
-          <td>$a_{12}$</td>
-          <td>$\cdots$</td>
-          <td>$a_{1n}$</td>
-          <td>$b_1$</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>$a_{21}$</td>
-          <td>$a_{22}$</td>
-          <td>$\cdots$</td>
-          <td>$a_{2n}$</td>
-          <td>$b_2$</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>$\vdots$</td>
-          <td>$\vdots$</td>
-          <td>$\ddots$</td>
-          <td>$\vdots$</td>
-          <td>$\vdots$</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>$a_{m1}$</td>
-          <td>$a_{m2}$</td>
-          <td>$\cdots$</td>
-          <td>$a_{mn}$</td>
-          <td>$b_m$</td>
-      </tr>
-      <tr>
-          <td>判別數</td>
-          <td>$\sigma_1$</td>
-          <td>$\sigma_2$</td>
-          <td>$\cdots$</td>
-          <td>$\sigma_n$</td>
-          <td>最優值</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>$P_1$</th>
+					<th>$P_2$</th>
+					<th>$\cdots$</th>
+					<th>$P_n$</th>
+					<th>$\vec{b}$</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>係數矩陣</td>
+					<td>$a_{11}$</td>
+					<td>$a_{12}$</td>
+					<td>$\cdots$</td>
+					<td>$a_{1n}$</td>
+					<td>$b_1$</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>$a_{21}$</td>
+					<td>$a_{22}$</td>
+					<td>$\cdots$</td>
+					<td>$a_{2n}$</td>
+					<td>$b_2$</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>$\vdots$</td>
+					<td>$\vdots$</td>
+					<td>$\ddots$</td>
+					<td>$\vdots$</td>
+					<td>$\vdots$</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>$a_{m1}$</td>
+					<td>$a_{m2}$</td>
+					<td>$\cdots$</td>
+					<td>$a_{mn}$</td>
+					<td>$b_m$</td>
+			</tr>
+			<tr>
+					<td>判別數</td>
+					<td>$\sigma_1$</td>
+					<td>$\sigma_2$</td>
+					<td>$\cdots$</td>
+					<td>$\sigma_n$</td>
+					<td>最優值</td>
+			</tr>
+	</tbody>
 </table>
 <h5 id="選取合適的進基列">
 <a class="header-anchor" href="#%e9%81%b8%e5%8f%96%e5%90%88%e9%81%a9%e7%9a%84%e9%80%b2%e5%9f%ba%e5%88%97"></a>
@@ -4129,7 +4193,15 @@ $$<h4 id="一般情形">
 靈敏度分析
 </h2>
         
-        <hr><p>本文2025-05-10首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-05-10</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Math</category></item><item><title>Typecho評論匯入Waline</title><link>https://www.guzhengsvt.cn/zh-tw/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description>
+        <hr><p>本文2025-05-10首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-05-10</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文標題：</strong> 最佳化理論與方法</p>
+
+<p><strong>本文發佈時間：</strong> 2025-05-10</p>
+<p><strong>本文更新時間：</strong> 2025-05-10</p>
+<p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Math</category></item><item><title>Typecho評論匯入Waline</title><link>https://www.guzhengsvt.cn/zh-tw/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description>
 <![CDATA[<h1>Typecho評論匯入Waline</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <p>前兩天把部落格文章從 Typecho 遷移到 Hugo，光是設定 Front Matter 參數和重新配置圖片連結就費了很大功夫。<br>
@@ -4295,4 +4367,12 @@ Waline 的<a href="https://waline.js.org/guide/get-started/">中文文檔</a>內
 <p>而你，我親愛的讀者，是你賦予我價值。</p>
 <p>有空的話請多多評論吧～筆者真的會開心很久的說（如果評論善意的話）。</p>
         
-        <hr><p>本文2025-04-19首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-04-19</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>OtherNotes</category></item></channel></rss>
+        <hr><p>本文2025-04-19首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-04-19</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文標題：</strong> Typecho評論匯入Waline</p>
+
+<p><strong>本文發佈時間：</strong> 2025-04-19</p>
+<p><strong>本文更新時間：</strong> 2025-04-19</p>
+<p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>OtherNotes</category></item></channel></rss>

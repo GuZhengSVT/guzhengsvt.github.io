@@ -154,7 +154,15 @@ ADC Class
 </h4><p>Read ADC channel value [0,65525]</p>
 
         
-        <hr><p>Published on 2024-02-15 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-02-15</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Code</category></item><item><title>Basic Data Structures in Python</title><link>https://www.guzhengsvt.cn/en/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link><pubDate>Sun, 27 Aug 2023 21:40:39 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid><description>
+        <hr><p>Published on 2024-02-15 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-02-15</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> MicroPython Function Library</p>
+
+<p><strong>Published: </strong> 2024-02-15</p>
+<p><strong>Updated: </strong> 2024-02-15</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item><item><title>Basic Data Structures in Python</title><link>https://www.guzhengsvt.cn/en/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link><pubDate>Sun, 27 Aug 2023 21:40:39 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/code/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid><description>
 <![CDATA[<h1>Basic Data Structures in Python</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
           <p><strong>elem is the abbreviation of the word &ldquo;element&rdquo;</strong>, representing an indeterminate type in programming definitions, i.e., an abstract data type.</p>
@@ -604,7 +612,15 @@ Key Difference: <code>yield</code> vs. <code>return</code>
 </ul>
 
         
-        <hr><p>Published on 2023-08-27 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-08-27</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Code</category></item><item><title>Other Python Notes</title><link>https://www.guzhengsvt.cn/en/post/code/python%E5%85%B6%E4%BB%96%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 27 Jun 2023 00:57:42 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/code/python%E5%85%B6%E4%BB%96%E7%AC%94%E8%AE%B0/</guid><description>
+        <hr><p>Published on 2023-08-27 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-08-27</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> Basic Data Structures in Python</p>
+
+<p><strong>Published: </strong> 2023-08-27</p>
+<p><strong>Updated: </strong> 2023-08-27</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item><item><title>Other Python Notes</title><link>https://www.guzhengsvt.cn/en/post/code/python%E5%85%B6%E4%BB%96%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 27 Jun 2023 00:57:42 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/code/python%E5%85%B6%E4%BB%96%E7%AC%94%E8%AE%B0/</guid><description>
 <![CDATA[<h1>Other Python Notes</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
           <h2 id="comments">
@@ -652,7 +668,15 @@ Identifiers
 </ul>
 
         
-        <hr><p>Published on 2023-06-27 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-06-27</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Code</category></item><item><title>Basic Python Functions</title><link>https://www.guzhengsvt.cn/en/post/code/python%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/</link><pubDate>Tue, 27 Jun 2023 00:55:01 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/code/python%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/</guid><description>
+        <hr><p>Published on 2023-06-27 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-06-27</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> Other Python Notes</p>
+
+<p><strong>Published: </strong> 2023-06-27</p>
+<p><strong>Updated: </strong> 2023-06-27</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item><item><title>Basic Python Functions</title><link>https://www.guzhengsvt.cn/en/post/code/python%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/</link><pubDate>Tue, 27 Jun 2023 00:55:01 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/code/python%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/</guid><description>
 <![CDATA[<h1>Basic Python Functions</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
           <h2 id="function-parameter-passing">
@@ -972,7 +996,15 @@ Today, play the 3th game: 天使骚骚.</p>
 </h4><p>Similar to <code>for-else</code>, the <code>else</code> block executes if the loop exits normally (without <code>break</code>).</p>
 
         
-        <hr><p>Published on 2023-06-27 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-06-27</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Code</category></item><item><title>Python Data Types and Operators
+        <hr><p>Published on 2023-06-27 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-06-27</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> Basic Python Functions</p>
+
+<p><strong>Published: </strong> 2023-06-27</p>
+<p><strong>Updated: </strong> 2023-06-27</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item><item><title>Python Data Types and Operators
 ### Data Types
 Python has several built-in data types, categorized as follows:
 1. **Numeric Types**
@@ -1644,4 +1676,109 @@ Identity Operators
 </ol>
 
         
-        <hr><p>Published on 2023-06-27 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-06-27</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Code</category></item></channel></rss>
+        <hr><p>Published on 2023-06-27 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-06-27</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> Python Data Types and Operators  
+
+### Data Types  
+Python has several built-in data types, categorized as follows:  
+
+1. **Numeric Types**  
+   - `int`: Integer (e.g., `5`, `-3`, `0`)  
+   - `float`: Floating-point number (e.g., `3.14`, `-0.001`, `2.0`)  
+   - `complex`: Complex number (e.g., `1 &#43; 2j`, `3 - 4j`)  
+
+2. **Sequence Types**  
+   - `str`: String (e.g., `&#34;hello&#34;`, `&#39;Python&#39;`)  
+   - `list`: Mutable sequence (e.g., `[1, 2, 3]`, `[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]`)  
+   - `tuple`: Immutable sequence (e.g., `(1, 2, 3)`, `(&#39;x&#39;, &#39;y&#39;, &#39;z&#39;)`)  
+
+3. **Mapping Type**  
+   - `dict`: Key-value pairs (e.g., `{&#39;name&#39;: &#39;Alice&#39;, &#39;age&#39;: 25}`)  
+
+4. **Set Types**  
+   - `set`: Unordered, unique elements (e.g., `{1, 2, 3}`)  
+   - `frozenset`: Immutable set (e.g., `frozenset({1, 2, 3})`)  
+
+5. **Boolean Type**  
+   - `bool`: Logical values (`True` or `False`)  
+
+6. **Binary Types**  
+   - `bytes`: Immutable byte sequence (e.g., `b&#39;hello&#39;`)  
+   - `bytearray`: Mutable byte sequence  
+   - `memoryview`: Memory view of objects  
+
+### Operators  
+Python supports various operators for performing operations on data:  
+
+1. **Arithmetic Operators**  
+   - `&#43;` (Addition)  
+   - `-` (Subtraction)  
+   - `*` (Multiplication)  
+   - `/` (Division)  
+   - `%` (Modulus)  
+   - `**` (Exponentiation)  
+   - `//` (Floor Division)  
+
+2. **Comparison Operators**  
+   - `==` (Equal)  
+   - `!=` (Not Equal)  
+   - `&gt;` (Greater Than)  
+   - `&lt;` (Less Than)  
+   - `&gt;=` (Greater Than or Equal)  
+   - `&lt;=` (Less Than or Equal)  
+
+3. **Logical Operators**  
+   - `and` (Logical AND)  
+   - `or` (Logical OR)  
+   - `not` (Logical NOT)  
+
+4. **Assignment Operators**  
+   - `=` (Assignment)  
+   - `&#43;=`, `-=`, `*=`, `/=`, etc. (Compound Assignment)  
+
+5. **Bitwise Operators**  
+   - `&amp;` (AND)  
+   - `|` (OR)  
+   - `^` (XOR)  
+   - `~` (NOT)  
+   - `&lt;&lt;` (Left Shift)  
+   - `&gt;&gt;` (Right Shift)  
+
+6. **Membership Operators**  
+   - `in` (Checks if a value exists in a sequence)  
+   - `not in` (Checks if a value does not exist in a sequence)  
+
+7. **Identity Operators**  
+   - `is` (Checks if two variables refer to the same object)  
+   - `is not` (Checks if two variables refer to different objects)  
+
+### Example Code  
+```python
+# Numeric operations  
+a = 10  
+b = 3  
+print(a &#43; b)  # Output: 13  
+print(a // b) # Output: 3  
+
+# String operations  
+name = &#34;Python&#34;  
+print(name * 2)  # Output: &#34;PythonPython&#34;  
+
+# List operations  
+numbers = [1, 2, 3]  
+numbers.append(4)  
+print(numbers)  # Output: [1, 2, 3, 4]  
+
+# Dictionary operations  
+person = {&#39;name&#39;: &#39;Alice&#39;, &#39;age&#39;: 25}  
+print(person[&#39;name&#39;])  # Output: &#34;Alice&#34;  
+```  
+
+This covers the fundamental data types and operators in Python. Let me know if you need further clarification!</p>
+
+<p><strong>Published: </strong> 2023-06-27</p>
+<p><strong>Updated: </strong> 2023-06-27</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item></channel></rss>

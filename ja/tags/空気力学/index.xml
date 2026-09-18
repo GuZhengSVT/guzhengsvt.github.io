@@ -62,30 +62,30 @@ $$<p>常温における水の体積弾性係数：$2.1 \times 10^9N/m^2$</p>
 <a class="header-anchor" href="#%e4%bb%a3%e8%a1%a8%e7%9a%84%e3%81%aa%e6%b5%81%e4%bd%93%e3%81%ae%e7%b2%98%e6%80%a7"></a>
 代表的な流体の粘性
 </h4><table>
-  <thead>
-      <tr>
-          <th>物質</th>
-          <th>温度(℃)</th>
-          <th>動粘度(Pa・s)</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>水</td>
-          <td>20</td>
-          <td>0.001002</td>
-      </tr>
-      <tr>
-          <td>空気</td>
-          <td>20</td>
-          <td>0.0000181</td>
-      </tr>
-      <tr>
-          <td>蜂蜜</td>
-          <td>20</td>
-          <td>~10</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>物質</th>
+					<th>温度(℃)</th>
+					<th>動粘度(Pa・s)</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>水</td>
+					<td>20</td>
+					<td>0.001002</td>
+			</tr>
+			<tr>
+					<td>空気</td>
+					<td>20</td>
+					<td>0.0000181</td>
+			</tr>
+			<tr>
+					<td>蜂蜜</td>
+					<td>20</td>
+					<td>~10</td>
+			</tr>
+	</tbody>
 </table>
 <h4 id="非ニュートン流体">
 <a class="header-anchor" href="#%e9%9d%9e%e3%83%8b%e3%83%a5%e3%83%bc%e3%83%88%e3%83%b3%e6%b5%81%e4%bd%93"></a>
@@ -785,4 +785,12 @@ $$<h3 id="空力中心と圧力中心の違い">
 <p>圧力中心の位置は迎え角の変化に伴って変化します。迎え角が増加すると揚力が増加し、圧力中心は前方に移動します。これにより、圧力中心と空力中心の距離が短縮され、増加した揚力と短縮された腕の長さの積がちょうど不変のモーメントとなります。これはまさに空力中心の定義が要求するものです。</p>
 
         
-        <hr><p>この記事は2024-09-02に<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-09-02です</p><p>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</p>]]></description><category>Physics</category></item></channel></rss>
+        <hr><p>この記事は2024-09-02に<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2024-09-02です</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>著者: </strong> 孤筝</p>
+<p><strong>タイトル: </strong> 空気力学の基礎</p>
+
+<p><strong>公開日: </strong> 2024-09-02</p>
+<p><strong>更新日: </strong> 2024-09-02</p>
+<p><strong>ライセンス: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Physics</category></item></channel></rss>

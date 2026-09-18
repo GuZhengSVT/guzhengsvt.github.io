@@ -285,58 +285,58 @@ Choosing the Basis Matrix
 <a class="header-anchor" href="#constructing-the-initial-simplex-tableau"></a>
 Constructing the Initial Simplex Tableau
 </h5><table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>$P_1$</th>
-          <th>$P_2$</th>
-          <th>$\cdots$</th>
-          <th>$P_n$</th>
-          <th>$\vec{b}$</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Coefficient matrix</td>
-          <td>$a_{11}$</td>
-          <td>$a_{12}$</td>
-          <td>$\cdots$</td>
-          <td>$a_{1n}$</td>
-          <td>$b_1$</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>$a_{21}$</td>
-          <td>$a_{22}$</td>
-          <td>$\cdots$</td>
-          <td>$a_{2n}$</td>
-          <td>$b_2$</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>$\vdots$</td>
-          <td>$\vdots$</td>
-          <td>$\ddots$</td>
-          <td>$\vdots$</td>
-          <td>$\vdots$</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>$a_{m1}$</td>
-          <td>$a_{m2}$</td>
-          <td>$\cdots$</td>
-          <td>$a_{mn}$</td>
-          <td>$b_m$</td>
-      </tr>
-      <tr>
-          <td>Reduced costs</td>
-          <td>$\sigma_1$</td>
-          <td>$\sigma_2$</td>
-          <td>$\cdots$</td>
-          <td>$\sigma_n$</td>
-          <td>Optimal value</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>$P_1$</th>
+					<th>$P_2$</th>
+					<th>$\cdots$</th>
+					<th>$P_n$</th>
+					<th>$\vec{b}$</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Coefficient matrix</td>
+					<td>$a_{11}$</td>
+					<td>$a_{12}$</td>
+					<td>$\cdots$</td>
+					<td>$a_{1n}$</td>
+					<td>$b_1$</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>$a_{21}$</td>
+					<td>$a_{22}$</td>
+					<td>$\cdots$</td>
+					<td>$a_{2n}$</td>
+					<td>$b_2$</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>$\vdots$</td>
+					<td>$\vdots$</td>
+					<td>$\ddots$</td>
+					<td>$\vdots$</td>
+					<td>$\vdots$</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>$a_{m1}$</td>
+					<td>$a_{m2}$</td>
+					<td>$\cdots$</td>
+					<td>$a_{mn}$</td>
+					<td>$b_m$</td>
+			</tr>
+			<tr>
+					<td>Reduced costs</td>
+					<td>$\sigma_1$</td>
+					<td>$\sigma_2$</td>
+					<td>$\cdots$</td>
+					<td>$\sigma_n$</td>
+					<td>Optimal value</td>
+			</tr>
+	</tbody>
 </table>
 <h5 id="selecting-an-entering-column">
 <a class="header-anchor" href="#selecting-an-entering-column"></a>
@@ -503,4 +503,12 @@ Substitute them into the objective function to obtain the optimal value, whether
 Sensitivity Analysis
 </h2>
         
-        <hr><p>Published on 2025-05-10 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-05-10</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Math</category></item></channel></rss>
+        <hr><p>Published on 2025-05-10 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-05-10</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> Optimization Theory and Methods</p>
+
+<p><strong>Published: </strong> 2025-05-10</p>
+<p><strong>Updated: </strong> 2025-05-10</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Math</category></item></channel></rss>

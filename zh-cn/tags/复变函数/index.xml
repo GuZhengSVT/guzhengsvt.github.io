@@ -168,7 +168,15 @@ $$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
 </ol>
 
         
-        <hr><p>本文2023-12-20首发于<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于2023-12-20</p><p>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</p>]]></description><category>Math</category></item><item><title>复变函数</title><link>https://www.guzhengsvt.cn/zh-cn/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link><pubDate>Fri, 17 Nov 2023 19:42:47 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-cn/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid><description>
+        <hr><p>本文2023-12-20首发于<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于2023-12-20</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文标题：</strong> 留数定理与洛朗级数、高阶导数公式和柯西积分公式之间的关系或联系</p>
+
+<p><strong>本文发布时间：</strong> 2023-12-20</p>
+<p><strong>本文更新时间：</strong> 2023-12-20</p>
+<p><strong>本文版权：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Math</category></item><item><title>复变函数</title><link>https://www.guzhengsvt.cn/zh-cn/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link><pubDate>Fri, 17 Nov 2023 19:42:47 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-cn/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid><description>
 <![CDATA[<h1>复变函数</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h2 id="复数">
@@ -313,4 +321,12 @@ $$Res[f(z),\infty]=-Res[f(\frac{1}{z})\cdot\frac{1}{z^2},0]$$</li>
 </ol>
 
         
-        <hr><p>本文2023-11-17首发于<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于2023-11-17</p><p>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</p>]]></description><category>Math</category></item></channel></rss>
+        <hr><p>本文2023-11-17首发于<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于2023-11-17</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文标题：</strong> 复变函数</p>
+
+<p><strong>本文发布时间：</strong> 2023-11-17</p>
+<p><strong>本文更新时间：</strong> 2023-11-17</p>
+<p><strong>本文版权：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Math</category></item></channel></rss>

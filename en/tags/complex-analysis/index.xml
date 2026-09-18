@@ -137,7 +137,15 @@ $$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
 </ol>
 
         
-        <hr><p>Published on 2023-12-20 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-12-20</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Math</category></item><item><title>Complex Analysis</title><link>https://www.guzhengsvt.cn/en/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link><pubDate>Fri, 17 Nov 2023 19:42:47 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid><description>
+        <hr><p>Published on 2023-12-20 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-12-20</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> The Relationship Between the Residue Theorem and Laurent Series, Higher-Order Derivative Formulas, and Cauchy&#39;s Integral Formula</p>
+
+<p><strong>Published: </strong> 2023-12-20</p>
+<p><strong>Updated: </strong> 2023-12-20</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Math</category></item><item><title>Complex Analysis</title><link>https://www.guzhengsvt.cn/en/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</link><pubDate>Fri, 17 Nov 2023 19:42:47 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/math/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/</guid><description>
 <![CDATA[<h1>Complex Analysis</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
           <h2 id="complex-numbers">
@@ -298,4 +306,12 @@ $$\text{Res}[f(z), z_0] = \frac{P(z_0)}{Q'(z_0)}.$$</li>
 </ol>
 $$\text{Res}[f(z), \infty] = -\text{Res}\left[ f\left( \frac{1}{z} \right) \cdot \frac{1}{z^2}, 0 \right].$$
         
-        <hr><p>Published on 2023-11-17 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-11-17</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Math</category></item></channel></rss>
+        <hr><p>Published on 2023-11-17 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2023-11-17</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> Complex Analysis</p>
+
+<p><strong>Published: </strong> 2023-11-17</p>
+<p><strong>Updated: </strong> 2023-11-17</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Math</category></item></channel></rss>

@@ -710,7 +710,15 @@
 </li>
 </ul>
         
-        <hr><p>Published on 2026-03-28 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2026-03-28</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>OtherNotes</category></item><item><title>A Conversation with Gemini</title><link>https://www.guzhengsvt.cn/en/post/thoughts/a-conversation-with-gemini/</link><pubDate>Sat, 20 Dec 2025 12:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/thoughts/a-conversation-with-gemini/</guid><description>
+        <hr><p>Published on 2026-03-28 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2026-03-28</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> Ansys HFSS Beginner&#39;s Systematic Hands-On Tutorial</p>
+
+<p><strong>Published: </strong> 2026-03-28</p>
+<p><strong>Updated: </strong> 2026-03-28</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>OtherNotes</category></item><item><title>A Conversation with Gemini</title><link>https://www.guzhengsvt.cn/en/post/thoughts/a-conversation-with-gemini/</link><pubDate>Sat, 20 Dec 2025 12:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/thoughts/a-conversation-with-gemini/</guid><description>
 <![CDATA[<h1>A Conversation with Gemini</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
           <h2 id="foreword">
@@ -802,28 +810,28 @@ This is a profoundly deep and philosophically charged question. Different school
 3. The Dystopian Warning: When &ldquo;Happiness&rdquo; Becomes Mandatory
 </h3><p>Much dystopian literature vividly depicts the extreme consequences of &ldquo;trading freedom for happiness&rdquo;:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Work</th>
-          <th>What Was Sacrificed?</th>
-          <th>What Was Gained?</th>
-          <th>Ending and Insight</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Brave New World</strong></td>
-          <td>Privacy, suffering, deep thought, family</td>
-          <td>Cheap sensory entertainment (soma), sexual freedom, carefree existence</td>
-          <td>This happiness is shallow. When people no longer experience pain, they also lose their depth as human beings.</td>
-      </tr>
-      <tr>
-          <td><strong>1984</strong></td>
-          <td>Privacy, truth, the richness of language</td>
-          <td>Collective &ldquo;unity,&rdquo; the frenzy brought by war</td>
-          <td>This happiness is false. It is built on the complete deprivation of truth and the total suppression of thought.</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Work</th>
+					<th>What Was Sacrificed?</th>
+					<th>What Was Gained?</th>
+					<th>Ending and Insight</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Brave New World</strong></td>
+					<td>Privacy, suffering, deep thought, family</td>
+					<td>Cheap sensory entertainment (soma), sexual freedom, carefree existence</td>
+					<td>This happiness is shallow. When people no longer experience pain, they also lose their depth as human beings.</td>
+			</tr>
+			<tr>
+					<td><strong>1984</strong></td>
+					<td>Privacy, truth, the richness of language</td>
+					<td>Collective &ldquo;unity,&rdquo; the frenzy brought by war</td>
+					<td>This happiness is false. It is built on the complete deprivation of truth and the total suppression of thought.</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="conclusion-is-this-a-false-choice">
@@ -948,30 +956,30 @@ The social model you have conceived is extremely fascinating. In political philo
 4. The Conditions for Such a Society&rsquo;s Existence
 </h3><p>For such a society to function, a near-divine prerequisite must be met: <strong>humanity has completely eradicated &ldquo;prejudice&rdquo; and &ldquo;jealousy.&rdquo;</strong></p>
 <table>
-  <thead>
-      <tr>
-          <th>Element</th>
-          <th>Traditional Society</th>
-          <th>Your Conceived Transparent, Inclusive Society</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Social Feedback</strong></td>
-          <td>Humiliation, isolation, assimilation</td>
-          <td>Curiosity, appreciation, technical support</td>
-      </tr>
-      <tr>
-          <td><strong>Conflict Resolution</strong></td>
-          <td>Legal and moral constraints</td>
-          <td>Transparent communication and unconditional understanding</td>
-      </tr>
-      <tr>
-          <td><strong>Individual Motivation</strong></td>
-          <td>Competition and fear</td>
-          <td>Self-actualization and collective resonance</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Element</th>
+					<th>Traditional Society</th>
+					<th>Your Conceived Transparent, Inclusive Society</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Social Feedback</strong></td>
+					<td>Humiliation, isolation, assimilation</td>
+					<td>Curiosity, appreciation, technical support</td>
+			</tr>
+			<tr>
+					<td><strong>Conflict Resolution</strong></td>
+					<td>Legal and moral constraints</td>
+					<td>Transparent communication and unconditional understanding</td>
+			</tr>
+			<tr>
+					<td><strong>Individual Motivation</strong></td>
+					<td>Competition and fear</td>
+					<td>Self-actualization and collective resonance</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="summary-is-this-the-endpoint-of-human-evolution">
@@ -1341,30 +1349,30 @@ This question touches the limits of <strong>social engineering.</strong> To achi
 3. The Psychological Mechanism for Achieving &ldquo;From Each According to Ability, To Each According to Need&rdquo;: From &ldquo;Ownership&rdquo; to &ldquo;Access&rdquo;
 </h3><p>To truly realize &ldquo;from each according to ability, to each according to need,&rdquo; humanity&rsquo;s psychological paradigm must undergo a fundamental shift from <strong>&ldquo;ownership&rdquo; to &ldquo;access.&rdquo;</strong></p>
 <table>
-  <thead>
-      <tr>
-          <th>Psychological Paradigm</th>
-          <th>Ownership-Based (Current Society)</th>
-          <th>Access-Based (Ideal Society)</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Core Logic</strong></td>
-          <td>&ldquo;It is mine, so I am safe.&rdquo;</td>
-          <td>&ldquo;It is there when I need it, so I am free.&rdquo;</td>
-      </tr>
-      <tr>
-          <td><strong>Source of Value</strong></td>
-          <td>Hoarding and exclusivity.</td>
-          <td>Experience and creativity.</td>
-      </tr>
-      <tr>
-          <td><strong>Social Outcome</strong></td>
-          <td>Resource waste and class solidification.</td>
-          <td>Rapid resource circulation and on-demand flow.</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Psychological Paradigm</th>
+					<th>Ownership-Based (Current Society)</th>
+					<th>Access-Based (Ideal Society)</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Core Logic</strong></td>
+					<td>&ldquo;It is mine, so I am safe.&rdquo;</td>
+					<td>&ldquo;It is there when I need it, so I am free.&rdquo;</td>
+			</tr>
+			<tr>
+					<td><strong>Source of Value</strong></td>
+					<td>Hoarding and exclusivity.</td>
+					<td>Experience and creativity.</td>
+			</tr>
+			<tr>
+					<td><strong>Social Outcome</strong></td>
+					<td>Resource waste and class solidification.</td>
+					<td>Rapid resource circulation and on-demand flow.</td>
+			</tr>
+	</tbody>
 </table>
 <p>Through education, we might help the next generation realize: <strong>possession itself is a heavy burden.</strong> Just as digital music has replaced physical CD collections, when people are confident that &ldquo;resources are always available,&rdquo; the desire for possession naturally recedes.</p>
 <hr>
@@ -1429,30 +1437,30 @@ Combining current global politics, economics, technology, and the philosophical 
 4. The Gamble Between Two Extreme Outcomes
 </h3><p>Given the current state of affairs, we may face two fundamentally different futures:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Characteristic</th>
-          <th><strong>Technological Harmony (Optimistic Path)</strong></th>
-          <th><strong>Digital Dystopia (Pessimistic Path)</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Distribution Method</strong></td>
-          <td>Universal sharing of automation results; distribution according to need.</td>
-          <td>Extreme resource monopolization; pacifying the masses with cheap entertainment.</td>
-      </tr>
-      <tr>
-          <td><strong>Social Form</strong></td>
-          <td>Extremely inclusive, transparent, everyone pursues self-actualization.</td>
-          <td>Extreme surveillance, solidified classes, uniform thinking.</td>
-      </tr>
-      <tr>
-          <td><strong>Human Condition</strong></td>
-          <td>Exploring the stars, pursuing spiritual sublimation.</td>
-          <td>Lost in virtual dreams; the species degenerates amid comfort.</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Characteristic</th>
+					<th><strong>Technological Harmony (Optimistic Path)</strong></th>
+					<th><strong>Digital Dystopia (Pessimistic Path)</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Distribution Method</strong></td>
+					<td>Universal sharing of automation results; distribution according to need.</td>
+					<td>Extreme resource monopolization; pacifying the masses with cheap entertainment.</td>
+			</tr>
+			<tr>
+					<td><strong>Social Form</strong></td>
+					<td>Extremely inclusive, transparent, everyone pursues self-actualization.</td>
+					<td>Extreme surveillance, solidified classes, uniform thinking.</td>
+			</tr>
+			<tr>
+					<td><strong>Human Condition</strong></td>
+					<td>Exploring the stars, pursuing spiritual sublimation.</td>
+					<td>Lost in virtual dreams; the species degenerates amid comfort.</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h3 id="summary-our-role">
@@ -1656,7 +1664,15 @@ If in the future everyone abandons independent thinking in the process of commun
 <p><strong>So now—do you dare to overturn all the conclusions we have previously discussed about &ldquo;privacy, happiness, and utopia,&rdquo; and attempt to stand on their opposite side, arguing once in defense of &ldquo;chaos, pain, and alienation&rdquo;?</strong></p>
 
         
-        <hr><p>Published on 2025-12-20 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-12-20</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Thoughts</category></item><item><title>Getting into Amateur Radio from Scratch</title><link>https://www.guzhengsvt.cn/en/post/othernotes/the-path-to-amateur-radio-from-scratch/</link><pubDate>Tue, 03 Jun 2025 20:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/othernotes/the-path-to-amateur-radio-from-scratch/</guid><description>
+        <hr><p>Published on 2025-12-20 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-12-20</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> A Conversation with Gemini</p>
+
+<p><strong>Published: </strong> 2025-12-20</p>
+<p><strong>Updated: </strong> 2025-12-20</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Thoughts</category></item><item><title>Getting into Amateur Radio from Scratch</title><link>https://www.guzhengsvt.cn/en/post/othernotes/the-path-to-amateur-radio-from-scratch/</link><pubDate>Tue, 03 Jun 2025 20:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/othernotes/the-path-to-amateur-radio-from-scratch/</guid><description>
 <![CDATA[<h1>Getting into Amateur Radio from Scratch</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
           <h2 id="getting-the-class-a-operator-certificate">
@@ -1790,7 +1806,15 @@ To take the Class C exam, one must have had an HF station established for 18 mon
 Maybe I will save up for a Xiegu, or perhaps build a μSDX myself.</p>
 
         
-        <hr><p>Published on 2025-06-03 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-11-11</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>OtherNotes</category></item><item><title>Building a NAS with an Old Computer and fnOS</title><link>https://www.guzhengsvt.cn/en/post/othernotes/use-old-computers-and-fnos-to-build-your-own-nas/</link><pubDate>Thu, 16 Oct 2025 23:04:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/othernotes/use-old-computers-and-fnos-to-build-your-own-nas/</guid><description>
+        <hr><p>Published on 2025-06-03 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-11-11</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> Getting into Amateur Radio from Scratch</p>
+
+<p><strong>Published: </strong> 2025-06-03</p>
+<p><strong>Updated: </strong> 2025-11-11</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>OtherNotes</category></item><item><title>Building a NAS with an Old Computer and fnOS</title><link>https://www.guzhengsvt.cn/en/post/othernotes/use-old-computers-and-fnos-to-build-your-own-nas/</link><pubDate>Thu, 16 Oct 2025 23:04:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/othernotes/use-old-computers-and-fnos-to-build-your-own-nas/</guid><description>
 <![CDATA[<h1>Building a NAS with an Old Computer and fnOS</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
           <h2 id="preface">
@@ -1941,7 +1965,15 @@ The next things I want to play with are dashboards, domain names, reverse proxyi
 <p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/Soyo.JPG" alt="无语"></p>
 
         
-        <hr><p>Published on 2025-10-16 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-10-16</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>OtherNotes</category></item><item><title>Quantum Physics</title><link>https://www.guzhengsvt.cn/en/post/physics/quantum-physics/</link><pubDate>Fri, 05 Sep 2025 11:05:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/physics/quantum-physics/</guid><description>
+        <hr><p>Published on 2025-10-16 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-10-16</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> Building a NAS with an Old Computer and fnOS</p>
+
+<p><strong>Published: </strong> 2025-10-16</p>
+<p><strong>Updated: </strong> 2025-10-16</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>OtherNotes</category></item><item><title>Quantum Physics</title><link>https://www.guzhengsvt.cn/en/post/physics/quantum-physics/</link><pubDate>Fri, 05 Sep 2025 11:05:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/physics/quantum-physics/</guid><description>
 <![CDATA[<h1>Quantum Physics</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
           <h2 id="chapter-1-wave-particle-duality-and-state-description">
@@ -3129,7 +3161,15 @@ It explains the arrangement of electrons in atomic orbitals and underlies atomic
 </ol>
 
         
-        <hr><p>Published on 2025-09-05 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-09-05</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Physics</category></item><item><title>Postgrad Exam Diary 001</title><link>https://www.guzhengsvt.cn/en/post/diary/diary-001-of-postgraduate-entrance-examination/</link><pubDate>Mon, 01 Sep 2025 22:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/diary/diary-001-of-postgraduate-entrance-examination/</guid><description>
+        <hr><p>Published on 2025-09-05 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-09-05</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> Quantum Physics</p>
+
+<p><strong>Published: </strong> 2025-09-05</p>
+<p><strong>Updated: </strong> 2025-09-05</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Physics</category></item><item><title>Postgrad Exam Diary 001</title><link>https://www.guzhengsvt.cn/en/post/diary/diary-001-of-postgraduate-entrance-examination/</link><pubDate>Mon, 01 Sep 2025 22:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/diary/diary-001-of-postgraduate-entrance-examination/</guid><description>
 <![CDATA[<h1>Postgrad Exam Diary 001</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
           <h2 id="preface">
@@ -3229,7 +3269,15 @@ When will I finally be able to stand among them?
 
 
         
-        <hr><p>Published on 2025-09-01 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-09-01</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Diary</category></item><item><title>QSL Card Gallery</title><link>https://www.guzhengsvt.cn/en/post/othernotes/qsl-card-exhibition/</link><pubDate>Thu, 21 Aug 2025 18:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/othernotes/qsl-card-exhibition/</guid><description>
+        <hr><p>Published on 2025-09-01 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-09-01</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> Postgrad Exam Diary 001</p>
+
+<p><strong>Published: </strong> 2025-09-01</p>
+<p><strong>Updated: </strong> 2025-09-01</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Diary</category></item><item><title>QSL Card Gallery</title><link>https://www.guzhengsvt.cn/en/post/othernotes/qsl-card-exhibition/</link><pubDate>Thu, 21 Aug 2025 18:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/othernotes/qsl-card-exhibition/</guid><description>
 <![CDATA[<h1>QSL Card Gallery</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
           <h2 id="1-noa-1">
@@ -3314,7 +3362,15 @@ Print Batch
 </ul>
 
         
-        <hr><p>Published on 2025-08-21 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-08-21</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>OtherNotes</category></item><item><title>A New Telling</title><link>https://www.guzhengsvt.cn/en/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</link><pubDate>Tue, 20 May 2025 12:18:48 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</guid><description>
+        <hr><p>Published on 2025-08-21 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-08-21</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> QSL Card Gallery</p>
+
+<p><strong>Published: </strong> 2025-08-21</p>
+<p><strong>Updated: </strong> 2025-08-21</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>OtherNotes</category></item><item><title>A New Telling</title><link>https://www.guzhengsvt.cn/en/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</link><pubDate>Tue, 20 May 2025 12:18:48 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</guid><description>
 <![CDATA[<h1>A New Telling</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
           <h2 id="a-new-telling">
@@ -3370,7 +3426,15 @@ carry my tangled thoughts back toward Huainan.</strong></p>
 in Xi&rsquo;an</strong></em></p>
 
         
-        <hr><p>Published on 2025-05-20 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-05-20</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Poetry</category></item><item><title>Optimization Theory and Methods</title><link>https://www.guzhengsvt.cn/en/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</link><pubDate>Sat, 10 May 2025 18:48:10 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</guid><description>
+        <hr><p>Published on 2025-05-20 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-05-20</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> A New Telling</p>
+
+<p><strong>Published: </strong> 2025-05-20</p>
+<p><strong>Updated: </strong> 2025-05-20</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Poetry</category></item><item><title>Optimization Theory and Methods</title><link>https://www.guzhengsvt.cn/en/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</link><pubDate>Sat, 10 May 2025 18:48:10 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</guid><description>
 <![CDATA[<h1>Optimization Theory and Methods</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
           <h2 id="optimization-problems">
@@ -3657,58 +3721,58 @@ Choosing the Basis Matrix
 <a class="header-anchor" href="#constructing-the-initial-simplex-tableau"></a>
 Constructing the Initial Simplex Tableau
 </h5><table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>$P_1$</th>
-          <th>$P_2$</th>
-          <th>$\cdots$</th>
-          <th>$P_n$</th>
-          <th>$\vec{b}$</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Coefficient matrix</td>
-          <td>$a_{11}$</td>
-          <td>$a_{12}$</td>
-          <td>$\cdots$</td>
-          <td>$a_{1n}$</td>
-          <td>$b_1$</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>$a_{21}$</td>
-          <td>$a_{22}$</td>
-          <td>$\cdots$</td>
-          <td>$a_{2n}$</td>
-          <td>$b_2$</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>$\vdots$</td>
-          <td>$\vdots$</td>
-          <td>$\ddots$</td>
-          <td>$\vdots$</td>
-          <td>$\vdots$</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>$a_{m1}$</td>
-          <td>$a_{m2}$</td>
-          <td>$\cdots$</td>
-          <td>$a_{mn}$</td>
-          <td>$b_m$</td>
-      </tr>
-      <tr>
-          <td>Reduced costs</td>
-          <td>$\sigma_1$</td>
-          <td>$\sigma_2$</td>
-          <td>$\cdots$</td>
-          <td>$\sigma_n$</td>
-          <td>Optimal value</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>$P_1$</th>
+					<th>$P_2$</th>
+					<th>$\cdots$</th>
+					<th>$P_n$</th>
+					<th>$\vec{b}$</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Coefficient matrix</td>
+					<td>$a_{11}$</td>
+					<td>$a_{12}$</td>
+					<td>$\cdots$</td>
+					<td>$a_{1n}$</td>
+					<td>$b_1$</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>$a_{21}$</td>
+					<td>$a_{22}$</td>
+					<td>$\cdots$</td>
+					<td>$a_{2n}$</td>
+					<td>$b_2$</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>$\vdots$</td>
+					<td>$\vdots$</td>
+					<td>$\ddots$</td>
+					<td>$\vdots$</td>
+					<td>$\vdots$</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>$a_{m1}$</td>
+					<td>$a_{m2}$</td>
+					<td>$\cdots$</td>
+					<td>$a_{mn}$</td>
+					<td>$b_m$</td>
+			</tr>
+			<tr>
+					<td>Reduced costs</td>
+					<td>$\sigma_1$</td>
+					<td>$\sigma_2$</td>
+					<td>$\cdots$</td>
+					<td>$\sigma_n$</td>
+					<td>Optimal value</td>
+			</tr>
+	</tbody>
 </table>
 <h5 id="selecting-an-entering-column">
 <a class="header-anchor" href="#selecting-an-entering-column"></a>
@@ -3875,7 +3939,15 @@ Substitute them into the objective function to obtain the optimal value, whether
 Sensitivity Analysis
 </h2>
         
-        <hr><p>Published on 2025-05-10 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-05-10</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>Math</category></item><item><title>Typecho Comments Import to Waline</title><link>https://www.guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description>
+        <hr><p>Published on 2025-05-10 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-05-10</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> Optimization Theory and Methods</p>
+
+<p><strong>Published: </strong> 2025-05-10</p>
+<p><strong>Updated: </strong> 2025-05-10</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Math</category></item><item><title>Typecho Comments Import to Waline</title><link>https://www.guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description>
 <![CDATA[<h1>Typecho Comments Import to Waline</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
           <p>A couple of days ago, I migrated my blog posts from Typecho to Hugo. Just setting up the Front Matter parameters and reconfiguring image links took considerable effort.<br>
@@ -4020,4 +4092,12 @@ As I said at the beginning, they&rsquo;re traces of my growth, proof of my exist
 <p>And you, dear reader, are the one who gives me value.</p>
 <p>If you have time, please leave a comment—it’ll genuinely make my day (as long as it’s kind, of course).</p>
         
-        <hr><p>Published on 2025-04-19 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-04-19</p><p>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</p>]]></description><category>OtherNotes</category></item></channel></rss>
+        <hr><p>Published on 2025-04-19 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-04-19</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> Typecho Comments Import to Waline</p>
+
+<p><strong>Published: </strong> 2025-04-19</p>
+<p><strong>Updated: </strong> 2025-04-19</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>OtherNotes</category></item></channel></rss>

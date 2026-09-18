@@ -285,58 +285,58 @@ $$<ul>
 <a class="header-anchor" href="#%e7%95%ab%e5%87%ba%e5%88%9d%e5%a7%8b%e5%96%ae%e7%b4%94%e5%bd%a2%e8%a1%a8"></a>
 畫出初始單純形表
 </h5><table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>$P_1$</th>
-          <th>$P_2$</th>
-          <th>$\cdots$</th>
-          <th>$P_n$</th>
-          <th>$\vec{b}$</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>係數矩陣</td>
-          <td>$a_{11}$</td>
-          <td>$a_{12}$</td>
-          <td>$\cdots$</td>
-          <td>$a_{1n}$</td>
-          <td>$b_1$</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>$a_{21}$</td>
-          <td>$a_{22}$</td>
-          <td>$\cdots$</td>
-          <td>$a_{2n}$</td>
-          <td>$b_2$</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>$\vdots$</td>
-          <td>$\vdots$</td>
-          <td>$\ddots$</td>
-          <td>$\vdots$</td>
-          <td>$\vdots$</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>$a_{m1}$</td>
-          <td>$a_{m2}$</td>
-          <td>$\cdots$</td>
-          <td>$a_{mn}$</td>
-          <td>$b_m$</td>
-      </tr>
-      <tr>
-          <td>判別數</td>
-          <td>$\sigma_1$</td>
-          <td>$\sigma_2$</td>
-          <td>$\cdots$</td>
-          <td>$\sigma_n$</td>
-          <td>最優值</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>$P_1$</th>
+					<th>$P_2$</th>
+					<th>$\cdots$</th>
+					<th>$P_n$</th>
+					<th>$\vec{b}$</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>係數矩陣</td>
+					<td>$a_{11}$</td>
+					<td>$a_{12}$</td>
+					<td>$\cdots$</td>
+					<td>$a_{1n}$</td>
+					<td>$b_1$</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>$a_{21}$</td>
+					<td>$a_{22}$</td>
+					<td>$\cdots$</td>
+					<td>$a_{2n}$</td>
+					<td>$b_2$</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>$\vdots$</td>
+					<td>$\vdots$</td>
+					<td>$\ddots$</td>
+					<td>$\vdots$</td>
+					<td>$\vdots$</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>$a_{m1}$</td>
+					<td>$a_{m2}$</td>
+					<td>$\cdots$</td>
+					<td>$a_{mn}$</td>
+					<td>$b_m$</td>
+			</tr>
+			<tr>
+					<td>判別數</td>
+					<td>$\sigma_1$</td>
+					<td>$\sigma_2$</td>
+					<td>$\cdots$</td>
+					<td>$\sigma_n$</td>
+					<td>最優值</td>
+			</tr>
+	</tbody>
 </table>
 <h5 id="選取合適的進基列">
 <a class="header-anchor" href="#%e9%81%b8%e5%8f%96%e5%90%88%e9%81%a9%e7%9a%84%e9%80%b2%e5%9f%ba%e5%88%97"></a>
@@ -503,4 +503,12 @@ $$<h4 id="一般情形">
 靈敏度分析
 </h2>
         
-        <hr><p>本文2025-05-10首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-05-10</p><p>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</p>]]></description><category>Math</category></item></channel></rss>
+        <hr><p>本文2025-05-10首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-05-10</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文標題：</strong> 最佳化理論與方法</p>
+
+<p><strong>本文發佈時間：</strong> 2025-05-10</p>
+<p><strong>本文更新時間：</strong> 2025-05-10</p>
+<p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Math</category></item></channel></rss>
