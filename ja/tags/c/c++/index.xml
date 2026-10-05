@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>C/C++ on 孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/ja/tags/c/c++/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>ja</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</copyright><lastBuildDate>Mon, 05 Oct 2026 20:30:00 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/ja/tags/c/c++/index.xml" rel="self" type="application/rss+xml"/><item><title>データ構造実験ノート</title><link>https://www.guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 12 Dec 2023 14:31:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</guid><description>
+<![CDATA[<h1>データ構造実験ノート</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
+        
+          <p>本記事は以前の8つのデータ構造実機実験レポートを統合し、重複した定型文とソースコード全体を削除して、各実験の<strong>核心となる考え方、重要なデータ構造、アルゴリズムの要点</strong>だけを残したものです。復習用の整理メモとして使うことを想定しています。コード片は C++ です。</p>
+<h2 id="一再帰とスタックフィボナッチ数列">
+<a class="header-anchor" href="#%e4%b8%80%e5%86%8d%e5%b8%b0%e3%81%a8%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af%e3%83%95%e3%82%a3%e3%83%9c%e3%83%8a%e3%83%83%e3%83%81%e6%95%b0%e5%88%97"></a>
+一、再帰とスタック：フィボナッチ数列
+</h2><h3 id="問題">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c"></a>
+問題
+</h3><p>再帰を使って第 $n$ 個の Fibonacci 数を求めます。</p>
+<h3 id="再帰とスタックの関係">
+<a class="header-anchor" href="#%e5%86%8d%e5%b8%b0%e3%81%a8%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af%e3%81%ae%e9%96%a2%e4%bf%82"></a>
+再帰とスタックの関係
+</h3><p>再帰が正しく戻れるかどうかは、<strong>引数をどのように渡すか</strong>、<strong>どこへ戻るか</strong>の2点にかかっています。<code>Fib(5)</code> を例にすると：</p>
+<ol>
+<li>再帰が1段深くなるたびに、その段の仮引数用の領域を新たに割り当てる必要があります。</li>
+<li>さらに「今回の呼び出しが終わったらどの行に戻るか」という戻りアドレスも保存する必要があります。</li>
+</ol>
+<p>この2つを合わせて<strong>作業記録</strong>（活動記録）となり、システムによって<strong>関数呼び出しスタック</strong>にプッシュされます。呼び出し時にプッシュし、戻る時にスタックの先頭からポップするので、正確に1つ前の段へ戻れます。</p>
+<p><code>Fib(3) = Fib(2) + Fib(1)</code> を例にすると、呼び出しの連鎖は次のとおりです：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Fib(3)
+</span></span><span class="line"><span class="cl">├── Fib(2)
+</span></span><span class="line"><span class="cl">│   ├── Fib(1) → 返回 1
+</span></span><span class="line"><span class="cl">│   └── Fib(0) → 返回 0
+</span></span><span class="line"><span class="cl">│   得 1
+</span></span><span class="line"><span class="cl">└── Fib(1) → 返回 1
+</span></span><span class="line"><span class="cl">得 2
+</span></span></code></pre></div><h3 id="アルゴリズム">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0"></a>
+アルゴリズム
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">Fib</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote>
+<p>この再帰版は毎回大量の部分問題を重複して計算するため、時間計算量は指数関数的な $O(2^n)$ になります。効率よく求めるなら漸化式やメモ化に切り替えるべきで、$O(n)$ で済みます。再帰版の価値はスタックの動作過程を示すことにあります。</p>
+</blockquote>
+<h2 id="二部分集合の分割問題">
+<a class="header-anchor" href="#%e4%ba%8c%e9%83%a8%e5%88%86%e9%9b%86%e5%90%88%e3%81%ae%e5%88%86%e5%89%b2%e5%95%8f%e9%a1%8c"></a>
+二、部分集合の分割問題
+</h2><h3 id="問題-1">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-1"></a>
+問題
+</h3><p>集合をいくつかの<strong>互いに素な</strong>部分集合に分割し、同じ部分集合内の要素がどの2つも衝突せず、かつ部分集合の数ができるだけ少なくなるようにします。（典型的な応用：時間割の作成、スケジュール調整。）</p>
+<h3 id="アルゴリズム循環ふるい分け法">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e5%be%aa%e7%92%b0%e3%81%b5%e3%82%8b%e3%81%84%e5%88%86%e3%81%91%e6%b3%95"></a>
+アルゴリズム：循環ふるい分け法
+</h3><ol>
+<li>まず<strong>二次元配列</strong>（衝突行列）で衝突関係を表します。$conflict[i][j] = 1$ は $i$ と $j$ が衝突することを、$0$ は衝突しないことを意味します。</li>
+<li>最初のまだグループに入っていない要素から始め、それを現在のグループに入れます。</li>
+<li>残りのまだグループに入っていない要素を順に確認します。それが<strong>現在のグループのどの要素とも衝突しなければ</strong>現在のグループに加え、そうでなければスキップして次の回に回します。</li>
+<li>1回の走査が終わった後、まだグループに入っていない要素があれば新しいグループを開き、手順2を繰り返します。すべての要素が分け終わるまで続けます。</li>
+</ol>
+<h3 id="データ構造">
+<a class="header-anchor" href="#%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0"></a>
+データ構造
+</h3><p>未処理の要素を格納するために<strong>循環キュー</strong>を使います。走査が1回進むごとに要素はキューの中を1周するので、追加の記憶領域を確保する必要がありません。</p>
+<h3 id="要点">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9"></a>
+要点
+</h3><ul>
+<li>「現在のグループに加えられるか」を判定するときは、グループ内の<strong>すべての</strong>既存要素と比較しなければなりません。1つだけ見て判断すると誤ります。</li>
+<li>これは貪欲法であり、現在のグループに詰め込めれば詰め込むため、得られるのは<strong>より良い解</strong>であって厳密な最適解ではありません。</li>
+</ul>
+<h2 id="三疎行列の乗算">
+<a class="header-anchor" href="#%e4%b8%89%e7%96%8e%e8%a1%8c%e5%88%97%e3%81%ae%e4%b9%97%e7%ae%97"></a>
+三、疎行列の乗算
+</h2><h3 id="問題-2">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-2"></a>
+問題
+</h3><p>行列内の非ゼロ要素が非常に少ない場合、完全な二次元配列で格納すると大量の領域を浪費します。そこで<strong>3項組</strong>に切り替えて非ゼロ要素だけを格納し、2つの疎行列の乗算を実装します。</p>
+<h3 id="データ構造-1">
+<a class="header-anchor" href="#%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0-1"></a>
+データ構造
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>          <span class="c1">// 1つの非ゼロ要素
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>          <span class="c1">// 行番号、列番号
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>          <span class="c1">// 要素の値
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Matrix</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>          <span class="c1">// 総行数、総列数
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">L</span><span class="p">;</span>             <span class="c1">// 非ゼロ要素の個数
+</span></span></span><span class="line"><span class="cl">    <span class="n">Node</span><span class="o">*</span> <span class="n">Ma</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>     <span class="c1">// 非ゼロ要素の配列
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h3 id="アルゴリズム-1">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0-1"></a>
+アルゴリズム
+</h3><p>定義どおり $C_{ij} = \sum_k A_{ik} \cdot B_{kj}$ に従いますが、<strong>両側とも非ゼロ</strong>である項だけを累加します：</p>
+<ol>
+<li>$A$ の各非ゼロ要素 $(i, k, a)$ を走査します。</li>
+<li>$B$ の中から行番号が $k$ に等しい非ゼロ要素 $(k, j, b)$ を探します。</li>
+<li>$a \times b$ を結果行列の $(i, j)$ の位置に累加します。</li>
+</ol>
+<p>結果行列の非ゼロ要素は動的に生成され、累加した結果が 0 であれば格納しません。</p>
+<h3 id="要点-1">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-1"></a>
+要点
+</h3><ul>
+<li>素朴な三重ループよりはるかに高速です。大量のゼロ要素同士の乗算を飛ばせるからです。</li>
+<li>さらに高速化したい場合は、3項組の表に<strong>行インデックス</strong>（行論理リンク順序表）を加えることで、手順2で毎回 $B$ を先頭から走査する必要がなくなります。</li>
+<li>必ず検証すること：$A$ の列数が $B$ の行数に等しいか、また入力された行・列の添字が範囲外でないか。</li>
+</ul>
+<h2 id="四kmp-文字列マッチング">
+<a class="header-anchor" href="#%e5%9b%9bkmp-%e6%96%87%e5%ad%97%e5%88%97%e3%83%9e%e3%83%83%e3%83%81%e3%83%b3%e3%82%b0"></a>
+四、KMP 文字列マッチング
+</h2><h3 id="問題-3">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-3"></a>
+問題
+</h3><p>テキスト文字列の中からパターン文字列が最初に現れる位置を探します。素朴なマッチングは不一致時にパターン文字列を1つ右へずらし、テキストのポインタを後退させるため、最悪の場合 $O(nm)$ になります。KMP はこれを $O(n+m)$ に改善します。</p>
+<h3 id="核心lps-配列">
+<a class="header-anchor" href="#%e6%a0%b8%e5%bf%83lps-%e9%85%8d%e5%88%97"></a>
+核心：LPS 配列
+</h3><p>LPS（Longest Prefix Suffix）は、パターン文字列の<strong>各位置より前</strong>の部分文字列における「最長で等しい接頭辞と接尾辞」の長さを記録します。これは不一致時に<strong>パターン文字列を安全にどれだけ右へ滑らせられるか</strong>を教えてくれるので、テキストのポインタを後退させずに済みます。</p>
+<p>パターン文字列 <code>ABABCABAB</code> を例にすると、その LPS 配列は次のとおりです：</p>
+<table>
+	<thead>
+			<tr>
+					<th>添字</th>
+					<th>0</th>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+					<th>5</th>
+					<th>6</th>
+					<th>7</th>
+					<th>8</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>文字</td>
+					<td>A</td>
+					<td>B</td>
+					<td>A</td>
+					<td>B</td>
+					<td>C</td>
+					<td>A</td>
+					<td>B</td>
+					<td>A</td>
+					<td>B</td>
+			</tr>
+			<tr>
+					<td>LPS</td>
+					<td>0</td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="アルゴリズム-2">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0-2"></a>
+アルゴリズム
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// LPS 配列の構築
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">computeLPS</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">pat</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">lps</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>          <span class="c1">// 現在の最長接頭辞接尾辞の一致長
+</span></span></span><span class="line"><span class="cl">    <span class="n">lps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">pat</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">pat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">pat</span><span class="p">[</span><span class="n">len</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">lps</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="o">++</span><span class="n">len</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">len</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">len</span> <span class="o">=</span> <span class="n">lps</span><span class="p">[</span><span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>   <span class="c1">// 次に長い接頭辞接尾辞に後退して比較を続ける
+</span></span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">lps</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// text の中から pat を探す
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">KMPSearch</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">text</span><span class="p">,</span> <span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">pat</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">pat</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">n</span> <span class="o">=</span> <span class="n">text</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">lps</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">computeLPS</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">lps</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>          <span class="c1">// i はテキスト、j はパターン文字列を進む
+</span></span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">pat</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span> <span class="n">i</span><span class="o">++</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;在索引 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">-</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; 处找到匹配串&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">j</span> <span class="o">=</span> <span class="n">lps</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>    <span class="c1">// 次の一致を探し続ける
+</span></span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">pat</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">j</span> <span class="o">=</span> <span class="n">lps</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span>        <span class="n">i</span><span class="o">++</span><span class="p">;</span>   <span class="c1">// j はすでに 0 なので、テキスト側のポインタを進める
+</span></span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要点-2">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-2"></a>
+要点
+</h3><ul>
+<li><strong>テキストのポインタ <code>i</code> は決して後退しません</strong>。これが KMP の効率の源です。</li>
+<li>不一致時は <code>lps[j-1]</code> を使ってパターンのポインタを後退させ、<code>j</code> をゼロに戻したりはしません。</li>
+<li><code>lps</code> を計算する部分のコード自体も「パターン文字列が自分自身とマッチングする」処理であり、考え方はメインループと同じです。</li>
+<li>例：テキスト <code>ABABDABACDABABCABAB</code>、パターン <code>ABABCABAB</code> の場合、一致位置は添字 10 です。</li>
+</ul>
+<h2 id="五二分木の格納と走査">
+<a class="header-anchor" href="#%e4%ba%94%e4%ba%8c%e5%88%86%e6%9c%a8%e3%81%ae%e6%a0%bc%e7%b4%8d%e3%81%a8%e8%b5%b0%e6%9f%bb"></a>
+五、二分木の格納と走査
+</h2><h3 id="問題-4">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-4"></a>
+問題
+</h3><p>**レベル順（BFS 順）**で入力された文字列が与えられます。&rsquo;@&rsquo; は空ノードを表します。これを基に二分木を構築し、さらに順序記憶方式とリンク方式それぞれでの走査を実装します。</p>
+<h3 id="2つの格納方式">
+<a class="header-anchor" href="#2%e3%81%a4%e3%81%ae%e6%a0%bc%e7%b4%8d%e6%96%b9%e5%bc%8f"></a>
+2つの格納方式
+</h3><p><strong>順序記憶</strong>：配列に添字で格納し、親子関係は添字から計算します：</p>
+<ul>
+<li>親ノードの添字が $i$ → 左の子は $2i+1$、右の子は $2i+2$。</li>
+<li>逆に、ノード $i$ の親ノードは $\lfloor (i-1)/2 \rfloor$。</li>
+</ul>
+<p><strong>完全二分木</strong>に向いています。ノードが疎な場合は配列の領域を大量に浪費します。</p>
+<p><strong>リンク方式</strong>：構造体とポインタを使い、<strong>キュー</strong>を補助にして構築します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">TreeNode</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>構築の流れ：根ノードをエンキューする → キューの先頭からノードを1つ取り出すたびに、順に左、右の子を付けます（入力が &lsquo;@&rsquo; ならその側は空）。そして新しい子をエンキューします。先行順入力での構築に変えたい場合は、キューをスタックに置き換えるだけです。</p>
+<h3 id="3つの深さ優先走査">
+<a class="header-anchor" href="#3%e3%81%a4%e3%81%ae%e6%b7%b1%e3%81%95%e5%84%aa%e5%85%88%e8%b5%b0%e6%9f%bb"></a>
+3つの深さ優先走査
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">preOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>          <span class="c1">// 先行順：根 → 左 → 右
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">preOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">preOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">inOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>           <span class="c1">// 中間順：左 → 根 → 右
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">postOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>         <span class="c1">// 後行順：左 → 右 → 根
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">postOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">postOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="幅優先走査">
+<a class="header-anchor" href="#%e5%b9%85%e5%84%aa%e5%85%88%e8%b5%b0%e6%9f%bb"></a>
+幅優先走査
+</h3><p>キューを使って根から1レベルずつ処理します。ノードを訪問するときにその左右の子を順にエンキューします。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">levelOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">q</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span> <span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span>  <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="完全な例">
+<a class="header-anchor" href="#%e5%ae%8c%e5%85%a8%e3%81%aa%e4%be%8b"></a>
+完全な例
+</h3><p><code>abc@def@@@@</code> を入力すると（レベル順、&rsquo;@&rsquo; は空）、対応する二分木は次のとおりです：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">        a
+</span></span><span class="line"><span class="cl">      /   \
+</span></span><span class="line"><span class="cl">     b     c
+</span></span><span class="line"><span class="cl">    / \   / \
+</span></span><span class="line"><span class="cl">   @   d e   f
+</span></span><span class="line"><span class="cl">      / \ / \ / \
+</span></span><span class="line"><span class="cl">     @  @ @ @ @  @
+</span></span></code></pre></div><table>
+	<thead>
+			<tr>
+					<th>走査</th>
+					<th>結果</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>先行順（根左右）</td>
+					<td><code>a b d c e f</code></td>
+			</tr>
+			<tr>
+					<td>中間順（左根右）</td>
+					<td><code>b d a e c f</code></td>
+			</tr>
+			<tr>
+					<td>後行順（左右根）</td>
+					<td><code>d b e f c a</code></td>
+			</tr>
+			<tr>
+					<td>レベル順（BFS）</td>
+					<td><code>a b c d e f</code></td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p>順序記憶での中間順走査は開始点を慎重に扱う必要があります。先行順は添字 0 から始められますが、<strong>中間順は木全体で最も左下のノードから始めなければなりません</strong>。そうでなければ左部分木の左半分を取りこぼします。</p>
+</blockquote>
+<h3 id="走査列から二分木を逆に求める">
+<a class="header-anchor" href="#%e8%b5%b0%e6%9f%bb%e5%88%97%e3%81%8b%e3%82%89%e4%ba%8c%e5%88%86%e6%9c%a8%e3%82%92%e9%80%86%e3%81%ab%e6%b1%82%e3%82%81%e3%82%8b"></a>
+走査列から二分木を逆に求める
+</h3><ul>
+<li>先行順 + 中間順、後行順 + 中間順、レベル順 + 中間順のいずれも、二分木を一意に確定できます。</li>
+<li>しかし<strong>先行順 + 後行順では不可能</strong>で、子が1つだけのときにそれが左に付くのか右に付くのかを区別できません。</li>
+</ul>
+<h2 id="六ハフマン木と符号化">
+<a class="header-anchor" href="#%e5%85%ad%e3%83%8f%e3%83%95%e3%83%9e%e3%83%b3%e6%9c%a8%e3%81%a8%e7%ac%a6%e5%8f%b7%e5%8c%96"></a>
+六、ハフマン木と符号化
+</h2><h3 id="問題-5">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-5"></a>
+問題
+</h3><p>文字を出現頻度に応じて符号化し、符号化後の総長を最短にし、かつどの符号も別の符号の接頭辞にならないようにします（接頭符号。一意に復号できることを保証します）。</p>
+<h3 id="アルゴリズム-3">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0-3"></a>
+アルゴリズム
+</h3><ol>
+<li>各文字の出現頻度を数えます。</li>
+<li>各文字についてリーフノードを1つ作り、すべて<strong>最小ヒープ</strong>に入れます。</li>
+<li>ループ：頻度が最小の2つのノードを取り出し、新しいノード（頻度は両者の和）に統合し、新しいノードをヒープに戻します。</li>
+<li>ヒープにノードが1つだけ残ったとき、それがハフマン木の根です。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="n">minHeap</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">left</span>  <span class="o">=</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">right</span> <span class="o">=</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">parent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HuffmanNode</span><span class="p">(</span><span class="sc">&#39;$&#39;</span><span class="p">,</span> <span class="n">left</span><span class="o">-&gt;</span><span class="n">frequency</span> <span class="o">+</span> <span class="n">right</span><span class="o">-&gt;</span><span class="n">frequency</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parent</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parent</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">minHeap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">parent</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="符号の生成と復号">
+<a class="header-anchor" href="#%e7%ac%a6%e5%8f%b7%e3%81%ae%e7%94%9f%e6%88%90%e3%81%a8%e5%be%a9%e5%8f%b7"></a>
+符号の生成と復号
+</h3><ul>
+<li><strong>符号の生成</strong>：根から再帰的に走査し、左へ進むと <code>0</code>、右へ進むと <code>1</code> を記録し、リーフノードに到達したときの現在の経路の文字列をその文字の符号として記録します。</li>
+<li><strong>符号化</strong>：原文の各文字をその符号列に置き換えます。</li>
+<li><strong>復号</strong>：根から始め、<code>0</code> なら左、<code>1</code> なら右へ進み、リーフに到達したらその文字を出力して根に戻り、最初からやり直します。</li>
+</ul>
+<h3 id="要点-3">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-3"></a>
+要点
+</h3><ul>
+<li>頻度が高い文字ほど根に近く、符号が短くなります。これが圧縮の原理です。</li>
+<li>符号はすべてリーフノードにあるため、「ある符号が別の符号の接頭辞になる」ことはなく、復号に曖昧さは生じません。</li>
+<li>繰り返しソートする代わりに<strong>最小ヒープ</strong>を使うことで、構築の計算量を $O(n \log n)$ まで下げられます。</li>
+<li>出現頻度が同じ文字は、どちらが先でも符号の長さには影響せず、割り当てられる 0/1 の列だけが変わります。</li>
+</ul>
+<h2 id="七ソート二分木とノードの削除">
+<a class="header-anchor" href="#%e4%b8%83%e3%82%bd%e3%83%bc%e3%83%88%e4%ba%8c%e5%88%86%e6%9c%a8%e3%81%a8%e3%83%8e%e3%83%bc%e3%83%89%e3%81%ae%e5%89%8a%e9%99%a4"></a>
+七、ソート二分木とノードの削除
+</h2><h3 id="問題-6">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-6"></a>
+問題
+</h3><p>ソート二分木（BST）を構築し、挿入、中間順走査、ノードの削除に対応します。</p>
+<h3 id="挿入">
+<a class="header-anchor" href="#%e6%8c%bf%e5%85%a5"></a>
+挿入
+</h3><p>再帰的に比較します。挿入する値が現在のノードより小さければ左へ、大きければ右へ進み、空の位置に来たら新しいノードを作って付けます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">insert</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>      <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span>  <span class="o">=</span> <span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span>  <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&gt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>   <span class="c1">// 等しい場合は挿入せず、重複を避ける
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="中間順走査">
+<a class="header-anchor" href="#%e4%b8%ad%e9%96%93%e9%a0%86%e8%b5%b0%e6%9f%bb"></a>
+中間順走査
+</h3><p>BST を中間順に走査すると<strong>昇順の列</strong>が得られます。これは BST が正しく構築されているかを確かめる最も直接的な方法です。</p>
+<h3 id="ノードの削除">
+<a class="header-anchor" href="#%e3%83%8e%e3%83%bc%e3%83%89%e3%81%ae%e5%89%8a%e9%99%a4"></a>
+ノードの削除
+</h3><p>削除は最も間違えやすい部分で、3つの場合に分かれます：</p>
+<table>
+	<thead>
+			<tr>
+					<th>場合</th>
+					<th>処理方法</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>リーフノード（子なし）</td>
+					<td>そのまま削除</td>
+			</tr>
+			<tr>
+					<td>子が1つだけ</td>
+					<td>その子を自分の位置に代人させる</td>
+			</tr>
+			<tr>
+					<td>子が2つ</td>
+					<td><strong>右部分木の最小ノード</strong>（中間順の後続）で自分の値を置き換え、その後続ノードを再帰的に削除する</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">remove</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>      <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span>  <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span>  <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&gt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span>  <span class="p">{</span> <span class="k">auto</span> <span class="n">t</span> <span class="o">=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span> <span class="k">delete</span> <span class="n">root</span><span class="p">;</span> <span class="k">return</span> <span class="n">t</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="p">{</span> <span class="k">auto</span> <span class="n">t</span> <span class="o">=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>  <span class="k">delete</span> <span class="n">root</span><span class="p">;</span> <span class="k">return</span> <span class="n">t</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 子が2つ：右部分木の最小ノードを探す
+</span></span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">succ</span> <span class="o">=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">succ</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="n">succ</span> <span class="o">=</span> <span class="n">succ</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span>  <span class="o">=</span> <span class="n">succ</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">succ</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote>
+<p><strong>左部分木の最大ノード</strong>（中間順の先行）で置き換えても効果は同等です。</p>
+</blockquote>
+<h3 id="木全体の削除">
+<a class="header-anchor" href="#%e6%9c%a8%e5%85%a8%e4%bd%93%e3%81%ae%e5%89%8a%e9%99%a4"></a>
+木全体の削除
+</h3><p>後行順で各ノードを順に解放します。親ノードを先に解放してから子を探してはいけません。</p>
+<h2 id="八二分木の手がかり化">
+<a class="header-anchor" href="#%e5%85%ab%e4%ba%8c%e5%88%86%e6%9c%a8%e3%81%ae%e6%89%8b%e3%81%8c%e3%81%8b%e3%82%8a%e5%8c%96"></a>
+八、二分木の手がかり化
+</h2><h3 id="問題-7">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-7"></a>
+問題
+</h3><p>$n$ 個のノードを持つ二分木には $2n$ 個のポインタ領域がありますが、実際に使われるのは $n-1$ 本の辺だけで、残りの $n+1$ 個は空ポインタであり、明らかに無駄です。<strong>手がかり化</strong>とは、この空ポインタに走査順での<strong>先行/後続</strong>を格納し、走査がスタックや再帰に依存しなくて済むようにすることです。</p>
+<h3 id="データ構造-2">
+<a class="header-anchor" href="#%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0-2"></a>
+データ構造
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Node</span> <span class="o">*</span><span class="n">left</span><span class="p">,</span> <span class="o">*</span><span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">ltag</span><span class="p">,</span> <span class="n">rtag</span><span class="p">;</span>   <span class="c1">// 0 は子を指す、1 は手がかり（先行/後続を指す）
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h3 id="アルゴリズム中間順の手がかり化を例に">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e4%b8%ad%e9%96%93%e9%a0%86%e3%81%ae%e6%89%8b%e3%81%8c%e3%81%8b%e3%82%8a%e5%8c%96%e3%82%92%e4%be%8b%e3%81%ab"></a>
+アルゴリズム（中間順の手がかり化を例に）
+</h3><p>再帰的な中間順走査を使い、同時にグローバルな <code>pre</code> ポインタで直前に訪問したノードを記録します：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Node</span><span class="o">*</span> <span class="n">pre</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">thread</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">thread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>              <span class="c1">// まず左部分木を処理する
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="p">{</span>               <span class="c1">// 左の子が空なら、左ポインタを先行に向け替える
+</span></span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">-&gt;</span><span class="n">ltag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">pre</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">pre</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="p">{</span>     <span class="c1">// 先行の右の子が空なら、右ポインタを後続に向け替える
+</span></span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">rtag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">pre</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>                      <span class="c1">// 先行を更新する
+</span></span></span><span class="line"><span class="cl">    <span class="kr">thread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>             <span class="c1">// 次に右部分木を処理する
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要点-4">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-4"></a>
+要点
+</h3><ul>
+<li><code>left</code> / <code>right</code> ポインタの意味は<strong>二重</strong>であり、<code>ltag</code> / <code>rtag</code> で区別しなければなりません。そうしないと手がかりを子ポインタとして使ってしまい、無限ループになります。</li>
+<li>中間順の手がかり化では、<strong>先に左部分木を再帰</strong>し、次に現在のノードを処理し、最後に右部分木を再帰します。<code>pre = p</code> の位置が手がかりの向き先を決めます。</li>
+<li>先行順、後行順の手がかり化も考え方は同じで、違いは<strong>現在のノードを処理するタイミング</strong>と <code>pre</code> を更新する順序にあります。</li>
+<li>手がかり化した木は空間 $O(1)$ で走査でき、スタックも再帰も必要ありません。</li>
+</ul>
+<h2 id="九グラフの格納隣接行列と隣接リスト">
+<a class="header-anchor" href="#%e4%b9%9d%e3%82%b0%e3%83%a9%e3%83%95%e3%81%ae%e6%a0%bc%e7%b4%8d%e9%9a%a3%e6%8e%a5%e8%a1%8c%e5%88%97%e3%81%a8%e9%9a%a3%e6%8e%a5%e3%83%aa%e3%82%b9%e3%83%88"></a>
+九、グラフの格納：隣接行列と隣接リスト
+</h2><h3 id="隣接行列">
+<a class="header-anchor" href="#%e9%9a%a3%e6%8e%a5%e8%a1%8c%e5%88%97"></a>
+隣接行列
+</h3><p>二次元配列 <code>adj[V][V]</code> で辺を格納します。<code>adj[i][j] = 1</code>（または辺の重み）は $i \to j$ に辺があることを意味します。</p>
+<ul>
+<li>長所：2点間に辺があるかの判定が $O(1)$。実装も単純。</li>
+<li>短所：空間が常に $O(V^2)$ で、<strong>疎グラフでは浪費が深刻</strong>。ある点のすべての隣接点を走査するには1行全体を走査する必要があり $O(V)$。</li>
+<li>無向グラフの行列は主対角線に対して対称です。</li>
+</ul>
+<h3 id="隣接リスト">
+<a class="header-anchor" href="#%e9%9a%a3%e6%8e%a5%e3%83%aa%e3%82%b9%e3%83%88"></a>
+隣接リスト
+</h3><p>「配列 + 連結リスト」を使います。<code>adj[i]</code> にはノード $i$ に隣接するすべてのノードを格納します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">adj</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>          <span class="c1">// 各要素が1つの連結リスト/動的配列
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">addEdge</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>       <span class="c1">// 無向グラフでは逆向きの辺も追加する
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>長所：空間は $O(V + E)$ で、疎グラフに優しい。ある点の隣接点を走査するときは実在する辺だけを訪問します。</li>
+<li>短所：2点間に辺があるかを判定するには連結リストを走査する必要があり、最悪 $O(V)$。</li>
+<li>有向グラフでは、<code>adj[u]</code> に格納されるのは $u$ の出辺です。入次数を求めるには追加の走査か、別途<strong>逆隣接リスト</strong>を作る必要があります。</li>
+</ul>
+<h3 id="どちらを選ぶか">
+<a class="header-anchor" href="#%e3%81%a9%e3%81%a1%e3%82%89%e3%82%92%e9%81%b8%e3%81%b6%e3%81%8b"></a>
+どちらを選ぶか
+</h3><table>
+	<thead>
+			<tr>
+					<th>場面</th>
+					<th>選択</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>稠密グラフ、2点が隣接するかの問い合わせが多い</td>
+					<td>隣接行列</td>
+			</tr>
+			<tr>
+					<td>疎グラフ、ある点のすべての隣接点の走査が多い</td>
+					<td>隣接リスト</td>
+			</tr>
+			<tr>
+					<td>点数が極端に多い（例：$10^5$）</td>
+					<td>隣接リスト（行列はそもそも確保できない）</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="グラフ構築時のチェック">
+<a class="header-anchor" href="#%e3%82%b0%e3%83%a9%e3%83%95%e6%a7%8b%e7%af%89%e6%99%82%e3%81%ae%e3%83%81%e3%82%a7%e3%83%83%e3%82%af"></a>
+グラフ構築時のチェック
+</h3><p>辺 $(u, v)$ を読み込んだ後は $0 \le u, v < V$ を検証し、範囲外を避けます。重みなしグラフでは2点間に辺を重複して追加すべきではありません。そうしないと走査や次数の集計に影響します。</p>
+<h2 id="十kruskal-と最小全域木">
+<a class="header-anchor" href="#%e5%8d%81kruskal-%e3%81%a8%e6%9c%80%e5%b0%8f%e5%85%a8%e5%9f%9f%e6%9c%a8"></a>
+十、Kruskal と最小全域木
+</h2><h3 id="問題-8">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-8"></a>
+問題
+</h3><p>重み付き連結無向グラフの中で、<strong>総重みが最小</strong>の全域木を探します。</p>
+<h3 id="アルゴリズム貪欲法">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%b2%aa%e6%ac%b2%e6%b3%95"></a>
+アルゴリズム（貪欲法）
+</h3><ol>
+<li>すべての辺を重みの<strong>昇順でソート</strong>します。</li>
+<li>各辺を順に検討します。その両端点がまだ<strong>同じ集合にない</strong>なら全域木に加え、この2つの集合を統合します。そうでなければ閉路ができるので、そのまま捨てます。</li>
+<li>$V-1$ 本の辺を選び終えたら終了します。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">sort</span><span class="p">(</span><span class="n">edges</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">edges</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">     <span class="p">[](</span><span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">weight</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">weight</span><span class="p">;</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">UnionFind</span> <span class="nf">uf</span><span class="p">(</span><span class="n">numNodes</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="n">Edge</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">edges</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">uf</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">start</span><span class="p">)</span> <span class="o">!=</span> <span class="n">uf</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">end</span><span class="p">))</span> <span class="p">{</span>   <span class="c1">// 非連結 → 加えても閉路にならない
+</span></span></span><span class="line"><span class="cl">        <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">uf</span><span class="p">.</span><span class="n">unite</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">start</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">end</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="union-find素集合データ構造">
+<a class="header-anchor" href="#union-find%e7%b4%a0%e9%9b%86%e5%90%88%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0"></a>
+Union-Find（素集合データ構造）
+</h3><p>Kruskal の効率の鍵は「2点がすでに連結かどうかを判定する」ことにあり、これがまさに Union-Find の得意分野です。2つの操作をサポートします：</p>
+<ul>
+<li><strong>Find(x)</strong>：$x$ が属する集合の根ノードを求め、ついでに2点が同じ集合かを判定します。</li>
+<li><strong>Union(a, b)</strong>：2つの集合を統合します。</li>
+</ul>
+<p>2つの最適化を併用すると、ならし計算量をほぼ定数にできます：</p>
+<table>
+	<thead>
+			<tr>
+					<th>最適化</th>
+					<th>方法</th>
+					<th>効果</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>経路圧縮</td>
+					<td>Find 時に経路上のすべてのノードを直接根に付ける</td>
+					<td>木の高さを大幅に下げる</td>
+			</tr>
+			<tr>
+					<td>ランクによる統合</td>
+					<td>低い木を高い木の下に付ける</td>
+					<td>木が偏るのを防ぐ</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">find</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">!=</span> <span class="n">x</span><span class="p">)</span> <span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>   <span class="c1">// 経路圧縮
+</span></span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">unite</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="n">b</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">rank</span><span class="p">[</span><span class="n">b</span><span class="p">])</span> <span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>   <span class="c1">// ランクによる統合
+</span></span></span><span class="line"><span class="cl">    <span class="n">parent</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">==</span> <span class="n">rank</span><span class="p">[</span><span class="n">b</span><span class="p">])</span> <span class="n">rank</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要点-5">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-5"></a>
+要点
+</h3><ul>
+<li>時間計算量は $O(E \log E)$ で、主にソートに費やされます。</li>
+<li><strong>疎グラフに適しています</strong>。稠密グラフでは通常 Prim アルゴリズム（$O(V^2)$、またはヒープを使った $O(E \log V)$）の方が高速です。</li>
+<li>辺のソートと、Union-Find による閉路判定が、Kruskal の2つの中核動作です。</li>
+</ul>
+<h2 id="十一dijkstra-と単一始点最短経路">
+<a class="header-anchor" href="#%e5%8d%81%e4%b8%80dijkstra-%e3%81%a8%e5%8d%98%e4%b8%80%e5%a7%8b%e7%82%b9%e6%9c%80%e7%9f%ad%e7%b5%8c%e8%b7%af"></a>
+十一、Dijkstra と単一始点最短経路
+</h2><h3 id="問題-9">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-9"></a>
+問題
+</h3><p>重み付きグラフと始点 $s$ が与えられたとき、$s$ から他のすべての頂点への最短距離を求めます。</p>
+<h3 id="アルゴリズム貪欲法--優先度付きキュー">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%b2%aa%e6%ac%b2%e6%b3%95--%e5%84%aa%e5%85%88%e5%ba%a6%e4%bb%98%e3%81%8d%e3%82%ad%e3%83%a5%e3%83%bc"></a>
+アルゴリズム（貪欲法 + 優先度付きキュー）
+</h3><ol>
+<li>始点の距離を 0 に、それ以外をすべて無限大に設定します。</li>
+<li><code>(距離, 頂点)</code> を<strong>優先度付きキュー</strong>に入れ、毎回距離が最小の頂点 $u$ を取り出します。この時点でその最短距離はすでに確定しています。</li>
+<li>緩和：$u$ の各隣接点 $v$ について、$dist[u] + w(u,v) < dist[v]$ なら $dist[v]$ を更新し、新しい <code>(dist[v], v)</code> をキューに入れます。</li>
+<li>2–3 をキューが空になるまで繰り返します。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dijkstra</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">g</span><span class="p">,</span> <span class="kt">int</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">g</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">INF</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 最小ヒープ：キューの先頭が距離最小の要素
+</span></span></span><span class="line"><span class="cl">    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;&gt;&gt;</span> <span class="n">pq</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">dist</span><span class="p">[</span><span class="n">src</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="mi">0</span><span class="p">,</span> <span class="n">src</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">pq</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">auto</span> <span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">pq</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">])</span> <span class="k">continue</span><span class="p">;</span>        <span class="c1">// 期限切れの項目はスキップ
+</span></span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">v</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>   <span class="c1">// 0 は直接の接続がないことを表す
+</span></span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">v</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">dist</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要点-6">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-6"></a>
+要点
+</h3><ul>
+<li><strong>負の重みの辺は扱えません</strong>。Dijkstra の正しさは「一度取り出した点の距離はもう小さくならない」ことに依存しており、負の重みの辺はこの前提を崩します。負の重みを含む場合は Bellman-Ford や SPFA に切り替えます。</li>
+<li>隣接行列でグラフを表す場合、内側の走査は $O(V)$ で、全体の計算量は $O(V^2)$ です。隣接リストと優先度付きキューに変えると $O(E \log V)$ まで下げられます。</li>
+<li>同じ点が複数回エンキューされることがあるため、デキュー時に <code>d &gt; dist[u]</code> を判定して期限切れの項目をスキップします。</li>
+<li><code>0</code> で「辺なし」を表すのは1つの約束事です。グラフで重み 0 の辺を許す場合は、別の目印を設けるか隣接リストに切り替える必要があります。</li>
+</ul>
+<h2 id="十二クリティカルパス">
+<a class="header-anchor" href="#%e5%8d%81%e4%ba%8c%e3%82%af%e3%83%aa%e3%83%86%e3%82%a3%e3%82%ab%e3%83%ab%e3%83%91%e3%82%b9"></a>
+十二、クリティカルパス
+</h2><h3 id="問題-10">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-10"></a>
+問題
+</h3><p>AON（アクティビティ・オン・ノード）ネットワークでは、各ノードが1つのアクティビティを表し、所要時間と先行関係を持ちます。プロジェクトの<strong>総工期</strong>を決めるクリティカルなアクティビティの列を探します。</p>
+<ul>
+<li><strong>最早開始時刻 ES</strong>：そのアクティビティを最も早くいつ開始できるか。</li>
+<li><strong>最遅開始時刻 LS</strong>：総工期を遅らせない前提で、最も遅くいつまでに開始しなければならないか。</li>
+<li><strong>時間余裕</strong>：$LS - ES$。余裕が 0 のアクティビティが<strong>クリティカルアクティビティ</strong>で、それらをつなぐとクリティカルパスになります。</li>
+</ul>
+<h3 id="es-の前向き計算">
+<a class="header-anchor" href="#es-%e3%81%ae%e5%89%8d%e5%90%91%e3%81%8d%e8%a8%88%e7%ae%97"></a>
+ES の前向き計算
+</h3><p><strong>トポロジカル順</strong>で始点イベントから後ろへ進めます：</p>
+$$ES[v] = \max_{u \in pred(v)} \big( ES[u] + duration[u] \big)$$<p>先行アクティビティのない始点イベントは $ES = 0$ です。プロジェクトの総工期は $T = \max_v (ES[v] + duration[v])$ です。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">calcEarliest</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 必ずトポロジカル順で処理する。そうしないと先行の ES がまだ計算されていない
+</span></span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">u</span> <span class="p">:</span> <span class="n">topoOrder</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">earliest</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">earliest</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">earliest</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">duration</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="ls-の後ろ向き計算">
+<a class="header-anchor" href="#ls-%e3%81%ae%e5%be%8c%e3%82%8d%e5%90%91%e3%81%8d%e8%a8%88%e7%ae%97"></a>
+LS の後ろ向き計算
+</h3><p><strong>逆トポロジカル順</strong>で終点イベントから前へ進めます：</p>
+$$LS[u] = \min_{v \in succ(u)} \big( LS[v] \big) - duration[u]$$<p>後続のない終点イベントは $LS = ES = T - duration$ です。（等価に、$LF[\cdot] = T$ とすると $LS = LF - duration$、$LF[u] = \min_{v \in succ(u)} LS[v]$。）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">calcLatest</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">u</span> <span class="p">:</span> <span class="n">reverseTopoOrder</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">latest</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">latest</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="n">latest</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">-</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">duration</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要点-7">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-7"></a>
+要点
+</h3><ul>
+<li>どちらの方向も<strong>必ず厳密にトポロジカル順</strong>で進めなければなりません。そうでないと使う先行/後続がまだ計算されていません。</li>
+<li>始点イベントの判定に「隣接リストが空かどうか」を<strong>使ってはいけません</strong>。隣接リストが空なのは<strong>終点イベント</strong>（出次数が 0）です。始点イベントの判定根拠は<strong>入次数が 0</strong> であることで、この向きを逆にすると計算全体が破綻します。</li>
+<li>クリティカルパスは複数あることがあります。$\text{余裕} = 0$ のアクティビティはすべて印を付ける必要があります。</li>
+<li>総工期を短縮したい場合は、クリティカルアクティビティを圧縮するしかありません。クリティカルでないアクティビティを圧縮しても意味はありません。</li>
+</ul>
+<h2 id="まとめ">
+<a class="header-anchor" href="#%e3%81%be%e3%81%a8%e3%82%81"></a>
+まとめ
+</h2><table>
+	<thead>
+			<tr>
+					<th>実験</th>
+					<th>中核となるデータ構造</th>
+					<th>要点</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Fibonacci</td>
+					<td>関数呼び出しスタック</td>
+					<td>再帰はスタックで引数と戻りアドレスを保存する</td>
+			</tr>
+			<tr>
+					<td>部分集合の分割</td>
+					<td>衝突行列 + 循環キュー</td>
+					<td>グループ内のすべての要素と比較し、貪欲にグループ分けする</td>
+			</tr>
+			<tr>
+					<td>疎行列の乗算</td>
+					<td>3項組の表</td>
+					<td>両側とも非ゼロの項だけを累加する</td>
+			</tr>
+			<tr>
+					<td>KMP</td>
+					<td>LPS 配列</td>
+					<td>テキストのポインタは決して後退しない</td>
+			</tr>
+			<tr>
+					<td>二分木</td>
+					<td>配列 / リンク構造</td>
+					<td>順序記憶の親子の添字関係。3つの DFS + 1つの BFS</td>
+			</tr>
+			<tr>
+					<td>ハフマン</td>
+					<td>最小ヒープ</td>
+					<td>毎回、頻度が最小の2つのノードを統合する</td>
+			</tr>
+			<tr>
+					<td>ソート二分木</td>
+					<td>二叉連結リスト</td>
+					<td>削除は3つの場合に分かれる。中間順で昇順の列が得られる</td>
+			</tr>
+			<tr>
+					<td>手がかり化</td>
+					<td>マークビット付き二叉連結リスト</td>
+					<td>ltag/rtag で子と手がかりを区別する</td>
+			</tr>
+			<tr>
+					<td>グラフの格納</td>
+					<td>隣接行列 / 隣接リスト</td>
+					<td>稠密なら行列、疎ならリスト</td>
+			</tr>
+			<tr>
+					<td>Kruskal</td>
+					<td>辺集合 + Union-Find</td>
+					<td>ソートして辺を選び、閉路判定は Union-Find に任せる</td>
+			</tr>
+			<tr>
+					<td>Dijkstra</td>
+					<td>優先度付きキュー</td>
+					<td>貪欲に緩和し、負の重みの辺は扱えない</td>
+			</tr>
+			<tr>
+					<td>クリティカルパス</td>
+					<td>有向非巡回グラフ + トポロジカル順</td>
+					<td>前向きに ES、後ろ向きに LS を求め、余裕が 0 ならクリティカル</td>
+			</tr>
+	</tbody>
+</table>
+
+        
+        <hr><p>この記事は2023-12-12に<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2026-10-05です</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>著者: </strong> 孤筝</p>
+<p><strong>タイトル: </strong> データ構造実験ノート</p>
+
+<p><strong>公開日: </strong> 2023-12-12</p>
+<p><strong>更新日: </strong> 2026-10-05</p>
+<p><strong>ライセンス: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item></channel></rss>

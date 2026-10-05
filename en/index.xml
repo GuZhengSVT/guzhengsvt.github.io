@@ -1,4 +1,1573 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/en/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright><lastBuildDate>Sat, 28 Mar 2026 17:40:00 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/en/index.xml" rel="self" type="application/rss+xml"/><item><title>Ansys HFSS Beginner's Systematic Hands-On Tutorial</title><link>https://www.guzhengsvt.cn/en/post/othernotes/ansys-hfss-tutorial/</link><pubDate>Sat, 28 Mar 2026 17:40:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/othernotes/ansys-hfss-tutorial/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/en/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright><lastBuildDate>Mon, 05 Oct 2026 20:30:00 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/en/index.xml" rel="self" type="application/rss+xml"/><item><title>Data Structures Lab Notes</title><link>https://www.guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 12 Dec 2023 14:31:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</guid><description>
+<![CDATA[<h1>Data Structures Lab Notes</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
+        
+          <p>This article merges eight earlier data structures lab reports. The filler and the full source listings are gone; what remains is the <strong>core idea, key data structure, and algorithmic essentials</strong> of each experiment, as a revision outline. Code snippets are C++.</p>
+<h2 id="1-recursion-and-the-stack-fibonacci-numbers">
+<a class="header-anchor" href="#1-recursion-and-the-stack-fibonacci-numbers"></a>
+1. Recursion and the Stack: Fibonacci Numbers
+</h2><h3 id="problem">
+<a class="header-anchor" href="#problem"></a>
+Problem
+</h3><p>Compute the $n$-th Fibonacci number recursively.</p>
+<h3 id="why-recursion-depends-on-the-stack">
+<a class="header-anchor" href="#why-recursion-depends-on-the-stack"></a>
+Why recursion depends on the stack
+</h3><p>Whether a recursive call can return correctly depends on two things: <strong>how arguments are passed</strong> and <strong>where to return to</strong>. Take <code>Fib(5)</code>:</p>
+<ol>
+<li>Every recursive level needs fresh storage for that level&rsquo;s parameters;</li>
+<li>The &ldquo;which line do I resume at when this call finishes&rdquo; return address must also be saved.</li>
+</ol>
+<p>Together these form an <strong>activation record</strong>, pushed by the system onto the <strong>call stack</strong>. Calls push, returns pop from the top, and control lands back in the right frame.</p>
+<p>For <code>Fib(3) = Fib(2) + Fib(1)</code> the call tree is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Fib(3)
+</span></span><span class="line"><span class="cl">├── Fib(2)
+</span></span><span class="line"><span class="cl">│   ├── Fib(1) → returns 1
+</span></span><span class="line"><span class="cl">│   └── Fib(0) → returns 0
+</span></span><span class="line"><span class="cl">│   gives 1
+</span></span><span class="line"><span class="cl">└── Fib(1) → returns 1
+</span></span><span class="line"><span class="cl">gives 2
+</span></span></code></pre></div><h3 id="algorithm">
+<a class="header-anchor" href="#algorithm"></a>
+Algorithm
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">Fib</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote>
+<p>This version recomputes the same subproblems over and over, giving exponential time $O(2^n)$. For real use, prefer iteration or memoisation, which is $O(n)$. The recursive form is valuable here because it exposes how the stack works.</p>
+</blockquote>
+<h2 id="2-partitioning-a-set-with-conflicts">
+<a class="header-anchor" href="#2-partitioning-a-set-with-conflicts"></a>
+2. Partitioning a Set with Conflicts
+</h2><h3 id="problem-1">
+<a class="header-anchor" href="#problem-1"></a>
+Problem
+</h3><p>Split a set into <strong>pairwise disjoint</strong> subsets such that no two elements within a subset conflict, using as few subsets as possible. (Typical application: timetabling and scheduling.)</p>
+<h3 id="algorithm-cyclic-filtering">
+<a class="header-anchor" href="#algorithm-cyclic-filtering"></a>
+Algorithm: cyclic filtering
+</h3><ol>
+<li>Describe the conflicts with a <strong>2-D array</strong> (a conflict matrix): $conflict[i][j] = 1$ means $i$ and $j$ conflict, $0$ means they do not.</li>
+<li>Take the first ungrouped element and start a new group with it.</li>
+<li>Scan the remaining ungrouped elements: if an element conflicts with <strong>none of the elements already in the current group</strong>, add it; otherwise skip it and leave it for a later round.</li>
+<li>When a pass ends with elements still ungrouped, open a new group and repeat from step 2 until everything is grouped.</li>
+</ol>
+<h3 id="data-structure">
+<a class="header-anchor" href="#data-structure"></a>
+Data structure
+</h3><p>A <strong>circular queue</strong> holds the pending elements. Each pass rotates them around the queue, so no extra storage is needed.</p>
+<h3 id="key-points">
+<a class="header-anchor" href="#key-points"></a>
+Key points
+</h3><ul>
+<li>&ldquo;Can this element join the group&rdquo; must be checked against <strong>every</strong> element already in the group; checking just one gives wrong results.</li>
+<li>This is a greedy strategy — squeeze in whatever fits now — so it produces a <em>good</em> partition, not necessarily the mathematically optimal one.</li>
+</ul>
+<h2 id="3-sparse-matrix-multiplication">
+<a class="header-anchor" href="#3-sparse-matrix-multiplication"></a>
+3. Sparse Matrix Multiplication
+</h2><h3 id="problem-2">
+<a class="header-anchor" href="#problem-2"></a>
+Problem
+</h3><p>When a matrix has few non-zero entries, a full 2-D array wastes a lot of space. Store only the non-zeros as <strong>triples</strong>, then multiply two such matrices.</p>
+<h3 id="data-structures">
+<a class="header-anchor" href="#data-structures"></a>
+Data structures
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>          <span class="c1">// one non-zero entry
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>          <span class="c1">// row and column index
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>          <span class="c1">// value
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Matrix</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>          <span class="c1">// total rows, total columns
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">L</span><span class="p">;</span>             <span class="c1">// number of non-zero entries
+</span></span></span><span class="line"><span class="cl">    <span class="n">Node</span><span class="o">*</span> <span class="n">Ma</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>     <span class="c1">// array of non-zero entries
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h3 id="algorithm-1">
+<a class="header-anchor" href="#algorithm-1"></a>
+Algorithm
+</h3><p>Following $C_{ij} = \sum_k A_{ik} \cdot B_{kj}$, but only accumulating terms where <strong>both</strong> factors are non-zero:</p>
+<ol>
+<li>Walk each non-zero entry $(i, k, a)$ of $A$;</li>
+<li>Search $B$ for non-zero entries $(k, j, b)$ whose row index is $k$;</li>
+<li>Accumulate $a \times b$ into position $(i, j)$ of the result.</li>
+</ol>
+<p>Result entries are created on demand; if an accumulation ends at 0, nothing is stored.</p>
+<h3 id="key-points-1">
+<a class="header-anchor" href="#key-points-1"></a>
+Key points
+</h3><ul>
+<li>Far faster than the naive triple loop, because multiplications by zero are skipped entirely.</li>
+<li>To speed it up further, add a <strong>row index</strong> to the triple list (a row-linked list) so step 2 does not rescan $B$ from scratch each time.</li>
+<li>Validate that the number of columns of $A$ equals the number of rows of $B$, and that input indices are in range.</li>
+</ul>
+<h2 id="4-kmp-string-matching">
+<a class="header-anchor" href="#4-kmp-string-matching"></a>
+4. KMP String Matching
+</h2><h3 id="problem-3">
+<a class="header-anchor" href="#problem-3"></a>
+Problem
+</h3><p>Find the first occurrence of a pattern in a text. Naive matching shifts the pattern right by one and rewinds the text pointer on a mismatch, which is $O(nm)$ in the worst case. KMP brings it down to $O(n+m)$.</p>
+<h3 id="the-core-the-lps-array">
+<a class="header-anchor" href="#the-core-the-lps-array"></a>
+The core: the LPS array
+</h3><p>LPS (longest prefix suffix) records, for each position of the pattern, the length of the longest proper prefix that is also a suffix of the substring <strong>before that position</strong>. It tells us <strong>how far the pattern may safely slide</strong> on a mismatch, so the text pointer never has to move backwards.</p>
+<p>For the pattern <code>ABABCABAB</code>:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Index</th>
+					<th>0</th>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+					<th>5</th>
+					<th>6</th>
+					<th>7</th>
+					<th>8</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Char</td>
+					<td>A</td>
+					<td>B</td>
+					<td>A</td>
+					<td>B</td>
+					<td>C</td>
+					<td>A</td>
+					<td>B</td>
+					<td>A</td>
+					<td>B</td>
+			</tr>
+			<tr>
+					<td>LPS</td>
+					<td>0</td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="algorithm-2">
+<a class="header-anchor" href="#algorithm-2"></a>
+Algorithm
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// build the LPS array
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">computeLPS</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">pat</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">lps</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>          <span class="c1">// current longest prefix-suffix match
+</span></span></span><span class="line"><span class="cl">    <span class="n">lps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">pat</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">pat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">pat</span><span class="p">[</span><span class="n">len</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">lps</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="o">++</span><span class="n">len</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">len</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">len</span> <span class="o">=</span> <span class="n">lps</span><span class="p">[</span><span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>   <span class="c1">// fall back to the next-longest border
+</span></span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">lps</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// search for pat inside text
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">KMPSearch</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">text</span><span class="p">,</span> <span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">pat</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">pat</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">n</span> <span class="o">=</span> <span class="n">text</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">lps</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">computeLPS</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">lps</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>          <span class="c1">// i walks the text, j walks the pattern
+</span></span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">pat</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span> <span class="n">i</span><span class="o">++</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Match found at index &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">-</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">j</span> <span class="o">=</span> <span class="n">lps</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>    <span class="c1">// keep searching for further matches
+</span></span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">pat</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">j</span> <span class="o">=</span> <span class="n">lps</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span>        <span class="n">i</span><span class="o">++</span><span class="p">;</span>   <span class="c1">// j is already 0, so advance the text pointer instead
+</span></span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="key-points-2">
+<a class="header-anchor" href="#key-points-2"></a>
+Key points
+</h3><ul>
+<li><strong>The text pointer <code>i</code> never moves backwards</strong> — that is where KMP&rsquo;s efficiency comes from.</li>
+<li>On a mismatch, fall back with <code>lps[j-1]</code> rather than resetting <code>j</code> to zero.</li>
+<li>The <code>lps</code> construction is itself &ldquo;matching the pattern against itself&rdquo; and mirrors the main loop.</li>
+<li>Example: text <code>ABABDABACDABABCABAB</code>, pattern <code>ABABCABAB</code> — the match starts at index 10.</li>
+</ul>
+<h2 id="5-binary-trees-storage-and-traversal">
+<a class="header-anchor" href="#5-binary-trees-storage-and-traversal"></a>
+5. Binary Trees: Storage and Traversal
+</h2><h3 id="problem-4">
+<a class="header-anchor" href="#problem-4"></a>
+Problem
+</h3><p>Given a string of characters in <strong>level order (BFS order)</strong> where <code>@</code> marks a missing node, build a binary tree, then implement traversal for both array-based and pointer-based storage.</p>
+<h3 id="two-storage-schemes">
+<a class="header-anchor" href="#two-storage-schemes"></a>
+Two storage schemes
+</h3><p><strong>Sequential (array) storage</strong>: parent/child relations are computed from indices:</p>
+<ul>
+<li>Parent at index $i$ → left child $2i+1$, right child $2i+2$;</li>
+<li>Conversely, the parent of node $i$ is $\lfloor (i-1)/2 \rfloor$.</li>
+</ul>
+<p>Suits <strong>complete binary trees</strong>; with a sparse tree most of the array is wasted.</p>
+<p><strong>Linked storage</strong>: a struct with pointers, built with the help of a <strong>queue</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">TreeNode</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>Construction: push the root, then repeatedly pop a node from the front and attach its left and right children in turn (an <code>@</code> means that side stays empty), pushing each new child. To build from preorder input instead, swap the queue for a stack.</p>
+<h3 id="the-three-depth-first-traversals">
+<a class="header-anchor" href="#the-three-depth-first-traversals"></a>
+The three depth-first traversals
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">preOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>          <span class="c1">// root → left → right
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">preOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">preOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">inOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>           <span class="c1">// left → root → right
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">postOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>         <span class="c1">// left → right → root
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">postOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">postOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="breadth-first-traversal">
+<a class="header-anchor" href="#breadth-first-traversal"></a>
+Breadth-first traversal
+</h3><p>Use a queue to process the tree level by level: on visiting a node, push its left then right child.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">levelOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">q</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span> <span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span>  <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="worked-example">
+<a class="header-anchor" href="#worked-example"></a>
+Worked example
+</h3><p>Input <code>abc@def@@@@</code> (level order, <code>@</code> empty) describes this tree:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">        a
+</span></span><span class="line"><span class="cl">      /   \
+</span></span><span class="line"><span class="cl">     b     c
+</span></span><span class="line"><span class="cl">    / \   / \
+</span></span><span class="line"><span class="cl">   @   d e   f
+</span></span><span class="line"><span class="cl">      / \ / \ / \
+</span></span><span class="line"><span class="cl">     @  @ @ @ @  @
+</span></span></code></pre></div><table>
+	<thead>
+			<tr>
+					<th>Traversal</th>
+					<th>Result</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>preorder (root, left, right)</td>
+					<td><code>a b d c e f</code></td>
+			</tr>
+			<tr>
+					<td>inorder (left, root, right)</td>
+					<td><code>b d a e c f</code></td>
+			</tr>
+			<tr>
+					<td>postorder (left, right, root)</td>
+					<td><code>d b e f c a</code></td>
+			</tr>
+			<tr>
+					<td>level order (BFS)</td>
+					<td><code>a b c d e f</code></td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p>With array storage, take care where an inorder walk starts: preorder may start at index 0, but <strong>inorder must start at the leftmost node of the whole tree</strong>, or the left half of the left subtree is missed.</p>
+</blockquote>
+<h3 id="reconstructing-a-tree-from-traversals">
+<a class="header-anchor" href="#reconstructing-a-tree-from-traversals"></a>
+Reconstructing a tree from traversals
+</h3><ul>
+<li>preorder + inorder, postorder + inorder, and level order + inorder each determine a unique binary tree.</li>
+<li><strong>preorder + postorder does not</strong>, because it cannot tell whether a lone child hangs on the left or the right.</li>
+</ul>
+<h2 id="6-huffman-trees-and-coding">
+<a class="header-anchor" href="#6-huffman-trees-and-coding"></a>
+6. Huffman Trees and Coding
+</h2><h3 id="problem-5">
+<a class="header-anchor" href="#problem-5"></a>
+Problem
+</h3><p>Assign codes to characters according to their frequency so that the encoded text is as short as possible and no code is a prefix of another (a prefix code, which guarantees unique decoding).</p>
+<h3 id="algorithm-3">
+<a class="header-anchor" href="#algorithm-3"></a>
+Algorithm
+</h3><ol>
+<li>Count the frequency of every character.</li>
+<li>Create one leaf node per character and push them all into a <strong>min-heap</strong>.</li>
+<li>While more than one node remains: pop the two least frequent nodes, merge them into a new internal node whose frequency is their sum, and push it back.</li>
+<li>When one node is left, it is the root of the Huffman tree.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="n">minHeap</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">left</span>  <span class="o">=</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">right</span> <span class="o">=</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">parent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HuffmanNode</span><span class="p">(</span><span class="sc">&#39;$&#39;</span><span class="p">,</span> <span class="n">left</span><span class="o">-&gt;</span><span class="n">frequency</span> <span class="o">+</span> <span class="n">right</span><span class="o">-&gt;</span><span class="n">frequency</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parent</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parent</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">minHeap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">parent</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="encoding-and-decoding">
+<a class="header-anchor" href="#encoding-and-decoding"></a>
+Encoding and decoding
+</h3><ul>
+<li><strong>Generate codes</strong>: recurse from the root, appending <code>0</code> when going left and <code>1</code> when going right; at a leaf, the accumulated string is that character&rsquo;s code.</li>
+<li><strong>Encode</strong>: replace every character of the input with its code.</li>
+<li><strong>Decode</strong>: start at the root, follow <code>0</code> left and <code>1</code> right, and on reaching a leaf emit that character and restart from the root.</li>
+</ul>
+<h3 id="key-points-3">
+<a class="header-anchor" href="#key-points-3"></a>
+Key points
+</h3><ul>
+<li>Frequent characters sit close to the root and get short codes — that is the whole idea behind compression.</li>
+<li>Because every character lives at a leaf, no code can be a prefix of another, so decoding is unambiguous.</li>
+<li>Using a <strong>min-heap</strong> instead of repeated sorting brings construction down to $O(n \log n)$.</li>
+<li>Characters with equal frequency may be ordered either way without changing any code length; only which bit string each receives changes.</li>
+</ul>
+<h2 id="7-binary-search-trees-and-deletion">
+<a class="header-anchor" href="#7-binary-search-trees-and-deletion"></a>
+7. Binary Search Trees and Deletion
+</h2><h3 id="problem-6">
+<a class="header-anchor" href="#problem-6"></a>
+Problem
+</h3><p>Build a binary search tree (BST) supporting insertion, inorder traversal, and node deletion.</p>
+<h3 id="insertion">
+<a class="header-anchor" href="#insertion"></a>
+Insertion
+</h3><p>Compare recursively: smaller goes left, larger goes right, and an empty slot gets a new node.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">insert</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>      <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span>  <span class="o">=</span> <span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span>  <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&gt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>   <span class="c1">// duplicates are not inserted
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="inorder-traversal">
+<a class="header-anchor" href="#inorder-traversal"></a>
+Inorder traversal
+</h3><p>An inorder walk of a BST yields an <strong>increasing sequence</strong> — the quickest sanity check that the tree was built correctly.</p>
+<h3 id="deleting-a-node">
+<a class="header-anchor" href="#deleting-a-node"></a>
+Deleting a node
+</h3><p>Deletion is the easiest step to get wrong. There are three cases:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Case</th>
+					<th>Handling</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Leaf (no children)</td>
+					<td>delete it directly</td>
+			</tr>
+			<tr>
+					<td>Exactly one child</td>
+					<td>let that child take its place</td>
+			</tr>
+			<tr>
+					<td>Two children</td>
+					<td>replace its value with the <strong>smallest node in the right subtree</strong> (the inorder successor), then recursively delete that successor</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">remove</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>      <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span>  <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span>  <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&gt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span>  <span class="p">{</span> <span class="k">auto</span> <span class="n">t</span> <span class="o">=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span> <span class="k">delete</span> <span class="n">root</span><span class="p">;</span> <span class="k">return</span> <span class="n">t</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="p">{</span> <span class="k">auto</span> <span class="n">t</span> <span class="o">=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>  <span class="k">delete</span> <span class="n">root</span><span class="p">;</span> <span class="k">return</span> <span class="n">t</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// two children: find the smallest node of the right subtree
+</span></span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">succ</span> <span class="o">=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">succ</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="n">succ</span> <span class="o">=</span> <span class="n">succ</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span>   <span class="o">=</span> <span class="n">succ</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">succ</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote>
+<p>Replacing with the <strong>largest node of the left subtree</strong> (the inorder predecessor) is equally valid.</p>
+</blockquote>
+<h3 id="deleting-the-whole-tree">
+<a class="header-anchor" href="#deleting-the-whole-tree"></a>
+Deleting the whole tree
+</h3><p>Free nodes in postorder; releasing a parent before its children loses the pointers you still need.</p>
+<h2 id="8-threaded-binary-trees">
+<a class="header-anchor" href="#8-threaded-binary-trees"></a>
+8. Threaded Binary Trees
+</h2><h3 id="problem-7">
+<a class="header-anchor" href="#problem-7"></a>
+Problem
+</h3><p>A binary tree with $n$ nodes has $2n$ pointer fields, but only $n-1$ edges are actually used, leaving $n+1$ null pointers wasted. <strong>Threading</strong> reuses those nulls to store the <strong>predecessor/successor</strong> under some traversal order, so traversal no longer needs a stack or recursion.</p>
+<h3 id="data-structure-1">
+<a class="header-anchor" href="#data-structure-1"></a>
+Data structure
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Node</span> <span class="o">*</span><span class="n">left</span><span class="p">,</span> <span class="o">*</span><span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">ltag</span><span class="p">,</span> <span class="n">rtag</span><span class="p">;</span>   <span class="c1">// 0: points to a child; 1: it is a thread (predecessor/successor)
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h3 id="algorithm-inorder-threading">
+<a class="header-anchor" href="#algorithm-inorder-threading"></a>
+Algorithm (inorder threading)
+</h3><p>Walk the tree inorder recursively while keeping a global <code>pre</code> pointer to the last visited node:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Node</span><span class="o">*</span> <span class="n">pre</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">thread</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">thread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>              <span class="c1">// handle the left subtree first
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="p">{</span>               <span class="c1">// left child empty: point it at the predecessor
+</span></span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">-&gt;</span><span class="n">ltag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">pre</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">pre</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="p">{</span>     <span class="c1">// predecessor&#39;s right child empty: point it here
+</span></span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">rtag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">pre</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>                      <span class="c1">// advance the predecessor
+</span></span></span><span class="line"><span class="cl">    <span class="kr">thread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>             <span class="c1">// then the right subtree
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="key-points-4">
+<a class="header-anchor" href="#key-points-4"></a>
+Key points
+</h3><ul>
+<li><code>left</code> / <code>right</code> are <strong>overloaded</strong>: only <code>ltag</code> / <code>rtag</code> distinguish a child from a thread. Mistaking a thread for a child pointer leads to infinite loops.</li>
+<li>Inorder threading must <strong>recurse left first</strong>, then handle the current node, then recurse right; where <code>pre = p</code> sits determines what the threads point at.</li>
+<li>Preorder and postorder threading follow the same idea; what changes is <strong>when the current node is processed</strong> and the order of <code>pre</code> updates.</li>
+<li>A threaded tree traverses in $O(1)$ extra space, with no stack and no recursion.</li>
+</ul>
+<h2 id="9-graph-storage-adjacency-matrix-vs-adjacency-list">
+<a class="header-anchor" href="#9-graph-storage-adjacency-matrix-vs-adjacency-list"></a>
+9. Graph Storage: Adjacency Matrix vs. Adjacency List
+</h2><h3 id="adjacency-matrix">
+<a class="header-anchor" href="#adjacency-matrix"></a>
+Adjacency matrix
+</h3><p>Store edges in a 2-D array <code>adj[V][V]</code>: <code>adj[i][j] = 1</code> (or the edge weight) means an edge $i \to j$ exists.</p>
+<ul>
+<li>Pros: testing whether two vertices are adjacent is $O(1)$; simple to implement.</li>
+<li>Cons: space is always $O(V^2)$, which is <strong>very wasteful for sparse graphs</strong>; enumerating a vertex&rsquo;s neighbours scans a whole row, $O(V)$.</li>
+<li>For an undirected graph the matrix is symmetric about the main diagonal.</li>
+</ul>
+<h3 id="adjacency-list">
+<a class="header-anchor" href="#adjacency-list"></a>
+Adjacency list
+</h3><p>An array of lists: <code>adj[i]</code> holds every vertex adjacent to $i$.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">adj</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>          <span class="c1">// each element is a linked list / dynamic array
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">addEdge</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>       <span class="c1">// add the reverse edge for undirected graphs
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>Pros: space $O(V + E)$, friendly to sparse graphs; enumerating neighbours touches only edges that exist.</li>
+<li>Cons: testing adjacency requires scanning a list, $O(V)$ worst case.</li>
+<li>In a directed graph, <code>adj[u]</code> holds outgoing edges, so computing in-degrees needs an extra pass or a separate <strong>reverse adjacency list</strong>.</li>
+</ul>
+<h3 id="choosing-between-them">
+<a class="header-anchor" href="#choosing-between-them"></a>
+Choosing between them
+</h3><table>
+	<thead>
+			<tr>
+					<th>Situation</th>
+					<th>Choice</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Dense graph, frequent adjacency queries</td>
+					<td>adjacency matrix</td>
+			</tr>
+			<tr>
+					<td>Sparse graph, frequent neighbour enumeration</td>
+					<td>adjacency list</td>
+			</tr>
+			<tr>
+					<td>Very many vertices (say $10^5$)</td>
+					<td>adjacency list (a matrix will not fit)</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="checks-when-building-a-graph">
+<a class="header-anchor" href="#checks-when-building-a-graph"></a>
+Checks when building a graph
+</h3><p>After reading an edge $(u, v)$, validate $0 \le u, v < V$ to avoid out-of-range access; for unweighted graphs, do not add the same edge twice, as it distorts traversals and degree counts.</p>
+<h2 id="10-kruskal-and-minimum-spanning-trees">
+<a class="header-anchor" href="#10-kruskal-and-minimum-spanning-trees"></a>
+10. Kruskal and Minimum Spanning Trees
+</h2><h3 id="problem-8">
+<a class="header-anchor" href="#problem-8"></a>
+Problem
+</h3><p>Find a spanning tree of <strong>minimum total weight</strong> in a weighted connected undirected graph.</p>
+<h3 id="algorithm-greedy">
+<a class="header-anchor" href="#algorithm-greedy"></a>
+Algorithm (greedy)
+</h3><ol>
+<li>Sort all edges by weight <strong>ascending</strong>.</li>
+<li>Consider each edge in turn: if its endpoints are <strong>not yet in the same set</strong>, add the edge to the tree and merge the two sets; otherwise adding it would create a cycle, so discard it.</li>
+<li>Stop once $V-1$ edges have been chosen.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">sort</span><span class="p">(</span><span class="n">edges</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">edges</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">     <span class="p">[](</span><span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">weight</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">weight</span><span class="p">;</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">UnionFind</span> <span class="nf">uf</span><span class="p">(</span><span class="n">numNodes</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="n">Edge</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">edges</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">uf</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">start</span><span class="p">)</span> <span class="o">!=</span> <span class="n">uf</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">end</span><span class="p">))</span> <span class="p">{</span>   <span class="c1">// disconnected → safe to add
+</span></span></span><span class="line"><span class="cl">        <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">uf</span><span class="p">.</span><span class="n">unite</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">start</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">end</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="union-find">
+<a class="header-anchor" href="#union-find"></a>
+Union-Find
+</h3><p>Kruskal hinges on &ldquo;are these two vertices already connected?&rdquo;, which is exactly what a disjoint-set structure answers well:</p>
+<ul>
+<li><strong>Find(x)</strong>: locate the root of $x$&rsquo;s set, which also tells whether two vertices share a set.</li>
+<li><strong>Union(a, b)</strong>: merge two sets.</li>
+</ul>
+<p>Two optimisations together make the amortised cost nearly constant:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Optimisation</th>
+					<th>Technique</th>
+					<th>Effect</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Path compression</td>
+					<td>on Find, hang every visited node directly off the root</td>
+					<td>sharply reduces tree height</td>
+			</tr>
+			<tr>
+					<td>Union by rank</td>
+					<td>attach the shorter tree under the taller one</td>
+					<td>prevents lopsided trees</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">find</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">!=</span> <span class="n">x</span><span class="p">)</span> <span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>   <span class="c1">// path compression
+</span></span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">unite</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="n">b</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">rank</span><span class="p">[</span><span class="n">b</span><span class="p">])</span> <span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>   <span class="c1">// union by rank
+</span></span></span><span class="line"><span class="cl">    <span class="n">parent</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">==</span> <span class="n">rank</span><span class="p">[</span><span class="n">b</span><span class="p">])</span> <span class="n">rank</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="key-points-5">
+<a class="header-anchor" href="#key-points-5"></a>
+Key points
+</h3><ul>
+<li>Time complexity is $O(E \log E)$, dominated by the sort.</li>
+<li><strong>Best suited to sparse graphs.</strong> For dense graphs Prim&rsquo;s algorithm ($O(V^2)$, or $O(E \log V)$ with a heap) is usually faster.</li>
+<li>Sorting the edges and using Union-Find for cycle detection are the two moves at the heart of Kruskal.</li>
+</ul>
+<h2 id="11-dijkstra-and-single-source-shortest-paths">
+<a class="header-anchor" href="#11-dijkstra-and-single-source-shortest-paths"></a>
+11. Dijkstra and Single-Source Shortest Paths
+</h2><h3 id="problem-9">
+<a class="header-anchor" href="#problem-9"></a>
+Problem
+</h3><p>Given a weighted graph and a source $s$, find the shortest distance from $s$ to every other vertex.</p>
+<h3 id="algorithm-greedy--priority-queue">
+<a class="header-anchor" href="#algorithm-greedy--priority-queue"></a>
+Algorithm (greedy + priority queue)
+</h3><ol>
+<li>Set the source distance to 0 and all others to infinity.</li>
+<li>Put <code>(distance, vertex)</code> pairs into a <strong>priority queue</strong> and repeatedly extract the vertex $u$ with the smallest distance — its shortest distance is now final.</li>
+<li>Relax: for each neighbour $v$ of $u$, if $dist[u] + w(u,v) < dist[v]$ then update $dist[v]$ and push the new <code>(dist[v], v)</code> pair.</li>
+<li>Repeat 2–3 until the queue is empty.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dijkstra</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">g</span><span class="p">,</span> <span class="kt">int</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">g</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">INF</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// min-heap: the smallest element always sits at the front
+</span></span></span><span class="line"><span class="cl">    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;&gt;&gt;</span> <span class="n">pq</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">dist</span><span class="p">[</span><span class="n">src</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="mi">0</span><span class="p">,</span> <span class="n">src</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">pq</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">auto</span> <span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">pq</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">])</span> <span class="k">continue</span><span class="p">;</span>        <span class="c1">// stale entry, skip it
+</span></span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">v</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>   <span class="c1">// 0 means no direct edge
+</span></span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">v</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">dist</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="key-points-6">
+<a class="header-anchor" href="#key-points-6"></a>
+Key points
+</h3><ul>
+<li><strong>Negative edge weights are not supported.</strong> Dijkstra&rsquo;s correctness relies on an extracted vertex&rsquo;s distance never decreasing again, and negative edges break that assumption; use Bellman-Ford or SPFA instead.</li>
+<li>With an adjacency matrix the inner scan is $O(V)$ and the total is $O(V^2)$; switching to an adjacency list with a priority queue brings it to $O(E \log V)$.</li>
+<li>A vertex may be pushed several times, so skip stale entries by checking <code>d &gt; dist[u]</code> on pop.</li>
+<li>Using <code>0</code> to mean &ldquo;no edge&rdquo; is a convention; if zero-weight edges are legitimate, use a separate marker or an adjacency list.</li>
+</ul>
+<h2 id="12-critical-paths">
+<a class="header-anchor" href="#12-critical-paths"></a>
+12. Critical Paths
+</h2><h3 id="problem-10">
+<a class="header-anchor" href="#problem-10"></a>
+Problem
+</h3><p>In an AON (activity-on-node) network, where each vertex is an activity with a duration and precedence constraints, find the sequence of activities that determines the project&rsquo;s <strong>total duration</strong>.</p>
+<ul>
+<li><strong>Earliest start (ES)</strong>: the soonest an activity can begin.</li>
+<li><strong>Latest start (LS)</strong>: the latest it may begin without delaying the whole project.</li>
+<li><strong>Slack</strong>: $LS - ES$. Activities with zero slack are the <strong>critical activities</strong>, and together they form the critical path.</li>
+</ul>
+<h3 id="forward-pass-for-es">
+<a class="header-anchor" href="#forward-pass-for-es"></a>
+Forward pass for ES
+</h3><p>Process the <strong>topological order</strong> from the start events towards the end:</p>
+$$ES[v] = \max_{u \in pred(v)} \big( ES[u] + duration[u] \big)$$<p>An initial activity with no predecessors gets $ES = 0$. The project duration is $T = \max_v (ES[v] + duration[v])$.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">calcEarliest</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// must process in topological order, or a predecessor&#39;s ES is not ready yet
+</span></span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">u</span> <span class="p">:</span> <span class="n">topoOrder</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">earliest</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">earliest</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">earliest</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">duration</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="backward-pass-for-ls">
+<a class="header-anchor" href="#backward-pass-for-ls"></a>
+Backward pass for LS
+</h3><p>Walk the <strong>reverse topological order</strong> back from the end events:</p>
+$$LS[u] = \min_{v \in succ(u)} \big( LS[v] \big) - duration[u]$$<p>A terminal activity with no successors has $LS = ES = T - duration$. (Equivalently, set $LF[\cdot] = T$, so $LS = LF - duration$ and $LF[u] = \min_{v \in succ(u)} LS[v]$.)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">calcLatest</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">u</span> <span class="p">:</span> <span class="n">reverseTopoOrder</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">latest</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">latest</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="n">latest</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">-</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">duration</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="key-points-7">
+<a class="header-anchor" href="#key-points-7"></a>
+Key points
+</h3><ul>
+<li>Both passes <strong>must proceed strictly in topological order</strong>, or the predecessors/successors being read have not been computed yet.</li>
+<li>Do <strong>not</strong> identify start events by &ldquo;the adjacency list is empty&rdquo; — an empty adjacency list marks an <strong>end</strong> event (out-degree 0). Start events are those with <strong>in-degree 0</strong>; getting this backwards invalidates the whole computation.</li>
+<li>There may be more than one critical path; mark every activity whose slack is 0.</li>
+<li>To shorten the project you can only compress critical activities; compressing the others achieves nothing.</li>
+</ul>
+<h2 id="summary">
+<a class="header-anchor" href="#summary"></a>
+Summary
+</h2><table>
+	<thead>
+			<tr>
+					<th>Experiment</th>
+					<th>Core data structure</th>
+					<th>Key point</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Fibonacci</td>
+					<td>call stack</td>
+					<td>recursion relies on the stack for parameters and return addresses</td>
+			</tr>
+			<tr>
+					<td>Set partitioning</td>
+					<td>conflict matrix + circular queue</td>
+					<td>compare against all group members; greedy grouping</td>
+			</tr>
+			<tr>
+					<td>Sparse matrix multiply</td>
+					<td>triple list</td>
+					<td>accumulate only terms non-zero on both sides</td>
+			</tr>
+			<tr>
+					<td>KMP</td>
+					<td>LPS array</td>
+					<td>the text pointer never moves backwards</td>
+			</tr>
+			<tr>
+					<td>Binary trees</td>
+					<td>array / linked nodes</td>
+					<td>index-based parent/child relations; three DFS orders plus BFS</td>
+			</tr>
+			<tr>
+					<td>Huffman</td>
+					<td>min-heap</td>
+					<td>repeatedly merge the two least frequent nodes</td>
+			</tr>
+			<tr>
+					<td>BST</td>
+					<td>linked nodes</td>
+					<td>deletion has three cases; inorder gives a sorted sequence</td>
+			</tr>
+			<tr>
+					<td>Threading</td>
+					<td>nodes with tag bits</td>
+					<td>ltag/rtag distinguish children from threads</td>
+			</tr>
+			<tr>
+					<td>Graph storage</td>
+					<td>adjacency matrix / list</td>
+					<td>dense → matrix, sparse → list</td>
+			</tr>
+			<tr>
+					<td>Kruskal</td>
+					<td>edge list + Union-Find</td>
+					<td>sort edges, detect cycles with Union-Find</td>
+			</tr>
+			<tr>
+					<td>Dijkstra</td>
+					<td>priority queue</td>
+					<td>greedy relaxation; no negative weights</td>
+			</tr>
+			<tr>
+					<td>Critical path</td>
+					<td>DAG + topological order</td>
+					<td>forward for ES, backward for LS; zero slack is critical</td>
+			</tr>
+	</tbody>
+</table>
+
+        
+        <hr><p>Published on 2023-12-12 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2026-10-05</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> Data Structures Lab Notes</p>
+
+<p><strong>Published: </strong> 2023-12-12</p>
+<p><strong>Updated: </strong> 2026-10-05</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item><item><title>MicroPython Function Reference</title><link>https://www.guzhengsvt.cn/en/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link><pubDate>Thu, 15 Feb 2024 11:44:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid><description>
+<![CDATA[<h1>MicroPython Function Reference</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
+        
+          <p>This article collects the parts of MicroPython&rsquo;s <code>machine</code> module that are most useful on a Raspberry Pi Pico (RP2040). Everything has been checked against the <a href="https://docs.micropython.org/en/latest/library/machine.html">official MicroPython documentation</a>.</p>
+<h2 id="machine-hardware-related-functions">
+<a class="header-anchor" href="#machine-hardware-related-functions"></a>
+machine: Hardware-Related Functions
+</h2><p>There are two numbering schemes for pins:</p>
+<ul>
+<li><strong>GPIO number</strong> (GP0–GP29): the one used in code; <code>Pin(25)</code> means GP25.</li>
+<li><strong>Physical pin number</strong>: the 40 header positions on the board. These are not the same as GPIO numbers, so be careful when wiring.</li>
+</ul>
+<h3 id="class-pin">
+<a class="header-anchor" href="#class-pin"></a>
+class Pin
+</h3><h4 id="constructor-machinepinid-mode-1-pull-1-valuenone">
+<a class="header-anchor" href="#constructor-machinepinid-mode-1-pull-1-valuenone"></a>
+Constructor <code>machine.Pin(id, mode=-1, pull=-1, value=None)</code>
+</h4><table>
+	<thead>
+			<tr>
+					<th>Parameter</th>
+					<th>Meaning</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>id</code></td>
+					<td>Pin identifier. On the Pico, 0–29 (GP0–GP29)</td>
+			</tr>
+			<tr>
+					<td><code>mode</code></td>
+					<td><code>None</code> / <code>Pin.IN</code>(0) / <code>Pin.OUT</code>(1) / <code>Pin.OPEN_DRAIN</code>(2)</td>
+			</tr>
+			<tr>
+					<td><code>pull</code></td>
+					<td>Internal pull resistor, <strong>valid only in input mode</strong>: <code>None</code> / <code>Pin.PULL_UP</code>(1) / <code>Pin.PULL_DOWN</code>(2)</td>
+			</tr>
+			<tr>
+					<td><code>value</code></td>
+					<td>Valid only for output/open-drain mode; initial level: 0 low, 1 high</td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p>Note that it is <code>Pin.PULL_DOWN</code>, not <code>Pin.DOWN</code>.</p>
+</blockquote>
+<h4 id="pininitmode-1-pull-1-valuenone">
+<a class="header-anchor" href="#pininitmode-1-pull-1-valuenone"></a>
+<code>Pin.init(mode=-1, pull=-1, value=None)</code>
+</h4><p>Re-initialise the pin. Only the arguments you pass are changed; everything else keeps its current state.</p>
+<h4 id="pinvaluex">
+<a class="header-anchor" href="#pinvaluex"></a>
+<code>Pin.value([x])</code>
+</h4><ul>
+<li>With no argument: returns the current pin level (0 or 1).</li>
+<li>With an argument: writes the level. The argument is converted to a boolean (<code>True</code> sets 1, <code>False</code> sets 0).</li>
+</ul>
+<h4 id="pinon--pinoff-and-pinhigh--pinlow">
+<a class="header-anchor" href="#pinon--pinoff-and-pinhigh--pinlow"></a>
+<code>Pin.on()</code> / <code>Pin.off()</code> and <code>Pin.high()</code> / <code>Pin.low()</code>
+</h4><ul>
+<li><code>on()</code>, <code>high()</code>: drive the pin high (1).</li>
+<li><code>off()</code>, <code>low()</code>: drive the pin low (0).</li>
+</ul>
+<p>These four are meaningful only in output/open-drain mode. <code>low()</code> and <code>high()</code> are not part of the core API, but they are available on the Pico (rp2 port).</p>
+<h4 id="pintoggle">
+<a class="header-anchor" href="#pintoggle"></a>
+<code>Pin.toggle()</code>
+</h4><p>Flips the output level from 0 to 1 or 1 to 0. <code>toggle()</code> is available on the rp2, esp32, and several other ports; where it is missing, use <code>Pin.value(not Pin.value())</code> instead.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>   <span class="c1"># the on-board LED of a Pico is GP25</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>        <span class="c1"># flip once per second</span>
+</span></span></code></pre></div><h4 id="pinirqhandlernone-triggerpinirq_falling--pinirq_rising">
+<a class="header-anchor" href="#pinirqhandlernone-triggerpinirq_falling--pinirq_rising"></a>
+<code>Pin.irq(handler=None, trigger=Pin.IRQ_FALLING | Pin.IRQ_RISING)</code>
+</h4><p>Configures an external interrupt. The callback runs whenever the trigger condition occurs.</p>
+<ul>
+<li><code>handler</code>: the callback, which <strong>must accept one <code>Pin</code> argument</strong>.</li>
+<li><code>trigger</code>: the condition, and multiple values can be OR-ed with <code>|</code>:</li>
+</ul>
+<table>
+	<thead>
+			<tr>
+					<th>Constant</th>
+					<th>Trigger</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>Pin.IRQ_FALLING</code></td>
+					<td>falling edge</td>
+			</tr>
+			<tr>
+					<td><code>Pin.IRQ_RISING</code></td>
+					<td>rising edge</td>
+			</tr>
+			<tr>
+					<td><code>Pin.IRQ_LOW_LEVEL</code></td>
+					<td>low level</td>
+			</tr>
+			<tr>
+					<td><code>Pin.IRQ_HIGH_LEVEL</code></td>
+					<td>high level</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Button pressed&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">button</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">button</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">on_press</span><span class="p">,</span> <span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="class-pwm">
+<a class="header-anchor" href="#class-pwm"></a>
+class PWM
+</h3><p>PWM (pulse-width modulation) switches a pin on and off rapidly to emulate intermediate voltages. It is used for dimming LEDs, controlling motor speed, and driving servos.</p>
+<h4 id="machinepwmpin-freq-duty_u16">
+<a class="header-anchor" href="#machinepwmpin-freq-duty_u16"></a>
+<code>machine.PWM(pin, freq=..., duty_u16=...)</code>
+</h4><p>Creates a PWM output on the given pin; <code>pin</code> is a <code>Pin</code> object.</p>
+<h4 id="common-methods">
+<a class="header-anchor" href="#common-methods"></a>
+Common methods
+</h4><table>
+	<thead>
+			<tr>
+					<th>Method</th>
+					<th>Purpose</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>PWM.freq([value])</code></td>
+					<td>get/set the frequency in Hz, roughly 8 Hz – 62.5 MHz (at a 125 MHz CPU clock)</td>
+			</tr>
+			<tr>
+					<td><code>PWM.duty_u16([value])</code></td>
+					<td>get/set the duty cycle as <strong>0–65535</strong>, the ratio <code>value / 65535</code></td>
+			</tr>
+			<tr>
+					<td><code>PWM.duty_ns([value])</code></td>
+					<td>get/set the high time within one period, in nanoseconds</td>
+			</tr>
+			<tr>
+					<td><code>PWM.deinit()</code></td>
+					<td>stop the PWM output</td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p>The upper bound of <code>duty_u16</code> is <strong>65535</strong>, not 65536. Passing 65536 overflows.</p>
+</blockquote>
+<p>RP2040 has 8 independent PWM slices with 2 channels each, 16 channels in total. The two channels of a slice <strong>must share a frequency</strong> but may have different duty cycles.</p>
+<h4 id="example-breathing-led">
+<a class="header-anchor" href="#example-breathing-led"></a>
+Example: breathing LED
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">led</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>      <span class="c1"># 1 kHz</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">duty</span> <span class="o">=</span> <span class="mi">0</span>            <span class="c1"># duty cycle in percent</span>
+</span></span><span class="line"><span class="cl"><span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">duty</span> <span class="o">+=</span> <span class="n">step</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">duty</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">duty</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl">        <span class="n">step</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">duty</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">duty</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># convert percent to the 0-65535 range, without overflowing</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">duty</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">*</span> <span class="mi">65535</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">duty</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">duty</span><span class="p">)</span>  <span class="c1"># convenient for plotting</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>  <span class="c1"># roughly a 2-second round trip</span>
+</span></span></code></pre></div><h4 id="example-button-controlled-led-with-software-debouncing">
+<a class="header-anchor" href="#example-button-controlled-led-with-software-debouncing"></a>
+Example: button-controlled LED (with software debouncing)
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">button</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>   <span class="c1"># reads 0 while pressed</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_board</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>            <span class="c1"># on-board LED</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_ext</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>              <span class="c1"># external LED</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led_ext</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>             <span class="c1"># possibly pressed</span>
+</span></span><span class="line"><span class="cl">        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>                <span class="c1"># wait 10 ms and check again to filter bounce</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>         <span class="c1"># confirmed</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led_board</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led_ext</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;The button is pressed.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># wait for release</span>
+</span></span><span class="line"><span class="cl">                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>A mechanical button bounces for a few milliseconds when pressed or released, and the CPU can read that as several presses. <strong>Software debouncing</strong> means: after detecting a change, wait about 10 ms and read the pin again to confirm.</p>
+</blockquote>
+<h3 id="class-adc">
+<a class="header-anchor" href="#class-adc"></a>
+class ADC
+</h3><p>The ADC (analog-to-digital converter) turns an analog voltage into a digital reading.</p>
+<h4 id="machineadcid">
+<a class="header-anchor" href="#machineadcid"></a>
+<code>machine.ADC(id)</code>
+</h4><p><code>id</code> may be a <code>Pin</code> object or a channel number:</p>
+<ul>
+<li>On the Pico, channels <strong>0–3 map to GP26–GP29</strong> (GP29 is wired to VSYS on the board);</li>
+<li>Channel <strong>4</strong> is the on-chip temperature sensor, also reachable as <code>ADC.CORE_TEMP</code>.</li>
+</ul>
+<h4 id="adcread_u16">
+<a class="header-anchor" href="#adcread_u16"></a>
+<code>ADC.read_u16()</code>
+</h4><p>Returns the reading as an integer in <strong>0–65535</strong>, spanning the input range 0–3.3 V.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">ADC</span><span class="p">,</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">adc</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span>          <span class="c1"># equivalent to ADC(0)</span>
+</span></span><span class="line"><span class="cl"><span class="n">value</span> <span class="o">=</span> <span class="n">adc</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span>      <span class="c1"># 0 - 65535</span>
+</span></span><span class="line"><span class="cl"><span class="n">voltage</span> <span class="o">=</span> <span class="n">value</span> <span class="o">/</span> <span class="mi">65535</span> <span class="o">*</span> <span class="mf">3.3</span>   <span class="c1"># convert to volts</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">voltage</span><span class="p">,</span> <span class="s2">&#34;V&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>The range is 0–65535. The RP2040&rsquo;s ADC hardware is only 12-bit (0–4095); MicroPython scales it linearly to 16 bits, so the lowest few bits carry no real precision.</p>
+</blockquote>
+<h2 id="summary">
+<a class="header-anchor" href="#summary"></a>
+Summary
+</h2><table>
+	<thead>
+			<tr>
+					<th>Task</th>
+					<th>Key point</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Digital I/O</td>
+					<td><code>Pin(id, mode, pull)</code>; read with <code>value()</code>, write with <code>value()</code> / <code>on()</code> / <code>off()</code> / <code>toggle()</code></td>
+			</tr>
+			<tr>
+					<td>Interrupts</td>
+					<td><code>Pin.irq(handler, trigger)</code>; the callback must take one <code>Pin</code> argument</td>
+			</tr>
+			<tr>
+					<td>Dimming / speed control</td>
+					<td><code>PWM(pin)</code> + <code>freq()</code> + <code>duty_u16()</code>; duty is capped at 65535</td>
+			</tr>
+			<tr>
+					<td>Reading analog input</td>
+					<td><code>ADC(Pin(26))</code> + <code>read_u16()</code>, returning 0–65535</td>
+			</tr>
+			<tr>
+					<td>Button bounce</td>
+					<td>after detecting a change, wait 10 ms and confirm</td>
+			</tr>
+	</tbody>
+</table>
+
+        
+        <hr><p>Published on 2024-02-15 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2026-10-05</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> MicroPython Function Reference</p>
+
+<p><strong>Published: </strong> 2024-02-15</p>
+<p><strong>Updated: </strong> 2026-10-05</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item><item><title>Python Basics</title><link>https://www.guzhengsvt.cn/en/post/code/python%E5%9F%BA%E7%A1%80/</link><pubDate>Tue, 27 Jun 2023 00:49:20 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/code/python%E5%9F%BA%E7%A1%80/</guid><description>
+<![CDATA[<h1>Python Basics</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
+        
+          <p>This article merges four earlier Python notes, removes duplicated and irrelevant material, and keeps only what is useful as a day-to-day reference. Examples target Python 3.</p>
+<h2 id="variables-and-objects">
+<a class="header-anchor" href="#variables-and-objects"></a>
+Variables and Objects
+</h2><ul>
+<li>Variables need no type declaration, but they <strong>must be assigned before use</strong>, otherwise a <code>NameError</code> is raised.</li>
+<li>Python has no <code>const</code> and no mechanism preventing reassignment; a &ldquo;constant&rdquo; is only a naming convention (all caps).</li>
+<li><code>=</code> assigns; <code>==</code> compares.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span>
+</span></span><span class="line"><span class="cl"><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;age&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</span></span></code></pre></div><p>A useful mental model: <strong>objects are the data, variables are labels stuck onto objects.</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Jack&#34;</span>   <span class="c1"># create the string object &#34;Jack&#34;, then stick the label a onto it</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>        <span class="c1"># stick label b onto the same object; this is not a copy</span>
+</span></span><span class="line"><span class="cl"><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># True, both refer to the same object</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Ross&#34;</span>   <span class="c1"># a different object gets the label a; b still refers to &#34;Jack&#34;</span>
+</span></span></code></pre></div><ul>
+<li>An object can carry many labels, but a variable refers to exactly one object at a time.</li>
+<li><strong>The variable itself has no type; the type belongs to the object.</strong> So <code>a = 1</code> followed by <code>a = &quot;1&quot;</code> is perfectly legal.</li>
+</ul>
+<h2 id="assignment-and-slicing">
+<a class="header-anchor" href="#assignment-and-slicing"></a>
+Assignment and Slicing
+</h2><p><code>=</code> is <strong>right-associative</strong>, so <code>a = b = c = 1</code> makes all three names refer to the integer object 1.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>   <span class="c1"># unpacking assignment</span>
+</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="mi">17</span> <span class="o">+</span> <span class="mi">1</span>        <span class="c1"># evaluate the right side first</span>
+</span></span></code></pre></div><p>Slicing works on strings, tuples, and lists with the syntax <code>obj[a:b:c]</code>:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Form</th>
+					<th>Meaning</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>obj[a:b]</code></td>
+					<td>Indices in $[a, b)$, excluding <code>b</code>; omit <code>a</code> to start at 0, omit <code>b</code> to run to the end</td>
+			</tr>
+			<tr>
+					<td><code>obj[a:b:c]</code></td>
+					<td>Take every <code>c</code>-th element; <code>c</code> defaults to 1</td>
+			</tr>
+			<tr>
+					<td>negative <code>c</code></td>
+					<td>Walk backwards</td>
+			</tr>
+			<tr>
+					<td><code>obj[::-1]</code></td>
+					<td>Reverse (returns a new object; the original is unchanged)</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;polaris&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;ol&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;sap&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;siralop&#39;</span>
+</span></span></code></pre></div><p>Slicing also copies: <code>y = x[:]</code> gives a shallow copy, so sorting <code>y</code> does not affect <code>x</code>.</p>
+<h2 id="strings">
+<a class="header-anchor" href="#strings"></a>
+Strings
+</h2><ol>
+<li>Single and double quotes are equivalent; there is <strong>no separate single-character type</strong>.</li>
+<li>Triple quotes allow multi-line strings.</li>
+<li>To include the same quote character inside a string, escape it: <code>\&quot;</code>.</li>
+</ol>
+<h3 id="three-ways-to-format">
+<a class="header-anchor" href="#three-ways-to-format"></a>
+Three ways to format
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="s2">&#34;Bronya&#34;</span><span class="p">,</span> <span class="mi">18</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">%s</span><span class="s1">, she is </span><span class="si">%d</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">))</span>          <span class="c1"># % formatting, the oldest</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">{}</span><span class="s1">, she is </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">))</span>      <span class="c1"># .format()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;My wife is </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">, she is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>                <span class="c1"># f-string, recommended</span>
+</span></span></code></pre></div><ul>
+<li><code>%</code> formatting takes a tuple or dict and substitutes positionally or by name.</li>
+<li>In <code>.format()</code>, <code>{}</code> may use positional indices <code>{0}</code> or keywords <code>{name}</code>.</li>
+<li><strong>f-strings require Python 3.6+</strong> and are the most readable; all three support width, alignment, and precision specifiers.</li>
+</ul>
+<h2 id="numbers-and-booleans">
+<a class="header-anchor" href="#numbers-and-booleans"></a>
+Numbers and Booleans
+</h2><table>
+	<thead>
+			<tr>
+					<th>Type</th>
+					<th>Notes</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>int</code></td>
+					<td>Arbitrary-precision integer; supports <code>0x</code> hex, <code>0o</code> octal, <code>0b</code> binary literals</td>
+			</tr>
+			<tr>
+					<td><code>float</code></td>
+					<td>Floating point; scientific notation such as <code>1.23e-6</code></td>
+			</tr>
+			<tr>
+					<td><code>complex</code></td>
+					<td>Complex numbers, written <code>a + bj</code> or <code>complex(a, b)</code></td>
+			</tr>
+			<tr>
+					<td><code>bool</code></td>
+					<td><code>True</code> is really 1 and <code>False</code> is really 0</td>
+			</tr>
+			<tr>
+					<td><code>NoneType</code></td>
+					<td>The null value; <code>None</code> must be capitalised</td>
+			</tr>
+	</tbody>
+</table>
+<ul>
+<li>Mixing an int with a float promotes the int: <code>1 + 2.0</code> gives <code>3.0</code>.</li>
+<li>Floats carry rounding error: <code>0.1 + 0.2 == 0.3</code> is <code>False</code> (the actual value is <code>0.30000000000000004</code>). Use the <code>decimal</code> module when exact arithmetic is required.</li>
+<li><code>round()</code> uses <strong>banker&rsquo;s rounding</strong> (round-half-to-even): <code>round(0.5)</code> is <code>0</code>, <code>round(1.5)</code> is <code>2</code>, <code>round(2.5)</code> is <code>2</code>.</li>
+</ul>
+<p><strong>Falsy values</strong>: <code>0</code>, <code>0.0</code>, <code>None</code>, empty string, empty list, empty tuple, empty dict, empty set, <code>False</code>.
+<strong>Everything else is truthy</strong>, including any non-empty string (even the string <code>&quot;False&quot;</code>).</p>
+<h2 id="operators">
+<a class="header-anchor" href="#operators"></a>
+Operators
+</h2><h3 id="arithmetic">
+<a class="header-anchor" href="#arithmetic"></a>
+Arithmetic
+</h3><table>
+	<thead>
+			<tr>
+					<th>Operator</th>
+					<th>Meaning</th>
+					<th>Example</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>+</code> <code>-</code> <code>*</code></td>
+					<td>addition, subtraction, multiplication</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td><code>/</code></td>
+					<td>true division; the result is always a float</td>
+					<td><code>6 / 3</code> → <code>2.0</code></td>
+			</tr>
+			<tr>
+					<td><code>//</code></td>
+					<td><strong>floor division</strong>, rounds down</td>
+					<td><code>7 // 2</code> → <code>3</code>, <code>-7 // 2</code> → <code>-4</code></td>
+			</tr>
+			<tr>
+					<td><code>%</code></td>
+					<td><strong>modulo</strong> (remainder)</td>
+					<td><code>7 % 2</code> → <code>1</code></td>
+			</tr>
+			<tr>
+					<td><code>**</code></td>
+					<td>power, <strong>right-associative</strong></td>
+					<td><code>2 ** 2 ** 3</code> → <code>256</code></td>
+			</tr>
+			<tr>
+					<td><code>-</code></td>
+					<td>unary minus, binds weaker than <code>**</code></td>
+					<td><code>-2 ** 2</code> → <code>-4</code></td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="the-rest">
+<a class="header-anchor" href="#the-rest"></a>
+The rest
+</h3><table>
+	<thead>
+			<tr>
+					<th>Category</th>
+					<th>Operators</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Comparison</td>
+					<td><code>==</code> <code>!=</code> <code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code>; <strong>can be chained</strong>: <code>a &gt; b == c</code> means <code>a &gt; b and b == c</code></td>
+			</tr>
+			<tr>
+					<td>Logical</td>
+					<td><code>and</code> <code>or</code> <code>not</code></td>
+			</tr>
+			<tr>
+					<td>Membership</td>
+					<td><code>in</code> <code>not in</code></td>
+			</tr>
+			<tr>
+					<td>Identity</td>
+					<td><code>is</code> <code>is not</code>; compares whether two names refer to the same object (compares <code>id</code>, not value)</td>
+			</tr>
+			<tr>
+					<td>Bitwise</td>
+					<td><code>&amp;</code> <code>|</code> <code>^</code> <code>~</code> <code>&lt;&lt;</code> <code>&gt;&gt;</code></td>
+			</tr>
+			<tr>
+					<td>Augmented assignment</td>
+					<td><code>+=</code> <code>-=</code> <code>*=</code> <code>//=</code> <code>**=</code> <code>&amp;=</code> <code>|=</code> <code>^=</code> <code>&lt;&lt;=</code> <code>&gt;&gt;=</code></td>
+			</tr>
+	</tbody>
+</table>
+<p><code>and</code> / <code>or</code> return <strong>one of their operands</strong>, not <code>True</code> / <code>False</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">True</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">False</span> <span class="ow">or</span> <span class="mi">31</span>
+</span></span><span class="line"><span class="cl"><span class="mi">31</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="mi">0</span>
+</span></span></code></pre></div><h3 id="precedence-highest-to-lowest">
+<a class="header-anchor" href="#precedence-highest-to-lowest"></a>
+Precedence (highest to lowest)
+</h3><p><code>()</code> → indexing <code>[]</code> → attribute <code>.</code> → <code>**</code> → unary <code>~</code> <code>+</code> <code>-</code> → <code>*</code> <code>/</code> <code>%</code> <code>//</code> → <code>+</code> <code>-</code> → <code>&lt;&lt;</code> <code>&gt;&gt;</code> → <code>&amp;</code> → <code>^</code> → <code>|</code> → comparisons (<code>&lt;</code>, <code>==</code>, <code>in</code>, <code>is</code>, all one level) → <code>not</code> → <code>and</code> → <code>or</code> → assignment</p>
+<p>If you cannot remember it, just add parentheses; that is the cheapest fix.</p>
+<h2 id="input-output-and-built-in-functions">
+<a class="header-anchor" href="#input-output-and-built-in-functions"></a>
+Input, Output, and Built-in Functions
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>   <span class="c1"># sep between items, end after the last</span>
+</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;Enter your age: &#34;</span><span class="p">)</span>   <span class="c1"># the return value is always a string</span>
+</span></span><span class="line"><span class="cl"><span class="nb">int</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>                          <span class="c1"># convert explicitly when you need a number</span>
+</span></span></code></pre></div><p>Common built-ins:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Function</th>
+					<th>Purpose</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>id(x)</code></td>
+					<td>memory address (identity) of the object</td>
+			</tr>
+			<tr>
+					<td><code>type(x)</code></td>
+					<td>the object&rsquo;s type, e.g. <code>&lt;class 'int'&gt;</code></td>
+			</tr>
+			<tr>
+					<td><code>len(x)</code></td>
+					<td>number of elements</td>
+			</tr>
+			<tr>
+					<td><code>abs()</code> <code>round()</code> <code>bool()</code></td>
+					<td>absolute value, rounding, boolean conversion</td>
+			</tr>
+			<tr>
+					<td><code>enumerate(seq, start=0)</code></td>
+					<td>index and value together while looping</td>
+			</tr>
+			<tr>
+					<td><code>range()</code> <code>zip()</code> <code>sum()</code> <code>max()</code> <code>min()</code> <code>sorted()</code></td>
+					<td>common sequence helpers</td>
+			</tr>
+	</tbody>
+</table>
+<p>Type-conversion functions: <code>int(x, base)</code>, <code>float()</code>, <code>complex()</code>, <code>str()</code>, <code>repr()</code>, <code>chr()</code>, <code>ord()</code>, <code>hex()</code>, <code>oct()</code>, <code>eval()</code>, <code>list()</code>, <code>tuple()</code>, <code>set()</code>, <code>frozenset()</code>, <code>dict()</code>.</p>
+<p><strong>Conversion is not unconditional</strong>; it depends on whether the source data carries enough information to express the target type. <code>int(&quot;123&quot;)</code> works, <code>int(&quot;Hello&quot;)</code> raises an error; a list can become a set, but not a single number.</p>
+<p>Implicit conversion follows a precision order: <code>bool</code> &lt; <code>int</code> &lt; <code>float</code> &lt; <code>complex</code>, moving toward the more precise type in mixed expressions.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">galgames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Cafe&#39;</span><span class="p">,</span> <span class="s1">&#39;Senren Banka&#39;</span><span class="p">,</span> <span class="s1">&#39;Tenshi Sou Sou&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">galgame</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">galgames</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Playing game number </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">galgame</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="conditionals-and-loops">
+<a class="header-anchor" href="#conditionals-and-loops"></a>
+Conditionals and Loops
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">condition1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">condition2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><p><code>for</code> iterates over anything iterable (lists, dicts, strings, tuples, generators, &hellip;):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><ul>
+<li><code>break</code> leaves <strong>only the innermost loop</strong>.</li>
+<li><code>continue</code> skips the rest of this iteration and goes to the next.</li>
+<li><code>for ... else</code> / <code>while ... else</code>: the <code>else</code> runs when the loop <strong>completes normally</strong>; it is skipped if the loop was left via <code>break</code>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">while</span> <span class="n">condition</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><p>When writing a <code>while</code>, always confirm that the body eventually changes the condition or triggers a <code>break</code>; otherwise you have an infinite loop.</p>
+<h2 id="the-four-container-types">
+<a class="header-anchor" href="#the-four-container-types"></a>
+The Four Container Types
+</h2><table>
+	<thead>
+			<tr>
+					<th>Container</th>
+					<th>Literal</th>
+					<th>Ordered</th>
+					<th>Mutable</th>
+					<th>Duplicates</th>
+					<th>Element requirement</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>list</td>
+					<td><code>[1, 2]</code></td>
+					<td>yes</td>
+					<td>yes</td>
+					<td>yes</td>
+					<td>any</td>
+			</tr>
+			<tr>
+					<td>tuple</td>
+					<td><code>(1, 2)</code></td>
+					<td>yes</td>
+					<td><strong>no</strong></td>
+					<td>yes</td>
+					<td>any</td>
+			</tr>
+			<tr>
+					<td>dict</td>
+					<td><code>{k: v}</code></td>
+					<td>insertion order</td>
+					<td>yes</td>
+					<td>keys unique</td>
+					<td>keys must be hashable</td>
+			</tr>
+			<tr>
+					<td>set</td>
+					<td><code>{1, 2}</code></td>
+					<td><strong>no</strong></td>
+					<td>yes</td>
+					<td>no (auto-deduplicated)</td>
+					<td>must be hashable</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="list">
+<a class="header-anchor" href="#list"></a>
+list
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>                  <span class="c1"># empty list</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>             <span class="c1"># append to the end</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>          <span class="c1"># insert at index i, shifting later elements right</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>             <span class="c1"># append each element of b</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>                 <span class="c1"># remove and return the last element</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>                <span class="c1"># remove and return the element at index i</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>             <span class="c1"># remove the first element equal to x; errors if absent</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c1"># index of the first element equal to x</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c1"># how many elements equal x</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>             <span class="c1"># reverse in place</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=...</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>   <span class="c1"># sort in place; returns None</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>                <span class="c1"># delete the element at index i</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>              <span class="c1"># delete a slice</span>
+</span></span></code></pre></div><p>Sorting example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">random</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">random</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># sort by the second element of each tuple</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># [(4, 1), (2, 2), (1, 3), (3, 4)]</span>
+</span></span></code></pre></div><blockquote>
+<p>Note: <code>sort()</code> accepts only <code>key</code> and <code>reverse</code>. The Python 2 <code>cmp</code> parameter was <strong>removed</strong>.</p>
+</blockquote>
+<h3 id="tuple">
+<a class="header-anchor" href="#tuple"></a>
+tuple
+</h3><ul>
+<li>Tuples are <strong>immutable</strong>: no insert, update, or delete.</li>
+<li>A one-element tuple needs a trailing comma: <code>(1,)</code> is a tuple, <code>(1)</code> is just the integer.</li>
+<li>Conversion: <code>list(t)</code> yields a list, <code>tuple(l)</code> yields a tuple. <strong>The original object is unchanged</strong>; a new object is returned.</li>
+</ul>
+<h3 id="dict">
+<a class="header-anchor" href="#dict"></a>
+dict
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Guzheng&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">19</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Guzheng&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">19</span><span class="p">)</span>              <span class="c1"># with = the keys are unquoted</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile3</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Guzheng&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">19</span><span class="p">)])</span>  <span class="c1"># built from key-value pairs</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile4</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)}</span>          <span class="c1"># {2: 4, 3: 9, 4: 16}</span>
+</span></span></code></pre></div><p>Access and update:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>                 <span class="c1"># raises KeyError if the key is absent</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">)</span>           <span class="c1"># returns None if absent</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span>   <span class="c1"># returns a default if absent</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span>   <span class="c1"># writes the pair if absent, then returns it</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;male&#39;</span>      <span class="c1"># add or update</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">profile</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>The key distinction: <code>get()</code> is <strong>read-only</strong> and never modifies the dict; <strong>only <code>setdefault()</code> writes when the key is missing</strong>.</p>
+</blockquote>
+<p>Test for a key with <code>in</code> / <code>not in</code>. <code>has_key()</code> is the Python 2 spelling and was removed in Python 3.</p>
+<h3 id="set">
+<a class="header-anchor" href="#set"></a>
+set
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>     <span class="c1"># deduplicated automatically to {1, 2, 3}</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>            <span class="c1"># the only way to write an empty set; {} is an empty dict</span>
+</span></span></code></pre></div><table>
+	<thead>
+			<tr>
+					<th>Operation</th>
+					<th>Method</th>
+					<th>Operator</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>union</td>
+					<td><code>a.union(b)</code></td>
+					<td><code>a | b</code></td>
+			</tr>
+			<tr>
+					<td>intersection</td>
+					<td><code>a.intersection(b)</code></td>
+					<td><code>a &amp; b</code></td>
+			</tr>
+			<tr>
+					<td>difference (in a, not in b)</td>
+					<td><code>a.difference(b)</code></td>
+					<td><code>a - b</code></td>
+			</tr>
+			<tr>
+					<td>symmetric difference</td>
+					<td><code>a.symmetric_difference(b)</code></td>
+					<td><code>a ^ b</code></td>
+			</tr>
+	</tbody>
+</table>
+<ul>
+<li>Add: <code>add(x)</code> (<strong>only hashable/immutable values</strong>), <code>update(seq)</code> (accepts a string, list, tuple, or set; given a dict it takes only the keys).</li>
+<li>Remove: <code>remove(x)</code> errors if absent; <code>discard(x)</code> does not; <code>pop()</code> removes and returns <strong>an arbitrary</strong> element and takes no argument; <code>clear()</code> empties the set.</li>
+<li>Test: <code>x in s</code>, <code>a.isdisjoint(b)</code> (True when they share nothing), <code>b.issubset(a)</code>.</li>
+<li>Sets are <strong>unordered and unindexed</strong>: you cannot read or modify elements by position, only add and remove.</li>
+</ul>
+<blockquote>
+<p>Common misconception: <code>pop()</code> removes an <em>arbitrary</em> element, not a <em>random</em> one. Storage order follows hash values, so it looks random but is not under your control.</p>
+</blockquote>
+<h2 id="iterators-and-generators">
+<a class="header-anchor" href="#iterators-and-generators"></a>
+Iterators and Generators
+</h2><p><strong>Iterable</strong>: anything you can loop over with <code>for</code>. It qualifies if either holds:</p>
+<ol>
+<li>it implements <code>__iter__()</code> returning an iterator instance;</li>
+<li>it has no <code>__iter__()</code> but implements <code>__getitem__()</code> and supports indexing from 0 upward.</li>
+</ol>
+<p><strong>Iterator</strong>: what <code>iter(iterable)</code> returns. Call <code>next()</code> repeatedly to pull values; when exhausted it raises <code>StopIteration</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Iterator</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">([],</span> <span class="n">Iterable</span><span class="p">)</span>        <span class="c1"># True, a list is iterable</span>
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">([],</span> <span class="n">Iterator</span><span class="p">)</span>        <span class="c1"># False, but a list is not itself an iterator</span>
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">(</span><span class="nb">iter</span><span class="p">([]),</span> <span class="n">Iterator</span><span class="p">)</span>  <span class="c1"># True</span>
+</span></span></code></pre></div><p>In other words, <strong>a list is iterable but not an iterator</strong>: a list can be traversed repeatedly, while an iterator moves forward only once.</p>
+<p>A <strong>generator</strong> is &ldquo;an iterator written as a function&rdquo;:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># list comprehension produces a list</span>
+</span></span><span class="line"><span class="cl"><span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>     <span class="c1"># [0, 1, 2, 3, 4]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># parentheses produce a generator</span>
+</span></span><span class="line"><span class="cl"><span class="n">agen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>      <span class="c1"># &lt;generator object ...&gt;, lazily evaluated</span>
+</span></span></code></pre></div><blockquote>
+<p>Note: <code>(i for i in ...)</code> is a <strong>generator expression</strong>, not a tuple comprehension. Python has no tuple comprehension. To get a tuple, write <code>tuple(i for i in ...)</code>.</p>
+</blockquote>
+<p><code>yield</code> versus <code>return</code>: when execution reaches <code>yield</code>, the function <strong>pauses and hands out a value without ending</strong>; the next request resumes right after the pause, until the function finishes. A bare <code>yield</code> produces <code>None</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="o">=</span> <span class="n">generator</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>   <span class="c1"># 1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">generator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>   <span class="c1"># 1 2 3 4 5</span>
+</span></span></code></pre></div><p>The value of a generator is <strong>laziness</strong>: it never computes every result at once, so it uses far less memory than a list when handling large data streams.</p>
+<h2 id="other-notes">
+<a class="header-anchor" href="#other-notes"></a>
+Other Notes
+</h2><h3 id="comments">
+<a class="header-anchor" href="#comments"></a>
+Comments
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># a single-line comment</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">Triple quotes are technically a &#34;multi-line string&#34;, not a comment:
+</span></span></span><span class="line"><span class="cl"><span class="s1">the interpreter really does create a string object, it is simply an unused expression.
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span></code></pre></div><p>Because it is a string rather than a comment, dropping triple quotes into the middle of code breaks the syntax and often raises an error. <strong>The correct habit is to use <code>#</code> for comments.</strong></p>
+<h3 id="source-encoding">
+<a class="header-anchor" href="#source-encoding"></a>
+Source encoding
+</h3><ul>
+<li>Python 3 source files are UTF-8 by default, so <strong>you normally do not need</strong> an encoding declaration.</li>
+<li>Only Python 2 required a header line, which is now essentially obsolete:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># -*- coding: UTF-8 -*-</span>
+</span></span></code></pre></div><h3 id="identifiers">
+<a class="header-anchor" href="#identifiers"></a>
+Identifiers
+</h3><ul>
+<li>Composed of letters, digits, and underscores, <strong>cannot start with a digit</strong>, and are case-sensitive.</li>
+<li>Python 3 permits non-ASCII (including Chinese) names, but this is discouraged.</li>
+<li>Underscore conventions:
+<ul>
+<li><code>_name</code>: single leading underscore, meaning &ldquo;internal use&rdquo;; <code>from module import *</code> will not import it.</li>
+<li><code>__age</code>: double leading underscore, triggering name mangling to avoid clashes in subclasses.</li>
+<li><code>__init__</code>: leading and trailing double underscores mark a built-in special method; do not invent such names yourself.</li>
+</ul>
+</li>
+</ul>
+
+        
+        <hr><p>Published on 2023-06-27 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2026-10-05</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> Python Basics</p>
+
+<p><strong>Published: </strong> 2023-06-27</p>
+<p><strong>Updated: </strong> 2026-10-05</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item><item><title>Ansys HFSS Beginner's Systematic Hands-On Tutorial</title><link>https://www.guzhengsvt.cn/en/post/othernotes/ansys-hfss-tutorial/</link><pubDate>Sat, 28 Mar 2026 17:40:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/othernotes/ansys-hfss-tutorial/</guid><description>
 <![CDATA[<h1>Ansys HFSS Beginner's Systematic Hands-On Tutorial</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
           <blockquote>
@@ -3368,736 +4937,6 @@ Print Batch
 
 <p><strong>Published: </strong> 2025-08-21</p>
 <p><strong>Updated: </strong> 2025-08-21</p>
-<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
-</div>
-]]></description><category>OtherNotes</category></item><item><title>A New Telling</title><link>https://www.guzhengsvt.cn/en/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</link><pubDate>Tue, 20 May 2025 12:18:48 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</guid><description>
-<![CDATA[<h1>A New Telling</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
-        
-          <h2 id="a-new-telling">
-<a class="header-anchor" href="#a-new-telling"></a>
-A New Telling
-</h2><p><strong>I scrolled my feed back to seventeen,<br>
-to decode old captions and the heart between.<br>
-Yet line by line I flushed with shame,<br>
-too young, too wild, too sure of flame.<br>
-I fancied depth, I borrowed sighs,<br>
-all melodrama in borrowed guise.<br>
-So now I steal old forms anew,<br>
-to patch a poem and show it you.</strong></p>
-<p><strong>Let us say Xu Xian rode to Chang&rsquo;an,<br>
-while White Snake dwelt in Huainan.<br>
-By grace of fate they met by Broken Bridge,<br>
-yet stayed like moon in water, bloom in mist.<br>
-The scholar was but rootless down,<br>
-with empty sleeves, how could he climb?<br>
-He only praised the realm in passing,<br>
-still stubborn-hearted, raw with time.</strong></p>
-<p><strong>Anime, games, and galgame dreams,<br>
-consorts crowd the slopes of Lishan.<br>
-Advance, and there are lush and wanton tunes;<br>
-retreat, and pure love still holds command.<br>
-Since ancient days love seldom rounds to wholeness;<br>
-only drifting grace keeps floating on.<br>
-Why roam famed rivers and mountains at all,<br>
-when even one true confidant is hard won?</strong></p>
-<p><strong>At times I hear a woodland bird,<br>
-and chase the moonlight through my lone shadow.<br>
-Shang and Shen still meet again someday;<br>
-in this world, no Peach Blossom Pool is easy to find.<br>
-Long devotion is like the moon in water,<br>
-while worldly dust forever startles waves.<br>
-I ask only for a single ladleful,<br>
-to drink the chill of moonlight from the cup.</strong></p>
-<p><strong>Spring wind warms Yumen Pass;<br>
-oranges grow in northern Shaanxi and in Huainan.<br>
-Though worldly ties be spent upon the pagoda,<br>
-Qinhuai is still only several ranges away.<br>
-Spell against spell, tribulation after tribulation,<br>
-even if Jinshan floods, a sail remains.<br>
-I would tip heaven and earth and overturn the Huai,<br>
-wash all of Chang&rsquo;an with sifted yellow sand.</strong></p>
-<p><strong>New text and old affairs divide in two,<br>
-right and wrong alike turn dreamlike.<br>
-So let the waters of Qinhuai tonight<br>
-carry my tangled thoughts back toward Huainan.</strong></p>
-<p><em>Translated in a GPT-5.4 Codex style.</em></p>
-<p><em><strong>Gu Zheng<br>
-2025.5.20<br>
-in Xi&rsquo;an</strong></em></p>
-
-        
-        <hr><p>Published on 2025-05-20 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-05-20</p><div class="notice article-copyright" data-pagefind-ignore>
-<p><strong>Author: </strong> 孤筝</p>
-<p><strong>Title: </strong> A New Telling</p>
-
-<p><strong>Published: </strong> 2025-05-20</p>
-<p><strong>Updated: </strong> 2025-05-20</p>
-<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
-</div>
-]]></description><category>Poetry</category></item><item><title>Optimization Theory and Methods</title><link>https://www.guzhengsvt.cn/en/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</link><pubDate>Sat, 10 May 2025 18:48:10 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</guid><description>
-<![CDATA[<h1>Optimization Theory and Methods</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
-        
-          <h2 id="optimization-problems">
-<a class="header-anchor" href="#optimization-problems"></a>
-Optimization Problems
-</h2><h3 id="mathematical-model">
-<a class="header-anchor" href="#mathematical-model"></a>
-Mathematical Model
-</h3>$$
-\min f(\vec{x}),\vec{x}\in \vec{R^{n}}
-$$$$
-\text{s.t.}{
-\begin{cases}
-c_i(x)=0,& i \in E = {1,2,\cdots,l}\\
-c_i(\vec{x})\ge 0,& i \in I = {l+1,\cdots,l+m}\\
-\end{cases}}
-$$<p>
-where</p>
-<ul>
-<li>$\vec{x}=(x_1,x_2,\cdots,x_n)^T$ is called the decision variable vector</li>
-<li>$f(\vec{x})$ is the objective function</li>
-<li>s.t. means subject to, that is, the constraints</li>
-</ul>
-<h3 id="classification">
-<a class="header-anchor" href="#classification"></a>
-Classification
-</h3><ol>
-<li>By time
-<ol>
-<li>Static problems</li>
-<li>Dynamic problems</li>
-</ol>
-</li>
-<li>By constraints
-<ol>
-<li>Constrained problems</li>
-<li>Unconstrained problems</li>
-</ol>
-</li>
-<li>By whether the objective and constraints are linear
-<ol>
-<li>Linear programming</li>
-<li>Nonlinear programming</li>
-</ol>
-</li>
-<li>By whether the objective and constraints are convex
-<ol>
-<li>Convex optimization problems</li>
-<li>Non-convex optimization problems</li>
-</ol>
-</li>
-</ol>
-<h3 id="quadratic-form-matrix">
-<a class="header-anchor" href="#quadratic-form-matrix"></a>
-Quadratic Form Matrix
-</h3><p>Quadratic form:
-</p>
-$$
-\begin{align}
-f
-&=x_1^2-3x_3^2-4x_1x_2+x_2x_3\\
-&=(x_1,x_2,x_3)
-\begin{bmatrix}
-1 & -2 & 0\\
--2 & 0 & \frac{1}{2}\\
-0 & \frac{1}{2} & -3\\
-\end{bmatrix}
-\begin{bmatrix}
-x_1\\
-x_2\\
-x_3\\
-\end{bmatrix}\\
-&= \vec{X^T} A \vec{X}\\
-\end{align}
-$$<p>Quadratic form matrix:
-</p>
-$$
-\begin{bmatrix}
-1 & -2 & 0\\
--2 & 0 & \frac{1}{2}\\
-0 & \frac{1}{2} & -3\\
-\end{bmatrix}
-$$<h3 id="hessian-matrix">
-<a class="header-anchor" href="#hessian-matrix"></a>
-Hessian Matrix
-</h3><p>Take a two-variable quadratic function as an example:
-</p>
-$$
-\nabla^2 f(x_1,x_2)=
-\begin{bmatrix}
-\frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2}\\
-\frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2}\\
-\end{bmatrix}
-$$<h3 id="feasible-solutions">
-<a class="header-anchor" href="#feasible-solutions"></a>
-Feasible Solutions
-</h3><ul>
-<li>Feasible solution: a solution satisfying all constraints.</li>
-<li>Feasible set (admissible set, feasible region): the set of all feasible solutions.</li>
-<li>Optimization problem: find the point in the feasible set at which the objective function attains its maximum or minimum.</li>
-<li>Stationary point: if $\nabla f(x_0)=0$, then $x_0$ is called a stationary point.</li>
-<li>Saddle point: if $x_0$ is a stationary point but not an extremum point, then it is called a saddle point.</li>
-</ul>
-<h3 id="convex-sets">
-<a class="header-anchor" href="#convex-sets"></a>
-Convex Sets
-</h3><h4 id="definition">
-<a class="header-anchor" href="#definition"></a>
-Definition
-</h4><p>In the plane, if the line segment joining any two points inside a figure still lies entirely inside the figure, then the figure is called a convex set.</p>
-<h4 id="properties">
-<a class="header-anchor" href="#properties"></a>
-Properties
-</h4><ol>
-<li>The intersection of convex sets is convex.</li>
-<li>A scaled convex set is still convex.</li>
-<li>The sum set of convex sets, not the union, is convex.
-<ul>
-<li>If $D_1,D_2$ are convex sets, then $D_1+D_2=\{z|z=x+y,x \in D_1,y \in D_2\}$ is convex.</li>
-</ul>
-</li>
-<li>A linear combination of convex sets is convex.</li>
-</ol>
-<h4 id="common-convex-sets">
-<a class="header-anchor" href="#common-convex-sets"></a>
-Common Convex Sets
-</h4><ol>
-<li>The empty set</li>
-<li>The whole Euclidean space $\vec{R^n}$</li>
-<li>A hyperplane $H=\{x \in \vec{R^n} | a_1x_1+a_2x_2+\cdots +a_nx_n=b\}$</li>
-<li>A half-space $H^+=\{x \in \vec{R^n} | a_1x_1+a_2x_2+\cdots +a_nx_n \ge b\}$</li>
-</ol>
-<h4 id="convex-combination">
-<a class="header-anchor" href="#convex-combination"></a>
-Convex Combination
-</h4><p>Let $x_i \in \vec{R^n},i=1,2,\cdots ,k$, and let $\lambda_i \ge 0,\sum^k_{i=1}\lambda_i=1$. Then $x=\sum^k_{i=1}\lambda_ix_i$ is called a convex combination of $x_1,x_2,\cdots , x_k$.<br>
-Any finite convex combination of points in a convex set still belongs to that convex set.</p>
-<h4 id="extreme-points">
-<a class="header-anchor" href="#extreme-points"></a>
-Extreme Points
-</h4><p>Let $D$ be a convex set and $x \in D$. If there do not exist two distinct points $y,z \in D$ and a real number $\alpha \in (0,1)$ such that $x=\alpha y+(1-\alpha)z$, then $x$ is called an extreme point of $D$.</p>
-<p>In plain words: for a pentagon, the extreme points are its vertices; for a semicircle, the extreme points are the two endpoints of its diameter together with the top point on the arc.</p>
-<h3 id="convex-functions">
-<a class="header-anchor" href="#convex-functions"></a>
-Convex Functions
-</h3><h4 id="definition-1">
-<a class="header-anchor" href="#definition-1"></a>
-Definition
-</h4><p>Let $f(x)$ be defined on a convex set. If for any two points $x_1,x_2$ in the convex set,
-</p>
-$$
-f(\alpha x_1+(1-\alpha)x_2) \le \alpha f(x_1)+(1-\alpha)f(x_2)
-$$<p>
-then $f$ is called a convex function.<br>
-If the inequality is strict, $\lt$, then it is called a strictly convex function.</p>
-<h4 id="criteria">
-<a class="header-anchor" href="#criteria"></a>
-Criteria
-</h4><ol>
-<li>If the Hessian matrix of a multivariable function is positive semidefinite, then the function is convex.</li>
-<li>If the Hessian matrix is positive definite, then the function is strictly convex.</li>
-<li>A multivariable linear function is convex on $\vec{R^n}$.</li>
-</ol>
-<h3 id="convex-optimization-problems">
-<a class="header-anchor" href="#convex-optimization-problems"></a>
-Convex Optimization Problems
-</h3><h4 id="definition-2">
-<a class="header-anchor" href="#definition-2"></a>
-Definition
-</h4><p>An optimization problem in which the objective function and all constraint functions are convex functions.</p>
-<ul>
-<li>The feasible set of a convex optimization problem is convex.</li>
-<li>Any local optimum is also a global optimum.</li>
-<li>If the objective function is strictly convex, then the local optimum exists and is unique.</li>
-</ul>
-<h2 id="linear-programming">
-<a class="header-anchor" href="#linear-programming"></a>
-Linear Programming
-</h2><h3 id="forms">
-<a class="header-anchor" href="#forms"></a>
-Forms
-</h3><h4 id="nonstandard-form">
-<a class="header-anchor" href="#nonstandard-form"></a>
-Nonstandard Form
-</h4><ul>
-<li>Objective function: $\max z=\sum^{n}_{j=1}c_jx_j=CX$</li>
-<li>Coefficient matrix:
-
-$$
-A=
-\begin{bmatrix}
-a_{11} & \cdots & a_{1n}\\
-\vdots & \ddots & \vdots\\
-a_{m1} & \cdots & a_{mn}\\
-\end{bmatrix}
-=(P_1,P_2,\cdots,P_n)
-$$</li>
-<li>Resource vector: $b=\begin{bmatrix} b_1\\ \vdots \\ b_m\\ \end{bmatrix}$</li>
-<li>Decision variable vector: $X=(x_1,x_2,\cdots , x_n)^T$</li>
-<li>Constraints:
-
-$$
-\begin{cases}
-\sum^{n}_{j=1}a_{ij}x_j=b_i,&i=1,2,\cdots,m\\
-x_j \ge 0,& j=1,2,\cdots,n\\
-\end{cases}
-$$
-
-$$
-\begin{cases}
-AX=b\\
-X \ge \vec{0}
-\end{cases}
-$$</li>
-</ul>
-<h4 id="standard-form">
-<a class="header-anchor" href="#standard-form"></a>
-Standard Form
-</h4><ol>
-<li>Convert a maximization problem into minimization</li>
-<li>Slack variables: for $\le$ constraints, introduce slack variables to turn inequalities into equalities</li>
-<li>Surplus variables: for $\ge$ constraints, introduce surplus variables to turn inequalities into equalities</li>
-<li>Free variables: variables that may take arbitrary real values in practical problems, written as $x_i=x'-x''$</li>
-</ol>
-$$
-\begin{cases}
-\min f(x_1,x_2,\cdots , x_n)\\
-\text{s.t.} 
-\begin{cases}
-h_j(x_1,x_2,\cdots,x_n)=0&(j=1,2,\cdots)\\
-x_j \ge 0\\
-\end{cases}
-\end{cases}
-$$<h3 id="basis-matrix">
-<a class="header-anchor" href="#basis-matrix"></a>
-Basis Matrix
-</h3><ul>
-<li>Basis (basis matrix): a largest nonsingular submatrix of the coefficient matrix.
-<ul>
-<li>If the coefficient matrix $A$ is an $m \times n$ matrix with $rank(A)=m$, then any nonsingular $m \times m$ submatrix may serve as a basis matrix.</li>
-</ul>
-</li>
-<li>Basic variables: the unknowns corresponding to the column vectors in the basis.</li>
-<li>Nonbasic variables: the unknowns that are not basic variables.</li>
-<li>Basic solution: the solution obtained by setting all nonbasic variables to zero.</li>
-<li>Nondegenerate basic solution: a basic solution in which the number of nonzero components equals the number of constraint equations. Otherwise it is a degenerate basic solution.</li>
-<li>Basic feasible solution: a basic solution satisfying the nonnegativity conditions in $\text{s.t.}$.</li>
-<li>Optimal basic feasible solution: among all basic feasible solutions, the one that gives the optimal objective value.</li>
-</ul>
-<h3 id="properties-of-linear-programming-solutions">
-<a class="header-anchor" href="#properties-of-linear-programming-solutions"></a>
-Properties of Linear Programming Solutions
-</h3><ol>
-<li>The feasible set of a linear programming problem is convex.</li>
-<li>If an optimal solution exists, it must be attained at a vertex of the feasible set.</li>
-</ol>
-<h3 id="simplex-method">
-<a class="header-anchor" href="#simplex-method"></a>
-Simplex Method
-</h3><h4 id="reduced-costs">
-<a class="header-anchor" href="#reduced-costs"></a>
-Reduced Costs
-</h4><p>Each unknown corresponds to a reduced cost:
-</p>
-$$
-\sigma_j=C^T_J \vec{P_j}-c_j=\sum^{m}_{i=1}c_ia_{ij}-c_j
-$$<ul>
-<li>$C^T$ is the coefficient row of the objective function</li>
-<li>$C^T_J$ is the row of coefficients of the basic variables in the objective function</li>
-<li>$P_j$ denotes the $j$th column of matrix $A$</li>
-<li>$c_i$ denotes the coefficient of the $i$th <strong>basic variable</strong> in the objective function</li>
-<li>$c_j$ denotes the coefficient of the $j$th <strong>variable</strong> in the objective function and is unrelated to $c_i$</li>
-</ul>
-<p><strong>When all reduced costs are less than or equal to zero, the current basic feasible solution is optimal.</strong></p>
-<p>In general, the reduced costs of basic variables are zero.</p>
-<h4 id="basis-transformation">
-<a class="header-anchor" href="#basis-transformation"></a>
-Basis Transformation
-</h4><h5 id="choosing-the-basis-matrix">
-<a class="header-anchor" href="#choosing-the-basis-matrix"></a>
-Choosing the Basis Matrix
-</h5><p>Prefer the identity matrix as the initial basis matrix. Compute the initial basic feasible solution and the reduced costs.</p>
-<h5 id="constructing-the-initial-simplex-tableau">
-<a class="header-anchor" href="#constructing-the-initial-simplex-tableau"></a>
-Constructing the Initial Simplex Tableau
-</h5><table>
-	<thead>
-			<tr>
-					<th></th>
-					<th>$P_1$</th>
-					<th>$P_2$</th>
-					<th>$\cdots$</th>
-					<th>$P_n$</th>
-					<th>$\vec{b}$</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>Coefficient matrix</td>
-					<td>$a_{11}$</td>
-					<td>$a_{12}$</td>
-					<td>$\cdots$</td>
-					<td>$a_{1n}$</td>
-					<td>$b_1$</td>
-			</tr>
-			<tr>
-					<td></td>
-					<td>$a_{21}$</td>
-					<td>$a_{22}$</td>
-					<td>$\cdots$</td>
-					<td>$a_{2n}$</td>
-					<td>$b_2$</td>
-			</tr>
-			<tr>
-					<td></td>
-					<td>$\vdots$</td>
-					<td>$\vdots$</td>
-					<td>$\ddots$</td>
-					<td>$\vdots$</td>
-					<td>$\vdots$</td>
-			</tr>
-			<tr>
-					<td></td>
-					<td>$a_{m1}$</td>
-					<td>$a_{m2}$</td>
-					<td>$\cdots$</td>
-					<td>$a_{mn}$</td>
-					<td>$b_m$</td>
-			</tr>
-			<tr>
-					<td>Reduced costs</td>
-					<td>$\sigma_1$</td>
-					<td>$\sigma_2$</td>
-					<td>$\cdots$</td>
-					<td>$\sigma_n$</td>
-					<td>Optimal value</td>
-			</tr>
-	</tbody>
-</table>
-<h5 id="selecting-an-entering-column">
-<a class="header-anchor" href="#selecting-an-entering-column"></a>
-Selecting an Entering Column
-</h5><p>If a reduced cost is greater than zero, then the corresponding column has improving potential. Choose this column as the entering column $P_j$, and the corresponding variable $x_j$ is the entering variable.</p>
-<h5 id="selecting-the-pivot-element">
-<a class="header-anchor" href="#selecting-the-pivot-element"></a>
-Selecting the Pivot Element
-</h5><p>Among the positive entries $a_{ij}$ in the entering column, divide the corresponding entry of $b$ by each such element and choose the smallest ratio. The corresponding element $a_{ij}$ is the pivot.<br>
-<em><strong>If a reduced cost is greater than zero but all entries in that column are negative, then the linear program has no optimal solution.</strong></em></p>
-<h5 id="elementary-row-operations">
-<a class="header-anchor" href="#elementary-row-operations"></a>
-Elementary Row Operations
-</h5><p>Transform the pivot into 1 and all other entries in that column into 0.<br>
-<strong>Geometric meaning: moving to another vertex of the feasible region.</strong></p>
-<h5 id="leaving-column">
-<a class="header-anchor" href="#leaving-column"></a>
-Leaving Column
-</h5><p>Select the new basis matrix according to the updated coefficient matrix. Compared with the old basis, the replaced column is the leaving column, and its corresponding variable is the leaving variable.<br>
-Then recompute the reduced costs and form the new simplex tableau.</p>
-<h5 id="a-new-basis-transformation">
-<a class="header-anchor" href="#a-new-basis-transformation"></a>
-A New Basis Transformation
-</h5><p>If the reduced-cost row changes and new positive reduced costs appear, choose the corresponding column as the new entering column, select a pivot, and perform elementary row operations again.</p>
-<h5 id="result">
-<a class="header-anchor" href="#result"></a>
-Result
-</h5><p>When all reduced costs are less than or equal to zero, the entries of $\vec{b}$ are the values of the basic variables, while the nonbasic variables are set to 0. Together these form the optimal solution, and substituting them into the objective function gives the minimum value.</p>
-<h4 id="conditions-for-applying-the-simplex-method">
-<a class="header-anchor" href="#conditions-for-applying-the-simplex-method"></a>
-Conditions for Applying the Simplex Method
-</h4><ol>
-<li>All elements in the nonhomogeneous term are nonnegative.</li>
-<li>A feasible solution exists.</li>
-<li>The sum of products of slack variables and nonbasic variables is zero.</li>
-<li>The problem is a linear programming problem on a convex feasible region.</li>
-<li>The feasible solution set is finite.</li>
-</ol>
-<h3 id="artificial-variable-method">
-<a class="header-anchor" href="#artificial-variable-method"></a>
-Artificial Variable Method
-</h3><p>When the coefficient matrix does not contain an identity matrix, one usually introduces artificial variables to construct one artificially.</p>
-<p>Suppose the constraints of the linear programming problem are $\sum^{n}_{j=1}a_{ij}=b_i(i=1,2,\cdots ,m)$. Add artificial variables $x_{n+1},x_{n+2},\cdots,x_{n+m}$ to each constraint and use them as the basic variables, so that they form an identity matrix and all other variables are zero. In this way we obtain an initial feasible solution $x^{(0)}=(0,0,\cdots,0,b_1,b_2,\cdots,b_m)^T$.<br>
-Starting from this point, carry out basis transformations to obtain an optimal solution without nonzero artificial variables.</p>
-<p>If all reduced costs are negative but nonzero artificial variables still remain, then the original problem has no feasible solution.</p>
-<h3 id="big-m-method">
-<a class="header-anchor" href="#big-m-method"></a>
-Big-M Method
-</h3><p>For a minimization problem, after introducing artificial variables into the constraints, assign the coefficient $M$ to the artificial variables in the objective function, where $M \in \vec{R^+}$.<br>
-To obtain the minimum objective value, one keeps carrying out basis transformations until the artificial variables become zero. For a maximization problem, $M \in \vec{R^-}$.</p>
-<h3 id="degenerate-cases">
-<a class="header-anchor" href="#degenerate-cases"></a>
-Degenerate Cases
-</h3><p>If the simplex method falls into cycling while the problem does have an optimal solution, the following methods may be used to avoid cycling.</p>
-<h4 id="perturbation-method">
-<a class="header-anchor" href="#perturbation-method"></a>
-Perturbation Method
-</h4><h4 id="revised-simplex-method">
-<a class="header-anchor" href="#revised-simplex-method"></a>
-Revised Simplex Method
-</h4><h2 id="duality-theory-of-linear-programming">
-<a class="header-anchor" href="#duality-theory-of-linear-programming"></a>
-Duality Theory of Linear Programming
-</h2><h3 id="forms-of-the-dual-problem">
-<a class="header-anchor" href="#forms-of-the-dual-problem"></a>
-Forms of the Dual Problem
-</h3><h4 id="symmetric-form">
-<a class="header-anchor" href="#symmetric-form"></a>
-Symmetric Form
-</h4><p>Primal problem
-</p>
-$$
-\begin{cases}
-\min f=\vec{c^T}\vec{x}\\
-\text{s.t.}
-\begin{cases}
-\vec{A}\vec{x} \ge \vec{b}\\
-\vec{x} \ge \vec{0}
-\end{cases}
-\end{cases}
-$$<p>Dual problem
-</p>
-$$
-\begin{cases}
-\max w=\vec{b^T}\vec{y}\\
-\text{s.t.}
-\begin{cases}
-\vec{A^T}\vec{y} \le \vec{c}\\
-\vec{y} \ge \vec{0}\\
-\end{cases}
-\end{cases}
-$$<p>Correspondence:</p>
-<ul>
-<li>(1) The number of constraints in the primal problem equals the number of variables in its dual.</li>
-<li>(2) The coefficients of the primal objective function become the right-hand-side constants of the dual constraints.</li>
-<li>(3) If the primal objective is minimization, then the dual objective is maximization.</li>
-<li>(4) If the primal constraints are of type “$\ge$”, then the dual constraints are of type “$\le$”.</li>
-</ul>
-<h4 id="asymmetric-form">
-<a class="header-anchor" href="#asymmetric-form"></a>
-Asymmetric Form
-</h4><p>Primal problem
-</p>
-$$
-\begin{cases}
-\min f=\vec{c^T}\vec{x}\\
-\text{s.t.}
-\begin{cases}
-\vec{A}\vec{x} = \vec{b}\\
-\vec{x} \ge \vec{0}
-\end{cases}
-\end{cases}
-$$<p>Dual problem
-</p>
-$$
-\begin{cases}
-\max w=\vec{b^T}\vec{y}\\
-\text{s.t.}
-\begin{cases}
-\vec{A^T}\vec{y} \le \vec{c}\\
-\vec{y} \text{ is unrestricted}
-\end{cases}
-\end{cases}
-$$<h4 id="general-case">
-<a class="header-anchor" href="#general-case"></a>
-General Case
-</h4><p>If the primal problem contains a mixture of $\le,\ge,=$ constraints, first introduce slack and surplus variables so that all constraints become equalities, and then construct the dual using the asymmetric form.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E5%8E%9F%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB%E8%A1%A81.png" alt="原问题与对偶问题对应关系表1.png">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E5%8E%9F%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB%E8%A1%A82.png" alt="原问题与对偶问题对应关系表2.png"></p>
-<h3 id="dual-simplex-method">
-<a class="header-anchor" href="#dual-simplex-method"></a>
-Dual Simplex Method
-</h3><ul>
-<li>Simplex method: first ensure $\vec{b} \ge 0$, then iterate based on reduced costs $\le 0$.</li>
-<li>Dual simplex method: first ensure reduced costs $\le 0$, then iterate based on $\vec{b} \ge 0$.</li>
-</ul>
-<h4 id="ensuring-reduced-costs">
-<a class="header-anchor" href="#ensuring-reduced-costs"></a>
-Ensuring Reduced Costs $\le 0$
-</h4><h4 id="choosing-the-leaving-variable">
-<a class="header-anchor" href="#choosing-the-leaving-variable"></a>
-Choosing the Leaving Variable
-</h4><p>If there exists a negative $b_i \lt 0$, then the row containing the smallest $\min b_i$ is chosen as the leaving row, and the corresponding variable is the leaving variable.</p>
-<h4 id="choosing-the-entering-variable">
-<a class="header-anchor" href="#choosing-the-entering-variable"></a>
-Choosing the Entering Variable
-</h4><p>Divide each reduced cost by the negative coefficient in the leaving row, that is, $a_{ij} \lt 0$. The column corresponding to the smallest resulting value is chosen as the entering column, and the corresponding variable is the entering variable.</p>
-<h4 id="row-operations">
-<a class="header-anchor" href="#row-operations"></a>
-Row Operations
-</h4><p>Use elementary row operations to transform the entering column into one that matches the basis matrix, that is, an identity column. At this point $\vec{b}$ changes as well.<br>
-Then recompute the reduced costs and ensure that they remain less than or equal to zero.</p>
-<h4 id="a-new-basis-transformation-1">
-<a class="header-anchor" href="#a-new-basis-transformation-1"></a>
-A New Basis Transformation
-</h4><p>If there is still a negative value $b_i \lt 0$, choose the smallest $\min b_i$ and perform another basis transformation.</p>
-<h4 id="result-1">
-<a class="header-anchor" href="#result-1"></a>
-Result
-</h4><p>When all $b_i \ge 0$, the vector $\vec{b}$ gives the optimal values of the basic variables, while the nonbasic variables are 0.<br>
-Substitute them into the objective function to obtain the optimal value, whether maximum or minimum.</p>
-<h2 id="sensitivity-analysis">
-<a class="header-anchor" href="#sensitivity-analysis"></a>
-Sensitivity Analysis
-</h2>
-        
-        <hr><p>Published on 2025-05-10 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-05-10</p><div class="notice article-copyright" data-pagefind-ignore>
-<p><strong>Author: </strong> 孤筝</p>
-<p><strong>Title: </strong> Optimization Theory and Methods</p>
-
-<p><strong>Published: </strong> 2025-05-10</p>
-<p><strong>Updated: </strong> 2025-05-10</p>
-<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
-</div>
-]]></description><category>Math</category></item><item><title>Typecho Comments Import to Waline</title><link>https://www.guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description>
-<![CDATA[<h1>Typecho Comments Import to Waline</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
-        
-          <p>A couple of days ago, I migrated my blog posts from Typecho to Hugo. Just setting up the Front Matter parameters and reconfiguring image links took considerable effort.<br>
-The value of a blog lies first in its articles, followed closely by its comments. Comments are proof that the blog has made an impact in both the digital and real worlds, carrying the interactions between people. More personally, comments from all corners of the globe are precious memories and a part of what makes &ldquo;me&rdquo;.<br>
-Thus, it&rsquo;s essential to copy the original comments to the corresponding articles on the new site.</p>
-<h2 id="configuring-waline">
-<a class="header-anchor" href="#configuring-waline"></a>
-Configuring Waline
-</h2><p>Unlike dynamic blogs like WordPress or Typecho, static blogs can only rely on external comment systems. There are many options, each with its pros and cons. After referring to <a href="https://cloud.tencent.com/developer/article/2196035">this article</a> and checking the official websites of various comment systems, I ultimately chose <a href="https://waline.js.org">Waline</a>.<br>
-Waline&rsquo;s <a href="https://waline.js.org/guide/get-started/">Chinese documentation</a> is detailed and comprehensive. After setting up the <a href="https://leancloud.app">LeanCloud</a> database and <a href="https://vercel.com/">Vercel</a> server, you can access the comment management dashboard at <code>https://&lt;your-server-domain&gt;/ui/</code>. Register as an administrator for the first time, where you can manage comments and users.</p>
-<h2 id="exporting-typecho-comments">
-<a class="header-anchor" href="#exporting-typecho-comments"></a>
-Exporting Typecho Comments
-</h2><p>Typecho is quite old, with a smaller user base compared to more active communities like Hexo or WordPress. There&rsquo;s also very little documentation available online.<br>
-The only solution I found was a plugin called <a href="https://github.com/lizheming/typecho-export-valine">Export2Valine</a> (also mentioned in Waline&rsquo;s documentation) by <a href="https://imnerd.org">Yi Hong Yuan Luo</a>, which exports Typecho comments to Valine.<br>
-However, it hasn&rsquo;t been updated in three years, and testing showed it only imports the first comment. Looking at the exported <code>jsonl</code> file, it&rsquo;s clear that all comment data was fully exported.</p>
-<p>First, install the plugin in Typecho (make sure to rename the plugin folder to &ldquo;Export2Valine&rdquo;!).</p>
-<p>Referencing <a href="https://www.imwxz.com/posts/74f52ab0.html">this article</a> about migrating from Typecho to Hexo, the plugin is outdated and requires some modifications.<br>
-Locate <code>Action.php</code> in the plugin folder and modify lines 42 onwards as follows (to track parent comments):</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$arr</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;objectId&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;QQAvatar&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;comment&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;text&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;insertedAt&#34;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;__type&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;Date&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;iso&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span>
-</span></span><span class="line"><span class="cl">  <span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;createdAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;updatedAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ip&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;ip&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;link&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;url&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;mail&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;mail&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;nick&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;author&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ua&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;agent&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;url&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;/</span><span class="si">{</span><span class="nv">$slug</span><span class="si">}</span><span class="s2">.html&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;pid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;rid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getRootId</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">]);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>No other changes are needed.<br>
-Next, go to Typecho&rsquo;s admin panel → Console → Export Comments. Open the downloaded <code>jsonl</code> file and delete the header line:<br>
-<code>#filetype:JSON-streaming {&quot;type&quot;:&quot;Class&quot;,&quot;class&quot;:&quot;Comment&quot;}\n\n</code>.<br>
-Save the file, close it, and change the file extension to <code>.json</code>.</p>
-<h2 id="fixing-the-json-format">
-<a class="header-anchor" href="#fixing-the-json-format"></a>
-Fixing the JSON Format
-</h2><p>The exported <code>jsonl</code> file contains escaped Chinese characters and is a single line, making it hard to read.<br>
-To convert it into a more readable, editable, and importable <code>json</code> format, use your editor&rsquo;s <strong>Find and Replace</strong> feature to replace <code>}\n{</code> with:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">},</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span></code></pre></div><p>In Xcode, you can insert line breaks by clicking the small magnifying glass icon on the left.</p>
-<p>Now, each line represents one comment object.</p>
-<p>Similarly, to separate the fields within each comment object, replace <code>&quot;,&quot;</code> with:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;</span>
-</span></span></code></pre></div><p>Now, each comment object contains multiple data fields, structured like this:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;3&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u6d4b\u8bd5\u4e00\u4e0b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
-</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;4&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u600e\u4e48ip\u4e0d\u5bf9&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
-</span></span></code></pre></div><h3 id="common-field-descriptions">
-<a class="header-anchor" href="#common-field-descriptions"></a>
-Common Field Descriptions
-</h3><ol>
-<li><strong>objectId</strong>: Unique identifier for the comment (e.g., &ldquo;4&rdquo; or &ldquo;5&rdquo;)</li>
-<li><strong>QQAvatar</strong>: QQ avatar link (currently empty)</li>
-<li><strong>comment</strong>: Comment content (contains Unicode escape sequences, e.g., <code>\u600e\u4e48</code> means &ldquo;how&rdquo;)</li>
-<li><strong>insertedAt/createdAt/updatedAt</strong>: Timestamp (ISO 8601 format)</li>
-<li><strong>ip</strong>: Commenter&rsquo;s IP address</li>
-<li><strong>link</strong>: Link provided by the commenter (may be <code>null</code>)</li>
-<li><strong>mail</strong>: Commenter&rsquo;s email address</li>
-<li><strong>nick</strong>: Commenter&rsquo;s nickname</li>
-<li><strong>ua</strong>: User agent (browser/device info)</li>
-<li><strong>url</strong>: Relative path of the commented post</li>
-</ol>
-<h3 id="special-fields">
-<a class="header-anchor" href="#special-fields"></a>
-Special Fields
-</h3><ol start="11">
-<li><strong>pid</strong>: Parent comment ID</li>
-<li><strong>rid</strong>: Root comment ID</li>
-</ol>
-<p>If <code>&quot;link&quot;</code> is <code>null</code>, there&rsquo;s no line break between <code>&quot;link&quot;</code> and <code>&quot;mail&quot;</code>. JSON is insensitive to line breaks, so this can be ignored.<br>
-Now, wrap the entire content in <code>[ ]</code> at the beginning and end of the file, then save it.</p>
-<h2 id="modifying-comment-attributes">
-<a class="header-anchor" href="#modifying-comment-attributes"></a>
-Modifying Comment Attributes
-</h2><p>The file can now be imported into LeanCloud, but some adjustments are still needed.</p>
-<p><code>Export2Valine</code> sets the URL for comment associations as <code>\/slug</code>, e.g., <code>&quot;url&quot;: &quot;\/Summary-of-the-First-Semester-of-Junior-Year.html&quot;</code>, where <code>\/</code> is an escaped <code>/</code>.</p>
-<p>To link comments to the new blog&rsquo;s posts, manually update the <code>url</code> to match the new blog&rsquo;s post links.</p>
-<p>For example, my Hugo-generated site has folders like <code>zh-cn</code>, <code>zh-tw</code>, <code>en</code>, and <code>ja</code> (due to multi-language support). Chinese posts are under <code>/zh-cn/post/category/</code>.<br>
-In my local blog source files, posts are organized into folders by category, e.g., <code>/content/post/Thoughts/最近写的诗.md</code> generates a relative URL like <code>zh-cn/post/thoughts/最近写的诗</code>.</p>
-<p>If your new blog&rsquo;s posts are in the root directory with unchanged names, no URL modifications are needed.<br>
-If they&rsquo;re all under <code>/post/</code>, use Find and Replace to change:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/</span>
-</span></span></code></pre></div><p>to:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/post\/</span>
-</span></span></code></pre></div><p>For my case, I temporarily replaced it with:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/post\/</span>
-</span></span></code></pre></div><p>Similarly, comments on standalone pages like &ldquo;Friends&rdquo; or &ldquo;Thoughts&rdquo; should be updated to their new relative URLs.<br>
-For example, the Friends page:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/links.html</span>
-</span></span></code></pre></div><p>should be replaced with:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/friend\/</span>
-</span></span></code></pre></div><p>First, apply bulk replacements for <code>post</code> and standalone pages where possible. Otherwise, it&rsquo;ll be tedious to modify them after import.</p>
-<p>When using Find and Replace, try to target the largest common segments to avoid accidental changes.<br>
-<em><strong>Remember to escape <code>\/</code>!!!</strong></em></p>
-<h2 id="importing-to-leancloud">
-<a class="header-anchor" href="#importing-to-leancloud"></a>
-Importing to LeanCloud
-</h2><p>In LeanCloud&rsquo;s console → Data Storage → Import &amp; Export, select the modified JSON file, set <code>Class</code> to <code>Comment</code>, and import.</p>
-<p><em><strong>Note</strong></em>: If you&rsquo;ve previously tested Waline comments or attempted to import <code>Comment</code>, Waline may have already created the <code>Comment</code> class. Subsequent imports will fail silently (LeanCloud may claim success, but no new data appears).</p>
-<p>To fix this, go to the console → Structured Data, delete the <code>Comment</code> class, and try importing again. The LeanCloud page may not refresh immediately—use <code>Ctrl+F5</code> to force a cache refresh.</p>
-<p>After a successful import, manually adjust the <code>url</code> for each comment.<br>
-For example, my posts need to be categorized under <code>&quot;url&quot;:&quot;\/zh-cn\/post\/category\/</code>. Use LeanCloud&rsquo;s <strong>batch operations</strong> and <strong>filtering</strong> features to streamline this process.</p>
-<h2 id="afterword">
-<a class="header-anchor" href="#afterword"></a>
-Afterword
-</h2><p>Organizing comments didn&rsquo;t take too long—120 comments, mostly my own musings on the &ldquo;Thoughts&rdquo; page, allowed for bulk URL fixes. The handful of reader comments were scattered across just a few posts, making them easy to update via filtering. Whether that&rsquo;s a good or bad thing, I’m not sure (laughs).</p>
-<p>Whether they&rsquo;re my soliloquies or others&rsquo; remarks, each comment holds unique significance. Revisiting them periodically brings new reflections.<br>
-As I said at the beginning, they&rsquo;re traces of my growth, proof of my existence, and part of &ldquo;me&rdquo;.</p>
-<p>And you, dear reader, are the one who gives me value.</p>
-<p>If you have time, please leave a comment—it’ll genuinely make my day (as long as it’s kind, of course).</p>
-        
-        <hr><p>Published on 2025-04-19 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-04-19</p><div class="notice article-copyright" data-pagefind-ignore>
-<p><strong>Author: </strong> 孤筝</p>
-<p><strong>Title: </strong> Typecho Comments Import to Waline</p>
-
-<p><strong>Published: </strong> 2025-04-19</p>
-<p><strong>Updated: </strong> 2025-04-19</p>
 <p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
 </div>
 ]]></description><category>OtherNotes</category></item></channel></rss>

@@ -1,4 +1,1297 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>原創 on 孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/zh-tw/tags/%E5%8E%9F%E5%89%B5/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-tw</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</copyright><lastBuildDate>Fri, 05 Sep 2025 11:05:15 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/zh-tw/tags/%E5%8E%9F%E5%89%B5/index.xml" rel="self" type="application/rss+xml"/><item><title>量子物理學</title><link>https://www.guzhengsvt.cn/zh-tw/post/physics/quantum-physics/</link><pubDate>Fri, 05 Sep 2025 11:05:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/physics/quantum-physics/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>原創 on 孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/zh-tw/tags/%E5%8E%9F%E5%89%B5/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-tw</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</copyright><lastBuildDate>Mon, 05 Oct 2026 20:30:00 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/zh-tw/tags/%E5%8E%9F%E5%89%B5/index.xml" rel="self" type="application/rss+xml"/><item><title>資料結構實驗筆記</title><link>https://www.guzhengsvt.cn/zh-tw/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 12 Dec 2023 14:31:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</guid><description>
+<![CDATA[<h1>資料結構實驗筆記</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <p>本文合併了原先的八篇資料結構上機實驗報告，去掉了重複的套話和完整原始碼，只保留每個實驗的<strong>核心思路、關鍵資料結構和演算法要點</strong>，作為複習提綱使用。程式碼片段為 C++。</p>
+<h2 id="一遞迴與堆疊費氏數列">
+<a class="header-anchor" href="#%e4%b8%80%e9%81%9e%e8%bf%b4%e8%88%87%e5%a0%86%e7%96%8a%e8%b2%bb%e6%b0%8f%e6%95%b8%e5%88%97"></a>
+一、遞迴與堆疊：費氏數列
+</h2><h3 id="問題">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c"></a>
+問題
+</h3><p>用遞迴求第 $n$ 個 Fibonacci 數。</p>
+<h3 id="遞迴與堆疊的關係">
+<a class="header-anchor" href="#%e9%81%9e%e8%bf%b4%e8%88%87%e5%a0%86%e7%96%8a%e7%9a%84%e9%97%9c%e4%bf%82"></a>
+遞迴與堆疊的關係
+</h3><p>遞迴能不能正確返回，取決於兩件事：<strong>參數如何傳遞</strong>、<strong>返回到哪裡</strong>。以 <code>Fib(5)</code> 為例：</p>
+<ol>
+<li>每遞迴一層，都要給該層的形參重新分配空間；</li>
+<li>還要把「本次呼叫結束後該回到哪一行」這個返回位址保存下來。</li>
+</ol>
+<p>這兩樣東西合起來構成一條<strong>工作記錄</strong>（活動記錄），由系統壓入<strong>函式呼叫堆疊</strong>。呼叫時推入，返回時從堆疊頂端彈出，於是就能準確回到上一層。</p>
+<p>以 <code>Fib(3) = Fib(2) + Fib(1)</code> 為例，呼叫鏈是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Fib(3)
+</span></span><span class="line"><span class="cl">├── Fib(2)
+</span></span><span class="line"><span class="cl">│   ├── Fib(1) → 返回 1
+</span></span><span class="line"><span class="cl">│   └── Fib(0) → 返回 0
+</span></span><span class="line"><span class="cl">│   得 1
+</span></span><span class="line"><span class="cl">└── Fib(1) → 返回 1
+</span></span><span class="line"><span class="cl">得 2
+</span></span></code></pre></div><h3 id="演算法">
+<a class="header-anchor" href="#%e6%bc%94%e7%ae%97%e6%b3%95"></a>
+演算法
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">Fib</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote>
+<p>這版遞迴每次都會重複計算大量子問題，時間複雜度是指數級的 $O(2^n)$。要高效求解應改用遞推或記憶化，$O(n)$ 即可。遞迴版本的價值在於演示堆疊的工作過程。</p>
+</blockquote>
+<h2 id="二劃分集合問題">
+<a class="header-anchor" href="#%e4%ba%8c%e5%8a%83%e5%88%86%e9%9b%86%e5%90%88%e5%95%8f%e9%a1%8c"></a>
+二、劃分集合問題
+</h2><h3 id="問題-1">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-1"></a>
+問題
+</h3><p>把集合劃分為若干<strong>互不相交</strong>的子集，使得同一子集內的元素兩兩無衝突，並且子集數量盡量少。（典型應用：排課、日程安排。）</p>
+<h3 id="演算法循環篩選法">
+<a class="header-anchor" href="#%e6%bc%94%e7%ae%97%e6%b3%95%e5%be%aa%e7%92%b0%e7%af%a9%e9%81%b8%e6%b3%95"></a>
+演算法：循環篩選法
+</h3><ol>
+<li>先用一個<strong>二維陣列</strong>（衝突矩陣）描述衝突關係：$conflict[i][j] = 1$ 表示 $i$ 與 $j$ 衝突，$0$ 表示不衝突。</li>
+<li>從第一個未分組元素開始，把它放入當前組。</li>
+<li>依次檢查其餘未分組元素：如果它與<strong>當前組裡的每一個元素都不衝突</strong>，就併入當前組；否則跳過，留給下一輪。</li>
+<li>一輪掃描結束後，若還有元素未分組，就開一個新組，重複第 2 步，直到所有元素都分完。</li>
+</ol>
+<h3 id="資料結構">
+<a class="header-anchor" href="#%e8%b3%87%e6%96%99%e7%b5%90%e6%a7%8b"></a>
+資料結構
+</h3><p>用<strong>環狀佇列</strong>存放待處理元素。每掃描一輪，元素在佇列中輪轉一圈，不需要額外開闢儲存空間。</p>
+<h3 id="要點">
+<a class="header-anchor" href="#%e8%a6%81%e9%bb%9e"></a>
+要點
+</h3><ul>
+<li>判斷「能否併入當前組」必須和組裡<strong>所有</strong>已有元素都比較，只看其中一個會出錯。</li>
+<li>這是貪心策略——能塞進當前組就塞，因此得到的是<strong>較優解</strong>而非嚴格最佳解。</li>
+</ul>
+<h2 id="三稀疏矩陣乘法">
+<a class="header-anchor" href="#%e4%b8%89%e7%a8%80%e7%96%8f%e7%9f%a9%e9%99%a3%e4%b9%98%e6%b3%95"></a>
+三、稀疏矩陣乘法
+</h2><h3 id="問題-2">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-2"></a>
+問題
+</h3><p>矩陣中非零元素很少時，用完整的二維陣列儲存會浪費大量空間，改用<strong>三元組</strong>只存非零元素，並實作兩個稀疏矩陣的乘法。</p>
+<h3 id="資料結構-1">
+<a class="header-anchor" href="#%e8%b3%87%e6%96%99%e7%b5%90%e6%a7%8b-1"></a>
+資料結構
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>          <span class="c1">// 一個非零元素
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>          <span class="c1">// 列號、行號
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>          <span class="c1">// 元素值
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Matrix</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>          <span class="c1">// 總列數、總行數
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">L</span><span class="p">;</span>             <span class="c1">// 非零元素個數
+</span></span></span><span class="line"><span class="cl">    <span class="n">Node</span><span class="o">*</span> <span class="n">Ma</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>     <span class="c1">// 非零元素陣列
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h3 id="演算法-1">
+<a class="header-anchor" href="#%e6%bc%94%e7%ae%97%e6%b3%95-1"></a>
+演算法
+</h3><p>按定義 $C_{ij} = \sum_k A_{ik} \cdot B_{kj}$，但只累加<strong>兩邊都非零</strong>的項：</p>
+<ol>
+<li>走訪 $A$ 的每一個非零元素 $(i, k, a)$；</li>
+<li>在 $B$ 中尋找列號等於 $k$ 的非零元素 $(k, j, b)$；</li>
+<li>把 $a \times b$ 累加到結果矩陣的 $(i, j)$ 位置。</li>
+</ol>
+<p>結果矩陣的非零元素動態產生，若累加後為 0 則不存入。</p>
+<h3 id="要點-1">
+<a class="header-anchor" href="#%e8%a6%81%e9%bb%9e-1"></a>
+要點
+</h3><ul>
+<li>比樸素三重迴圈快得多，因為跳過了大量零元素相乘。</li>
+<li>想進一步加速，可以給三元組表加<strong>列索引</strong>（列邏輯鏈結順序表），使第 2 步不必每次從頭掃描 $B$。</li>
+<li>必須校驗：$A$ 的行數是否等於 $B$ 的列數，以及輸入的列行索引是否越界。</li>
+</ul>
+<h2 id="四kmp-字串比對">
+<a class="header-anchor" href="#%e5%9b%9bkmp-%e5%ad%97%e4%b8%b2%e6%af%94%e5%b0%8d"></a>
+四、KMP 字串比對
+</h2><h3 id="問題-3">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-3"></a>
+問題
+</h3><p>在文本串中尋找模式串首次出現的位置。樸素比對在失配時把模式串整體右移一位、文本指標回退，最壞情況是 $O(nm)$；KMP 把它最佳化到 $O(n+m)$。</p>
+<h3 id="核心lps-陣列">
+<a class="header-anchor" href="#%e6%a0%b8%e5%bf%83lps-%e9%99%a3%e5%88%97"></a>
+核心：LPS 陣列
+</h3><p>LPS（Longest Prefix Suffix）記錄模式串<strong>每個位置之前</strong>的子串中，「最長且相等的前綴和後綴」的長度。它告訴我們在失配時<strong>模式串可以安全地向右滑動多少</strong>，從而不必回退文本指標。</p>
+<p>以模式串 <code>ABABCABAB</code> 為例，其 LPS 陣列為：</p>
+<table>
+	<thead>
+			<tr>
+					<th>索引</th>
+					<th>0</th>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+					<th>5</th>
+					<th>6</th>
+					<th>7</th>
+					<th>8</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>字元</td>
+					<td>A</td>
+					<td>B</td>
+					<td>A</td>
+					<td>B</td>
+					<td>C</td>
+					<td>A</td>
+					<td>B</td>
+					<td>A</td>
+					<td>B</td>
+			</tr>
+			<tr>
+					<td>LPS</td>
+					<td>0</td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="演算法-2">
+<a class="header-anchor" href="#%e6%bc%94%e7%ae%97%e6%b3%95-2"></a>
+演算法
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 建構 LPS 陣列
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">computeLPS</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">pat</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">lps</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>          <span class="c1">// 當前最長前後綴匹配長度
+</span></span></span><span class="line"><span class="cl">    <span class="n">lps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">pat</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">pat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">pat</span><span class="p">[</span><span class="n">len</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">lps</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="o">++</span><span class="n">len</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">len</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">len</span> <span class="o">=</span> <span class="n">lps</span><span class="p">[</span><span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>   <span class="c1">// 回退到次長前後綴，繼續比較
+</span></span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">lps</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 在 text 中尋找 pat
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">KMPSearch</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">text</span><span class="p">,</span> <span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">pat</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">pat</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">n</span> <span class="o">=</span> <span class="n">text</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">lps</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">computeLPS</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">lps</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>          <span class="c1">// i 走文本，j 走模式串
+</span></span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">pat</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span> <span class="n">i</span><span class="o">++</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;在索引 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">-</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; 處找到匹配串&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">j</span> <span class="o">=</span> <span class="n">lps</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>    <span class="c1">// 繼續找下一次匹配
+</span></span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">pat</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">j</span> <span class="o">=</span> <span class="n">lps</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span>        <span class="n">i</span><span class="o">++</span><span class="p">;</span>   <span class="c1">// j 已為 0，無法再回退，只能讓文本指標前進
+</span></span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要點-2">
+<a class="header-anchor" href="#%e8%a6%81%e9%bb%9e-2"></a>
+要點
+</h3><ul>
+<li><strong>文本指標 <code>i</code> 永不回退</strong>，這是 KMP 效率的來源。</li>
+<li>失配時利用 <code>lps[j-1]</code> 回退模式指標，而不是把 <code>j</code> 歸零。</li>
+<li>算 <code>lps</code> 的那段程式碼自身也是「模式串比對自己」，思路與主迴圈一致。</li>
+<li>範例：文本 <code>ABABDABACDABABCABAB</code>，模式 <code>ABABCABAB</code>，匹配位置為索引 10。</li>
+</ul>
+<h2 id="五二元樹的儲存與走訪">
+<a class="header-anchor" href="#%e4%ba%94%e4%ba%8c%e5%85%83%e6%a8%b9%e7%9a%84%e5%84%b2%e5%ad%98%e8%88%87%e8%b5%b0%e8%a8%aa"></a>
+五、二元樹的儲存與走訪
+</h2><h3 id="問題-4">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-4"></a>
+問題
+</h3><p>給定一串按**層序（BFS 順序）**輸入的字元，&rsquo;@&rsquo; 表示空節點，建構二元樹；再分別實作順序儲存與鏈結儲存下的走訪。</p>
+<h3 id="兩種儲存方式">
+<a class="header-anchor" href="#%e5%85%a9%e7%a8%ae%e5%84%b2%e5%ad%98%e6%96%b9%e5%bc%8f"></a>
+兩種儲存方式
+</h3><p><strong>順序儲存</strong>：用陣列按索引存放，父子關係由索引算出：</p>
+<ul>
+<li>父節點索引為 $i$ → 左孩子 $2i+1$，右孩子 $2i+2$；</li>
+<li>反過來：節點 $i$ 的父節點是 $\lfloor (i-1)/2 \rfloor$。</li>
+</ul>
+<p>適合<strong>完全二元樹</strong>；節點稀疏時會浪費大量陣列空間。</p>
+<p><strong>鏈結儲存</strong>：用結構體加指標，用<strong>佇列</strong>輔助建構。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">TreeNode</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>建構流程：根節點入佇列 → 每從佇列前端取出一個節點，就依次為它掛上左、右孩子（輸入為 &lsquo;@&rsquo; 則該側為空），並把新孩子入佇列。想改成按前序輸入建構，只需把佇列換成堆疊。</p>
+<h3 id="三種深度優先走訪">
+<a class="header-anchor" href="#%e4%b8%89%e7%a8%ae%e6%b7%b1%e5%ba%a6%e5%84%aa%e5%85%88%e8%b5%b0%e8%a8%aa"></a>
+三種深度優先走訪
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">preOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>          <span class="c1">// 前序：根 → 左 → 右
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">preOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">preOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">inOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>           <span class="c1">// 中序：左 → 根 → 右
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">postOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>         <span class="c1">// 後序：左 → 右 → 根
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">postOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">postOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="廣度優先走訪">
+<a class="header-anchor" href="#%e5%bb%a3%e5%ba%a6%e5%84%aa%e5%85%88%e8%b5%b0%e8%a8%aa"></a>
+廣度優先走訪
+</h3><p>用佇列從根開始逐層處理：走訪一個節點時把它的左右孩子依次入佇列。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">levelOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">q</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span> <span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span>  <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="完整範例">
+<a class="header-anchor" href="#%e5%ae%8c%e6%95%b4%e7%af%84%e4%be%8b"></a>
+完整範例
+</h3><p>輸入 <code>abc@def@@@@</code>（層序，&rsquo;@&rsquo; 為空），對應的二元樹是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">        a
+</span></span><span class="line"><span class="cl">      /   \
+</span></span><span class="line"><span class="cl">     b     c
+</span></span><span class="line"><span class="cl">    / \   / \
+</span></span><span class="line"><span class="cl">   @   d e   f
+</span></span><span class="line"><span class="cl">      / \ / \ / \
+</span></span><span class="line"><span class="cl">     @  @ @ @ @  @
+</span></span></code></pre></div><table>
+	<thead>
+			<tr>
+					<th>走訪</th>
+					<th>結果</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>前序（根左右）</td>
+					<td><code>a b d c e f</code></td>
+			</tr>
+			<tr>
+					<td>中序（左根右）</td>
+					<td><code>b d a e c f</code></td>
+			</tr>
+			<tr>
+					<td>後序（左右根）</td>
+					<td><code>d b e f c a</code></td>
+			</tr>
+			<tr>
+					<td>層序（BFS）</td>
+					<td><code>a b c d e f</code></td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p>順序儲存下中序走訪的起點要仔細處理：前序可以從索引 0 起步，但<strong>中序必須從整棵樹最左下的節點開始</strong>，否則會漏掉左子樹的左半邊。</p>
+</blockquote>
+<h3 id="由走訪序列反推二元樹">
+<a class="header-anchor" href="#%e7%94%b1%e8%b5%b0%e8%a8%aa%e5%ba%8f%e5%88%97%e5%8f%8d%e6%8e%a8%e4%ba%8c%e5%85%83%e6%a8%b9"></a>
+由走訪序列反推二元樹
+</h3><ul>
+<li>前序 + 中序、後序 + 中序、層序 + 中序，都可以唯一確定一棵二元樹。</li>
+<li>但<strong>前序 + 後序不行</strong>，無法區分只有一個孩子時它掛在左邊還是右邊。</li>
+</ul>
+<h2 id="六霍夫曼樹與編碼">
+<a class="header-anchor" href="#%e5%85%ad%e9%9c%8d%e5%a4%ab%e6%9b%bc%e6%a8%b9%e8%88%87%e7%b7%a8%e7%a2%bc"></a>
+六、霍夫曼樹與編碼
+</h2><h3 id="問題-5">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-5"></a>
+問題
+</h3><p>對字元按出現頻率編碼，使編碼後的總長度最短，並且任意編碼都不是另一個編碼的前綴（前綴碼，保證能唯一解碼）。</p>
+<h3 id="演算法-3">
+<a class="header-anchor" href="#%e6%bc%94%e7%ae%97%e6%b3%95-3"></a>
+演算法
+</h3><ol>
+<li>統計每個字元的出現頻率。</li>
+<li>每個字元建一個葉節點，全部放入<strong>最小堆</strong>。</li>
+<li>迴圈：取出頻率最小的兩個節點，合併為一個新節點（頻率為兩者之和），把新節點放回堆中。</li>
+<li>堆中只剩一個節點時，它就是霍夫曼樹的根。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="n">minHeap</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">left</span>  <span class="o">=</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">right</span> <span class="o">=</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">parent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HuffmanNode</span><span class="p">(</span><span class="sc">&#39;$&#39;</span><span class="p">,</span> <span class="n">left</span><span class="o">-&gt;</span><span class="n">frequency</span> <span class="o">+</span> <span class="n">right</span><span class="o">-&gt;</span><span class="n">frequency</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parent</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parent</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">minHeap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">parent</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="產生編碼與解碼">
+<a class="header-anchor" href="#%e7%94%a2%e7%94%9f%e7%b7%a8%e7%a2%bc%e8%88%87%e8%a7%a3%e7%a2%bc"></a>
+產生編碼與解碼
+</h3><ul>
+<li><strong>產生編碼</strong>：從根出發遞迴走訪，往左走記 <code>0</code>，往右走記 <code>1</code>，走到葉節點時把當前路徑串記為該字元的編碼。</li>
+<li><strong>編碼</strong>：把原文每個字元替換成它的編碼串。</li>
+<li><strong>解碼</strong>：從根出發，遇到 <code>0</code> 走左、遇到 <code>1</code> 走右，走到葉節點就輸出該字元並回到根重新開始。</li>
+</ul>
+<h3 id="要點-3">
+<a class="header-anchor" href="#%e8%a6%81%e9%bb%9e-3"></a>
+要點
+</h3><ul>
+<li>頻率越高的字元離根越近，編碼越短——這就是壓縮的原理。</li>
+<li>因為編碼都在葉節點上，所以不存在「某個編碼是另一個前綴」的情況，解碼不會歧義。</li>
+<li>用<strong>最小堆</strong>而不是反覆排序，可以把建構複雜度降到 $O(n \log n)$。</li>
+<li>出現頻率相同的字元，誰先誰後不影響編碼長度，只影響具體分配到的 0/1 串。</li>
+</ul>
+<h2 id="七排序二元樹與節點刪除">
+<a class="header-anchor" href="#%e4%b8%83%e6%8e%92%e5%ba%8f%e4%ba%8c%e5%85%83%e6%a8%b9%e8%88%87%e7%af%80%e9%bb%9e%e5%88%aa%e9%99%a4"></a>
+七、排序二元樹與節點刪除
+</h2><h3 id="問題-6">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-6"></a>
+問題
+</h3><p>建構一棵排序二元樹（BST），支援插入、中序走訪和刪除節點。</p>
+<h3 id="插入">
+<a class="header-anchor" href="#%e6%8f%92%e5%85%a5"></a>
+插入
+</h3><p>遞迴比較：待插值小於當前節點就往左走，大於就往右走；走到空位就新建節點掛上。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">insert</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>      <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span>  <span class="o">=</span> <span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span>  <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&gt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>   <span class="c1">// 相等時不插入，避免重複
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="中序走訪">
+<a class="header-anchor" href="#%e4%b8%ad%e5%ba%8f%e8%b5%b0%e8%a8%aa"></a>
+中序走訪
+</h3><p>中序走訪 BST 會得到<strong>遞增序列</strong>，這是檢驗 BST 是否建構正確最直接的辦法。</p>
+<h3 id="刪除節點">
+<a class="header-anchor" href="#%e5%88%aa%e9%99%a4%e7%af%80%e9%bb%9e"></a>
+刪除節點
+</h3><p>刪除是最容易寫錯的一步，分三種情況：</p>
+<table>
+	<thead>
+			<tr>
+					<th>情況</th>
+					<th>處理方式</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>葉節點（無孩子）</td>
+					<td>直接刪除</td>
+			</tr>
+			<tr>
+					<td>只有一個孩子</td>
+					<td>用這個孩子頂替自己的位置</td>
+			</tr>
+			<tr>
+					<td>有兩個孩子</td>
+					<td>用<strong>右子樹中的最小節點</strong>（中序後繼）替換自己的值，再遞迴刪除那個後繼節點</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">remove</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>      <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span>  <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span>  <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&gt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span>  <span class="p">{</span> <span class="k">auto</span> <span class="n">t</span> <span class="o">=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span> <span class="k">delete</span> <span class="n">root</span><span class="p">;</span> <span class="k">return</span> <span class="n">t</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="p">{</span> <span class="k">auto</span> <span class="n">t</span> <span class="o">=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>  <span class="k">delete</span> <span class="n">root</span><span class="p">;</span> <span class="k">return</span> <span class="n">t</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 兩個孩子：找右子樹最小節點
+</span></span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">succ</span> <span class="o">=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">succ</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="n">succ</span> <span class="o">=</span> <span class="n">succ</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span>  <span class="o">=</span> <span class="n">succ</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">succ</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote>
+<p>也可以用<strong>左子樹的最大節點</strong>（中序前驅）來替換，效果等價。</p>
+</blockquote>
+<h3 id="刪除整棵樹">
+<a class="header-anchor" href="#%e5%88%aa%e9%99%a4%e6%95%b4%e6%a3%b5%e6%a8%b9"></a>
+刪除整棵樹
+</h3><p>後序走訪每個節點依次釋放，不能先釋放父節點再找孩子。</p>
+<h2 id="八二元樹線索化">
+<a class="header-anchor" href="#%e5%85%ab%e4%ba%8c%e5%85%83%e6%a8%b9%e7%b7%9a%e7%b4%a2%e5%8c%96"></a>
+八、二元樹線索化
+</h2><h3 id="問題-7">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-7"></a>
+問題
+</h3><p>$n$ 個節點的二元樹共有 $2n$ 個指標欄位，其中實際使用的只有 $n-1$ 條邊，剩下 $n+1$ 個是空指標，浪費明顯。<strong>線索化</strong>就是用這些空指標存放走訪次序下的<strong>前驅／後繼</strong>，讓走訪不必再依賴堆疊或遞迴。</p>
+<h3 id="資料結構-2">
+<a class="header-anchor" href="#%e8%b3%87%e6%96%99%e7%b5%90%e6%a7%8b-2"></a>
+資料結構
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Node</span> <span class="o">*</span><span class="n">left</span><span class="p">,</span> <span class="o">*</span><span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">ltag</span><span class="p">,</span> <span class="n">rtag</span><span class="p">;</span>   <span class="c1">// 0 表示指向孩子，1 表示是線索（指向前驅／後繼）
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h3 id="演算法以中序線索化為例">
+<a class="header-anchor" href="#%e6%bc%94%e7%ae%97%e6%b3%95%e4%bb%a5%e4%b8%ad%e5%ba%8f%e7%b7%9a%e7%b4%a2%e5%8c%96%e7%82%ba%e4%be%8b"></a>
+演算法（以中序線索化為例）
+</h3><p>用遞迴中序走訪，同時維護一個全域的 <code>pre</code> 指標記錄上一個走訪的節點：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Node</span><span class="o">*</span> <span class="n">pre</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">thread</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">thread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>              <span class="c1">// 先處理左子樹
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="p">{</span>               <span class="c1">// 左孩子為空，左指標改指向前驅
+</span></span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">-&gt;</span><span class="n">ltag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">pre</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">pre</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="p">{</span>     <span class="c1">// 前驅的右孩子為空，右指標改指向後繼
+</span></span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">rtag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">pre</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>                      <span class="c1">// 更新前驅
+</span></span></span><span class="line"><span class="cl">    <span class="kr">thread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>             <span class="c1">// 再處理右子樹
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要點-4">
+<a class="header-anchor" href="#%e8%a6%81%e9%bb%9e-4"></a>
+要點
+</h3><ul>
+<li><code>left</code> / <code>right</code> 指標的語意是<strong>雙重</strong>的，必須靠 <code>ltag</code> / <code>rtag</code> 區分，否則會把線索當成孩子指標用，導致無窮迴圈。</li>
+<li>中序線索化要<strong>先遞迴左子樹</strong>，再處理當前節點，最後遞迴右子樹；<code>pre = p</code> 的位置決定了線索指向誰。</li>
+<li>前序、後序線索化的思路相同，區別在於<strong>處理當前節點的時機</strong>與 <code>pre</code> 的更新順序。</li>
+<li>線索化後的樹可以用空間 $O(1)$ 完成走訪，不需要堆疊，也不必遞迴。</li>
+</ul>
+<h2 id="九圖的儲存相鄰矩陣與相鄰串列">
+<a class="header-anchor" href="#%e4%b9%9d%e5%9c%96%e7%9a%84%e5%84%b2%e5%ad%98%e7%9b%b8%e9%84%b0%e7%9f%a9%e9%99%a3%e8%88%87%e7%9b%b8%e9%84%b0%e4%b8%b2%e5%88%97"></a>
+九、圖的儲存：相鄰矩陣與相鄰串列
+</h2><h3 id="相鄰矩陣">
+<a class="header-anchor" href="#%e7%9b%b8%e9%84%b0%e7%9f%a9%e9%99%a3"></a>
+相鄰矩陣
+</h3><p>用二維陣列 <code>adj[V][V]</code> 存邊：<code>adj[i][j] = 1</code>（或邊的權重）表示 $i \to j$ 有邊。</p>
+<ul>
+<li>優點：判斷兩點間是否有邊是 $O(1)$；實作簡單。</li>
+<li>缺點：空間固定為 $O(V^2)$，<strong>稀疏圖浪費嚴重</strong>；走訪某點的所有鄰居要掃描一整列，$O(V)$。</li>
+<li>無向圖的矩陣沿主對角線對稱。</li>
+</ul>
+<h3 id="相鄰串列">
+<a class="header-anchor" href="#%e7%9b%b8%e9%84%b0%e4%b8%b2%e5%88%97"></a>
+相鄰串列
+</h3><p>用「陣列 + 鏈結串列」：<code>adj[i]</code> 存放所有與節點 $i$ 相鄰的節點。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">adj</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>          <span class="c1">// 每個元素是一個鏈結串列／動態陣列
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">addEdge</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>       <span class="c1">// 無向圖要加反向邊
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>優點：空間 $O(V + E)$，稀疏圖友善；走訪某點的鄰居只拜訪真實存在的邊。</li>
+<li>缺點：判斷兩點間是否有邊要走走訪鏈結串列，最壞 $O(V)$。</li>
+<li>有向圖中，<code>adj[u]</code> 存的是 $u$ 的出邊；求入度需要額外走訪或另建<strong>逆相鄰串列</strong>。</li>
+</ul>
+<h3 id="怎麼選">
+<a class="header-anchor" href="#%e6%80%8e%e9%ba%bc%e9%81%b8"></a>
+怎麼選
+</h3><table>
+	<thead>
+			<tr>
+					<th>場景</th>
+					<th>選擇</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>稠密圖、需要頻繁查詢兩點是否相鄰</td>
+					<td>相鄰矩陣</td>
+			</tr>
+			<tr>
+					<td>稀疏圖、需要頻繁走訪某點的所有鄰居</td>
+					<td>相鄰串列</td>
+			</tr>
+			<tr>
+					<td>點數極大（如 $10^5$）</td>
+					<td>相鄰串列（矩陣根本開不下）</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="建圖時的檢查">
+<a class="header-anchor" href="#%e5%bb%ba%e5%9c%96%e6%99%82%e7%9a%84%e6%aa%a2%e6%9f%a5"></a>
+建圖時的檢查
+</h3><p>讀入邊 $(u, v)$ 後要校驗 $0 \le u, v < V$，避免越界；無權圖的兩點間不應重複加邊，否則會影響走訪與度數統計。</p>
+<h2 id="十kruskal-與最小生成樹">
+<a class="header-anchor" href="#%e5%8d%81kruskal-%e8%88%87%e6%9c%80%e5%b0%8f%e7%94%9f%e6%88%90%e6%a8%b9"></a>
+十、Kruskal 與最小生成樹
+</h2><h3 id="問題-8">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-8"></a>
+問題
+</h3><p>在帶權連通無向圖中找一棵<strong>總權重最小</strong>的生成樹。</p>
+<h3 id="演算法貪心">
+<a class="header-anchor" href="#%e6%bc%94%e7%ae%97%e6%b3%95%e8%b2%aa%e5%bf%83"></a>
+演算法（貪心）
+</h3><ol>
+<li>把所有邊按權重<strong>遞增排序</strong>。</li>
+<li>依次考察每條邊：如果它的兩個端點還<strong>不在同一個集合</strong>中，就把它加入生成樹，並合併這兩個集合；否則說明會形成環，直接丟棄。</li>
+<li>選夠 $V-1$ 條邊時結束。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">sort</span><span class="p">(</span><span class="n">edges</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">edges</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">     <span class="p">[](</span><span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">weight</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">weight</span><span class="p">;</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">UnionFind</span> <span class="nf">uf</span><span class="p">(</span><span class="n">numNodes</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="n">Edge</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">edges</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">uf</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">start</span><span class="p">)</span> <span class="o">!=</span> <span class="n">uf</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">end</span><span class="p">))</span> <span class="p">{</span>   <span class="c1">// 不連通 → 加入不會成環
+</span></span></span><span class="line"><span class="cl">        <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">uf</span><span class="p">.</span><span class="n">unite</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">start</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">end</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="並查集union-find">
+<a class="header-anchor" href="#%e4%b8%a6%e6%9f%a5%e9%9b%86union-find"></a>
+並查集（Union-Find）
+</h3><p>Kruskal 的效率關鍵在「判斷兩個點是否已連通」，這正是並查集的強項。它支援兩種操作：</p>
+<ul>
+<li><strong>Find(x)</strong>：找到 $x$ 所在集合的根節點，順帶判斷兩點是否同集合。</li>
+<li><strong>Union(a, b)</strong>：把兩個集合合併。</li>
+</ul>
+<p>兩種最佳化配合使用可讓均攤複雜度接近常數：</p>
+<table>
+	<thead>
+			<tr>
+					<th>最佳化</th>
+					<th>做法</th>
+					<th>效果</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>路徑壓縮</td>
+					<td>Find 時把路徑上所有節點直接掛到根上</td>
+					<td>大幅降低樹高</td>
+			</tr>
+			<tr>
+					<td>按秩合併</td>
+					<td>把矮樹掛到高樹下面</td>
+					<td>避免樹長歪</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">find</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">!=</span> <span class="n">x</span><span class="p">)</span> <span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>   <span class="c1">// 路徑壓縮
+</span></span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">unite</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="n">b</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">rank</span><span class="p">[</span><span class="n">b</span><span class="p">])</span> <span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>   <span class="c1">// 按秩合併
+</span></span></span><span class="line"><span class="cl">    <span class="n">parent</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">==</span> <span class="n">rank</span><span class="p">[</span><span class="n">b</span><span class="p">])</span> <span class="n">rank</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要點-5">
+<a class="header-anchor" href="#%e8%a6%81%e9%bb%9e-5"></a>
+要點
+</h3><ul>
+<li>時間複雜度 $O(E \log E)$，主要花在排序上。</li>
+<li><strong>適合稀疏圖</strong>。稠密圖通常用 Prim 演算法（$O(V^2)$ 或配堆的 $O(E \log V)$）更快。</li>
+<li>邊的排序、並查集的判環，是 Kruskal 的兩個核心動作。</li>
+</ul>
+<h2 id="十一dijkstra-與單源最短路徑">
+<a class="header-anchor" href="#%e5%8d%81%e4%b8%80dijkstra-%e8%88%87%e5%96%ae%e6%ba%90%e6%9c%80%e7%9f%ad%e8%b7%af%e5%be%91"></a>
+十一、Dijkstra 與單源最短路徑
+</h2><h3 id="問題-9">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-9"></a>
+問題
+</h3><p>給定帶權圖和起點 $s$，求 $s$ 到其餘所有頂點的最短距離。</p>
+<h3 id="演算法貪心--優先佇列">
+<a class="header-anchor" href="#%e6%bc%94%e7%ae%97%e6%b3%95%e8%b2%aa%e5%bf%83--%e5%84%aa%e5%85%88%e4%bd%87%e5%88%97"></a>
+演算法（貪心 + 優先佇列）
+</h3><ol>
+<li>把起點距離設為 0，其餘全部設為無限大。</li>
+<li>把 <code>(距離, 頂點)</code> 放入<strong>優先佇列</strong>，每次取出距離最小的頂點 $u$——它的最短距離此刻已經確定。</li>
+<li>鬆弛：對 $u$ 的每個鄰居 $v$，若 $dist[u] + w(u,v) < dist[v]$ 則更新 $dist[v]$，並把新的 <code>(dist[v], v)</code> 入佇列。</li>
+<li>重複 2–3，直到佇列為空。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dijkstra</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">g</span><span class="p">,</span> <span class="kt">int</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">g</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">INF</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 小頂堆：佇列前端是距離最小的元素
+</span></span></span><span class="line"><span class="cl">    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;&gt;&gt;</span> <span class="n">pq</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">dist</span><span class="p">[</span><span class="n">src</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="mi">0</span><span class="p">,</span> <span class="n">src</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">pq</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">auto</span> <span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">pq</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">])</span> <span class="k">continue</span><span class="p">;</span>        <span class="c1">// 過期條目，跳過
+</span></span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">v</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>   <span class="c1">// 0 表示無直接連接
+</span></span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">v</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">dist</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要點-6">
+<a class="header-anchor" href="#%e8%a6%81%e9%bb%9e-6"></a>
+要點
+</h3><ul>
+<li><strong>不能處理負權邊</strong>。Dijkstra 的正確性依賴「已取出的點距離不會再變小」，負權邊會打破這個前提；含負權時改用 Bellman-Ford 或 SPFA。</li>
+<li>用相鄰矩陣表示圖時，內層走訪是 $O(V)$，總複雜度 $O(V^2)$；換成相鄰串列配優先佇列可降到 $O(E \log V)$。</li>
+<li>同一個點可能被多次入佇列，所以出佇列時要判斷 <code>d &gt; dist[u]</code> 跳過過期條目。</li>
+<li>用 <code>0</code> 表示「無邊」是一種約定；若圖中允許權重為 0 的邊，需要另設標記或改用相鄰串列。</li>
+</ul>
+<h2 id="十二關鍵路徑">
+<a class="header-anchor" href="#%e5%8d%81%e4%ba%8c%e9%97%9c%e9%8d%b5%e8%b7%af%e5%be%91"></a>
+十二、關鍵路徑
+</h2><h3 id="問題-10">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-10"></a>
+問題
+</h3><p>在 AON（活動在頂點上）網路中，每個節點表示一個活動、帶有持續時間和先後依賴，找出決定專案<strong>總工期</strong>的關鍵活動序列。</p>
+<ul>
+<li><strong>最早開始時間 ES</strong>：該活動最早能什麼時候開工。</li>
+<li><strong>最晚開始時間 LS</strong>：在不拖延總工期的前提下，最晚必須什麼時候開工。</li>
+<li><strong>時間餘量</strong>：$LS - ES$。餘量為 0 的活動就是<strong>關鍵活動</strong>，它們連起來構成關鍵路徑。</li>
+</ul>
+<h3 id="正向計算-es">
+<a class="header-anchor" href="#%e6%ad%a3%e5%90%91%e8%a8%88%e7%ae%97-es"></a>
+正向計算 ES
+</h3><p>按<strong>拓樸序</strong>從頭事件往後推：</p>
+$$ES[v] = \max_{u \in pred(v)} \big( ES[u] + duration[u] \big)$$<p>沒有前置活動的頭事件 $ES = 0$。專案總工期 $T = \max_v (ES[v] + duration[v])$。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">calcEarliest</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 必須先按拓樸序處理，否則前驅的 ES 還沒算好
+</span></span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">u</span> <span class="p">:</span> <span class="n">topoOrder</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">earliest</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">earliest</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">earliest</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">duration</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="反向計算-ls">
+<a class="header-anchor" href="#%e5%8f%8d%e5%90%91%e8%a8%88%e7%ae%97-ls"></a>
+反向計算 LS
+</h3><p>按<strong>逆拓樸序</strong>從末事件往回推：</p>
+$$LS[u] = \min_{v \in succ(u)} \big( LS[v] \big) - duration[u]$$<p>沒有後繼的末事件，$LS = ES = T - duration$。（等價地，令 $LF[\cdot] = T$，則 $LS = LF - duration$，$LF[u] = \min_{v \in succ(u)} LS[v]$。）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">calcLatest</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">u</span> <span class="p">:</span> <span class="n">reverseTopoOrder</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">latest</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">latest</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="n">latest</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">-</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">duration</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要點-7">
+<a class="header-anchor" href="#%e8%a6%81%e9%bb%9e-7"></a>
+要點
+</h3><ul>
+<li>兩個方向都<strong>必須嚴格按拓樸序</strong>推進，否則用到的前驅／後繼還沒算好。</li>
+<li>判斷頭事件<strong>不能</strong>看「相鄰串列是否為空」——相鄰串列為空的是<strong>末事件</strong>（出度為 0）。頭事件的判定依據是<strong>入度為 0</strong>，這個方向搞反會導致整個計算落空。</li>
+<li>關鍵路徑可能不止一條，全部 $\text{餘量} = 0$ 的活動都要標記出來。</li>
+<li>想要縮短總工期，只能壓縮關鍵活動；壓縮非關鍵活動沒有意義。</li>
+</ul>
+<h2 id="小結">
+<a class="header-anchor" href="#%e5%b0%8f%e7%b5%90"></a>
+小結
+</h2><table>
+	<thead>
+			<tr>
+					<th>實驗</th>
+					<th>核心資料結構</th>
+					<th>關鍵點</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Fibonacci</td>
+					<td>函式呼叫堆疊</td>
+					<td>遞迴靠堆疊保存參數與返回位址</td>
+			</tr>
+			<tr>
+					<td>劃分集合</td>
+					<td>衝突矩陣 + 環狀佇列</td>
+					<td>與組內所有元素比較，貪心分組</td>
+			</tr>
+			<tr>
+					<td>稀疏矩陣乘法</td>
+					<td>三元組表</td>
+					<td>只累加兩邊都非零的項</td>
+			</tr>
+			<tr>
+					<td>KMP</td>
+					<td>LPS 陣列</td>
+					<td>文本指標永不回退</td>
+			</tr>
+			<tr>
+					<td>二元樹</td>
+					<td>陣列／鏈結結構</td>
+					<td>順序儲存的父子索引關係；三種 DFS + 一種 BFS</td>
+			</tr>
+			<tr>
+					<td>霍夫曼</td>
+					<td>最小堆</td>
+					<td>每次合併頻率最小的兩個節點</td>
+			</tr>
+			<tr>
+					<td>排序二元樹</td>
+					<td>二元鏈結串列</td>
+					<td>刪除分三種情況；中序得遞增序列</td>
+			</tr>
+			<tr>
+					<td>線索化</td>
+					<td>帶標記位的二元鏈結串列</td>
+					<td>用 ltag/rtag 區分孩子與線索</td>
+			</tr>
+			<tr>
+					<td>圖的儲存</td>
+					<td>相鄰矩陣／相鄰串列</td>
+					<td>稠密用矩陣，稀疏用串列</td>
+			</tr>
+			<tr>
+					<td>Kruskal</td>
+					<td>邊集 + 並查集</td>
+					<td>排序取邊，判環靠並查集</td>
+			</tr>
+			<tr>
+					<td>Dijkstra</td>
+					<td>優先佇列</td>
+					<td>貪心鬆弛，不支援負權邊</td>
+			</tr>
+			<tr>
+					<td>關鍵路徑</td>
+					<td>有向無環圖 + 拓樸序</td>
+					<td>正推 ES、反推 LS，餘量為 0 即關鍵</td>
+			</tr>
+	</tbody>
+</table>
+
+        
+        <hr><p>本文2023-12-12首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2026-10-05</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文標題：</strong> 資料結構實驗筆記</p>
+
+<p><strong>本文發佈時間：</strong> 2023-12-12</p>
+<p><strong>本文更新時間：</strong> 2026-10-05</p>
+<p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item><item><title>Python基礎</title><link>https://www.guzhengsvt.cn/zh-tw/post/code/python%E5%9F%BA%E7%A1%80/</link><pubDate>Tue, 27 Jun 2023 00:49:20 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/code/python%E5%9F%BA%E7%A1%80/</guid><description>
+<![CDATA[<h1>Python基礎</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <p>本文合併了原先的四篇 Python 筆記，去掉了重複與無關內容，作為日常速查使用。範例基於 Python 3。</p>
+<h2 id="變數與物件">
+<a class="header-anchor" href="#%e8%ae%8a%e6%95%b8%e8%88%87%e7%89%a9%e4%bb%b6"></a>
+變數與物件
+</h2><ul>
+<li>變數不需要宣告型別，但<strong>使用前必須賦值</strong>，否則拋出 <code>NameError</code>。</li>
+<li>Python 沒有 <code>const</code>，也沒有任何機制阻止變數被重新賦值，所謂「常數」只是約定用全大寫命名。</li>
+<li><code>=</code> 是賦值，<code>==</code> 是比較。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span>
+</span></span><span class="line"><span class="cl"><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;age&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</span></span></code></pre></div><p>用物件導向的方式理解：<strong>物件是資料實體，變數是貼在物件上的標籤</strong>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Jack&#34;</span>   <span class="c1"># 建立字串物件 &#34;Jack&#34;，再把標籤 a 貼上去</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>        <span class="c1"># 把標籤 b 貼到同一個物件上，而不是複製</span>
+</span></span><span class="line"><span class="cl"><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># True，兩者指向同一個物件</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Ross&#34;</span>   <span class="c1"># 換一個物件，貼上 a 標籤；b 仍指向 &#34;Jack&#34;</span>
+</span></span></code></pre></div><ul>
+<li>物件可以掛多個標籤，一個變數同時只能指向一個物件。</li>
+<li><strong>變數本身沒有型別，型別屬於物件</strong>。所以 <code>a = 1</code> 之後 <code>a = &quot;1&quot;</code> 完全合法。</li>
+</ul>
+<h2 id="賦值與切片">
+<a class="header-anchor" href="#%e8%b3%a6%e5%80%bc%e8%88%87%e5%88%87%e7%89%87"></a>
+賦值與切片
+</h2><p><code>=</code> 是<strong>右結合</strong>的，<code>a = b = c = 1</code> 表示三者都指向整數物件 1。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>   <span class="c1"># 分別賦值</span>
+</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="mi">17</span> <span class="o">+</span> <span class="mi">1</span>        <span class="c1"># 先算右邊再賦值</span>
+</span></span></code></pre></div><p>切片適用於字串、元組、串列，語法為 <code>obj[a:b:c]</code>：</p>
+<table>
+	<thead>
+			<tr>
+					<th>寫法</th>
+					<th>含義</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>obj[a:b]</code></td>
+					<td>取索引 $[a, b)$，不含 <code>b</code>；省略 <code>a</code> 從 0 開始，省略 <code>b</code> 到結尾</td>
+			</tr>
+			<tr>
+					<td><code>obj[a:b:c]</code></td>
+					<td>每 <code>c</code> 個取一個，<code>c</code> 省略時為 1</td>
+			</tr>
+			<tr>
+					<td><code>c</code> 為負數</td>
+					<td>由後往前反向取</td>
+			</tr>
+			<tr>
+					<td><code>obj[::-1]</code></td>
+					<td>反轉（得到新物件，原物件不變）</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;polaris&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;ol&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;sap&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;siralop&#39;</span>
+</span></span></code></pre></div><p>切片還可用於複製：<code>y = x[:]</code> 得到一份淺拷貝，再對 <code>y</code> 排序不會影響 <code>x</code>。</p>
+<h2 id="字串">
+<a class="header-anchor" href="#%e5%ad%97%e4%b8%b2"></a>
+字串
+</h2><ol>
+<li>單引號和雙引號等價，<strong>不區分單字元與字串</strong>（沒有獨立的 char 型別）。</li>
+<li>三引號可以寫多行字串。</li>
+<li>引號內使用同類引號需要轉義 <code>\&quot;</code>。</li>
+</ol>
+<h3 id="三種格式化方式">
+<a class="header-anchor" href="#%e4%b8%89%e7%a8%ae%e6%a0%bc%e5%bc%8f%e5%8c%96%e6%96%b9%e5%bc%8f"></a>
+三種格式化方式
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="s2">&#34;布洛妮娅&#34;</span><span class="p">,</span> <span class="mi">18</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">%s</span><span class="s1">, she is </span><span class="si">%d</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">))</span>          <span class="c1"># % 方法，最古老</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">{}</span><span class="s1">, she is </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">))</span>      <span class="c1"># format 方法</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;My wife is </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">, she is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>                <span class="c1"># f-string，推薦</span>
+</span></span></code></pre></div><ul>
+<li><code>%</code> 方法後面接 tuple 或 dict，按順序或按名字取值。</li>
+<li><code>format</code> 的 <code>{}</code> 內可用索引 <code>{0}</code> 或關鍵字 <code>{name}</code>。</li>
+<li><strong>f-string 需要 Python 3.6+</strong>，可讀性最好；三者都支援寬度、對齊、精度等格式控制。</li>
+</ul>
+<h2 id="數字與布林">
+<a class="header-anchor" href="#%e6%95%b8%e5%ad%97%e8%88%87%e5%b8%83%e6%9e%97"></a>
+數字與布林
+</h2><table>
+	<thead>
+			<tr>
+					<th>型別</th>
+					<th>說明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>int</code></td>
+					<td>整數，支援 <code>0x</code> 十六進位、<code>0o</code> 八進位、<code>0b</code> 二進位</td>
+			</tr>
+			<tr>
+					<td><code>float</code></td>
+					<td>浮點數，支援科學記號 <code>1.23e-6</code></td>
+			</tr>
+			<tr>
+					<td><code>complex</code></td>
+					<td>複數，寫作 <code>a + bj</code> 或 <code>complex(a, b)</code></td>
+			</tr>
+			<tr>
+					<td><code>bool</code></td>
+					<td>布林值，<code>True</code> 本質是 1，<code>False</code> 本質是 0</td>
+			</tr>
+			<tr>
+					<td><code>NoneType</code></td>
+					<td>空值，<code>None</code> 的首字母必須大寫</td>
+			</tr>
+	</tbody>
+</table>
+<ul>
+<li>整數與浮點數混合運算時，整數會被提升為浮點數：<code>1 + 2.0</code> 得 <code>3.0</code>。</li>
+<li>浮點數存在精度誤差：<code>0.1 + 0.2 == 0.3</code> 結果是 <code>False</code>（實際為 <code>0.30000000000000004</code>）。需要精確計算時用 <code>decimal</code> 模組。</li>
+<li><code>round()</code> 採用<strong>銀行家捨入</strong>（四捨六入五取偶）：<code>round(0.5)</code> 得 <code>0</code>，<code>round(1.5)</code> 得 <code>2</code>，<code>round(2.5)</code> 得 <code>2</code>。</li>
+</ul>
+<p><strong>假值</strong>：<code>0</code>、<code>0.0</code>、<code>None</code>、空字串、空串列、空元組、空字典、空集合、<code>False</code>。
+<strong>真值</strong>：其他一切，包括非空字串（哪怕內容是 <code>&quot;False&quot;</code>）。</p>
+<h2 id="運算子">
+<a class="header-anchor" href="#%e9%81%8b%e7%ae%97%e5%ad%90"></a>
+運算子
+</h2><h3 id="算術運算子">
+<a class="header-anchor" href="#%e7%ae%97%e8%a1%93%e9%81%8b%e7%ae%97%e5%ad%90"></a>
+算術運算子
+</h3><table>
+	<thead>
+			<tr>
+					<th>運算子</th>
+					<th>含義</th>
+					<th>範例</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>+</code> <code>-</code> <code>*</code></td>
+					<td>加減乘</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td><code>/</code></td>
+					<td>除法，結果一定是浮點數</td>
+					<td><code>6 / 3</code> → <code>2.0</code></td>
+			</tr>
+			<tr>
+					<td><code>//</code></td>
+					<td><strong>整除</strong>，向下取整</td>
+					<td><code>7 // 2</code> → <code>3</code>，<code>-7 // 2</code> → <code>-4</code></td>
+			</tr>
+			<tr>
+					<td><code>%</code></td>
+					<td><strong>取餘數</strong>（模）</td>
+					<td><code>7 % 2</code> → <code>1</code></td>
+			</tr>
+			<tr>
+					<td><code>**</code></td>
+					<td>次方，<strong>右結合</strong></td>
+					<td><code>2 ** 2 ** 3</code> → <code>256</code></td>
+			</tr>
+			<tr>
+					<td><code>-</code></td>
+					<td>一元負號，優先序低於 <code>**</code></td>
+					<td><code>-2 ** 2</code> → <code>-4</code></td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="其他運算子">
+<a class="header-anchor" href="#%e5%85%b6%e4%bb%96%e9%81%8b%e7%ae%97%e5%ad%90"></a>
+其他運算子
+</h3><table>
+	<thead>
+			<tr>
+					<th>類別</th>
+					<th>運算子</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>比較</td>
+					<td><code>==</code> <code>!=</code> <code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code>，<strong>可以連用</strong>：<code>a &gt; b == c</code> 等價於 <code>a &gt; b and b == c</code></td>
+			</tr>
+			<tr>
+					<td>邏輯</td>
+					<td><code>and</code> <code>or</code> <code>not</code></td>
+			</tr>
+			<tr>
+					<td>成員</td>
+					<td><code>in</code> <code>not in</code></td>
+			</tr>
+			<tr>
+					<td>身分</td>
+					<td><code>is</code> <code>is not</code>，比較是否引用同一物件（比較 <code>id</code>，不是比較值）</td>
+			</tr>
+			<tr>
+					<td>位元運算</td>
+					<td><code>&amp;</code> <code>|</code> <code>^</code> <code>~</code> <code>&lt;&lt;</code> <code>&gt;&gt;</code></td>
+			</tr>
+			<tr>
+					<td>複合賦值</td>
+					<td><code>+=</code> <code>-=</code> <code>*=</code> <code>//=</code> <code>**=</code> <code>&amp;=</code> <code>|=</code> <code>^=</code> <code>&lt;&lt;=</code> <code>&gt;&gt;=</code></td>
+			</tr>
+	</tbody>
+</table>
+<p><code>and</code> / <code>or</code> 回傳的是<strong>運算元本身</strong>，不是 <code>True</code> / <code>False</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">True</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">False</span> <span class="ow">or</span> <span class="mi">31</span>
+</span></span><span class="line"><span class="cl"><span class="mi">31</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="mi">0</span>
+</span></span></code></pre></div><h3 id="優先序由高到低">
+<a class="header-anchor" href="#%e5%84%aa%e5%85%88%e5%ba%8f%e7%94%b1%e9%ab%98%e5%88%b0%e4%bd%8e"></a>
+優先序（由高到低）
+</h3><p><code>()</code> → 索引 <code>[]</code> → 屬性 <code>.</code> → <code>**</code> → 一元 <code>~</code> <code>+</code> <code>-</code> → <code>*</code> <code>/</code> <code>%</code> <code>//</code> → <code>+</code> <code>-</code> → <code>&lt;&lt;</code> <code>&gt;&gt;</code> → <code>&amp;</code> → <code>^</code> → <code>|</code> → 比較（<code>&lt;</code> <code>==</code> <code>in</code> <code>is</code> 等同一級）→ <code>not</code> → <code>and</code> → <code>or</code> → 賦值</p>
+<p>記不住就加括號，代價最低。</p>
+<h2 id="輸入輸出與內建函式">
+<a class="header-anchor" href="#%e8%bc%b8%e5%85%a5%e8%bc%b8%e5%87%ba%e8%88%87%e5%85%a7%e5%bb%ba%e5%87%bd%e5%bc%8f"></a>
+輸入輸出與內建函式
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>   <span class="c1"># sep 分隔符，end 結尾字元</span>
+</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;請輸入年齡：&#34;</span><span class="p">)</span>   <span class="c1"># 回傳值永遠是字串</span>
+</span></span><span class="line"><span class="cl"><span class="nb">int</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>                     <span class="c1"># 需要數字時顯式轉換</span>
+</span></span></code></pre></div><p>常用內建函式：</p>
+<table>
+	<thead>
+			<tr>
+					<th>函式</th>
+					<th>作用</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>id(x)</code></td>
+					<td>物件的記憶體位址（身分識別）</td>
+			</tr>
+			<tr>
+					<td><code>type(x)</code></td>
+					<td>物件的型別，如 <code>&lt;class 'int'&gt;</code></td>
+			</tr>
+			<tr>
+					<td><code>len(x)</code></td>
+					<td>元素個數</td>
+			</tr>
+			<tr>
+					<td><code>abs()</code> <code>round()</code> <code>bool()</code></td>
+					<td>絕對值、四捨五入、布林轉換</td>
+			</tr>
+			<tr>
+					<td><code>enumerate(seq, start=0)</code></td>
+					<td>迴圈時同時取索引和值</td>
+			</tr>
+			<tr>
+					<td><code>range()</code> <code>zip()</code> <code>sum()</code> <code>max()</code> <code>min()</code> <code>sorted()</code></td>
+					<td>常用序列工具</td>
+			</tr>
+	</tbody>
+</table>
+<p>型別轉換函式：<code>int(x, base)</code>、<code>float()</code>、<code>complex()</code>、<code>str()</code>、<code>repr()</code>、<code>chr()</code>、<code>ord()</code>、<code>hex()</code>、<code>oct()</code>、<code>eval()</code>、<code>list()</code>、<code>tuple()</code>、<code>set()</code>、<code>frozenset()</code>、<code>dict()</code>。</p>
+<p><strong>轉換不是無條件的</strong>，取決於原資料是否含有足以表達目標型別的資訊：<code>int(&quot;123&quot;)</code> 可行，<code>int(&quot;Hello&quot;)</code> 會報錯；串列可以轉集合，但轉不成一個數字。</p>
+<p>隱式轉換遵循精度順序：<code>bool</code> &lt; <code>int</code> &lt; <code>float</code> &lt; <code>complex</code>，混合運算時向高精度靠攏。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">galgames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;咖啡馆&#39;</span><span class="p">,</span> <span class="s1">&#39;千恋万花&#39;</span><span class="p">,</span> <span class="s1">&#39;天使骚骚&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">galgame</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">galgames</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;今天玩第</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1">部作品</span><span class="si">{</span><span class="n">galgame</span><span class="si">}</span><span class="s1">。&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="判斷與迴圈">
+<a class="header-anchor" href="#%e5%88%a4%e6%96%b7%e8%88%87%e8%bf%b4%e5%9c%88"></a>
+判斷與迴圈
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">condition1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">condition2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><p><code>for</code> 用於走訪任何可迭代物件（串列、字典、字串、元組、生成器……）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">序列</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><ul>
+<li><code>break</code>：跳出<strong>當前這一層</strong>迴圈。</li>
+<li><code>continue</code>：跳過本次剩餘部分，進入下一次迴圈。</li>
+<li><code>for ... else</code> / <code>while ... else</code>：迴圈<strong>正常結束</strong>時執行 <code>else</code>；被 <code>break</code> 中斷則不執行。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">while</span> <span class="n">判斷條件</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><p>寫 <code>while</code> 時務必確認迴圈體最終能改變判斷條件或觸發 <code>break</code>，否則會無窮迴圈。</p>
+<h2 id="四種容器">
+<a class="header-anchor" href="#%e5%9b%9b%e7%a8%ae%e5%ae%b9%e5%99%a8"></a>
+四種容器
+</h2><table>
+	<thead>
+			<tr>
+					<th>容器</th>
+					<th>字面量</th>
+					<th>有序</th>
+					<th>可變</th>
+					<th>元素可重複</th>
+					<th>元素要求</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>串列 <code>list</code></td>
+					<td><code>[1, 2]</code></td>
+					<td>是</td>
+					<td>是</td>
+					<td>是</td>
+					<td>任意</td>
+			</tr>
+			<tr>
+					<td>元組 <code>tuple</code></td>
+					<td><code>(1, 2)</code></td>
+					<td>是</td>
+					<td><strong>否</strong></td>
+					<td>是</td>
+					<td>任意</td>
+			</tr>
+			<tr>
+					<td>字典 <code>dict</code></td>
+					<td><code>{k: v}</code></td>
+					<td>插入序</td>
+					<td>是</td>
+					<td>鍵不可重複</td>
+					<td>鍵必須可雜湊</td>
+			</tr>
+			<tr>
+					<td>集合 <code>set</code></td>
+					<td><code>{1, 2}</code></td>
+					<td><strong>否</strong></td>
+					<td>是</td>
+					<td>否（自動去重）</td>
+					<td>必須可雜湊</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="list">
+<a class="header-anchor" href="#list"></a>
+list
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>                  <span class="c1"># 空串列</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>             <span class="c1"># 尾端追加</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>          <span class="c1"># 在索引 i 處插入，原元素後移</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>             <span class="c1"># 把 b 的元素逐個接到 a 後面</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>                 <span class="c1"># 彈出尾端元素（回傳該元素）</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>                <span class="c1"># 彈出索引 i 的元素</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>             <span class="c1"># 刪除第一個值為 x 的元素，不存在則報錯</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c1"># 第一個值為 x 的索引</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c1"># 值為 x 的元素個數</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>             <span class="c1"># 原地反轉</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=...</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>   <span class="c1"># 原地排序，無回傳值</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>                <span class="c1"># 刪除索引 i</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>              <span class="c1"># 刪除切片範圍</span>
+</span></span></code></pre></div><p>排序範例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">random</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">random</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># 按每個元組的第二個元素排序</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># [(4, 1), (2, 2), (1, 3), (3, 4)]</span>
+</span></span></code></pre></div><blockquote>
+<p>注意：<code>sort()</code> 只有 <code>key</code> 和 <code>reverse</code> 兩個參數，<code>cmp</code> 參數在 Python 3 中<strong>已被移除</strong>。</p>
+</blockquote>
+<h3 id="tuple">
+<a class="header-anchor" href="#tuple"></a>
+tuple
+</h3><ul>
+<li>元組<strong>建立後不可修改</strong>，沒有增刪改。</li>
+<li>單元素元組必須帶逗號：<code>(1,)</code> 是元組，<code>(1)</code> 只是整數。</li>
+<li>轉換：<code>list(t)</code> 得到串列，<code>tuple(l)</code> 得到元組，<strong>原物件不變</strong>，回傳的是新物件。</li>
+</ul>
+<h3 id="dict">
+<a class="header-anchor" href="#dict"></a>
+dict
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;孤筝&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">19</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;孤筝&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">19</span><span class="p">)</span>          <span class="c1"># 用等號時鍵不帶引號</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile3</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;孤筝&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">19</span><span class="p">)])</span>   <span class="c1"># 由鍵值對序列建構</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile4</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)}</span>   <span class="c1"># {2: 4, 3: 9, 4: 16}</span>
+</span></span></code></pre></div><p>取值與增改：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>                 <span class="c1"># 鍵不存在時拋 KeyError</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">)</span>           <span class="c1"># 不存在回傳 None</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span>   <span class="c1"># 不存在回傳預設值</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span>   <span class="c1"># 不存在則寫入該鍵值對並回傳</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;male&#39;</span>      <span class="c1"># 新增或修改</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">profile</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>關鍵區別：<code>get()</code> <strong>只讀</strong>，不會改動字典；<strong>只有 <code>setdefault()</code> 會在鍵缺失時寫入</strong>。</p>
+</blockquote>
+<p>判斷鍵是否存在用 <code>in</code> / <code>not in</code>；<code>has_key()</code> 是 Python 2 的寫法，Python 3 已刪除。</p>
+<h3 id="set">
+<a class="header-anchor" href="#set"></a>
+set
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>     <span class="c1"># 自動去重為 {1, 2, 3}</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>            <span class="c1"># 空集合只能這樣寫，{} 是空字典</span>
+</span></span></code></pre></div><table>
+	<thead>
+			<tr>
+					<th>操作</th>
+					<th>方法</th>
+					<th>運算子</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>聯集</td>
+					<td><code>a.union(b)</code></td>
+					<td><code>a | b</code></td>
+			</tr>
+			<tr>
+					<td>交集</td>
+					<td><code>a.intersection(b)</code></td>
+					<td><code>a &amp; b</code></td>
+			</tr>
+			<tr>
+					<td>差集（在 a 不在 b）</td>
+					<td><code>a.difference(b)</code></td>
+					<td><code>a - b</code></td>
+			</tr>
+			<tr>
+					<td>對稱差（只屬於其中一個）</td>
+					<td><code>a.symmetric_difference(b)</code></td>
+					<td><code>a ^ b</code></td>
+			</tr>
+	</tbody>
+</table>
+<ul>
+<li>增：<code>add(x)</code>（<strong>只能加不可變型別</strong>）、<code>update(seq)</code>（可接字串、串列、元組、集合；接字典只取其鍵）。</li>
+<li>刪：<code>remove(x)</code> 元素不存在會報錯；<code>discard(x)</code> 不會報錯；<code>pop()</code> 刪除並回傳<strong>任意一個</strong>元素，不能傳參數；<code>clear()</code> 清空。</li>
+<li>判斷：<code>x in s</code>、<code>a.isdisjoint(b)</code>（無交集回傳 True）、<code>b.issubset(a)</code>。</li>
+<li>集合<strong>無序無索引</strong>，既不能按索引取值，也不能修改元素，只能增刪。</li>
+</ul>
+<blockquote>
+<p>常見誤解：<code>pop()</code> 刪的是「任意」元素，不是「隨機」元素。集合的儲存順序由雜湊值決定，看起來隨機，但並不可控。</p>
+</blockquote>
+<h2 id="迭代器與生成器">
+<a class="header-anchor" href="#%e8%bf%ad%e4%bb%a3%e5%99%a8%e8%88%87%e7%94%9f%e6%88%90%e5%99%a8"></a>
+迭代器與生成器
+</h2><p><strong>可迭代物件</strong>：能用 <code>for</code> 走訪的物件。滿足下面任一條即可：</p>
+<ol>
+<li>實作了 <code>__iter__()</code>，回傳一個迭代器實例；</li>
+<li>沒有 <code>__iter__()</code>，但實作了 <code>__getitem__()</code> 且按索引取元素可行。</li>
+</ol>
+<p><strong>迭代器物件</strong>：<code>iter(可迭代物件)</code> 的回傳值，用 <code>next()</code> 逐個取值，取完後拋出 <code>StopIteration</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Iterator</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">([],</span> <span class="n">Iterable</span><span class="p">)</span>      <span class="c1"># True，串列是可迭代物件</span>
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">([],</span> <span class="n">Iterator</span><span class="p">)</span>      <span class="c1"># False，但串列本身不是迭代器</span>
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">(</span><span class="nb">iter</span><span class="p">([]),</span> <span class="n">Iterator</span><span class="p">)</span>  <span class="c1"># True</span>
+</span></span></code></pre></div><p>也就是說：<strong>串列是可迭代物件，不是迭代器</strong>，一個串列可以反覆走訪；而迭代器只能往前走一次。</p>
+<p><strong>生成器</strong>是「用函式寫的迭代器」：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 串列推導式得到串列</span>
+</span></span><span class="line"><span class="cl"><span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>     <span class="c1"># [0, 1, 2, 3, 4]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 換成圓括號得到生成器</span>
+</span></span><span class="line"><span class="cl"><span class="n">agen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>      <span class="c1"># &lt;generator object ...&gt;，惰性求值</span>
+</span></span></code></pre></div><blockquote>
+<p>注意：<code>(i for i in ...)</code> 是<strong>生成器表達式</strong>，不是元組推導式——Python 裡沒有元組推導式。要得到元組請寫 <code>tuple(i for i in ...)</code>。</p>
+</blockquote>
+<p><code>yield</code> 與 <code>return</code> 的區別：函式執行到 <code>yield</code> 會<strong>暫停並交出值，但函式沒有結束</strong>；下次取值時從暫停處繼續，直到函式結束。<code>yield</code> 不帶值則回傳 <code>None</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="o">=</span> <span class="n">generator</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>   <span class="c1"># 1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">generator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>   <span class="c1"># 1 2 3 4 5</span>
+</span></span></code></pre></div><p>生成器的價值在於<strong>惰性</strong>：不會一次性把全部結果算出來放進記憶體，處理大資料流時比串列更省記憶體。</p>
+<h2 id="其他筆記">
+<a class="header-anchor" href="#%e5%85%b6%e4%bb%96%e7%ad%86%e8%a8%98"></a>
+其他筆記
+</h2><h3 id="註解">
+<a class="header-anchor" href="#%e8%a8%bb%e8%a7%a3"></a>
+註解
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 單行註解</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">三引號嚴格來說是「多行字串」而不是註解：
+</span></span></span><span class="line"><span class="cl"><span class="s1">它會被解譯器當作一個字串物件建立出來，只是一個未被使用的表達式。
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span></code></pre></div><p>正因為它本質是字串而非註解，所以在程式碼中間隨意插入三引號會破壞語法，可能直接報錯。<strong>正規做法是只用 <code>#</code> 寫註解。</strong></p>
+<h3 id="編碼格式">
+<a class="header-anchor" href="#%e7%b7%a8%e7%a2%bc%e6%a0%bc%e5%bc%8f"></a>
+編碼格式
+</h3><ul>
+<li>Python 3 原始檔預設就是 UTF-8，<strong>通常不需要</strong>宣告編碼。</li>
+<li>只有 Python 2 需要檔頭宣告，現在基本用不到：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># -*- coding: UTF-8 -*-</span>
+</span></span></code></pre></div><h3 id="識別字">
+<a class="header-anchor" href="#%e8%ad%98%e5%88%a5%e5%ad%97"></a>
+識別字
+</h3><ul>
+<li>由字母、數字、底線組成，<strong>不能用數字開頭</strong>，區分大小寫。</li>
+<li>Python 3 允許用中文命名，但不建議。</li>
+<li>底線的特殊約定：
+<ul>
+<li><code>_name</code>：單底線開頭，表示「內部使用」，<code>from module import *</code> 不會匯入。</li>
+<li><code>__age</code>：雙底線開頭，觸發名稱改寫（name mangling），用於避免子類別衝突。</li>
+<li><code>__init__</code>：雙底線開頭和結尾，是 Python 的內建特殊方法，不要自己造這種名字。</li>
+</ul>
+</li>
+</ul>
+
+        
+        <hr><p>本文2023-06-27首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2026-10-05</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文標題：</strong> Python基礎</p>
+
+<p><strong>本文發佈時間：</strong> 2023-06-27</p>
+<p><strong>本文更新時間：</strong> 2026-10-05</p>
+<p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item><item><title>量子物理學</title><link>https://www.guzhengsvt.cn/zh-tw/post/physics/quantum-physics/</link><pubDate>Fri, 05 Sep 2025 11:05:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/physics/quantum-physics/</guid><description>
 <![CDATA[<h1>量子物理學</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <h2 id="第一章-微粒二象性與狀態描述">
@@ -2080,558 +3373,4 @@ $$
 <p><strong>本文更新時間：</strong> 2024-09-10</p>
 <p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
 </div>
-]]></description><category>Math</category></item><item><title>Windows美化歷程</title><link>https://www.guzhengsvt.cn/zh-tw/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</link><pubDate>Sat, 07 Sep 2024 21:12:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/othernotes/windows%E7%BE%8E%E5%8C%96%E5%8E%86%E7%A8%8B/</guid><description>
-<![CDATA[<h1>Windows美化歷程</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
-        
-          <h2 id="前言">
-<a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
-前言
-</h2><p>俗話說得好，<strong>美化的盡頭是預設</strong>。</p>
-<p>雖然預設的 Windows 已經能高效地勝任各項工作，但它確實 ugly 啊。</p>
-<p>在擁有一台性能過剩 PC 的情況下，適度追求美化和簡化，滿足本私齋的<del>高端審美</del>是極有必要的（）</p>
-<p>下面來說說我在用/用過的美化軟體/方案。</p>
-<h2 id="當前桌面方案">
-<a class="header-anchor" href="#%e7%95%b6%e5%89%8d%e6%a1%8c%e9%9d%a2%e6%96%b9%e6%a1%88"></a>
-當前桌面方案
-</h2><ul>
-<li>TranslucentTB：工作列透明/壓克力效果</li>
-<li>Sapphire：桌面圖示互動優化</li>
-<li>Wallpaper Engine：為減少 GPU 消耗和記憶體佔用，只選了 Blue Archive 中 Noa 的記憶大廳作為桌布，幾秒的 4 K 影片，整個 Wallpaper 記憶體佔用約 100 Mb。</li>
-<li>Rainmeter：只用了一個音頻條作為美化，因為 Noa 已經夠美了😋
-原來用過查看硬體資訊的組件，發現除了增加焦慮外沒什麼用，遂放棄。</li>
-<li>QQ 美化、網易雲音樂美化、游標美化、Obsidian 主題、插件安排上。再加上 Edge 瀏覽器的 iTab 標籤頁和各類實用插件，目前的工作流完全舒適。</li>
-</ul>
-<p>貼幾張圖
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/4189283242.png" alt="桌面展示1.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/1078908045.png" alt="桌面展示2.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2569059367.png" alt="QQ美化展示.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2176031375.png" alt="Edge展示.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/994680139.png" alt="Obsidian展示.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/130206377.png" alt="工作管理員展示.png">
-在以上正常工作流下，記憶體佔大頭的是瀏覽器，GPU 消耗主要來自 wallpaper，從登入到完全自啟動耗時 10s 內，均在可接受負載範圍內。</p>
-<p><strong>配置：</strong></p>
-<ul>
-<li>12400 F</li>
-<li>7700 XT</li>
-<li>32G DDR4</li>
-<li>2K 180Hz HDR顯示器</li>
-<li>Windows 11 專業版 23H2</li>
-</ul>
-<h2 id="qq-美化">
-<a class="header-anchor" href="#qq-%e7%be%8e%e5%8c%96"></a>
-QQ 美化
-</h2><p>==特別推薦！==
-QQ 是大部分中國人不得不用又恨之入骨的東西——廣告、彈窗、不想看的娛樂頁面、花里胡哨功能性差的界面。
-Windows 端自從推出 QQ 9，上述情況改善了不少，然而噁心人的東西最近逐漸加回來了，只能說本性難移。
-為了不被迫在這個常用軟體上天天吃屎，偉大的具有開源精神和折騰精神的中文互聯網人紛紛投入 QQ 改造計劃，而今天我要介紹的就是其中一個偉大項目——<strong>LiteLoaderQQNT</strong>。
-好了說正事，liteloader 是 QQNT 的插件平台，安裝後可以下載眾多插件。
-GitHub 項目地址：<a href="https://github.com/LiteLoaderQQNT/LiteLoaderQQNT">LiteLoaderQQNT: QQNT 插件加載器：輕量 · 簡潔 · 開源 · 福瑞</a></p>
-<p>部分推薦插件如下：</p>
-<ol>
-<li><a href="https://github.com/xinyihl/LiteLoaderQQNT-PluginInstaller/tree/main">PluginInstaller</a>：LiteLoaderQQNT 插件安裝器，可檢查更新和一鍵安裝/重啟。先安裝這個再安裝其他插件省事很多。</li>
-<li><a href="https://github.com/ltxhhz/LL-plugin-list-viewer/tree/main">LL-plugin-list-viewer</a>: LiteLoaderQQNT Plugin 插件列表查看·安裝·更新。收錄了大部分插件，可直達 GitHub 項目地址。安裝功能存在問題，部分插件需要手動安裝和更新，否則會報錯無法啟動 QQ，建議作為插件/主題查看器。</li>
-<li><a href="https://github.com/xiyuesaves/LiteLoaderQQNT-lite_tools/tree/v4">輕量工具箱 —— 輕量 · 優雅 · 高效 · 福瑞</a>：聚合了大量功能的工具箱，免於四處尋找插件。部分可選功能如下：
-<ul>
-<li><strong>美化聊天界面</strong>實現類 tg 效果（顯示頭像，加時間戳，消息靠左等）</li>
-<li>移除稱號、VIP 、推薦標籤等亂七八糟的東西。</li>
-<li>右鍵快捷搜索文字/圖片，消息轉圖片發送</li>
-<li>選項高亮，特殊消息高亮</li>
-<li><strong>小程序分享轉 URL 卡片</strong>，記錄離開時位置，快捷+1（復讀機）</li>
-<li><strong>消息預覽</strong>：根據消息中第一個連結生成一張類 tg 的預覽卡片</li>
-<li>本地表情</li>
-<li>消息後綴</li>
-<li><strong>撤回消息緩存並高亮</strong></li>
-<li><strong>設置背景</strong>，調整亮度、透明度，可加磨砂等效果</li>
-<li><strong>精簡側邊欄</strong>，所有功能可開關</li>
-<li>輸入框、消息框功能開關</li>
-<li>……</li>
-</ul>
-</li>
-<li><a href="https://github.com/xh321/LiteLoaderQQNT-QR-Decode/tree/master">二維碼解析</a>：對 QQNT 聊天中的圖片進行二維碼解析</li>
-<li><a href="https://github.com/xh321/LiteLoaderQQNT-Directly-Jump/tree/master">使用自定義瀏覽器打開連結並跳過攔截頁</a></li>
-<li><a href="https://github.com/MUKAPP/LiteLoaderQQNT-DeepL/tree/main">將 DeepL 翻譯接入你的 QQNT</a></li>
-<li><a href="https://github.com/d0j1a1701/LiteLoaderQQNT-Markdown/tree/v4">Markdown</a>：為 QQ 添加 Markdown 渲染支持。發出的消息只有安裝了該插件的 QQNT 能渲染 markdown，所以大部分情況下沒用。</li>
-<li><a href="https://github.com/xh321/LiteLoaderQQNT-Kill-Update/tree/master">Kill-Update</a>：關閉 QQ自動更新彈窗，有些插件不會第一時間支持最新版 QQ，所以禁止更新是有用的。</li>
-<li><a href="https://github.com/mo-jinran/window-on-top/tree/v4">window-on-top</a>：讓窗口有置頂功能</li>
-</ol>
-<p>還有一些主題我沒有介紹，因為去除垃圾之後部分美化的 QQNT 已經很好看了。
-另外 ChatGPT 等 AI 接入插件也有，懶得折騰 API（<del>沒錢</del>）。</p>
-<h2 id="網易雲音樂美化">
-<a class="header-anchor" href="#%e7%b6%b2%e6%98%93%e9%9b%b2%e9%9f%b3%e6%a8%82%e7%be%8e%e5%8c%96"></a>
-網易雲音樂美化
-</h2><p>==特別推薦！==
-眾所周知，國內幾大音樂平台巨頭都在走複雜化、流量化路線，今天加一個社區，明天加一個短視頻，長期 VIP 跳臉。
-作為聽音樂的軟體，有幾項基本功能就夠了。國內外都有很多做得好的音樂播放器，但“播放器”和“音樂平台”之間還是有很多差距的。比如便捷搜索歌曲，查看評論，一起聽等。建立歌單、關注歌手、充值購買等沉沒成本也迫使用戶繼續吃屎。
-我一直用的網易雲音樂有一群偉大的互聯網人做了插件，美化後確實美觀好用。
-首先是插件平台 <strong>betterncm</strong></p>
-<ul>
-<li>官網：<a href="https://microblock.cc/betterncm">MicroBlock | BetterNCM</a></li>
-<li>GitHub 項目地址：<a href="https://github.com/MicroCBer/BetterNCM">GitHub - MicroCBer/BetterNCM: NCM 軟體插件管理器</a></li>
-<li>社區：<a href="https://v2e2npdz15.feishu.cn/docx/UZkSd9d46o4fVOxaPNBcGXSenme">關於 BetterNCM 最全面的介紹以及疑難解答 - 飛書雲文檔</a></li>
-</ul>
-<p>優點是安裝 betterncm 後，所有的主題、插件可以從網易雲內平台下載、更新，不用一個個去查找翻 GitHub。
-<strong>推薦主題：</strong></p>
-<ul>
-<li>Materia You：比較簡潔的主題，純色背景沒有背景圖片。配色方案多樣。
-<img src="https://guzhengsvt.top/usr/uploads/2024/09/1596889912.png" alt="Matreia You.png"></li>
-</ul>
-<p><strong>推薦插件：</strong></p>
-<ol>
-<li>
-<p>RoundCornerNCM：網易雲音樂窗口圓角，僅 Windows 11。</p>
-</li>
-<li>
-<p>MikuPlugin：管理各元素是否顯示，可以關閉惱人的視頻、直播等元素。
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/439024086.png" alt="MikuPlugin.png"></p>
-</li>
-<li>
-<p>類蘋果歌詞：將歌曲頁面改為類 Apple Music 的樣式，還可更改歌詞源。
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/663279809.png" alt="類蘋果歌詞.png"></p>
-</li>
-<li>
-<p>這首歌的封面是什麼？：歌曲列表添加封面，增加儲存佔用，易造成卡頓
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/1807448404.png" alt="這首歌的封面是什麼？.png"></p>
-</li>
-<li>
-<p>RuLyrics：桌面歌詞插件，支持逐詞，主副歌詞，更改字體，分別更改前景色（已唱）、背景色（未唱），支持嵌入工作列（與 TranslucentTB 同時使用似乎有點問題）
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/285235071.png" alt="桌面歌詞.png"></p>
-</li>
-<li>
-<p>更多好用插件自行探索下載</p>
-</li>
-<li>
-<p>部分插件對其他插件有依賴、衝突，注意在 GitHub Issues 查看甄別。</p>
-</li>
-</ol>
-<h2 id="wallpaper-engine">
-<a class="header-anchor" href="#wallpaper-engine"></a>
-Wallpaper Engine
-</h2><p>==必備好物！==
-鼎鼎大名的萬能小紅車，開啟××√享受嶄新人生（bushi）
-作為最常用最好用的桌布軟體，wallpaper 有許多優點：</p>
-<ul>
-<li>資源豐富。steam 創意工坊每時每刻都有大量優質桌布上架，且幾乎全部免費下載使用。</li>
-<li>資源種類多。視頻、圖片、動圖、網頁……桌布種類極多，且不少桌布功能豐富，聚合了音樂歌詞、特效、頻譜等功能，一鍵裝點桌面。</li>
-<li>找資源方便。Wallpaper 搜索和篩選規則完善豐富，可篩選桌布解析度、類型、適用年齡等。</li>
-<li>使用簡便。基於 steam 創意工坊，能訪問 steam 就能下載桌布，無需翻牆，下載速度有保障。大部分桌布，即使功能複雜，在 wallpaper 界面也能輕鬆設置。</li>
-<li>串聯手機。Wallpaper 推出了安卓應用，可通過 PC 向手機傳輸使用桌布。</li>
-</ul>
-<p><strong>Warning</strong>：部分複雜特效網頁、高清視頻桌布較為消耗 GPU 性能，佔顯存較多。可以在 wallpaper 設置裡調整幀率、特效和應用行為等改善。</p>
-<p>唯一的缺點是在 steam 購買 wallpaper 需要 19 RMB，不過這價格真不高吧。</p>
-<p>Steam：<a href="https://store.steampowered.com/app/431960/Wallpaper_Engine/">Steam 上的 Wallpaper Engine：桌布引擎</a></p>
-<h2 id="translucenttb">
-<a class="header-anchor" href="#translucenttb"></a>
-TranslucentTB
-</h2><p>==特別推薦！==
-工作列透明工具，可以全透、壓克力、不透，換主題色等。
-佔用記憶體、儲存極小，幾乎不消耗 CPU 性能。</p>
-<p>GitHub 項目地址：<a href="https://github.com/TranslucentTB/TranslucentTB">GitHub - TranslucentTB</a>
-GitHub 中文翻譯項目地址：<a href="https://github.com/kasuganosoras/TranslucentTB-CN">GitHub - kasuganosoras/TranslucentTB-CN</a></p>
-<h2 id="rainmeter">
-<a class="header-anchor" href="#rainmeter"></a>
-Rainmeter
-</h2><p>==特別推薦！==
-久負盛名的桌面組件工具，可以自製功能多樣的<strong>小部件</strong>放在桌面，也可以方便地導入他人製作的部件（即皮膚）。
-常見的功能有：</p>
-<ul>
-<li>顯示 CPU、GPU、記憶體等硬體資訊（實時更新）</li>
-<li>音頻識別生成各式各樣的律動頻譜條</li>
-<li>媒體播放器</li>
-<li>一鍵追番、查看新番</li>
-<li>放置圖片、輪播圖庫等</li>
-<li>……</li>
-</ul>
-<p>缺點</p>
-<ul>
-<li>組件放多了會卡</li>
-<li>部分組件資源消耗大</li>
-<li>選擇太多了需要折騰</li>
-</ul>
-<p>官網：<a href="https://www.rainmeter.net/">Rainmeter</a>
-中國官網：<a href="https://rainmeter.cn/">個人分享 Rainmeter</a>
-GitHub 項目地址：<a href="https://github.com/rainmeter/rainmeter">GitHub - rainmeter</a>
-中國社區：<a href="https://bbs.rainmeter.cn/">雨滴美化社區</a></p>
-<h2 id="start-11">
-<a class="header-anchor" href="#start-11"></a>
-Start 11
-</h2><p>工作列及開始菜單美化工具</p>
-<ul>
-<li>可以將開始菜單改為 Windows 7-11 的風格，可改變顏色、透明度、間距、對齊方式等。</li>
-<li><strong>高級索引功能</strong>：與 Edge 瀏覽器配對時，打開的選項卡也會顯示在搜索內容中，最常用的內容在結果中的顯示位置會更高。<strong>移除本地搜索結果旁邊顯示的 Web 內容的選項！</strong></li>
-<li>更改開始按鈕圖標，開始菜單背景圖，工作列顏色、紋理。</li>
-</ul>
-<p>缺點</p>
-<ul>
-<li>付費</li>
-<li>我用起來有卡頓、啟動慢等現象。</li>
-<li>和 TranslucentTB 不兼容。</li>
-</ul>
-<p>官網終身版售價 35 RMB，小貴，30 天免費試用。有許多代理，存在學習版（不推薦）。</p>
-<p>官網：<a href="https://stardock-start11.com/">Start11</a>
-中國官網： <a href="https://www.start11.cn/">Start 11</a>
-Steam（褒貶不一）：<a href="https://store.steampowered.com/app/1694750/Start11_v2/">Steam 上的 Start11 v2</a></p>
-<h2 id="楓の美化工具箱">
-<a class="header-anchor" href="#%e6%a5%93%e3%81%ae%e7%be%8e%e5%8c%96%e5%b7%a5%e5%85%b7%e7%ae%b1"></a>
-楓の美化工具箱
-</h2><p>檔案資源管理器、開始菜單、全局窗口美化工具
-目前擁有的功能：</p>
-<ul>
-<li>主頁面：自定義檔案資源管理器窗口字體、局部顏色模式 Light、Dark (實驗性局部Dark模式存在小的視覺bug)</li>
-<li>背景設置：自定義檔案資源管理器、開始菜單、系統設置的<strong>背景圖片</strong></li>
-<li>顏色設置：自定義檔案資源管理器配色(標題、組、頁眉、詳細資訊、硬碟進度條)、圓角化硬碟進度條</li>
-<li>圖標設置：自定義桌面、檔案資源管理器圖標組圖標</li>
-<li>窗口設置：自定義檔案資源管理器窗口<strong>背景效果</strong>半透明、Blur、Acrylic、Mica效果 win11圓角類型、開始菜單、系統設置Acrylic背景效果</li>
-<li>控件樣式：自定義全局窗口<strong>標題欄按鈕樣式</strong>、macOS樣式按鈕、檔案資源管理器Tab標籤頁、<strong>工具欄</strong>、地址欄配色、自繪圓角滾動條</li>
-<li>預設列表：保存、導入、分享你的配置文件</li>
-<li>插件列表：安裝插件增強和擴展工具箱的功能</li>
-</ul>
-<p>Evaluations：</p>
-<ul>
-<li>還算是簡單易用，記憶體和 GPU 佔用尚可接受。</li>
-<li>可裝插件和導入配置文件，有一定可玩性。</li>
-<li>不兼容 TranslucentTB</li>
-<li>我用起來檔案資源管理器常崩潰、不顯示背景圖片、工具欄配色未更改，可能已經優化穩定了。</li>
-<li>背景圖片清晰度不高，在 dark 模式下背景圖片容易干擾正常閱讀檔案資訊</li>
-<li>軟體免費，不完全開源，需要註冊登入賬號。</li>
-</ul>
-<p>發布地址：<a href="https://winmoes.com/tools/12948.html">win美化工具箱 ★ 楓の主題社</a></p>
-<h2 id="sapphire">
-<a class="header-anchor" href="#sapphire"></a>
-Sapphire
-</h2><p>==特別推薦！==
-桌面圖示、佈局美化，<strong>更改互動體驗</strong>。</p>
-<ul>
-<li>可調整桌面圖示佈局，更改橫縱網格數</li>
-<li>放置格子（類手機上的資料夾），將桌面各類檔案直接放進資料夾，分類同一管理</li>
-<li>調整圖示、格子大小（網格數整數倍），圓角，背景，透明度</li>
-<li>更改檔案名的字體</li>
-<li>精簡模式去除檔案名，可每個圖示單獨設置</li>
-<li>可設置互動動效</li>
-<li><strong>Dock 欄</strong>，類 Mac/手機下方的 dock，可豎置，改變長寬、背景色</li>
-<li>開啟資料夾高級互動後可以資料夾滑鼠懸停預覽內容，單擊原地展開，不必開檔案資源管理器窗口。</li>
-<li><strong>針對 steam 內應用的快捷方式優化</strong></li>
-<li><strong>雙擊隱藏圖示</strong>，每個可單獨設置是否隱藏。</li>
-<li>後台記憶體佔用 100 mb 左右，尚可接受。幾乎不消耗 GPU</li>
-<li>可自定義圖片、動圖作為桌布。初步兼容 WallpaperEngine（需在設置中設置當其他程序成為焦點時為始終運行）。</li>
-<li>多屏支持</li>
-</ul>
-<p>缺點：</p>
-<ul>
-<li>我的電腦開啟高級檔案互動後，只要資料夾內檔案數稍多，sapphire 會直接卡死。觀望作者更新。</li>
-<li>暫時還沒有保存桌面佈局的功能，好在即使卡退也會記錄最新佈局。</li>
-<li>只保證兼容 Windows 11</li>
-<li>更改桌面右鍵互動但目前還不能自定義</li>
-</ul>
-<p>GitHub 項目地址：<a href="https://github.com/hymnly133/Sapphire-EnhancedDesktop">Sapphire-EnhancedDesktop: Windows桌面取代軟體</a></p>
-<h2 id="游標美化">
-<a class="header-anchor" href="#%e6%b8%b8%e6%a8%99%e7%be%8e%e5%8c%96"></a>
-游標美化
-</h2><p>網上有很多分享游標美化檔案的，根據個人喜好挑選。安裝也不難。
-分享兩款，不影響視野同時具有個性化設計的：</p>
-<ol>
-<li>原神納西妲游標：<a href="https://www.bilibili.com/video/BV14P411c7ap/">納西妲同款滑鼠游標4.0版來咯_原神</a></li>
-<li>蔚藍檔案千年游標，簡約可愛，在用。
-GitHub項目地址：<a href="https://github.com/makipom/BlueArchive-Cursors">BlueArchive-Cursors</a></li>
-</ol>
-        
-        <hr><p>本文2024-09-07首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2024-09-07</p><div class="notice article-copyright" data-pagefind-ignore>
-<p><strong>本文作者：</strong> 孤筝</p>
-<p><strong>本文標題：</strong> Windows美化歷程</p>
-
-<p><strong>本文發佈時間：</strong> 2024-09-07</p>
-<p><strong>本文更新時間：</strong> 2024-09-07</p>
-<p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
-</div>
-]]></description><category>OtherNotes</category></item><item><title>數位訊號處理</title><link>https://www.guzhengsvt.cn/zh-tw/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</link><pubDate>Wed, 04 Sep 2024 23:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/physics/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/</guid><description>
-<![CDATA[<h1>數位訊號處理</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
-        
-          <h2 id="數位訊號處理基本概念">
-<a class="header-anchor" href="#%e6%95%b8%e4%bd%8d%e8%a8%8a%e8%99%9f%e8%99%95%e7%90%86%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5"></a>
-數位訊號處理基本概念
-</h2><h3 id="信號分類">
-<a class="header-anchor" href="#%e4%bf%a1%e8%99%9f%e5%88%86%e9%a1%9e"></a>
-信號分類
-</h3><ol>
-<li>連續信號：即模擬信號，時域連續信號。</li>
-<li>時域離散信號：幅度取值連續，時間取值離散。</li>
-<li>幅度離散信號：幅度取值離散，時間取值連續。</li>
-<li>數位信號：幅度和時間都取離散值。</li>
-</ol>
-<h4 id="區別">
-<a class="header-anchor" href="#%e5%8d%80%e5%88%a5"></a>
-區別
-</h4><p>時域離散信號和數位信號之間的差別，僅在於數位信號存在量化誤差。</p>
-<h3 id="數位訊號處理實現方法">
-<a class="header-anchor" href="#%e6%95%b8%e4%bd%8d%e8%a8%8a%e8%99%9f%e8%99%95%e7%90%86%e5%af%a6%e7%8f%be%e6%96%b9%e6%b3%95"></a>
-數位訊號處理實現方法
-</h3><p>數位訊號處理的主要對象是<strong>數位訊號</strong>，且是採用<strong>數值運算</strong>的方法達到處理目的的。</p>
-<h4 id="軟體實現">
-<a class="header-anchor" href="#%e8%bb%9f%e9%ab%94%e5%af%a6%e7%8f%be"></a>
-軟體實現
-</h4><p>按原理和演算法，編寫程式在通用電腦實現。</p>
-<ul>
-<li>優點：靈活</li>
-<li>缺點：運算速度慢，難以達到即時處理效果。</li>
-<li>適合演算法研究和模擬。</li>
-</ul>
-<h4 id="硬體實現">
-<a class="header-anchor" href="#%e7%a1%ac%e9%ab%94%e5%af%a6%e7%8f%be"></a>
-硬體實現
-</h4><p>按照具體的要求和演算法，設計硬體結構圖，用乘法器、加法器、延時器、控制器、記憶體以及輸入輸出介面等基本部件實現。</p>
-<ul>
-<li>優點：運算速度快，可即時處理</li>
-<li>缺點：不靈活</li>
-</ul>
-<p>硬體實現指的是選用合適的 DSP 晶片，配有適合晶片語言及任務要求的軟體，實現某種訊號處理功能的一種方法。</p>
-<h4 id="專用晶片">
-<a class="header-anchor" href="#%e5%b0%88%e7%94%a8%e6%99%b6%e7%89%87"></a>
-專用晶片
-</h4><p>採用專用的 <strong>數位訊號處理晶片（DSP 晶片）</strong> 是目前發展最快、應用最廣的一種方法。因為 DSP 晶片比通用單晶片有更為突出的優點，它結合了數位訊號處理的特點，<strong>內部配有乘法器和累加器</strong>，結構上採用了流水線工作方式以及平行結構、多匯流排，且配有適合數位訊號處理的指令，是一類可實現高速運算的微處理器。</p>
-<p>對於更高速的即時系統，DSP 的速度也不滿足要求時，應採用可程式超大型元件（FPGA）或開發專用晶片來實現。</p>
-<h3 id="數位訊號處理特點">
-<a class="header-anchor" href="#%e6%95%b8%e4%bd%8d%e8%a8%8a%e8%99%9f%e8%99%95%e7%90%86%e7%89%b9%e9%bb%9e"></a>
-數位訊號處理特點
-</h3><p>相較於類比訊號處理，數位訊號處理具有以下特點：</p>
-<ol>
-<li>靈活性</li>
-<li>高精度和高穩定性</li>
-<li>便於大規模集成</li>
-<li>可以實現類比系統無法實現的諸多功能，如儲存、複雜變換和運算。</li>
-</ol>
-<h3 id="信號維度">
-<a class="header-anchor" href="#%e4%bf%a1%e8%99%9f%e7%b6%ad%e5%ba%a6"></a>
-信號維度
-</h3><p>信號通常是一個自變數或幾個自變數的函數。
-如果僅有一個自變數，則稱為一維信號；如果有兩個以上的自變數，則稱為多維信號。</p>
-<h2 id="時域離散信號與系統">
-<a class="header-anchor" href="#%e6%99%82%e5%9f%9f%e9%9b%a2%e6%95%a3%e4%bf%a1%e8%99%9f%e8%88%87%e7%b3%bb%e7%b5%b1"></a>
-時域離散信號與系統
-</h2><h3 id="時域離散信號">
-<a class="header-anchor" href="#%e6%99%82%e5%9f%9f%e9%9b%a2%e6%95%a3%e4%bf%a1%e8%99%9f"></a>
-時域離散信號
-</h3><p>實際中遇到的信號一般是模擬信號，對它進行<strong>等間隔採樣</strong>便可以得到時域離散信號。</p>
-<p>模擬信號 $x_a(t)$ ，離散時間點 $t_n$ 。
-均勻採樣（等間隔採樣）時，採樣間隔 $T$ ，$t_n=nT$
-</p>
-$$
-x(n)=x_a(t)|_{t=nT}=x_a(nT),- \infty \lt n \lt \infty
-$$<p>
-$x(n)$ 稱為時域離散信號，$n$ 取整數，得到序列
-</p>
-$$
-x(n)=\{\cdots ,x_a(-2T),x_a(-T),x_a(0),x_a(T),x_a(2T),\cdots \}
-$$<p>
-時域離散信號也稱序列。</p>
-<h4 id="序列表示方法">
-<a class="header-anchor" href="#%e5%ba%8f%e5%88%97%e8%a1%a8%e7%a4%ba%e6%96%b9%e6%b3%95"></a>
-序列表示方法
-</h4><h5 id="集合符號">
-<a class="header-anchor" href="#%e9%9b%86%e5%90%88%e7%ac%a6%e8%99%9f"></a>
-集合符號
-</h5><p>數的集合用集合符號 $\{\cdot \}$ 表示，時域離散信號可表示為有序的數的集合。
-集合中有下劃線的元素表示 $n=0$ 時刻的採樣值。</p>
-<h5 id="公式表示">
-<a class="header-anchor" href="#%e5%85%ac%e5%bc%8f%e8%a1%a8%e7%a4%ba"></a>
-公式表示
-</h5><p>範例:</p>
-$$
-x(n)=a^{|n|},0 \lt a \lt 1,-\infty \lt n \lt \infty
-$$<h5 id="圖形表示">
-<a class="header-anchor" href="#%e5%9c%96%e5%bd%a2%e8%a1%a8%e7%a4%ba"></a>
-圖形表示
-</h5><p>橫坐標為 $n$ ，縱坐標為 $x$ 的值，豎線頂端加黑點。</p>
-<h4 id="常用典型序列">
-<a class="header-anchor" href="#%e5%b8%b8%e7%94%a8%e5%85%b8%e5%9e%8b%e5%ba%8f%e5%88%97"></a>
-常用典型序列
-</h4><h5 id="單位脈衝序列">
-<a class="header-anchor" href="#%e5%96%ae%e4%bd%8d%e8%84%88%e8%a1%9d%e5%ba%8f%e5%88%97"></a>
-單位脈衝序列 $\delta(n)$
-</h5>$$
-\delta(n)=
-\begin{cases}
-1 & n=0\\
-0 & n \ne 0\\
-\end{cases}
-$$<p>
-也稱單位採樣序列，不同於單位衝激信號 $\delta(t)$ 。</p>
-<h5 id="單位階躍序列">
-<a class="header-anchor" href="#%e5%96%ae%e4%bd%8d%e9%9a%8e%e8%ba%8d%e5%ba%8f%e5%88%97"></a>
-單位階躍序列 $u(n)$
-</h5>$$
-u(n)=
-\begin{cases}
-1 & n \ge 0\\
-0 & n  \lt  0\\
-\end{cases}
-$$$$
-\delta(n)=u(n)-u(n-1)
-$$<p>
-</p>
-$$
-u(n)=\sum^{\infty}_{k=0}\delta(n-k)
-$$<h5 id="矩形序列">
-<a class="header-anchor" href="#%e7%9f%a9%e5%bd%a2%e5%ba%8f%e5%88%97"></a>
-矩形序列 $R_N(n)$
-</h5>$$
-R_N(n)=
-\begin{cases}
-1 & 0 \le n \le N-1\\
-0 & Others
-\end{cases}
-$$<p>
-$N$ 稱為矩形序列長度，矩形序列可用單位階躍序列表示。
-</p>
-$$
-R_N(n)=u(n)-u(n-N)
-$$<h5 id="實指數序列">
-<a class="header-anchor" href="#%e5%af%a6%e6%8c%87%e6%95%b8%e5%ba%8f%e5%88%97"></a>
-實指數序列
-</h5>$$
-x(n)=a^n u(n),a 為實數
-$$<ul>
-<li>$|a| \lt 1$ 時稱 $x(n)$ 為收斂序列</li>
-<li>$|a| \gt 1$ 時稱 $x(n)$ 為發散序列</li>
-</ul>
-<h5 id="正弦序列">
-<a class="header-anchor" href="#%e6%ad%a3%e5%bc%a6%e5%ba%8f%e5%88%97"></a>
-正弦序列
-</h5>$$
-x(n)=\sin (\omega n)
-$$<p>
-$\omega$ 稱為正弦序列的<strong>數字域頻率（數字頻率）</strong>，單位為弧度 $rad$ ，表示序列變化速率（相鄰兩個序列值之間相位變化的弧度數）。</p>
-<p><strong>模擬角頻率 $\varOmega$</strong>，若正弦序列由模擬信號 $x_a(t)=\sin (\varOmega t)$ 採樣得到
-</p>
-$$
-x(n)=x_a(t)|_{t=nT}=\sin (\varOmega nT)=\sin (\omega n)
-$$<p>
-則得到數字頻率與模擬角頻率的關係
-</p>
-$$
-\omega=\varOmega T
-$$<p>
-採樣頻率 $F_s=\frac{1}{T}$ ，因此
-</p>
-$$
-\omega=\frac{\varOmega}{F_s}
-$$<p>
-<em>數字域頻率是模擬角頻率對採樣頻率的歸一化頻率。</em></p>
-<h5 id="複指數序列">
-<a class="header-anchor" href="#%e8%a4%87%e6%8c%87%e6%95%b8%e5%ba%8f%e5%88%97"></a>
-複指數序列
-</h5>$$
-x(n)=e^{(\sigma+j \omega_0)n}=\cos(\omega_0 n)+j \sin(\omega_0 n)
-$$<p>
-因為 $n$ 取整數，所以正弦序列和複指數序列都以 $2 \pi$ 為周期。</p>
-<h5 id="周期序列">
-<a class="header-anchor" href="#%e5%91%a8%e6%9c%9f%e5%ba%8f%e5%88%97"></a>
-周期序列
-</h5><p>如果對所有 $n$ 存在一個<strong>最小的正整數</strong> $N$，使下面等式成立：
-</p>
-$$
-x(n)=x(n+N),-\infty \lt n \lt \infty
-$$<p>
-則稱序列 $x(n)$ 為周期性序列，周期為 $N$ 。</p>
-<h4 id="序列運算">
-<a class="header-anchor" href="#%e5%ba%8f%e5%88%97%e9%81%8b%e7%ae%97"></a>
-序列運算
-</h4><p>簡單</p>
-<h5 id="加法和乘法">
-<a class="header-anchor" href="#%e5%8a%a0%e6%b3%95%e5%92%8c%e4%b9%98%e6%b3%95"></a>
-加法和乘法
-</h5><h5 id="位移翻轉尺度變換">
-<a class="header-anchor" href="#%e4%bd%8d%e7%a7%bb%e7%bf%bb%e8%bd%89%e5%b0%ba%e5%ba%a6%e8%ae%8a%e6%8f%9b"></a>
-位移、翻轉、尺度變換
-</h5><h3 id="離散時域系統">
-<a class="header-anchor" href="#%e9%9b%a2%e6%95%a3%e6%99%82%e5%9f%9f%e7%b3%bb%e7%b5%b1"></a>
-離散時域系統
-</h3><p>系統輸入為 $x(n)$ ，輸出為 $y(n)$ ，運算關係用 $T[\cdot]$ 表示。
-</p>
-$$
-y(n)=T[x(n)]
-$$<h4 id="線性系統">
-<a class="header-anchor" href="#%e7%b7%9a%e6%80%a7%e7%b3%bb%e7%b5%b1"></a>
-線性系統
-</h4><p>系統的輸入、輸出之間滿足線性疊加原理的系統稱為線性系統。</p>
-<h5 id="可加性">
-<a class="header-anchor" href="#%e5%8f%af%e5%8a%a0%e6%80%a7"></a>
-可加性
-</h5>$$
-y_1(n)=T[x_1(n)],y_2(n)=T[x_2(n)]
-$$<p>
-</p>
-$$
-T[x_1(n)+x_2(n)]=y_1(n)+y_2(n)
-$$<h5 id="齊次性比例性">
-<a class="header-anchor" href="#%e9%bd%8a%e6%ac%a1%e6%80%a7%e6%af%94%e4%be%8b%e6%80%a7"></a>
-齊次性（比例性）
-</h5>$$
-T[a \times x(n)]=a \times y(n)
-$$<h4 id="時不變系統">
-<a class="header-anchor" href="#%e6%99%82%e4%b8%8d%e8%ae%8a%e7%b3%bb%e7%b5%b1"></a>
-時不變系統
-</h4><p>如果系統對輸入信號的運算關係 $T[\cdot]$ 在整個運算過程中不隨時間變化，或者說系統對於輸入信號的響應與信號加於系統的時間無關，則這種系統稱為時不變系統。
-</p>
-$$
-y(n)=T[x(n)]
-$$<p>
-</p>
-$$
-y(n-n_0)=T[x(n-n_0)]
-$$<h4 id="線性時不變系統特點">
-<a class="header-anchor" href="#%e7%b7%9a%e6%80%a7%e6%99%82%e4%b8%8d%e8%ae%8a%e7%b3%bb%e7%b5%b1%e7%89%b9%e9%bb%9e"></a>
-線性時不變系統特點
-</h4><p>完全響應=零輸入響應+零狀態響應</p>
-<h5 id="單位脈衝響應">
-<a class="header-anchor" href="#%e5%96%ae%e4%bd%8d%e8%84%88%e8%a1%9d%e9%9f%bf%e6%87%89"></a>
-單位脈衝響應
-</h5><p>初始狀態為 0（無零輸入響應）
-</p>
-$$
-h(n)=T[\delta(n)]
-$$<p>
-</p>
-$$
-x(n)=\sum^{\infty}_{m=-\infty}x(m)\delta(n-m)
-$$<p>
-</p>
-$$
-\begin{align}
-y(n)
-&=T[x(n)]\\
-&=T[\sum^{\infty}_{m=-\infty}x(m)\delta(n-m)]\\
-&=\sum^{\infty}_{m=-\infty}x(m)T[\delta(n-m)]\\
-&=\sum^{\infty}_{m=-\infty}x(m)h(n-m)\\
-&=x(n)*h(n)
-\end{align}
-$$<p>
-卷積相關知識見《信號與系統》</p>
-<h4 id="系統因果性">
-<a class="header-anchor" href="#%e7%b3%bb%e7%b5%b1%e5%9b%a0%e6%9e%9c%e6%80%a7"></a>
-系統因果性
-</h4><p>定義：如果系統 $n$ 時刻的輸出只取決於 $n$ 時刻以及 $n$ 時刻以前的輸入序列，而和 $n$ 時刻以後的輸入序列無關，則稱該系統具有因果性質，或稱該系統為因果系統。</p>
-<p>==充要條件==：系統單位脈衝響應滿足下式
-</p>
-$$
-h(n)=0 \quad n \lt 0
-$$<h4 id="系統穩定性">
-<a class="header-anchor" href="#%e7%b3%bb%e7%b5%b1%e7%a9%a9%e5%ae%9a%e6%80%a7"></a>
-系統穩定性
-</h4><p>定義：如果對有界輸入，系統產生的輸出也是<strong>有界</strong>的，則稱該系統具有穩定性，或稱該系統為穩定系統。
-==充要條件==：系統的單位脈衝響應絕對可和。
-</p>
-$$
-\sum^{\infty}_{m=-\infty}|h(n)| \lt \infty
-$$<h4 id="線性常係數差分方程">
-<a class="header-anchor" href="#%e7%b7%9a%e6%80%a7%e5%b8%b8%e4%bf%82%e6%95%b8%e5%b7%ae%e5%88%86%e6%96%b9%e7%a8%8b"></a>
-線性常係數差分方程
-</h4>
-        
-        <hr><p>本文2024-09-04首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2024-09-04</p><div class="notice article-copyright" data-pagefind-ignore>
-<p><strong>本文作者：</strong> 孤筝</p>
-<p><strong>本文標題：</strong> 數位訊號處理</p>
-
-<p><strong>本文發佈時間：</strong> 2024-09-04</p>
-<p><strong>本文更新時間：</strong> 2024-09-04</p>
-<p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
-</div>
-]]></description><category>Physics</category></item></channel></rss>
+]]></description><category>Math</category></item></channel></rss>

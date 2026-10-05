@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>C/C++ on 孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/en/tags/c/c++/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright><lastBuildDate>Mon, 05 Oct 2026 20:30:00 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/en/tags/c/c++/index.xml" rel="self" type="application/rss+xml"/><item><title>Data Structures Lab Notes</title><link>https://www.guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 12 Dec 2023 14:31:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</guid><description>
+<![CDATA[<h1>Data Structures Lab Notes</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
+        
+          <p>This article merges eight earlier data structures lab reports. The filler and the full source listings are gone; what remains is the <strong>core idea, key data structure, and algorithmic essentials</strong> of each experiment, as a revision outline. Code snippets are C++.</p>
+<h2 id="1-recursion-and-the-stack-fibonacci-numbers">
+<a class="header-anchor" href="#1-recursion-and-the-stack-fibonacci-numbers"></a>
+1. Recursion and the Stack: Fibonacci Numbers
+</h2><h3 id="problem">
+<a class="header-anchor" href="#problem"></a>
+Problem
+</h3><p>Compute the $n$-th Fibonacci number recursively.</p>
+<h3 id="why-recursion-depends-on-the-stack">
+<a class="header-anchor" href="#why-recursion-depends-on-the-stack"></a>
+Why recursion depends on the stack
+</h3><p>Whether a recursive call can return correctly depends on two things: <strong>how arguments are passed</strong> and <strong>where to return to</strong>. Take <code>Fib(5)</code>:</p>
+<ol>
+<li>Every recursive level needs fresh storage for that level&rsquo;s parameters;</li>
+<li>The &ldquo;which line do I resume at when this call finishes&rdquo; return address must also be saved.</li>
+</ol>
+<p>Together these form an <strong>activation record</strong>, pushed by the system onto the <strong>call stack</strong>. Calls push, returns pop from the top, and control lands back in the right frame.</p>
+<p>For <code>Fib(3) = Fib(2) + Fib(1)</code> the call tree is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Fib(3)
+</span></span><span class="line"><span class="cl">├── Fib(2)
+</span></span><span class="line"><span class="cl">│   ├── Fib(1) → returns 1
+</span></span><span class="line"><span class="cl">│   └── Fib(0) → returns 0
+</span></span><span class="line"><span class="cl">│   gives 1
+</span></span><span class="line"><span class="cl">└── Fib(1) → returns 1
+</span></span><span class="line"><span class="cl">gives 2
+</span></span></code></pre></div><h3 id="algorithm">
+<a class="header-anchor" href="#algorithm"></a>
+Algorithm
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">Fib</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote>
+<p>This version recomputes the same subproblems over and over, giving exponential time $O(2^n)$. For real use, prefer iteration or memoisation, which is $O(n)$. The recursive form is valuable here because it exposes how the stack works.</p>
+</blockquote>
+<h2 id="2-partitioning-a-set-with-conflicts">
+<a class="header-anchor" href="#2-partitioning-a-set-with-conflicts"></a>
+2. Partitioning a Set with Conflicts
+</h2><h3 id="problem-1">
+<a class="header-anchor" href="#problem-1"></a>
+Problem
+</h3><p>Split a set into <strong>pairwise disjoint</strong> subsets such that no two elements within a subset conflict, using as few subsets as possible. (Typical application: timetabling and scheduling.)</p>
+<h3 id="algorithm-cyclic-filtering">
+<a class="header-anchor" href="#algorithm-cyclic-filtering"></a>
+Algorithm: cyclic filtering
+</h3><ol>
+<li>Describe the conflicts with a <strong>2-D array</strong> (a conflict matrix): $conflict[i][j] = 1$ means $i$ and $j$ conflict, $0$ means they do not.</li>
+<li>Take the first ungrouped element and start a new group with it.</li>
+<li>Scan the remaining ungrouped elements: if an element conflicts with <strong>none of the elements already in the current group</strong>, add it; otherwise skip it and leave it for a later round.</li>
+<li>When a pass ends with elements still ungrouped, open a new group and repeat from step 2 until everything is grouped.</li>
+</ol>
+<h3 id="data-structure">
+<a class="header-anchor" href="#data-structure"></a>
+Data structure
+</h3><p>A <strong>circular queue</strong> holds the pending elements. Each pass rotates them around the queue, so no extra storage is needed.</p>
+<h3 id="key-points">
+<a class="header-anchor" href="#key-points"></a>
+Key points
+</h3><ul>
+<li>&ldquo;Can this element join the group&rdquo; must be checked against <strong>every</strong> element already in the group; checking just one gives wrong results.</li>
+<li>This is a greedy strategy — squeeze in whatever fits now — so it produces a <em>good</em> partition, not necessarily the mathematically optimal one.</li>
+</ul>
+<h2 id="3-sparse-matrix-multiplication">
+<a class="header-anchor" href="#3-sparse-matrix-multiplication"></a>
+3. Sparse Matrix Multiplication
+</h2><h3 id="problem-2">
+<a class="header-anchor" href="#problem-2"></a>
+Problem
+</h3><p>When a matrix has few non-zero entries, a full 2-D array wastes a lot of space. Store only the non-zeros as <strong>triples</strong>, then multiply two such matrices.</p>
+<h3 id="data-structures">
+<a class="header-anchor" href="#data-structures"></a>
+Data structures
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>          <span class="c1">// one non-zero entry
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>          <span class="c1">// row and column index
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>          <span class="c1">// value
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Matrix</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>          <span class="c1">// total rows, total columns
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">L</span><span class="p">;</span>             <span class="c1">// number of non-zero entries
+</span></span></span><span class="line"><span class="cl">    <span class="n">Node</span><span class="o">*</span> <span class="n">Ma</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>     <span class="c1">// array of non-zero entries
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h3 id="algorithm-1">
+<a class="header-anchor" href="#algorithm-1"></a>
+Algorithm
+</h3><p>Following $C_{ij} = \sum_k A_{ik} \cdot B_{kj}$, but only accumulating terms where <strong>both</strong> factors are non-zero:</p>
+<ol>
+<li>Walk each non-zero entry $(i, k, a)$ of $A$;</li>
+<li>Search $B$ for non-zero entries $(k, j, b)$ whose row index is $k$;</li>
+<li>Accumulate $a \times b$ into position $(i, j)$ of the result.</li>
+</ol>
+<p>Result entries are created on demand; if an accumulation ends at 0, nothing is stored.</p>
+<h3 id="key-points-1">
+<a class="header-anchor" href="#key-points-1"></a>
+Key points
+</h3><ul>
+<li>Far faster than the naive triple loop, because multiplications by zero are skipped entirely.</li>
+<li>To speed it up further, add a <strong>row index</strong> to the triple list (a row-linked list) so step 2 does not rescan $B$ from scratch each time.</li>
+<li>Validate that the number of columns of $A$ equals the number of rows of $B$, and that input indices are in range.</li>
+</ul>
+<h2 id="4-kmp-string-matching">
+<a class="header-anchor" href="#4-kmp-string-matching"></a>
+4. KMP String Matching
+</h2><h3 id="problem-3">
+<a class="header-anchor" href="#problem-3"></a>
+Problem
+</h3><p>Find the first occurrence of a pattern in a text. Naive matching shifts the pattern right by one and rewinds the text pointer on a mismatch, which is $O(nm)$ in the worst case. KMP brings it down to $O(n+m)$.</p>
+<h3 id="the-core-the-lps-array">
+<a class="header-anchor" href="#the-core-the-lps-array"></a>
+The core: the LPS array
+</h3><p>LPS (longest prefix suffix) records, for each position of the pattern, the length of the longest proper prefix that is also a suffix of the substring <strong>before that position</strong>. It tells us <strong>how far the pattern may safely slide</strong> on a mismatch, so the text pointer never has to move backwards.</p>
+<p>For the pattern <code>ABABCABAB</code>:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Index</th>
+					<th>0</th>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+					<th>5</th>
+					<th>6</th>
+					<th>7</th>
+					<th>8</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Char</td>
+					<td>A</td>
+					<td>B</td>
+					<td>A</td>
+					<td>B</td>
+					<td>C</td>
+					<td>A</td>
+					<td>B</td>
+					<td>A</td>
+					<td>B</td>
+			</tr>
+			<tr>
+					<td>LPS</td>
+					<td>0</td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="algorithm-2">
+<a class="header-anchor" href="#algorithm-2"></a>
+Algorithm
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// build the LPS array
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">computeLPS</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">pat</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">lps</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>          <span class="c1">// current longest prefix-suffix match
+</span></span></span><span class="line"><span class="cl">    <span class="n">lps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">pat</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">pat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">pat</span><span class="p">[</span><span class="n">len</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">lps</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="o">++</span><span class="n">len</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">len</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">len</span> <span class="o">=</span> <span class="n">lps</span><span class="p">[</span><span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>   <span class="c1">// fall back to the next-longest border
+</span></span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">lps</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// search for pat inside text
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">KMPSearch</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">text</span><span class="p">,</span> <span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">pat</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">pat</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">n</span> <span class="o">=</span> <span class="n">text</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">lps</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">computeLPS</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">lps</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>          <span class="c1">// i walks the text, j walks the pattern
+</span></span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">pat</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span> <span class="n">i</span><span class="o">++</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Match found at index &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">-</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">j</span> <span class="o">=</span> <span class="n">lps</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>    <span class="c1">// keep searching for further matches
+</span></span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">pat</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">j</span> <span class="o">=</span> <span class="n">lps</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span>        <span class="n">i</span><span class="o">++</span><span class="p">;</span>   <span class="c1">// j is already 0, so advance the text pointer instead
+</span></span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="key-points-2">
+<a class="header-anchor" href="#key-points-2"></a>
+Key points
+</h3><ul>
+<li><strong>The text pointer <code>i</code> never moves backwards</strong> — that is where KMP&rsquo;s efficiency comes from.</li>
+<li>On a mismatch, fall back with <code>lps[j-1]</code> rather than resetting <code>j</code> to zero.</li>
+<li>The <code>lps</code> construction is itself &ldquo;matching the pattern against itself&rdquo; and mirrors the main loop.</li>
+<li>Example: text <code>ABABDABACDABABCABAB</code>, pattern <code>ABABCABAB</code> — the match starts at index 10.</li>
+</ul>
+<h2 id="5-binary-trees-storage-and-traversal">
+<a class="header-anchor" href="#5-binary-trees-storage-and-traversal"></a>
+5. Binary Trees: Storage and Traversal
+</h2><h3 id="problem-4">
+<a class="header-anchor" href="#problem-4"></a>
+Problem
+</h3><p>Given a string of characters in <strong>level order (BFS order)</strong> where <code>@</code> marks a missing node, build a binary tree, then implement traversal for both array-based and pointer-based storage.</p>
+<h3 id="two-storage-schemes">
+<a class="header-anchor" href="#two-storage-schemes"></a>
+Two storage schemes
+</h3><p><strong>Sequential (array) storage</strong>: parent/child relations are computed from indices:</p>
+<ul>
+<li>Parent at index $i$ → left child $2i+1$, right child $2i+2$;</li>
+<li>Conversely, the parent of node $i$ is $\lfloor (i-1)/2 \rfloor$.</li>
+</ul>
+<p>Suits <strong>complete binary trees</strong>; with a sparse tree most of the array is wasted.</p>
+<p><strong>Linked storage</strong>: a struct with pointers, built with the help of a <strong>queue</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">TreeNode</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>Construction: push the root, then repeatedly pop a node from the front and attach its left and right children in turn (an <code>@</code> means that side stays empty), pushing each new child. To build from preorder input instead, swap the queue for a stack.</p>
+<h3 id="the-three-depth-first-traversals">
+<a class="header-anchor" href="#the-three-depth-first-traversals"></a>
+The three depth-first traversals
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">preOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>          <span class="c1">// root → left → right
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">preOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">preOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">inOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>           <span class="c1">// left → root → right
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">postOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>         <span class="c1">// left → right → root
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">postOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">postOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="breadth-first-traversal">
+<a class="header-anchor" href="#breadth-first-traversal"></a>
+Breadth-first traversal
+</h3><p>Use a queue to process the tree level by level: on visiting a node, push its left then right child.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">levelOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">q</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span> <span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span>  <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="worked-example">
+<a class="header-anchor" href="#worked-example"></a>
+Worked example
+</h3><p>Input <code>abc@def@@@@</code> (level order, <code>@</code> empty) describes this tree:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">        a
+</span></span><span class="line"><span class="cl">      /   \
+</span></span><span class="line"><span class="cl">     b     c
+</span></span><span class="line"><span class="cl">    / \   / \
+</span></span><span class="line"><span class="cl">   @   d e   f
+</span></span><span class="line"><span class="cl">      / \ / \ / \
+</span></span><span class="line"><span class="cl">     @  @ @ @ @  @
+</span></span></code></pre></div><table>
+	<thead>
+			<tr>
+					<th>Traversal</th>
+					<th>Result</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>preorder (root, left, right)</td>
+					<td><code>a b d c e f</code></td>
+			</tr>
+			<tr>
+					<td>inorder (left, root, right)</td>
+					<td><code>b d a e c f</code></td>
+			</tr>
+			<tr>
+					<td>postorder (left, right, root)</td>
+					<td><code>d b e f c a</code></td>
+			</tr>
+			<tr>
+					<td>level order (BFS)</td>
+					<td><code>a b c d e f</code></td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p>With array storage, take care where an inorder walk starts: preorder may start at index 0, but <strong>inorder must start at the leftmost node of the whole tree</strong>, or the left half of the left subtree is missed.</p>
+</blockquote>
+<h3 id="reconstructing-a-tree-from-traversals">
+<a class="header-anchor" href="#reconstructing-a-tree-from-traversals"></a>
+Reconstructing a tree from traversals
+</h3><ul>
+<li>preorder + inorder, postorder + inorder, and level order + inorder each determine a unique binary tree.</li>
+<li><strong>preorder + postorder does not</strong>, because it cannot tell whether a lone child hangs on the left or the right.</li>
+</ul>
+<h2 id="6-huffman-trees-and-coding">
+<a class="header-anchor" href="#6-huffman-trees-and-coding"></a>
+6. Huffman Trees and Coding
+</h2><h3 id="problem-5">
+<a class="header-anchor" href="#problem-5"></a>
+Problem
+</h3><p>Assign codes to characters according to their frequency so that the encoded text is as short as possible and no code is a prefix of another (a prefix code, which guarantees unique decoding).</p>
+<h3 id="algorithm-3">
+<a class="header-anchor" href="#algorithm-3"></a>
+Algorithm
+</h3><ol>
+<li>Count the frequency of every character.</li>
+<li>Create one leaf node per character and push them all into a <strong>min-heap</strong>.</li>
+<li>While more than one node remains: pop the two least frequent nodes, merge them into a new internal node whose frequency is their sum, and push it back.</li>
+<li>When one node is left, it is the root of the Huffman tree.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="n">minHeap</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">left</span>  <span class="o">=</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">right</span> <span class="o">=</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">parent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HuffmanNode</span><span class="p">(</span><span class="sc">&#39;$&#39;</span><span class="p">,</span> <span class="n">left</span><span class="o">-&gt;</span><span class="n">frequency</span> <span class="o">+</span> <span class="n">right</span><span class="o">-&gt;</span><span class="n">frequency</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parent</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parent</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">minHeap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">parent</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="encoding-and-decoding">
+<a class="header-anchor" href="#encoding-and-decoding"></a>
+Encoding and decoding
+</h3><ul>
+<li><strong>Generate codes</strong>: recurse from the root, appending <code>0</code> when going left and <code>1</code> when going right; at a leaf, the accumulated string is that character&rsquo;s code.</li>
+<li><strong>Encode</strong>: replace every character of the input with its code.</li>
+<li><strong>Decode</strong>: start at the root, follow <code>0</code> left and <code>1</code> right, and on reaching a leaf emit that character and restart from the root.</li>
+</ul>
+<h3 id="key-points-3">
+<a class="header-anchor" href="#key-points-3"></a>
+Key points
+</h3><ul>
+<li>Frequent characters sit close to the root and get short codes — that is the whole idea behind compression.</li>
+<li>Because every character lives at a leaf, no code can be a prefix of another, so decoding is unambiguous.</li>
+<li>Using a <strong>min-heap</strong> instead of repeated sorting brings construction down to $O(n \log n)$.</li>
+<li>Characters with equal frequency may be ordered either way without changing any code length; only which bit string each receives changes.</li>
+</ul>
+<h2 id="7-binary-search-trees-and-deletion">
+<a class="header-anchor" href="#7-binary-search-trees-and-deletion"></a>
+7. Binary Search Trees and Deletion
+</h2><h3 id="problem-6">
+<a class="header-anchor" href="#problem-6"></a>
+Problem
+</h3><p>Build a binary search tree (BST) supporting insertion, inorder traversal, and node deletion.</p>
+<h3 id="insertion">
+<a class="header-anchor" href="#insertion"></a>
+Insertion
+</h3><p>Compare recursively: smaller goes left, larger goes right, and an empty slot gets a new node.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">insert</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>      <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span>  <span class="o">=</span> <span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span>  <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&gt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>   <span class="c1">// duplicates are not inserted
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="inorder-traversal">
+<a class="header-anchor" href="#inorder-traversal"></a>
+Inorder traversal
+</h3><p>An inorder walk of a BST yields an <strong>increasing sequence</strong> — the quickest sanity check that the tree was built correctly.</p>
+<h3 id="deleting-a-node">
+<a class="header-anchor" href="#deleting-a-node"></a>
+Deleting a node
+</h3><p>Deletion is the easiest step to get wrong. There are three cases:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Case</th>
+					<th>Handling</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Leaf (no children)</td>
+					<td>delete it directly</td>
+			</tr>
+			<tr>
+					<td>Exactly one child</td>
+					<td>let that child take its place</td>
+			</tr>
+			<tr>
+					<td>Two children</td>
+					<td>replace its value with the <strong>smallest node in the right subtree</strong> (the inorder successor), then recursively delete that successor</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">remove</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>      <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span>  <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span>  <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&gt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span>  <span class="p">{</span> <span class="k">auto</span> <span class="n">t</span> <span class="o">=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span> <span class="k">delete</span> <span class="n">root</span><span class="p">;</span> <span class="k">return</span> <span class="n">t</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="p">{</span> <span class="k">auto</span> <span class="n">t</span> <span class="o">=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>  <span class="k">delete</span> <span class="n">root</span><span class="p">;</span> <span class="k">return</span> <span class="n">t</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// two children: find the smallest node of the right subtree
+</span></span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">succ</span> <span class="o">=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">succ</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="n">succ</span> <span class="o">=</span> <span class="n">succ</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span>   <span class="o">=</span> <span class="n">succ</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">succ</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote>
+<p>Replacing with the <strong>largest node of the left subtree</strong> (the inorder predecessor) is equally valid.</p>
+</blockquote>
+<h3 id="deleting-the-whole-tree">
+<a class="header-anchor" href="#deleting-the-whole-tree"></a>
+Deleting the whole tree
+</h3><p>Free nodes in postorder; releasing a parent before its children loses the pointers you still need.</p>
+<h2 id="8-threaded-binary-trees">
+<a class="header-anchor" href="#8-threaded-binary-trees"></a>
+8. Threaded Binary Trees
+</h2><h3 id="problem-7">
+<a class="header-anchor" href="#problem-7"></a>
+Problem
+</h3><p>A binary tree with $n$ nodes has $2n$ pointer fields, but only $n-1$ edges are actually used, leaving $n+1$ null pointers wasted. <strong>Threading</strong> reuses those nulls to store the <strong>predecessor/successor</strong> under some traversal order, so traversal no longer needs a stack or recursion.</p>
+<h3 id="data-structure-1">
+<a class="header-anchor" href="#data-structure-1"></a>
+Data structure
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Node</span> <span class="o">*</span><span class="n">left</span><span class="p">,</span> <span class="o">*</span><span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">ltag</span><span class="p">,</span> <span class="n">rtag</span><span class="p">;</span>   <span class="c1">// 0: points to a child; 1: it is a thread (predecessor/successor)
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h3 id="algorithm-inorder-threading">
+<a class="header-anchor" href="#algorithm-inorder-threading"></a>
+Algorithm (inorder threading)
+</h3><p>Walk the tree inorder recursively while keeping a global <code>pre</code> pointer to the last visited node:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Node</span><span class="o">*</span> <span class="n">pre</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">thread</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">thread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>              <span class="c1">// handle the left subtree first
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="p">{</span>               <span class="c1">// left child empty: point it at the predecessor
+</span></span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">-&gt;</span><span class="n">ltag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">pre</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">pre</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="p">{</span>     <span class="c1">// predecessor&#39;s right child empty: point it here
+</span></span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">rtag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">pre</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>                      <span class="c1">// advance the predecessor
+</span></span></span><span class="line"><span class="cl">    <span class="kr">thread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>             <span class="c1">// then the right subtree
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="key-points-4">
+<a class="header-anchor" href="#key-points-4"></a>
+Key points
+</h3><ul>
+<li><code>left</code> / <code>right</code> are <strong>overloaded</strong>: only <code>ltag</code> / <code>rtag</code> distinguish a child from a thread. Mistaking a thread for a child pointer leads to infinite loops.</li>
+<li>Inorder threading must <strong>recurse left first</strong>, then handle the current node, then recurse right; where <code>pre = p</code> sits determines what the threads point at.</li>
+<li>Preorder and postorder threading follow the same idea; what changes is <strong>when the current node is processed</strong> and the order of <code>pre</code> updates.</li>
+<li>A threaded tree traverses in $O(1)$ extra space, with no stack and no recursion.</li>
+</ul>
+<h2 id="9-graph-storage-adjacency-matrix-vs-adjacency-list">
+<a class="header-anchor" href="#9-graph-storage-adjacency-matrix-vs-adjacency-list"></a>
+9. Graph Storage: Adjacency Matrix vs. Adjacency List
+</h2><h3 id="adjacency-matrix">
+<a class="header-anchor" href="#adjacency-matrix"></a>
+Adjacency matrix
+</h3><p>Store edges in a 2-D array <code>adj[V][V]</code>: <code>adj[i][j] = 1</code> (or the edge weight) means an edge $i \to j$ exists.</p>
+<ul>
+<li>Pros: testing whether two vertices are adjacent is $O(1)$; simple to implement.</li>
+<li>Cons: space is always $O(V^2)$, which is <strong>very wasteful for sparse graphs</strong>; enumerating a vertex&rsquo;s neighbours scans a whole row, $O(V)$.</li>
+<li>For an undirected graph the matrix is symmetric about the main diagonal.</li>
+</ul>
+<h3 id="adjacency-list">
+<a class="header-anchor" href="#adjacency-list"></a>
+Adjacency list
+</h3><p>An array of lists: <code>adj[i]</code> holds every vertex adjacent to $i$.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">adj</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>          <span class="c1">// each element is a linked list / dynamic array
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">addEdge</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>       <span class="c1">// add the reverse edge for undirected graphs
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>Pros: space $O(V + E)$, friendly to sparse graphs; enumerating neighbours touches only edges that exist.</li>
+<li>Cons: testing adjacency requires scanning a list, $O(V)$ worst case.</li>
+<li>In a directed graph, <code>adj[u]</code> holds outgoing edges, so computing in-degrees needs an extra pass or a separate <strong>reverse adjacency list</strong>.</li>
+</ul>
+<h3 id="choosing-between-them">
+<a class="header-anchor" href="#choosing-between-them"></a>
+Choosing between them
+</h3><table>
+	<thead>
+			<tr>
+					<th>Situation</th>
+					<th>Choice</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Dense graph, frequent adjacency queries</td>
+					<td>adjacency matrix</td>
+			</tr>
+			<tr>
+					<td>Sparse graph, frequent neighbour enumeration</td>
+					<td>adjacency list</td>
+			</tr>
+			<tr>
+					<td>Very many vertices (say $10^5$)</td>
+					<td>adjacency list (a matrix will not fit)</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="checks-when-building-a-graph">
+<a class="header-anchor" href="#checks-when-building-a-graph"></a>
+Checks when building a graph
+</h3><p>After reading an edge $(u, v)$, validate $0 \le u, v < V$ to avoid out-of-range access; for unweighted graphs, do not add the same edge twice, as it distorts traversals and degree counts.</p>
+<h2 id="10-kruskal-and-minimum-spanning-trees">
+<a class="header-anchor" href="#10-kruskal-and-minimum-spanning-trees"></a>
+10. Kruskal and Minimum Spanning Trees
+</h2><h3 id="problem-8">
+<a class="header-anchor" href="#problem-8"></a>
+Problem
+</h3><p>Find a spanning tree of <strong>minimum total weight</strong> in a weighted connected undirected graph.</p>
+<h3 id="algorithm-greedy">
+<a class="header-anchor" href="#algorithm-greedy"></a>
+Algorithm (greedy)
+</h3><ol>
+<li>Sort all edges by weight <strong>ascending</strong>.</li>
+<li>Consider each edge in turn: if its endpoints are <strong>not yet in the same set</strong>, add the edge to the tree and merge the two sets; otherwise adding it would create a cycle, so discard it.</li>
+<li>Stop once $V-1$ edges have been chosen.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">sort</span><span class="p">(</span><span class="n">edges</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">edges</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">     <span class="p">[](</span><span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">weight</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">weight</span><span class="p">;</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">UnionFind</span> <span class="nf">uf</span><span class="p">(</span><span class="n">numNodes</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="n">Edge</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">edges</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">uf</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">start</span><span class="p">)</span> <span class="o">!=</span> <span class="n">uf</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">end</span><span class="p">))</span> <span class="p">{</span>   <span class="c1">// disconnected → safe to add
+</span></span></span><span class="line"><span class="cl">        <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">uf</span><span class="p">.</span><span class="n">unite</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">start</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">end</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="union-find">
+<a class="header-anchor" href="#union-find"></a>
+Union-Find
+</h3><p>Kruskal hinges on &ldquo;are these two vertices already connected?&rdquo;, which is exactly what a disjoint-set structure answers well:</p>
+<ul>
+<li><strong>Find(x)</strong>: locate the root of $x$&rsquo;s set, which also tells whether two vertices share a set.</li>
+<li><strong>Union(a, b)</strong>: merge two sets.</li>
+</ul>
+<p>Two optimisations together make the amortised cost nearly constant:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Optimisation</th>
+					<th>Technique</th>
+					<th>Effect</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Path compression</td>
+					<td>on Find, hang every visited node directly off the root</td>
+					<td>sharply reduces tree height</td>
+			</tr>
+			<tr>
+					<td>Union by rank</td>
+					<td>attach the shorter tree under the taller one</td>
+					<td>prevents lopsided trees</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">find</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">!=</span> <span class="n">x</span><span class="p">)</span> <span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>   <span class="c1">// path compression
+</span></span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">unite</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="n">b</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">rank</span><span class="p">[</span><span class="n">b</span><span class="p">])</span> <span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>   <span class="c1">// union by rank
+</span></span></span><span class="line"><span class="cl">    <span class="n">parent</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">==</span> <span class="n">rank</span><span class="p">[</span><span class="n">b</span><span class="p">])</span> <span class="n">rank</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="key-points-5">
+<a class="header-anchor" href="#key-points-5"></a>
+Key points
+</h3><ul>
+<li>Time complexity is $O(E \log E)$, dominated by the sort.</li>
+<li><strong>Best suited to sparse graphs.</strong> For dense graphs Prim&rsquo;s algorithm ($O(V^2)$, or $O(E \log V)$ with a heap) is usually faster.</li>
+<li>Sorting the edges and using Union-Find for cycle detection are the two moves at the heart of Kruskal.</li>
+</ul>
+<h2 id="11-dijkstra-and-single-source-shortest-paths">
+<a class="header-anchor" href="#11-dijkstra-and-single-source-shortest-paths"></a>
+11. Dijkstra and Single-Source Shortest Paths
+</h2><h3 id="problem-9">
+<a class="header-anchor" href="#problem-9"></a>
+Problem
+</h3><p>Given a weighted graph and a source $s$, find the shortest distance from $s$ to every other vertex.</p>
+<h3 id="algorithm-greedy--priority-queue">
+<a class="header-anchor" href="#algorithm-greedy--priority-queue"></a>
+Algorithm (greedy + priority queue)
+</h3><ol>
+<li>Set the source distance to 0 and all others to infinity.</li>
+<li>Put <code>(distance, vertex)</code> pairs into a <strong>priority queue</strong> and repeatedly extract the vertex $u$ with the smallest distance — its shortest distance is now final.</li>
+<li>Relax: for each neighbour $v$ of $u$, if $dist[u] + w(u,v) < dist[v]$ then update $dist[v]$ and push the new <code>(dist[v], v)</code> pair.</li>
+<li>Repeat 2–3 until the queue is empty.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dijkstra</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">g</span><span class="p">,</span> <span class="kt">int</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">g</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">INF</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// min-heap: the smallest element always sits at the front
+</span></span></span><span class="line"><span class="cl">    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;&gt;&gt;</span> <span class="n">pq</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">dist</span><span class="p">[</span><span class="n">src</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="mi">0</span><span class="p">,</span> <span class="n">src</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">pq</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">auto</span> <span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">pq</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">])</span> <span class="k">continue</span><span class="p">;</span>        <span class="c1">// stale entry, skip it
+</span></span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">v</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>   <span class="c1">// 0 means no direct edge
+</span></span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">v</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">dist</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="key-points-6">
+<a class="header-anchor" href="#key-points-6"></a>
+Key points
+</h3><ul>
+<li><strong>Negative edge weights are not supported.</strong> Dijkstra&rsquo;s correctness relies on an extracted vertex&rsquo;s distance never decreasing again, and negative edges break that assumption; use Bellman-Ford or SPFA instead.</li>
+<li>With an adjacency matrix the inner scan is $O(V)$ and the total is $O(V^2)$; switching to an adjacency list with a priority queue brings it to $O(E \log V)$.</li>
+<li>A vertex may be pushed several times, so skip stale entries by checking <code>d &gt; dist[u]</code> on pop.</li>
+<li>Using <code>0</code> to mean &ldquo;no edge&rdquo; is a convention; if zero-weight edges are legitimate, use a separate marker or an adjacency list.</li>
+</ul>
+<h2 id="12-critical-paths">
+<a class="header-anchor" href="#12-critical-paths"></a>
+12. Critical Paths
+</h2><h3 id="problem-10">
+<a class="header-anchor" href="#problem-10"></a>
+Problem
+</h3><p>In an AON (activity-on-node) network, where each vertex is an activity with a duration and precedence constraints, find the sequence of activities that determines the project&rsquo;s <strong>total duration</strong>.</p>
+<ul>
+<li><strong>Earliest start (ES)</strong>: the soonest an activity can begin.</li>
+<li><strong>Latest start (LS)</strong>: the latest it may begin without delaying the whole project.</li>
+<li><strong>Slack</strong>: $LS - ES$. Activities with zero slack are the <strong>critical activities</strong>, and together they form the critical path.</li>
+</ul>
+<h3 id="forward-pass-for-es">
+<a class="header-anchor" href="#forward-pass-for-es"></a>
+Forward pass for ES
+</h3><p>Process the <strong>topological order</strong> from the start events towards the end:</p>
+$$ES[v] = \max_{u \in pred(v)} \big( ES[u] + duration[u] \big)$$<p>An initial activity with no predecessors gets $ES = 0$. The project duration is $T = \max_v (ES[v] + duration[v])$.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">calcEarliest</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// must process in topological order, or a predecessor&#39;s ES is not ready yet
+</span></span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">u</span> <span class="p">:</span> <span class="n">topoOrder</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">earliest</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">earliest</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">earliest</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">duration</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="backward-pass-for-ls">
+<a class="header-anchor" href="#backward-pass-for-ls"></a>
+Backward pass for LS
+</h3><p>Walk the <strong>reverse topological order</strong> back from the end events:</p>
+$$LS[u] = \min_{v \in succ(u)} \big( LS[v] \big) - duration[u]$$<p>A terminal activity with no successors has $LS = ES = T - duration$. (Equivalently, set $LF[\cdot] = T$, so $LS = LF - duration$ and $LF[u] = \min_{v \in succ(u)} LS[v]$.)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">calcLatest</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">u</span> <span class="p">:</span> <span class="n">reverseTopoOrder</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">latest</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">latest</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="n">latest</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">-</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">duration</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="key-points-7">
+<a class="header-anchor" href="#key-points-7"></a>
+Key points
+</h3><ul>
+<li>Both passes <strong>must proceed strictly in topological order</strong>, or the predecessors/successors being read have not been computed yet.</li>
+<li>Do <strong>not</strong> identify start events by &ldquo;the adjacency list is empty&rdquo; — an empty adjacency list marks an <strong>end</strong> event (out-degree 0). Start events are those with <strong>in-degree 0</strong>; getting this backwards invalidates the whole computation.</li>
+<li>There may be more than one critical path; mark every activity whose slack is 0.</li>
+<li>To shorten the project you can only compress critical activities; compressing the others achieves nothing.</li>
+</ul>
+<h2 id="summary">
+<a class="header-anchor" href="#summary"></a>
+Summary
+</h2><table>
+	<thead>
+			<tr>
+					<th>Experiment</th>
+					<th>Core data structure</th>
+					<th>Key point</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Fibonacci</td>
+					<td>call stack</td>
+					<td>recursion relies on the stack for parameters and return addresses</td>
+			</tr>
+			<tr>
+					<td>Set partitioning</td>
+					<td>conflict matrix + circular queue</td>
+					<td>compare against all group members; greedy grouping</td>
+			</tr>
+			<tr>
+					<td>Sparse matrix multiply</td>
+					<td>triple list</td>
+					<td>accumulate only terms non-zero on both sides</td>
+			</tr>
+			<tr>
+					<td>KMP</td>
+					<td>LPS array</td>
+					<td>the text pointer never moves backwards</td>
+			</tr>
+			<tr>
+					<td>Binary trees</td>
+					<td>array / linked nodes</td>
+					<td>index-based parent/child relations; three DFS orders plus BFS</td>
+			</tr>
+			<tr>
+					<td>Huffman</td>
+					<td>min-heap</td>
+					<td>repeatedly merge the two least frequent nodes</td>
+			</tr>
+			<tr>
+					<td>BST</td>
+					<td>linked nodes</td>
+					<td>deletion has three cases; inorder gives a sorted sequence</td>
+			</tr>
+			<tr>
+					<td>Threading</td>
+					<td>nodes with tag bits</td>
+					<td>ltag/rtag distinguish children from threads</td>
+			</tr>
+			<tr>
+					<td>Graph storage</td>
+					<td>adjacency matrix / list</td>
+					<td>dense → matrix, sparse → list</td>
+			</tr>
+			<tr>
+					<td>Kruskal</td>
+					<td>edge list + Union-Find</td>
+					<td>sort edges, detect cycles with Union-Find</td>
+			</tr>
+			<tr>
+					<td>Dijkstra</td>
+					<td>priority queue</td>
+					<td>greedy relaxation; no negative weights</td>
+			</tr>
+			<tr>
+					<td>Critical path</td>
+					<td>DAG + topological order</td>
+					<td>forward for ES, backward for LS; zero slack is critical</td>
+			</tr>
+	</tbody>
+</table>
+
+        
+        <hr><p>Published on 2023-12-12 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2026-10-05</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> Data Structures Lab Notes</p>
+
+<p><strong>Published: </strong> 2023-12-12</p>
+<p><strong>Updated: </strong> 2026-10-05</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item></channel></rss>

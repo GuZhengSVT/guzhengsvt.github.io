@@ -1,157 +1,794 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on 孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/zh-tw/tags/python/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-tw</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</copyright><lastBuildDate>Thu, 15 Feb 2024 11:44:33 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/zh-tw/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>MicroPython 函式庫</title><link>https://www.guzhengsvt.cn/zh-tw/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link><pubDate>Thu, 15 Feb 2024 11:44:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid><description>
-<![CDATA[<h1>MicroPython 函式庫</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on 孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/zh-tw/tags/python/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-tw</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</copyright><lastBuildDate>Mon, 05 Oct 2026 20:10:00 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/zh-tw/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>MicroPython函式庫</title><link>https://www.guzhengsvt.cn/zh-tw/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link><pubDate>Thu, 15 Feb 2024 11:44:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid><description>
+<![CDATA[<h1>MicroPython函式庫</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
-          <h2 id="machine-與硬體相關功能">
-<a class="header-anchor" href="#machine-%e8%88%87%e7%a1%ac%e9%ab%94%e7%9b%b8%e9%97%9c%e5%8a%9f%e8%83%bd"></a>
-machine-與硬體相關功能
-</h2><h3 id="pin類">
-<a class="header-anchor" href="#pin%e9%a1%9e"></a>
-Pin類
-</h3><h4 id="machinepinidmodenonepullnonevalue">
-<a class="header-anchor" href="#machinepinidmodenonepullnonevalue"></a>
-<code>machine.Pin(id,mode=None,pull=None,value)</code>
-</h4><p>Pin物件建構函式</p>
+          <p>本文整理 MicroPython 的 <code>machine</code> 模組在 Raspberry Pi Pico（RP2040）上的常用介面。內容已對照 <a href="https://docs.micropython.org/en/latest/library/machine.html">MicroPython 官方文件</a> 核對。</p>
+<h2 id="machine與硬體相關的功能">
+<a class="header-anchor" href="#machine%e8%88%87%e7%a1%ac%e9%ab%94%e7%9b%b8%e9%97%9c%e7%9a%84%e5%8a%9f%e8%83%bd"></a>
+machine：與硬體相關的功能
+</h2><p>腳位編號有以下兩種：</p>
 <ul>
-<li>id：GPIO編號，對於Pico為0-29</li>
-<li>mode：模式，可選<code>None，Pin.IN(0),Pin.OUT(1),Pin.OPEN_DRAIN(2)</code></li>
-<li>pull：使用內部上下拉電阻，僅在輸入模式下有效，可選<code>None,Pin.PULL_UP(1),Pin.DOWN(2)</code></li>
-<li>value：輸出或開漏模式下埠值，0為低電位，1為高電位</li>
+<li><strong>GPIO 編號</strong>（GP0–GP29）：程式碼裡最常用，<code>Pin(25)</code> 就是 GP25。</li>
+<li><strong>實體腳位號</strong>：開發板上的 40 個針腳位置，與 GPIO 編號不是一回事，接線時要注意區分。</li>
 </ul>
-<h4 id="pininitmodenonepullnone">
-<a class="header-anchor" href="#pininitmodenonepullnone"></a>
-<code>Pin.init(mode=None,pull=None)</code>
-</h4><p>重新初始化GPIO埠</p>
+<h3 id="pin-類別">
+<a class="header-anchor" href="#pin-%e9%a1%9e%e5%88%a5"></a>
+Pin 類別
+</h3><h4 id="建構子-machinepinid-mode-1-pull-1-valuenone">
+<a class="header-anchor" href="#%e5%bb%ba%e6%a7%8b%e5%ad%90-machinepinid-mode-1-pull-1-valuenone"></a>
+建構子 <code>machine.Pin(id, mode=-1, pull=-1, value=None)</code>
+</h4><table>
+	<thead>
+			<tr>
+					<th>參數</th>
+					<th>說明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>id</code></td>
+					<td>腳位編號。Pico 上可用 0–29（GP0–GP29）</td>
+			</tr>
+			<tr>
+					<td><code>mode</code></td>
+					<td><code>None</code> / <code>Pin.IN</code>(0) / <code>Pin.OUT</code>(1) / <code>Pin.OPEN_DRAIN</code>(2)</td>
+			</tr>
+			<tr>
+					<td><code>pull</code></td>
+					<td>內部上下拉電阻，<strong>僅在輸入模式有效</strong>：<code>None</code> / <code>Pin.PULL_UP</code>(1) / <code>Pin.PULL_DOWN</code>(2)</td>
+			</tr>
+			<tr>
+					<td><code>value</code></td>
+					<td>僅輸出／開汲極模式有效，初始電位：0 低電位，1 高電位</td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p>注意是 <code>Pin.PULL_DOWN</code>，不是 <code>Pin.DOWN</code>。</p>
+</blockquote>
+<h4 id="pininitmode-1-pull-1-valuenone">
+<a class="header-anchor" href="#pininitmode-1-pull-1-valuenone"></a>
+<code>Pin.init(mode=-1, pull=-1, value=None)</code>
+</h4><p>重新初始化腳位。只修改傳入的參數，其餘狀態保持不變。</p>
 <h4 id="pinvaluex">
 <a class="header-anchor" href="#pinvaluex"></a>
 <code>Pin.value([x])</code>
 </h4><ul>
-<li>不填參數時返回GPIO埠數值</li>
-<li>填參數0、1時將參數寫入GPIO埠</li>
+<li>不傳參數：回傳目前腳位電位（0 或 1）。</li>
+<li>傳參數：寫入腳位電位，參數會被轉成布林值（<code>True</code> 置 1，<code>False</code> 置 0）。</li>
 </ul>
+<h4 id="pinon--pinoffpinhigh--pinlow">
+<a class="header-anchor" href="#pinon--pinoffpinhigh--pinlow"></a>
+<code>Pin.on()</code> / <code>Pin.off()</code>、<code>Pin.high()</code> / <code>Pin.low()</code>
+</h4><ul>
+<li><code>on()</code>、<code>high()</code>：輸出高電位（置 1）。</li>
+<li><code>off()</code>、<code>low()</code>：輸出低電位（置 0）。</li>
+</ul>
+<p>這四個方法僅對輸出／開汲極模式有意義。<code>low()</code> / <code>high()</code> 屬於非核心 API，在 Pico（rp2）上可用。</p>
 <h4 id="pintoggle">
 <a class="header-anchor" href="#pintoggle"></a>
 <code>Pin.toggle()</code>
-</h4><p>輸出或開漏模式下將埠設置翻轉
-eg.LED閃爍</p>
+</h4><p>翻轉輸出電位，0 變 1、1 變 0。<code>toggle()</code> 在 rp2、esp32 等埠可用；如果某個埠不支援，用 <code>Pin.value(not Pin.value())</code> 代替。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
-</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span> <span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="c1">#每秒反轉一次燈亮/暗</span>
-</span></span></code></pre></div><h4 id="pinirqhandlernonetriggerpinirq_fallingpinirq_rising">
-<a class="header-anchor" href="#pinirqhandlernonetriggerpinirq_fallingpinirq_rising"></a>
-<code>Pin.irq(handler=None,trigger=(Pin.IRQ_FALLING|PIN.IRQ_RISING))</code>
-</h4><p>外部中斷函式</p>
-<ul>
-<li>handler：中斷觸發回呼函式</li>
-<li>trigger：中斷觸發條件（邊緣觸發/電位觸發）</li>
-</ul>
-<h4 id="others">
-<a class="header-anchor" href="#others"></a>
-others
-</h4><p>以下函式適用於輸出/開漏模式：</p>
-<ul>
-<li><code>Pin.low(),Pin.off()</code>將埠設置為低電壓。</li>
-<li><code>Pin.high(),Pin.on()</code>將埠設置為高電壓。</li>
-</ul>
-<h4 id="eg-點燈">
-<a class="header-anchor" href="#eg-%e9%bb%9e%e7%87%88"></a>
-eg. 點燈
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">utime</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#將按鈕接入GPIO15,設置為輸入模式，內部上拉</span>
-</span></span><span class="line"><span class="cl"><span class="n">button_num</span><span class="o">=</span><span class="mi">15</span>
-</span></span><span class="line"><span class="cl"><span class="n">button</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">button_num</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#GP25為板載LED，外設LED接入GP16</span>
-</span></span><span class="line"><span class="cl"><span class="n">led1_num</span><span class="o">=</span><span class="mi">25</span>
-</span></span><span class="line"><span class="cl"><span class="n">led2_num</span><span class="o">=</span><span class="mi">16</span>
-</span></span><span class="line"><span class="cl"><span class="n">led1</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">led1_num</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">led2</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">led2_num</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span> <span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">led2</span><span class="o">.</span><span class="n">off</span><span class="p">()</span><span class="c1">#開始關外設LED</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span><span class="c1">#判斷按鈕是否按下，按下為0</span>
-</span></span><span class="line"><span class="cl">        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span><span class="c1">#軟體消抖</span>
-</span></span><span class="line"><span class="cl">            <span class="n">led1</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span><span class="c1">#板載LED翻轉</span>
-</span></span><span class="line"><span class="cl">            <span class="n">led2</span><span class="o">.</span><span class="n">on</span><span class="p">()</span><span class="c1">#外設LED亮（GP16高電位）</span>
-</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;The button is pressed.&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">#按鈕處於按下狀態則等待變化（外設LED仍亮）</span>
-</span></span><span class="line"><span class="cl">                <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
-</span></span></code></pre></div><h3 id="pwm類">
-<a class="header-anchor" href="#pwm%e9%a1%9e"></a>
-PWM類
-</h3><h4 id="machinepwmpin">
-<a class="header-anchor" href="#machinepwmpin"></a>
-<code>machine.PWM(pin)</code>
-</h4><p>指定GPIO重新初始化為PWM輸出。
-pin為Pin類物件</p>
-<h4 id="pwmdeinit">
-<a class="header-anchor" href="#pwmdeinit"></a>
-<code>PWM.deinit()</code>
-</h4><p>PWM反初始化，停止PWM輸出。</p>
-<h4 id="pwmfreqvalue">
-<a class="header-anchor" href="#pwmfreqvalue"></a>
-<code>PWM.freq([value])</code>
-</h4><p>設置PWM頻率（單位$Hz$），自動計算分頻器參數與TOP寄存器參數。</p>
-<h4 id="pwmduty_u16value">
-<a class="header-anchor" href="#pwmduty_u16value"></a>
-`PWM.duty_u16([value])
-</h4><p>設置佔空比。
-value佔空比比例在[0,65536]，據此計算出對應數值賦給CC寄存器。</p>
-<h4 id="pwmduty_nsvalue">
-<a class="header-anchor" href="#pwmduty_nsvalue"></a>
-<code>PWM.duty_ns([value])</code>
-</h4><p>設置一個週期高電位時長，單位為ns。</p>
-<h4 id="eg-呼吸燈">
-<a class="header-anchor" href="#eg-%e5%91%bc%e5%90%b8%e7%87%88"></a>
-eg. 呼吸燈
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span><span class="n">PWM</span>
+</span></span><span class="line"><span class="cl"><span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>   <span class="c1"># Pico 板載 LED 在 GP25</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>        <span class="c1"># 每 1 秒翻轉一次</span>
+</span></span></code></pre></div><h4 id="pinirqhandlernone-triggerpinirq_falling--pinirq_rising">
+<a class="header-anchor" href="#pinirqhandlernone-triggerpinirq_falling--pinirq_rising"></a>
+<code>Pin.irq(handler=None, trigger=Pin.IRQ_FALLING | Pin.IRQ_RISING)</code>
+</h4><p>設定外部中斷。電位變化時自動呼叫回呼函式。</p>
+<ul>
+<li><code>handler</code>：中斷回呼函式，<strong>必須接收一個 <code>Pin</code> 參數</strong>。</li>
+<li><code>trigger</code>：觸發條件，可用 <code>|</code> 組合：</li>
+</ul>
+<table>
+	<thead>
+			<tr>
+					<th>常數</th>
+					<th>含義</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>Pin.IRQ_FALLING</code></td>
+					<td>下降緣</td>
+			</tr>
+			<tr>
+					<td><code>Pin.IRQ_RISING</code></td>
+					<td>上升緣</td>
+			</tr>
+			<tr>
+					<td><code>Pin.IRQ_LOW_LEVEL</code></td>
+					<td>低電位</td>
+			</tr>
+			<tr>
+					<td><code>Pin.IRQ_HIGH_LEVEL</code></td>
+					<td>高電位</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;按鍵被按下&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">button</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">button</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">on_press</span><span class="p">,</span> <span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="pwm-類別">
+<a class="header-anchor" href="#pwm-%e9%a1%9e%e5%88%a5"></a>
+PWM 類別
+</h3><p>PWM（脈衝寬度調變）透過快速開關來模擬中間的電壓值，常用於調光、調速、伺服馬達控制。</p>
+<h4 id="machinepwmpin-freq-duty_u16">
+<a class="header-anchor" href="#machinepwmpin-freq-duty_u16"></a>
+<code>machine.PWM(pin, freq=..., duty_u16=...)</code>
+</h4><p>在指定腳位上建立 PWM 輸出，<code>pin</code> 是 <code>Pin</code> 物件。</p>
+<h4 id="常用方法">
+<a class="header-anchor" href="#%e5%b8%b8%e7%94%a8%e6%96%b9%e6%b3%95"></a>
+常用方法
+</h4><table>
+	<thead>
+			<tr>
+					<th>方法</th>
+					<th>作用</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>PWM.freq([value])</code></td>
+					<td>讀取／設定頻率，單位 Hz，範圍約 8 Hz – 62.5 MHz（CPU 125 MHz 時）</td>
+			</tr>
+			<tr>
+					<td><code>PWM.duty_u16([value])</code></td>
+					<td>讀取／設定工作週期，取值 <strong>0–65535</strong>，代表 <code>value / 65535</code> 的比例</td>
+			</tr>
+			<tr>
+					<td><code>PWM.duty_ns([value])</code></td>
+					<td>讀取／設定一個週期內的高電位時長，單位 ns</td>
+			</tr>
+			<tr>
+					<td><code>PWM.deinit()</code></td>
+					<td>關閉 PWM 輸出</td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p>注意 <code>duty_u16</code> 的上限是 <strong>65535</strong>，不是 65536。寫 65536 會溢位。</p>
+</blockquote>
+<p>RP2040 有 8 組獨立的 PWM 切片，每組 2 個通道，共 16 路。同一組的兩個通道<strong>必須共用頻率</strong>，但可以有不同工作週期。</p>
+<h4 id="例呼吸燈">
+<a class="header-anchor" href="#%e4%be%8b%e5%91%bc%e5%90%b8%e7%87%88"></a>
+例：呼吸燈
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">=</span><span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span><span class="c1">#初始化板載LED為PWM物件</span>
-</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="c1">#設置頻率</span>
-</span></span><span class="line"><span class="cl"><span class="n">led_duty</span><span class="o">=</span><span class="mi">0</span><span class="c1">#初始值</span>
-</span></span><span class="line"><span class="cl"><span class="n">led_direction</span><span class="o">=</span><span class="mi">1</span><span class="c1">#步長</span>
+</span></span><span class="line"><span class="cl"><span class="n">led</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>      <span class="c1"># 1 kHz</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">duty</span> <span class="o">=</span> <span class="mi">0</span>            <span class="c1"># 工作週期百分比</span>
+</span></span><span class="line"><span class="cl"><span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">led_duty</span><span class="o">+=</span><span class="n">led_direction</span><span class="c1">#增大/減小佔空比比值</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">led_duty</span><span class="o">&gt;=</span><span class="mi">100</span><span class="p">:</span><span class="c1">#滿</span>
-</span></span><span class="line"><span class="cl">        <span class="n">led_duty</span><span class="o">=</span><span class="mi">100</span>
-</span></span><span class="line"><span class="cl">        <span class="n">led_direction</span><span class="o">=-</span><span class="mi">1</span>
-</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">led_duty</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">:</span><span class="c1">#歸零</span>
-</span></span><span class="line"><span class="cl">        <span class="n">led_duty</span><span class="o">=</span><span class="mi">0</span>
-</span></span><span class="line"><span class="cl">        <span class="n">led_direction</span><span class="o">=</span><span class="mi">1</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">led_duty</span><span class="o">*</span><span class="mf">655.36</span><span class="p">))</span><span class="c1">#佔空比數值轉換</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">led_duty</span><span class="o">%</span><span class="mi">5</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">led_duty</span><span class="p">)</span><span class="c1">#便於繪圖觀察</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">#週期2S</span>
-</span></span></code></pre></div><h3 id="adc類">
-<a class="header-anchor" href="#adc%e9%a1%9e"></a>
-ADC類
-</h3><h4 id="machineadcid">
+</span></span><span class="line"><span class="cl">    <span class="n">duty</span> <span class="o">+=</span> <span class="n">step</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">duty</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">duty</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl">        <span class="n">step</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">duty</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">duty</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 百分比換算成 0-65535，注意別越界</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">duty</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">*</span> <span class="mi">65535</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">duty</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">duty</span><span class="p">)</span>  <span class="c1"># 方便繪圖觀察</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>  <span class="c1"># 約 2 秒一個來回</span>
+</span></span></code></pre></div><h4 id="例按鍵點燈含軟體防彈跳">
+<a class="header-anchor" href="#%e4%be%8b%e6%8c%89%e9%8d%b5%e9%bb%9e%e7%87%88%e5%90%ab%e8%bb%9f%e9%ab%94%e9%98%b2%e5%bd%88%e8%b7%b3"></a>
+例：按鍵點燈（含軟體防彈跳）
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">button</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>   <span class="c1"># 按下時讀到 0</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_board</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>            <span class="c1"># 板載 LED</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_ext</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>              <span class="c1"># 外接 LED</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led_ext</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>             <span class="c1"># 可能按下</span>
+</span></span><span class="line"><span class="cl">        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>                <span class="c1"># 等 10 ms 再確認，濾掉彈跳</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>         <span class="c1"># 確認按下</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led_board</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led_ext</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;The button is pressed.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># 等待放開</span>
+</span></span><span class="line"><span class="cl">                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>機械按鍵在按下和放開的瞬間會產生毫秒級的電位彈跳，被 CPU 讀成多次按鍵。<strong>軟體防彈跳</strong>的做法是：偵測到按下後延時 10 ms 再確認一次。</p>
+</blockquote>
+<h3 id="adc-類別">
+<a class="header-anchor" href="#adc-%e9%a1%9e%e5%88%a5"></a>
+ADC 類別
+</h3><p>ADC（類比數位轉換）把類比電壓轉成數位量。</p>
+<h4 id="machineadcid">
 <a class="header-anchor" href="#machineadcid"></a>
 <code>machine.ADC(id)</code>
-</h4><p>初始化為ADC物件，id可為GPIO或ADC通道。使用Pin物件時GPIO需要支援ADC。
-0-3為Pico GPIO通道26-29，4為片內溫度感測器通道。</p>
+</h4><p><code>id</code> 可以是 <code>Pin</code> 物件，也可以是通道號：</p>
+<ul>
+<li>Pico 上通道 <strong>0–3 對應 GP26–GP29</strong>（GP29 板載接 VSYS）；</li>
+<li>通道 <strong>4</strong> 是晶片內建溫度感測器，可用 <code>ADC.CORE_TEMP</code> 表示。</li>
+</ul>
 <h4 id="adcread_u16">
 <a class="header-anchor" href="#adcread_u16"></a>
 <code>ADC.read_u16()</code>
-</h4><p>讀取對應通道ADC返回讀取值[0,65525]。</p>
+</h4><p>讀取轉換結果，回傳 <strong>0–65535</strong> 的整數，對應電壓範圍 0–3.3 V。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">ADC</span><span class="p">,</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">adc</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span>          <span class="c1"># 也可以寫成 ADC(0)</span>
+</span></span><span class="line"><span class="cl"><span class="n">value</span> <span class="o">=</span> <span class="n">adc</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span>      <span class="c1"># 0 - 65535</span>
+</span></span><span class="line"><span class="cl"><span class="n">voltage</span> <span class="o">=</span> <span class="n">value</span> <span class="o">/</span> <span class="mi">65535</span> <span class="o">*</span> <span class="mf">3.3</span>   <span class="c1"># 換算成電壓</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">voltage</span><span class="p">,</span> <span class="s2">&#34;V&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>注意量程是 0–65535。RP2040 的 ADC 硬體本身是 12 位元（0–4095），MicroPython 將它線性拉伸到 16 位元，所以末尾幾位沒有實際精度。</p>
+</blockquote>
+<h2 id="小結">
+<a class="header-anchor" href="#%e5%b0%8f%e7%b5%90"></a>
+小結
+</h2><table>
+	<thead>
+			<tr>
+					<th>場景</th>
+					<th>關鍵點</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>數位輸入輸出</td>
+					<td><code>Pin(id, mode, pull)</code>，輸入用 <code>value()</code> 讀，輸出用 <code>value()</code> / <code>on()</code> / <code>off()</code> / <code>toggle()</code></td>
+			</tr>
+			<tr>
+					<td>中斷</td>
+					<td><code>Pin.irq(handler, trigger)</code>，回呼必須帶一個 <code>Pin</code> 參數</td>
+			</tr>
+			<tr>
+					<td>調光／調速</td>
+					<td><code>PWM(pin)</code> + <code>freq()</code> + <code>duty_u16()</code>，工作週期上限 65535</td>
+			</tr>
+			<tr>
+					<td>讀類比量</td>
+					<td><code>ADC(Pin(26))</code> + <code>read_u16()</code>，回傳 0–65535</td>
+			</tr>
+			<tr>
+					<td>按鍵彈跳</td>
+					<td>偵測到變化後延時 10 ms 再確認</td>
+			</tr>
+	</tbody>
+</table>
 
         
-        <hr><p>本文2024-02-15首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2024-02-15</p><div class="notice article-copyright" data-pagefind-ignore>
+        <hr><p>本文2024-02-15首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2026-10-05</p><div class="notice article-copyright" data-pagefind-ignore>
 <p><strong>本文作者：</strong> 孤筝</p>
-<p><strong>本文標題：</strong> MicroPython 函式庫</p>
+<p><strong>本文標題：</strong> MicroPython函式庫</p>
 
 <p><strong>本文發佈時間：</strong> 2024-02-15</p>
-<p><strong>本文更新時間：</strong> 2024-02-15</p>
+<p><strong>本文更新時間：</strong> 2026-10-05</p>
+<p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item><item><title>Python基礎</title><link>https://www.guzhengsvt.cn/zh-tw/post/code/python%E5%9F%BA%E7%A1%80/</link><pubDate>Tue, 27 Jun 2023 00:49:20 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/code/python%E5%9F%BA%E7%A1%80/</guid><description>
+<![CDATA[<h1>Python基礎</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <p>本文合併了原先的四篇 Python 筆記，去掉了重複與無關內容，作為日常速查使用。範例基於 Python 3。</p>
+<h2 id="變數與物件">
+<a class="header-anchor" href="#%e8%ae%8a%e6%95%b8%e8%88%87%e7%89%a9%e4%bb%b6"></a>
+變數與物件
+</h2><ul>
+<li>變數不需要宣告型別，但<strong>使用前必須賦值</strong>，否則拋出 <code>NameError</code>。</li>
+<li>Python 沒有 <code>const</code>，也沒有任何機制阻止變數被重新賦值，所謂「常數」只是約定用全大寫命名。</li>
+<li><code>=</code> 是賦值，<code>==</code> 是比較。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span>
+</span></span><span class="line"><span class="cl"><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;age&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</span></span></code></pre></div><p>用物件導向的方式理解：<strong>物件是資料實體，變數是貼在物件上的標籤</strong>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Jack&#34;</span>   <span class="c1"># 建立字串物件 &#34;Jack&#34;，再把標籤 a 貼上去</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>        <span class="c1"># 把標籤 b 貼到同一個物件上，而不是複製</span>
+</span></span><span class="line"><span class="cl"><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># True，兩者指向同一個物件</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Ross&#34;</span>   <span class="c1"># 換一個物件，貼上 a 標籤；b 仍指向 &#34;Jack&#34;</span>
+</span></span></code></pre></div><ul>
+<li>物件可以掛多個標籤，一個變數同時只能指向一個物件。</li>
+<li><strong>變數本身沒有型別，型別屬於物件</strong>。所以 <code>a = 1</code> 之後 <code>a = &quot;1&quot;</code> 完全合法。</li>
+</ul>
+<h2 id="賦值與切片">
+<a class="header-anchor" href="#%e8%b3%a6%e5%80%bc%e8%88%87%e5%88%87%e7%89%87"></a>
+賦值與切片
+</h2><p><code>=</code> 是<strong>右結合</strong>的，<code>a = b = c = 1</code> 表示三者都指向整數物件 1。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>   <span class="c1"># 分別賦值</span>
+</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="mi">17</span> <span class="o">+</span> <span class="mi">1</span>        <span class="c1"># 先算右邊再賦值</span>
+</span></span></code></pre></div><p>切片適用於字串、元組、串列，語法為 <code>obj[a:b:c]</code>：</p>
+<table>
+	<thead>
+			<tr>
+					<th>寫法</th>
+					<th>含義</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>obj[a:b]</code></td>
+					<td>取索引 $[a, b)$，不含 <code>b</code>；省略 <code>a</code> 從 0 開始，省略 <code>b</code> 到結尾</td>
+			</tr>
+			<tr>
+					<td><code>obj[a:b:c]</code></td>
+					<td>每 <code>c</code> 個取一個，<code>c</code> 省略時為 1</td>
+			</tr>
+			<tr>
+					<td><code>c</code> 為負數</td>
+					<td>由後往前反向取</td>
+			</tr>
+			<tr>
+					<td><code>obj[::-1]</code></td>
+					<td>反轉（得到新物件，原物件不變）</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;polaris&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;ol&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;sap&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;siralop&#39;</span>
+</span></span></code></pre></div><p>切片還可用於複製：<code>y = x[:]</code> 得到一份淺拷貝，再對 <code>y</code> 排序不會影響 <code>x</code>。</p>
+<h2 id="字串">
+<a class="header-anchor" href="#%e5%ad%97%e4%b8%b2"></a>
+字串
+</h2><ol>
+<li>單引號和雙引號等價，<strong>不區分單字元與字串</strong>（沒有獨立的 char 型別）。</li>
+<li>三引號可以寫多行字串。</li>
+<li>引號內使用同類引號需要轉義 <code>\&quot;</code>。</li>
+</ol>
+<h3 id="三種格式化方式">
+<a class="header-anchor" href="#%e4%b8%89%e7%a8%ae%e6%a0%bc%e5%bc%8f%e5%8c%96%e6%96%b9%e5%bc%8f"></a>
+三種格式化方式
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="s2">&#34;布洛妮娅&#34;</span><span class="p">,</span> <span class="mi">18</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">%s</span><span class="s1">, she is </span><span class="si">%d</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">))</span>          <span class="c1"># % 方法，最古老</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">{}</span><span class="s1">, she is </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">))</span>      <span class="c1"># format 方法</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;My wife is </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">, she is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>                <span class="c1"># f-string，推薦</span>
+</span></span></code></pre></div><ul>
+<li><code>%</code> 方法後面接 tuple 或 dict，按順序或按名字取值。</li>
+<li><code>format</code> 的 <code>{}</code> 內可用索引 <code>{0}</code> 或關鍵字 <code>{name}</code>。</li>
+<li><strong>f-string 需要 Python 3.6+</strong>，可讀性最好；三者都支援寬度、對齊、精度等格式控制。</li>
+</ul>
+<h2 id="數字與布林">
+<a class="header-anchor" href="#%e6%95%b8%e5%ad%97%e8%88%87%e5%b8%83%e6%9e%97"></a>
+數字與布林
+</h2><table>
+	<thead>
+			<tr>
+					<th>型別</th>
+					<th>說明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>int</code></td>
+					<td>整數，支援 <code>0x</code> 十六進位、<code>0o</code> 八進位、<code>0b</code> 二進位</td>
+			</tr>
+			<tr>
+					<td><code>float</code></td>
+					<td>浮點數，支援科學記號 <code>1.23e-6</code></td>
+			</tr>
+			<tr>
+					<td><code>complex</code></td>
+					<td>複數，寫作 <code>a + bj</code> 或 <code>complex(a, b)</code></td>
+			</tr>
+			<tr>
+					<td><code>bool</code></td>
+					<td>布林值，<code>True</code> 本質是 1，<code>False</code> 本質是 0</td>
+			</tr>
+			<tr>
+					<td><code>NoneType</code></td>
+					<td>空值，<code>None</code> 的首字母必須大寫</td>
+			</tr>
+	</tbody>
+</table>
+<ul>
+<li>整數與浮點數混合運算時，整數會被提升為浮點數：<code>1 + 2.0</code> 得 <code>3.0</code>。</li>
+<li>浮點數存在精度誤差：<code>0.1 + 0.2 == 0.3</code> 結果是 <code>False</code>（實際為 <code>0.30000000000000004</code>）。需要精確計算時用 <code>decimal</code> 模組。</li>
+<li><code>round()</code> 採用<strong>銀行家捨入</strong>（四捨六入五取偶）：<code>round(0.5)</code> 得 <code>0</code>，<code>round(1.5)</code> 得 <code>2</code>，<code>round(2.5)</code> 得 <code>2</code>。</li>
+</ul>
+<p><strong>假值</strong>：<code>0</code>、<code>0.0</code>、<code>None</code>、空字串、空串列、空元組、空字典、空集合、<code>False</code>。
+<strong>真值</strong>：其他一切，包括非空字串（哪怕內容是 <code>&quot;False&quot;</code>）。</p>
+<h2 id="運算子">
+<a class="header-anchor" href="#%e9%81%8b%e7%ae%97%e5%ad%90"></a>
+運算子
+</h2><h3 id="算術運算子">
+<a class="header-anchor" href="#%e7%ae%97%e8%a1%93%e9%81%8b%e7%ae%97%e5%ad%90"></a>
+算術運算子
+</h3><table>
+	<thead>
+			<tr>
+					<th>運算子</th>
+					<th>含義</th>
+					<th>範例</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>+</code> <code>-</code> <code>*</code></td>
+					<td>加減乘</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td><code>/</code></td>
+					<td>除法，結果一定是浮點數</td>
+					<td><code>6 / 3</code> → <code>2.0</code></td>
+			</tr>
+			<tr>
+					<td><code>//</code></td>
+					<td><strong>整除</strong>，向下取整</td>
+					<td><code>7 // 2</code> → <code>3</code>，<code>-7 // 2</code> → <code>-4</code></td>
+			</tr>
+			<tr>
+					<td><code>%</code></td>
+					<td><strong>取餘數</strong>（模）</td>
+					<td><code>7 % 2</code> → <code>1</code></td>
+			</tr>
+			<tr>
+					<td><code>**</code></td>
+					<td>次方，<strong>右結合</strong></td>
+					<td><code>2 ** 2 ** 3</code> → <code>256</code></td>
+			</tr>
+			<tr>
+					<td><code>-</code></td>
+					<td>一元負號，優先序低於 <code>**</code></td>
+					<td><code>-2 ** 2</code> → <code>-4</code></td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="其他運算子">
+<a class="header-anchor" href="#%e5%85%b6%e4%bb%96%e9%81%8b%e7%ae%97%e5%ad%90"></a>
+其他運算子
+</h3><table>
+	<thead>
+			<tr>
+					<th>類別</th>
+					<th>運算子</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>比較</td>
+					<td><code>==</code> <code>!=</code> <code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code>，<strong>可以連用</strong>：<code>a &gt; b == c</code> 等價於 <code>a &gt; b and b == c</code></td>
+			</tr>
+			<tr>
+					<td>邏輯</td>
+					<td><code>and</code> <code>or</code> <code>not</code></td>
+			</tr>
+			<tr>
+					<td>成員</td>
+					<td><code>in</code> <code>not in</code></td>
+			</tr>
+			<tr>
+					<td>身分</td>
+					<td><code>is</code> <code>is not</code>，比較是否引用同一物件（比較 <code>id</code>，不是比較值）</td>
+			</tr>
+			<tr>
+					<td>位元運算</td>
+					<td><code>&amp;</code> <code>|</code> <code>^</code> <code>~</code> <code>&lt;&lt;</code> <code>&gt;&gt;</code></td>
+			</tr>
+			<tr>
+					<td>複合賦值</td>
+					<td><code>+=</code> <code>-=</code> <code>*=</code> <code>//=</code> <code>**=</code> <code>&amp;=</code> <code>|=</code> <code>^=</code> <code>&lt;&lt;=</code> <code>&gt;&gt;=</code></td>
+			</tr>
+	</tbody>
+</table>
+<p><code>and</code> / <code>or</code> 回傳的是<strong>運算元本身</strong>，不是 <code>True</code> / <code>False</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">True</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">False</span> <span class="ow">or</span> <span class="mi">31</span>
+</span></span><span class="line"><span class="cl"><span class="mi">31</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="mi">0</span>
+</span></span></code></pre></div><h3 id="優先序由高到低">
+<a class="header-anchor" href="#%e5%84%aa%e5%85%88%e5%ba%8f%e7%94%b1%e9%ab%98%e5%88%b0%e4%bd%8e"></a>
+優先序（由高到低）
+</h3><p><code>()</code> → 索引 <code>[]</code> → 屬性 <code>.</code> → <code>**</code> → 一元 <code>~</code> <code>+</code> <code>-</code> → <code>*</code> <code>/</code> <code>%</code> <code>//</code> → <code>+</code> <code>-</code> → <code>&lt;&lt;</code> <code>&gt;&gt;</code> → <code>&amp;</code> → <code>^</code> → <code>|</code> → 比較（<code>&lt;</code> <code>==</code> <code>in</code> <code>is</code> 等同一級）→ <code>not</code> → <code>and</code> → <code>or</code> → 賦值</p>
+<p>記不住就加括號，代價最低。</p>
+<h2 id="輸入輸出與內建函式">
+<a class="header-anchor" href="#%e8%bc%b8%e5%85%a5%e8%bc%b8%e5%87%ba%e8%88%87%e5%85%a7%e5%bb%ba%e5%87%bd%e5%bc%8f"></a>
+輸入輸出與內建函式
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>   <span class="c1"># sep 分隔符，end 結尾字元</span>
+</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;請輸入年齡：&#34;</span><span class="p">)</span>   <span class="c1"># 回傳值永遠是字串</span>
+</span></span><span class="line"><span class="cl"><span class="nb">int</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>                     <span class="c1"># 需要數字時顯式轉換</span>
+</span></span></code></pre></div><p>常用內建函式：</p>
+<table>
+	<thead>
+			<tr>
+					<th>函式</th>
+					<th>作用</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>id(x)</code></td>
+					<td>物件的記憶體位址（身分識別）</td>
+			</tr>
+			<tr>
+					<td><code>type(x)</code></td>
+					<td>物件的型別，如 <code>&lt;class 'int'&gt;</code></td>
+			</tr>
+			<tr>
+					<td><code>len(x)</code></td>
+					<td>元素個數</td>
+			</tr>
+			<tr>
+					<td><code>abs()</code> <code>round()</code> <code>bool()</code></td>
+					<td>絕對值、四捨五入、布林轉換</td>
+			</tr>
+			<tr>
+					<td><code>enumerate(seq, start=0)</code></td>
+					<td>迴圈時同時取索引和值</td>
+			</tr>
+			<tr>
+					<td><code>range()</code> <code>zip()</code> <code>sum()</code> <code>max()</code> <code>min()</code> <code>sorted()</code></td>
+					<td>常用序列工具</td>
+			</tr>
+	</tbody>
+</table>
+<p>型別轉換函式：<code>int(x, base)</code>、<code>float()</code>、<code>complex()</code>、<code>str()</code>、<code>repr()</code>、<code>chr()</code>、<code>ord()</code>、<code>hex()</code>、<code>oct()</code>、<code>eval()</code>、<code>list()</code>、<code>tuple()</code>、<code>set()</code>、<code>frozenset()</code>、<code>dict()</code>。</p>
+<p><strong>轉換不是無條件的</strong>，取決於原資料是否含有足以表達目標型別的資訊：<code>int(&quot;123&quot;)</code> 可行，<code>int(&quot;Hello&quot;)</code> 會報錯；串列可以轉集合，但轉不成一個數字。</p>
+<p>隱式轉換遵循精度順序：<code>bool</code> &lt; <code>int</code> &lt; <code>float</code> &lt; <code>complex</code>，混合運算時向高精度靠攏。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">galgames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;咖啡馆&#39;</span><span class="p">,</span> <span class="s1">&#39;千恋万花&#39;</span><span class="p">,</span> <span class="s1">&#39;天使骚骚&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">galgame</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">galgames</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;今天玩第</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1">部作品</span><span class="si">{</span><span class="n">galgame</span><span class="si">}</span><span class="s1">。&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="判斷與迴圈">
+<a class="header-anchor" href="#%e5%88%a4%e6%96%b7%e8%88%87%e8%bf%b4%e5%9c%88"></a>
+判斷與迴圈
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">condition1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">condition2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><p><code>for</code> 用於走訪任何可迭代物件（串列、字典、字串、元組、生成器……）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">序列</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><ul>
+<li><code>break</code>：跳出<strong>當前這一層</strong>迴圈。</li>
+<li><code>continue</code>：跳過本次剩餘部分，進入下一次迴圈。</li>
+<li><code>for ... else</code> / <code>while ... else</code>：迴圈<strong>正常結束</strong>時執行 <code>else</code>；被 <code>break</code> 中斷則不執行。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">while</span> <span class="n">判斷條件</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><p>寫 <code>while</code> 時務必確認迴圈體最終能改變判斷條件或觸發 <code>break</code>，否則會無窮迴圈。</p>
+<h2 id="四種容器">
+<a class="header-anchor" href="#%e5%9b%9b%e7%a8%ae%e5%ae%b9%e5%99%a8"></a>
+四種容器
+</h2><table>
+	<thead>
+			<tr>
+					<th>容器</th>
+					<th>字面量</th>
+					<th>有序</th>
+					<th>可變</th>
+					<th>元素可重複</th>
+					<th>元素要求</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>串列 <code>list</code></td>
+					<td><code>[1, 2]</code></td>
+					<td>是</td>
+					<td>是</td>
+					<td>是</td>
+					<td>任意</td>
+			</tr>
+			<tr>
+					<td>元組 <code>tuple</code></td>
+					<td><code>(1, 2)</code></td>
+					<td>是</td>
+					<td><strong>否</strong></td>
+					<td>是</td>
+					<td>任意</td>
+			</tr>
+			<tr>
+					<td>字典 <code>dict</code></td>
+					<td><code>{k: v}</code></td>
+					<td>插入序</td>
+					<td>是</td>
+					<td>鍵不可重複</td>
+					<td>鍵必須可雜湊</td>
+			</tr>
+			<tr>
+					<td>集合 <code>set</code></td>
+					<td><code>{1, 2}</code></td>
+					<td><strong>否</strong></td>
+					<td>是</td>
+					<td>否（自動去重）</td>
+					<td>必須可雜湊</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="list">
+<a class="header-anchor" href="#list"></a>
+list
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>                  <span class="c1"># 空串列</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>             <span class="c1"># 尾端追加</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>          <span class="c1"># 在索引 i 處插入，原元素後移</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>             <span class="c1"># 把 b 的元素逐個接到 a 後面</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>                 <span class="c1"># 彈出尾端元素（回傳該元素）</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>                <span class="c1"># 彈出索引 i 的元素</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>             <span class="c1"># 刪除第一個值為 x 的元素，不存在則報錯</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c1"># 第一個值為 x 的索引</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c1"># 值為 x 的元素個數</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>             <span class="c1"># 原地反轉</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=...</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>   <span class="c1"># 原地排序，無回傳值</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>                <span class="c1"># 刪除索引 i</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>              <span class="c1"># 刪除切片範圍</span>
+</span></span></code></pre></div><p>排序範例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">random</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">random</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># 按每個元組的第二個元素排序</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># [(4, 1), (2, 2), (1, 3), (3, 4)]</span>
+</span></span></code></pre></div><blockquote>
+<p>注意：<code>sort()</code> 只有 <code>key</code> 和 <code>reverse</code> 兩個參數，<code>cmp</code> 參數在 Python 3 中<strong>已被移除</strong>。</p>
+</blockquote>
+<h3 id="tuple">
+<a class="header-anchor" href="#tuple"></a>
+tuple
+</h3><ul>
+<li>元組<strong>建立後不可修改</strong>，沒有增刪改。</li>
+<li>單元素元組必須帶逗號：<code>(1,)</code> 是元組，<code>(1)</code> 只是整數。</li>
+<li>轉換：<code>list(t)</code> 得到串列，<code>tuple(l)</code> 得到元組，<strong>原物件不變</strong>，回傳的是新物件。</li>
+</ul>
+<h3 id="dict">
+<a class="header-anchor" href="#dict"></a>
+dict
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;孤筝&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">19</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;孤筝&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">19</span><span class="p">)</span>          <span class="c1"># 用等號時鍵不帶引號</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile3</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;孤筝&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">19</span><span class="p">)])</span>   <span class="c1"># 由鍵值對序列建構</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile4</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)}</span>   <span class="c1"># {2: 4, 3: 9, 4: 16}</span>
+</span></span></code></pre></div><p>取值與增改：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>                 <span class="c1"># 鍵不存在時拋 KeyError</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">)</span>           <span class="c1"># 不存在回傳 None</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span>   <span class="c1"># 不存在回傳預設值</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span>   <span class="c1"># 不存在則寫入該鍵值對並回傳</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;male&#39;</span>      <span class="c1"># 新增或修改</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">profile</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>關鍵區別：<code>get()</code> <strong>只讀</strong>，不會改動字典；<strong>只有 <code>setdefault()</code> 會在鍵缺失時寫入</strong>。</p>
+</blockquote>
+<p>判斷鍵是否存在用 <code>in</code> / <code>not in</code>；<code>has_key()</code> 是 Python 2 的寫法，Python 3 已刪除。</p>
+<h3 id="set">
+<a class="header-anchor" href="#set"></a>
+set
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>     <span class="c1"># 自動去重為 {1, 2, 3}</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>            <span class="c1"># 空集合只能這樣寫，{} 是空字典</span>
+</span></span></code></pre></div><table>
+	<thead>
+			<tr>
+					<th>操作</th>
+					<th>方法</th>
+					<th>運算子</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>聯集</td>
+					<td><code>a.union(b)</code></td>
+					<td><code>a | b</code></td>
+			</tr>
+			<tr>
+					<td>交集</td>
+					<td><code>a.intersection(b)</code></td>
+					<td><code>a &amp; b</code></td>
+			</tr>
+			<tr>
+					<td>差集（在 a 不在 b）</td>
+					<td><code>a.difference(b)</code></td>
+					<td><code>a - b</code></td>
+			</tr>
+			<tr>
+					<td>對稱差（只屬於其中一個）</td>
+					<td><code>a.symmetric_difference(b)</code></td>
+					<td><code>a ^ b</code></td>
+			</tr>
+	</tbody>
+</table>
+<ul>
+<li>增：<code>add(x)</code>（<strong>只能加不可變型別</strong>）、<code>update(seq)</code>（可接字串、串列、元組、集合；接字典只取其鍵）。</li>
+<li>刪：<code>remove(x)</code> 元素不存在會報錯；<code>discard(x)</code> 不會報錯；<code>pop()</code> 刪除並回傳<strong>任意一個</strong>元素，不能傳參數；<code>clear()</code> 清空。</li>
+<li>判斷：<code>x in s</code>、<code>a.isdisjoint(b)</code>（無交集回傳 True）、<code>b.issubset(a)</code>。</li>
+<li>集合<strong>無序無索引</strong>，既不能按索引取值，也不能修改元素，只能增刪。</li>
+</ul>
+<blockquote>
+<p>常見誤解：<code>pop()</code> 刪的是「任意」元素，不是「隨機」元素。集合的儲存順序由雜湊值決定，看起來隨機，但並不可控。</p>
+</blockquote>
+<h2 id="迭代器與生成器">
+<a class="header-anchor" href="#%e8%bf%ad%e4%bb%a3%e5%99%a8%e8%88%87%e7%94%9f%e6%88%90%e5%99%a8"></a>
+迭代器與生成器
+</h2><p><strong>可迭代物件</strong>：能用 <code>for</code> 走訪的物件。滿足下面任一條即可：</p>
+<ol>
+<li>實作了 <code>__iter__()</code>，回傳一個迭代器實例；</li>
+<li>沒有 <code>__iter__()</code>，但實作了 <code>__getitem__()</code> 且按索引取元素可行。</li>
+</ol>
+<p><strong>迭代器物件</strong>：<code>iter(可迭代物件)</code> 的回傳值，用 <code>next()</code> 逐個取值，取完後拋出 <code>StopIteration</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Iterator</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">([],</span> <span class="n">Iterable</span><span class="p">)</span>      <span class="c1"># True，串列是可迭代物件</span>
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">([],</span> <span class="n">Iterator</span><span class="p">)</span>      <span class="c1"># False，但串列本身不是迭代器</span>
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">(</span><span class="nb">iter</span><span class="p">([]),</span> <span class="n">Iterator</span><span class="p">)</span>  <span class="c1"># True</span>
+</span></span></code></pre></div><p>也就是說：<strong>串列是可迭代物件，不是迭代器</strong>，一個串列可以反覆走訪；而迭代器只能往前走一次。</p>
+<p><strong>生成器</strong>是「用函式寫的迭代器」：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 串列推導式得到串列</span>
+</span></span><span class="line"><span class="cl"><span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>     <span class="c1"># [0, 1, 2, 3, 4]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 換成圓括號得到生成器</span>
+</span></span><span class="line"><span class="cl"><span class="n">agen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>      <span class="c1"># &lt;generator object ...&gt;，惰性求值</span>
+</span></span></code></pre></div><blockquote>
+<p>注意：<code>(i for i in ...)</code> 是<strong>生成器表達式</strong>，不是元組推導式——Python 裡沒有元組推導式。要得到元組請寫 <code>tuple(i for i in ...)</code>。</p>
+</blockquote>
+<p><code>yield</code> 與 <code>return</code> 的區別：函式執行到 <code>yield</code> 會<strong>暫停並交出值，但函式沒有結束</strong>；下次取值時從暫停處繼續，直到函式結束。<code>yield</code> 不帶值則回傳 <code>None</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="o">=</span> <span class="n">generator</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>   <span class="c1"># 1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">generator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>   <span class="c1"># 1 2 3 4 5</span>
+</span></span></code></pre></div><p>生成器的價值在於<strong>惰性</strong>：不會一次性把全部結果算出來放進記憶體，處理大資料流時比串列更省記憶體。</p>
+<h2 id="其他筆記">
+<a class="header-anchor" href="#%e5%85%b6%e4%bb%96%e7%ad%86%e8%a8%98"></a>
+其他筆記
+</h2><h3 id="註解">
+<a class="header-anchor" href="#%e8%a8%bb%e8%a7%a3"></a>
+註解
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 單行註解</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">三引號嚴格來說是「多行字串」而不是註解：
+</span></span></span><span class="line"><span class="cl"><span class="s1">它會被解譯器當作一個字串物件建立出來，只是一個未被使用的表達式。
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span></code></pre></div><p>正因為它本質是字串而非註解，所以在程式碼中間隨意插入三引號會破壞語法，可能直接報錯。<strong>正規做法是只用 <code>#</code> 寫註解。</strong></p>
+<h3 id="編碼格式">
+<a class="header-anchor" href="#%e7%b7%a8%e7%a2%bc%e6%a0%bc%e5%bc%8f"></a>
+編碼格式
+</h3><ul>
+<li>Python 3 原始檔預設就是 UTF-8，<strong>通常不需要</strong>宣告編碼。</li>
+<li>只有 Python 2 需要檔頭宣告，現在基本用不到：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># -*- coding: UTF-8 -*-</span>
+</span></span></code></pre></div><h3 id="識別字">
+<a class="header-anchor" href="#%e8%ad%98%e5%88%a5%e5%ad%97"></a>
+識別字
+</h3><ul>
+<li>由字母、數字、底線組成，<strong>不能用數字開頭</strong>，區分大小寫。</li>
+<li>Python 3 允許用中文命名，但不建議。</li>
+<li>底線的特殊約定：
+<ul>
+<li><code>_name</code>：單底線開頭，表示「內部使用」，<code>from module import *</code> 不會匯入。</li>
+<li><code>__age</code>：雙底線開頭，觸發名稱改寫（name mangling），用於避免子類別衝突。</li>
+<li><code>__init__</code>：雙底線開頭和結尾，是 Python 的內建特殊方法，不要自己造這種名字。</li>
+</ul>
+</li>
+</ul>
+
+        
+        <hr><p>本文2023-06-27首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2026-10-05</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文標題：</strong> Python基礎</p>
+
+<p><strong>本文發佈時間：</strong> 2023-06-27</p>
+<p><strong>本文更新時間：</strong> 2026-10-05</p>
 <p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
 </div>
 ]]></description><category>Code</category></item></channel></rss>

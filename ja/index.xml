@@ -1,4 +1,1573 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/ja/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>ja</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</copyright><lastBuildDate>Sat, 28 Mar 2026 17:40:00 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/ja/index.xml" rel="self" type="application/rss+xml"/><item><title>Ansys HFSS 零基礎から体系的に学ぶ実践チュートリアル</title><link>https://www.guzhengsvt.cn/ja/post/othernotes/ansys-hfss-tutorial/</link><pubDate>Sat, 28 Mar 2026 17:40:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/ja/post/othernotes/ansys-hfss-tutorial/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/ja/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>ja</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</copyright><lastBuildDate>Mon, 05 Oct 2026 20:30:00 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/ja/index.xml" rel="self" type="application/rss+xml"/><item><title>データ構造実験ノート</title><link>https://www.guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 12 Dec 2023 14:31:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/ja/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</guid><description>
+<![CDATA[<h1>データ構造実験ノート</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
+        
+          <p>本記事は以前の8つのデータ構造実機実験レポートを統合し、重複した定型文とソースコード全体を削除して、各実験の<strong>核心となる考え方、重要なデータ構造、アルゴリズムの要点</strong>だけを残したものです。復習用の整理メモとして使うことを想定しています。コード片は C++ です。</p>
+<h2 id="一再帰とスタックフィボナッチ数列">
+<a class="header-anchor" href="#%e4%b8%80%e5%86%8d%e5%b8%b0%e3%81%a8%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af%e3%83%95%e3%82%a3%e3%83%9c%e3%83%8a%e3%83%83%e3%83%81%e6%95%b0%e5%88%97"></a>
+一、再帰とスタック：フィボナッチ数列
+</h2><h3 id="問題">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c"></a>
+問題
+</h3><p>再帰を使って第 $n$ 個の Fibonacci 数を求めます。</p>
+<h3 id="再帰とスタックの関係">
+<a class="header-anchor" href="#%e5%86%8d%e5%b8%b0%e3%81%a8%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af%e3%81%ae%e9%96%a2%e4%bf%82"></a>
+再帰とスタックの関係
+</h3><p>再帰が正しく戻れるかどうかは、<strong>引数をどのように渡すか</strong>、<strong>どこへ戻るか</strong>の2点にかかっています。<code>Fib(5)</code> を例にすると：</p>
+<ol>
+<li>再帰が1段深くなるたびに、その段の仮引数用の領域を新たに割り当てる必要があります。</li>
+<li>さらに「今回の呼び出しが終わったらどの行に戻るか」という戻りアドレスも保存する必要があります。</li>
+</ol>
+<p>この2つを合わせて<strong>作業記録</strong>（活動記録）となり、システムによって<strong>関数呼び出しスタック</strong>にプッシュされます。呼び出し時にプッシュし、戻る時にスタックの先頭からポップするので、正確に1つ前の段へ戻れます。</p>
+<p><code>Fib(3) = Fib(2) + Fib(1)</code> を例にすると、呼び出しの連鎖は次のとおりです：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Fib(3)
+</span></span><span class="line"><span class="cl">├── Fib(2)
+</span></span><span class="line"><span class="cl">│   ├── Fib(1) → 返回 1
+</span></span><span class="line"><span class="cl">│   └── Fib(0) → 返回 0
+</span></span><span class="line"><span class="cl">│   得 1
+</span></span><span class="line"><span class="cl">└── Fib(1) → 返回 1
+</span></span><span class="line"><span class="cl">得 2
+</span></span></code></pre></div><h3 id="アルゴリズム">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0"></a>
+アルゴリズム
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">Fib</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote>
+<p>この再帰版は毎回大量の部分問題を重複して計算するため、時間計算量は指数関数的な $O(2^n)$ になります。効率よく求めるなら漸化式やメモ化に切り替えるべきで、$O(n)$ で済みます。再帰版の価値はスタックの動作過程を示すことにあります。</p>
+</blockquote>
+<h2 id="二部分集合の分割問題">
+<a class="header-anchor" href="#%e4%ba%8c%e9%83%a8%e5%88%86%e9%9b%86%e5%90%88%e3%81%ae%e5%88%86%e5%89%b2%e5%95%8f%e9%a1%8c"></a>
+二、部分集合の分割問題
+</h2><h3 id="問題-1">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-1"></a>
+問題
+</h3><p>集合をいくつかの<strong>互いに素な</strong>部分集合に分割し、同じ部分集合内の要素がどの2つも衝突せず、かつ部分集合の数ができるだけ少なくなるようにします。（典型的な応用：時間割の作成、スケジュール調整。）</p>
+<h3 id="アルゴリズム循環ふるい分け法">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e5%be%aa%e7%92%b0%e3%81%b5%e3%82%8b%e3%81%84%e5%88%86%e3%81%91%e6%b3%95"></a>
+アルゴリズム：循環ふるい分け法
+</h3><ol>
+<li>まず<strong>二次元配列</strong>（衝突行列）で衝突関係を表します。$conflict[i][j] = 1$ は $i$ と $j$ が衝突することを、$0$ は衝突しないことを意味します。</li>
+<li>最初のまだグループに入っていない要素から始め、それを現在のグループに入れます。</li>
+<li>残りのまだグループに入っていない要素を順に確認します。それが<strong>現在のグループのどの要素とも衝突しなければ</strong>現在のグループに加え、そうでなければスキップして次の回に回します。</li>
+<li>1回の走査が終わった後、まだグループに入っていない要素があれば新しいグループを開き、手順2を繰り返します。すべての要素が分け終わるまで続けます。</li>
+</ol>
+<h3 id="データ構造">
+<a class="header-anchor" href="#%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0"></a>
+データ構造
+</h3><p>未処理の要素を格納するために<strong>循環キュー</strong>を使います。走査が1回進むごとに要素はキューの中を1周するので、追加の記憶領域を確保する必要がありません。</p>
+<h3 id="要点">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9"></a>
+要点
+</h3><ul>
+<li>「現在のグループに加えられるか」を判定するときは、グループ内の<strong>すべての</strong>既存要素と比較しなければなりません。1つだけ見て判断すると誤ります。</li>
+<li>これは貪欲法であり、現在のグループに詰め込めれば詰め込むため、得られるのは<strong>より良い解</strong>であって厳密な最適解ではありません。</li>
+</ul>
+<h2 id="三疎行列の乗算">
+<a class="header-anchor" href="#%e4%b8%89%e7%96%8e%e8%a1%8c%e5%88%97%e3%81%ae%e4%b9%97%e7%ae%97"></a>
+三、疎行列の乗算
+</h2><h3 id="問題-2">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-2"></a>
+問題
+</h3><p>行列内の非ゼロ要素が非常に少ない場合、完全な二次元配列で格納すると大量の領域を浪費します。そこで<strong>3項組</strong>に切り替えて非ゼロ要素だけを格納し、2つの疎行列の乗算を実装します。</p>
+<h3 id="データ構造-1">
+<a class="header-anchor" href="#%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0-1"></a>
+データ構造
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>          <span class="c1">// 1つの非ゼロ要素
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>          <span class="c1">// 行番号、列番号
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>          <span class="c1">// 要素の値
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Matrix</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>          <span class="c1">// 総行数、総列数
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">L</span><span class="p">;</span>             <span class="c1">// 非ゼロ要素の個数
+</span></span></span><span class="line"><span class="cl">    <span class="n">Node</span><span class="o">*</span> <span class="n">Ma</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>     <span class="c1">// 非ゼロ要素の配列
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h3 id="アルゴリズム-1">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0-1"></a>
+アルゴリズム
+</h3><p>定義どおり $C_{ij} = \sum_k A_{ik} \cdot B_{kj}$ に従いますが、<strong>両側とも非ゼロ</strong>である項だけを累加します：</p>
+<ol>
+<li>$A$ の各非ゼロ要素 $(i, k, a)$ を走査します。</li>
+<li>$B$ の中から行番号が $k$ に等しい非ゼロ要素 $(k, j, b)$ を探します。</li>
+<li>$a \times b$ を結果行列の $(i, j)$ の位置に累加します。</li>
+</ol>
+<p>結果行列の非ゼロ要素は動的に生成され、累加した結果が 0 であれば格納しません。</p>
+<h3 id="要点-1">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-1"></a>
+要点
+</h3><ul>
+<li>素朴な三重ループよりはるかに高速です。大量のゼロ要素同士の乗算を飛ばせるからです。</li>
+<li>さらに高速化したい場合は、3項組の表に<strong>行インデックス</strong>（行論理リンク順序表）を加えることで、手順2で毎回 $B$ を先頭から走査する必要がなくなります。</li>
+<li>必ず検証すること：$A$ の列数が $B$ の行数に等しいか、また入力された行・列の添字が範囲外でないか。</li>
+</ul>
+<h2 id="四kmp-文字列マッチング">
+<a class="header-anchor" href="#%e5%9b%9bkmp-%e6%96%87%e5%ad%97%e5%88%97%e3%83%9e%e3%83%83%e3%83%81%e3%83%b3%e3%82%b0"></a>
+四、KMP 文字列マッチング
+</h2><h3 id="問題-3">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-3"></a>
+問題
+</h3><p>テキスト文字列の中からパターン文字列が最初に現れる位置を探します。素朴なマッチングは不一致時にパターン文字列を1つ右へずらし、テキストのポインタを後退させるため、最悪の場合 $O(nm)$ になります。KMP はこれを $O(n+m)$ に改善します。</p>
+<h3 id="核心lps-配列">
+<a class="header-anchor" href="#%e6%a0%b8%e5%bf%83lps-%e9%85%8d%e5%88%97"></a>
+核心：LPS 配列
+</h3><p>LPS（Longest Prefix Suffix）は、パターン文字列の<strong>各位置より前</strong>の部分文字列における「最長で等しい接頭辞と接尾辞」の長さを記録します。これは不一致時に<strong>パターン文字列を安全にどれだけ右へ滑らせられるか</strong>を教えてくれるので、テキストのポインタを後退させずに済みます。</p>
+<p>パターン文字列 <code>ABABCABAB</code> を例にすると、その LPS 配列は次のとおりです：</p>
+<table>
+	<thead>
+			<tr>
+					<th>添字</th>
+					<th>0</th>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+					<th>5</th>
+					<th>6</th>
+					<th>7</th>
+					<th>8</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>文字</td>
+					<td>A</td>
+					<td>B</td>
+					<td>A</td>
+					<td>B</td>
+					<td>C</td>
+					<td>A</td>
+					<td>B</td>
+					<td>A</td>
+					<td>B</td>
+			</tr>
+			<tr>
+					<td>LPS</td>
+					<td>0</td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="アルゴリズム-2">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0-2"></a>
+アルゴリズム
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// LPS 配列の構築
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">computeLPS</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">pat</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">lps</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>          <span class="c1">// 現在の最長接頭辞接尾辞の一致長
+</span></span></span><span class="line"><span class="cl">    <span class="n">lps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">pat</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">pat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">pat</span><span class="p">[</span><span class="n">len</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">lps</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="o">++</span><span class="n">len</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">len</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">len</span> <span class="o">=</span> <span class="n">lps</span><span class="p">[</span><span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>   <span class="c1">// 次に長い接頭辞接尾辞に後退して比較を続ける
+</span></span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">lps</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// text の中から pat を探す
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">KMPSearch</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">text</span><span class="p">,</span> <span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">pat</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">pat</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">n</span> <span class="o">=</span> <span class="n">text</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">lps</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">computeLPS</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">lps</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>          <span class="c1">// i はテキスト、j はパターン文字列を進む
+</span></span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">pat</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span> <span class="n">i</span><span class="o">++</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;在索引 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">-</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; 处找到匹配串&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">j</span> <span class="o">=</span> <span class="n">lps</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>    <span class="c1">// 次の一致を探し続ける
+</span></span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">pat</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">j</span> <span class="o">=</span> <span class="n">lps</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span>        <span class="n">i</span><span class="o">++</span><span class="p">;</span>   <span class="c1">// j はすでに 0 なので、テキスト側のポインタを進める
+</span></span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要点-2">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-2"></a>
+要点
+</h3><ul>
+<li><strong>テキストのポインタ <code>i</code> は決して後退しません</strong>。これが KMP の効率の源です。</li>
+<li>不一致時は <code>lps[j-1]</code> を使ってパターンのポインタを後退させ、<code>j</code> をゼロに戻したりはしません。</li>
+<li><code>lps</code> を計算する部分のコード自体も「パターン文字列が自分自身とマッチングする」処理であり、考え方はメインループと同じです。</li>
+<li>例：テキスト <code>ABABDABACDABABCABAB</code>、パターン <code>ABABCABAB</code> の場合、一致位置は添字 10 です。</li>
+</ul>
+<h2 id="五二分木の格納と走査">
+<a class="header-anchor" href="#%e4%ba%94%e4%ba%8c%e5%88%86%e6%9c%a8%e3%81%ae%e6%a0%bc%e7%b4%8d%e3%81%a8%e8%b5%b0%e6%9f%bb"></a>
+五、二分木の格納と走査
+</h2><h3 id="問題-4">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-4"></a>
+問題
+</h3><p>**レベル順（BFS 順）**で入力された文字列が与えられます。&rsquo;@&rsquo; は空ノードを表します。これを基に二分木を構築し、さらに順序記憶方式とリンク方式それぞれでの走査を実装します。</p>
+<h3 id="2つの格納方式">
+<a class="header-anchor" href="#2%e3%81%a4%e3%81%ae%e6%a0%bc%e7%b4%8d%e6%96%b9%e5%bc%8f"></a>
+2つの格納方式
+</h3><p><strong>順序記憶</strong>：配列に添字で格納し、親子関係は添字から計算します：</p>
+<ul>
+<li>親ノードの添字が $i$ → 左の子は $2i+1$、右の子は $2i+2$。</li>
+<li>逆に、ノード $i$ の親ノードは $\lfloor (i-1)/2 \rfloor$。</li>
+</ul>
+<p><strong>完全二分木</strong>に向いています。ノードが疎な場合は配列の領域を大量に浪費します。</p>
+<p><strong>リンク方式</strong>：構造体とポインタを使い、<strong>キュー</strong>を補助にして構築します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">TreeNode</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>構築の流れ：根ノードをエンキューする → キューの先頭からノードを1つ取り出すたびに、順に左、右の子を付けます（入力が &lsquo;@&rsquo; ならその側は空）。そして新しい子をエンキューします。先行順入力での構築に変えたい場合は、キューをスタックに置き換えるだけです。</p>
+<h3 id="3つの深さ優先走査">
+<a class="header-anchor" href="#3%e3%81%a4%e3%81%ae%e6%b7%b1%e3%81%95%e5%84%aa%e5%85%88%e8%b5%b0%e6%9f%bb"></a>
+3つの深さ優先走査
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">preOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>          <span class="c1">// 先行順：根 → 左 → 右
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">preOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">preOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">inOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>           <span class="c1">// 中間順：左 → 根 → 右
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">postOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>         <span class="c1">// 後行順：左 → 右 → 根
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">postOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">postOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="幅優先走査">
+<a class="header-anchor" href="#%e5%b9%85%e5%84%aa%e5%85%88%e8%b5%b0%e6%9f%bb"></a>
+幅優先走査
+</h3><p>キューを使って根から1レベルずつ処理します。ノードを訪問するときにその左右の子を順にエンキューします。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">levelOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">q</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span> <span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span>  <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="完全な例">
+<a class="header-anchor" href="#%e5%ae%8c%e5%85%a8%e3%81%aa%e4%be%8b"></a>
+完全な例
+</h3><p><code>abc@def@@@@</code> を入力すると（レベル順、&rsquo;@&rsquo; は空）、対応する二分木は次のとおりです：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">        a
+</span></span><span class="line"><span class="cl">      /   \
+</span></span><span class="line"><span class="cl">     b     c
+</span></span><span class="line"><span class="cl">    / \   / \
+</span></span><span class="line"><span class="cl">   @   d e   f
+</span></span><span class="line"><span class="cl">      / \ / \ / \
+</span></span><span class="line"><span class="cl">     @  @ @ @ @  @
+</span></span></code></pre></div><table>
+	<thead>
+			<tr>
+					<th>走査</th>
+					<th>結果</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>先行順（根左右）</td>
+					<td><code>a b d c e f</code></td>
+			</tr>
+			<tr>
+					<td>中間順（左根右）</td>
+					<td><code>b d a e c f</code></td>
+			</tr>
+			<tr>
+					<td>後行順（左右根）</td>
+					<td><code>d b e f c a</code></td>
+			</tr>
+			<tr>
+					<td>レベル順（BFS）</td>
+					<td><code>a b c d e f</code></td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p>順序記憶での中間順走査は開始点を慎重に扱う必要があります。先行順は添字 0 から始められますが、<strong>中間順は木全体で最も左下のノードから始めなければなりません</strong>。そうでなければ左部分木の左半分を取りこぼします。</p>
+</blockquote>
+<h3 id="走査列から二分木を逆に求める">
+<a class="header-anchor" href="#%e8%b5%b0%e6%9f%bb%e5%88%97%e3%81%8b%e3%82%89%e4%ba%8c%e5%88%86%e6%9c%a8%e3%82%92%e9%80%86%e3%81%ab%e6%b1%82%e3%82%81%e3%82%8b"></a>
+走査列から二分木を逆に求める
+</h3><ul>
+<li>先行順 + 中間順、後行順 + 中間順、レベル順 + 中間順のいずれも、二分木を一意に確定できます。</li>
+<li>しかし<strong>先行順 + 後行順では不可能</strong>で、子が1つだけのときにそれが左に付くのか右に付くのかを区別できません。</li>
+</ul>
+<h2 id="六ハフマン木と符号化">
+<a class="header-anchor" href="#%e5%85%ad%e3%83%8f%e3%83%95%e3%83%9e%e3%83%b3%e6%9c%a8%e3%81%a8%e7%ac%a6%e5%8f%b7%e5%8c%96"></a>
+六、ハフマン木と符号化
+</h2><h3 id="問題-5">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-5"></a>
+問題
+</h3><p>文字を出現頻度に応じて符号化し、符号化後の総長を最短にし、かつどの符号も別の符号の接頭辞にならないようにします（接頭符号。一意に復号できることを保証します）。</p>
+<h3 id="アルゴリズム-3">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0-3"></a>
+アルゴリズム
+</h3><ol>
+<li>各文字の出現頻度を数えます。</li>
+<li>各文字についてリーフノードを1つ作り、すべて<strong>最小ヒープ</strong>に入れます。</li>
+<li>ループ：頻度が最小の2つのノードを取り出し、新しいノード（頻度は両者の和）に統合し、新しいノードをヒープに戻します。</li>
+<li>ヒープにノードが1つだけ残ったとき、それがハフマン木の根です。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="n">minHeap</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">left</span>  <span class="o">=</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">right</span> <span class="o">=</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">parent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HuffmanNode</span><span class="p">(</span><span class="sc">&#39;$&#39;</span><span class="p">,</span> <span class="n">left</span><span class="o">-&gt;</span><span class="n">frequency</span> <span class="o">+</span> <span class="n">right</span><span class="o">-&gt;</span><span class="n">frequency</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parent</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parent</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">minHeap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">parent</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="符号の生成と復号">
+<a class="header-anchor" href="#%e7%ac%a6%e5%8f%b7%e3%81%ae%e7%94%9f%e6%88%90%e3%81%a8%e5%be%a9%e5%8f%b7"></a>
+符号の生成と復号
+</h3><ul>
+<li><strong>符号の生成</strong>：根から再帰的に走査し、左へ進むと <code>0</code>、右へ進むと <code>1</code> を記録し、リーフノードに到達したときの現在の経路の文字列をその文字の符号として記録します。</li>
+<li><strong>符号化</strong>：原文の各文字をその符号列に置き換えます。</li>
+<li><strong>復号</strong>：根から始め、<code>0</code> なら左、<code>1</code> なら右へ進み、リーフに到達したらその文字を出力して根に戻り、最初からやり直します。</li>
+</ul>
+<h3 id="要点-3">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-3"></a>
+要点
+</h3><ul>
+<li>頻度が高い文字ほど根に近く、符号が短くなります。これが圧縮の原理です。</li>
+<li>符号はすべてリーフノードにあるため、「ある符号が別の符号の接頭辞になる」ことはなく、復号に曖昧さは生じません。</li>
+<li>繰り返しソートする代わりに<strong>最小ヒープ</strong>を使うことで、構築の計算量を $O(n \log n)$ まで下げられます。</li>
+<li>出現頻度が同じ文字は、どちらが先でも符号の長さには影響せず、割り当てられる 0/1 の列だけが変わります。</li>
+</ul>
+<h2 id="七ソート二分木とノードの削除">
+<a class="header-anchor" href="#%e4%b8%83%e3%82%bd%e3%83%bc%e3%83%88%e4%ba%8c%e5%88%86%e6%9c%a8%e3%81%a8%e3%83%8e%e3%83%bc%e3%83%89%e3%81%ae%e5%89%8a%e9%99%a4"></a>
+七、ソート二分木とノードの削除
+</h2><h3 id="問題-6">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-6"></a>
+問題
+</h3><p>ソート二分木（BST）を構築し、挿入、中間順走査、ノードの削除に対応します。</p>
+<h3 id="挿入">
+<a class="header-anchor" href="#%e6%8c%bf%e5%85%a5"></a>
+挿入
+</h3><p>再帰的に比較します。挿入する値が現在のノードより小さければ左へ、大きければ右へ進み、空の位置に来たら新しいノードを作って付けます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">insert</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>      <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span>  <span class="o">=</span> <span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span>  <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&gt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>   <span class="c1">// 等しい場合は挿入せず、重複を避ける
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="中間順走査">
+<a class="header-anchor" href="#%e4%b8%ad%e9%96%93%e9%a0%86%e8%b5%b0%e6%9f%bb"></a>
+中間順走査
+</h3><p>BST を中間順に走査すると<strong>昇順の列</strong>が得られます。これは BST が正しく構築されているかを確かめる最も直接的な方法です。</p>
+<h3 id="ノードの削除">
+<a class="header-anchor" href="#%e3%83%8e%e3%83%bc%e3%83%89%e3%81%ae%e5%89%8a%e9%99%a4"></a>
+ノードの削除
+</h3><p>削除は最も間違えやすい部分で、3つの場合に分かれます：</p>
+<table>
+	<thead>
+			<tr>
+					<th>場合</th>
+					<th>処理方法</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>リーフノード（子なし）</td>
+					<td>そのまま削除</td>
+			</tr>
+			<tr>
+					<td>子が1つだけ</td>
+					<td>その子を自分の位置に代人させる</td>
+			</tr>
+			<tr>
+					<td>子が2つ</td>
+					<td><strong>右部分木の最小ノード</strong>（中間順の後続）で自分の値を置き換え、その後続ノードを再帰的に削除する</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">remove</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>      <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span>  <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span>  <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&gt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span>  <span class="p">{</span> <span class="k">auto</span> <span class="n">t</span> <span class="o">=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span> <span class="k">delete</span> <span class="n">root</span><span class="p">;</span> <span class="k">return</span> <span class="n">t</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="p">{</span> <span class="k">auto</span> <span class="n">t</span> <span class="o">=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>  <span class="k">delete</span> <span class="n">root</span><span class="p">;</span> <span class="k">return</span> <span class="n">t</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 子が2つ：右部分木の最小ノードを探す
+</span></span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">succ</span> <span class="o">=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">succ</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="n">succ</span> <span class="o">=</span> <span class="n">succ</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span>  <span class="o">=</span> <span class="n">succ</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">succ</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote>
+<p><strong>左部分木の最大ノード</strong>（中間順の先行）で置き換えても効果は同等です。</p>
+</blockquote>
+<h3 id="木全体の削除">
+<a class="header-anchor" href="#%e6%9c%a8%e5%85%a8%e4%bd%93%e3%81%ae%e5%89%8a%e9%99%a4"></a>
+木全体の削除
+</h3><p>後行順で各ノードを順に解放します。親ノードを先に解放してから子を探してはいけません。</p>
+<h2 id="八二分木の手がかり化">
+<a class="header-anchor" href="#%e5%85%ab%e4%ba%8c%e5%88%86%e6%9c%a8%e3%81%ae%e6%89%8b%e3%81%8c%e3%81%8b%e3%82%8a%e5%8c%96"></a>
+八、二分木の手がかり化
+</h2><h3 id="問題-7">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-7"></a>
+問題
+</h3><p>$n$ 個のノードを持つ二分木には $2n$ 個のポインタ領域がありますが、実際に使われるのは $n-1$ 本の辺だけで、残りの $n+1$ 個は空ポインタであり、明らかに無駄です。<strong>手がかり化</strong>とは、この空ポインタに走査順での<strong>先行/後続</strong>を格納し、走査がスタックや再帰に依存しなくて済むようにすることです。</p>
+<h3 id="データ構造-2">
+<a class="header-anchor" href="#%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0-2"></a>
+データ構造
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Node</span> <span class="o">*</span><span class="n">left</span><span class="p">,</span> <span class="o">*</span><span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">ltag</span><span class="p">,</span> <span class="n">rtag</span><span class="p">;</span>   <span class="c1">// 0 は子を指す、1 は手がかり（先行/後続を指す）
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h3 id="アルゴリズム中間順の手がかり化を例に">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e4%b8%ad%e9%96%93%e9%a0%86%e3%81%ae%e6%89%8b%e3%81%8c%e3%81%8b%e3%82%8a%e5%8c%96%e3%82%92%e4%be%8b%e3%81%ab"></a>
+アルゴリズム（中間順の手がかり化を例に）
+</h3><p>再帰的な中間順走査を使い、同時にグローバルな <code>pre</code> ポインタで直前に訪問したノードを記録します：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Node</span><span class="o">*</span> <span class="n">pre</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">thread</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">thread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>              <span class="c1">// まず左部分木を処理する
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="p">{</span>               <span class="c1">// 左の子が空なら、左ポインタを先行に向け替える
+</span></span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">-&gt;</span><span class="n">ltag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">pre</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">pre</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="p">{</span>     <span class="c1">// 先行の右の子が空なら、右ポインタを後続に向け替える
+</span></span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">rtag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">pre</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>                      <span class="c1">// 先行を更新する
+</span></span></span><span class="line"><span class="cl">    <span class="kr">thread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>             <span class="c1">// 次に右部分木を処理する
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要点-4">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-4"></a>
+要点
+</h3><ul>
+<li><code>left</code> / <code>right</code> ポインタの意味は<strong>二重</strong>であり、<code>ltag</code> / <code>rtag</code> で区別しなければなりません。そうしないと手がかりを子ポインタとして使ってしまい、無限ループになります。</li>
+<li>中間順の手がかり化では、<strong>先に左部分木を再帰</strong>し、次に現在のノードを処理し、最後に右部分木を再帰します。<code>pre = p</code> の位置が手がかりの向き先を決めます。</li>
+<li>先行順、後行順の手がかり化も考え方は同じで、違いは<strong>現在のノードを処理するタイミング</strong>と <code>pre</code> を更新する順序にあります。</li>
+<li>手がかり化した木は空間 $O(1)$ で走査でき、スタックも再帰も必要ありません。</li>
+</ul>
+<h2 id="九グラフの格納隣接行列と隣接リスト">
+<a class="header-anchor" href="#%e4%b9%9d%e3%82%b0%e3%83%a9%e3%83%95%e3%81%ae%e6%a0%bc%e7%b4%8d%e9%9a%a3%e6%8e%a5%e8%a1%8c%e5%88%97%e3%81%a8%e9%9a%a3%e6%8e%a5%e3%83%aa%e3%82%b9%e3%83%88"></a>
+九、グラフの格納：隣接行列と隣接リスト
+</h2><h3 id="隣接行列">
+<a class="header-anchor" href="#%e9%9a%a3%e6%8e%a5%e8%a1%8c%e5%88%97"></a>
+隣接行列
+</h3><p>二次元配列 <code>adj[V][V]</code> で辺を格納します。<code>adj[i][j] = 1</code>（または辺の重み）は $i \to j$ に辺があることを意味します。</p>
+<ul>
+<li>長所：2点間に辺があるかの判定が $O(1)$。実装も単純。</li>
+<li>短所：空間が常に $O(V^2)$ で、<strong>疎グラフでは浪費が深刻</strong>。ある点のすべての隣接点を走査するには1行全体を走査する必要があり $O(V)$。</li>
+<li>無向グラフの行列は主対角線に対して対称です。</li>
+</ul>
+<h3 id="隣接リスト">
+<a class="header-anchor" href="#%e9%9a%a3%e6%8e%a5%e3%83%aa%e3%82%b9%e3%83%88"></a>
+隣接リスト
+</h3><p>「配列 + 連結リスト」を使います。<code>adj[i]</code> にはノード $i$ に隣接するすべてのノードを格納します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">adj</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>          <span class="c1">// 各要素が1つの連結リスト/動的配列
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">addEdge</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>       <span class="c1">// 無向グラフでは逆向きの辺も追加する
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>長所：空間は $O(V + E)$ で、疎グラフに優しい。ある点の隣接点を走査するときは実在する辺だけを訪問します。</li>
+<li>短所：2点間に辺があるかを判定するには連結リストを走査する必要があり、最悪 $O(V)$。</li>
+<li>有向グラフでは、<code>adj[u]</code> に格納されるのは $u$ の出辺です。入次数を求めるには追加の走査か、別途<strong>逆隣接リスト</strong>を作る必要があります。</li>
+</ul>
+<h3 id="どちらを選ぶか">
+<a class="header-anchor" href="#%e3%81%a9%e3%81%a1%e3%82%89%e3%82%92%e9%81%b8%e3%81%b6%e3%81%8b"></a>
+どちらを選ぶか
+</h3><table>
+	<thead>
+			<tr>
+					<th>場面</th>
+					<th>選択</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>稠密グラフ、2点が隣接するかの問い合わせが多い</td>
+					<td>隣接行列</td>
+			</tr>
+			<tr>
+					<td>疎グラフ、ある点のすべての隣接点の走査が多い</td>
+					<td>隣接リスト</td>
+			</tr>
+			<tr>
+					<td>点数が極端に多い（例：$10^5$）</td>
+					<td>隣接リスト（行列はそもそも確保できない）</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="グラフ構築時のチェック">
+<a class="header-anchor" href="#%e3%82%b0%e3%83%a9%e3%83%95%e6%a7%8b%e7%af%89%e6%99%82%e3%81%ae%e3%83%81%e3%82%a7%e3%83%83%e3%82%af"></a>
+グラフ構築時のチェック
+</h3><p>辺 $(u, v)$ を読み込んだ後は $0 \le u, v < V$ を検証し、範囲外を避けます。重みなしグラフでは2点間に辺を重複して追加すべきではありません。そうしないと走査や次数の集計に影響します。</p>
+<h2 id="十kruskal-と最小全域木">
+<a class="header-anchor" href="#%e5%8d%81kruskal-%e3%81%a8%e6%9c%80%e5%b0%8f%e5%85%a8%e5%9f%9f%e6%9c%a8"></a>
+十、Kruskal と最小全域木
+</h2><h3 id="問題-8">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-8"></a>
+問題
+</h3><p>重み付き連結無向グラフの中で、<strong>総重みが最小</strong>の全域木を探します。</p>
+<h3 id="アルゴリズム貪欲法">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%b2%aa%e6%ac%b2%e6%b3%95"></a>
+アルゴリズム（貪欲法）
+</h3><ol>
+<li>すべての辺を重みの<strong>昇順でソート</strong>します。</li>
+<li>各辺を順に検討します。その両端点がまだ<strong>同じ集合にない</strong>なら全域木に加え、この2つの集合を統合します。そうでなければ閉路ができるので、そのまま捨てます。</li>
+<li>$V-1$ 本の辺を選び終えたら終了します。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">sort</span><span class="p">(</span><span class="n">edges</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">edges</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">     <span class="p">[](</span><span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">weight</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">weight</span><span class="p">;</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">UnionFind</span> <span class="nf">uf</span><span class="p">(</span><span class="n">numNodes</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="n">Edge</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">edges</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">uf</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">start</span><span class="p">)</span> <span class="o">!=</span> <span class="n">uf</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">end</span><span class="p">))</span> <span class="p">{</span>   <span class="c1">// 非連結 → 加えても閉路にならない
+</span></span></span><span class="line"><span class="cl">        <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">uf</span><span class="p">.</span><span class="n">unite</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">start</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">end</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="union-find素集合データ構造">
+<a class="header-anchor" href="#union-find%e7%b4%a0%e9%9b%86%e5%90%88%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0"></a>
+Union-Find（素集合データ構造）
+</h3><p>Kruskal の効率の鍵は「2点がすでに連結かどうかを判定する」ことにあり、これがまさに Union-Find の得意分野です。2つの操作をサポートします：</p>
+<ul>
+<li><strong>Find(x)</strong>：$x$ が属する集合の根ノードを求め、ついでに2点が同じ集合かを判定します。</li>
+<li><strong>Union(a, b)</strong>：2つの集合を統合します。</li>
+</ul>
+<p>2つの最適化を併用すると、ならし計算量をほぼ定数にできます：</p>
+<table>
+	<thead>
+			<tr>
+					<th>最適化</th>
+					<th>方法</th>
+					<th>効果</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>経路圧縮</td>
+					<td>Find 時に経路上のすべてのノードを直接根に付ける</td>
+					<td>木の高さを大幅に下げる</td>
+			</tr>
+			<tr>
+					<td>ランクによる統合</td>
+					<td>低い木を高い木の下に付ける</td>
+					<td>木が偏るのを防ぐ</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">find</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">!=</span> <span class="n">x</span><span class="p">)</span> <span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>   <span class="c1">// 経路圧縮
+</span></span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">unite</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="n">b</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">rank</span><span class="p">[</span><span class="n">b</span><span class="p">])</span> <span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>   <span class="c1">// ランクによる統合
+</span></span></span><span class="line"><span class="cl">    <span class="n">parent</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">==</span> <span class="n">rank</span><span class="p">[</span><span class="n">b</span><span class="p">])</span> <span class="n">rank</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要点-5">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-5"></a>
+要点
+</h3><ul>
+<li>時間計算量は $O(E \log E)$ で、主にソートに費やされます。</li>
+<li><strong>疎グラフに適しています</strong>。稠密グラフでは通常 Prim アルゴリズム（$O(V^2)$、またはヒープを使った $O(E \log V)$）の方が高速です。</li>
+<li>辺のソートと、Union-Find による閉路判定が、Kruskal の2つの中核動作です。</li>
+</ul>
+<h2 id="十一dijkstra-と単一始点最短経路">
+<a class="header-anchor" href="#%e5%8d%81%e4%b8%80dijkstra-%e3%81%a8%e5%8d%98%e4%b8%80%e5%a7%8b%e7%82%b9%e6%9c%80%e7%9f%ad%e7%b5%8c%e8%b7%af"></a>
+十一、Dijkstra と単一始点最短経路
+</h2><h3 id="問題-9">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-9"></a>
+問題
+</h3><p>重み付きグラフと始点 $s$ が与えられたとき、$s$ から他のすべての頂点への最短距離を求めます。</p>
+<h3 id="アルゴリズム貪欲法--優先度付きキュー">
+<a class="header-anchor" href="#%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e8%b2%aa%e6%ac%b2%e6%b3%95--%e5%84%aa%e5%85%88%e5%ba%a6%e4%bb%98%e3%81%8d%e3%82%ad%e3%83%a5%e3%83%bc"></a>
+アルゴリズム（貪欲法 + 優先度付きキュー）
+</h3><ol>
+<li>始点の距離を 0 に、それ以外をすべて無限大に設定します。</li>
+<li><code>(距離, 頂点)</code> を<strong>優先度付きキュー</strong>に入れ、毎回距離が最小の頂点 $u$ を取り出します。この時点でその最短距離はすでに確定しています。</li>
+<li>緩和：$u$ の各隣接点 $v$ について、$dist[u] + w(u,v) < dist[v]$ なら $dist[v]$ を更新し、新しい <code>(dist[v], v)</code> をキューに入れます。</li>
+<li>2–3 をキューが空になるまで繰り返します。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dijkstra</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">g</span><span class="p">,</span> <span class="kt">int</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">g</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">INF</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 最小ヒープ：キューの先頭が距離最小の要素
+</span></span></span><span class="line"><span class="cl">    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;&gt;&gt;</span> <span class="n">pq</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">dist</span><span class="p">[</span><span class="n">src</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="mi">0</span><span class="p">,</span> <span class="n">src</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">pq</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">auto</span> <span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">pq</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">])</span> <span class="k">continue</span><span class="p">;</span>        <span class="c1">// 期限切れの項目はスキップ
+</span></span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">v</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>   <span class="c1">// 0 は直接の接続がないことを表す
+</span></span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">v</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">dist</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要点-6">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-6"></a>
+要点
+</h3><ul>
+<li><strong>負の重みの辺は扱えません</strong>。Dijkstra の正しさは「一度取り出した点の距離はもう小さくならない」ことに依存しており、負の重みの辺はこの前提を崩します。負の重みを含む場合は Bellman-Ford や SPFA に切り替えます。</li>
+<li>隣接行列でグラフを表す場合、内側の走査は $O(V)$ で、全体の計算量は $O(V^2)$ です。隣接リストと優先度付きキューに変えると $O(E \log V)$ まで下げられます。</li>
+<li>同じ点が複数回エンキューされることがあるため、デキュー時に <code>d &gt; dist[u]</code> を判定して期限切れの項目をスキップします。</li>
+<li><code>0</code> で「辺なし」を表すのは1つの約束事です。グラフで重み 0 の辺を許す場合は、別の目印を設けるか隣接リストに切り替える必要があります。</li>
+</ul>
+<h2 id="十二クリティカルパス">
+<a class="header-anchor" href="#%e5%8d%81%e4%ba%8c%e3%82%af%e3%83%aa%e3%83%86%e3%82%a3%e3%82%ab%e3%83%ab%e3%83%91%e3%82%b9"></a>
+十二、クリティカルパス
+</h2><h3 id="問題-10">
+<a class="header-anchor" href="#%e5%95%8f%e9%a1%8c-10"></a>
+問題
+</h3><p>AON（アクティビティ・オン・ノード）ネットワークでは、各ノードが1つのアクティビティを表し、所要時間と先行関係を持ちます。プロジェクトの<strong>総工期</strong>を決めるクリティカルなアクティビティの列を探します。</p>
+<ul>
+<li><strong>最早開始時刻 ES</strong>：そのアクティビティを最も早くいつ開始できるか。</li>
+<li><strong>最遅開始時刻 LS</strong>：総工期を遅らせない前提で、最も遅くいつまでに開始しなければならないか。</li>
+<li><strong>時間余裕</strong>：$LS - ES$。余裕が 0 のアクティビティが<strong>クリティカルアクティビティ</strong>で、それらをつなぐとクリティカルパスになります。</li>
+</ul>
+<h3 id="es-の前向き計算">
+<a class="header-anchor" href="#es-%e3%81%ae%e5%89%8d%e5%90%91%e3%81%8d%e8%a8%88%e7%ae%97"></a>
+ES の前向き計算
+</h3><p><strong>トポロジカル順</strong>で始点イベントから後ろへ進めます：</p>
+$$ES[v] = \max_{u \in pred(v)} \big( ES[u] + duration[u] \big)$$<p>先行アクティビティのない始点イベントは $ES = 0$ です。プロジェクトの総工期は $T = \max_v (ES[v] + duration[v])$ です。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">calcEarliest</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 必ずトポロジカル順で処理する。そうしないと先行の ES がまだ計算されていない
+</span></span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">u</span> <span class="p">:</span> <span class="n">topoOrder</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">earliest</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">earliest</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">earliest</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">duration</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="ls-の後ろ向き計算">
+<a class="header-anchor" href="#ls-%e3%81%ae%e5%be%8c%e3%82%8d%e5%90%91%e3%81%8d%e8%a8%88%e7%ae%97"></a>
+LS の後ろ向き計算
+</h3><p><strong>逆トポロジカル順</strong>で終点イベントから前へ進めます：</p>
+$$LS[u] = \min_{v \in succ(u)} \big( LS[v] \big) - duration[u]$$<p>後続のない終点イベントは $LS = ES = T - duration$ です。（等価に、$LF[\cdot] = T$ とすると $LS = LF - duration$、$LF[u] = \min_{v \in succ(u)} LS[v]$。）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">calcLatest</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">u</span> <span class="p">:</span> <span class="n">reverseTopoOrder</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">latest</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">latest</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="n">latest</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">-</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">duration</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要点-7">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-7"></a>
+要点
+</h3><ul>
+<li>どちらの方向も<strong>必ず厳密にトポロジカル順</strong>で進めなければなりません。そうでないと使う先行/後続がまだ計算されていません。</li>
+<li>始点イベントの判定に「隣接リストが空かどうか」を<strong>使ってはいけません</strong>。隣接リストが空なのは<strong>終点イベント</strong>（出次数が 0）です。始点イベントの判定根拠は<strong>入次数が 0</strong> であることで、この向きを逆にすると計算全体が破綻します。</li>
+<li>クリティカルパスは複数あることがあります。$\text{余裕} = 0$ のアクティビティはすべて印を付ける必要があります。</li>
+<li>総工期を短縮したい場合は、クリティカルアクティビティを圧縮するしかありません。クリティカルでないアクティビティを圧縮しても意味はありません。</li>
+</ul>
+<h2 id="まとめ">
+<a class="header-anchor" href="#%e3%81%be%e3%81%a8%e3%82%81"></a>
+まとめ
+</h2><table>
+	<thead>
+			<tr>
+					<th>実験</th>
+					<th>中核となるデータ構造</th>
+					<th>要点</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Fibonacci</td>
+					<td>関数呼び出しスタック</td>
+					<td>再帰はスタックで引数と戻りアドレスを保存する</td>
+			</tr>
+			<tr>
+					<td>部分集合の分割</td>
+					<td>衝突行列 + 循環キュー</td>
+					<td>グループ内のすべての要素と比較し、貪欲にグループ分けする</td>
+			</tr>
+			<tr>
+					<td>疎行列の乗算</td>
+					<td>3項組の表</td>
+					<td>両側とも非ゼロの項だけを累加する</td>
+			</tr>
+			<tr>
+					<td>KMP</td>
+					<td>LPS 配列</td>
+					<td>テキストのポインタは決して後退しない</td>
+			</tr>
+			<tr>
+					<td>二分木</td>
+					<td>配列 / リンク構造</td>
+					<td>順序記憶の親子の添字関係。3つの DFS + 1つの BFS</td>
+			</tr>
+			<tr>
+					<td>ハフマン</td>
+					<td>最小ヒープ</td>
+					<td>毎回、頻度が最小の2つのノードを統合する</td>
+			</tr>
+			<tr>
+					<td>ソート二分木</td>
+					<td>二叉連結リスト</td>
+					<td>削除は3つの場合に分かれる。中間順で昇順の列が得られる</td>
+			</tr>
+			<tr>
+					<td>手がかり化</td>
+					<td>マークビット付き二叉連結リスト</td>
+					<td>ltag/rtag で子と手がかりを区別する</td>
+			</tr>
+			<tr>
+					<td>グラフの格納</td>
+					<td>隣接行列 / 隣接リスト</td>
+					<td>稠密なら行列、疎ならリスト</td>
+			</tr>
+			<tr>
+					<td>Kruskal</td>
+					<td>辺集合 + Union-Find</td>
+					<td>ソートして辺を選び、閉路判定は Union-Find に任せる</td>
+			</tr>
+			<tr>
+					<td>Dijkstra</td>
+					<td>優先度付きキュー</td>
+					<td>貪欲に緩和し、負の重みの辺は扱えない</td>
+			</tr>
+			<tr>
+					<td>クリティカルパス</td>
+					<td>有向非巡回グラフ + トポロジカル順</td>
+					<td>前向きに ES、後ろ向きに LS を求め、余裕が 0 ならクリティカル</td>
+			</tr>
+	</tbody>
+</table>
+
+        
+        <hr><p>この記事は2023-12-12に<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2026-10-05です</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>著者: </strong> 孤筝</p>
+<p><strong>タイトル: </strong> データ構造実験ノート</p>
+
+<p><strong>公開日: </strong> 2023-12-12</p>
+<p><strong>更新日: </strong> 2026-10-05</p>
+<p><strong>ライセンス: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item><item><title>MicroPython関数ライブラリ</title><link>https://www.guzhengsvt.cn/ja/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link><pubDate>Thu, 15 Feb 2024 11:44:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/ja/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid><description>
+<![CDATA[<h1>MicroPython関数ライブラリ</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
+        
+          <p>本記事は、MicroPython の <code>machine</code> モジュールを Raspberry Pi Pico（RP2040）で使う際によく利用するインターフェースを整理したものです。内容は <a href="https://docs.micropython.org/en/latest/library/machine.html">MicroPython 公式ドキュメント</a> と照合して確認済みです。</p>
+<h2 id="machineハードウェア関連の機能">
+<a class="header-anchor" href="#machine%e3%83%8f%e3%83%bc%e3%83%89%e3%82%a6%e3%82%a7%e3%82%a2%e9%96%a2%e9%80%a3%e3%81%ae%e6%a9%9f%e8%83%bd"></a>
+machine：ハードウェア関連の機能
+</h2><p>ピン番号には次の2種類があります：</p>
+<ul>
+<li><strong>GPIO 番号</strong>（GP0–GP29）：コードではこれが最もよく使われます。<code>Pin(25)</code> は GP25 のことです。</li>
+<li><strong>物理ピン番号</strong>：開発板上の 40 本のピンの位置であり、GPIO 番号とは別物です。配線時には区別に注意してください。</li>
+</ul>
+<h3 id="pin-クラス">
+<a class="header-anchor" href="#pin-%e3%82%af%e3%83%a9%e3%82%b9"></a>
+Pin クラス
+</h3><h4 id="コンストラクタ-machinepinid-mode-1-pull-1-valuenone">
+<a class="header-anchor" href="#%e3%82%b3%e3%83%b3%e3%82%b9%e3%83%88%e3%83%a9%e3%82%af%e3%82%bf-machinepinid-mode-1-pull-1-valuenone"></a>
+コンストラクタ <code>machine.Pin(id, mode=-1, pull=-1, value=None)</code>
+</h4><table>
+	<thead>
+			<tr>
+					<th>引数</th>
+					<th>説明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>id</code></td>
+					<td>ピン番号。Pico では 0–29（GP0–GP29）が使用可能</td>
+			</tr>
+			<tr>
+					<td><code>mode</code></td>
+					<td><code>None</code> / <code>Pin.IN</code>(0) / <code>Pin.OUT</code>(1) / <code>Pin.OPEN_DRAIN</code>(2)</td>
+			</tr>
+			<tr>
+					<td><code>pull</code></td>
+					<td>内部プルアップ/プルダウン抵抗。<strong>入力モードでのみ有効</strong>：<code>None</code> / <code>Pin.PULL_UP</code>(1) / <code>Pin.PULL_DOWN</code>(2)</td>
+			</tr>
+			<tr>
+					<td><code>value</code></td>
+					<td>出力/オープンドレインモードでのみ有効。初期の電位：0 は低レベル、1 は高レベル</td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p><code>Pin.PULL_DOWN</code> であり、<code>Pin.DOWN</code> ではないことに注意してください。</p>
+</blockquote>
+<h4 id="pininitmode-1-pull-1-valuenone">
+<a class="header-anchor" href="#pininitmode-1-pull-1-valuenone"></a>
+<code>Pin.init(mode=-1, pull=-1, value=None)</code>
+</h4><p>ピンを再初期化します。渡した引数のみを変更し、それ以外の状態はそのまま維持します。</p>
+<h4 id="pinvaluex">
+<a class="header-anchor" href="#pinvaluex"></a>
+<code>Pin.value([x])</code>
+</h4><ul>
+<li>引数なし：現在のピンの電位（0 または 1）を返します。</li>
+<li>引数あり：ピンに電位を書き込みます。引数はブール値に変換されます（<code>True</code> は 1、<code>False</code> は 0）。</li>
+</ul>
+<h4 id="pinon--pinoffpinhigh--pinlow">
+<a class="header-anchor" href="#pinon--pinoffpinhigh--pinlow"></a>
+<code>Pin.on()</code> / <code>Pin.off()</code>、<code>Pin.high()</code> / <code>Pin.low()</code>
+</h4><ul>
+<li><code>on()</code>、<code>high()</code>：高レベル（1）を出力します。</li>
+<li><code>off()</code>、<code>low()</code>：低レベル（0）を出力します。</li>
+</ul>
+<p>これら4つのメソッドは出力/オープンドレインモードでのみ意味を持ちます。<code>low()</code> / <code>high()</code> は非コア API で、Pico（rp2）では使用可能です。</p>
+<h4 id="pintoggle">
+<a class="header-anchor" href="#pintoggle"></a>
+<code>Pin.toggle()</code>
+</h4><p>出力の電位を反転します。0 は 1 に、1 は 0 になります。<code>toggle()</code> は rp2、esp32 などのポートで使用可能です。ポートが対応していない場合は <code>Pin.value(not Pin.value())</code> で代用します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>   <span class="c1"># Pico のボード上の LED は GP25</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>        <span class="c1"># 1秒ごとに反転</span>
+</span></span></code></pre></div><h4 id="pinirqhandlernone-triggerpinirq_falling--pinirq_rising">
+<a class="header-anchor" href="#pinirqhandlernone-triggerpinirq_falling--pinirq_rising"></a>
+<code>Pin.irq(handler=None, trigger=Pin.IRQ_FALLING | Pin.IRQ_RISING)</code>
+</h4><p>外部割り込みを設定します。電位が変化するとコールバック関数が自動的に呼び出されます。</p>
+<ul>
+<li><code>handler</code>：割り込みコールバック関数。<strong><code>Pin</code> 引数を1つ受け取る必要があります</strong>。</li>
+<li><code>trigger</code>：トリガー条件。<code>|</code> で組み合わせられます：</li>
+</ul>
+<table>
+	<thead>
+			<tr>
+					<th>定数</th>
+					<th>意味</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>Pin.IRQ_FALLING</code></td>
+					<td>立ち下がりエッジ</td>
+			</tr>
+			<tr>
+					<td><code>Pin.IRQ_RISING</code></td>
+					<td>立ち上がりエッジ</td>
+			</tr>
+			<tr>
+					<td><code>Pin.IRQ_LOW_LEVEL</code></td>
+					<td>低レベル</td>
+			</tr>
+			<tr>
+					<td><code>Pin.IRQ_HIGH_LEVEL</code></td>
+					<td>高レベル</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;按键被按下&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">button</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">button</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">on_press</span><span class="p">,</span> <span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="pwm-クラス">
+<a class="header-anchor" href="#pwm-%e3%82%af%e3%83%a9%e3%82%b9"></a>
+PWM クラス
+</h3><p>PWM（パルス幅変調）は高速なスイッチングによって中間の電圧値を模擬します。調光、速度制御、サーボ制御などによく使われます。</p>
+<h4 id="machinepwmpin-freq-duty_u16">
+<a class="header-anchor" href="#machinepwmpin-freq-duty_u16"></a>
+<code>machine.PWM(pin, freq=..., duty_u16=...)</code>
+</h4><p>指定したピンに PWM 出力を生成します。<code>pin</code> は <code>Pin</code> オブジェクトです。</p>
+<h4 id="よく使うメソッド">
+<a class="header-anchor" href="#%e3%82%88%e3%81%8f%e4%bd%bf%e3%81%86%e3%83%a1%e3%82%bd%e3%83%83%e3%83%89"></a>
+よく使うメソッド
+</h4><table>
+	<thead>
+			<tr>
+					<th>メソッド</th>
+					<th>役割</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>PWM.freq([value])</code></td>
+					<td>周波数を読み取り/設定。単位は Hz、範囲はおよそ 8 Hz – 62.5 MHz（CPU 125 MHz 時）</td>
+			</tr>
+			<tr>
+					<td><code>PWM.duty_u16([value])</code></td>
+					<td>デューティ比を読み取り/設定。値は <strong>0–65535</strong> で、<code>value / 65535</code> の比率を表す</td>
+			</tr>
+			<tr>
+					<td><code>PWM.duty_ns([value])</code></td>
+					<td>1周期内の高レベル時間を読み取り/設定。単位は ns</td>
+			</tr>
+			<tr>
+					<td><code>PWM.deinit()</code></td>
+					<td>PWM 出力を停止する</td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p><code>duty_u16</code> の上限は <strong>65535</strong> であり、65536 ではないことに注意してください。値 65536 はオーバーフローします。</p>
+</blockquote>
+<p>RP2040 には独立した PWM スライスが 8 組あり、各組に 2 チャンネル、合計 16 路です。同じ組の 2 チャンネルは<strong>周波数を共有しなければなりません</strong>が、デューティ比は別々にできます。</p>
+<h4 id="例ブレス-led">
+<a class="header-anchor" href="#%e4%be%8b%e3%83%96%e3%83%ac%e3%82%b9-led"></a>
+例：ブレス LED
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">led</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>      <span class="c1"># 1 kHz</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">duty</span> <span class="o">=</span> <span class="mi">0</span>            <span class="c1"># デューティ比のパーセント</span>
+</span></span><span class="line"><span class="cl"><span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">duty</span> <span class="o">+=</span> <span class="n">step</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">duty</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">duty</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl">        <span class="n">step</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">duty</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">duty</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># パーセントを 0-65535 に変換。範囲を超えないよう注意</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">duty</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">*</span> <span class="mi">65535</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">duty</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">duty</span><span class="p">)</span>  <span class="c1"># グラフ描画用に観察しやすくする</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>  <span class="c1"># 約2秒で1往復</span>
+</span></span></code></pre></div><h4 id="例ボタンで点灯ソフトウェアデバウンス付き">
+<a class="header-anchor" href="#%e4%be%8b%e3%83%9c%e3%82%bf%e3%83%b3%e3%81%a7%e7%82%b9%e7%81%af%e3%82%bd%e3%83%95%e3%83%88%e3%82%a6%e3%82%a7%e3%82%a2%e3%83%87%e3%83%90%e3%82%a6%e3%83%b3%e3%82%b9%e4%bb%98%e3%81%8d"></a>
+例：ボタンで点灯（ソフトウェアデバウンス付き）
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">button</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>   <span class="c1"># 押すと 0 が読める</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_board</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>            <span class="c1"># ボード上の LED</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_ext</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>              <span class="c1"># 外付け LED</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led_ext</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>             <span class="c1"># 押された可能性</span>
+</span></span><span class="line"><span class="cl">        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>                <span class="c1"># 10 ms 待って再確認し、チャタリングを除去</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>         <span class="c1"># 押下を確認</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led_board</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led_ext</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;The button is pressed.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># 離されるのを待つ</span>
+</span></span><span class="line"><span class="cl">                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>メカニカルなボタンは、押す瞬間と離す瞬間にミリ秒単位の電位のチャタリングが発生し、CPU には複数回の押下として読み取られます。<strong>ソフトウェアデバウンス</strong>の方法は、押下を検出した後に 10 ms 待ってからもう一度確認するというものです。</p>
+</blockquote>
+<h3 id="adc-クラス">
+<a class="header-anchor" href="#adc-%e3%82%af%e3%83%a9%e3%82%b9"></a>
+ADC クラス
+</h3><p>ADC（アナログ-デジタル変換）はアナログ電圧をデジタル値に変換します。</p>
+<h4 id="machineadcid">
+<a class="header-anchor" href="#machineadcid"></a>
+<code>machine.ADC(id)</code>
+</h4><p><code>id</code> には <code>Pin</code> オブジェクトを渡すことも、チャンネル番号を渡すこともできます：</p>
+<ul>
+<li>Pico ではチャンネル <strong>0–3 が GP26–GP29 に対応</strong>します（GP29 はボード上で VSYS に接続されています）。</li>
+<li>チャンネル <strong>4</strong> はチップ内蔵の温度センサーで、<code>ADC.CORE_TEMP</code> で表せます。</li>
+</ul>
+<h4 id="adcread_u16">
+<a class="header-anchor" href="#adcread_u16"></a>
+<code>ADC.read_u16()</code>
+</h4><p>変換結果を読み取ります。<strong>0–65535</strong> の整数を返し、電圧範囲 0–3.3 V に対応します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">ADC</span><span class="p">,</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">adc</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span>          <span class="c1"># ADC(0) と書くこともできる</span>
+</span></span><span class="line"><span class="cl"><span class="n">value</span> <span class="o">=</span> <span class="n">adc</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span>      <span class="c1"># 0 - 65535</span>
+</span></span><span class="line"><span class="cl"><span class="n">voltage</span> <span class="o">=</span> <span class="n">value</span> <span class="o">/</span> <span class="mi">65535</span> <span class="o">*</span> <span class="mf">3.3</span>   <span class="c1"># 電圧に換算</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">voltage</span><span class="p">,</span> <span class="s2">&#34;V&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>レンジは 0–65535 であることに注意してください。RP2040 の ADC ハードウェア自体は 12 ビット（0–4095）で、MicroPython がそれを線形に 16 ビットへ引き伸ばしているため、末尾の数ビットには実際の精度はありません。</p>
+</blockquote>
+<h2 id="まとめ">
+<a class="header-anchor" href="#%e3%81%be%e3%81%a8%e3%82%81"></a>
+まとめ
+</h2><table>
+	<thead>
+			<tr>
+					<th>場面</th>
+					<th>ポイント</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>デジタル入出力</td>
+					<td><code>Pin(id, mode, pull)</code>。入力は <code>value()</code> で読み、出力は <code>value()</code> / <code>on()</code> / <code>off()</code> / <code>toggle()</code> を使う</td>
+			</tr>
+			<tr>
+					<td>割り込み</td>
+					<td><code>Pin.irq(handler, trigger)</code>。コールバックは <code>Pin</code> 引数を1つ取る必要がある</td>
+			</tr>
+			<tr>
+					<td>調光/速度制御</td>
+					<td><code>PWM(pin)</code> + <code>freq()</code> + <code>duty_u16()</code>。デューティ比の上限は 65535</td>
+			</tr>
+			<tr>
+					<td>アナログ値の読み取り</td>
+					<td><code>ADC(Pin(26))</code> + <code>read_u16()</code>。0–65535 を返す</td>
+			</tr>
+			<tr>
+					<td>ボタンのチャタリング</td>
+					<td>変化を検出したら 10 ms 待ってから再確認する</td>
+			</tr>
+	</tbody>
+</table>
+
+        
+        <hr><p>この記事は2024-02-15に<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2026-10-05です</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>著者: </strong> 孤筝</p>
+<p><strong>タイトル: </strong> MicroPython関数ライブラリ</p>
+
+<p><strong>公開日: </strong> 2024-02-15</p>
+<p><strong>更新日: </strong> 2026-10-05</p>
+<p><strong>ライセンス: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item><item><title>Pythonの基礎</title><link>https://www.guzhengsvt.cn/ja/post/code/python%E5%9F%BA%E7%A1%80/</link><pubDate>Tue, 27 Jun 2023 00:49:20 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/ja/post/code/python%E5%9F%BA%E7%A1%80/</guid><description>
+<![CDATA[<h1>Pythonの基礎</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
+        
+          <p>本記事は以前の4つのPythonノートを統合し、重複した内容や無関係な内容を削除して、日常的なクイックリファレンスとして使えるようにしたものです。サンプルはPython 3に基づいています。</p>
+<h2 id="変数とオブジェクト">
+<a class="header-anchor" href="#%e5%a4%89%e6%95%b0%e3%81%a8%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88"></a>
+変数とオブジェクト
+</h2><ul>
+<li>変数は型を宣言する必要はありませんが、<strong>使用前に必ず値を代入する必要があります</strong>。そうでなければ <code>NameError</code> が発生します。</li>
+<li>Pythonには <code>const</code> はなく、変数の再代入を防ぐ仕組みもありません。いわゆる「定数」は全大文字で命名するという約束にすぎません。</li>
+<li><code>=</code> は代入、<code>==</code> は比較です。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span>
+</span></span><span class="line"><span class="cl"><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;age&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</span></span></code></pre></div><p>オブジェクト指向的な理解：<strong>オブジェクトはデータ実体であり、変数はオブジェクトに貼られたラベル</strong>です。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Jack&#34;</span>   <span class="c1"># 文字列オブジェクト &#34;Jack&#34; を生成し、ラベル a を貼る</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>        <span class="c1"># ラベル b を同じオブジェクトに貼る（コピーではない）</span>
+</span></span><span class="line"><span class="cl"><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># True、両者は同じオブジェクトを指す</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Ross&#34;</span>   <span class="c1"># 別のオブジェクトにラベル a を貼り直す。b は依然として &#34;Jack&#34; を指す</span>
+</span></span></code></pre></div><ul>
+<li>1つのオブジェクトには複数のラベルを貼れますが、1つの変数が同時に指せるオブジェクトは1つだけです。</li>
+<li><strong>変数自体に型はなく、型はオブジェクトに属します</strong>。したがって <code>a = 1</code> の後に <code>a = &quot;1&quot;</code> としても完全に合法です。</li>
+</ul>
+<h2 id="代入とスライス">
+<a class="header-anchor" href="#%e4%bb%a3%e5%85%a5%e3%81%a8%e3%82%b9%e3%83%a9%e3%82%a4%e3%82%b9"></a>
+代入とスライス
+</h2><p><code>=</code> は<strong>右結合</strong>であり、<code>a = b = c = 1</code> は3つとも整数オブジェクト 1 を指すことを意味します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>   <span class="c1"># それぞれに代入</span>
+</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="mi">17</span> <span class="o">+</span> <span class="mi">1</span>        <span class="c1"># 先に右辺を計算してから代入</span>
+</span></span></code></pre></div><p>スライスは文字列、タプル、リストに使え、構文は <code>obj[a:b:c]</code> です：</p>
+<table>
+	<thead>
+			<tr>
+					<th>書き方</th>
+					<th>意味</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>obj[a:b]</code></td>
+					<td>インデックス $[a, b)$ を取得（<code>b</code> は含まない）。<code>a</code> を省略すると 0 から、<code>b</code> を省略すると末尾まで</td>
+			</tr>
+			<tr>
+					<td><code>obj[a:b:c]</code></td>
+					<td><code>c</code> 個ごとに1つ取得。<code>c</code> を省略した場合は 1</td>
+			</tr>
+			<tr>
+					<td><code>c</code> が負の値</td>
+					<td>後ろから前に向かって逆順に取得</td>
+			</tr>
+			<tr>
+					<td><code>obj[::-1]</code></td>
+					<td>反転（新しいオブジェクトを返し、元のオブジェクトは変わらない）</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;polaris&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;ol&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;sap&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;siralop&#39;</span>
+</span></span></code></pre></div><p>スライスはコピーにも使えます。<code>y = x[:]</code> で浅いコピーが得られ、その後 <code>y</code> をソートしても <code>x</code> には影響しません。</p>
+<h2 id="文字列">
+<a class="header-anchor" href="#%e6%96%87%e5%ad%97%e5%88%97"></a>
+文字列
+</h2><ol>
+<li>シングルクォートとダブルクォートは等価で、<strong>単一文字と文字列を区別しません</strong>（char 型はありません）。</li>
+<li>三重クォートで複数行の文字列を書けます。</li>
+<li>クォート内で同じ種類のクォートを使う場合は <code>\&quot;</code> でエスケープが必要です。</li>
+</ol>
+<h3 id="3つのフォーマット方法">
+<a class="header-anchor" href="#3%e3%81%a4%e3%81%ae%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%83%e3%83%88%e6%96%b9%e6%b3%95"></a>
+3つのフォーマット方法
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="s2">&#34;布洛妮娅&#34;</span><span class="p">,</span> <span class="mi">18</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">%s</span><span class="s1">, she is </span><span class="si">%d</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">))</span>          <span class="c1"># % 方式、最も古い</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">{}</span><span class="s1">, she is </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">))</span>      <span class="c1"># format メソッド</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;My wife is </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">, she is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>                <span class="c1"># f-string、推奨</span>
+</span></span></code></pre></div><ul>
+<li><code>%</code> 方式は後ろに tuple または dict を続け、順番または名前で値を取得します。</li>
+<li><code>format</code> の <code>{}</code> 内では添字 <code>{0}</code> やキーワード <code>{name}</code> を使えます。</li>
+<li><strong>f-string には Python 3.6 以上が必要</strong>で、可読性が最も優れています。3つとも幅、配置、精度などの書式制御に対応しています。</li>
+</ul>
+<h2 id="数値とブール">
+<a class="header-anchor" href="#%e6%95%b0%e5%80%a4%e3%81%a8%e3%83%96%e3%83%bc%e3%83%ab"></a>
+数値とブール
+</h2><table>
+	<thead>
+			<tr>
+					<th>型</th>
+					<th>説明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>int</code></td>
+					<td>整数。<code>0x</code> 16進数、<code>0o</code> 8進数、<code>0b</code> 2進数に対応</td>
+			</tr>
+			<tr>
+					<td><code>float</code></td>
+					<td>浮動小数点数。科学表記 <code>1.23e-6</code> に対応</td>
+			</tr>
+			<tr>
+					<td><code>complex</code></td>
+					<td>複素数。<code>a + bj</code> または <code>complex(a, b)</code> と書く</td>
+			</tr>
+			<tr>
+					<td><code>bool</code></td>
+					<td>ブール値。<code>True</code> は本質的に 1、<code>False</code> は本質的に 0</td>
+			</tr>
+			<tr>
+					<td><code>NoneType</code></td>
+					<td>空値。<code>None</code> の先頭は大文字でなければならない</td>
+			</tr>
+	</tbody>
+</table>
+<ul>
+<li>整数と浮動小数点数の混合演算では、整数が浮動小数点数に昇格します。<code>1 + 2.0</code> は <code>3.0</code> になります。</li>
+<li>浮動小数点数には精度誤差があります。<code>0.1 + 0.2 == 0.3</code> の結果は <code>False</code> です（実際には <code>0.30000000000000004</code>）。正確な計算が必要な場合は <code>decimal</code> モジュールを使います。</li>
+<li><code>round()</code> は<strong>銀行家の丸め</strong>（最近接偶数への丸め）を採用しています。<code>round(0.5)</code> は <code>0</code>、<code>round(1.5)</code> は <code>2</code>、<code>round(2.5)</code> は <code>2</code> になります。</li>
+</ul>
+<p><strong>偽と判定される値</strong>：<code>0</code>、<code>0.0</code>、<code>None</code>、空文字列、空リスト、空タプル、空辞書、空集合、<code>False</code>。
+<strong>真と判定される値</strong>：それ以外すべてです。空でない文字列も含みます（内容が <code>&quot;False&quot;</code> であっても真です）。</p>
+<h2 id="演算子">
+<a class="header-anchor" href="#%e6%bc%94%e7%ae%97%e5%ad%90"></a>
+演算子
+</h2><h3 id="算術演算子">
+<a class="header-anchor" href="#%e7%ae%97%e8%a1%93%e6%bc%94%e7%ae%97%e5%ad%90"></a>
+算術演算子
+</h3><table>
+	<thead>
+			<tr>
+					<th>演算子</th>
+					<th>意味</th>
+					<th>例</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>+</code> <code>-</code> <code>*</code></td>
+					<td>加減乗</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td><code>/</code></td>
+					<td>除算。結果は必ず浮動小数点数</td>
+					<td><code>6 / 3</code> → <code>2.0</code></td>
+			</tr>
+			<tr>
+					<td><code>//</code></td>
+					<td><strong>整数除算</strong>。切り捨て</td>
+					<td><code>7 // 2</code> → <code>3</code>、<code>-7 // 2</code> → <code>-4</code></td>
+			</tr>
+			<tr>
+					<td><code>%</code></td>
+					<td><strong>剰余</strong>（モジュロ）</td>
+					<td><code>7 % 2</code> → <code>1</code></td>
+			</tr>
+			<tr>
+					<td><code>**</code></td>
+					<td>べき乗。<strong>右結合</strong></td>
+					<td><code>2 ** 2 ** 3</code> → <code>256</code></td>
+			</tr>
+			<tr>
+					<td><code>-</code></td>
+					<td>単項マイナス。優先順位は <code>**</code> より低い</td>
+					<td><code>-2 ** 2</code> → <code>-4</code></td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="その他の演算子">
+<a class="header-anchor" href="#%e3%81%9d%e3%81%ae%e4%bb%96%e3%81%ae%e6%bc%94%e7%ae%97%e5%ad%90"></a>
+その他の演算子
+</h3><table>
+	<thead>
+			<tr>
+					<th>分類</th>
+					<th>演算子</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>比較</td>
+					<td><code>==</code> <code>!=</code> <code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code>。<strong>連結して書ける</strong>：<code>a &gt; b == c</code> は <code>a &gt; b and b == c</code> と等価</td>
+			</tr>
+			<tr>
+					<td>論理</td>
+					<td><code>and</code> <code>or</code> <code>not</code></td>
+			</tr>
+			<tr>
+					<td>メンバー</td>
+					<td><code>in</code> <code>not in</code></td>
+			</tr>
+			<tr>
+					<td>同一性</td>
+					<td><code>is</code> <code>is not</code>。同じオブジェクトを参照しているかを比較（値を比較するのではなく <code>id</code> を比較）</td>
+			</tr>
+			<tr>
+					<td>ビット演算</td>
+					<td><code>&amp;</code> <code>|</code> <code>^</code> <code>~</code> <code>&lt;&lt;</code> <code>&gt;&gt;</code></td>
+			</tr>
+			<tr>
+					<td>複合代入</td>
+					<td><code>+=</code> <code>-=</code> <code>*=</code> <code>//=</code> <code>**=</code> <code>&amp;=</code> <code>|=</code> <code>^=</code> <code>&lt;&lt;=</code> <code>&gt;&gt;=</code></td>
+			</tr>
+	</tbody>
+</table>
+<p><code>and</code> / <code>or</code> が返すのは <code>True</code> / <code>False</code> ではなく、<strong>オペランドそのもの</strong>です：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">True</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">False</span> <span class="ow">or</span> <span class="mi">31</span>
+</span></span><span class="line"><span class="cl"><span class="mi">31</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="mi">0</span>
+</span></span></code></pre></div><h3 id="優先順位高い順">
+<a class="header-anchor" href="#%e5%84%aa%e5%85%88%e9%a0%86%e4%bd%8d%e9%ab%98%e3%81%84%e9%a0%86"></a>
+優先順位（高い順）
+</h3><p><code>()</code> → インデックス <code>[]</code> → 属性 <code>.</code> → <code>**</code> → 単項 <code>~</code> <code>+</code> <code>-</code> → <code>*</code> <code>/</code> <code>%</code> <code>//</code> → <code>+</code> <code>-</code> → <code>&lt;&lt;</code> <code>&gt;&gt;</code> → <code>&amp;</code> → <code>^</code> → <code>|</code> → 比較 → 代入 → <code>is</code> / <code>in</code> → <code>not</code> → <code>and</code> → <code>or</code></p>
+<p>覚えられなければ括弧を付けるのが最も低コストです。</p>
+<h2 id="入出力と組み込み関数">
+<a class="header-anchor" href="#%e5%85%a5%e5%87%ba%e5%8a%9b%e3%81%a8%e7%b5%84%e3%81%bf%e8%be%bc%e3%81%bf%e9%96%a2%e6%95%b0"></a>
+入出力と組み込み関数
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>   <span class="c1"># sep は区切り文字、end は終端文字</span>
+</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;请输入年龄：&#34;</span><span class="p">)</span>   <span class="c1"># 戻り値は常に文字列</span>
+</span></span><span class="line"><span class="cl"><span class="nb">int</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>                     <span class="c1"># 数値が必要なときは明示的に変換</span>
+</span></span></code></pre></div><p>よく使う組み込み関数：</p>
+<table>
+	<thead>
+			<tr>
+					<th>関数</th>
+					<th>役割</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>id(x)</code></td>
+					<td>オブジェクトのメモリアドレス（同一性の識別子）</td>
+			</tr>
+			<tr>
+					<td><code>type(x)</code></td>
+					<td>オブジェクトの型。例：<code>&lt;class 'int'&gt;</code></td>
+			</tr>
+			<tr>
+					<td><code>len(x)</code></td>
+					<td>要素数</td>
+			</tr>
+			<tr>
+					<td><code>abs()</code> <code>round()</code> <code>bool()</code></td>
+					<td>絶対値、丸め、ブール変換</td>
+			</tr>
+			<tr>
+					<td><code>enumerate(seq, start=0)</code></td>
+					<td>ループ時にインデックスと値を同時に取得</td>
+			</tr>
+			<tr>
+					<td><code>range()</code> <code>zip()</code> <code>sum()</code> <code>max()</code> <code>min()</code> <code>sorted()</code></td>
+					<td>よく使うシーケンス操作</td>
+			</tr>
+	</tbody>
+</table>
+<p>型変換関数：<code>int(x, base)</code>、<code>float()</code>、<code>complex()</code>、<code>str()</code>、<code>repr()</code>、<code>chr()</code>、<code>ord()</code>、<code>hex()</code>、<code>oct()</code>、<code>eval()</code>、<code>list()</code>、<code>tuple()</code>、<code>set()</code>、<code>frozenset()</code>、<code>dict()</code>。</p>
+<p><strong>変換は無条件にはできません</strong>。元のデータが対象の型を表現するのに十分な情報を含むかどうかによります。<code>int(&quot;123&quot;)</code> は可能ですが、<code>int(&quot;Hello&quot;)</code> はエラーになります。リストは集合に変換できますが、1つの数値に変換することはできません。</p>
+<p>暗黙の型変換は精度の順序 <code>bool</code> &lt; <code>int</code> &lt; <code>float</code> &lt; <code>complex</code> に従い、混合演算ではより精度の高い方に合わせられます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">galgames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;咖啡馆&#39;</span><span class="p">,</span> <span class="s1">&#39;千恋万花&#39;</span><span class="p">,</span> <span class="s1">&#39;天使骚骚&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">galgame</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">galgames</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;今天玩第</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1">部作品</span><span class="si">{</span><span class="n">galgame</span><span class="si">}</span><span class="s1">。&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="条件分岐とループ">
+<a class="header-anchor" href="#%e6%9d%a1%e4%bb%b6%e5%88%86%e5%b2%90%e3%81%a8%e3%83%ab%e3%83%bc%e3%83%97"></a>
+条件分岐とループ
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">condition1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">condition2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><p><code>for</code> は任意のイテラブル（リスト、辞書、文字列、タプル、ジェネレータ……）の走査に使います：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">序列</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><ul>
+<li><code>break</code>：<strong>現在の階層</strong>のループから抜け出します。</li>
+<li><code>continue</code>：今回の残りをスキップして次のループに進みます。</li>
+<li><code>for ... else</code> / <code>while ... else</code>：ループが<strong>正常に終了</strong>したとき <code>else</code> を実行します。<code>break</code> で中断された場合は実行されません。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">while</span> <span class="n">判断条件</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><p><code>while</code> を書くときは、ループ本体が最終的に条件を変化させるか <code>break</code> を発生させることを必ず確認してください。そうでなければ無限ループになります。</p>
+<h2 id="4つのコンテナ">
+<a class="header-anchor" href="#4%e3%81%a4%e3%81%ae%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a"></a>
+4つのコンテナ
+</h2><table>
+	<thead>
+			<tr>
+					<th>コンテナ</th>
+					<th>リテラル</th>
+					<th>順序あり</th>
+					<th>可変</th>
+					<th>要素の重複</th>
+					<th>要素の条件</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>リスト <code>list</code></td>
+					<td><code>[1, 2]</code></td>
+					<td>あり</td>
+					<td>あり</td>
+					<td>可</td>
+					<td>任意</td>
+			</tr>
+			<tr>
+					<td>タプル <code>tuple</code></td>
+					<td><code>(1, 2)</code></td>
+					<td>あり</td>
+					<td><strong>なし</strong></td>
+					<td>可</td>
+					<td>任意</td>
+			</tr>
+			<tr>
+					<td>辞書 <code>dict</code></td>
+					<td><code>{k: v}</code></td>
+					<td>挿入順</td>
+					<td>あり</td>
+					<td>キーは重複不可</td>
+					<td>キーはハッシュ可能でなければならない</td>
+			</tr>
+			<tr>
+					<td>集合 <code>set</code></td>
+					<td><code>{1, 2}</code></td>
+					<td><strong>なし</strong></td>
+					<td>あり</td>
+					<td>不可（自動で重複排除）</td>
+					<td>ハッシュ可能でなければならない</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="list">
+<a class="header-anchor" href="#list"></a>
+list
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>                  <span class="c1"># 空のリスト</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>             <span class="c1"># 末尾に追加</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>          <span class="c1"># インデックス i に挿入し、元の要素は後ろにずれる</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>             <span class="c1"># b の要素を1つずつ a の後ろに連結</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>                 <span class="c1"># 末尾の要素を取り出す（その要素を返す）</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>                <span class="c1"># インデックス i の要素を取り出す</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>             <span class="c1"># 値が x である最初の要素を削除。存在しない場合はエラー</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c1"># 値が x である最初の要素のインデックス</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c1"># 値が x である要素の個数</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>             <span class="c1"># その場で反転</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=...</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>   <span class="c1"># その場でソート。戻り値なし</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>                <span class="c1"># インデックス i を削除</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>              <span class="c1"># スライス範囲を削除</span>
+</span></span></code></pre></div><p>ソートの例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">random</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">random</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># 各タプルの2番目の要素でソート</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># [(4, 1), (2, 2), (1, 3), (3, 4)]</span>
+</span></span></code></pre></div><blockquote>
+<p>注意：<code>sort()</code> の引数は <code>key</code> と <code>reverse</code> の2つだけです。<code>cmp</code> 引数は Python 3 で<strong>削除されました</strong>。</p>
+</blockquote>
+<h3 id="tuple">
+<a class="header-anchor" href="#tuple"></a>
+tuple
+</h3><ul>
+<li>タプルは<strong>生成後に変更できません</strong>。追加・削除・変更はできません。</li>
+<li>要素が1つのタプルにはカンマが必要です。<code>(1,)</code> はタプルですが、<code>(1)</code> は単なる整数です。</li>
+<li>変換：<code>list(t)</code> でリスト、<code>tuple(l)</code> でタプルが得られます。<strong>元のオブジェクトは変わらず</strong>、返されるのは新しいオブジェクトです。</li>
+</ul>
+<h3 id="dict">
+<a class="header-anchor" href="#dict"></a>
+dict
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;孤筝&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">19</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;孤筝&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">19</span><span class="p">)</span>          <span class="c1"># 等号を使う場合、キーにクォートは付けない</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile3</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;孤筝&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">19</span><span class="p">)])</span>   <span class="c1"># キーと値のペアのシーケンスから生成</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile4</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)}</span>   <span class="c1"># {2: 4, 3: 9, 4: 16}</span>
+</span></span></code></pre></div><p>値の取得と追加・変更：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>                 <span class="c1"># キーが存在しない場合は KeyError を送出</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">)</span>           <span class="c1"># 存在しない場合は None を返す</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span>   <span class="c1"># 存在しない場合はデフォルト値を返す</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span>   <span class="c1"># 存在しない場合はそのキーと値のペアを書き込んで返す</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;male&#39;</span>      <span class="c1"># 追加または変更</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">profile</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>重要な違い：<code>get()</code> は<strong>読み取り専用</strong>で、辞書を変更しません。<strong>キーが存在しないときに書き込むのは <code>setdefault()</code> だけ</strong>です。</p>
+</blockquote>
+<p>キーの存在確認には <code>in</code> / <code>not in</code> を使います。<code>has_key()</code> は Python 2 の書き方で、Python 3 では削除されました。</p>
+<h3 id="set">
+<a class="header-anchor" href="#set"></a>
+set
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>     <span class="c1"># 自動的に重複排除されて {1, 2, 3} になる</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>            <span class="c1"># 空の集合はこのようにしか書けない。{} は空の辞書</span>
+</span></span></code></pre></div><table>
+	<thead>
+			<tr>
+					<th>操作</th>
+					<th>メソッド</th>
+					<th>演算子</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>和集合</td>
+					<td><code>a.union(b)</code></td>
+					<td><code>a | b</code></td>
+			</tr>
+			<tr>
+					<td>積集合</td>
+					<td><code>a.intersection(b)</code></td>
+					<td><code>a &amp; b</code></td>
+			</tr>
+			<tr>
+					<td>差集合（a にあって b にない）</td>
+					<td><code>a.difference(b)</code></td>
+					<td><code>a - b</code></td>
+			</tr>
+			<tr>
+					<td>対称差（どちらか一方にのみ属する）</td>
+					<td><code>a.symmetric_difference(b)</code></td>
+					<td><code>a ^ b</code></td>
+			</tr>
+	</tbody>
+</table>
+<ul>
+<li>追加：<code>add(x)</code>（<strong>不変型しか追加できない</strong>）、<code>update(seq)</code>（文字列、リスト、タプル、集合を渡せる。辞書を渡した場合はキーだけが取り込まれる）。</li>
+<li>削除：<code>remove(x)</code> は要素が存在しないとエラーになります。<code>discard(x)</code> はエラーになりません。<code>pop()</code> は<strong>任意の</strong>要素を削除して返しますが、引数は渡せません。<code>clear()</code> はすべて削除します。</li>
+<li>判定：<code>x in s</code>、<code>a.isdisjoint(b)</code>（共通要素がなければ True）、<code>b.issubset(a)</code>。</li>
+<li>集合は<strong>順序もインデックスもありません</strong>。インデックスで値を取得することも、要素を変更することもできず、追加と削除だけが可能です。</li>
+</ul>
+<blockquote>
+<p>よくある誤解：<code>pop()</code> が削除するのは「任意の」要素であり、「ランダムな」要素ではありません。集合の格納順序はハッシュ値で決まるためランダムに見えますが、制御はできません。</p>
+</blockquote>
+<h2 id="イテレータとジェネレータ">
+<a class="header-anchor" href="#%e3%82%a4%e3%83%86%e3%83%ac%e3%83%bc%e3%82%bf%e3%81%a8%e3%82%b8%e3%82%a7%e3%83%8d%e3%83%ac%e3%83%bc%e3%82%bf"></a>
+イテレータとジェネレータ
+</h2><p><strong>イテラブルオブジェクト</strong>：<code>for</code> で走査できるオブジェクト。以下のいずれかを満たせば該当します：</p>
+<ol>
+<li><code>__iter__()</code> を実装し、イテレータのインスタンスを返す。</li>
+<li><code>__iter__()</code> はないが <code>__getitem__()</code> を実装しており、インデックスによる要素の取得が可能。</li>
+</ol>
+<p><strong>イテレータオブジェクト</strong>：<code>iter(イテラブルオブジェクト)</code> の戻り値で、<code>next()</code> で1つずつ値を取得します。すべて取り出すと <code>StopIteration</code> が送出されます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Iterator</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">([],</span> <span class="n">Iterable</span><span class="p">)</span>      <span class="c1"># True、リストはイテラブルオブジェクト</span>
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">([],</span> <span class="n">Iterator</span><span class="p">)</span>      <span class="c1"># False、リスト自体はイテレータではない</span>
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">(</span><span class="nb">iter</span><span class="p">([]),</span> <span class="n">Iterator</span><span class="p">)</span>  <span class="c1"># True</span>
+</span></span></code></pre></div><p>つまり、<strong>リストはイテラブルオブジェクトであり、イテレータではありません</strong>。リストは何度でも走査できますが、イテレータは一度前に進むだけです。</p>
+<p><strong>ジェネレータ</strong>は「関数で書いたイテレータ」です：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># リスト内包表記でリストを得る</span>
+</span></span><span class="line"><span class="cl"><span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>     <span class="c1"># [0, 1, 2, 3, 4]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 丸括弧に変えるとジェネレータになる</span>
+</span></span><span class="line"><span class="cl"><span class="n">agen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>      <span class="c1"># &lt;generator object ...&gt;、遅延評価</span>
+</span></span></code></pre></div><blockquote>
+<p>注意：<code>(i for i in ...)</code> は<strong>ジェネレータ式</strong>であり、タプル内包表記ではありません。Python にタプル内包表記は存在しません。タプルを得たい場合は <code>tuple(i for i in ...)</code> と書きます。</p>
+</blockquote>
+<p><code>yield</code> と <code>return</code> の違い：関数の実行が <code>yield</code> に達すると<strong>一時停止して値を渡しますが、関数は終了しません</strong>。次に値を取得すると、一時停止した場所から関数が終了するまで再開します。<code>yield</code> に値が続かない場合は <code>None</code> を返します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="o">=</span> <span class="n">generator</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>   <span class="c1"># 1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">generator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>   <span class="c1"># 1 2 3 4 5</span>
+</span></span></code></pre></div><p>ジェネレータの価値は<strong>遅延評価</strong>にあります。すべての結果を一度に計算してメモリに置くことをせず、大量のデータストリームを処理する際にリストよりメモリを節約できます。</p>
+<h2 id="その他のノート">
+<a class="header-anchor" href="#%e3%81%9d%e3%81%ae%e4%bb%96%e3%81%ae%e3%83%8e%e3%83%bc%e3%83%88"></a>
+その他のノート
+</h2><h3 id="コメント">
+<a class="header-anchor" href="#%e3%82%b3%e3%83%a1%e3%83%b3%e3%83%88"></a>
+コメント
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 単一行コメント</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">三重クォートは厳密には「複数行文字列」であり、コメントではありません。
+</span></span></span><span class="line"><span class="cl"><span class="s1">インタプリタによって文字列オブジェクトとして生成されるだけで、使われていない式にすぎません。
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span></code></pre></div><p>本質がコメントではなく文字列であるため、コードの途中に三重クォートを気軽に挿入すると構文が壊れ、そのままエラーになることがあります。<strong>正しい書き方は <code>#</code> だけでコメントを書くことです。</strong></p>
+<h3 id="エンコーディング">
+<a class="header-anchor" href="#%e3%82%a8%e3%83%b3%e3%82%b3%e3%83%bc%e3%83%87%e3%82%a3%e3%83%b3%e3%82%b0"></a>
+エンコーディング
+</h3><ul>
+<li>Python 3 のソースファイルはデフォルトで UTF-8 なので、<strong>通常は</strong>エンコーディングの宣言は不要です。</li>
+<li>ファイル先頭での宣言が必要なのは Python 2 だけで、現在はほとんど使いません：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># -*- coding: UTF-8 -*-</span>
+</span></span></code></pre></div><h3 id="識別子">
+<a class="header-anchor" href="#%e8%ad%98%e5%88%a5%e5%ad%90"></a>
+識別子
+</h3><ul>
+<li>英字、数字、アンダースコアで構成され、<strong>数字で始めることはできません</strong>。大文字と小文字は区別されます。</li>
+<li>Python 3 では中国語などの文字で命名することもできますが、推奨されません。</li>
+<li>アンダースコアの特殊な約束：
+<ul>
+<li><code>_name</code>：アンダースコア1つで始まり、「内部使用」を意味します。<code>from module import *</code> ではインポートされません。</li>
+<li><code>__age</code>：アンダースコア2つで始まり、名前マングリング（name mangling）が働きます。サブクラスとの衝突を避けるために使います。</li>
+<li><code>__init__</code>：アンダースコア2つで始まり2つで終わるものは Python の組み込み特殊メソッドです。自分でこのような名前を作らないでください。</li>
+</ul>
+</li>
+</ul>
+
+        
+        <hr><p>この記事は2023-06-27に<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2026-10-05です</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>著者: </strong> 孤筝</p>
+<p><strong>タイトル: </strong> Pythonの基礎</p>
+
+<p><strong>公開日: </strong> 2023-06-27</p>
+<p><strong>更新日: </strong> 2026-10-05</p>
+<p><strong>ライセンス: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item><item><title>Ansys HFSS 零基礎から体系的に学ぶ実践チュートリアル</title><link>https://www.guzhengsvt.cn/ja/post/othernotes/ansys-hfss-tutorial/</link><pubDate>Sat, 28 Mar 2026 17:40:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/ja/post/othernotes/ansys-hfss-tutorial/</guid><description>
 <![CDATA[<h1>Ansys HFSS 零基礎から体系的に学ぶ実践チュートリアル</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
         
           <blockquote>
@@ -3070,762 +4639,6 @@ $$</li>
 
 <p><strong>公開日: </strong> 2025-08-21</p>
 <p><strong>更新日: </strong> 2025-08-21</p>
-<p><strong>ライセンス: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
-</div>
-]]></description><category>OtherNotes</category></item><item><title>新編・物語</title><link>https://www.guzhengsvt.cn/ja/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</link><pubDate>Tue, 20 May 2025 12:18:48 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/ja/post/poetry/%E6%95%85%E4%BA%8B%E6%96%B0%E7%BC%96/</guid><description>
-<![CDATA[<h1>新編・物語</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
-        
-          <h2 id="新編物語">
-<a class="header-anchor" href="#%e6%96%b0%e7%b7%a8%e7%89%a9%e8%aa%9e"></a>
-新編・物語
-</h2><p><strong>タイムラインを二〇一七へと巻き戻し、<br>
-昔日の気配を文面から探ってみた。<br>
-けれど読めば読むほど顔は熱くなり、<br>
-若さは軽く、向こう見ずで、思慮が足りない。<br>
-深情を気取って古人の嘆きを真似、<br>
-中二の気配ばかりが鼻につく。<br>
-それでもそこからまた詩心を拾い、<br>
-古典を盗み、文章を借りて、君に差し出す。</strong></p>
-<p><strong>さて許仙は長安へと駆け、<br>
-白蛇は古来より淮南に住むという。<br>
-三生の幸いで断橋にて出会えども、<br>
-ただ遠く眺めるのみ、鏡花水月。<br>
-書生とはもとより根なき綿毛、<br>
-袖に清風だけで、どうして高みに手を伸ばせよう。<br>
-道すがら山河のよさばかりを語り、<br>
-気質だけは相変わらず、拙く頑な。</strong></p>
-<p><strong>アニメにゲームに Galgame、<br>
-麗しき面々は驪山に満ちる。<br>
-攻めれば艶なる絵巻と管弦を愛で、<br>
-退けば純愛ひと筋に耽る。<br>
-昔より恋に円満は少なく、<br>
-ただ風流だけがひらひらと漂う。<br>
-名だたる山水をわざわざ訪ねずとも、<br>
-ひとりの知己を得ることのほうがなお難しい。</strong></p>
-<p><strong>ふと林の鳥の声のやわらかさを聞き、<br>
-月影を追って孤独を際立たせる。<br>
-参と商にさえまた会う日はあるのに、<br>
-人の世では桃花潭にめぐりあえない。<br>
-長き情は水面の月のようで、<br>
-俗世の風塵はことさらに波を乱す。<br>
-ただ一瓢だけを汲み取り、<br>
-杯の月光の冷たさまで飲み干したい。</strong></p>
-<p><strong>春風あたたかく、玉門関。<br>
-橘は陝北にも淮南にも生まれる。<br>
-たとえ塔の上で俗縁が尽きても、<br>
-秦淮まではいくつもの山を隔てるだけ。<br>
-法を闘わせ、劫を渡り、<br>
-金山が水に沈んでもなお帆は残る。<br>
-天地を傾け、淮水を逆さにし、<br>
-黄砂をさらって長安を洗い清めてみせよう。</strong></p>
-<p><strong>新しい文も古い出来事も、それぞれ別の貌を取り、<br>
-是も非も曲も直も、みな夢まぼろし。<br>
-どうか今宵の秦淮の水よ、<br>
-この入り乱れた思いを淮南のほうへ渡してくれ。</strong></p>
-<p><em>GPT-5.4 Codex 風訳</em></p>
-<p><em><strong>孤筝<br>
-2025.5.20<br>
-西安にて</strong></em></p>
-
-        
-        <hr><p>この記事は2025-05-20に<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-05-20です</p><div class="notice article-copyright" data-pagefind-ignore>
-<p><strong>著者: </strong> 孤筝</p>
-<p><strong>タイトル: </strong> 新編・物語</p>
-
-<p><strong>公開日: </strong> 2025-05-20</p>
-<p><strong>更新日: </strong> 2025-05-20</p>
-<p><strong>ライセンス: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
-</div>
-]]></description><category>Poetry</category></item><item><title>最適化理論と方法</title><link>https://www.guzhengsvt.cn/ja/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</link><pubDate>Sat, 10 May 2025 18:48:10 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/ja/post/math/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8E%E6%96%B9%E6%B3%95/</guid><description>
-<![CDATA[<h1>最適化理論と方法</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
-        
-          <h2 id="最適化問題">
-<a class="header-anchor" href="#%e6%9c%80%e9%81%a9%e5%8c%96%e5%95%8f%e9%a1%8c"></a>
-最適化問題
-</h2><h3 id="数学モデル">
-<a class="header-anchor" href="#%e6%95%b0%e5%ad%a6%e3%83%a2%e3%83%87%e3%83%ab"></a>
-数学モデル
-</h3>$$
-\min f(\vec{x}),\vec{x}\in \vec{R^{n}}
-$$$$
-\text{s.t.}{
-\begin{cases}
-c_i(x)=0,& i \in E = {1,2,\cdots,l}\\
-c_i(\vec{x})\ge 0,& i \in I = {l+1,\cdots,l+m}\\
-\end{cases}}
-$$<p>
-ここで，</p>
-<ul>
-<li>$\vec{x}=(x_1,x_2,\cdots,x_n)^T$ は意思決定変数</li>
-<li>$f(\vec{x})$ は目的関数</li>
-<li>s.t.（subject to）は制約条件を表す</li>
-</ul>
-<h3 id="分類">
-<a class="header-anchor" href="#%e5%88%86%e9%a1%9e"></a>
-分類
-</h3><ol>
-<li>時間による分類
-<ol>
-<li>静的問題</li>
-<li>動的問題</li>
-</ol>
-</li>
-<li>制約条件による分類
-<ol>
-<li>制約付き問題</li>
-<li>無制約問題</li>
-</ol>
-</li>
-<li>目的関数と制約条件が線形かどうか
-<ol>
-<li>線形計画</li>
-<li>非線形計画</li>
-</ol>
-</li>
-<li>目的関数と制約条件が凸関数かどうか
-<ol>
-<li>凸最適化問題</li>
-<li>非凸最適化問題</li>
-</ol>
-</li>
-</ol>
-<h3 id="二次形式行列">
-<a class="header-anchor" href="#%e4%ba%8c%e6%ac%a1%e5%bd%a2%e5%bc%8f%e8%a1%8c%e5%88%97"></a>
-二次形式行列
-</h3><p>二次形式：
-</p>
-$$
-\begin{align}
-f
-&=x_1^2-3x_3^2-4x_1x_2+x_2x_3\\
-&=(x_1,x_2,x_3)
-\begin{bmatrix}
-1 & -2 & 0\\
--2 & 0 & \frac{1}{2}\\
-0 & \frac{1}{2} & -3\\
-\end{bmatrix}
-\begin{bmatrix}
-x_1\\
-x_2\\
-x_3\\
-\end{bmatrix}\\
-&= \vec{X^T} A \vec{X}\\
-\end{align}
-$$<p>二次形式行列：
-</p>
-$$
-\begin{bmatrix}
-1 & -2 & 0\\
--2 & 0 & \frac{1}{2}\\
-0 & \frac{1}{2} & -3\\
-\end{bmatrix}
-$$<h3 id="hessian-行列">
-<a class="header-anchor" href="#hessian-%e8%a1%8c%e5%88%97"></a>
-Hessian 行列
-</h3><p>二変数二次関数を例にすると：
-</p>
-$$
-\nabla^2 f(x_1,x_2)=
-\begin{bmatrix}
-\frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2}\\
-\frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2}\\
-\end{bmatrix}
-$$<h3 id="実行可能解">
-<a class="header-anchor" href="#%e5%ae%9f%e8%a1%8c%e5%8f%af%e8%83%bd%e8%a7%a3"></a>
-実行可能解
-</h3><ul>
-<li>実行可能解：すべての制約条件を満たす解。</li>
-<li>実行可能集合（許容集合、実行可能領域）：すべての実行可能解からなる集合。</li>
-<li>最適化問題：実行可能集合の中から目的関数を最大または最小にする点を探す問題。</li>
-<li>停留点：$\nabla f(x_0)=0$ を満たすとき，$x_0$ を停留点という。</li>
-<li>鞍点：$x_0$ が停留点ではあるが極値点ではないとき，鞍点という。</li>
-</ul>
-<h3 id="凸集合">
-<a class="header-anchor" href="#%e5%87%b8%e9%9b%86%e5%90%88"></a>
-凸集合
-</h3><h4 id="定義">
-<a class="header-anchor" href="#%e5%ae%9a%e7%be%a9"></a>
-定義
-</h4><p>平面において，図形内部の任意の二点を結ぶ線分がそのまま図形内部に含まれるとき，その図形を凸集合という。</p>
-<h4 id="性質">
-<a class="header-anchor" href="#%e6%80%a7%e8%b3%aa"></a>
-性質
-</h4><ol>
-<li>凸集合の共通部分は凸集合である</li>
-<li>凸集合を比例拡大・縮小しても凸集合である</li>
-<li>凸集合の和集合ではなく和集合和 $D_1+D_2$ は凸集合である
-<ul>
-<li>$D_1,D_2$ を凸集合とすると，$D_1+D_2=\{z|z=x+y,x \in D_1,y \in D_2\}$ は凸集合である。</li>
-</ul>
-</li>
-<li>凸集合の線形結合は凸集合である。</li>
-</ol>
-<h4 id="よくある凸集合">
-<a class="header-anchor" href="#%e3%82%88%e3%81%8f%e3%81%82%e3%82%8b%e5%87%b8%e9%9b%86%e5%90%88"></a>
-よくある凸集合
-</h4><ol>
-<li>空集合</li>
-<li>ユークリッド空間全体 $\vec{R^n}$</li>
-<li>超平面 $H=\{x \in \vec{R^n} | a_1x_1+a_2x_2+\cdots +a_nx_n=b\}$</li>
-<li>半空間 $H^+=\{x \in \vec{R^n} | a_1x_1+a_2x_2+\cdots +a_nx_n \ge b\}$</li>
-</ol>
-<h4 id="凸結合">
-<a class="header-anchor" href="#%e5%87%b8%e7%b5%90%e5%90%88"></a>
-凸結合
-</h4><p>$x_i \in \vec{R^n},i=1,2,\cdots ,k$ とし，実数 $\lambda_i \ge 0,\sum^k_{i=1}\lambda_i=1$ のとき，
-$x=\sum^k_{i=1}\lambda_ix_i$ を $x_1,x_2,\cdots , x_k$ の凸結合という。<br>
-凸集合内の有限個の点の凸結合は，やはりその凸集合に属する。</p>
-<h4 id="極点">
-<a class="header-anchor" href="#%e6%a5%b5%e7%82%b9"></a>
-極点
-</h4><p>$D$ を凸集合，$x \in D$ とする。$D$ の中に異なる二点 $y,z$ と実数 $\alpha \in (0,1)$ が存在して
-$x=\alpha y+(1-\alpha)z$ と表せないとき，$x$ を $D$ の極点という。</p>
-<p>平たく言えば，平面上の五角形なら極点は頂点であり，半円なら直径の両端点と円弧上の頂点に当たる。</p>
-<h3 id="凸関数">
-<a class="header-anchor" href="#%e5%87%b8%e9%96%a2%e6%95%b0"></a>
-凸関数
-</h3><h4 id="定義-1">
-<a class="header-anchor" href="#%e5%ae%9a%e7%be%a9-1"></a>
-定義
-</h4><p>凸集合上で定義された関数 $f(x)$ が，その凸集合内の任意の二点 $x_1,x_2$ に対して
-</p>
-$$
-f(\alpha x_1+(1-\alpha)x_2) \le \alpha f(x_1)+(1-\alpha)f(x_2)
-$$<p>
-を満たすとき，$f$ を凸関数という。<br>
-不等号が厳密不等号 $\lt$ なら，厳密凸関数という。</p>
-<h4 id="判定">
-<a class="header-anchor" href="#%e5%88%a4%e5%ae%9a"></a>
-判定
-</h4><ol>
-<li>多変数関数の Hessian 行列が半正定なら，その関数は凸関数である。</li>
-<li>Hessian 行列が正定なら，その関数は厳密凸関数である。</li>
-<li>多変数線形関数は $\vec{R^n}$ 上の凸関数である。</li>
-</ol>
-<h3 id="凸最適化問題">
-<a class="header-anchor" href="#%e5%87%b8%e6%9c%80%e9%81%a9%e5%8c%96%e5%95%8f%e9%a1%8c"></a>
-凸最適化問題
-</h3><h4 id="定義-2">
-<a class="header-anchor" href="#%e5%ae%9a%e7%be%a9-2"></a>
-定義
-</h4><p>目的関数と制約関数がいずれも凸関数である最適化問題。</p>
-<ul>
-<li>凸最適化の実行可能集合は凸集合である</li>
-<li>任意の局所最適解は大域最適解である</li>
-<li>目的関数が厳密凸関数なら，局所最適解は存在しかつ一意である</li>
-</ul>
-<h2 id="線形計画">
-<a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e8%a8%88%e7%94%bb"></a>
-線形計画
-</h2><h3 id="形式">
-<a class="header-anchor" href="#%e5%bd%a2%e5%bc%8f"></a>
-形式
-</h3><h4 id="非標準形">
-<a class="header-anchor" href="#%e9%9d%9e%e6%a8%99%e6%ba%96%e5%bd%a2"></a>
-非標準形
-</h4><ul>
-<li>目的関数：$\max z=\sum^{n}_{j=1}c_jx_j=CX$</li>
-<li>係数行列：
-
-$$
-A=
-\begin{bmatrix}
-a_{11} & \cdots & a_{1n}\\
-\vdots & \ddots & \vdots\\
-a_{m1} & \cdots & a_{mn}\\
-\end{bmatrix}
-=(P_1,P_2,\cdots,P_n)
-$$</li>
-<li>資源ベクトル：$b=\begin{bmatrix} b_1\\ \vdots \\ b_m\\ \end{bmatrix}$</li>
-<li>意思決定変数ベクトル：$X=(x_1,x_2,\cdots , x_n)^T$</li>
-<li>制約条件：
-
-$$
-\begin{cases}
-\sum^{n}_{j=1}a_{ij}x_j=b_i,&i=1,2,\cdots,m\\
-x_j \ge 0,& j=1,2,\cdots,n\\
-\end{cases}
-$$
-
-$$
-\begin{cases}
-AX=b\\
-X \ge \vec{0}
-\end{cases}
-$$</li>
-</ul>
-<h4 id="標準形">
-<a class="header-anchor" href="#%e6%a8%99%e6%ba%96%e5%bd%a2"></a>
-標準形
-</h4><ol>
-<li>最大化問題を最小化問題へ変換する</li>
-<li>スラック変数：$\le$ 制約に対して導入し，等式にする</li>
-<li>余剰変数：$\ge$ 制約に対して導入し，等式にする</li>
-<li>自由変数：実際の問題で自由に値を取れる変数で，$x_i=x'-x''$ と表す</li>
-</ol>
-$$
-\begin{cases}
-\min f(x_1,x_2,\cdots , x_n)\\
-\text{s.t.} 
-\begin{cases}
-h_j(x_1,x_2,\cdots,x_n)=0&(j=1,2,\cdots)\\
-x_j \ge 0\\
-\end{cases}
-\end{cases}
-$$<h3 id="基底行列">
-<a class="header-anchor" href="#%e5%9f%ba%e5%ba%95%e8%a1%8c%e5%88%97"></a>
-基底行列
-</h3><ul>
-<li>基底（基底行列）：係数行列の中の最大正則部分行列。
-<ul>
-<li>係数行列 $A$ が $m \times n$ 行列で，$rank(A)=m$ のとき，任意の $m \times m$ 正則部分行列が基底行列となる。</li>
-</ul>
-</li>
-<li>基底変数：基底に含まれる列ベクトルに対応する未知数。</li>
-<li>非基底変数：基底変数でない未知数。</li>
-<li>基本解：非基底変数をすべて 0 として得られる解。</li>
-<li>非退化基本解：基本解における非零成分の個数が制約式の本数に等しいもの。そうでなければ退化基本解。</li>
-<li>基本実行可能解：$\text{s.t.}$ の非負条件を満たす基本解。</li>
-<li>最適基底実行可能解：すべての基本実行可能解のうち，目的関数値を最適にするもの。</li>
-</ul>
-<h3 id="線形計画解の性質">
-<a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e8%a8%88%e7%94%bb%e8%a7%a3%e3%81%ae%e6%80%a7%e8%b3%aa"></a>
-線形計画解の性質
-</h3><ol>
-<li>線形計画の実行可能集合は凸集合である</li>
-<li>最適解が存在するなら，実行可能集合の頂点で達成される</li>
-</ol>
-<h3 id="単体法">
-<a class="header-anchor" href="#%e5%8d%98%e4%bd%93%e6%b3%95"></a>
-単体法
-</h3><h4 id="判定数検定数">
-<a class="header-anchor" href="#%e5%88%a4%e5%ae%9a%e6%95%b0%e6%a4%9c%e5%ae%9a%e6%95%b0"></a>
-判定数（検定数）
-</h4><p>各未知数には一つの判定数が対応する
-</p>
-$$
-\sigma_j=C^T_J \vec{P_j}-c_j=\sum^{m}_{i=1}c_ia_{ij}-c_j
-$$<ul>
-<li>$C^T$ は目的関数の係数行</li>
-<li>$C^T_J$ は基底変数の目的関数係数</li>
-<li>$P_j$ は行列 $A$ の第 $j$ 列</li>
-<li>$c_i$ は第 $i$ 個の<strong>基底変数</strong>の目的関数係数</li>
-<li>$c_j$ は目的関数中の第 $j$ 個の<strong>変数</strong>の係数で，$c_i$ とは無関係</li>
-</ul>
-<p><strong>すべての判定数が 0 以下なら，その基底実行可能解は最適解である。</strong></p>
-<p>一般に，基底変数の判定数は 0 である。</p>
-<h4 id="基底変換">
-<a class="header-anchor" href="#%e5%9f%ba%e5%ba%95%e5%a4%89%e6%8f%9b"></a>
-基底変換
-</h4><h5 id="基底行列の選択">
-<a class="header-anchor" href="#%e5%9f%ba%e5%ba%95%e8%a1%8c%e5%88%97%e3%81%ae%e9%81%b8%e6%8a%9e"></a>
-基底行列の選択
-</h5><p>最初は単位行列を基底行列として選ぶのが望ましい。初期基底実行可能解と判定数を計算する。</p>
-<h5 id="初期単体表の作成">
-<a class="header-anchor" href="#%e5%88%9d%e6%9c%9f%e5%8d%98%e4%bd%93%e8%a1%a8%e3%81%ae%e4%bd%9c%e6%88%90"></a>
-初期単体表の作成
-</h5><table>
-	<thead>
-			<tr>
-					<th></th>
-					<th>$P_1$</th>
-					<th>$P_2$</th>
-					<th>$\cdots$</th>
-					<th>$P_n$</th>
-					<th>$\vec{b}$</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>係数行列</td>
-					<td>$a_{11}$</td>
-					<td>$a_{12}$</td>
-					<td>$\cdots$</td>
-					<td>$a_{1n}$</td>
-					<td>$b_1$</td>
-			</tr>
-			<tr>
-					<td></td>
-					<td>$a_{21}$</td>
-					<td>$a_{22}$</td>
-					<td>$\cdots$</td>
-					<td>$a_{2n}$</td>
-					<td>$b_2$</td>
-			</tr>
-			<tr>
-					<td></td>
-					<td>$\vdots$</td>
-					<td>$\vdots$</td>
-					<td>$\ddots$</td>
-					<td>$\vdots$</td>
-					<td>$\vdots$</td>
-			</tr>
-			<tr>
-					<td></td>
-					<td>$a_{m1}$</td>
-					<td>$a_{m2}$</td>
-					<td>$\cdots$</td>
-					<td>$a_{mn}$</td>
-					<td>$b_m$</td>
-			</tr>
-			<tr>
-					<td>判定数</td>
-					<td>$\sigma_1$</td>
-					<td>$\sigma_2$</td>
-					<td>$\cdots$</td>
-					<td>$\sigma_n$</td>
-					<td>最適値</td>
-			</tr>
-	</tbody>
-</table>
-<h5 id="入る列の選択">
-<a class="header-anchor" href="#%e5%85%a5%e3%82%8b%e5%88%97%e3%81%ae%e9%81%b8%e6%8a%9e"></a>
-入る列の選択
-</h5><p>判定数が正なら，その列には改良の余地があるので，その列 $P_j$ を入る列とし，対応する変数 $x_j$ を入る変数とする。</p>
-<h5 id="主元の選択">
-<a class="header-anchor" href="#%e4%b8%bb%e5%85%83%e3%81%ae%e9%81%b8%e6%8a%9e"></a>
-主元の選択
-</h5><p>入る列の中で正の成分 $a_{ij}$ を取り，対応する $b$ の要素をそれで割って比を求め，最小のものを与える $a_{ij}$ を主元とする。<br>
-<em><strong>判定数が正であっても，その列の要素がすべて負なら，その線形計画には最適解が存在しない。</strong></em></p>
-<h5 id="初等行変換">
-<a class="header-anchor" href="#%e5%88%9d%e7%ad%89%e8%a1%8c%e5%a4%89%e6%8f%9b"></a>
-初等行変換
-</h5><p>主元を 1 にし，その列の他の成分を 0 にする。<br>
-<strong>幾何学的には，実行可能領域の頂点を移ることを意味する。</strong></p>
-<h5 id="出る列">
-<a class="header-anchor" href="#%e5%87%ba%e3%82%8b%e5%88%97"></a>
-出る列
-</h5><p>更新後の係数行列に応じて新しい基底行列を選ぶ。元の基底行列から置き換えられた列が出る列であり，その対応変数が出る変数である。<br>
-その後，判定数を再計算し，新しい単体表を作る。</p>
-<h5 id="次の基底変換">
-<a class="header-anchor" href="#%e6%ac%a1%e3%81%ae%e5%9f%ba%e5%ba%95%e5%a4%89%e6%8f%9b"></a>
-次の基底変換
-</h5><p>判定数行が更新されて新たに正の判定数が現れたら，その列を新しい入る列とし，主元を選んで再び初等行変換を行う。</p>
-<h5 id="結果">
-<a class="header-anchor" href="#%e7%b5%90%e6%9e%9c"></a>
-結果
-</h5><p>すべての判定数が 0 以下になったとき，$\vec{b}$ の値が基底変数の値であり，非基底変数は 0 となる。これらをまとめたものが最適解であり，目的関数に代入すると最小値が得られる。</p>
-<h4 id="単体法の適用条件">
-<a class="header-anchor" href="#%e5%8d%98%e4%bd%93%e6%b3%95%e3%81%ae%e9%81%a9%e7%94%a8%e6%9d%a1%e4%bb%b6"></a>
-単体法の適用条件
-</h4><ol>
-<li>非同次項がすべて非負である</li>
-<li>実行可能解が存在する</li>
-<li>スラック変数と非基底変数の値の積の和が 0 である</li>
-<li>問題が凸な実行可能領域上の線形計画問題である</li>
-<li>実行可能解集合が有限である</li>
-</ol>
-<h3 id="人工変数法">
-<a class="header-anchor" href="#%e4%ba%ba%e5%b7%a5%e5%a4%89%e6%95%b0%e6%b3%95"></a>
-人工変数法
-</h3><p>係数行列に単位行列が含まれない場合，人工変数を導入して人為的に単位行列を構成することが多い。</p>
-<p>線形計画問題の制約条件が $\sum^{n}_{j=1}a_{ij}=b_i(i=1,2,\cdots ,m)$ の形で与えられているとする。それぞれの制約に人工変数 $x_{n+1},x_{n+2},\cdots,x_{n+m}$ を加え，それらを基底変数とし，それ以外を 0 と置けば，$x^{(0)}=(0,0,\cdots,0,b_1,b_2,\cdots,b_m)^T$ という実行可能解が得られる。<br>
-この解から基底変換を進め，人工変数を含まない最適解へと到達する。</p>
-<p>すべての判定数が負になってもなお非零の人工変数が残っている場合，元の問題には実行可能解が存在しない。</p>
-<h3 id="big-m-法">
-<a class="header-anchor" href="#big-m-%e6%b3%95"></a>
-Big-M 法
-</h3><p>最小化問題では，制約条件に人工変数を入れた後，人工変数の目的関数係数を $M$（$M \in \vec{R^+}$）とする。<br>
-最小目的関数値を得るには，人工変数が 0 になるよう基底変換を繰り返す。最大化問題では $M \in \vec{R^-}$ とする。</p>
-<h3 id="退化の場合">
-<a class="header-anchor" href="#%e9%80%80%e5%8c%96%e3%81%ae%e5%a0%b4%e5%90%88"></a>
-退化の場合
-</h3><p>単体法が循環に陥る場合でも，問題に最適解が存在するなら，以下の方法で循環を避けられる。</p>
-<h4 id="摂動法">
-<a class="header-anchor" href="#%e6%91%82%e5%8b%95%e6%b3%95"></a>
-摂動法
-</h4><h4 id="改良単体法">
-<a class="header-anchor" href="#%e6%94%b9%e8%89%af%e5%8d%98%e4%bd%93%e6%b3%95"></a>
-改良単体法
-</h4><h2 id="線形計画の双対理論">
-<a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e8%a8%88%e7%94%bb%e3%81%ae%e5%8f%8c%e5%af%be%e7%90%86%e8%ab%96"></a>
-線形計画の双対理論
-</h2><h3 id="線形計画の双対問題の形式">
-<a class="header-anchor" href="#%e7%b7%9a%e5%bd%a2%e8%a8%88%e7%94%bb%e3%81%ae%e5%8f%8c%e5%af%be%e5%95%8f%e9%a1%8c%e3%81%ae%e5%bd%a2%e5%bc%8f"></a>
-線形計画の双対問題の形式
-</h3><h4 id="対称形式">
-<a class="header-anchor" href="#%e5%af%be%e7%a7%b0%e5%bd%a2%e5%bc%8f"></a>
-対称形式
-</h4><p>元問題
-</p>
-$$
-\begin{cases}
-\min f=\vec{c^T}\vec{x}\\
-\text{s.t.}
-\begin{cases}
-\vec{A}\vec{x} \ge \vec{b}\\
-\vec{x} \ge \vec{0}
-\end{cases}
-\end{cases}
-$$<p>双対問題
-</p>
-$$
-\begin{cases}
-\max w=\vec{b^T}\vec{y}\\
-\text{s.t.}
-\begin{cases}
-\vec{A^T}\vec{y} \le \vec{c}\\
-\vec{y} \ge \vec{0}\\
-\end{cases}
-\end{cases}
-$$<p>対応関係：</p>
-<ul>
-<li>（1）元問題の制約条件数は，双対問題の変数の個数に等しい</li>
-<li>（2）元問題の目的関数係数は，双対問題の制約条件の右辺になる</li>
-<li>（3）元問題が最小化なら，双対問題は最大化になる</li>
-<li>（4）元問題の制約が「$\ge$」なら，双対問題の制約は「$\le$」になる</li>
-</ul>
-<h4 id="非対称形式">
-<a class="header-anchor" href="#%e9%9d%9e%e5%af%be%e7%a7%b0%e5%bd%a2%e5%bc%8f"></a>
-非対称形式
-</h4><p>元問題
-</p>
-$$
-\begin{cases}
-\min f=\vec{c^T}\vec{x}\\
-\text{s.t.}
-\begin{cases}
-\vec{A}\vec{x} = \vec{b}\\
-\vec{x} \ge \vec{0}
-\end{cases}
-\end{cases}
-$$<p>双対問題
-</p>
-$$
-\begin{cases}
-\max w=\vec{b^T}\vec{y}\\
-\text{s.t.}
-\begin{cases}
-\vec{A^T}\vec{y} \le \vec{c}\\
-\vec{y} \text{は自由変数}
-\end{cases}
-\end{cases}
-$$<h4 id="一般の場合">
-<a class="header-anchor" href="#%e4%b8%80%e8%88%ac%e3%81%ae%e5%a0%b4%e5%90%88"></a>
-一般の場合
-</h4><p>元問題に $\le,\ge,=$ が混在している場合は，まずスラック変数と余剰変数を導入して等式にそろえ，その後で非対称形式を使って双対問題を作る。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E5%8E%9F%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB%E8%A1%A81.png" alt="原问题与对偶问题对应关系表1.png">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E5%8E%9F%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB%E8%A1%A82.png" alt="原问题与对偶问题对应关系表2.png"></p>
-<h3 id="双対単体法">
-<a class="header-anchor" href="#%e5%8f%8c%e5%af%be%e5%8d%98%e4%bd%93%e6%b3%95"></a>
-双対単体法
-</h3><ul>
-<li>単体法：まず $\vec{b} \ge 0$ を満たし，その後で判定数 $\le 0$ に基づいて反復する</li>
-<li>双対単体法：まず判定数 $\le 0$ を満たし，その後で $\vec{b} \ge 0$ に基づいて反復する</li>
-</ul>
-<h4 id="判定数--を確保する">
-<a class="header-anchor" href="#%e5%88%a4%e5%ae%9a%e6%95%b0--%e3%82%92%e7%a2%ba%e4%bf%9d%e3%81%99%e3%82%8b"></a>
-判定数 $\le 0$ を確保する
-</h4><h4 id="出る変数の選択">
-<a class="header-anchor" href="#%e5%87%ba%e3%82%8b%e5%a4%89%e6%95%b0%e3%81%ae%e9%81%b8%e6%8a%9e"></a>
-出る変数の選択
-</h4><p>$b_i \lt 0$ が存在する場合，その中で最小の $\min b_i$ をもつ行を出る行とし，対応する変数を出る変数とする。</p>
-<h4 id="入る変数の選択">
-<a class="header-anchor" href="#%e5%85%a5%e3%82%8b%e5%a4%89%e6%95%b0%e3%81%ae%e9%81%b8%e6%8a%9e"></a>
-入る変数の選択
-</h4><p>判定数を出る行の負の係数 $a_{ij} \lt 0$ で割り，その結果が最小となる列を入る列とし，対応する変数を入る変数とする。</p>
-<h4 id="行変換">
-<a class="header-anchor" href="#%e8%a1%8c%e5%a4%89%e6%8f%9b"></a>
-行変換
-</h4><p>行変換によって入る列を基底行列に対応する単位列へ変形する。このとき $\vec{b}$ も更新される。<br>
-その後，判定数を再計算し，依然として 0 以下であることを確認する。</p>
-<h4 id="次の基底変換-1">
-<a class="header-anchor" href="#%e6%ac%a1%e3%81%ae%e5%9f%ba%e5%ba%95%e5%a4%89%e6%8f%9b-1"></a>
-次の基底変換
-</h4><p>まだ負の $b_i \lt 0$ が残っていれば，最小の $\min b_i$ を選んで次の基底変換を行う。</p>
-<h4 id="結果-1">
-<a class="header-anchor" href="#%e7%b5%90%e6%9e%9c-1"></a>
-結果
-</h4><p>すべての $b_i \ge 0$ となったとき，$\vec{b}$ は基底変数の最適解部分を与え，非基底変数は 0 となる。<br>
-それを目的関数に代入すれば，最大値または最小値が得られる。</p>
-<h2 id="感度分析">
-<a class="header-anchor" href="#%e6%84%9f%e5%ba%a6%e5%88%86%e6%9e%90"></a>
-感度分析
-</h2>
-        
-        <hr><p>この記事は2025-05-10に<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-05-10です</p><div class="notice article-copyright" data-pagefind-ignore>
-<p><strong>著者: </strong> 孤筝</p>
-<p><strong>タイトル: </strong> 最適化理論と方法</p>
-
-<p><strong>公開日: </strong> 2025-05-10</p>
-<p><strong>更新日: </strong> 2025-05-10</p>
-<p><strong>ライセンス: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
-</div>
-]]></description><category>Math</category></item><item><title>TypechoコメントをWalineにインポート</title><link>https://www.guzhengsvt.cn/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</link><pubDate>Sat, 19 Apr 2025 16:56:24 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/ja/post/othernotes/typecho%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5waline/</guid><description>
-<![CDATA[<h1>TypechoコメントをWalineにインポート</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
-        
-          <p>数日前、ブログの記事をTypechoからHugoに移行しましたが、Front Matterのパラメータ設定や画像リンクの再設定だけでかなりの手間がかかりました。<br>
-ブログの価値は、まず記事そのものにあり、次にコメントです。コメントはブログがインターネットと現実世界に与えた影響を証明し、人と人との交流を記録しています。私的な言い方をすれば、世界中からのコメントは大切な思い出であり、「私」を構成する一部です。<br>
-したがって、元のサイトのコメントを新しいサイトの対応する記事の下にコピーすることは非常に重要です。</p>
-<h2 id="walineの設定">
-<a class="header-anchor" href="#waline%e3%81%ae%e8%a8%ad%e5%ae%9a"></a>
-Walineの設定
-</h2><p>WordpressやTypechoなどの動的ブログと比べて、静的ブログは外部のコメントシステムに依存するしかありません。選択肢は多く、それぞれに長所と短所があります。<a href="https://cloud.tencent.com/developer/article/2196035">この記事</a>を参考にし、各コメントシステムの公式サイトを調べた後、最終的に<a href="https://waline.js.org">Waline</a>を選びました。<br>
-Walineの<a href="https://waline.js.org/guide/get-started/">中国語ドキュメント</a>は内容が充実しており、<a href="https://leancloud.app">LeanCloud</a>データベースと<a href="https://vercel.com/">Vercel</a>サーバーを設定すれば、コメント管理画面<code>https://&lt;あなたのサーバードメイン&gt;/ui/</code>にアクセスできます。初回登録で管理者になり、ここでコメントやユーザーを管理できます。</p>
-<h2 id="typechoコメントのエクスポート">
-<a class="header-anchor" href="#typecho%e3%82%b3%e3%83%a1%e3%83%b3%e3%83%88%e3%81%ae%e3%82%a8%e3%82%af%e3%82%b9%e3%83%9d%e3%83%bc%e3%83%88"></a>
-Typechoコメントのエクスポート
-</h2><p>Typechoは古く、ユーザーが少なく、HexoやWordpressのような活発なコミュニティがありません。インターネット上の資料も少ないです。<br>
-筆者が見つけたのは、<a href="https://imnerd.org">怡红院落</a>氏が書いたTypechoコメントをValineにエクスポートするプラグイン<a href="https://github.com/lizheming/typecho-export-valine">Export2Valine</a>（Walineのドキュメントにも記載されています）だけでした。<br>
-しかし、最後の更新は3年前で、テストしたところ最初のコメントしかインポートできませんでした。エクスポートされたjsonlファイルを見ると、コメントデータは完全にエクスポートされていることが明らかです。</p>
-<p>まず、このプラグインをTypechoにインストールします（プラグインフォルダ名を&quot;Export2Valine&quot;に変更する必要があります！）。</p>
-<p><a href="https://www.imwxz.com/posts/74f52ab0.html">この記事</a>を参考に、このプラグインは長年メンテナンスされていないため、いくつかの変更が必要です。<br>
-プラグインフォルダ内の<code>Action.php</code>を開き、42行目から以下のコードに変更します（親コメントを追跡するため）：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">$arr</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;objectId&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;QQAvatar&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;comment&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;text&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;insertedAt&#34;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;__type&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;Date&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;iso&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span>
-</span></span><span class="line"><span class="cl">  <span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;createdAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;updatedAt&#34;</span> <span class="o">=&gt;</span> <span class="nv">$time</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ip&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;ip&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;link&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;url&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;mail&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;mail&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;nick&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;author&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ua&#34;</span> <span class="o">=&gt;</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;agent&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;url&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;/</span><span class="si">{</span><span class="nv">$slug</span><span class="si">}</span><span class="s2">.html&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;pid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;parent&#34;</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">  <span class="nv">$arr</span><span class="p">[</span><span class="s2">&#34;rid&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getRootId</span><span class="p">(</span><span class="nv">$comment</span><span class="p">[</span><span class="s2">&#34;coid&#34;</span><span class="p">]);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>他の部分は変更不要です。<br>
-次に、Typechoの管理画面-コントロールパネル-コメントエクスポートで、ダウンロードしたjsonlファイルを開き、先頭の<code>#filetype:JSON-streaming {&quot;type&quot;:&quot;Class&quot;,&quot;class&quot;:&quot;Comment&quot;}\n\n</code>を削除します。<br>
-保存してファイルを閉じ、ファイル拡張子を<code>.json</code>に変更します。</p>
-<h2 id="json形式の修正">
-<a class="header-anchor" href="#json%e5%bd%a2%e5%bc%8f%e3%81%ae%e4%bf%ae%e6%ad%a3"></a>
-json形式の修正
-</h2><p>エクスポートされた<code>jsonl</code>ファイル内の中国語はエスケープされ、1行で表示されるため、見づらい状態です。<br>
-編集可能でインポートしやすい<code>json</code>形式に変換するため、まずエディタの<strong>検索と置換</strong>機能を使用し、<code>}\n{</code>を以下のように置換します：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">},</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span></code></pre></div><p>Xcodeの置換では、改行文字は左側の虫眼鏡アイコンをクリックして挿入できます。</p>
-<p>これで、1行に1つのコメントオブジェクトが表示されます。</p>
-<p>同様に、各コメントオブジェクト内のフィールド構造を分離するため、<code>&quot;,&quot;</code>を以下のように置換します：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;</span>
-</span></span></code></pre></div><p>これで、各コメントオブジェクト内に複数のデータが含まれていることがわかります。例えば：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;3&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u6d4b\u8bd5\u4e00\u4e0b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:37:07.000Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="err">**</span><span class="kc">null</span><span class="err">**</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nt">&#34;objectId&#34;</span><span class="p">:</span><span class="s2">&#34;4&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;QQAvatar&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comment&#34;</span><span class="p">:</span><span class="s2">&#34;\u600e\u4e48ip\u4e0d\u5bf9&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insertedAt&#34;</span><span class="p">:{</span><span class="nt">&#34;__type&#34;</span><span class="p">:</span><span class="s2">&#34;Date&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;iso&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">},</span><span class="nt">&#34;createdAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;updatedAt&#34;</span><span class="p">:</span><span class="s2">&#34;2023-06-27T09:38:15.000Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ip&#34;</span><span class="p">:</span><span class="s2">&#34;223.104.150.16&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="err">**</span><span class="kc">null</span><span class="err">**</span><span class="p">,</span><span class="nt">&#34;mail&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418@qq.com&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nick&#34;</span><span class="p">:</span><span class="s2">&#34;2868301418&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ua&#34;</span><span class="p">:</span><span class="s2">&#34;Mozilla\/5.0 (Linux; Android 13; V2171A Build\/TP1A.220624.014; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/109.0.5414.86 MQQBrowser\/6.2 TBS\/046605 Mobile Safari\/537.36 V1_AND_SQ_8.9.63_4190_HDBM_T QQ\/8.9.63.11380 NetType\/4G WebP\/0.3.0 Ap&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;url&#34;</span><span class="p">:</span><span class="s2">&#34;\/\u4ea4\u53cb\u6807\u51c6-\u548c\u5e73\u5171\u5904\u4e94\u9879\u539f\u5219.html&#34;</span><span class="p">}</span><span class="err">,</span>
-</span></span></code></pre></div><h3 id="共通フィールドの説明">
-<a class="header-anchor" href="#%e5%85%b1%e9%80%9a%e3%83%95%e3%82%a3%e3%83%bc%e3%83%ab%e3%83%89%e3%81%ae%e8%aa%ac%e6%98%8e"></a>
-共通フィールドの説明
-</h3><ol>
-<li><strong>objectId</strong>: コメントの一意の識別子（例: &ldquo;4&quot;や&quot;5&rdquo;）</li>
-<li><strong>QQAvatar</strong>: QQアバターのリンク（現在は空文字列）</li>
-<li><strong>comment</strong>: コメント内容（Unicodeエスケープ文字を含む、例: <code>\u600e\u4e48</code>は「どうやって」を意味）</li>
-<li><strong>insertedAt/createdAt/updatedAt</strong>: タイムスタンプ（ISO 8601形式）</li>
-<li><strong>ip</strong>: コメント者のIPアドレス</li>
-<li><strong>link</strong>: コメント者が提供したリンク（nullの場合あり）</li>
-<li><strong>mail</strong>: コメント者のメールアドレス</li>
-<li><strong>nick</strong>: コメント者のニックネーム</li>
-<li><strong>ua</strong>: ユーザーエージェント（ブラウザ/デバイス情報を表示）</li>
-<li><strong>url</strong>: コメントされたページのパス</li>
-</ol>
-<h3 id="特殊フィールド">
-<a class="header-anchor" href="#%e7%89%b9%e6%ae%8a%e3%83%95%e3%82%a3%e3%83%bc%e3%83%ab%e3%83%89"></a>
-特殊フィールド
-</h3><ol start="11">
-<li><strong>pid</strong>: 親コメントID</li>
-<li><strong>rid</strong>: ルートコメントID</li>
-</ol>
-<p><code>&quot;link&quot;</code>の値が<code>null</code>の場合、<code>&quot;link&quot;</code>と<code>&quot;mail&quot;</code>の間に改行がありません。jsonは改行に敏感ではないため、無視できます。<br>
-この時点で、ファイルの先頭と末尾を<code>[ ]</code>で囲み、ファイルを保存します。</p>
-<h2 id="コメント属性の修正">
-<a class="header-anchor" href="#%e3%82%b3%e3%83%a1%e3%83%b3%e3%83%88%e5%b1%9e%e6%80%a7%e3%81%ae%e4%bf%ae%e6%ad%a3"></a>
-コメント属性の修正
-</h2><p>この時点でLeanCloudに直接インポートできますが、まだ修正可能な内容があります。</p>
-<p><code>Export2Valine</code>はコメントに関連する記事のurlを<code>\/slug</code>に設定しています。例えば<code>&quot;url&quot;: &quot;\/Summary-of-the-First-Semester-of-Junior-Year.html&quot;</code>で、<code>\/</code>は<code>/</code>のエスケープです。</p>
-<p>新しいブログの記事とコメントを関連付けるため、urlを新しいブログの記事リンクに手動で変更する必要があります。</p>
-<p>筆者のブログを例にすると、Hugoが生成するウェブサイトのルートディレクトリには<code>zh-cn,zh-tw,en,ja</code>の4つのフォルダ（多言語対応を有効にしている）があり、中国語サイトの記事は<code>/zh-cn/post/記事カテゴリ/</code>にあります。<br>
-筆者はローカルのブログソースファイルで記事をカテゴリごとに異なるフォルダに分類しています。例えば<code>/content/post/Thoughts/最近書いた詩.md</code>はウェブページの相対アドレス<code>zh-cn/post/thoughts/最近書いた詩</code>として生成されます。</p>
-<p>新しいブログの記事がルートディレクトリにあり、名前が変更されていない場合は、urlを変更する必要はありません。<br>
-すべての記事が<code>/post/</code>にある場合は、検索と置換を使用して</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/</span>
-</span></span></code></pre></div><p>を</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/post\/</span>
-</span></span></code></pre></div><p>に置換できます。</p>
-<p>筆者は一時的に</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/post\/</span>
-</span></span></code></pre></div><p>に置換しました。</p>
-<p>同様に、友達リンクやつぶやきなどの独立ページのコメントも、新しいブログの対応するページの相対アドレスに変更する必要があります。
-例えば友達リンクページ</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/links.html</span>
-</span></span></code></pre></div><p>を</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;url&#34;</span><span class="err">:&#34;\/zh-cn\/friend\/</span>
-</span></span></code></pre></div><p>に置換します。</p>
-<p>postや独立ページで大規模に適用できる<em>検索と置換</em>を先に適用しないと、インポート後に一括置換が困難になります。</p>
-<p>検索と置換を使用する際は、できるだけ多くの共通部分を含め、「最大公約数」を見つけて誤った変更を避けてください。<br>
-<em><strong>エスケープ<code>\/</code>に注意!!!</strong></em></p>
-<h2 id="leancloudへのインポート">
-<a class="header-anchor" href="#leancloud%e3%81%b8%e3%81%ae%e3%82%a4%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88"></a>
-LeanCloudへのインポート
-</h2><p>LeanCloudのコントロールパネル-データストレージ-インポート/エクスポートで、修正したjsonファイルを選択し、<code>Class</code>に<code>Comment</code>と入力してインポートします。</p>
-<p><em><strong>注意</strong></em>、もし以前にブログのWalineでテストコメントを投稿したことがある場合、または<code>Comment</code>のインポートを試みたことがある場合、Walineは最初に<code>Comment</code> <code>Class</code>を作成するため、再度インポートしてもデータが正常にインポートされません（LeanCloudは成功を報告しますが、新しいデータはインポートされません）。</p>
-<p>コントロールパネル-構造化データで<code>Comment</code>を選択し、この<code>Class</code>を削除してから再度インポートを試みる必要があります。LeanCloudのページはすぐに更新されない場合があるため、<code>Ctrl+F5</code>でキャッシュをリフレッシュすると表示されます。</p>
-<p>インポートが成功したら、各コメントのurlを個別に設定します。<br>
-例えば筆者のpostは<code>&quot;url&quot;:&quot;\/zh-cn\/post\/記事カテゴリ\/</code>に分類する必要があり、この時点でLeanCloudの<strong>一括操作</strong>と<strong>条件付きフィルタリング</strong>機能を活用します。</p>
-<h2 id="後書き">
-<a class="header-anchor" href="#%e5%be%8c%e6%9b%b8%e3%81%8d"></a>
-後書き
-</h2><p>コメントの整理にはそれほど時間がかかりませんでした。120件のコメントのほとんどは筆者がつぶやきページで自分自身に語りかけたもので、urlを一括修正できました。他人からのコメントはわずか十数件で、数記事に分散していたため、<code>post</code>でフィルタリングして修正するのは簡単でした。これは良いことなのか悪いことなのか（笑）</p>
-<p>独り言であれ、他人からのメッセージであれ、一つ一つが筆者にとって特別な意味を持ち、時間を置いて振り返ると新たな気付きがあります。<br>
-最初に述べたように、これは筆者の成長の軌跡であり、この世に存在する証であり、「私」の一部です。</p>
-<p>そして、親愛なる読者であるあなたは、私に価値を与えてくれる存在です。</p>
-<p>時間があれば、ぜひコメントをください～筆者は本当に長く喜びます（善意のコメントであれば）。</p>
-        
-        <hr><p>この記事は2025-04-19に<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2025-04-19です</p><div class="notice article-copyright" data-pagefind-ignore>
-<p><strong>著者: </strong> 孤筝</p>
-<p><strong>タイトル: </strong> TypechoコメントをWalineにインポート</p>
-
-<p><strong>公開日: </strong> 2025-04-19</p>
-<p><strong>更新日: </strong> 2025-04-19</p>
 <p><strong>ライセンス: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
 </div>
 ]]></description><category>OtherNotes</category></item></channel></rss>

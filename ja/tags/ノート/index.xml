@@ -1,4 +1,521 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ノート on 孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/ja/tags/%E3%83%8E%E3%83%BC%E3%83%88/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>ja</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</copyright><lastBuildDate>Fri, 05 Sep 2025 11:05:15 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/ja/tags/%E3%83%8E%E3%83%BC%E3%83%88/index.xml" rel="self" type="application/rss+xml"/><item><title>量子物理学</title><link>https://www.guzhengsvt.cn/ja/post/physics/quantum-physics/</link><pubDate>Fri, 05 Sep 2025 11:05:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/ja/post/physics/quantum-physics/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ノート on 孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/ja/tags/%E3%83%8E%E3%83%BC%E3%83%88/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>ja</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</copyright><lastBuildDate>Mon, 05 Oct 2026 20:00:00 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/ja/tags/%E3%83%8E%E3%83%BC%E3%83%88/index.xml" rel="self" type="application/rss+xml"/><item><title>Pythonの基礎</title><link>https://www.guzhengsvt.cn/ja/post/code/python%E5%9F%BA%E7%A1%80/</link><pubDate>Tue, 27 Jun 2023 00:49:20 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/ja/post/code/python%E5%9F%BA%E7%A1%80/</guid><description>
+<![CDATA[<h1>Pythonの基礎</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
+        
+          <p>本記事は以前の4つのPythonノートを統合し、重複した内容や無関係な内容を削除して、日常的なクイックリファレンスとして使えるようにしたものです。サンプルはPython 3に基づいています。</p>
+<h2 id="変数とオブジェクト">
+<a class="header-anchor" href="#%e5%a4%89%e6%95%b0%e3%81%a8%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88"></a>
+変数とオブジェクト
+</h2><ul>
+<li>変数は型を宣言する必要はありませんが、<strong>使用前に必ず値を代入する必要があります</strong>。そうでなければ <code>NameError</code> が発生します。</li>
+<li>Pythonには <code>const</code> はなく、変数の再代入を防ぐ仕組みもありません。いわゆる「定数」は全大文字で命名するという約束にすぎません。</li>
+<li><code>=</code> は代入、<code>==</code> は比較です。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span>
+</span></span><span class="line"><span class="cl"><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;age&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</span></span></code></pre></div><p>オブジェクト指向的な理解：<strong>オブジェクトはデータ実体であり、変数はオブジェクトに貼られたラベル</strong>です。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Jack&#34;</span>   <span class="c1"># 文字列オブジェクト &#34;Jack&#34; を生成し、ラベル a を貼る</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>        <span class="c1"># ラベル b を同じオブジェクトに貼る（コピーではない）</span>
+</span></span><span class="line"><span class="cl"><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># True、両者は同じオブジェクトを指す</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Ross&#34;</span>   <span class="c1"># 別のオブジェクトにラベル a を貼り直す。b は依然として &#34;Jack&#34; を指す</span>
+</span></span></code></pre></div><ul>
+<li>1つのオブジェクトには複数のラベルを貼れますが、1つの変数が同時に指せるオブジェクトは1つだけです。</li>
+<li><strong>変数自体に型はなく、型はオブジェクトに属します</strong>。したがって <code>a = 1</code> の後に <code>a = &quot;1&quot;</code> としても完全に合法です。</li>
+</ul>
+<h2 id="代入とスライス">
+<a class="header-anchor" href="#%e4%bb%a3%e5%85%a5%e3%81%a8%e3%82%b9%e3%83%a9%e3%82%a4%e3%82%b9"></a>
+代入とスライス
+</h2><p><code>=</code> は<strong>右結合</strong>であり、<code>a = b = c = 1</code> は3つとも整数オブジェクト 1 を指すことを意味します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>   <span class="c1"># それぞれに代入</span>
+</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="mi">17</span> <span class="o">+</span> <span class="mi">1</span>        <span class="c1"># 先に右辺を計算してから代入</span>
+</span></span></code></pre></div><p>スライスは文字列、タプル、リストに使え、構文は <code>obj[a:b:c]</code> です：</p>
+<table>
+	<thead>
+			<tr>
+					<th>書き方</th>
+					<th>意味</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>obj[a:b]</code></td>
+					<td>インデックス $[a, b)$ を取得（<code>b</code> は含まない）。<code>a</code> を省略すると 0 から、<code>b</code> を省略すると末尾まで</td>
+			</tr>
+			<tr>
+					<td><code>obj[a:b:c]</code></td>
+					<td><code>c</code> 個ごとに1つ取得。<code>c</code> を省略した場合は 1</td>
+			</tr>
+			<tr>
+					<td><code>c</code> が負の値</td>
+					<td>後ろから前に向かって逆順に取得</td>
+			</tr>
+			<tr>
+					<td><code>obj[::-1]</code></td>
+					<td>反転（新しいオブジェクトを返し、元のオブジェクトは変わらない）</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;polaris&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;ol&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;sap&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;siralop&#39;</span>
+</span></span></code></pre></div><p>スライスはコピーにも使えます。<code>y = x[:]</code> で浅いコピーが得られ、その後 <code>y</code> をソートしても <code>x</code> には影響しません。</p>
+<h2 id="文字列">
+<a class="header-anchor" href="#%e6%96%87%e5%ad%97%e5%88%97"></a>
+文字列
+</h2><ol>
+<li>シングルクォートとダブルクォートは等価で、<strong>単一文字と文字列を区別しません</strong>（char 型はありません）。</li>
+<li>三重クォートで複数行の文字列を書けます。</li>
+<li>クォート内で同じ種類のクォートを使う場合は <code>\&quot;</code> でエスケープが必要です。</li>
+</ol>
+<h3 id="3つのフォーマット方法">
+<a class="header-anchor" href="#3%e3%81%a4%e3%81%ae%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%83%e3%83%88%e6%96%b9%e6%b3%95"></a>
+3つのフォーマット方法
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="s2">&#34;布洛妮娅&#34;</span><span class="p">,</span> <span class="mi">18</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">%s</span><span class="s1">, she is </span><span class="si">%d</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">))</span>          <span class="c1"># % 方式、最も古い</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">{}</span><span class="s1">, she is </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">))</span>      <span class="c1"># format メソッド</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;My wife is </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">, she is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>                <span class="c1"># f-string、推奨</span>
+</span></span></code></pre></div><ul>
+<li><code>%</code> 方式は後ろに tuple または dict を続け、順番または名前で値を取得します。</li>
+<li><code>format</code> の <code>{}</code> 内では添字 <code>{0}</code> やキーワード <code>{name}</code> を使えます。</li>
+<li><strong>f-string には Python 3.6 以上が必要</strong>で、可読性が最も優れています。3つとも幅、配置、精度などの書式制御に対応しています。</li>
+</ul>
+<h2 id="数値とブール">
+<a class="header-anchor" href="#%e6%95%b0%e5%80%a4%e3%81%a8%e3%83%96%e3%83%bc%e3%83%ab"></a>
+数値とブール
+</h2><table>
+	<thead>
+			<tr>
+					<th>型</th>
+					<th>説明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>int</code></td>
+					<td>整数。<code>0x</code> 16進数、<code>0o</code> 8進数、<code>0b</code> 2進数に対応</td>
+			</tr>
+			<tr>
+					<td><code>float</code></td>
+					<td>浮動小数点数。科学表記 <code>1.23e-6</code> に対応</td>
+			</tr>
+			<tr>
+					<td><code>complex</code></td>
+					<td>複素数。<code>a + bj</code> または <code>complex(a, b)</code> と書く</td>
+			</tr>
+			<tr>
+					<td><code>bool</code></td>
+					<td>ブール値。<code>True</code> は本質的に 1、<code>False</code> は本質的に 0</td>
+			</tr>
+			<tr>
+					<td><code>NoneType</code></td>
+					<td>空値。<code>None</code> の先頭は大文字でなければならない</td>
+			</tr>
+	</tbody>
+</table>
+<ul>
+<li>整数と浮動小数点数の混合演算では、整数が浮動小数点数に昇格します。<code>1 + 2.0</code> は <code>3.0</code> になります。</li>
+<li>浮動小数点数には精度誤差があります。<code>0.1 + 0.2 == 0.3</code> の結果は <code>False</code> です（実際には <code>0.30000000000000004</code>）。正確な計算が必要な場合は <code>decimal</code> モジュールを使います。</li>
+<li><code>round()</code> は<strong>銀行家の丸め</strong>（最近接偶数への丸め）を採用しています。<code>round(0.5)</code> は <code>0</code>、<code>round(1.5)</code> は <code>2</code>、<code>round(2.5)</code> は <code>2</code> になります。</li>
+</ul>
+<p><strong>偽と判定される値</strong>：<code>0</code>、<code>0.0</code>、<code>None</code>、空文字列、空リスト、空タプル、空辞書、空集合、<code>False</code>。
+<strong>真と判定される値</strong>：それ以外すべてです。空でない文字列も含みます（内容が <code>&quot;False&quot;</code> であっても真です）。</p>
+<h2 id="演算子">
+<a class="header-anchor" href="#%e6%bc%94%e7%ae%97%e5%ad%90"></a>
+演算子
+</h2><h3 id="算術演算子">
+<a class="header-anchor" href="#%e7%ae%97%e8%a1%93%e6%bc%94%e7%ae%97%e5%ad%90"></a>
+算術演算子
+</h3><table>
+	<thead>
+			<tr>
+					<th>演算子</th>
+					<th>意味</th>
+					<th>例</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>+</code> <code>-</code> <code>*</code></td>
+					<td>加減乗</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td><code>/</code></td>
+					<td>除算。結果は必ず浮動小数点数</td>
+					<td><code>6 / 3</code> → <code>2.0</code></td>
+			</tr>
+			<tr>
+					<td><code>//</code></td>
+					<td><strong>整数除算</strong>。切り捨て</td>
+					<td><code>7 // 2</code> → <code>3</code>、<code>-7 // 2</code> → <code>-4</code></td>
+			</tr>
+			<tr>
+					<td><code>%</code></td>
+					<td><strong>剰余</strong>（モジュロ）</td>
+					<td><code>7 % 2</code> → <code>1</code></td>
+			</tr>
+			<tr>
+					<td><code>**</code></td>
+					<td>べき乗。<strong>右結合</strong></td>
+					<td><code>2 ** 2 ** 3</code> → <code>256</code></td>
+			</tr>
+			<tr>
+					<td><code>-</code></td>
+					<td>単項マイナス。優先順位は <code>**</code> より低い</td>
+					<td><code>-2 ** 2</code> → <code>-4</code></td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="その他の演算子">
+<a class="header-anchor" href="#%e3%81%9d%e3%81%ae%e4%bb%96%e3%81%ae%e6%bc%94%e7%ae%97%e5%ad%90"></a>
+その他の演算子
+</h3><table>
+	<thead>
+			<tr>
+					<th>分類</th>
+					<th>演算子</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>比較</td>
+					<td><code>==</code> <code>!=</code> <code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code>。<strong>連結して書ける</strong>：<code>a &gt; b == c</code> は <code>a &gt; b and b == c</code> と等価</td>
+			</tr>
+			<tr>
+					<td>論理</td>
+					<td><code>and</code> <code>or</code> <code>not</code></td>
+			</tr>
+			<tr>
+					<td>メンバー</td>
+					<td><code>in</code> <code>not in</code></td>
+			</tr>
+			<tr>
+					<td>同一性</td>
+					<td><code>is</code> <code>is not</code>。同じオブジェクトを参照しているかを比較（値を比較するのではなく <code>id</code> を比較）</td>
+			</tr>
+			<tr>
+					<td>ビット演算</td>
+					<td><code>&amp;</code> <code>|</code> <code>^</code> <code>~</code> <code>&lt;&lt;</code> <code>&gt;&gt;</code></td>
+			</tr>
+			<tr>
+					<td>複合代入</td>
+					<td><code>+=</code> <code>-=</code> <code>*=</code> <code>//=</code> <code>**=</code> <code>&amp;=</code> <code>|=</code> <code>^=</code> <code>&lt;&lt;=</code> <code>&gt;&gt;=</code></td>
+			</tr>
+	</tbody>
+</table>
+<p><code>and</code> / <code>or</code> が返すのは <code>True</code> / <code>False</code> ではなく、<strong>オペランドそのもの</strong>です：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">True</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">False</span> <span class="ow">or</span> <span class="mi">31</span>
+</span></span><span class="line"><span class="cl"><span class="mi">31</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="mi">0</span>
+</span></span></code></pre></div><h3 id="優先順位高い順">
+<a class="header-anchor" href="#%e5%84%aa%e5%85%88%e9%a0%86%e4%bd%8d%e9%ab%98%e3%81%84%e9%a0%86"></a>
+優先順位（高い順）
+</h3><p><code>()</code> → インデックス <code>[]</code> → 属性 <code>.</code> → <code>**</code> → 単項 <code>~</code> <code>+</code> <code>-</code> → <code>*</code> <code>/</code> <code>%</code> <code>//</code> → <code>+</code> <code>-</code> → <code>&lt;&lt;</code> <code>&gt;&gt;</code> → <code>&amp;</code> → <code>^</code> → <code>|</code> → 比較 → 代入 → <code>is</code> / <code>in</code> → <code>not</code> → <code>and</code> → <code>or</code></p>
+<p>覚えられなければ括弧を付けるのが最も低コストです。</p>
+<h2 id="入出力と組み込み関数">
+<a class="header-anchor" href="#%e5%85%a5%e5%87%ba%e5%8a%9b%e3%81%a8%e7%b5%84%e3%81%bf%e8%be%bc%e3%81%bf%e9%96%a2%e6%95%b0"></a>
+入出力と組み込み関数
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>   <span class="c1"># sep は区切り文字、end は終端文字</span>
+</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;请输入年龄：&#34;</span><span class="p">)</span>   <span class="c1"># 戻り値は常に文字列</span>
+</span></span><span class="line"><span class="cl"><span class="nb">int</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>                     <span class="c1"># 数値が必要なときは明示的に変換</span>
+</span></span></code></pre></div><p>よく使う組み込み関数：</p>
+<table>
+	<thead>
+			<tr>
+					<th>関数</th>
+					<th>役割</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>id(x)</code></td>
+					<td>オブジェクトのメモリアドレス（同一性の識別子）</td>
+			</tr>
+			<tr>
+					<td><code>type(x)</code></td>
+					<td>オブジェクトの型。例：<code>&lt;class 'int'&gt;</code></td>
+			</tr>
+			<tr>
+					<td><code>len(x)</code></td>
+					<td>要素数</td>
+			</tr>
+			<tr>
+					<td><code>abs()</code> <code>round()</code> <code>bool()</code></td>
+					<td>絶対値、丸め、ブール変換</td>
+			</tr>
+			<tr>
+					<td><code>enumerate(seq, start=0)</code></td>
+					<td>ループ時にインデックスと値を同時に取得</td>
+			</tr>
+			<tr>
+					<td><code>range()</code> <code>zip()</code> <code>sum()</code> <code>max()</code> <code>min()</code> <code>sorted()</code></td>
+					<td>よく使うシーケンス操作</td>
+			</tr>
+	</tbody>
+</table>
+<p>型変換関数：<code>int(x, base)</code>、<code>float()</code>、<code>complex()</code>、<code>str()</code>、<code>repr()</code>、<code>chr()</code>、<code>ord()</code>、<code>hex()</code>、<code>oct()</code>、<code>eval()</code>、<code>list()</code>、<code>tuple()</code>、<code>set()</code>、<code>frozenset()</code>、<code>dict()</code>。</p>
+<p><strong>変換は無条件にはできません</strong>。元のデータが対象の型を表現するのに十分な情報を含むかどうかによります。<code>int(&quot;123&quot;)</code> は可能ですが、<code>int(&quot;Hello&quot;)</code> はエラーになります。リストは集合に変換できますが、1つの数値に変換することはできません。</p>
+<p>暗黙の型変換は精度の順序 <code>bool</code> &lt; <code>int</code> &lt; <code>float</code> &lt; <code>complex</code> に従い、混合演算ではより精度の高い方に合わせられます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">galgames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;咖啡馆&#39;</span><span class="p">,</span> <span class="s1">&#39;千恋万花&#39;</span><span class="p">,</span> <span class="s1">&#39;天使骚骚&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">galgame</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">galgames</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;今天玩第</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1">部作品</span><span class="si">{</span><span class="n">galgame</span><span class="si">}</span><span class="s1">。&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="条件分岐とループ">
+<a class="header-anchor" href="#%e6%9d%a1%e4%bb%b6%e5%88%86%e5%b2%90%e3%81%a8%e3%83%ab%e3%83%bc%e3%83%97"></a>
+条件分岐とループ
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">condition1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">condition2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><p><code>for</code> は任意のイテラブル（リスト、辞書、文字列、タプル、ジェネレータ……）の走査に使います：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">序列</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><ul>
+<li><code>break</code>：<strong>現在の階層</strong>のループから抜け出します。</li>
+<li><code>continue</code>：今回の残りをスキップして次のループに進みます。</li>
+<li><code>for ... else</code> / <code>while ... else</code>：ループが<strong>正常に終了</strong>したとき <code>else</code> を実行します。<code>break</code> で中断された場合は実行されません。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">while</span> <span class="n">判断条件</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><p><code>while</code> を書くときは、ループ本体が最終的に条件を変化させるか <code>break</code> を発生させることを必ず確認してください。そうでなければ無限ループになります。</p>
+<h2 id="4つのコンテナ">
+<a class="header-anchor" href="#4%e3%81%a4%e3%81%ae%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a"></a>
+4つのコンテナ
+</h2><table>
+	<thead>
+			<tr>
+					<th>コンテナ</th>
+					<th>リテラル</th>
+					<th>順序あり</th>
+					<th>可変</th>
+					<th>要素の重複</th>
+					<th>要素の条件</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>リスト <code>list</code></td>
+					<td><code>[1, 2]</code></td>
+					<td>あり</td>
+					<td>あり</td>
+					<td>可</td>
+					<td>任意</td>
+			</tr>
+			<tr>
+					<td>タプル <code>tuple</code></td>
+					<td><code>(1, 2)</code></td>
+					<td>あり</td>
+					<td><strong>なし</strong></td>
+					<td>可</td>
+					<td>任意</td>
+			</tr>
+			<tr>
+					<td>辞書 <code>dict</code></td>
+					<td><code>{k: v}</code></td>
+					<td>挿入順</td>
+					<td>あり</td>
+					<td>キーは重複不可</td>
+					<td>キーはハッシュ可能でなければならない</td>
+			</tr>
+			<tr>
+					<td>集合 <code>set</code></td>
+					<td><code>{1, 2}</code></td>
+					<td><strong>なし</strong></td>
+					<td>あり</td>
+					<td>不可（自動で重複排除）</td>
+					<td>ハッシュ可能でなければならない</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="list">
+<a class="header-anchor" href="#list"></a>
+list
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>                  <span class="c1"># 空のリスト</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>             <span class="c1"># 末尾に追加</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>          <span class="c1"># インデックス i に挿入し、元の要素は後ろにずれる</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>             <span class="c1"># b の要素を1つずつ a の後ろに連結</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>                 <span class="c1"># 末尾の要素を取り出す（その要素を返す）</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>                <span class="c1"># インデックス i の要素を取り出す</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>             <span class="c1"># 値が x である最初の要素を削除。存在しない場合はエラー</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c1"># 値が x である最初の要素のインデックス</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c1"># 値が x である要素の個数</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>             <span class="c1"># その場で反転</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=...</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>   <span class="c1"># その場でソート。戻り値なし</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>                <span class="c1"># インデックス i を削除</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>              <span class="c1"># スライス範囲を削除</span>
+</span></span></code></pre></div><p>ソートの例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">random</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">random</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># 各タプルの2番目の要素でソート</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># [(4, 1), (2, 2), (1, 3), (3, 4)]</span>
+</span></span></code></pre></div><blockquote>
+<p>注意：<code>sort()</code> の引数は <code>key</code> と <code>reverse</code> の2つだけです。<code>cmp</code> 引数は Python 3 で<strong>削除されました</strong>。</p>
+</blockquote>
+<h3 id="tuple">
+<a class="header-anchor" href="#tuple"></a>
+tuple
+</h3><ul>
+<li>タプルは<strong>生成後に変更できません</strong>。追加・削除・変更はできません。</li>
+<li>要素が1つのタプルにはカンマが必要です。<code>(1,)</code> はタプルですが、<code>(1)</code> は単なる整数です。</li>
+<li>変換：<code>list(t)</code> でリスト、<code>tuple(l)</code> でタプルが得られます。<strong>元のオブジェクトは変わらず</strong>、返されるのは新しいオブジェクトです。</li>
+</ul>
+<h3 id="dict">
+<a class="header-anchor" href="#dict"></a>
+dict
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;孤筝&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">19</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;孤筝&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">19</span><span class="p">)</span>          <span class="c1"># 等号を使う場合、キーにクォートは付けない</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile3</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;孤筝&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">19</span><span class="p">)])</span>   <span class="c1"># キーと値のペアのシーケンスから生成</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile4</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)}</span>   <span class="c1"># {2: 4, 3: 9, 4: 16}</span>
+</span></span></code></pre></div><p>値の取得と追加・変更：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>                 <span class="c1"># キーが存在しない場合は KeyError を送出</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">)</span>           <span class="c1"># 存在しない場合は None を返す</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span>   <span class="c1"># 存在しない場合はデフォルト値を返す</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span>   <span class="c1"># 存在しない場合はそのキーと値のペアを書き込んで返す</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;male&#39;</span>      <span class="c1"># 追加または変更</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">profile</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>重要な違い：<code>get()</code> は<strong>読み取り専用</strong>で、辞書を変更しません。<strong>キーが存在しないときに書き込むのは <code>setdefault()</code> だけ</strong>です。</p>
+</blockquote>
+<p>キーの存在確認には <code>in</code> / <code>not in</code> を使います。<code>has_key()</code> は Python 2 の書き方で、Python 3 では削除されました。</p>
+<h3 id="set">
+<a class="header-anchor" href="#set"></a>
+set
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>     <span class="c1"># 自動的に重複排除されて {1, 2, 3} になる</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>            <span class="c1"># 空の集合はこのようにしか書けない。{} は空の辞書</span>
+</span></span></code></pre></div><table>
+	<thead>
+			<tr>
+					<th>操作</th>
+					<th>メソッド</th>
+					<th>演算子</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>和集合</td>
+					<td><code>a.union(b)</code></td>
+					<td><code>a | b</code></td>
+			</tr>
+			<tr>
+					<td>積集合</td>
+					<td><code>a.intersection(b)</code></td>
+					<td><code>a &amp; b</code></td>
+			</tr>
+			<tr>
+					<td>差集合（a にあって b にない）</td>
+					<td><code>a.difference(b)</code></td>
+					<td><code>a - b</code></td>
+			</tr>
+			<tr>
+					<td>対称差（どちらか一方にのみ属する）</td>
+					<td><code>a.symmetric_difference(b)</code></td>
+					<td><code>a ^ b</code></td>
+			</tr>
+	</tbody>
+</table>
+<ul>
+<li>追加：<code>add(x)</code>（<strong>不変型しか追加できない</strong>）、<code>update(seq)</code>（文字列、リスト、タプル、集合を渡せる。辞書を渡した場合はキーだけが取り込まれる）。</li>
+<li>削除：<code>remove(x)</code> は要素が存在しないとエラーになります。<code>discard(x)</code> はエラーになりません。<code>pop()</code> は<strong>任意の</strong>要素を削除して返しますが、引数は渡せません。<code>clear()</code> はすべて削除します。</li>
+<li>判定：<code>x in s</code>、<code>a.isdisjoint(b)</code>（共通要素がなければ True）、<code>b.issubset(a)</code>。</li>
+<li>集合は<strong>順序もインデックスもありません</strong>。インデックスで値を取得することも、要素を変更することもできず、追加と削除だけが可能です。</li>
+</ul>
+<blockquote>
+<p>よくある誤解：<code>pop()</code> が削除するのは「任意の」要素であり、「ランダムな」要素ではありません。集合の格納順序はハッシュ値で決まるためランダムに見えますが、制御はできません。</p>
+</blockquote>
+<h2 id="イテレータとジェネレータ">
+<a class="header-anchor" href="#%e3%82%a4%e3%83%86%e3%83%ac%e3%83%bc%e3%82%bf%e3%81%a8%e3%82%b8%e3%82%a7%e3%83%8d%e3%83%ac%e3%83%bc%e3%82%bf"></a>
+イテレータとジェネレータ
+</h2><p><strong>イテラブルオブジェクト</strong>：<code>for</code> で走査できるオブジェクト。以下のいずれかを満たせば該当します：</p>
+<ol>
+<li><code>__iter__()</code> を実装し、イテレータのインスタンスを返す。</li>
+<li><code>__iter__()</code> はないが <code>__getitem__()</code> を実装しており、インデックスによる要素の取得が可能。</li>
+</ol>
+<p><strong>イテレータオブジェクト</strong>：<code>iter(イテラブルオブジェクト)</code> の戻り値で、<code>next()</code> で1つずつ値を取得します。すべて取り出すと <code>StopIteration</code> が送出されます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Iterator</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">([],</span> <span class="n">Iterable</span><span class="p">)</span>      <span class="c1"># True、リストはイテラブルオブジェクト</span>
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">([],</span> <span class="n">Iterator</span><span class="p">)</span>      <span class="c1"># False、リスト自体はイテレータではない</span>
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">(</span><span class="nb">iter</span><span class="p">([]),</span> <span class="n">Iterator</span><span class="p">)</span>  <span class="c1"># True</span>
+</span></span></code></pre></div><p>つまり、<strong>リストはイテラブルオブジェクトであり、イテレータではありません</strong>。リストは何度でも走査できますが、イテレータは一度前に進むだけです。</p>
+<p><strong>ジェネレータ</strong>は「関数で書いたイテレータ」です：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># リスト内包表記でリストを得る</span>
+</span></span><span class="line"><span class="cl"><span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>     <span class="c1"># [0, 1, 2, 3, 4]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 丸括弧に変えるとジェネレータになる</span>
+</span></span><span class="line"><span class="cl"><span class="n">agen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>      <span class="c1"># &lt;generator object ...&gt;、遅延評価</span>
+</span></span></code></pre></div><blockquote>
+<p>注意：<code>(i for i in ...)</code> は<strong>ジェネレータ式</strong>であり、タプル内包表記ではありません。Python にタプル内包表記は存在しません。タプルを得たい場合は <code>tuple(i for i in ...)</code> と書きます。</p>
+</blockquote>
+<p><code>yield</code> と <code>return</code> の違い：関数の実行が <code>yield</code> に達すると<strong>一時停止して値を渡しますが、関数は終了しません</strong>。次に値を取得すると、一時停止した場所から関数が終了するまで再開します。<code>yield</code> に値が続かない場合は <code>None</code> を返します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="o">=</span> <span class="n">generator</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>   <span class="c1"># 1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">generator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>   <span class="c1"># 1 2 3 4 5</span>
+</span></span></code></pre></div><p>ジェネレータの価値は<strong>遅延評価</strong>にあります。すべての結果を一度に計算してメモリに置くことをせず、大量のデータストリームを処理する際にリストよりメモリを節約できます。</p>
+<h2 id="その他のノート">
+<a class="header-anchor" href="#%e3%81%9d%e3%81%ae%e4%bb%96%e3%81%ae%e3%83%8e%e3%83%bc%e3%83%88"></a>
+その他のノート
+</h2><h3 id="コメント">
+<a class="header-anchor" href="#%e3%82%b3%e3%83%a1%e3%83%b3%e3%83%88"></a>
+コメント
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 単一行コメント</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">三重クォートは厳密には「複数行文字列」であり、コメントではありません。
+</span></span></span><span class="line"><span class="cl"><span class="s1">インタプリタによって文字列オブジェクトとして生成されるだけで、使われていない式にすぎません。
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span></code></pre></div><p>本質がコメントではなく文字列であるため、コードの途中に三重クォートを気軽に挿入すると構文が壊れ、そのままエラーになることがあります。<strong>正しい書き方は <code>#</code> だけでコメントを書くことです。</strong></p>
+<h3 id="エンコーディング">
+<a class="header-anchor" href="#%e3%82%a8%e3%83%b3%e3%82%b3%e3%83%bc%e3%83%87%e3%82%a3%e3%83%b3%e3%82%b0"></a>
+エンコーディング
+</h3><ul>
+<li>Python 3 のソースファイルはデフォルトで UTF-8 なので、<strong>通常は</strong>エンコーディングの宣言は不要です。</li>
+<li>ファイル先頭での宣言が必要なのは Python 2 だけで、現在はほとんど使いません：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># -*- coding: UTF-8 -*-</span>
+</span></span></code></pre></div><h3 id="識別子">
+<a class="header-anchor" href="#%e8%ad%98%e5%88%a5%e5%ad%90"></a>
+識別子
+</h3><ul>
+<li>英字、数字、アンダースコアで構成され、<strong>数字で始めることはできません</strong>。大文字と小文字は区別されます。</li>
+<li>Python 3 では中国語などの文字で命名することもできますが、推奨されません。</li>
+<li>アンダースコアの特殊な約束：
+<ul>
+<li><code>_name</code>：アンダースコア1つで始まり、「内部使用」を意味します。<code>from module import *</code> ではインポートされません。</li>
+<li><code>__age</code>：アンダースコア2つで始まり、名前マングリング（name mangling）が働きます。サブクラスとの衝突を避けるために使います。</li>
+<li><code>__init__</code>：アンダースコア2つで始まり2つで終わるものは Python の組み込み特殊メソッドです。自分でこのような名前を作らないでください。</li>
+</ul>
+</li>
+</ul>
+
+        
+        <hr><p>この記事は2023-06-27に<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2026-10-05です</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>著者: </strong> 孤筝</p>
+<p><strong>タイトル: </strong> Pythonの基礎</p>
+
+<p><strong>公開日: </strong> 2023-06-27</p>
+<p><strong>更新日: </strong> 2026-10-05</p>
+<p><strong>ライセンス: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item><item><title>量子物理学</title><link>https://www.guzhengsvt.cn/ja/post/physics/quantum-physics/</link><pubDate>Fri, 05 Sep 2025 11:05:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/ja/post/physics/quantum-physics/</guid><description>
 <![CDATA[<h1>量子物理学</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
         
           <h2 id="第1章-微粒子の二重性と状態記述">
@@ -5592,184 +6109,6 @@ $M$ の上限が $S$ の上限であることの証明：
 
 <p><strong>公開日: </strong> 2023-12-27</p>
 <p><strong>更新日: </strong> 2023-12-27</p>
-<p><strong>ライセンス: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
-</div>
-]]></description><category>Math</category></item><item><title>留数定理とローラン級数、高階導関数公式およびコーシー積分公式の関係または関連性</title><link>https://www.guzhengsvt.cn/ja/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</link><pubDate>Wed, 20 Dec 2023 08:54:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/ja/post/math/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%8E%E6%B4%9B%E6%9C%97%E7%BA%A7%E6%95%B0%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F%E5%92%8C%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%88%96%E8%81%94%E7%B3%BB/</guid><description>
-<![CDATA[<h1>留数定理とローラン級数、高階導関数公式およびコーシー積分公式の関係または関連性</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
-        
-          <h2 id="1-留数定理residue-theorem">
-<a class="header-anchor" href="#1-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86residue-theorem"></a>
-1. 留数定理（Residue Theorem）：
-</h2><p>留数定理は複素関数理論における重要な結果であり、留数の概念に基づいています。留数定理の核心的な考え方は、孤立特異点を含む閉曲線内で関数がその曲線上で至る所正則である場合、曲線内の積分は特異点における留数の和に等しいというものです。</p>
-<h2 id="2-ローラン級数laurent-series">
-<a class="header-anchor" href="#2-%e3%83%ad%e3%83%bc%e3%83%a9%e3%83%b3%e7%b4%9a%e6%95%b0laurent-series"></a>
-2. ローラン級数（Laurent Series）：
-</h2><p>ローラン級数は複素関数の展開形式の一つで、正のべき乗と負のべき乗を含む無限級数として表されます。具体的には、複素関数が環状領域内で次のようにローラン級数展開されます：
-</p>
-$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<p>ここで、$c_n$は係数、$z_0$は展開点です。</p>
-<h2 id="3-高階導関数の公式">
-<a class="header-anchor" href="#3-%e9%ab%98%e9%9a%8e%e5%b0%8e%e9%96%a2%e6%95%b0%e3%81%ae%e5%85%ac%e5%bc%8f"></a>
-3. 高階導関数の公式：
-</h2><p>複素関数の高階導関数の公式は実関数と似ていますが、複素平面上での演算には注意が必要です。関数がある点で正則であれば、その点での高階導関数はべき級数を項ごとに微分することで得られます。</p>
-<h2 id="4-コーシーの積分公式cauchys-integral-formula">
-<a class="header-anchor" href="#4-%e3%82%b3%e3%83%bc%e3%82%b7%e3%83%bc%e3%81%ae%e7%a9%8d%e5%88%86%e5%85%ac%e5%bc%8fcauchys-integral-formula"></a>
-4. コーシーの積分公式（Cauchy&rsquo;s Integral Formula）：
-</h2><p>コーシーの積分公式は複素解析の基本的な結果であり、正則関数とその周回積分の関係を確立します。具体的には、関数$f(z)$が単純閉曲線内で正則であれば、その曲線内の任意の点$z_0$に対して次が成り立ちます：</p>
-$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$<p>ここで、$C$は$z_0$を囲む単純閉曲線です。</p>
-<h2 id="関係と関連性">
-<a class="header-anchor" href="#%e9%96%a2%e4%bf%82%e3%81%a8%e9%96%a2%e9%80%a3%e6%80%a7"></a>
-関係と関連性：
-</h2><ol>
-<li>
-<p><strong>留数定理とローラン級数：</strong> 留数定理は閉曲線内の関数の積分を計算するために使用され、ローラン級数展開は関数の特異点近傍の性質を理解し、留数を求めるのに役立ちます。</p>
-</li>
-<li>
-<p><strong>留数定理と高階導関数の公式：</strong> 留数定理は、関数の特異点でのローラン級数展開を項ごとに微分することで、高階導関数を計算するために使用できます。</p>
-</li>
-<li>
-<p><strong>留数定理とコーシーの積分公式：</strong> コーシーの積分公式は関数の周回積分を計算するために使用され、留数定理はコーシーの積分公式の特殊なケースであり、周回内に有限個の孤立特異点がある場合に対応します。</p>
-</li>
-</ol>
-<h2 id="1-留数定理のローラン級数による証明">
-<a class="header-anchor" href="#1-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86%e3%81%ae%e3%83%ad%e3%83%bc%e3%83%a9%e3%83%b3%e7%b4%9a%e6%95%b0%e3%81%ab%e3%82%88%e3%82%8b%e8%a8%bc%e6%98%8e"></a>
-1. 留数定理のローラン級数による証明：
-</h2><h3 id="留数定理">
-<a class="header-anchor" href="#%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86"></a>
-留数定理：
-</h3><p>留数定理の表現は次の通りです：</p>
-<p>$f(z)$が孤立特異点$z_0$を含む閉曲線内で至る所正則であれば、曲線内の積分は関数の特異点における留数の和に等しい。</p>
-<h3 id="ローラン級数展開">
-<a class="header-anchor" href="#%e3%83%ad%e3%83%bc%e3%83%a9%e3%83%b3%e7%b4%9a%e6%95%b0%e5%b1%95%e9%96%8b"></a>
-ローラン級数展開：
-</h3>$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<p>ここで、$c_n$は留数です。</p>
-<h3 id="証明の手順">
-<a class="header-anchor" href="#%e8%a8%bc%e6%98%8e%e3%81%ae%e6%89%8b%e9%a0%86"></a>
-証明の手順：
-</h3><ol>
-<li>
-<p><strong>ローラン級数の導出：</strong>
-複素関数のローラン級数展開により、
-</p>
-$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$<p>ここで、$c_n$は留数計算から得られる係数です。</p>
-</li>
-<li>
-<p><strong>積分の計算：</strong>
-ローラン級数を積分します：
-</p>
-$$\oint_C f(z) \, dz = \oint_C \left( \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n \right) \, dz$$</li>
-<li>
-<p><strong>積分と和の順序交換：</strong>
-積分と和の順序を交換すると、
-</p>
-$$\oint_C f(z) \, dz = \sum_{n=-\infty}^{\infty} \oint_C c_n (z - z_0)^n \, dz$$</li>
-<li>
-<p><strong>留数定理の適用：</strong>
-$n \neq -1$の場合、$c_n$は$z^{-1}$を含まないため、積分結果はゼロです。$n = -1$の項のみが非ゼロの積分に寄与します。
-</p>
-$$\oint_C f(z) \, dz = 2\pi i \cdot c_{-1}$$</li>
-<li>
-<p><strong>結論：</strong>
-最終的に留数定理の結論が得られます：
-</p>
-$$\oint_C f(z) \, dz = 2\pi i \cdot c_{-1}$$</li>
-</ol>
-<h2 id="2-留数定理から高階導関数の公式の証明">
-<a class="header-anchor" href="#2-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86%e3%81%8b%e3%82%89%e9%ab%98%e9%9a%8e%e5%b0%8e%e9%96%a2%e6%95%b0%e3%81%ae%e5%85%ac%e5%bc%8f%e3%81%ae%e8%a8%bc%e6%98%8e"></a>
-2. 留数定理から高階導関数の公式の証明：
-</h2><h3 id="留数定理-1">
-<a class="header-anchor" href="#%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86-1"></a>
-留数定理：
-</h3><p>留数定理の表現は次の通りです：</p>
-<p>$f(z)$が孤立特異点$z_0$を含む閉曲線内で至る所正則であれば、曲線内の積分は関数の特異点における留数の和に等しい。</p>
-<h3 id="高階導関数の公式">
-<a class="header-anchor" href="#%e9%ab%98%e9%9a%8e%e5%b0%8e%e9%96%a2%e6%95%b0%e3%81%ae%e5%85%ac%e5%bc%8f"></a>
-高階導関数の公式：
-</h3><p>複素関数の高階導関数の公式は次の通りです：</p>
-<p>$f(z)$が点$z_0$で正則であれば、その点での$n$階導関数は次のように表されます：
-</p>
-$$f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} \, dz$$<p>ここで、$C$は$z_0$を囲む単純閉曲線です。</p>
-<h3 id="証明の手順-1">
-<a class="header-anchor" href="#%e8%a8%bc%e6%98%8e%e3%81%ae%e6%89%8b%e9%a0%86-1"></a>
-証明の手順：
-</h3><ol>
-<li>
-<p><strong>留数定理の適用：</strong>
-留数定理により、
-</p>
-$$\oint_C f(z) \, dz = 2\pi i \cdot \text{Res}(f, z_0)$$</li>
-<li>
-<p><strong>ローラン級数の導出：</strong>
-前と同様に、$f(z)$を$z_0$周りでローラン級数展開します：
-</p>
-$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$</li>
-<li>
-<p><strong>高階導関数の計算：</strong>
-ローラン級数を用いて$f^{(n)}(z_0)$を計算します：
-</p>
-$$f^{(n)}(z_0) = \sum_{n=-\infty}^{\infty} n(n-1)\ldots(n-k+1) \cdot c_n \cdot (z - z_0)^{n-k}$$</li>
-<li>
-<p><strong>留数の抽出：</strong>
-$n = -k$の場合のみ非ゼロの寄与があるため、
-</p>
-$$f^{(n)}(z_0) = n! \cdot c_{-n}$$</li>
-<li>
-<p><strong>結論：</strong>
-$c_{-n}$を留数定理の式に代入し、高階導関数の公式を得ます：
-</p>
-$$f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} \, dz$$</li>
-</ol>
-<h2 id="3-留数定理からコーシーの積分公式の証明">
-<a class="header-anchor" href="#3-%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86%e3%81%8b%e3%82%89%e3%82%b3%e3%83%bc%e3%82%b7%e3%83%bc%e3%81%ae%e7%a9%8d%e5%88%86%e5%85%ac%e5%bc%8f%e3%81%ae%e8%a8%bc%e6%98%8e"></a>
-3. 留数定理からコーシーの積分公式の証明：
-</h2><h3 id="留数定理-2">
-<a class="header-anchor" href="#%e7%95%99%e6%95%b0%e5%ae%9a%e7%90%86-2"></a>
-留数定理：
-</h3><p>留数定理の表現は次の通りです：</p>
-<p>$f(z)$が孤立特異点$z_0$を含む閉曲線内で至る所正則であれば、曲線内の積分は関数の特異点における留数の和に等しい。</p>
-<h3 id="コーシーの積分公式">
-<a class="header-anchor" href="#%e3%82%b3%e3%83%bc%e3%82%b7%e3%83%bc%e3%81%ae%e7%a9%8d%e5%88%86%e5%85%ac%e5%bc%8f"></a>
-コーシーの積分公式：
-</h3><p>コーシーの積分公式は次の通りです：
-</p>
-$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$<p>ここで、$C$は$z_0$を囲む単純閉曲線です。</p>
-<h3 id="証明の手順-2">
-<a class="header-anchor" href="#%e8%a8%bc%e6%98%8e%e3%81%ae%e6%89%8b%e9%a0%86-2"></a>
-証明の手順：
-</h3><ol>
-<li>
-<p><strong>留数定理の適用：</strong>
-留数定理により、
-</p>
-$$\oint_C f(z) \, dz = 2\pi i \cdot \text{Res}(f, z_0)$$</li>
-<li>
-<p><strong>ローラン級数の導出：</strong>
-前と同様に、$f(z)$を$z_0$周りでローラン級数展開します：
-</p>
-$$f(z) = \sum_{n=-\infty}^{\infty} c_n (z - z_0)^n$$</li>
-<li>
-<p><strong>コーシーの積分公式の形式：</strong>
-コーシーの積分公式の形式を考慮します：
-</p>
-$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
-<li>
-<p><strong>留数の抽出：</strong>
-$c_{-1}$が$1/(z - z_0)$に対応するため、
-</p>
-$$f(z_0) = c_{-1}$$</li>
-<li>
-<p><strong>結論：</strong>
-$c_{-1}$をコーシーの積分公式の式に代入し、コーシーの積分公式を得ます：
-</p>
-$$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} \, dz$$</li>
-</ol>
-
-        
-        <hr><p>この記事は2023-12-20に<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2023-12-20です</p><div class="notice article-copyright" data-pagefind-ignore>
-<p><strong>著者: </strong> 孤筝</p>
-<p><strong>タイトル: </strong> 留数定理とローラン級数、高階導関数公式およびコーシー積分公式の関係または関連性</p>
-
-<p><strong>公開日: </strong> 2023-12-20</p>
-<p><strong>更新日: </strong> 2023-12-20</p>
 <p><strong>ライセンス: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
 </div>
 ]]></description><category>Math</category></item></channel></rss>

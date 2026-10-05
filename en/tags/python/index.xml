@@ -1,165 +1,794 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on 孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/en/tags/python/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright><lastBuildDate>Thu, 15 Feb 2024 11:44:33 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/en/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>MicroPython Function Library</title><link>https://www.guzhengsvt.cn/en/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link><pubDate>Thu, 15 Feb 2024 11:44:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid><description>
-<![CDATA[<h1>MicroPython Function Library</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on 孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/en/tags/python/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright><lastBuildDate>Mon, 05 Oct 2026 20:10:00 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/en/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>MicroPython Function Reference</title><link>https://www.guzhengsvt.cn/en/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link><pubDate>Thu, 15 Feb 2024 11:44:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid><description>
+<![CDATA[<h1>MicroPython Function Reference</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
-          <h2 id="machine---hardware-related-functions">
-<a class="header-anchor" href="#machine---hardware-related-functions"></a>
-Machine - Hardware Related Functions
-</h2><h3 id="pin-class">
-<a class="header-anchor" href="#pin-class"></a>
-Pin Class
-</h3><h4 id="machinepinid-modenone-pullnone-value">
-<a class="header-anchor" href="#machinepinid-modenone-pullnone-value"></a>
-<code>machine.Pin(id, mode=None, pull=None, value)</code>
-</h4><p>Pin object constructor</p>
+          <p>This article collects the parts of MicroPython&rsquo;s <code>machine</code> module that are most useful on a Raspberry Pi Pico (RP2040). Everything has been checked against the <a href="https://docs.micropython.org/en/latest/library/machine.html">official MicroPython documentation</a>.</p>
+<h2 id="machine-hardware-related-functions">
+<a class="header-anchor" href="#machine-hardware-related-functions"></a>
+machine: Hardware-Related Functions
+</h2><p>There are two numbering schemes for pins:</p>
 <ul>
-<li>id: GPIO number (0-29 for Pico)</li>
-<li>mode: Pin mode, options: <code>None, Pin.IN(0), Pin.OUT(1), Pin.OPEN_DRAIN(2)</code></li>
-<li>pull: Internal pull-up/down resistor (only valid in input mode), options: <code>None, Pin.PULL_UP(1), Pin.DOWN(2)</code></li>
-<li>value: Port value in output or open-drain mode (0 for low, 1 for high)</li>
+<li><strong>GPIO number</strong> (GP0–GP29): the one used in code; <code>Pin(25)</code> means GP25.</li>
+<li><strong>Physical pin number</strong>: the 40 header positions on the board. These are not the same as GPIO numbers, so be careful when wiring.</li>
 </ul>
-<h4 id="pininitmodenone-pullnone">
-<a class="header-anchor" href="#pininitmodenone-pullnone"></a>
-<code>Pin.init(mode=None, pull=None)</code>
-</h4><p>Reinitialize GPIO port</p>
+<h3 id="class-pin">
+<a class="header-anchor" href="#class-pin"></a>
+class Pin
+</h3><h4 id="constructor-machinepinid-mode-1-pull-1-valuenone">
+<a class="header-anchor" href="#constructor-machinepinid-mode-1-pull-1-valuenone"></a>
+Constructor <code>machine.Pin(id, mode=-1, pull=-1, value=None)</code>
+</h4><table>
+	<thead>
+			<tr>
+					<th>Parameter</th>
+					<th>Meaning</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>id</code></td>
+					<td>Pin identifier. On the Pico, 0–29 (GP0–GP29)</td>
+			</tr>
+			<tr>
+					<td><code>mode</code></td>
+					<td><code>None</code> / <code>Pin.IN</code>(0) / <code>Pin.OUT</code>(1) / <code>Pin.OPEN_DRAIN</code>(2)</td>
+			</tr>
+			<tr>
+					<td><code>pull</code></td>
+					<td>Internal pull resistor, <strong>valid only in input mode</strong>: <code>None</code> / <code>Pin.PULL_UP</code>(1) / <code>Pin.PULL_DOWN</code>(2)</td>
+			</tr>
+			<tr>
+					<td><code>value</code></td>
+					<td>Valid only for output/open-drain mode; initial level: 0 low, 1 high</td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p>Note that it is <code>Pin.PULL_DOWN</code>, not <code>Pin.DOWN</code>.</p>
+</blockquote>
+<h4 id="pininitmode-1-pull-1-valuenone">
+<a class="header-anchor" href="#pininitmode-1-pull-1-valuenone"></a>
+<code>Pin.init(mode=-1, pull=-1, value=None)</code>
+</h4><p>Re-initialise the pin. Only the arguments you pass are changed; everything else keeps its current state.</p>
 <h4 id="pinvaluex">
 <a class="header-anchor" href="#pinvaluex"></a>
 <code>Pin.value([x])</code>
 </h4><ul>
-<li>Returns GPIO port value when no parameter is given</li>
-<li>Writes value to GPIO port when parameter 0/1 is provided</li>
+<li>With no argument: returns the current pin level (0 or 1).</li>
+<li>With an argument: writes the level. The argument is converted to a boolean (<code>True</code> sets 1, <code>False</code> sets 0).</li>
 </ul>
+<h4 id="pinon--pinoff-and-pinhigh--pinlow">
+<a class="header-anchor" href="#pinon--pinoff-and-pinhigh--pinlow"></a>
+<code>Pin.on()</code> / <code>Pin.off()</code> and <code>Pin.high()</code> / <code>Pin.low()</code>
+</h4><ul>
+<li><code>on()</code>, <code>high()</code>: drive the pin high (1).</li>
+<li><code>off()</code>, <code>low()</code>: drive the pin low (0).</li>
+</ul>
+<p>These four are meaningful only in output/open-drain mode. <code>low()</code> and <code>high()</code> are not part of the core API, but they are available on the Pico (rp2 port).</p>
 <h4 id="pintoggle">
 <a class="header-anchor" href="#pintoggle"></a>
 <code>Pin.toggle()</code>
-</h4><p>Toggles port state in output or open-drain mode</p>
-<p>Example: LED blinking</p>
+</h4><p>Flips the output level from 0 to 1 or 1 to 0. <code>toggle()</code> is available on the rp2, esp32, and several other ports; where it is missing, use <code>Pin.value(not Pin.value())</code> instead.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
-</span></span><span class="line"><span class="cl"><span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>   <span class="c1"># the on-board LED of a Pico is GP25</span>
 </span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Toggle LED every second</span>
-</span></span></code></pre></div><h4 id="pinirqhandlernone-triggerpinirq_fallingpinirq_rising">
-<a class="header-anchor" href="#pinirqhandlernone-triggerpinirq_fallingpinirq_rising"></a>
-<code>Pin.irq(handler=None, trigger=(Pin.IRQ_FALLING|PIN.IRQ_RISING))</code>
-</h4><p>External interrupt function</p>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>        <span class="c1"># flip once per second</span>
+</span></span></code></pre></div><h4 id="pinirqhandlernone-triggerpinirq_falling--pinirq_rising">
+<a class="header-anchor" href="#pinirqhandlernone-triggerpinirq_falling--pinirq_rising"></a>
+<code>Pin.irq(handler=None, trigger=Pin.IRQ_FALLING | Pin.IRQ_RISING)</code>
+</h4><p>Configures an external interrupt. The callback runs whenever the trigger condition occurs.</p>
 <ul>
-<li>handler: Callback function when interrupt triggers</li>
-<li>trigger: Interrupt trigger condition (edge/level triggered)</li>
+<li><code>handler</code>: the callback, which <strong>must accept one <code>Pin</code> argument</strong>.</li>
+<li><code>trigger</code>: the condition, and multiple values can be OR-ed with <code>|</code>:</li>
 </ul>
-<h4 id="other-functions">
-<a class="header-anchor" href="#other-functions"></a>
-Other Functions
-</h4><p>For output/open-drain mode:</p>
-<ul>
-<li><code>Pin.low(), Pin.off()</code>: Set port to low voltage</li>
-<li><code>Pin.high(), Pin.on()</code>: Set port to high voltage</li>
-</ul>
-<h4 id="example-led-control">
-<a class="header-anchor" href="#example-led-control"></a>
-Example: LED Control
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">utime</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Button on GPIO15, input mode with pull-up</span>
-</span></span><span class="line"><span class="cl"><span class="n">button_num</span> <span class="o">=</span> <span class="mi">15</span>
-</span></span><span class="line"><span class="cl"><span class="n">button</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">button_num</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Onboard LED on GP25, external LED on GP16</span>
-</span></span><span class="line"><span class="cl"><span class="n">led1_num</span> <span class="o">=</span> <span class="mi">25</span>
-</span></span><span class="line"><span class="cl"><span class="n">led2_num</span> <span class="o">=</span> <span class="mi">16</span>
-</span></span><span class="line"><span class="cl"><span class="n">led1</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">led1_num</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">led2</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">led2_num</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<table>
+	<thead>
+			<tr>
+					<th>Constant</th>
+					<th>Trigger</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>Pin.IRQ_FALLING</code></td>
+					<td>falling edge</td>
+			</tr>
+			<tr>
+					<td><code>Pin.IRQ_RISING</code></td>
+					<td>rising edge</td>
+			</tr>
+			<tr>
+					<td><code>Pin.IRQ_LOW_LEVEL</code></td>
+					<td>low level</td>
+			</tr>
+			<tr>
+					<td><code>Pin.IRQ_HIGH_LEVEL</code></td>
+					<td>high level</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Button pressed&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">led2</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>  <span class="c1"># Turn off external LED</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Check if button pressed (0 when pressed)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Software debounce</span>
-</span></span><span class="line"><span class="cl">            <span class="n">led1</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>  <span class="c1"># Toggle onboard LED</span>
-</span></span><span class="line"><span class="cl">            <span class="n">led2</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>  <span class="c1"># Turn on external LED (GP16 high)</span>
-</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;The button is pressed.&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="c1"># Wait while button remains pressed (external LED stays on)</span>
-</span></span><span class="line"><span class="cl">                <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
-</span></span></code></pre></div><h3 id="pwm-class">
-<a class="header-anchor" href="#pwm-class"></a>
-PWM Class
-</h3><h4 id="machinepwmpin">
-<a class="header-anchor" href="#machinepwmpin"></a>
-<code>machine.PWM(pin)</code>
-</h4><p>Reinitialize specified GPIO as PWM output</p>
-<ul>
-<li>pin: Pin class object</li>
-</ul>
-<h4 id="pwmdeinit">
-<a class="header-anchor" href="#pwmdeinit"></a>
-<code>PWM.deinit()</code>
-</h4><p>Deinitialize PWM, stop PWM output</p>
-<h4 id="pwmfreqvalue">
-<a class="header-anchor" href="#pwmfreqvalue"></a>
-<code>PWM.freq([value])</code>
-</h4><p>Set PWM frequency (in Hz), automatically calculates divider and TOP register values</p>
-<h4 id="pwmduty_u16value">
-<a class="header-anchor" href="#pwmduty_u16value"></a>
-<code>PWM.duty_u16([value])</code>
-</h4><p>Set duty cycle</p>
-<ul>
-<li>value: Duty cycle ratio [0,65536], calculates corresponding value for CC register</li>
-</ul>
-<h4 id="pwmduty_nsvalue">
-<a class="header-anchor" href="#pwmduty_nsvalue"></a>
-<code>PWM.duty_ns([value])</code>
-</h4><p>Set high-level duration per cycle in nanoseconds</p>
+</span></span><span class="line"><span class="cl"><span class="n">button</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">button</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">on_press</span><span class="p">,</span> <span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="class-pwm">
+<a class="header-anchor" href="#class-pwm"></a>
+class PWM
+</h3><p>PWM (pulse-width modulation) switches a pin on and off rapidly to emulate intermediate voltages. It is used for dimming LEDs, controlling motor speed, and driving servos.</p>
+<h4 id="machinepwmpin-freq-duty_u16">
+<a class="header-anchor" href="#machinepwmpin-freq-duty_u16"></a>
+<code>machine.PWM(pin, freq=..., duty_u16=...)</code>
+</h4><p>Creates a PWM output on the given pin; <code>pin</code> is a <code>Pin</code> object.</p>
+<h4 id="common-methods">
+<a class="header-anchor" href="#common-methods"></a>
+Common methods
+</h4><table>
+	<thead>
+			<tr>
+					<th>Method</th>
+					<th>Purpose</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>PWM.freq([value])</code></td>
+					<td>get/set the frequency in Hz, roughly 8 Hz – 62.5 MHz (at a 125 MHz CPU clock)</td>
+			</tr>
+			<tr>
+					<td><code>PWM.duty_u16([value])</code></td>
+					<td>get/set the duty cycle as <strong>0–65535</strong>, the ratio <code>value / 65535</code></td>
+			</tr>
+			<tr>
+					<td><code>PWM.duty_ns([value])</code></td>
+					<td>get/set the high time within one period, in nanoseconds</td>
+			</tr>
+			<tr>
+					<td><code>PWM.deinit()</code></td>
+					<td>stop the PWM output</td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p>The upper bound of <code>duty_u16</code> is <strong>65535</strong>, not 65536. Passing 65536 overflows.</p>
+</blockquote>
+<p>RP2040 has 8 independent PWM slices with 2 channels each, 16 channels in total. The two channels of a slice <strong>must share a frequency</strong> but may have different duty cycles.</p>
 <h4 id="example-breathing-led">
 <a class="header-anchor" href="#example-breathing-led"></a>
-Example: Breathing LED
+Example: breathing LED
 </h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">led</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>  <span class="c1"># Initialize onboard LED as PWM</span>
-</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Set frequency</span>
-</span></span><span class="line"><span class="cl"><span class="n">led_duty</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Initial value</span>
-</span></span><span class="line"><span class="cl"><span class="n">led_direction</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Step size</span>
+</span></span><span class="line"><span class="cl"><span class="n">led</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>      <span class="c1"># 1 kHz</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">duty</span> <span class="o">=</span> <span class="mi">0</span>            <span class="c1"># duty cycle in percent</span>
+</span></span><span class="line"><span class="cl"><span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">led_duty</span> <span class="o">+=</span> <span class="n">led_direction</span>  <span class="c1"># Increase/decrease duty cycle</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">led_duty</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">:</span>  <span class="c1"># Max</span>
-</span></span><span class="line"><span class="cl">        <span class="n">led_duty</span> <span class="o">=</span> <span class="mi">100</span>
-</span></span><span class="line"><span class="cl">        <span class="n">led_direction</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">led_duty</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Min</span>
-</span></span><span class="line"><span class="cl">        <span class="n">led_duty</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">        <span class="n">led_direction</span> <span class="o">=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">led_duty</span> <span class="o">*</span> <span class="mf">655.36</span><span class="p">))</span>  <span class="c1"># Convert ratio to value</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">led_duty</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">led_duty</span><span class="p">)</span>  <span class="c1"># For monitoring</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># 2-second cycle</span>
-</span></span></code></pre></div><h3 id="adc-class">
-<a class="header-anchor" href="#adc-class"></a>
-ADC Class
-</h3><h4 id="machineadcid">
+</span></span><span class="line"><span class="cl">    <span class="n">duty</span> <span class="o">+=</span> <span class="n">step</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">duty</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">duty</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl">        <span class="n">step</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">duty</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">duty</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># convert percent to the 0-65535 range, without overflowing</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">duty</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">*</span> <span class="mi">65535</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">duty</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">duty</span><span class="p">)</span>  <span class="c1"># convenient for plotting</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>  <span class="c1"># roughly a 2-second round trip</span>
+</span></span></code></pre></div><h4 id="example-button-controlled-led-with-software-debouncing">
+<a class="header-anchor" href="#example-button-controlled-led-with-software-debouncing"></a>
+Example: button-controlled LED (with software debouncing)
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">button</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>   <span class="c1"># reads 0 while pressed</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_board</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>            <span class="c1"># on-board LED</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_ext</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>              <span class="c1"># external LED</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led_ext</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>             <span class="c1"># possibly pressed</span>
+</span></span><span class="line"><span class="cl">        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>                <span class="c1"># wait 10 ms and check again to filter bounce</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>         <span class="c1"># confirmed</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led_board</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led_ext</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;The button is pressed.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># wait for release</span>
+</span></span><span class="line"><span class="cl">                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>A mechanical button bounces for a few milliseconds when pressed or released, and the CPU can read that as several presses. <strong>Software debouncing</strong> means: after detecting a change, wait about 10 ms and read the pin again to confirm.</p>
+</blockquote>
+<h3 id="class-adc">
+<a class="header-anchor" href="#class-adc"></a>
+class ADC
+</h3><p>The ADC (analog-to-digital converter) turns an analog voltage into a digital reading.</p>
+<h4 id="machineadcid">
 <a class="header-anchor" href="#machineadcid"></a>
 <code>machine.ADC(id)</code>
-</h4><p>Initialize as ADC object</p>
+</h4><p><code>id</code> may be a <code>Pin</code> object or a channel number:</p>
 <ul>
-<li>id: Can be GPIO or ADC channel (GPIO must support ADC when using Pin object)</li>
-<li>Channels 0-3: Pico GPIO 26-29</li>
-<li>Channel 4: Internal temperature sensor</li>
+<li>On the Pico, channels <strong>0–3 map to GP26–GP29</strong> (GP29 is wired to VSYS on the board);</li>
+<li>Channel <strong>4</strong> is the on-chip temperature sensor, also reachable as <code>ADC.CORE_TEMP</code>.</li>
 </ul>
 <h4 id="adcread_u16">
 <a class="header-anchor" href="#adcread_u16"></a>
 <code>ADC.read_u16()</code>
-</h4><p>Read ADC channel value [0,65525]</p>
+</h4><p>Returns the reading as an integer in <strong>0–65535</strong>, spanning the input range 0–3.3 V.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">ADC</span><span class="p">,</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">adc</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span>          <span class="c1"># equivalent to ADC(0)</span>
+</span></span><span class="line"><span class="cl"><span class="n">value</span> <span class="o">=</span> <span class="n">adc</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span>      <span class="c1"># 0 - 65535</span>
+</span></span><span class="line"><span class="cl"><span class="n">voltage</span> <span class="o">=</span> <span class="n">value</span> <span class="o">/</span> <span class="mi">65535</span> <span class="o">*</span> <span class="mf">3.3</span>   <span class="c1"># convert to volts</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">voltage</span><span class="p">,</span> <span class="s2">&#34;V&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>The range is 0–65535. The RP2040&rsquo;s ADC hardware is only 12-bit (0–4095); MicroPython scales it linearly to 16 bits, so the lowest few bits carry no real precision.</p>
+</blockquote>
+<h2 id="summary">
+<a class="header-anchor" href="#summary"></a>
+Summary
+</h2><table>
+	<thead>
+			<tr>
+					<th>Task</th>
+					<th>Key point</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Digital I/O</td>
+					<td><code>Pin(id, mode, pull)</code>; read with <code>value()</code>, write with <code>value()</code> / <code>on()</code> / <code>off()</code> / <code>toggle()</code></td>
+			</tr>
+			<tr>
+					<td>Interrupts</td>
+					<td><code>Pin.irq(handler, trigger)</code>; the callback must take one <code>Pin</code> argument</td>
+			</tr>
+			<tr>
+					<td>Dimming / speed control</td>
+					<td><code>PWM(pin)</code> + <code>freq()</code> + <code>duty_u16()</code>; duty is capped at 65535</td>
+			</tr>
+			<tr>
+					<td>Reading analog input</td>
+					<td><code>ADC(Pin(26))</code> + <code>read_u16()</code>, returning 0–65535</td>
+			</tr>
+			<tr>
+					<td>Button bounce</td>
+					<td>after detecting a change, wait 10 ms and confirm</td>
+			</tr>
+	</tbody>
+</table>
 
         
-        <hr><p>Published on 2024-02-15 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2024-02-15</p><div class="notice article-copyright" data-pagefind-ignore>
+        <hr><p>Published on 2024-02-15 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2026-10-05</p><div class="notice article-copyright" data-pagefind-ignore>
 <p><strong>Author: </strong> 孤筝</p>
-<p><strong>Title: </strong> MicroPython Function Library</p>
+<p><strong>Title: </strong> MicroPython Function Reference</p>
 
 <p><strong>Published: </strong> 2024-02-15</p>
-<p><strong>Updated: </strong> 2024-02-15</p>
+<p><strong>Updated: </strong> 2026-10-05</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item><item><title>Python Basics</title><link>https://www.guzhengsvt.cn/en/post/code/python%E5%9F%BA%E7%A1%80/</link><pubDate>Tue, 27 Jun 2023 00:49:20 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/code/python%E5%9F%BA%E7%A1%80/</guid><description>
+<![CDATA[<h1>Python Basics</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
+        
+          <p>This article merges four earlier Python notes, removes duplicated and irrelevant material, and keeps only what is useful as a day-to-day reference. Examples target Python 3.</p>
+<h2 id="variables-and-objects">
+<a class="header-anchor" href="#variables-and-objects"></a>
+Variables and Objects
+</h2><ul>
+<li>Variables need no type declaration, but they <strong>must be assigned before use</strong>, otherwise a <code>NameError</code> is raised.</li>
+<li>Python has no <code>const</code> and no mechanism preventing reassignment; a &ldquo;constant&rdquo; is only a naming convention (all caps).</li>
+<li><code>=</code> assigns; <code>==</code> compares.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span>
+</span></span><span class="line"><span class="cl"><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;age&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</span></span></code></pre></div><p>A useful mental model: <strong>objects are the data, variables are labels stuck onto objects.</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Jack&#34;</span>   <span class="c1"># create the string object &#34;Jack&#34;, then stick the label a onto it</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>        <span class="c1"># stick label b onto the same object; this is not a copy</span>
+</span></span><span class="line"><span class="cl"><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># True, both refer to the same object</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Ross&#34;</span>   <span class="c1"># a different object gets the label a; b still refers to &#34;Jack&#34;</span>
+</span></span></code></pre></div><ul>
+<li>An object can carry many labels, but a variable refers to exactly one object at a time.</li>
+<li><strong>The variable itself has no type; the type belongs to the object.</strong> So <code>a = 1</code> followed by <code>a = &quot;1&quot;</code> is perfectly legal.</li>
+</ul>
+<h2 id="assignment-and-slicing">
+<a class="header-anchor" href="#assignment-and-slicing"></a>
+Assignment and Slicing
+</h2><p><code>=</code> is <strong>right-associative</strong>, so <code>a = b = c = 1</code> makes all three names refer to the integer object 1.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>   <span class="c1"># unpacking assignment</span>
+</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="mi">17</span> <span class="o">+</span> <span class="mi">1</span>        <span class="c1"># evaluate the right side first</span>
+</span></span></code></pre></div><p>Slicing works on strings, tuples, and lists with the syntax <code>obj[a:b:c]</code>:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Form</th>
+					<th>Meaning</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>obj[a:b]</code></td>
+					<td>Indices in $[a, b)$, excluding <code>b</code>; omit <code>a</code> to start at 0, omit <code>b</code> to run to the end</td>
+			</tr>
+			<tr>
+					<td><code>obj[a:b:c]</code></td>
+					<td>Take every <code>c</code>-th element; <code>c</code> defaults to 1</td>
+			</tr>
+			<tr>
+					<td>negative <code>c</code></td>
+					<td>Walk backwards</td>
+			</tr>
+			<tr>
+					<td><code>obj[::-1]</code></td>
+					<td>Reverse (returns a new object; the original is unchanged)</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;polaris&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;ol&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;sap&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;siralop&#39;</span>
+</span></span></code></pre></div><p>Slicing also copies: <code>y = x[:]</code> gives a shallow copy, so sorting <code>y</code> does not affect <code>x</code>.</p>
+<h2 id="strings">
+<a class="header-anchor" href="#strings"></a>
+Strings
+</h2><ol>
+<li>Single and double quotes are equivalent; there is <strong>no separate single-character type</strong>.</li>
+<li>Triple quotes allow multi-line strings.</li>
+<li>To include the same quote character inside a string, escape it: <code>\&quot;</code>.</li>
+</ol>
+<h3 id="three-ways-to-format">
+<a class="header-anchor" href="#three-ways-to-format"></a>
+Three ways to format
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="s2">&#34;Bronya&#34;</span><span class="p">,</span> <span class="mi">18</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">%s</span><span class="s1">, she is </span><span class="si">%d</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">))</span>          <span class="c1"># % formatting, the oldest</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">{}</span><span class="s1">, she is </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">))</span>      <span class="c1"># .format()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;My wife is </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">, she is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>                <span class="c1"># f-string, recommended</span>
+</span></span></code></pre></div><ul>
+<li><code>%</code> formatting takes a tuple or dict and substitutes positionally or by name.</li>
+<li>In <code>.format()</code>, <code>{}</code> may use positional indices <code>{0}</code> or keywords <code>{name}</code>.</li>
+<li><strong>f-strings require Python 3.6+</strong> and are the most readable; all three support width, alignment, and precision specifiers.</li>
+</ul>
+<h2 id="numbers-and-booleans">
+<a class="header-anchor" href="#numbers-and-booleans"></a>
+Numbers and Booleans
+</h2><table>
+	<thead>
+			<tr>
+					<th>Type</th>
+					<th>Notes</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>int</code></td>
+					<td>Arbitrary-precision integer; supports <code>0x</code> hex, <code>0o</code> octal, <code>0b</code> binary literals</td>
+			</tr>
+			<tr>
+					<td><code>float</code></td>
+					<td>Floating point; scientific notation such as <code>1.23e-6</code></td>
+			</tr>
+			<tr>
+					<td><code>complex</code></td>
+					<td>Complex numbers, written <code>a + bj</code> or <code>complex(a, b)</code></td>
+			</tr>
+			<tr>
+					<td><code>bool</code></td>
+					<td><code>True</code> is really 1 and <code>False</code> is really 0</td>
+			</tr>
+			<tr>
+					<td><code>NoneType</code></td>
+					<td>The null value; <code>None</code> must be capitalised</td>
+			</tr>
+	</tbody>
+</table>
+<ul>
+<li>Mixing an int with a float promotes the int: <code>1 + 2.0</code> gives <code>3.0</code>.</li>
+<li>Floats carry rounding error: <code>0.1 + 0.2 == 0.3</code> is <code>False</code> (the actual value is <code>0.30000000000000004</code>). Use the <code>decimal</code> module when exact arithmetic is required.</li>
+<li><code>round()</code> uses <strong>banker&rsquo;s rounding</strong> (round-half-to-even): <code>round(0.5)</code> is <code>0</code>, <code>round(1.5)</code> is <code>2</code>, <code>round(2.5)</code> is <code>2</code>.</li>
+</ul>
+<p><strong>Falsy values</strong>: <code>0</code>, <code>0.0</code>, <code>None</code>, empty string, empty list, empty tuple, empty dict, empty set, <code>False</code>.
+<strong>Everything else is truthy</strong>, including any non-empty string (even the string <code>&quot;False&quot;</code>).</p>
+<h2 id="operators">
+<a class="header-anchor" href="#operators"></a>
+Operators
+</h2><h3 id="arithmetic">
+<a class="header-anchor" href="#arithmetic"></a>
+Arithmetic
+</h3><table>
+	<thead>
+			<tr>
+					<th>Operator</th>
+					<th>Meaning</th>
+					<th>Example</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>+</code> <code>-</code> <code>*</code></td>
+					<td>addition, subtraction, multiplication</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td><code>/</code></td>
+					<td>true division; the result is always a float</td>
+					<td><code>6 / 3</code> → <code>2.0</code></td>
+			</tr>
+			<tr>
+					<td><code>//</code></td>
+					<td><strong>floor division</strong>, rounds down</td>
+					<td><code>7 // 2</code> → <code>3</code>, <code>-7 // 2</code> → <code>-4</code></td>
+			</tr>
+			<tr>
+					<td><code>%</code></td>
+					<td><strong>modulo</strong> (remainder)</td>
+					<td><code>7 % 2</code> → <code>1</code></td>
+			</tr>
+			<tr>
+					<td><code>**</code></td>
+					<td>power, <strong>right-associative</strong></td>
+					<td><code>2 ** 2 ** 3</code> → <code>256</code></td>
+			</tr>
+			<tr>
+					<td><code>-</code></td>
+					<td>unary minus, binds weaker than <code>**</code></td>
+					<td><code>-2 ** 2</code> → <code>-4</code></td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="the-rest">
+<a class="header-anchor" href="#the-rest"></a>
+The rest
+</h3><table>
+	<thead>
+			<tr>
+					<th>Category</th>
+					<th>Operators</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Comparison</td>
+					<td><code>==</code> <code>!=</code> <code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code>; <strong>can be chained</strong>: <code>a &gt; b == c</code> means <code>a &gt; b and b == c</code></td>
+			</tr>
+			<tr>
+					<td>Logical</td>
+					<td><code>and</code> <code>or</code> <code>not</code></td>
+			</tr>
+			<tr>
+					<td>Membership</td>
+					<td><code>in</code> <code>not in</code></td>
+			</tr>
+			<tr>
+					<td>Identity</td>
+					<td><code>is</code> <code>is not</code>; compares whether two names refer to the same object (compares <code>id</code>, not value)</td>
+			</tr>
+			<tr>
+					<td>Bitwise</td>
+					<td><code>&amp;</code> <code>|</code> <code>^</code> <code>~</code> <code>&lt;&lt;</code> <code>&gt;&gt;</code></td>
+			</tr>
+			<tr>
+					<td>Augmented assignment</td>
+					<td><code>+=</code> <code>-=</code> <code>*=</code> <code>//=</code> <code>**=</code> <code>&amp;=</code> <code>|=</code> <code>^=</code> <code>&lt;&lt;=</code> <code>&gt;&gt;=</code></td>
+			</tr>
+	</tbody>
+</table>
+<p><code>and</code> / <code>or</code> return <strong>one of their operands</strong>, not <code>True</code> / <code>False</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">True</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">False</span> <span class="ow">or</span> <span class="mi">31</span>
+</span></span><span class="line"><span class="cl"><span class="mi">31</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="mi">0</span>
+</span></span></code></pre></div><h3 id="precedence-highest-to-lowest">
+<a class="header-anchor" href="#precedence-highest-to-lowest"></a>
+Precedence (highest to lowest)
+</h3><p><code>()</code> → indexing <code>[]</code> → attribute <code>.</code> → <code>**</code> → unary <code>~</code> <code>+</code> <code>-</code> → <code>*</code> <code>/</code> <code>%</code> <code>//</code> → <code>+</code> <code>-</code> → <code>&lt;&lt;</code> <code>&gt;&gt;</code> → <code>&amp;</code> → <code>^</code> → <code>|</code> → comparisons (<code>&lt;</code>, <code>==</code>, <code>in</code>, <code>is</code>, all one level) → <code>not</code> → <code>and</code> → <code>or</code> → assignment</p>
+<p>If you cannot remember it, just add parentheses; that is the cheapest fix.</p>
+<h2 id="input-output-and-built-in-functions">
+<a class="header-anchor" href="#input-output-and-built-in-functions"></a>
+Input, Output, and Built-in Functions
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>   <span class="c1"># sep between items, end after the last</span>
+</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;Enter your age: &#34;</span><span class="p">)</span>   <span class="c1"># the return value is always a string</span>
+</span></span><span class="line"><span class="cl"><span class="nb">int</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>                          <span class="c1"># convert explicitly when you need a number</span>
+</span></span></code></pre></div><p>Common built-ins:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Function</th>
+					<th>Purpose</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>id(x)</code></td>
+					<td>memory address (identity) of the object</td>
+			</tr>
+			<tr>
+					<td><code>type(x)</code></td>
+					<td>the object&rsquo;s type, e.g. <code>&lt;class 'int'&gt;</code></td>
+			</tr>
+			<tr>
+					<td><code>len(x)</code></td>
+					<td>number of elements</td>
+			</tr>
+			<tr>
+					<td><code>abs()</code> <code>round()</code> <code>bool()</code></td>
+					<td>absolute value, rounding, boolean conversion</td>
+			</tr>
+			<tr>
+					<td><code>enumerate(seq, start=0)</code></td>
+					<td>index and value together while looping</td>
+			</tr>
+			<tr>
+					<td><code>range()</code> <code>zip()</code> <code>sum()</code> <code>max()</code> <code>min()</code> <code>sorted()</code></td>
+					<td>common sequence helpers</td>
+			</tr>
+	</tbody>
+</table>
+<p>Type-conversion functions: <code>int(x, base)</code>, <code>float()</code>, <code>complex()</code>, <code>str()</code>, <code>repr()</code>, <code>chr()</code>, <code>ord()</code>, <code>hex()</code>, <code>oct()</code>, <code>eval()</code>, <code>list()</code>, <code>tuple()</code>, <code>set()</code>, <code>frozenset()</code>, <code>dict()</code>.</p>
+<p><strong>Conversion is not unconditional</strong>; it depends on whether the source data carries enough information to express the target type. <code>int(&quot;123&quot;)</code> works, <code>int(&quot;Hello&quot;)</code> raises an error; a list can become a set, but not a single number.</p>
+<p>Implicit conversion follows a precision order: <code>bool</code> &lt; <code>int</code> &lt; <code>float</code> &lt; <code>complex</code>, moving toward the more precise type in mixed expressions.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">galgames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Cafe&#39;</span><span class="p">,</span> <span class="s1">&#39;Senren Banka&#39;</span><span class="p">,</span> <span class="s1">&#39;Tenshi Sou Sou&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">galgame</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">galgames</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Playing game number </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">galgame</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="conditionals-and-loops">
+<a class="header-anchor" href="#conditionals-and-loops"></a>
+Conditionals and Loops
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">condition1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">condition2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><p><code>for</code> iterates over anything iterable (lists, dicts, strings, tuples, generators, &hellip;):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><ul>
+<li><code>break</code> leaves <strong>only the innermost loop</strong>.</li>
+<li><code>continue</code> skips the rest of this iteration and goes to the next.</li>
+<li><code>for ... else</code> / <code>while ... else</code>: the <code>else</code> runs when the loop <strong>completes normally</strong>; it is skipped if the loop was left via <code>break</code>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">while</span> <span class="n">condition</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><p>When writing a <code>while</code>, always confirm that the body eventually changes the condition or triggers a <code>break</code>; otherwise you have an infinite loop.</p>
+<h2 id="the-four-container-types">
+<a class="header-anchor" href="#the-four-container-types"></a>
+The Four Container Types
+</h2><table>
+	<thead>
+			<tr>
+					<th>Container</th>
+					<th>Literal</th>
+					<th>Ordered</th>
+					<th>Mutable</th>
+					<th>Duplicates</th>
+					<th>Element requirement</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>list</td>
+					<td><code>[1, 2]</code></td>
+					<td>yes</td>
+					<td>yes</td>
+					<td>yes</td>
+					<td>any</td>
+			</tr>
+			<tr>
+					<td>tuple</td>
+					<td><code>(1, 2)</code></td>
+					<td>yes</td>
+					<td><strong>no</strong></td>
+					<td>yes</td>
+					<td>any</td>
+			</tr>
+			<tr>
+					<td>dict</td>
+					<td><code>{k: v}</code></td>
+					<td>insertion order</td>
+					<td>yes</td>
+					<td>keys unique</td>
+					<td>keys must be hashable</td>
+			</tr>
+			<tr>
+					<td>set</td>
+					<td><code>{1, 2}</code></td>
+					<td><strong>no</strong></td>
+					<td>yes</td>
+					<td>no (auto-deduplicated)</td>
+					<td>must be hashable</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="list">
+<a class="header-anchor" href="#list"></a>
+list
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>                  <span class="c1"># empty list</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>             <span class="c1"># append to the end</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>          <span class="c1"># insert at index i, shifting later elements right</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>             <span class="c1"># append each element of b</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>                 <span class="c1"># remove and return the last element</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>                <span class="c1"># remove and return the element at index i</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>             <span class="c1"># remove the first element equal to x; errors if absent</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c1"># index of the first element equal to x</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c1"># how many elements equal x</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>             <span class="c1"># reverse in place</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=...</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>   <span class="c1"># sort in place; returns None</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>                <span class="c1"># delete the element at index i</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>              <span class="c1"># delete a slice</span>
+</span></span></code></pre></div><p>Sorting example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">random</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">random</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># sort by the second element of each tuple</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># [(4, 1), (2, 2), (1, 3), (3, 4)]</span>
+</span></span></code></pre></div><blockquote>
+<p>Note: <code>sort()</code> accepts only <code>key</code> and <code>reverse</code>. The Python 2 <code>cmp</code> parameter was <strong>removed</strong>.</p>
+</blockquote>
+<h3 id="tuple">
+<a class="header-anchor" href="#tuple"></a>
+tuple
+</h3><ul>
+<li>Tuples are <strong>immutable</strong>: no insert, update, or delete.</li>
+<li>A one-element tuple needs a trailing comma: <code>(1,)</code> is a tuple, <code>(1)</code> is just the integer.</li>
+<li>Conversion: <code>list(t)</code> yields a list, <code>tuple(l)</code> yields a tuple. <strong>The original object is unchanged</strong>; a new object is returned.</li>
+</ul>
+<h3 id="dict">
+<a class="header-anchor" href="#dict"></a>
+dict
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Guzheng&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">19</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Guzheng&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">19</span><span class="p">)</span>              <span class="c1"># with = the keys are unquoted</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile3</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Guzheng&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">19</span><span class="p">)])</span>  <span class="c1"># built from key-value pairs</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile4</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)}</span>          <span class="c1"># {2: 4, 3: 9, 4: 16}</span>
+</span></span></code></pre></div><p>Access and update:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>                 <span class="c1"># raises KeyError if the key is absent</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">)</span>           <span class="c1"># returns None if absent</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span>   <span class="c1"># returns a default if absent</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span>   <span class="c1"># writes the pair if absent, then returns it</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;male&#39;</span>      <span class="c1"># add or update</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">profile</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>The key distinction: <code>get()</code> is <strong>read-only</strong> and never modifies the dict; <strong>only <code>setdefault()</code> writes when the key is missing</strong>.</p>
+</blockquote>
+<p>Test for a key with <code>in</code> / <code>not in</code>. <code>has_key()</code> is the Python 2 spelling and was removed in Python 3.</p>
+<h3 id="set">
+<a class="header-anchor" href="#set"></a>
+set
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>     <span class="c1"># deduplicated automatically to {1, 2, 3}</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>            <span class="c1"># the only way to write an empty set; {} is an empty dict</span>
+</span></span></code></pre></div><table>
+	<thead>
+			<tr>
+					<th>Operation</th>
+					<th>Method</th>
+					<th>Operator</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>union</td>
+					<td><code>a.union(b)</code></td>
+					<td><code>a | b</code></td>
+			</tr>
+			<tr>
+					<td>intersection</td>
+					<td><code>a.intersection(b)</code></td>
+					<td><code>a &amp; b</code></td>
+			</tr>
+			<tr>
+					<td>difference (in a, not in b)</td>
+					<td><code>a.difference(b)</code></td>
+					<td><code>a - b</code></td>
+			</tr>
+			<tr>
+					<td>symmetric difference</td>
+					<td><code>a.symmetric_difference(b)</code></td>
+					<td><code>a ^ b</code></td>
+			</tr>
+	</tbody>
+</table>
+<ul>
+<li>Add: <code>add(x)</code> (<strong>only hashable/immutable values</strong>), <code>update(seq)</code> (accepts a string, list, tuple, or set; given a dict it takes only the keys).</li>
+<li>Remove: <code>remove(x)</code> errors if absent; <code>discard(x)</code> does not; <code>pop()</code> removes and returns <strong>an arbitrary</strong> element and takes no argument; <code>clear()</code> empties the set.</li>
+<li>Test: <code>x in s</code>, <code>a.isdisjoint(b)</code> (True when they share nothing), <code>b.issubset(a)</code>.</li>
+<li>Sets are <strong>unordered and unindexed</strong>: you cannot read or modify elements by position, only add and remove.</li>
+</ul>
+<blockquote>
+<p>Common misconception: <code>pop()</code> removes an <em>arbitrary</em> element, not a <em>random</em> one. Storage order follows hash values, so it looks random but is not under your control.</p>
+</blockquote>
+<h2 id="iterators-and-generators">
+<a class="header-anchor" href="#iterators-and-generators"></a>
+Iterators and Generators
+</h2><p><strong>Iterable</strong>: anything you can loop over with <code>for</code>. It qualifies if either holds:</p>
+<ol>
+<li>it implements <code>__iter__()</code> returning an iterator instance;</li>
+<li>it has no <code>__iter__()</code> but implements <code>__getitem__()</code> and supports indexing from 0 upward.</li>
+</ol>
+<p><strong>Iterator</strong>: what <code>iter(iterable)</code> returns. Call <code>next()</code> repeatedly to pull values; when exhausted it raises <code>StopIteration</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Iterator</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">([],</span> <span class="n">Iterable</span><span class="p">)</span>        <span class="c1"># True, a list is iterable</span>
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">([],</span> <span class="n">Iterator</span><span class="p">)</span>        <span class="c1"># False, but a list is not itself an iterator</span>
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">(</span><span class="nb">iter</span><span class="p">([]),</span> <span class="n">Iterator</span><span class="p">)</span>  <span class="c1"># True</span>
+</span></span></code></pre></div><p>In other words, <strong>a list is iterable but not an iterator</strong>: a list can be traversed repeatedly, while an iterator moves forward only once.</p>
+<p>A <strong>generator</strong> is &ldquo;an iterator written as a function&rdquo;:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># list comprehension produces a list</span>
+</span></span><span class="line"><span class="cl"><span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>     <span class="c1"># [0, 1, 2, 3, 4]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># parentheses produce a generator</span>
+</span></span><span class="line"><span class="cl"><span class="n">agen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>      <span class="c1"># &lt;generator object ...&gt;, lazily evaluated</span>
+</span></span></code></pre></div><blockquote>
+<p>Note: <code>(i for i in ...)</code> is a <strong>generator expression</strong>, not a tuple comprehension. Python has no tuple comprehension. To get a tuple, write <code>tuple(i for i in ...)</code>.</p>
+</blockquote>
+<p><code>yield</code> versus <code>return</code>: when execution reaches <code>yield</code>, the function <strong>pauses and hands out a value without ending</strong>; the next request resumes right after the pause, until the function finishes. A bare <code>yield</code> produces <code>None</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="o">=</span> <span class="n">generator</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>   <span class="c1"># 1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">generator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>   <span class="c1"># 1 2 3 4 5</span>
+</span></span></code></pre></div><p>The value of a generator is <strong>laziness</strong>: it never computes every result at once, so it uses far less memory than a list when handling large data streams.</p>
+<h2 id="other-notes">
+<a class="header-anchor" href="#other-notes"></a>
+Other Notes
+</h2><h3 id="comments">
+<a class="header-anchor" href="#comments"></a>
+Comments
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># a single-line comment</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">Triple quotes are technically a &#34;multi-line string&#34;, not a comment:
+</span></span></span><span class="line"><span class="cl"><span class="s1">the interpreter really does create a string object, it is simply an unused expression.
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span></code></pre></div><p>Because it is a string rather than a comment, dropping triple quotes into the middle of code breaks the syntax and often raises an error. <strong>The correct habit is to use <code>#</code> for comments.</strong></p>
+<h3 id="source-encoding">
+<a class="header-anchor" href="#source-encoding"></a>
+Source encoding
+</h3><ul>
+<li>Python 3 source files are UTF-8 by default, so <strong>you normally do not need</strong> an encoding declaration.</li>
+<li>Only Python 2 required a header line, which is now essentially obsolete:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># -*- coding: UTF-8 -*-</span>
+</span></span></code></pre></div><h3 id="identifiers">
+<a class="header-anchor" href="#identifiers"></a>
+Identifiers
+</h3><ul>
+<li>Composed of letters, digits, and underscores, <strong>cannot start with a digit</strong>, and are case-sensitive.</li>
+<li>Python 3 permits non-ASCII (including Chinese) names, but this is discouraged.</li>
+<li>Underscore conventions:
+<ul>
+<li><code>_name</code>: single leading underscore, meaning &ldquo;internal use&rdquo;; <code>from module import *</code> will not import it.</li>
+<li><code>__age</code>: double leading underscore, triggering name mangling to avoid clashes in subclasses.</li>
+<li><code>__init__</code>: leading and trailing double underscores mark a built-in special method; do not invent such names yourself.</li>
+</ul>
+</li>
+</ul>
+
+        
+        <hr><p>Published on 2023-06-27 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2026-10-05</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> Python Basics</p>
+
+<p><strong>Published: </strong> 2023-06-27</p>
+<p><strong>Updated: </strong> 2026-10-05</p>
 <p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
 </div>
 ]]></description><category>Code</category></item></channel></rss>

@@ -1,4 +1,1573 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/zh-cn/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Fri, 18 Sep 2026 20:00:00 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/zh-cn/index.xml" rel="self" type="application/rss+xml"/><item><title>给博客做了个新主题——Ruri 开发记录</title><link>https://www.guzhengsvt.cn/zh-cn/post/code/ruri-theme-development/</link><pubDate>Fri, 18 Sep 2026 20:00:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-cn/post/code/ruri-theme-development/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/zh-cn/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Mon, 05 Oct 2026 20:30:00 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/zh-cn/index.xml" rel="self" type="application/rss+xml"/><item><title>数据结构实验笔记</title><link>https://www.guzhengsvt.cn/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 12 Dec 2023 14:31:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</guid><description>
+<![CDATA[<h1>数据结构实验笔记</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <p>本文合并了原先的八篇数据结构上机实验报告，去掉了重复的套话和完整源码，只保留每个实验的<strong>核心思路、关键数据结构和算法要点</strong>，作为复习提纲使用。代码片段为 C++。</p>
+<h2 id="一递归与栈斐波那契数列">
+<a class="header-anchor" href="#%e4%b8%80%e9%80%92%e5%bd%92%e4%b8%8e%e6%a0%88%e6%96%90%e6%b3%a2%e9%82%a3%e5%a5%91%e6%95%b0%e5%88%97"></a>
+一、递归与栈：斐波那契数列
+</h2><h3 id="问题">
+<a class="header-anchor" href="#%e9%97%ae%e9%a2%98"></a>
+问题
+</h3><p>用递归求第 $n$ 个 Fibonacci 数。</p>
+<h3 id="递归与栈的关系">
+<a class="header-anchor" href="#%e9%80%92%e5%bd%92%e4%b8%8e%e6%a0%88%e7%9a%84%e5%85%b3%e7%b3%bb"></a>
+递归与栈的关系
+</h3><p>递归能不能正确返回，取决于两件事：<strong>参数如何传递</strong>、<strong>返回到哪里</strong>。以 <code>Fib(5)</code> 为例：</p>
+<ol>
+<li>每递归一层，都要给该层的形参重新分配空间；</li>
+<li>还要把&quot;本次调用结束后该回到哪一行&quot;这个返回地址保存下来。</li>
+</ol>
+<p>这两样东西合起来构成一条<strong>工作记录</strong>（活动记录），由系统压入<strong>函数调用栈</strong>。调用时压栈，返回时从栈顶弹出，于是就能准确回到上一层。</p>
+<p>以 <code>Fib(3) = Fib(2) + Fib(1)</code> 为例，调用链是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Fib(3)
+</span></span><span class="line"><span class="cl">├── Fib(2)
+</span></span><span class="line"><span class="cl">│   ├── Fib(1) → 返回 1
+</span></span><span class="line"><span class="cl">│   └── Fib(0) → 返回 0
+</span></span><span class="line"><span class="cl">│   得 1
+</span></span><span class="line"><span class="cl">└── Fib(1) → 返回 1
+</span></span><span class="line"><span class="cl">得 2
+</span></span></code></pre></div><h3 id="算法">
+<a class="header-anchor" href="#%e7%ae%97%e6%b3%95"></a>
+算法
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">Fib</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote>
+<p>这版递归每次都会重复计算大量子问题，时间复杂度是指数级的 $O(2^n)$。要高效求解应改用递推或记忆化，$O(n)$ 即可。递归版本的价值在于演示栈的工作过程。</p>
+</blockquote>
+<h2 id="二划分子集问题">
+<a class="header-anchor" href="#%e4%ba%8c%e5%88%92%e5%88%86%e5%ad%90%e9%9b%86%e9%97%ae%e9%a2%98"></a>
+二、划分子集问题
+</h2><h3 id="问题-1">
+<a class="header-anchor" href="#%e9%97%ae%e9%a2%98-1"></a>
+问题
+</h3><p>把集合划分为若干<strong>互不相交的</strong>子集，使得同一子集内的元素两两无冲突，并且子集数量尽量少。（典型应用：排课、日程安排。）</p>
+<h3 id="算法循环筛选法">
+<a class="header-anchor" href="#%e7%ae%97%e6%b3%95%e5%be%aa%e7%8e%af%e7%ad%9b%e9%80%89%e6%b3%95"></a>
+算法：循环筛选法
+</h3><ol>
+<li>先用一个<strong>二维数组</strong>（冲突矩阵）描述冲突关系：$conflict[i][j] = 1$ 表示 $i$ 与 $j$ 冲突，$0$ 表示不冲突。</li>
+<li>从第一个未分组元素开始，把它放入当前组。</li>
+<li>依次检查其余未分组元素：如果它与<strong>当前组里的每一个元素都不冲突</strong>，就并入当前组；否则跳过，留给下一轮。</li>
+<li>一轮扫描结束后，若还有元素未分组，就开一个新组，重复第 2 步，直到所有元素都分完。</li>
+</ol>
+<h3 id="数据结构">
+<a class="header-anchor" href="#%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84"></a>
+数据结构
+</h3><p>用<strong>循环队列</strong>存放待处理元素。每扫描一轮，元素在队列中轮转一圈，不需要额外开辟存储空间。</p>
+<h3 id="要点">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9"></a>
+要点
+</h3><ul>
+<li>判断&quot;能否并入当前组&quot;必须和组里<strong>所有</strong>已有元素都比较，只看其中一个会出错。</li>
+<li>这是贪心策略——能压进当前组就压，因此得到的是<strong>较优解</strong>而非严格最优解。</li>
+</ul>
+<h2 id="三稀疏矩阵乘法">
+<a class="header-anchor" href="#%e4%b8%89%e7%a8%80%e7%96%8f%e7%9f%a9%e9%98%b5%e4%b9%98%e6%b3%95"></a>
+三、稀疏矩阵乘法
+</h2><h3 id="问题-2">
+<a class="header-anchor" href="#%e9%97%ae%e9%a2%98-2"></a>
+问题
+</h3><p>矩阵中非零元素很少时，用完整的二维数组存储会浪费大量空间，改用<strong>三元组</strong>只存非零元素，并实现两个稀疏矩阵的乘法。</p>
+<h3 id="数据结构-1">
+<a class="header-anchor" href="#%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84-1"></a>
+数据结构
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>          <span class="c1">// 一个非零元素
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>          <span class="c1">// 行号、列号
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>          <span class="c1">// 元素值
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Matrix</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>          <span class="c1">// 总行数、总列数
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">L</span><span class="p">;</span>             <span class="c1">// 非零元素个数
+</span></span></span><span class="line"><span class="cl">    <span class="n">Node</span><span class="o">*</span> <span class="n">Ma</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>     <span class="c1">// 非零元素数组
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h3 id="算法-1">
+<a class="header-anchor" href="#%e7%ae%97%e6%b3%95-1"></a>
+算法
+</h3><p>按定义 $C_{ij} = \sum_k A_{ik} \cdot B_{kj}$，但只累加<strong>两边都非零</strong>的项：</p>
+<ol>
+<li>遍历 $A$ 的每一个非零元素 $(i, k, a)$；</li>
+<li>在 $B$ 中寻找行号等于 $k$ 的非零元素 $(k, j, b)$；</li>
+<li>把 $a \times b$ 累加到结果矩阵的 $(i, j)$ 位置。</li>
+</ol>
+<p>结果矩阵的非零元素动态生成，若累加后为 0 则不存入。</p>
+<h3 id="要点-1">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-1"></a>
+要点
+</h3><ul>
+<li>比朴素三重循环快得多，因为跳过了大量零元素相乘。</li>
+<li>想进一步提速，可以给三元组表加<strong>行索引</strong>（行逻辑链接顺序表），使第 2 步不必每次从头扫描 $B$。</li>
+<li>必须校验：$A$ 的列数是否等于 $B$ 的行数，以及输入的行列下标是否越界。</li>
+</ul>
+<h2 id="四kmp-字符串匹配">
+<a class="header-anchor" href="#%e5%9b%9bkmp-%e5%ad%97%e7%ac%a6%e4%b8%b2%e5%8c%b9%e9%85%8d"></a>
+四、KMP 字符串匹配
+</h2><h3 id="问题-3">
+<a class="header-anchor" href="#%e9%97%ae%e9%a2%98-3"></a>
+问题
+</h3><p>在文本串中查找模式串首次出现的位置。朴素匹配在失配时把模式串整体右移一位、文本指针回退，最坏情况是 $O(nm)$；KMP 把它优化到 $O(n+m)$。</p>
+<h3 id="核心lps-数组">
+<a class="header-anchor" href="#%e6%a0%b8%e5%bf%83lps-%e6%95%b0%e7%bb%84"></a>
+核心：LPS 数组
+</h3><p>LPS（Longest Prefix Suffix）记录模式串<strong>每个位置之前</strong>的子串中，&ldquo;最长且相等的前缀和后缀&quot;的长度。它告诉我们在失配时<strong>模式串可以安全地向右滑动多少</strong>，从而不必回退文本指针。</p>
+<p>以模式串 <code>ABABCABAB</code> 为例，其 LPS 数组为：</p>
+<table>
+	<thead>
+			<tr>
+					<th>下标</th>
+					<th>0</th>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+					<th>5</th>
+					<th>6</th>
+					<th>7</th>
+					<th>8</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>字符</td>
+					<td>A</td>
+					<td>B</td>
+					<td>A</td>
+					<td>B</td>
+					<td>C</td>
+					<td>A</td>
+					<td>B</td>
+					<td>A</td>
+					<td>B</td>
+			</tr>
+			<tr>
+					<td>LPS</td>
+					<td>0</td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="算法-2">
+<a class="header-anchor" href="#%e7%ae%97%e6%b3%95-2"></a>
+算法
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 构造 LPS 数组
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">computeLPS</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">pat</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">lps</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>          <span class="c1">// 当前最长前后缀匹配长度
+</span></span></span><span class="line"><span class="cl">    <span class="n">lps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">pat</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">pat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">pat</span><span class="p">[</span><span class="n">len</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">lps</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="o">++</span><span class="n">len</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">len</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">len</span> <span class="o">=</span> <span class="n">lps</span><span class="p">[</span><span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>   <span class="c1">// 回退到次长前后缀，继续比较
+</span></span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">lps</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 在 text 中查找 pat
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">KMPSearch</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">text</span><span class="p">,</span> <span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">pat</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">pat</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">n</span> <span class="o">=</span> <span class="n">text</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">lps</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">computeLPS</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">lps</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>          <span class="c1">// i 走文本，j 走模式串
+</span></span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">pat</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span> <span class="n">i</span><span class="o">++</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;在索引 &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">-</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; 处找到匹配串&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">j</span> <span class="o">=</span> <span class="n">lps</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>    <span class="c1">// 继续找下一次匹配
+</span></span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">pat</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">j</span> <span class="o">=</span> <span class="n">lps</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span>        <span class="n">i</span><span class="o">++</span><span class="p">;</span>   <span class="c1">// j 已为 0，无法再回退，只能让文本指针前进
+</span></span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要点-2">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-2"></a>
+要点
+</h3><ul>
+<li><strong>文本指针 <code>i</code> 永不回退</strong>，这是 KMP 效率的来源。</li>
+<li>失配时利用 <code>lps[j-1]</code> 回退模式指针，而不是把 <code>j</code> 清零。</li>
+<li>算 <code>lps</code> 的那段代码自身也是&quot;模式串匹配自己&rdquo;，思路与主循环一致。</li>
+<li>示例：文本 <code>ABABDABACDABABCABAB</code>，模式 <code>ABABCABAB</code>，匹配位置为索引 10。</li>
+</ul>
+<h2 id="五二叉树的存储与遍历">
+<a class="header-anchor" href="#%e4%ba%94%e4%ba%8c%e5%8f%89%e6%a0%91%e7%9a%84%e5%ad%98%e5%82%a8%e4%b8%8e%e9%81%8d%e5%8e%86"></a>
+五、二叉树的存储与遍历
+</h2><h3 id="问题-4">
+<a class="header-anchor" href="#%e9%97%ae%e9%a2%98-4"></a>
+问题
+</h3><p>给定一串按**层序（BFS 顺序）**输入的字符，&rsquo;@&rsquo; 表示空节点，构建二叉树；再分别实现顺序存储与链式存储下的遍历。</p>
+<h3 id="两种存储方式">
+<a class="header-anchor" href="#%e4%b8%a4%e7%a7%8d%e5%ad%98%e5%82%a8%e6%96%b9%e5%bc%8f"></a>
+两种存储方式
+</h3><p><strong>顺序存储</strong>：用数组按下标存放，父子关系由下标算出：</p>
+<ul>
+<li>父节点下标为 $i$ → 左孩子 $2i+1$，右孩子 $2i+2$；</li>
+<li>反过来：节点 $i$ 的父节点是 $\lfloor (i-1)/2 \rfloor$。</li>
+</ul>
+<p>适合<strong>完全二叉树</strong>；节点稀疏时会浪费大量数组空间。</p>
+<p><strong>链式存储</strong>：用结构体加指针，用<strong>队列</strong>辅助构建。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">TreeNode</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>构建流程：根节点入队 → 每从队头取出一个节点，就依次为它挂上左、右孩子（输入为 &lsquo;@&rsquo; 则该侧为空），并把新孩子入队。想改成按前序输入构建，只需把队列换成栈。</p>
+<h3 id="三种深度优先遍历">
+<a class="header-anchor" href="#%e4%b8%89%e7%a7%8d%e6%b7%b1%e5%ba%a6%e4%bc%98%e5%85%88%e9%81%8d%e5%8e%86"></a>
+三种深度优先遍历
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">preOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>          <span class="c1">// 前序：根 → 左 → 右
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">preOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">preOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">inOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>           <span class="c1">// 中序：左 → 根 → 右
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">postOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>         <span class="c1">// 后序：左 → 右 → 根
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">postOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">postOrder</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="广度优先遍历">
+<a class="header-anchor" href="#%e5%b9%bf%e5%ba%a6%e4%bc%98%e5%85%88%e9%81%8d%e5%8e%86"></a>
+广度优先遍历
+</h3><p>用队列从根开始逐层处理：访问一个节点时把它的左右孩子依次入队。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">levelOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">q</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span> <span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">visit</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span>  <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="完整示例">
+<a class="header-anchor" href="#%e5%ae%8c%e6%95%b4%e7%a4%ba%e4%be%8b"></a>
+完整示例
+</h3><p>输入 <code>abc@def@@@@</code>（层序，&rsquo;@&rsquo; 为空），对应的二叉树是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">        a
+</span></span><span class="line"><span class="cl">      /   \
+</span></span><span class="line"><span class="cl">     b     c
+</span></span><span class="line"><span class="cl">    / \   / \
+</span></span><span class="line"><span class="cl">   @   d e   f
+</span></span><span class="line"><span class="cl">      / \ / \ / \
+</span></span><span class="line"><span class="cl">     @  @ @ @ @  @
+</span></span></code></pre></div><table>
+	<thead>
+			<tr>
+					<th>遍历</th>
+					<th>结果</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>前序（根左右）</td>
+					<td><code>a b d c e f</code></td>
+			</tr>
+			<tr>
+					<td>中序（左根右）</td>
+					<td><code>b d a e c f</code></td>
+			</tr>
+			<tr>
+					<td>后序（左右根）</td>
+					<td><code>d b e f c a</code></td>
+			</tr>
+			<tr>
+					<td>层序（BFS）</td>
+					<td><code>a b c d e f</code></td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p>顺序存储下中序遍历的起点要仔细处理：前序可以从下标 0 起步，但<strong>中序必须从整棵树最左下的节点开始</strong>，否则会漏掉左子树的左半边。</p>
+</blockquote>
+<h3 id="由遍历序列反推二叉树">
+<a class="header-anchor" href="#%e7%94%b1%e9%81%8d%e5%8e%86%e5%ba%8f%e5%88%97%e5%8f%8d%e6%8e%a8%e4%ba%8c%e5%8f%89%e6%a0%91"></a>
+由遍历序列反推二叉树
+</h3><ul>
+<li>前序 + 中序、后序 + 中序、层序 + 中序，都可以唯一确定一棵二叉树。</li>
+<li>但<strong>前序 + 后序不行</strong>，无法区分只有一个孩子时它挂在左边还是右边。</li>
+</ul>
+<h2 id="六哈夫曼树与编码">
+<a class="header-anchor" href="#%e5%85%ad%e5%93%88%e5%a4%ab%e6%9b%bc%e6%a0%91%e4%b8%8e%e7%bc%96%e7%a0%81"></a>
+六、哈夫曼树与编码
+</h2><h3 id="问题-5">
+<a class="header-anchor" href="#%e9%97%ae%e9%a2%98-5"></a>
+问题
+</h3><p>对字符按出现频率编码，使编码后的总长度最短，并且任意编码都不是另一个编码的前缀（前缀码，保证能唯一译码）。</p>
+<h3 id="算法-3">
+<a class="header-anchor" href="#%e7%ae%97%e6%b3%95-3"></a>
+算法
+</h3><ol>
+<li>统计每个字符的出现频率。</li>
+<li>每个字符建一个叶子节点，全部放入<strong>最小堆</strong>。</li>
+<li>循环：取出频率最小的两个节点，合并为一个新节点（频率为两者之和），把新节点放回堆中。</li>
+<li>堆中只剩一个节点时，它就是哈夫曼树的根。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="n">minHeap</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">left</span>  <span class="o">=</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">right</span> <span class="o">=</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">minHeap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">parent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HuffmanNode</span><span class="p">(</span><span class="sc">&#39;$&#39;</span><span class="p">,</span> <span class="n">left</span><span class="o">-&gt;</span><span class="n">frequency</span> <span class="o">+</span> <span class="n">right</span><span class="o">-&gt;</span><span class="n">frequency</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parent</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parent</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">minHeap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">parent</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="生成编码与译码">
+<a class="header-anchor" href="#%e7%94%9f%e6%88%90%e7%bc%96%e7%a0%81%e4%b8%8e%e8%af%91%e7%a0%81"></a>
+生成编码与译码
+</h3><ul>
+<li><strong>生成编码</strong>：从根出发递归遍历，往左走记 <code>0</code>，往右走记 <code>1</code>，走到叶子节点时把当前路径串记为该字符的编码。</li>
+<li><strong>编码</strong>：把原文每个字符替换成它的编码串。</li>
+<li><strong>译码</strong>：从根出发，遇到 <code>0</code> 走左、遇到 <code>1</code> 走右，走到叶子就输出该字符并回到根重新开始。</li>
+</ul>
+<h3 id="要点-3">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-3"></a>
+要点
+</h3><ul>
+<li>频率越高的字符离根越近，编码越短——这就是压缩的原理。</li>
+<li>因为编码都在叶子节点上，所以不存在&quot;某个编码是另一个前缀&quot;的情况，译码不会歧义。</li>
+<li>用<strong>最小堆</strong>而不是反复排序，可以把构建复杂度降到 $O(n \log n)$。</li>
+<li>出现频率相同的字符，谁先谁后不影响编码长度，只影响具体分配到的 0/1 串。</li>
+</ul>
+<h2 id="七排序二叉树与节点删除">
+<a class="header-anchor" href="#%e4%b8%83%e6%8e%92%e5%ba%8f%e4%ba%8c%e5%8f%89%e6%a0%91%e4%b8%8e%e8%8a%82%e7%82%b9%e5%88%a0%e9%99%a4"></a>
+七、排序二叉树与节点删除
+</h2><h3 id="问题-6">
+<a class="header-anchor" href="#%e9%97%ae%e9%a2%98-6"></a>
+问题
+</h3><p>构建一棵排序二叉树（BST），支持插入、中序遍历和删除节点。</p>
+<h3 id="插入">
+<a class="header-anchor" href="#%e6%8f%92%e5%85%a5"></a>
+插入
+</h3><p>递归比较：待插值小于当前节点就往左走，大于就往右走；走到空位就新建节点挂上。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">insert</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>      <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span>  <span class="o">=</span> <span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span>  <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&gt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>   <span class="c1">// 相等时不插入，避免重复
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="中序遍历">
+<a class="header-anchor" href="#%e4%b8%ad%e5%ba%8f%e9%81%8d%e5%8e%86"></a>
+中序遍历
+</h3><p>中序遍历 BST 会得到<strong>递增序列</strong>，这是检验 BST 是否构建正确最直接的办法。</p>
+<h3 id="删除节点">
+<a class="header-anchor" href="#%e5%88%a0%e9%99%a4%e8%8a%82%e7%82%b9"></a>
+删除节点
+</h3><p>删除是最容易写错的一步，分三种情况：</p>
+<table>
+	<thead>
+			<tr>
+					<th>情况</th>
+					<th>处理方式</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>叶子节点（无孩子）</td>
+					<td>直接删除</td>
+			</tr>
+			<tr>
+					<td>只有一个孩子</td>
+					<td>用这个孩子顶替自己的位置</td>
+			</tr>
+			<tr>
+					<td>有两个孩子</td>
+					<td>用<strong>右子树中的最小节点</strong>（中序后继）替换自己的值，再递归删除那个后继节点</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">remove</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>      <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span>  <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span>  <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&gt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span>  <span class="p">{</span> <span class="k">auto</span> <span class="n">t</span> <span class="o">=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span> <span class="k">delete</span> <span class="n">root</span><span class="p">;</span> <span class="k">return</span> <span class="n">t</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="p">{</span> <span class="k">auto</span> <span class="n">t</span> <span class="o">=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>  <span class="k">delete</span> <span class="n">root</span><span class="p">;</span> <span class="k">return</span> <span class="n">t</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 两个孩子：找右子树最小节点
+</span></span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">succ</span> <span class="o">=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">succ</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="n">succ</span> <span class="o">=</span> <span class="n">succ</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span>  <span class="o">=</span> <span class="n">succ</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">succ</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote>
+<p>也可以用<strong>左子树的最大节点</strong>（中序前驱）来替换，效果等价。</p>
+</blockquote>
+<h3 id="删除整棵树">
+<a class="header-anchor" href="#%e5%88%a0%e9%99%a4%e6%95%b4%e6%a3%b5%e6%a0%91"></a>
+删除整棵树
+</h3><p>后序遍历每个节点依次释放，不能先释放父节点再找孩子。</p>
+<h2 id="八二叉树线索化">
+<a class="header-anchor" href="#%e5%85%ab%e4%ba%8c%e5%8f%89%e6%a0%91%e7%ba%bf%e7%b4%a2%e5%8c%96"></a>
+八、二叉树线索化
+</h2><h3 id="问题-7">
+<a class="header-anchor" href="#%e9%97%ae%e9%a2%98-7"></a>
+问题
+</h3><p>$n$ 个节点的二叉树共有 $2n$ 个指针域，其中实际使用的只有 $n-1$ 条边，剩下 $n+1$ 个是空指针，浪费明显。<strong>线索化</strong>就是用这些空指针存放遍历次序下的<strong>前驱/后继</strong>，让遍历不必再依赖栈或递归。</p>
+<h3 id="数据结构-2">
+<a class="header-anchor" href="#%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84-2"></a>
+数据结构
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Node</span> <span class="o">*</span><span class="n">left</span><span class="p">,</span> <span class="o">*</span><span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">ltag</span><span class="p">,</span> <span class="n">rtag</span><span class="p">;</span>   <span class="c1">// 0 表示指向孩子，1 表示是线索（指向前驱/后继）
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h3 id="算法以中序线索化为例">
+<a class="header-anchor" href="#%e7%ae%97%e6%b3%95%e4%bb%a5%e4%b8%ad%e5%ba%8f%e7%ba%bf%e7%b4%a2%e5%8c%96%e4%b8%ba%e4%be%8b"></a>
+算法（以中序线索化为例）
+</h3><p>用递归中序遍历，同时维护一个全局的 <code>pre</code> 指针记录上一个访问的节点：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Node</span><span class="o">*</span> <span class="n">pre</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">thread</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">thread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>              <span class="c1">// 先处理左子树
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="p">{</span>               <span class="c1">// 左孩子为空，左指针改指向前驱
+</span></span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">-&gt;</span><span class="n">ltag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">pre</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">pre</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="p">{</span>     <span class="c1">// 前驱的右孩子为空，右指针改指向后继
+</span></span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">rtag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">pre</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>                      <span class="c1">// 更新前驱
+</span></span></span><span class="line"><span class="cl">    <span class="kr">thread</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>             <span class="c1">// 再处理右子树
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要点-4">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-4"></a>
+要点
+</h3><ul>
+<li><code>left</code> / <code>right</code> 指针的语义是<strong>双重</strong>的，必须靠 <code>ltag</code> / <code>rtag</code> 区分，否则会把线索当成孩子指针用，导致死循环。</li>
+<li>中序线索化要<strong>先递归左子树</strong>，再处理当前节点，最后递归右子树；<code>pre = p</code> 的位置决定了线索指向谁。</li>
+<li>前序、后序线索化的思路相同，区别在于<strong>处理当前节点的时机</strong>与 <code>pre</code> 的更新顺序。</li>
+<li>线索化后的树可以用空间 $O(1)$ 完成遍历，不需要栈，也不必递归。</li>
+</ul>
+<h2 id="九图的存储邻接矩阵与邻接表">
+<a class="header-anchor" href="#%e4%b9%9d%e5%9b%be%e7%9a%84%e5%ad%98%e5%82%a8%e9%82%bb%e6%8e%a5%e7%9f%a9%e9%98%b5%e4%b8%8e%e9%82%bb%e6%8e%a5%e8%a1%a8"></a>
+九、图的存储：邻接矩阵与邻接表
+</h2><h3 id="邻接矩阵">
+<a class="header-anchor" href="#%e9%82%bb%e6%8e%a5%e7%9f%a9%e9%98%b5"></a>
+邻接矩阵
+</h3><p>用二维数组 <code>adj[V][V]</code> 存边：<code>adj[i][j] = 1</code>（或边的权重）表示 $i \to j$ 有边。</p>
+<ul>
+<li>优点：判断两点间是否有边是 $O(1)$；实现简单。</li>
+<li>缺点：空间固定为 $O(V^2)$，<strong>稀疏图浪费严重</strong>；遍历某点的所有邻居要扫描一整行，$O(V)$。</li>
+<li>无向图的矩阵沿主对角线对称。</li>
+</ul>
+<h3 id="邻接表">
+<a class="header-anchor" href="#%e9%82%bb%e6%8e%a5%e8%a1%a8"></a>
+邻接表
+</h3><p>用「数组 + 链表」：<code>adj[i]</code> 存放所有与节点 $i$ 相邻的节点。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">adj</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>          <span class="c1">// 每个元素是一个链表/动态数组
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">addEdge</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>       <span class="c1">// 无向图要加反向边
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>优点：空间 $O(V + E)$，稀疏图友好；遍历某点的邻居只访问真实存在的边。</li>
+<li>缺点：判断两点间是否有边要遍历链表，最坏 $O(V)$。</li>
+<li>有向图中，<code>adj[u]</code> 存的是 $u$ 的出边；求入度需要额外遍历或另建<strong>逆邻接表</strong>。</li>
+</ul>
+<h3 id="怎么选">
+<a class="header-anchor" href="#%e6%80%8e%e4%b9%88%e9%80%89"></a>
+怎么选
+</h3><table>
+	<thead>
+			<tr>
+					<th>场景</th>
+					<th>选择</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>稠密图、需要频繁查询两点是否相邻</td>
+					<td>邻接矩阵</td>
+			</tr>
+			<tr>
+					<td>稀疏图、需要频繁遍历某点的所有邻居</td>
+					<td>邻接表</td>
+			</tr>
+			<tr>
+					<td>点数极大（如 $10^5$）</td>
+					<td>邻接表（矩阵根本开不下）</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="建图时的检查">
+<a class="header-anchor" href="#%e5%bb%ba%e5%9b%be%e6%97%b6%e7%9a%84%e6%a3%80%e6%9f%a5"></a>
+建图时的检查
+</h3><p>读入边 $(u, v)$ 后要校验 $0 \le u, v < V$，避免越界；无权图的两点间不应重复加边，否则会影响遍历与度数统计。</p>
+<h2 id="十kruskal-与最小生成树">
+<a class="header-anchor" href="#%e5%8d%81kruskal-%e4%b8%8e%e6%9c%80%e5%b0%8f%e7%94%9f%e6%88%90%e6%a0%91"></a>
+十、Kruskal 与最小生成树
+</h2><h3 id="问题-8">
+<a class="header-anchor" href="#%e9%97%ae%e9%a2%98-8"></a>
+问题
+</h3><p>在带权连通无向图中找一棵<strong>总权重最小</strong>的生成树。</p>
+<h3 id="算法贪心">
+<a class="header-anchor" href="#%e7%ae%97%e6%b3%95%e8%b4%aa%e5%bf%83"></a>
+算法（贪心）
+</h3><ol>
+<li>把所有边按权重<strong>升序排序</strong>。</li>
+<li>依次考察每条边：如果它的两个端点还<strong>不在同一个集合</strong>中，就把它加入生成树，并合并这两个集合；否则说明会形成环，直接丢弃。</li>
+<li>选够 $V-1$ 条边时结束。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">sort</span><span class="p">(</span><span class="n">edges</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">edges</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">     <span class="p">[](</span><span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">weight</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">weight</span><span class="p">;</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">UnionFind</span> <span class="nf">uf</span><span class="p">(</span><span class="n">numNodes</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="n">Edge</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">Edge</span><span class="o">&amp;</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">edges</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">uf</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">start</span><span class="p">)</span> <span class="o">!=</span> <span class="n">uf</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">end</span><span class="p">))</span> <span class="p">{</span>   <span class="c1">// 不连通 → 加入不会成环
+</span></span></span><span class="line"><span class="cl">        <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">uf</span><span class="p">.</span><span class="n">unite</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">start</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">end</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="并查集union-find">
+<a class="header-anchor" href="#%e5%b9%b6%e6%9f%a5%e9%9b%86union-find"></a>
+并查集（Union-Find）
+</h3><p>Kruskal 的效率关键在&quot;判断两个点是否已连通&quot;，这正是并查集的强项。它支持两种操作：</p>
+<ul>
+<li><strong>Find(x)</strong>：找到 $x$ 所在集合的根节点，顺带判断两点是否同集合。</li>
+<li><strong>Union(a, b)</strong>：把两个集合合并。</li>
+</ul>
+<p>两种优化配合使用可让均摊复杂度接近常数：</p>
+<table>
+	<thead>
+			<tr>
+					<th>优化</th>
+					<th>做法</th>
+					<th>效果</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>路径压缩</td>
+					<td>Find 时把路径上所有节点直接挂到根上</td>
+					<td>大幅降低树高</td>
+			</tr>
+			<tr>
+					<td>按秩合并</td>
+					<td>把矮树挂到高树下面</td>
+					<td>避免树长歪</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">find</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">!=</span> <span class="n">x</span><span class="p">)</span> <span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>   <span class="c1">// 路径压缩
+</span></span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">unite</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="n">b</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">rank</span><span class="p">[</span><span class="n">b</span><span class="p">])</span> <span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>   <span class="c1">// 按秩合并
+</span></span></span><span class="line"><span class="cl">    <span class="n">parent</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">==</span> <span class="n">rank</span><span class="p">[</span><span class="n">b</span><span class="p">])</span> <span class="n">rank</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要点-5">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-5"></a>
+要点
+</h3><ul>
+<li>时间复杂度 $O(E \log E)$，主要花在排序上。</li>
+<li><strong>适合稀疏图</strong>。稠密图通常用 Prim 算法（$O(V^2)$ 或配堆的 $O(E \log V)$）更快。</li>
+<li>边的排序、并查集的判环，是 Kruskal 的两个核心动作。</li>
+</ul>
+<h2 id="十一dijkstra-与单源最短路径">
+<a class="header-anchor" href="#%e5%8d%81%e4%b8%80dijkstra-%e4%b8%8e%e5%8d%95%e6%ba%90%e6%9c%80%e7%9f%ad%e8%b7%af%e5%be%84"></a>
+十一、Dijkstra 与单源最短路径
+</h2><h3 id="问题-9">
+<a class="header-anchor" href="#%e9%97%ae%e9%a2%98-9"></a>
+问题
+</h3><p>给定带权图和起点 $s$，求 $s$ 到其余所有顶点的最短距离。</p>
+<h3 id="算法贪心--优先队列">
+<a class="header-anchor" href="#%e7%ae%97%e6%b3%95%e8%b4%aa%e5%bf%83--%e4%bc%98%e5%85%88%e9%98%9f%e5%88%97"></a>
+算法（贪心 + 优先队列）
+</h3><ol>
+<li>把起点距离设为 0，其余全部设为无穷大。</li>
+<li>把 <code>(距离, 顶点)</code> 放入<strong>优先队列</strong>，每次取出距离最小的顶点 $u$——它的最短距离此刻已经确定。</li>
+<li>松弛：对 $u$ 的每个邻居 $v$，若 $dist[u] + w(u,v) < dist[v]$ 则更新 $dist[v]$，并把新的 <code>(dist[v], v)</code> 入队。</li>
+<li>重复 2–3，直到队列为空。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dijkstra</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">g</span><span class="p">,</span> <span class="kt">int</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">g</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">INF</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 小顶堆：队首是距离最小的元素
+</span></span></span><span class="line"><span class="cl">    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;&gt;&gt;</span> <span class="n">pq</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">dist</span><span class="p">[</span><span class="n">src</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="mi">0</span><span class="p">,</span> <span class="n">src</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">pq</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">auto</span> <span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">pq</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">])</span> <span class="k">continue</span><span class="p">;</span>        <span class="c1">// 过期条目，跳过
+</span></span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">v</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>   <span class="c1">// 0 表示无直接连接
+</span></span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">v</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">dist</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要点-6">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-6"></a>
+要点
+</h3><ul>
+<li><strong>不能处理负权边</strong>。Dijkstra 的正确性依赖&quot;已取出的点距离不会再变小&quot;，负权边会打破这个前提；含负权时改用 Bellman-Ford 或 SPFA。</li>
+<li>用邻接矩阵表示图时，内层遍历是 $O(V)$，总复杂度 $O(V^2)$；换成邻接表配优先队列可降到 $O(E \log V)$。</li>
+<li>同一个点可能被多次入队，所以出队时要判断 <code>d &gt; dist[u]</code> 跳过过期条目。</li>
+<li>用 <code>0</code> 表示&quot;无边&quot;是一种约定；若图中允许权重为 0 的边，需要另设标记或改用邻接表。</li>
+</ul>
+<h2 id="十二关键路径">
+<a class="header-anchor" href="#%e5%8d%81%e4%ba%8c%e5%85%b3%e9%94%ae%e8%b7%af%e5%be%84"></a>
+十二、关键路径
+</h2><h3 id="问题-10">
+<a class="header-anchor" href="#%e9%97%ae%e9%a2%98-10"></a>
+问题
+</h3><p>在 AON（活动在顶点上）网络中，每个节点表示一个活动、带有持续时间和先后依赖，找出决定项目<strong>总工期</strong>的关键活动序列。</p>
+<ul>
+<li><strong>最早开始时间 ES</strong>：该活动最早能什么时候开工。</li>
+<li><strong>最晚开始时间 LS</strong>：在不拖延总工期的前提下，最晚必须什么时候开工。</li>
+<li><strong>时间余量</strong>：$LS - ES$。余量为 0 的活动就是<strong>关键活动</strong>，它们连起来构成关键路径。</li>
+</ul>
+<h3 id="正向计算-es">
+<a class="header-anchor" href="#%e6%ad%a3%e5%90%91%e8%ae%a1%e7%ae%97-es"></a>
+正向计算 ES
+</h3><p>按<strong>拓扑序</strong>从头事件往后推：</p>
+$$ES[v] = \max_{u \in pred(v)} \big( ES[u] + duration[u] \big)$$<p>没有前置活动的头事件 $ES = 0$。项目总工期 $T = \max_v (ES[v] + duration[v])$。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">calcEarliest</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 必须先按拓扑序处理，否则前驱的 ES 还没算好
+</span></span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">u</span> <span class="p">:</span> <span class="n">topoOrder</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">earliest</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">earliest</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">earliest</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">duration</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="反向计算-ls">
+<a class="header-anchor" href="#%e5%8f%8d%e5%90%91%e8%ae%a1%e7%ae%97-ls"></a>
+反向计算 LS
+</h3><p>按<strong>逆拓扑序</strong>从末事件往回推：</p>
+$$LS[u] = \min_{v \in succ(u)} \big( LS[v] \big) - duration[u]$$<p>没有后继的末事件，$LS = ES = T - duration$。（等价地，令 $LF[\cdot] = T$，则 $LS = LF - duration$，$LF[u] = \min_{v \in succ(u)} LS[v]$。）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">calcLatest</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">u</span> <span class="p">:</span> <span class="n">reverseTopoOrder</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">latest</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">latest</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="n">latest</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">-</span> <span class="n">activities</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">duration</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="要点-7">
+<a class="header-anchor" href="#%e8%a6%81%e7%82%b9-7"></a>
+要点
+</h3><ul>
+<li>两个方向都<strong>必须严格按拓扑序</strong>推进，否则用到的前驱/后继还没算好。</li>
+<li>判断头事件<strong>不能</strong>看&quot;邻接表是否为空&quot;——邻接表为空的是<strong>末事件</strong>（出度为 0）。头事件的判定依据是<strong>入度为 0</strong>，这个方向搞反会导致整个计算失空。</li>
+<li>关键路径可能不止一条，全部 $\text{余量} = 0$ 的活动都要标记出来。</li>
+<li>想要缩短总工期，只能压缩关键活动；压缩非关键活动没有意义。</li>
+</ul>
+<h2 id="小结">
+<a class="header-anchor" href="#%e5%b0%8f%e7%bb%93"></a>
+小结
+</h2><table>
+	<thead>
+			<tr>
+					<th>实验</th>
+					<th>核心数据结构</th>
+					<th>关键点</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Fibonacci</td>
+					<td>函数调用栈</td>
+					<td>递归靠栈保存参数与返回地址</td>
+			</tr>
+			<tr>
+					<td>划分子集</td>
+					<td>冲突矩阵 + 循环队列</td>
+					<td>与组内所有元素比较，贪心分组</td>
+			</tr>
+			<tr>
+					<td>稀疏矩阵乘法</td>
+					<td>三元组表</td>
+					<td>只累加两边都非零的项</td>
+			</tr>
+			<tr>
+					<td>KMP</td>
+					<td>LPS 数组</td>
+					<td>文本指针永不回退</td>
+			</tr>
+			<tr>
+					<td>二叉树</td>
+					<td>数组 / 链式结构</td>
+					<td>顺序存储的父子下标关系；三种 DFS + 一种 BFS</td>
+			</tr>
+			<tr>
+					<td>哈夫曼</td>
+					<td>最小堆</td>
+					<td>每次合并频率最小的两个节点</td>
+			</tr>
+			<tr>
+					<td>排序二叉树</td>
+					<td>二叉链表</td>
+					<td>删除分三种情况；中序得递增序列</td>
+			</tr>
+			<tr>
+					<td>线索化</td>
+					<td>带标记位的二叉链表</td>
+					<td>用 ltag/rtag 区分孩子与线索</td>
+			</tr>
+			<tr>
+					<td>图的存储</td>
+					<td>邻接矩阵 / 邻接表</td>
+					<td>稠密用矩阵，稀疏用表</td>
+			</tr>
+			<tr>
+					<td>Kruskal</td>
+					<td>边集 + 并查集</td>
+					<td>排序取边，判环靠并查集</td>
+			</tr>
+			<tr>
+					<td>Dijkstra</td>
+					<td>优先队列</td>
+					<td>贪心松弛，不支持负权边</td>
+			</tr>
+			<tr>
+					<td>关键路径</td>
+					<td>有向无环图 + 拓扑序</td>
+					<td>正推 ES、反推 LS，余量为 0 即关键</td>
+			</tr>
+	</tbody>
+</table>
+
+        
+        <hr><p>本文2023-12-12首发于<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于2026-10-05</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文标题：</strong> 数据结构实验笔记</p>
+
+<p><strong>本文发布时间：</strong> 2023-12-12</p>
+<p><strong>本文更新时间：</strong> 2026-10-05</p>
+<p><strong>本文版权：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item><item><title>MicroPython函数库</title><link>https://www.guzhengsvt.cn/zh-cn/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link><pubDate>Thu, 15 Feb 2024 11:44:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-cn/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid><description>
+<![CDATA[<h1>MicroPython函数库</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <p>本文整理 MicroPython 的 <code>machine</code> 模块在 Raspberry Pi Pico（RP2040）上的常用接口。内容已对照 <a href="https://docs.micropython.org/en/latest/library/machine.html">MicroPython 官方文档</a> 核对。</p>
+<h2 id="machine与硬件相关的功能">
+<a class="header-anchor" href="#machine%e4%b8%8e%e7%a1%ac%e4%bb%b6%e7%9b%b8%e5%85%b3%e7%9a%84%e5%8a%9f%e8%83%bd"></a>
+machine：与硬件相关的功能
+</h2><p>引脚编号有以下两种：</p>
+<ul>
+<li><strong>GPIO 编号</strong>（GP0–GP29）：代码里最常用，<code>Pin(25)</code> 就是 GP25。</li>
+<li><strong>物理引脚号</strong>：开发板上的 40 个针脚位置，与 GPIO 编号不是一回事，接线时要注意区分。</li>
+</ul>
+<h3 id="pin-类">
+<a class="header-anchor" href="#pin-%e7%b1%bb"></a>
+Pin 类
+</h3><h4 id="构造函数-machinepinid-mode-1-pull-1-valuenone">
+<a class="header-anchor" href="#%e6%9e%84%e9%80%a0%e5%87%bd%e6%95%b0-machinepinid-mode-1-pull-1-valuenone"></a>
+构造函数 <code>machine.Pin(id, mode=-1, pull=-1, value=None)</code>
+</h4><table>
+	<thead>
+			<tr>
+					<th>参数</th>
+					<th>说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>id</code></td>
+					<td>引脚编号。Pico 上可用 0–29（GP0–GP29）</td>
+			</tr>
+			<tr>
+					<td><code>mode</code></td>
+					<td><code>None</code> / <code>Pin.IN</code>(0) / <code>Pin.OUT</code>(1) / <code>Pin.OPEN_DRAIN</code>(2)</td>
+			</tr>
+			<tr>
+					<td><code>pull</code></td>
+					<td>内部上下拉电阻，<strong>仅在输入模式有效</strong>：<code>None</code> / <code>Pin.PULL_UP</code>(1) / <code>Pin.PULL_DOWN</code>(2)</td>
+			</tr>
+			<tr>
+					<td><code>value</code></td>
+					<td>仅输出/开漏模式有效，初始电平：0 低电平，1 高电平</td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p>注意是 <code>Pin.PULL_DOWN</code>，不是 <code>Pin.DOWN</code>。</p>
+</blockquote>
+<h4 id="pininitmode-1-pull-1-valuenone">
+<a class="header-anchor" href="#pininitmode-1-pull-1-valuenone"></a>
+<code>Pin.init(mode=-1, pull=-1, value=None)</code>
+</h4><p>重新初始化引脚。只修改传入的参数，其余状态保持不变。</p>
+<h4 id="pinvaluex">
+<a class="header-anchor" href="#pinvaluex"></a>
+<code>Pin.value([x])</code>
+</h4><ul>
+<li>不传参数：返回当前引脚电平（0 或 1）。</li>
+<li>传参数：写入引脚电平，参数会被转成布尔值（<code>True</code> 置 1，<code>False</code> 置 0）。</li>
+</ul>
+<h4 id="pinon--pinoffpinhigh--pinlow">
+<a class="header-anchor" href="#pinon--pinoffpinhigh--pinlow"></a>
+<code>Pin.on()</code> / <code>Pin.off()</code>、<code>Pin.high()</code> / <code>Pin.low()</code>
+</h4><ul>
+<li><code>on()</code>、<code>high()</code>：输出高电平（置 1）。</li>
+<li><code>off()</code>、<code>low()</code>：输出低电平（置 0）。</li>
+</ul>
+<p>这四个方法仅对输出/开漏模式有意义。<code>low()</code> / <code>high()</code> 属于非核心 API，在 Pico（rp2）上可用。</p>
+<h4 id="pintoggle">
+<a class="header-anchor" href="#pintoggle"></a>
+<code>Pin.toggle()</code>
+</h4><p>翻转输出电平，0 变 1、1 变 0。<code>toggle()</code> 在 rp2、esp32 等端口可用；如果某个端口不支持，用 <code>Pin.value(not Pin.value())</code> 代替。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>   <span class="c1"># Pico 板载 LED 在 GP25</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>        <span class="c1"># 每 1 秒翻转一次</span>
+</span></span></code></pre></div><h4 id="pinirqhandlernone-triggerpinirq_falling--pinirq_rising">
+<a class="header-anchor" href="#pinirqhandlernone-triggerpinirq_falling--pinirq_rising"></a>
+<code>Pin.irq(handler=None, trigger=Pin.IRQ_FALLING | Pin.IRQ_RISING)</code>
+</h4><p>配置外部中断。电平变化时自动调用回调函数。</p>
+<ul>
+<li><code>handler</code>：中断回调函数，<strong>必须接收一个 <code>Pin</code> 参数</strong>。</li>
+<li><code>trigger</code>：触发条件，可用 <code>|</code> 组合：</li>
+</ul>
+<table>
+	<thead>
+			<tr>
+					<th>常量</th>
+					<th>含义</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>Pin.IRQ_FALLING</code></td>
+					<td>下降沿</td>
+			</tr>
+			<tr>
+					<td><code>Pin.IRQ_RISING</code></td>
+					<td>上升沿</td>
+			</tr>
+			<tr>
+					<td><code>Pin.IRQ_LOW_LEVEL</code></td>
+					<td>低电平</td>
+			</tr>
+			<tr>
+					<td><code>Pin.IRQ_HIGH_LEVEL</code></td>
+					<td>高电平</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;按键被按下&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">button</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">button</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">on_press</span><span class="p">,</span> <span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="pwm-类">
+<a class="header-anchor" href="#pwm-%e7%b1%bb"></a>
+PWM 类
+</h3><p>PWM（脉冲宽度调制）通过快速开关来模拟中间的电压值，常用于调光、调速、舵机控制。</p>
+<h4 id="machinepwmpin-freq-duty_u16">
+<a class="header-anchor" href="#machinepwmpin-freq-duty_u16"></a>
+<code>machine.PWM(pin, freq=..., duty_u16=...)</code>
+</h4><p>在指定引脚上创建 PWM 输出，<code>pin</code> 是 <code>Pin</code> 对象。</p>
+<h4 id="常用方法">
+<a class="header-anchor" href="#%e5%b8%b8%e7%94%a8%e6%96%b9%e6%b3%95"></a>
+常用方法
+</h4><table>
+	<thead>
+			<tr>
+					<th>方法</th>
+					<th>作用</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>PWM.freq([value])</code></td>
+					<td>读取/设置频率，单位 Hz，范围约 8 Hz – 62.5 MHz（CPU 125 MHz 时）</td>
+			</tr>
+			<tr>
+					<td><code>PWM.duty_u16([value])</code></td>
+					<td>读取/设置占空比，取值 <strong>0–65535</strong>，代表 <code>value / 65535</code> 的比例</td>
+			</tr>
+			<tr>
+					<td><code>PWM.duty_ns([value])</code></td>
+					<td>读取/设置一个周期内的高电平时长，单位 ns</td>
+			</tr>
+			<tr>
+					<td><code>PWM.deinit()</code></td>
+					<td>关闭 PWM 输出</td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p>注意 <code>duty_u16</code> 的上限是 <strong>65535</strong>，不是 65536。地址 65536 会溢出。</p>
+</blockquote>
+<p>RP2040 有 8 组独立的 PWM 切片，每组 2 个通道，共 16 路。同一组的两个通道<strong>必须共用频率</strong>，但可以有不同占空比。</p>
+<h4 id="例呼吸灯">
+<a class="header-anchor" href="#%e4%be%8b%e5%91%bc%e5%90%b8%e7%81%af"></a>
+例：呼吸灯
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">led</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>      <span class="c1"># 1 kHz</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">duty</span> <span class="o">=</span> <span class="mi">0</span>            <span class="c1"># 占空比百分比</span>
+</span></span><span class="line"><span class="cl"><span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">duty</span> <span class="o">+=</span> <span class="n">step</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">duty</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">duty</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl">        <span class="n">step</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">duty</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">duty</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 百分比换算成 0-65535，注意别越界</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">duty</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">*</span> <span class="mi">65535</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">duty</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">duty</span><span class="p">)</span>  <span class="c1"># 方便绘图观察</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>  <span class="c1"># 约 2 秒一个来回</span>
+</span></span></code></pre></div><h4 id="例按键点灯含软件消抖">
+<a class="header-anchor" href="#%e4%be%8b%e6%8c%89%e9%94%ae%e7%82%b9%e7%81%af%e5%90%ab%e8%bd%af%e4%bb%b6%e6%b6%88%e6%8a%96"></a>
+例：按键点灯（含软件消抖）
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">button</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>   <span class="c1"># 按下时读到 0</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_board</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>            <span class="c1"># 板载 LED</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_ext</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>              <span class="c1"># 外接 LED</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led_ext</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>             <span class="c1"># 可能按下</span>
+</span></span><span class="line"><span class="cl">        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>                <span class="c1"># 等 10 ms 再确认，滤掉抖动</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>         <span class="c1"># 确认按下</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led_board</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led_ext</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;The button is pressed.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># 等待松手</span>
+</span></span><span class="line"><span class="cl">                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>机械按键在按下和松开的瞬间会产生毫秒级的电平抖动，被 CPU 读成多次按键。<strong>软件消抖</strong>的做法是：检测到按下后延时 10 ms 再确认一次。</p>
+</blockquote>
+<h3 id="adc-类">
+<a class="header-anchor" href="#adc-%e7%b1%bb"></a>
+ADC 类
+</h3><p>ADC（模数转换）把模拟电压转成数字量。</p>
+<h4 id="machineadcid">
+<a class="header-anchor" href="#machineadcid"></a>
+<code>machine.ADC(id)</code>
+</h4><p><code>id</code> 可以是 <code>Pin</code> 对象，也可以是通道号：</p>
+<ul>
+<li>Pico 上通道 <strong>0–3 对应 GP26–GP29</strong>（GP29 板载接 VSYS）；</li>
+<li>通道 <strong>4</strong> 是芯片内置温度传感器，可用 <code>ADC.CORE_TEMP</code> 表示。</li>
+</ul>
+<h4 id="adcread_u16">
+<a class="header-anchor" href="#adcread_u16"></a>
+<code>ADC.read_u16()</code>
+</h4><p>读取转换结果，返回 <strong>0–65535</strong> 的整数，对应电压范围 0–3.3 V。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">ADC</span><span class="p">,</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">adc</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span>          <span class="c1"># 也可以写成 ADC(0)</span>
+</span></span><span class="line"><span class="cl"><span class="n">value</span> <span class="o">=</span> <span class="n">adc</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span>      <span class="c1"># 0 - 65535</span>
+</span></span><span class="line"><span class="cl"><span class="n">voltage</span> <span class="o">=</span> <span class="n">value</span> <span class="o">/</span> <span class="mi">65535</span> <span class="o">*</span> <span class="mf">3.3</span>   <span class="c1"># 换算成电压</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">voltage</span><span class="p">,</span> <span class="s2">&#34;V&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>注意量程是 0–65535。RP2040 的 ADC 硬件本身是 12 位（0–4095），MicroPython 把它线性拉伸到 16 位，所以末尾几位没有实际精度。</p>
+</blockquote>
+<h2 id="小结">
+<a class="header-anchor" href="#%e5%b0%8f%e7%bb%93"></a>
+小结
+</h2><table>
+	<thead>
+			<tr>
+					<th>场景</th>
+					<th>关键点</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>数字输入输出</td>
+					<td><code>Pin(id, mode, pull)</code>，输入用 <code>value()</code> 读，输出用 <code>value()</code> / <code>on()</code> / <code>off()</code> / <code>toggle()</code></td>
+			</tr>
+			<tr>
+					<td>中断</td>
+					<td><code>Pin.irq(handler, trigger)</code>，回调必须带一个 <code>Pin</code> 参数</td>
+			</tr>
+			<tr>
+					<td>调光/调速</td>
+					<td><code>PWM(pin)</code> + <code>freq()</code> + <code>duty_u16()</code>，占空比上限 65535</td>
+			</tr>
+			<tr>
+					<td>读模拟量</td>
+					<td><code>ADC(Pin(26))</code> + <code>read_u16()</code>，返回 0–65535</td>
+			</tr>
+			<tr>
+					<td>按键抖动</td>
+					<td>检测到变化后延时 10 ms 再确认</td>
+			</tr>
+	</tbody>
+</table>
+
+        
+        <hr><p>本文2024-02-15首发于<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于2026-10-05</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文标题：</strong> MicroPython函数库</p>
+
+<p><strong>本文发布时间：</strong> 2024-02-15</p>
+<p><strong>本文更新时间：</strong> 2026-10-05</p>
+<p><strong>本文版权：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item><item><title>Python基础</title><link>https://www.guzhengsvt.cn/zh-cn/post/code/python%E5%9F%BA%E7%A1%80/</link><pubDate>Tue, 27 Jun 2023 00:49:20 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-cn/post/code/python%E5%9F%BA%E7%A1%80/</guid><description>
+<![CDATA[<h1>Python基础</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <p>本文合并了原先的四篇 Python 笔记，去掉了重复与无关内容，作为日常速查使用。示例基于 Python 3。</p>
+<h2 id="变量与对象">
+<a class="header-anchor" href="#%e5%8f%98%e9%87%8f%e4%b8%8e%e5%af%b9%e8%b1%a1"></a>
+变量与对象
+</h2><ul>
+<li>变量不需要声明类型，但<strong>使用前必须赋值</strong>，否则抛 <code>NameError</code>。</li>
+<li>Python 没有 <code>const</code>，也没有任何机制阻止变量被重新赋值，所谓&quot;常量&quot;只是约定用全大写命名。</li>
+<li><code>=</code> 是赋值，<code>==</code> 是比较。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span>
+</span></span><span class="line"><span class="cl"><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;age&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</span></span></code></pre></div><p>面向对象的理解方式：<strong>对象是数据实体，变量是贴在对象上的标签</strong>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Jack&#34;</span>   <span class="c1"># 创建字符串对象 &#34;Jack&#34;，再把标签 a 贴上去</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>        <span class="c1"># 把标签 b 贴到同一个对象上，而不是复制</span>
+</span></span><span class="line"><span class="cl"><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># True，两者指向同一个对象</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Ross&#34;</span>   <span class="c1"># 换一个对象，贴上 a 标签；b 仍指向 &#34;Jack&#34;</span>
+</span></span></code></pre></div><ul>
+<li>对象可以挂多个标签，一个变量同时只能指向一个对象。</li>
+<li><strong>变量本身没有类型，类型属于对象</strong>。所以 <code>a = 1</code> 之后 <code>a = &quot;1&quot;</code> 完全合法。</li>
+</ul>
+<h2 id="赋值与切片">
+<a class="header-anchor" href="#%e8%b5%8b%e5%80%bc%e4%b8%8e%e5%88%87%e7%89%87"></a>
+赋值与切片
+</h2><p><code>=</code> 是<strong>右结合</strong>的，<code>a = b = c = 1</code> 表示三者都指向整数对象 1。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>   <span class="c1"># 分别赋值</span>
+</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="mi">17</span> <span class="o">+</span> <span class="mi">1</span>        <span class="c1"># 先算右边再赋值</span>
+</span></span></code></pre></div><p>切片适用于字符串、元组、列表，语法为 <code>obj[a:b:c]</code>：</p>
+<table>
+	<thead>
+			<tr>
+					<th>写法</th>
+					<th>含义</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>obj[a:b]</code></td>
+					<td>取下标 $[a, b)$，不含 <code>b</code>；省略 <code>a</code> 从 0 开始，省略 <code>b</code> 到末尾</td>
+			</tr>
+			<tr>
+					<td><code>obj[a:b:c]</code></td>
+					<td>每 <code>c</code> 个取一个，<code>c</code> 省略时为 1</td>
+			</tr>
+			<tr>
+					<td><code>c</code> 为负数</td>
+					<td>从前向后反向取</td>
+			</tr>
+			<tr>
+					<td><code>obj[::-1]</code></td>
+					<td>反转（得到新对象，原对象不变）</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;polaris&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;ol&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;sap&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;siralop&#39;</span>
+</span></span></code></pre></div><p>切片还可用于复制：<code>y = x[:]</code> 得到一份浅拷贝，再对 <code>y</code> 排序不会影响 <code>x</code>。</p>
+<h2 id="字符串">
+<a class="header-anchor" href="#%e5%ad%97%e7%ac%a6%e4%b8%b2"></a>
+字符串
+</h2><ol>
+<li>单引号和双引号等价，<strong>不区分单字符与字符串</strong>（没有单独的 char 类型）。</li>
+<li>三引号可以写多行字符串。</li>
+<li>引号内使用同类引号需要转义 <code>\&quot;</code>。</li>
+</ol>
+<h3 id="三种格式化方式">
+<a class="header-anchor" href="#%e4%b8%89%e7%a7%8d%e6%a0%bc%e5%bc%8f%e5%8c%96%e6%96%b9%e5%bc%8f"></a>
+三种格式化方式
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="s2">&#34;布洛妮娅&#34;</span><span class="p">,</span> <span class="mi">18</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">%s</span><span class="s1">, she is </span><span class="si">%d</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">))</span>          <span class="c1"># % 方法，最古老</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My wife is </span><span class="si">{}</span><span class="s1">, she is </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">))</span>      <span class="c1"># format 方法</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;My wife is </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">, she is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>                <span class="c1"># f-string，推荐</span>
+</span></span></code></pre></div><ul>
+<li><code>%</code> 方法后面接 tuple 或 dict，按顺序或按名字取值。</li>
+<li><code>format</code> 的 <code>{}</code> 内可用下标 <code>{0}</code> 或关键字 <code>{name}</code>。</li>
+<li><strong>f-string 需要 Python 3.6+</strong>，可读性最好；三者都支持宽度、对齐、精度等格式控制。</li>
+</ul>
+<h2 id="数字与布尔">
+<a class="header-anchor" href="#%e6%95%b0%e5%ad%97%e4%b8%8e%e5%b8%83%e5%b0%94"></a>
+数字与布尔
+</h2><table>
+	<thead>
+			<tr>
+					<th>类型</th>
+					<th>说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>int</code></td>
+					<td>整数，支持 <code>0x</code> 十六进制、<code>0o</code> 八进制、<code>0b</code> 二进制</td>
+			</tr>
+			<tr>
+					<td><code>float</code></td>
+					<td>浮点数，支持科学计数法 <code>1.23e-6</code></td>
+			</tr>
+			<tr>
+					<td><code>complex</code></td>
+					<td>复数，写作 <code>a + bj</code> 或 <code>complex(a, b)</code></td>
+			</tr>
+			<tr>
+					<td><code>bool</code></td>
+					<td>布尔值，<code>True</code> 本质是 1，<code>False</code> 本质是 0</td>
+			</tr>
+			<tr>
+					<td><code>NoneType</code></td>
+					<td>空值，<code>None</code> 的首字母必须大写</td>
+			</tr>
+	</tbody>
+</table>
+<ul>
+<li>整数与浮点数混合运算时，整数会被提升为浮点数：<code>1 + 2.0</code> 得 <code>3.0</code>。</li>
+<li>浮点数存在精度误差：<code>0.1 + 0.2 == 0.3</code> 结果是 <code>False</code>（实际为 <code>0.30000000000000004</code>）。需要精确计算时用 <code>decimal</code> 模块。</li>
+<li><code>round()</code> 采用<strong>银行家舍入</strong>（四舍六入五取偶）：<code>round(0.5)</code> 得 <code>0</code>，<code>round(1.5)</code> 得 <code>2</code>，<code>round(2.5)</code> 得 <code>2</code>。</li>
+</ul>
+<p><strong>假值</strong>：<code>0</code>、<code>0.0</code>、<code>None</code>、空字符串、空列表、空元组、空字典、空集合、<code>False</code>。
+<strong>真值</strong>：其他一切，包括非空字符串（哪怕内容是 <code>&quot;False&quot;</code>）。</p>
+<h2 id="运算符">
+<a class="header-anchor" href="#%e8%bf%90%e7%ae%97%e7%ac%a6"></a>
+运算符
+</h2><h3 id="算术运算符">
+<a class="header-anchor" href="#%e7%ae%97%e6%9c%af%e8%bf%90%e7%ae%97%e7%ac%a6"></a>
+算术运算符
+</h3><table>
+	<thead>
+			<tr>
+					<th>运算符</th>
+					<th>含义</th>
+					<th>示例</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>+</code> <code>-</code> <code>*</code></td>
+					<td>加减乘</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td><code>/</code></td>
+					<td>除法，结果一定是浮点数</td>
+					<td><code>6 / 3</code> → <code>2.0</code></td>
+			</tr>
+			<tr>
+					<td><code>//</code></td>
+					<td><strong>整除</strong>，向下取整</td>
+					<td><code>7 // 2</code> → <code>3</code>，<code>-7 // 2</code> → <code>-4</code></td>
+			</tr>
+			<tr>
+					<td><code>%</code></td>
+					<td><strong>取余</strong>（模）</td>
+					<td><code>7 % 2</code> → <code>1</code></td>
+			</tr>
+			<tr>
+					<td><code>**</code></td>
+					<td>幂，<strong>右结合</strong></td>
+					<td><code>2 ** 2 ** 3</code> → <code>256</code></td>
+			</tr>
+			<tr>
+					<td><code>-</code></td>
+					<td>一元负号，优先级低于 <code>**</code></td>
+					<td><code>-2 ** 2</code> → <code>-4</code></td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="其他运算符">
+<a class="header-anchor" href="#%e5%85%b6%e4%bb%96%e8%bf%90%e7%ae%97%e7%ac%a6"></a>
+其他运算符
+</h3><table>
+	<thead>
+			<tr>
+					<th>类别</th>
+					<th>运算符</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>比较</td>
+					<td><code>==</code> <code>!=</code> <code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code>，<strong>可以连用</strong>：<code>a &gt; b == c</code> 等价于 <code>a &gt; b and b == c</code></td>
+			</tr>
+			<tr>
+					<td>逻辑</td>
+					<td><code>and</code> <code>or</code> <code>not</code></td>
+			</tr>
+			<tr>
+					<td>成员</td>
+					<td><code>in</code> <code>not in</code></td>
+			</tr>
+			<tr>
+					<td>身份</td>
+					<td><code>is</code> <code>is not</code>，比较是否引用同一对象（比较 <code>id</code>，不是比较值）</td>
+			</tr>
+			<tr>
+					<td>位运算</td>
+					<td><code>&amp;</code> <code>|</code> <code>^</code> <code>~</code> <code>&lt;&lt;</code> <code>&gt;&gt;</code></td>
+			</tr>
+			<tr>
+					<td>复合赋值</td>
+					<td><code>+=</code> <code>-=</code> <code>*=</code> <code>//=</code> <code>**=</code> <code>&amp;=</code> <code>|=</code> <code>^=</code> <code>&lt;&lt;=</code> <code>&gt;&gt;=</code></td>
+			</tr>
+	</tbody>
+</table>
+<p><code>and</code> / <code>or</code> 返回的是<strong>操作数本身</strong>，不是 <code>True</code> / <code>False</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">True</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">False</span> <span class="ow">or</span> <span class="mi">31</span>
+</span></span><span class="line"><span class="cl"><span class="mi">31</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="mi">0</span>
+</span></span></code></pre></div><h3 id="优先级由高到低">
+<a class="header-anchor" href="#%e4%bc%98%e5%85%88%e7%ba%a7%e7%94%b1%e9%ab%98%e5%88%b0%e4%bd%8e"></a>
+优先级（由高到低）
+</h3><p><code>()</code> → 索引 <code>[]</code> → 属性 <code>.</code> → <code>**</code> → 一元 <code>~</code> <code>+</code> <code>-</code> → <code>*</code> <code>/</code> <code>%</code> <code>//</code> → <code>+</code> <code>-</code> → <code>&lt;&lt;</code> <code>&gt;&gt;</code> → <code>&amp;</code> → <code>^</code> → <code>|</code> → 比较（<code>&lt;</code> <code>==</code> <code>in</code> <code>is</code> 等同一级）→ <code>not</code> → <code>and</code> → <code>or</code> → 赋值</p>
+<p>记不住就加括号，代价最低。</p>
+<h2 id="输入输出与内置函数">
+<a class="header-anchor" href="#%e8%be%93%e5%85%a5%e8%be%93%e5%87%ba%e4%b8%8e%e5%86%85%e7%bd%ae%e5%87%bd%e6%95%b0"></a>
+输入输出与内置函数
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>   <span class="c1"># sep 分隔符，end 结尾字符</span>
+</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;请输入年龄：&#34;</span><span class="p">)</span>   <span class="c1"># 返回值永远是字符串</span>
+</span></span><span class="line"><span class="cl"><span class="nb">int</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>                     <span class="c1"># 需要数字时显式转换</span>
+</span></span></code></pre></div><p>常用内置函数：</p>
+<table>
+	<thead>
+			<tr>
+					<th>函数</th>
+					<th>作用</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>id(x)</code></td>
+					<td>对象的内存地址（身份标识）</td>
+			</tr>
+			<tr>
+					<td><code>type(x)</code></td>
+					<td>对象的类型，如 <code>&lt;class 'int'&gt;</code></td>
+			</tr>
+			<tr>
+					<td><code>len(x)</code></td>
+					<td>元素个数</td>
+			</tr>
+			<tr>
+					<td><code>abs()</code> <code>round()</code> <code>bool()</code></td>
+					<td>绝对值、四舍五入、布尔转换</td>
+			</tr>
+			<tr>
+					<td><code>enumerate(seq, start=0)</code></td>
+					<td>循环时同时取下标和值</td>
+			</tr>
+			<tr>
+					<td><code>range()</code> <code>zip()</code> <code>sum()</code> <code>max()</code> <code>min()</code> <code>sorted()</code></td>
+					<td>常用序列工具</td>
+			</tr>
+	</tbody>
+</table>
+<p>类型转换函数：<code>int(x, base)</code>、<code>float()</code>、<code>complex()</code>、<code>str()</code>、<code>repr()</code>、<code>chr()</code>、<code>ord()</code>、<code>hex()</code>、<code>oct()</code>、<code>eval()</code>、<code>list()</code>、<code>tuple()</code>、<code>set()</code>、<code>frozenset()</code>、<code>dict()</code>。</p>
+<p><strong>转换不是无条件的</strong>，取决于原数据是否含有足以表达目标类型的信息：<code>int(&quot;123&quot;)</code> 可行，<code>int(&quot;Hello&quot;)</code> 会报错；列表可以转集合，但转不成一个数字。</p>
+<p>隐式转换遵循精度顺序：<code>bool</code> &lt; <code>int</code> &lt; <code>float</code> &lt; <code>complex</code>，混合运算时向高精度靠拢。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">galgames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;咖啡馆&#39;</span><span class="p">,</span> <span class="s1">&#39;千恋万花&#39;</span><span class="p">,</span> <span class="s1">&#39;天使骚骚&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">galgame</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">galgames</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;今天玩第</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1">部作品</span><span class="si">{</span><span class="n">galgame</span><span class="si">}</span><span class="s1">。&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="判断与循环">
+<a class="header-anchor" href="#%e5%88%a4%e6%96%ad%e4%b8%8e%e5%be%aa%e7%8e%af"></a>
+判断与循环
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">condition1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">condition2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><p><code>for</code> 用于遍历任何可迭代对象（列表、字典、字符串、元组、生成器……）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">序列</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><ul>
+<li><code>break</code>：跳出<strong>当前这一层</strong>循环。</li>
+<li><code>continue</code>：跳过本次剩余部分，进入下一次循环。</li>
+<li><code>for ... else</code> / <code>while ... else</code>：循环<strong>正常结束</strong>时执行 <code>else</code>；被 <code>break</code> 中断则不执行。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">while</span> <span class="n">判断条件</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></div><p>写 <code>while</code> 时务必确认循环体最终能改变判断条件或触发 <code>break</code>，否则会死循环。</p>
+<h2 id="四种容器">
+<a class="header-anchor" href="#%e5%9b%9b%e7%a7%8d%e5%ae%b9%e5%99%a8"></a>
+四种容器
+</h2><table>
+	<thead>
+			<tr>
+					<th>容器</th>
+					<th>字面量</th>
+					<th>有序</th>
+					<th>可变</th>
+					<th>元素可重复</th>
+					<th>元素要求</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>列表 <code>list</code></td>
+					<td><code>[1, 2]</code></td>
+					<td>是</td>
+					<td>是</td>
+					<td>是</td>
+					<td>任意</td>
+			</tr>
+			<tr>
+					<td>元组 <code>tuple</code></td>
+					<td><code>(1, 2)</code></td>
+					<td>是</td>
+					<td><strong>否</strong></td>
+					<td>是</td>
+					<td>任意</td>
+			</tr>
+			<tr>
+					<td>字典 <code>dict</code></td>
+					<td><code>{k: v}</code></td>
+					<td>插入序</td>
+					<td>是</td>
+					<td>键不可重复</td>
+					<td>键必须可哈希</td>
+			</tr>
+			<tr>
+					<td>集合 <code>set</code></td>
+					<td><code>{1, 2}</code></td>
+					<td><strong>否</strong></td>
+					<td>是</td>
+					<td>否（自动去重）</td>
+					<td>必须可哈希</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="list">
+<a class="header-anchor" href="#list"></a>
+list
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>                  <span class="c1"># 空列表</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>             <span class="c1"># 末尾追加</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>          <span class="c1"># 在下标 i 处插入，原元素后移</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>             <span class="c1"># 把 b 的元素逐个接到 a 后面</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>                 <span class="c1"># 弹出末尾元素（返回该元素）</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>                <span class="c1"># 弹出下标 i 的元素</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>             <span class="c1"># 删除第一个值为 x 的元素，不存在则报错</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c1"># 第一个值为 x 的下标</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c1"># 值为 x 的元素个数</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>             <span class="c1"># 原地反转</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=...</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>   <span class="c1"># 原地排序，无返回值</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>                <span class="c1"># 删除下标 i</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>              <span class="c1"># 删除切片范围</span>
+</span></span></code></pre></div><p>排序示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">random</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">random</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># 按每个元组的第二个元素排序</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># [(4, 1), (2, 2), (1, 3), (3, 4)]</span>
+</span></span></code></pre></div><blockquote>
+<p>注意：<code>sort()</code> 只有 <code>key</code> 和 <code>reverse</code> 两个参数，<code>cmp</code> 参数在 Python 3 中<strong>已被移除</strong>。</p>
+</blockquote>
+<h3 id="tuple">
+<a class="header-anchor" href="#tuple"></a>
+tuple
+</h3><ul>
+<li>元组<strong>创建后不可修改</strong>，没有增删改。</li>
+<li>单元素元组必须带逗号：<code>(1,)</code> 是元组，<code>(1)</code> 只是整数。</li>
+<li>转换：<code>list(t)</code> 得到列表，<code>tuple(l)</code> 得到元组，<strong>原对象不变</strong>，返回的是新对象。</li>
+</ul>
+<h3 id="dict">
+<a class="header-anchor" href="#dict"></a>
+dict
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;孤筝&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">19</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;孤筝&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">19</span><span class="p">)</span>          <span class="c1"># 用等号时键不带引号</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile3</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;孤筝&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">19</span><span class="p">)])</span>   <span class="c1"># 由键值对序列构造</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile4</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)}</span>   <span class="c1"># {2: 4, 3: 9, 4: 16}</span>
+</span></span></code></pre></div><p>取值与增改：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">profile</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>                 <span class="c1"># 键不存在时抛 KeyError</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">)</span>           <span class="c1"># 不存在返回 None</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span>   <span class="c1"># 不存在返回默认值</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span>   <span class="c1"># 不存在则写入该键值对并返回</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;male&#39;</span>      <span class="c1"># 新增或修改</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">profile</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">profile</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>关键区别：<code>get()</code> <strong>只读</strong>，不会改动字典；<strong>只有 <code>setdefault()</code> 会在键缺失时写入</strong>。</p>
+</blockquote>
+<p>判断键是否存在用 <code>in</code> / <code>not in</code>；<code>has_key()</code> 是 Python 2 的写法，Python 3 已删除。</p>
+<h3 id="set">
+<a class="header-anchor" href="#set"></a>
+set
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>     <span class="c1"># 自动去重为 {1, 2, 3}</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>            <span class="c1"># 空集合只能这样写，{} 是空字典</span>
+</span></span></code></pre></div><table>
+	<thead>
+			<tr>
+					<th>操作</th>
+					<th>方法</th>
+					<th>运算符</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>并集</td>
+					<td><code>a.union(b)</code></td>
+					<td><code>a | b</code></td>
+			</tr>
+			<tr>
+					<td>交集</td>
+					<td><code>a.intersection(b)</code></td>
+					<td><code>a &amp; b</code></td>
+			</tr>
+			<tr>
+					<td>差集（在 a 不在 b）</td>
+					<td><code>a.difference(b)</code></td>
+					<td><code>a - b</code></td>
+			</tr>
+			<tr>
+					<td>对称差（只属于其中一个）</td>
+					<td><code>a.symmetric_difference(b)</code></td>
+					<td><code>a ^ b</code></td>
+			</tr>
+	</tbody>
+</table>
+<ul>
+<li>增：<code>add(x)</code>（<strong>只能加不可变类型</strong>）、<code>update(seq)</code>（可接字符串、列表、元组、集合；接字典只取其键）。</li>
+<li>删：<code>remove(x)</code> 元素不存在会报错；<code>discard(x)</code> 不会报错；<code>pop()</code> 删除并返回<strong>任意一个</strong>元素，不能传参；<code>clear()</code> 清空。</li>
+<li>判断：<code>x in s</code>、<code>a.isdisjoint(b)</code>（无交集返回 True）、<code>b.issubset(a)</code>。</li>
+<li>集合<strong>无序无索引</strong>，既不能按下标取值，也不能修改元素，只能增删。</li>
+</ul>
+<blockquote>
+<p>常见误解：<code>pop()</code> 删的是&quot;任意&quot;元素，不是&quot;随机&quot;元素。集合的存储顺序由哈希值决定，看起来随机，但并不可控。</p>
+</blockquote>
+<h2 id="迭代器与生成器">
+<a class="header-anchor" href="#%e8%bf%ad%e4%bb%a3%e5%99%a8%e4%b8%8e%e7%94%9f%e6%88%90%e5%99%a8"></a>
+迭代器与生成器
+</h2><p><strong>可迭代对象</strong>：能用 <code>for</code> 遍历的对象。满足下面任一条即可：</p>
+<ol>
+<li>实现了 <code>__iter__()</code>，返回一个迭代器实例；</li>
+<li>没有 <code>__iter__()</code>，但实现了 <code>__getitem__()</code> 且按下标取元素可行。</li>
+</ol>
+<p><strong>迭代器对象</strong>：<code>iter(可迭代对象)</code> 的返回值，用 <code>next()</code> 逐个取值，取完后抛 <code>StopIteration</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Iterator</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">([],</span> <span class="n">Iterable</span><span class="p">)</span>      <span class="c1"># True，列表是可迭代对象</span>
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">([],</span> <span class="n">Iterator</span><span class="p">)</span>      <span class="c1"># False，但列表本身不是迭代器</span>
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">(</span><span class="nb">iter</span><span class="p">([]),</span> <span class="n">Iterator</span><span class="p">)</span>  <span class="c1"># True</span>
+</span></span></code></pre></div><p>也就是说：<strong>列表是可迭代对象，不是迭代器</strong>，一个列表可以反复遍历；而迭代器只能往前走一次。</p>
+<p><strong>生成器</strong>是&quot;用函数写的迭代器&quot;：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 列表推导式得到列表</span>
+</span></span><span class="line"><span class="cl"><span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>     <span class="c1"># [0, 1, 2, 3, 4]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 换成圆括号得到生成器</span>
+</span></span><span class="line"><span class="cl"><span class="n">agen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>      <span class="c1"># &lt;generator object ...&gt;，惰性求值</span>
+</span></span></code></pre></div><blockquote>
+<p>注意：<code>(i for i in ...)</code> 是<strong>生成器表达式</strong>，不是元组推导式——Python 里没有元组推导式。要得到元组请写 <code>tuple(i for i in ...)</code>。</p>
+</blockquote>
+<p><code>yield</code> 与 <code>return</code> 的区别：函数执行到 <code>yield</code> 会<strong>暂停并交出值，但函数没有结束</strong>；下次取值时从暂停处继续，直到函数结束。<code>yield</code> 不带值则返回 <code>None</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="o">=</span> <span class="n">generator</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>   <span class="c1"># 1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">generator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>   <span class="c1"># 1 2 3 4 5</span>
+</span></span></code></pre></div><p>生成器的价值在于<strong>惰性</strong>：不会一次性把全部结果算出来放进内存，处理大数据流时比列表更省内存。</p>
+<h2 id="其他笔记">
+<a class="header-anchor" href="#%e5%85%b6%e4%bb%96%e7%ac%94%e8%ae%b0"></a>
+其他笔记
+</h2><h3 id="注释">
+<a class="header-anchor" href="#%e6%b3%a8%e9%87%8a"></a>
+注释
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 单行注释</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">三引号严格来说是&#34;多行字符串&#34;而不是注释：
+</span></span></span><span class="line"><span class="cl"><span class="s1">它会被解释器当作一个字符串对象创建出来，只是一个未被使用的表达式。
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span></code></pre></div><p>正因为它本质是字符串而非注释，所以在代码中间随意插入三引号会破坏语法，可能直接报错。<strong>规范做法是只用 <code>#</code> 写注释。</strong></p>
+<h3 id="编码格式">
+<a class="header-anchor" href="#%e7%bc%96%e7%a0%81%e6%a0%bc%e5%bc%8f"></a>
+编码格式
+</h3><ul>
+<li>Python 3 源文件默认就是 UTF-8，<strong>通常不需要</strong>声明编码。</li>
+<li>只有 Python 2 需要文件头声明，现在基本用不到：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># -*- coding: UTF-8 -*-</span>
+</span></span></code></pre></div><h3 id="标识符">
+<a class="header-anchor" href="#%e6%a0%87%e8%af%86%e7%ac%a6"></a>
+标识符
+</h3><ul>
+<li>由字母、数字、下划线组成，<strong>不能用数字开头</strong>，区分大小写。</li>
+<li>Python 3 允许用中文命名，但不建议。</li>
+<li>下划线的特殊约定：
+<ul>
+<li><code>_name</code>：单下划线开头，表示&quot;内部使用&quot;，<code>from module import *</code> 不会导入。</li>
+<li><code>__age</code>：双下划线开头，触发名称改写（name mangling），用于避免子类冲突。</li>
+<li><code>__init__</code>：双下划线开头和结尾，是 Python 的内置特殊方法，不要自己造这种名字。</li>
+</ul>
+</li>
+</ul>
+
+        
+        <hr><p>本文2023-06-27首发于<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于2026-10-05</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文标题：</strong> Python基础</p>
+
+<p><strong>本文发布时间：</strong> 2023-06-27</p>
+<p><strong>本文更新时间：</strong> 2026-10-05</p>
+<p><strong>本文版权：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item><item><title>给博客做了个新主题——Ruri 开发记录</title><link>https://www.guzhengsvt.cn/zh-cn/post/code/ruri-theme-development/</link><pubDate>Fri, 18 Sep 2026 20:00:00 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-cn/post/code/ruri-theme-development/</guid><description>
 <![CDATA[<h1>给博客做了个新主题——Ruri 开发记录</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <p>博客又装修了。这回没有换一个现成主题，而是借助 Codex，做了一个自己的 Hugo 主题，叫 Ruri（日语，琉璃）。</p>
@@ -2705,1680 +4274,6 @@ NAS会员单卖差评😡</p>
 
 <p><strong>本文发布时间：</strong> 2025-10-16</p>
 <p><strong>本文更新时间：</strong> 2025-10-16</p>
-<p><strong>本文版权：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
-</div>
-]]></description><category>OtherNotes</category></item><item><title>量子物理学</title><link>https://www.guzhengsvt.cn/zh-cn/post/physics/quantum-physics/</link><pubDate>Fri, 05 Sep 2025 11:05:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-cn/post/physics/quantum-physics/</guid><description>
-<![CDATA[<h1>量子物理学</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
-        
-          <h2 id="第一章-微粒二象性与状态描述">
-<a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e7%ab%a0-%e5%be%ae%e7%b2%92%e4%ba%8c%e8%b1%a1%e6%80%a7%e4%b8%8e%e7%8a%b6%e6%80%81%e6%8f%8f%e8%bf%b0"></a>
-第一章 微粒二象性与状态描述
-</h2><h3 id="11-量子力学的形成与应用">
-<a class="header-anchor" href="#11-%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%a6%e7%9a%84%e5%bd%a2%e6%88%90%e4%b8%8e%e5%ba%94%e7%94%a8"></a>
-1.1 量子力学的形成与应用
-</h3><h4 id="111-旧量子论">
-<a class="header-anchor" href="#111-%e6%97%a7%e9%87%8f%e5%ad%90%e8%ae%ba"></a>
-1.1.1 旧量子论
-</h4><h5 id="光电效应与光子假说">
-<a class="header-anchor" href="#%e5%85%89%e7%94%b5%e6%95%88%e5%ba%94%e4%b8%8e%e5%85%89%e5%ad%90%e5%81%87%e8%af%b4"></a>
-光电效应与光子假说
-</h5><ul>
-<li><strong>光子能量</strong>：$E = h\nu$</li>
-<li><strong>阈频</strong>：$\nu_0 = \dfrac{W_0}{h}$，$\nu < \nu_0$ 无光电子逸出</li>
-<li><strong>光电效应方程</strong>：<br>
-
-$$
-  E_k^{\text{max}} = \frac{1}{2}\mu v^2_m = h\nu - W_0
-  $$</li>
-<li>光电效应证明了光的粒子性。</li>
-</ul>
-<h5 id="光子的能量动量矢量关系与波粒统一">
-<a class="header-anchor" href="#%e5%85%89%e5%ad%90%e7%9a%84%e8%83%bd%e9%87%8f%e5%8a%a8%e9%87%8f%e7%9f%a2%e9%87%8f%e5%85%b3%e7%b3%bb%e4%b8%8e%e6%b3%a2%e7%b2%92%e7%bb%9f%e4%b8%80"></a>
-光子的能量—动量（矢量）关系与波粒统一
-</h5><ul>
-<li>
-<p><strong>相对论能量—动量关系式</strong><br>
-</p>
-$$
-  E^2=(pc)^2+(m_0c^2)^2,\quad m_0=0\ \Rightarrow\ E=c\,\lVert\vec p\rVert
-  $$</li>
-<li>
-<p><strong>光子能量</strong><br>
-</p>
-$$
-  E=h\nu=\frac{hc}{\lambda}=\hbar\omega
-  $$</li>
-<li>
-<p><strong>光子动量（矢量形式）</strong><br>
-令 $\mathbf n$ 为传播方向的单位向量，则
-</p>
-$$
-  \vec p=\frac{E}{c}\,\mathbf n=\frac{h}{\lambda}\,\mathbf n=\hbar\vec k,\quad
-  \vec k=\frac{2\pi}{\lambda}\,\mathbf n
-  $$</li>
-<li>
-<p><strong>波粒二象性统一（对应关系）</strong><br>
-</p>
-$$
-  E\ \longleftrightarrow\ \hbar\omega,\qquad
-  \vec p\ \longleftrightarrow\ \hbar\vec k
-  $$</li>
-</ul>
-<h5 id="氢原子玻尔结构">
-<a class="header-anchor" href="#%e6%b0%a2%e5%8e%9f%e5%ad%90%e7%8e%bb%e5%b0%94%e7%bb%93%e6%9e%84"></a>
-氢原子玻尔结构
-</h5><ul>
-<li>电子绕原子核运动的轨道角动量量子化：<br>
-
-$$
-  L = n\hbar,\quad n=1,2,3,\dots
-  $$</li>
-<li>能级公式：<br>
-
-$$
-  E_n = -\frac{13.6\ \text{eV}}{n^2}
-  $$</li>
-<li>成功解释了氢原子光谱的线状分布。</li>
-</ul>
-<h5 id="玻尔假说">
-<a class="header-anchor" href="#%e7%8e%bb%e5%b0%94%e5%81%87%e8%af%b4"></a>
-玻尔假说
-</h5><ul>
-<li>电子在稳定轨道上运动时不辐射能量。</li>
-<li>电子在不同能级之间跃迁时吸收或发射能量：<br>
-
-$$
-  \Delta E = h\nu
-  $$</li>
-</ul>
-<h5 id="康普顿效应">
-<a class="header-anchor" href="#%e5%ba%b7%e6%99%ae%e9%a1%bf%e6%95%88%e5%ba%94"></a>
-康普顿效应
-</h5><ul>
-<li>高能光子与电子散射后波长增加：<br>
-
-$$
-  \Delta\lambda = \lambda' - \lambda = \frac{h}{m_ec}(1-\cos\theta)
-  $$</li>
-<li>实验证实了光子的粒子性与动量守恒。</li>
-</ul>
-<h5 id="黑体辐射">
-<a class="header-anchor" href="#%e9%bb%91%e4%bd%93%e8%be%90%e5%b0%84"></a>
-黑体辐射
-</h5><ul>
-<li>能量量子化假设：电磁场能量按 $E=nh\nu$ 离散取值。</li>
-<li>普朗克公式：<br>
-
-$$
-  u(\nu,T)=\frac{8\pi h\nu^3}{c^3}\frac{1}{e^{h\nu/kT}-1}
-  $$</li>
-<li>成功解释了黑体辐射实验曲线，开启量子论。</li>
-</ul>
-<h4 id="112-微观粒子的波粒二象性">
-<a class="header-anchor" href="#112-%e5%be%ae%e8%a7%82%e7%b2%92%e5%ad%90%e7%9a%84%e6%b3%a2%e7%b2%92%e4%ba%8c%e8%b1%a1%e6%80%a7"></a>
-1.1.2 微观粒子的波粒二象性
-</h4><h5 id="德布罗意假说">
-<a class="header-anchor" href="#%e5%be%b7%e5%b8%83%e7%bd%97%e6%84%8f%e5%81%87%e8%af%b4"></a>
-德布罗意假说
-</h5><ul>
-<li>微观粒子不仅具有粒子性，也具有波动性。</li>
-<li>每一个动量为 $\vec p$ 的粒子，都对应一列物质波，其波长和频率与动量、能量相关。</li>
-</ul>
-<h5 id="德布罗意关系">
-<a class="header-anchor" href="#%e5%be%b7%e5%b8%83%e7%bd%97%e6%84%8f%e5%85%b3%e7%b3%bb"></a>
-德布罗意关系
-</h5><ul>
-<li>波长：<br>
-
-$$
-  \lambda = \frac{h}{p}
-  $$</li>
-<li>矢量形式：<br>
-
-$$
-  \vec p = \hbar \vec k
-  $$</li>
-<li>频率：<br>
-
-$$
-  E = h\nu = \hbar\omega
-  $$</li>
-</ul>
-<hr>
-<h3 id="12-状态与波函数">
-<a class="header-anchor" href="#12-%e7%8a%b6%e6%80%81%e4%b8%8e%e6%b3%a2%e5%87%bd%e6%95%b0"></a>
-1.2 状态与波函数
-</h3><h4 id="121-测不准原理">
-<a class="header-anchor" href="#121-%e6%b5%8b%e4%b8%8d%e5%87%86%e5%8e%9f%e7%90%86"></a>
-1.2.1 测不准原理
-</h4><ul>
-<li>微观粒子的位置与动量不能同时被精确测定，存在测量极限。</li>
-<li>海森堡测不准关系：<br>
-
-$$
-  \Delta x \cdot \Delta p_x \geq \frac{\hbar}{2}
-  $$</li>
-<li>能量与时间之间的测不准关系：<br>
-
-$$
-  \Delta E \cdot \Delta t \geq \frac{\hbar}{2}
-  $$</li>
-<li>本质：源于波粒二象性和算符的不对易性。</li>
-</ul>
-<h4 id="122-波函数">
-<a class="header-anchor" href="#122-%e6%b3%a2%e5%87%bd%e6%95%b0"></a>
-1.2.2 波函数
-</h4><ul>
-<li>为描述微观粒子状态，引入<strong>波函数</strong> $\psi(\vec r,t)$。</li>
-<li><strong>几率诠释</strong>：$|\psi(\vec r,t)|^2 dV$ 表示粒子在体积元 $dV$ 内出现的概率。</li>
-<li>波函数必须满足线性叠加原理和薛定谔方程。</li>
-<li>粒子必定在空间某点出现，其<strong>在空间各点出现几率的总和为 1</strong>，因而粒子在空间各点出现的几率只决定于波函数在空间各点的相对强度，而不决定于强度的绝对大小。</li>
-<li>将波函数乘上一个常数后，所描写的粒子的状态并不改变。</li>
-<li>波函数标准条件：单值、有限、连续</li>
-</ul>
-<h4 id="123-波函数归一化">
-<a class="header-anchor" href="#123-%e6%b3%a2%e5%87%bd%e6%95%b0%e5%bd%92%e4%b8%80%e5%8c%96"></a>
-1.2.3 波函数归一化
-</h4><ul>
-<li><strong>归一化条件</strong>：空间内找到粒子概率为 1。<br>
-
-$$
-  \int_{-\infty}^{\infty} \psi^* (\vec r,t) \psi (\vec r,t) dV = 1
-  $$</li>
-<li><strong>归一化波函数求法</strong>
-
-$$
-  \int_{-\infty}^{\infty} |\Psi(\vec r,t)|^2 dV = A^2 \int_{-\infty}^{\infty} |\psi(\vec r,t)|^2 dV = 1
-  $$
-A：归一化常数</li>
-</ul>
-<hr>
-<h3 id="13-薛定谔方程">
-<a class="header-anchor" href="#13-%e8%96%9b%e5%ae%9a%e8%b0%94%e6%96%b9%e7%a8%8b"></a>
-1.3 薛定谔方程
-</h3><h4 id="131-自由粒子的波动方程">
-<a class="header-anchor" href="#131-%e8%87%aa%e7%94%b1%e7%b2%92%e5%ad%90%e7%9a%84%e6%b3%a2%e5%8a%a8%e6%96%b9%e7%a8%8b"></a>
-1.3.1 自由粒子的波动方程
-</h4><p><strong>概念</strong><br>
-自由粒子是指不受外力作用的粒子，其运动仅受量子力学规律描述。在量子力学中，自由粒子的状态由波函数 $\psi(\vec{r},t)$ 描述，满足薛定谔方程。</p>
-<p><strong>薛定谔方程（自由粒子）</strong><br>
-</p>
-$$
-i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = -\frac{\hbar^2}{2m} \nabla^2 \psi(\vec{r},t)
-$$<p>
-其中：</p>
-<ul>
-<li>$\hbar$：约化普朗克常数</li>
-<li>$m$：粒子质量</li>
-<li>$\nabla^2$：拉普拉斯算符</li>
-</ul>
-<p><strong>平面波解</strong><br>
-自由粒子波函数的一般解为平面波形式：<br>
-</p>
-$$
-\psi(\vec{r},t) = A e^{i(\vec{k}\cdot\vec{r} - \omega t)}
-$$<p>
-其中：</p>
-<ul>
-<li>$\vec{k}$：波矢，$|\vec{k}| = k$</li>
-<li>$\omega$：角频率，满足能量关系<br>
-
-$$
-E = \hbar \omega = \frac{\hbar^2 k^2}{2m}
-$$</li>
-</ul>
-<p><strong>动量与波矢关系（德布罗意关系）</strong><br>
-</p>
-$$
-\vec{p} = \hbar \vec{k}
-$$<h5 id="自由粒子薛定谔方程的平面波推导">
-<a class="header-anchor" href="#%e8%87%aa%e7%94%b1%e7%b2%92%e5%ad%90%e8%96%9b%e5%ae%9a%e8%b0%94%e6%96%b9%e7%a8%8b%e7%9a%84%e5%b9%b3%e9%9d%a2%e6%b3%a2%e6%8e%a8%e5%af%bc"></a>
-自由粒子薛定谔方程的平面波推导
-</h5><p><strong>1. 自由粒子波函数假设</strong><br>
-自由粒子波函数可以写成平面波形式：
-</p>
-$$
-\psi(\vec{r},t) = A e^{i(\vec{k}\cdot\vec{r} - \omega t)}
-$$<p>
-其中：</p>
-<ul>
-<li>$\vec{k}$ 为波矢</li>
-<li>$\omega$ 为角频率</li>
-<li>$A$ 为幅值常数</li>
-</ul>
-<p><strong>2. 求时间偏导数</strong><br>
-对时间 $t$ 求偏导：
-</p>
-$$
-\frac{\partial \psi}{\partial t} = \frac{\partial}{\partial t} \left[ A e^{i(\vec{k}\cdot\vec{r} - \omega t)} \right] 
-= -i \omega A e^{i(\vec{k}\cdot\vec{r} - \omega t)} 
-= -i \omega \psi
-$$<p>
-乘以 $i\hbar$：
-</p>
-$$
-i\hbar \frac{\partial \psi}{\partial t} = \hbar \omega \psi
-$$<p><strong>3. 求空间拉普拉斯（动能项）</strong><br>
-对空间 $\vec{r}$ 求二阶偏导：
-</p>
-$$
-\nabla^2 \psi = \nabla^2 \left[ A e^{i \vec{k}\cdot\vec{r}} e^{-i\omega t} \right] 
-= -k^2 A e^{i(\vec{k}\cdot\vec{r} - \omega t)} 
-= -k^2 \psi
-$$<p>
-因此动能项为：
-</p>
-$$
--\frac{\hbar^2}{2m} \nabla^2 \psi = \frac{\hbar^2 k^2}{2m} \psi
-$$<p><strong>4. 建立能量关系</strong><br>
-自由粒子的总能量为动能：
-</p>
-$$
-E = \frac{\hbar^2 k^2}{2m} = \hbar \omega
-$$<p><strong>5. 得到薛定谔方程</strong><br>
-将时间导数与空间导数关系写出：
-</p>
-$$
-i\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m} \nabla^2 \psi
-$$<p><strong>说明</strong></p>
-<ul>
-<li>这种推导直接利用了平面波形式和微分运算，不依赖算符定义。</li>
-<li>对应自由粒子 $V=0$ 情况。</li>
-</ul>
-<h4 id="133-定态薛定谔方程和定态波函数">
-<a class="header-anchor" href="#133-%e5%ae%9a%e6%80%81%e8%96%9b%e5%ae%9a%e8%b0%94%e6%96%b9%e7%a8%8b%e5%92%8c%e5%ae%9a%e6%80%81%e6%b3%a2%e5%87%bd%e6%95%b0"></a>
-1.3.3 定态薛定谔方程和定态波函数
-</h4><p><strong>概念</strong><br>
-定态波函数是指时间依赖可分离的波函数，形如：
-</p>
-$$
-\psi(\vec{r},t) = \phi(\vec{r}) e^{-i E t / \hbar}
-$$<p>
-设 $f(t)=e^{-i E t / \hbar}$ 。<br>
-其中 $\phi(\vec{r})$ 只依赖空间坐标，$E$ 为粒子总能量。</p>
-<p><strong>推导定态薛定谔方程</strong><br>
-从时间依赖薛定谔方程：
-</p>
-$$
-i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = \left[ -\frac{\hbar^2}{2m} \nabla^2 + V(\vec{r}) \right] \psi(\vec{r},t)
-$$<p>
-代入 $\psi(\vec{r},t) = \phi(\vec{r}) e^{-i E t / \hbar}$：
-</p>
-$$
-i\hbar \left( -\frac{i E}{\hbar} \phi(\vec{r}) e^{-i E t / \hbar} \right) = \left[ -\frac{\hbar^2}{2m} \nabla^2 + V(\vec{r}) \right] \phi(\vec{r}) e^{-i E t / \hbar}
-$$<p>
-化简得到时间独立部分：
-</p>
-$$
-\left[ -\frac{\hbar^2}{2m} \nabla^2 + V(\vec{r}) \right] \phi(\vec{r}) = E \phi(\vec{r})
-$$<p><strong>定态薛定谔方程（时间独立形式）</strong><br>
-</p>
-$$
-i \hbar \frac{df}{dt}=E f , \; f= e^{-i E t / \hbar}
-$$<p>
-</p>
-$$
--\frac{\hbar^2}{2m} \nabla^2 \phi(\vec{r}) + V(\vec{r}) \phi(\vec{r}) = E \phi(\vec{r})
-$$<p><strong>说明</strong></p>
-<ul>
-<li>$\phi(\vec{r})$ 称为定态波函数或本征函数。</li>
-<li>$E$ 为对应的能量本征值。</li>
-</ul>
-<h4 id="薛定谔方程的推导算符">
-<a class="header-anchor" href="#%e8%96%9b%e5%ae%9a%e8%b0%94%e6%96%b9%e7%a8%8b%e7%9a%84%e6%8e%a8%e5%af%bc%e7%ae%97%e7%ac%a6"></a>
-薛定谔方程的推导（算符）
-</h4><p><strong>1. 从经典能量出发</strong><br>
-经典力学中，单个粒子的总能量为：
-</p>
-$$
-E = \frac{p^2}{2m} + V(\vec{r},t)
-$$<p>
-其中 $p$ 是动量，$V(\vec{r},t)$ 是势能。</p>
-<p><strong>2. 引入量子假设（德布罗意关系）</strong><br>
-粒子具有波动性，动量和能量对应波的性质：
-</p>
-$$
-\vec{p} = \hbar \vec{k}, \quad E = \hbar \omega
-$$<p>
-波函数可表示为：
-</p>
-$$
-\psi(\vec{r},t) \sim e^{i(\vec{k}\cdot\vec{r} - \omega t)}
-$$<p><strong>3. 引入算符表示</strong><br>
-根据量子力学公设，能量和动量用算符表示：
-</p>
-$$
-\hat{E} = i\hbar \frac{\partial}{\partial t}, \quad \hat{\vec{p}} = -i\hbar \nabla
-$$<p><strong>4. 将算符作用到波函数上</strong></p>
-<ul>
-<li>动能算符：
-
-$$
-\hat{T} = \frac{\hat{p}^2}{2m} = -\frac{\hbar^2}{2m}\nabla^2
-$$</li>
-<li>总能量算符：
-
-$$
-\hat{H} = \hat{T} + V(\vec{r},t) = -\frac{\hbar^2}{2m}\nabla^2 + V(\vec{r},t)
-$$</li>
-</ul>
-<p><strong>5. 写出薛定谔方程</strong><br>
-将总能量算符作用于波函数：
-</p>
-$$
-i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = \hat{H} \psi(\vec{r},t)
-$$<p>
-即：
-</p>
-$$
-i\hbar \frac{\partial \psi(\vec{r},t)}{\partial t} = \left[ -\frac{\hbar^2}{2m}\nabla^2 + V(\vec{r},t) \right] \psi(\vec{r},t)
-$$<p><strong>说明</strong></p>
-<ul>
-<li>这是非相对论情况下的时间依赖薛定谔方程。</li>
-<li>对自由粒子 ($V=0$) 简化为：
-
-$$
-i\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m}\nabla^2 \psi
-$$</li>
-</ul>
-<h4 id="态叠加原理">
-<a class="header-anchor" href="#%e6%80%81%e5%8f%a0%e5%8a%a0%e5%8e%9f%e7%90%86"></a>
-态叠加原理
-</h4><p><strong>概念</strong><br>
-量子力学中，若 $\psi_1$ 和 $\psi_2$ 是同一体系的两个可能态，那么它们的线性组合：
-</p>
-$$
-\psi = c_1 \psi_1 + c_2 \psi_2
-$$<p>
-也是该体系的一个可能态。这里 $c_1, c_2$ 为复数系数，满足归一化条件。</p>
-<p><strong>一般形式</strong><br>
-对一组正交归一基态 $\{ \phi_n \}$，任意态可展开为：
-</p>
-$$
-\psi(\vec{r},t) = \sum_{n} c_n \phi_n(\vec{r},t)
-$$<p>
-其中：</p>
-<ul>
-<li>$c_n$ 为展开系数，表示体系处于 $\phi_n$ 态的概率幅；</li>
-<li>概率为 $|c_n|^2$，需满足：
-
-$$
-\sum_n |c_n|^2 = 1
-$$</li>
-</ul>
-<p><strong>说明</strong></p>
-<ul>
-<li>态叠加是量子力学最基本的原理之一。</li>
-<li>不同基态可以同时叠加，但观测时只能得到其中一个本征值。</li>
-<li>叠加态的干涉效应体现了量子力学与经典力学的根本区别。</li>
-</ul>
-<h2 id="第二章-薛定谔方程的简单应用">
-<a class="header-anchor" href="#%e7%ac%ac%e4%ba%8c%e7%ab%a0-%e8%96%9b%e5%ae%9a%e8%b0%94%e6%96%b9%e7%a8%8b%e7%9a%84%e7%ae%80%e5%8d%95%e5%ba%94%e7%94%a8"></a>
-第二章 薛定谔方程的简单应用
-</h2><h3 id="21-一维无限深势阱">
-<a class="header-anchor" href="#21-%e4%b8%80%e7%bb%b4%e6%97%a0%e9%99%90%e6%b7%b1%e5%8a%bf%e9%98%b1"></a>
-2.1 一维无限深势阱
-</h3><h4 id="211-方程求解">
-<a class="header-anchor" href="#211-%e6%96%b9%e7%a8%8b%e6%b1%82%e8%a7%a3"></a>
-2.1.1 方程求解
-</h4><p><strong>1. 势能函数定义</strong><br>
-一维无限深势阱（宽度 $L$）定义为：
-</p>
-$$
-V(x) =
-\begin{cases}
-0, & 0 < x < L \\
-\infty, & x \leq 0 \ \text{或} \ x \geq L
-\end{cases}
-$$<p><strong>2. 薛定谔方程</strong><br>
-在阱内 ($0 < x < L$)：
-</p>
-$$
--\frac{\hbar^2}{2m} \frac{d^2 \phi(x)}{dx^2} = E \phi(x)
-$$<p>
-化简为：
-</p>
-$$
-\frac{d^2 \phi(x)}{dx^2} + k^2 \phi(x) = 0
-$$<p>
-其中：
-</p>
-$$
-k^2 = \frac{2mE}{\hbar^2}
-$$<p><strong>3. 通解</strong><br>
-方程的通解为：
-</p>
-$$
-\phi(x) = A \sin(kx) + B \cos(kx)
-$$<p><strong>4. 边界条件</strong><br>
-由于势阱无限深，波函数必须满足：
-</p>
-$$
-\phi(0) = 0, \quad \phi(L) = 0
-$$<ul>
-<li>由 $\phi(0) = 0 \implies B = 0$</li>
-<li>由 $\phi(L) = 0 \implies \sin(kL) = 0 \implies kL = n\pi \quad (n=1,2,3,\dots)$</li>
-</ul>
-<p><strong>5. 本征函数与能量</strong></p>
-<ul>
-<li>归一化波函数：
-
-$$
-\phi_n(x) = \sqrt{\frac{2}{L}} \sin\left(\frac{n\pi x}{L}\right), \quad n=1,2,3,\dots
-$$</li>
-<li>能量本征值：
-
-$$
-E_n = \frac{n^2 \pi^2 \hbar^2}{2mL^2}, \quad n=1,2,3,\dots
-$$</li>
-</ul>
-<p><strong>说明</strong></p>
-<ul>
-<li>粒子能量离散化，与量子数 $n$ 成正比。</li>
-<li>基态能量 ($n=1$) 非零，体现零点能量现象。</li>
-</ul>
-<hr>
-<h3 id="22-数理方程的特殊函数">
-<a class="header-anchor" href="#22-%e6%95%b0%e7%90%86%e6%96%b9%e7%a8%8b%e7%9a%84%e7%89%b9%e6%ae%8a%e5%87%bd%e6%95%b0"></a>
-2.2 数理方程的特殊函数
-</h3><h4 id="221-正交性和归一性">
-<a class="header-anchor" href="#221-%e6%ad%a3%e4%ba%a4%e6%80%a7%e5%92%8c%e5%bd%92%e4%b8%80%e6%80%a7"></a>
-2.2.1 正交性和归一性
-</h4><p><strong>正交性</strong><br>
-一组函数 $\{ \phi_n(x) \}$ 在区间 $[a,b]$ 上若满足：
-</p>
-$$
-\int_a^b \phi_m(x)\,\phi_n(x)\,dx = 0 \quad (m \neq n)
-$$<p>
-则称为正交。</p>
-<p><strong>归一性</strong><br>
-若同时满足：
-</p>
-$$
-\int_a^b |\phi_n(x)|^2 dx = 1
-$$<p>
-则称为归一。</p>
-<p><strong>正交归一性</strong><br>
-综合写为：
-</p>
-$$
-\int_a^b \phi_m(x)\,\phi_n(x)\,dx = \delta_{mn}
-$$<h4 id="222-用正交归一函数组展开">
-<a class="header-anchor" href="#222-%e7%94%a8%e6%ad%a3%e4%ba%a4%e5%bd%92%e4%b8%80%e5%87%bd%e6%95%b0%e7%bb%84%e5%b1%95%e5%bc%80"></a>
-2.2.2 用正交归一函数组展开
-</h4><p>任意满足一定条件的函数 $f(x)$ 可以展开为正交归一函数组 $\{ \phi_n(x) \}$ 的线性组合：
-</p>
-$$
-f(x) = \sum_{n=1}^{\infty} c_n \phi_n(x)
-$$<p>
-其中展开系数：
-</p>
-$$
-c_n = \int_a^b f(x)\,\phi_n(x)\,dx
-$$<h4 id="223-傅里叶级数">
-<a class="header-anchor" href="#223-%e5%82%85%e9%87%8c%e5%8f%b6%e7%ba%a7%e6%95%b0"></a>
-2.2.3 傅里叶级数
-</h4><p>在区间 $[-L,L]$ 上，周期函数 $f(x)$ 可展开为三角函数正交基的级数：
-</p>
-$$
-f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty \left[ a_n \cos\left(\frac{n\pi x}{L}\right) + b_n \sin\left(\frac{n\pi x}{L}\right) \right]
-$$<p>
-其中：
-</p>
-$$
-a_n = \frac{1}{L} \int_{-L}^L f(x)\cos\left(\frac{n\pi x}{L}\right)\,dx, \quad
-b_n = \frac{1}{L} \int_{-L}^L f(x)\sin\left(\frac{n\pi x}{L}\right)\,dx
-$$<h4 id="224-构造正交归一函数">
-<a class="header-anchor" href="#224-%e6%9e%84%e9%80%a0%e6%ad%a3%e4%ba%a4%e5%bd%92%e4%b8%80%e5%87%bd%e6%95%b0"></a>
-2.2.4 构造正交归一函数
-</h4><p>常用方法：<strong>施密特正交化</strong>（Gram-Schmidt）。<br>
-给定一组函数 $\{ f_n(x) \}$，可依次构造：
-</p>
-$$
-\phi_1(x) = \frac{f_1(x)}{\sqrt{\int |f_1(x)|^2 dx}}
-$$<p>
-</p>
-$$
-\phi_2(x) = \frac{f_2(x) - \int \phi_1(x) f_2(x)\,dx \,\phi_1(x)}{\sqrt{\int \left|f_2(x) - \int \phi_1(x) f_2(x)\,dx \,\phi_1(x)\right|^2 dx}}
-$$<p>
-依此类推，得到一组正交归一函数。</p>
-<h4 id="225-勒让德多项式和其他特殊函数">
-<a class="header-anchor" href="#225-%e5%8b%92%e8%ae%a9%e5%be%b7%e5%a4%9a%e9%a1%b9%e5%bc%8f%e5%92%8c%e5%85%b6%e4%bb%96%e7%89%b9%e6%ae%8a%e5%87%bd%e6%95%b0"></a>
-2.2.5 勒让德多项式和其他特殊函数
-</h4><p><strong>勒让德多项式</strong><br>
-由勒让德方程：
-</p>
-$$
-(1-x^2)\frac{d^2 y}{dx^2} - 2x \frac{dy}{dx} + l(l+1)y = 0
-$$<p>
-解为勒让德多项式 $P_l(x)$。</p>
-<ul>
-<li>正交性：
-
-$$
-\int_{-1}^{1} P_l(x) P_{l'}(x)\,dx = \frac{2}{2l+1}\delta_{ll'}
-$$</li>
-</ul>
-<p><strong>其他常见特殊函数</strong></p>
-<ul>
-<li><strong>球谐函数</strong> $Y_l^m(\theta,\phi)$：角动量问题中出现。</li>
-<li><strong>贝塞尔函数</strong> $J_n(x)$：圆柱对称问题中出现。</li>
-<li><strong>厄米多项式</strong> $H_n(x)$：谐振子问题中出现。</li>
-</ul>
-<p>这些特殊函数都是满足不同边界条件和对称性的薛定谔方程解。</p>
-<hr>
-<h3 id="23-线性谐振子">
-<a class="header-anchor" href="#23-%e7%ba%bf%e6%80%a7%e8%b0%90%e6%8c%af%e5%ad%90"></a>
-2.3 线性谐振子
-</h3><hr>
-<h3 id="24-氢原子">
-<a class="header-anchor" href="#24-%e6%b0%a2%e5%8e%9f%e5%ad%90"></a>
-2.4 氢原子
-</h3><h4 id="241-方程求解分为--三个方程">
-<a class="header-anchor" href="#241-%e6%96%b9%e7%a8%8b%e6%b1%82%e8%a7%a3%e5%88%86%e4%b8%ba--%e4%b8%89%e4%b8%aa%e6%96%b9%e7%a8%8b"></a>
-2.4.1 方程求解（分为 $r,\ \theta,\ \phi$ 三个方程）
-</h4><p><strong>1. 时间独立薛定谔方程（库仑势）</strong><br>
-氢原子（单电子）势能：
-</p>
-$$
-V(r) = -\dfrac{e^2}{4\pi\varepsilon_0 r}
-$$<p>
-在球坐标 $(r,\theta,\phi)$ 中，时间独立薛定谔方程为
-</p>
-$$
--\dfrac{\hbar^2}{2m}\nabla^2\Psi(r,\theta,\phi) + V(r)\Psi = E\Psi.
-$$<p><strong>2. 变量分离</strong><br>
-设
-</p>
-$$
-\Psi(r,\theta,\phi)=R(r)\,Y(\theta,\phi).
-$$<p>
-代入并除以 $\Psi$ 后可得到形如<br>
-</p>
-$$
-\frac{1}{R}\left[-\frac{\hbar^2}{2m}\left(\frac{1}{r^2}\frac{d}{dr}\! \left(r^2\frac{dR}{dr}\right)\right)+V(r)R\right]
-+\frac{1}{Y}\left[-\frac{\hbar^2}{2m}\frac{1}{r^2}\hat{L}^2Y\right]=E,
-$$<p>
-其中 $\hat L^2$ 为角动量算符。将角动量部分移项并设分离常数 $l(l+1)\hbar^2$，得到三个独立方程（按变量分为 $r,\theta,\phi$）。</p>
-<p><strong>3. 方程 1 — 角方程（$\phi$ 方向）</strong><br>
-对 $\phi$ 变量：
-</p>
-$$
-\frac{1}{\Phi(\phi)}\frac{d^2\Phi}{d\phi^2} = -m^2 \quad\Rightarrow\quad
-\Phi_m(\phi)=\frac{1}{\sqrt{2\pi}} e^{i m\phi},\quad m\in\mathbb{Z}.
-$$<p><strong>4. 方程 2 — 角方程（$\theta$ 方向）</strong><br>
-极角方程（由 $\hat L^2$ 的 $\theta$ 部分给出）为关联勒让德方程：
-</p>
-$$
-\frac{1}{\sin\theta}\frac{d}{d\theta}\!\left(\sin\theta\frac{d\Theta}{d\theta}\right)
-+\left[l(l+1)-\frac{m^2}{\sin^2\theta}\right]\Theta=0.
-$$<p>
-其解为关联勒让德函数：
-</p>
-$$
-\Theta_{l}^{m}(\theta)\propto P_l^{m}(\cos\theta).
-$$<p><strong>5. 角部综合（球谐函数）</strong><br>
-角函数组合为球谐函数：
-</p>
-$$
-Y_l^m(\theta,\phi)=N_{l}^{m}\,P_l^{m}(\cos\theta)\,e^{im\phi},
-$$<p>
-满足
-</p>
-$$
-\hat L^2 Y_l^m = l(l+1)\hbar^2 Y_l^m,\qquad \hat L_z Y_l^m = m\hbar Y_l^m,
-$$<p>
-其中 $l=0,1,2,\dots,\ -l\le m\le l$，且归一化：
-</p>
-$$
-\int_0^{2\pi}\!\int_0^{\pi} |Y_l^m|^2\sin\theta\,d\theta d\phi =1.
-$$<p><strong>6. 方程 3 — 径向方程</strong><br>
-令 $u(r)=rR(r)$，径向方程化为一维形式：
-</p>
-$$
--\frac{\hbar^2}{2m}\frac{d^2 u}{dr^2} + \left[ -\frac{e^2}{4\pi\varepsilon_0 r} + \frac{\hbar^2 l(l+1)}{2m r^2} \right] u = E u.
-$$<p>
-解该方程并施加边界条件 $u(0)=0,\ u(r)\xrightarrow{r\to\infty}0$，得到离散能级与径向本征函数。</p>
-<p><strong>7. 能量本征值（玻尔能级）</strong><br>
-能量量子化结果：
-</p>
-$$
-E_n = -\frac{m e^4}{2(4\pi\varepsilon_0)^2 \hbar^2}\,\frac{1}{n^2} = -\frac{13.6057\ \mathrm{eV}}{n^2},\qquad n=1,2,3,\dots
-$$<p>
-主量子数 $n$ 与角量子数满足 $l=0,1,\dots,n-1$。</p>
-<p><strong>8. 波函数形式（归一化）</strong><br>
-完整本征函数写为
-</p>
-$$
-\Psi_{n l m}(r,\theta,\phi)=R_{n l}(r)\,Y_l^m(\theta,\phi),
-$$<p>
-径向部分（氢原子）可表示为
-</p>
-$$
-R_{n l}(r)=N_{n l}\left(\frac{2r}{n a_0}\right)^{l} e^{-r/(n a_0)} L_{n-l-1}^{2l+1}\!\left(\frac{2r}{n a_0}\right),
-$$<p>
-其中 $a_0=\dfrac{4\pi\varepsilon_0\hbar^2}{m e^2}$ 为波尔半径，$L_{n-l-1}^{2l+1}$ 为广义拉盖尔多项式，$N_{n l}$ 为归一化常数。</p>
-<h4 id="242-结果与讨论">
-<a class="header-anchor" href="#242-%e7%bb%93%e6%9e%9c%e4%b8%8e%e8%ae%a8%e8%ae%ba"></a>
-2.4.2 结果与讨论
-</h4><p><strong>1. 量子数与简要物理意义</strong></p>
-<ul>
-<li>$n$（主量子数）：决定能量与径向性质。</li>
-<li>$l$（角量子数）：与角动量大小相关，取 $0\le l\le n-1$。</li>
-<li>$m$（磁量子数）：角动量 $L_z$ 的本征值，取 $-l\le m\le l$。</li>
-</ul>
-<p><strong>2. 能级简并</strong><br>
-能量仅与 $n$ 有关（库仑势下的额外对称性），每一能级的简并度为 $n^2$（所有满足相同 $n$ 的 $(l,m)$ 组合）。</p>
-<p><strong>3. 波函数的空间结构</strong></p>
-<ul>
-<li>角部分由球谐函数给出，决定角向分布与节点数。</li>
-<li>径向部分由 $R_{nl}(r)$ 给出，具有 $n-l-1$ 个径向节点。</li>
-<li>基态 $(n,l,m)=(1,0,0)$ 的波函数无角向依赖、径向无节点，概率密度最大在 $r=a_0$ 附近（期望值 $\langle r\rangle = \tfrac{3}{2}a_0$）。</li>
-</ul>
-<p><strong>5. 总结</strong><br>
-氢原子问题通过在球坐标中按 $r,\theta,\phi$ 三个变量分离得到：两个角方程（$\theta,\phi$）给出球谐函数和角量子数谱，径向方程给出离散能级 $E_n$ 与径向本征函数。</p>
-<h2 id="第三章-力学量的算符表示与表象理论">
-<a class="header-anchor" href="#%e7%ac%ac%e4%b8%89%e7%ab%a0-%e5%8a%9b%e5%ad%a6%e9%87%8f%e7%9a%84%e7%ae%97%e7%ac%a6%e8%a1%a8%e7%a4%ba%e4%b8%8e%e8%a1%a8%e8%b1%a1%e7%90%86%e8%ae%ba"></a>
-第三章 力学量的算符表示与表象理论
-</h2><h3 id="31-力学量与算符的关系">
-<a class="header-anchor" href="#31-%e5%8a%9b%e5%ad%a6%e9%87%8f%e4%b8%8e%e7%ae%97%e7%ac%a6%e7%9a%84%e5%85%b3%e7%b3%bb"></a>
-3.1 力学量与算符的关系
-</h3><h4 id="311-算符数学知识">
-<a class="header-anchor" href="#311-%e7%ae%97%e7%ac%a6%e6%95%b0%e5%ad%a6%e7%9f%a5%e8%af%86"></a>
-3.1.1 算符数学知识
-</h4><ol>
-<li>
-<p><strong>算符的定义</strong><br>
-算符（Operator）是作用在函数空间或态空间上的运算规则。在量子力学中，物理量通过算符来刻画，波函数是算符作用的对象。</p>
-<ul>
-<li>若 $A$ 是一个算符，对波函数 $\psi$ 的作用记为<br>
-
-$$
-     A\psi(x)
-     $$</li>
-<li>算符可以是代数运算、微分运算或积分运算。</li>
-</ul>
-</li>
-<li>
-<p><strong>算符的线性性</strong><br>
-算符 $A$ 若满足<br>
-</p>
-$$
-   A(c_1\psi_1 + c_2\psi_2) = c_1 A\psi_1 + c_2 A\psi_2
-   $$<p>
-其中 $c_1, c_2$ 为常数，则称 $A$ 为线性算符。量子力学中的物理算符一般都是线性的。</p>
-</li>
-<li>
-<p><strong>算符的对易关系</strong></p>
-<ul>
-<li>两个算符 $A, B$ 的对易子定义为<br>
-
-$$
-     [A,B] = AB - BA
-     $$</li>
-<li>若 $[A,B]=0$，称 $A$ 与 $B$ 对易，可以有共同本征态。</li>
-<li>对易关系是量子力学的重要特征，与测不准原理密切相关。</li>
-</ul>
-</li>
-<li>
-<p><strong>厄米算符</strong></p>
-<ul>
-<li>定义：若算符 $A$ 满足<br>
-
-$$
-     \langle \psi | A\varphi \rangle = \langle A\psi | \varphi \rangle
-     $$
-对任意态矢量 $\psi, \varphi$ 都成立，则称 $A$ 为厄米算符。</li>
-<li>性质：厄米算符的本征值必为实数，本征函数可正交归一化。</li>
-<li>物理意义：所有可观测量都由厄米算符表示。</li>
-</ul>
-</li>
-</ol>
-<h4 id="312-力学量与算符">
-<a class="header-anchor" href="#312-%e5%8a%9b%e5%ad%a6%e9%87%8f%e4%b8%8e%e7%ae%97%e7%ac%a6"></a>
-3.1.2 力学量与算符
-</h4><ol>
-<li>
-<p><strong>基本思想</strong><br>
-在量子力学中，每一个经典力学量 $f(q,p)$ 都对应一个量子算符 $\hat{f}$，从而物理量的测量与算符的本征问题相联系。</p>
-</li>
-<li>
-<p><strong>典型的算符表示</strong><br>
-在位置表象下：</p>
-<ul>
-<li>坐标算符<br>
-
-$$
-     \hat{x} = x
-     $$</li>
-<li>动量算符<br>
-
-$$
-     \hat{p} = -i\hbar \frac{\partial}{\partial x}
-     $$</li>
-</ul>
-</li>
-<li>
-<p><strong>对易关系与基本假设</strong><br>
-坐标与动量算符满足基本对易关系：
-</p>
-$$
-   [\hat{x}, \hat{p}] = i\hbar
-   $$<p>
-这是量子力学的核心假设之一，反映了经典力学泊松括号与量子力学算符代数的对应关系。</p>
-</li>
-<li>
-<p><strong>物理量的测量与本征方程</strong></p>
-<ul>
-<li>测量某一物理量 $A$，等价于求解算符 $\hat{A}$ 的本征方程：<br>
-
-$$
-     \hat{A}\psi_a = a\psi_a
-     $$</li>
-<li>本征值 $a$ 是可能的测量结果，本征函数 $\psi_a$ 描述系统处于物理量 $A$ 取值为 $a$ 的状态。</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h3 id="32-算符对易关系与测不准原理">
-<a class="header-anchor" href="#32-%e7%ae%97%e7%ac%a6%e5%af%b9%e6%98%93%e5%85%b3%e7%b3%bb%e4%b8%8e%e6%b5%8b%e4%b8%8d%e5%87%86%e5%8e%9f%e7%90%86"></a>
-3.2 算符对易关系与测不准原理
-</h3><h4 id="321-算符对易关系">
-<a class="header-anchor" href="#321-%e7%ae%97%e7%ac%a6%e5%af%b9%e6%98%93%e5%85%b3%e7%b3%bb"></a>
-3.2.1 算符对易关系
-</h4><ol>
-<li>
-<p><strong>定义</strong><br>
-两个算符 $A, B$ 的对易子定义为：
-</p>
-$$
-   [A,B] = AB - BA
-   $$<ul>
-<li>若 $[A,B]=0$，称 $A$ 与 $B$ <strong>对易</strong>，说明它们可同时具有一组本征函数。</li>
-<li>若 $[A,B]\neq 0$，则 $A, B$ <strong>不对易</strong>，对应的物理量不能同时被精确测量。</li>
-</ul>
-</li>
-<li>
-<p><strong>基本对易关系</strong><br>
-在位置表象下：
-</p>
-$$
-   [\hat{x}, \hat{p}_x] = i\hbar
-   $$<p>
-这被称为量子力学的基本对易关系，是经典力学泊松括号与量子算符代数的对应结果。</p>
-</li>
-<li>
-<p><strong>推广形式</strong><br>
-在三维空间中，有：
-</p>
-$$
-   [\hat{x}_i, \hat{p}_j] = i\hbar \delta_{ij}, \quad [\hat{x}_i, \hat{x}_j]=0, \quad [\hat{p}_i, \hat{p}_j]=0
-   $$<p>
-其中 $\delta_{ij}$ 为克罗内克 δ 符号。</p>
-</li>
-<li>
-<p><strong>物理意义</strong></p>
-<ul>
-<li>对易关系刻画了物理量之间是否可以同时确定。</li>
-<li>若两个算符对易，则它们的物理量可以同时具有确定值。</li>
-<li>若不对易，则测量一个物理量会干扰另一个物理量的精确值。</li>
-</ul>
-</li>
-</ol>
-<h4 id="322-测不准原理">
-<a class="header-anchor" href="#322-%e6%b5%8b%e4%b8%8d%e5%87%86%e5%8e%9f%e7%90%86"></a>
-3.2.2 测不准原理
-</h4><ol>
-<li>
-<p><strong>数学表达式</strong><br>
-对于任意两个算符 $A, B$，定义其物理量的<strong>不确定度</strong>为：
-</p>
-$$
-   (\Delta A)^2 = \langle (A-\langle A \rangle)^2 \rangle
-   $$<p>
-</p>
-$$
-   (\Delta B)^2 = \langle (B-\langle B \rangle)^2 \rangle
-   $$<p>
-根据柯西–施瓦兹不等式，可以得到测不准关系：
-</p>
-$$
-   \Delta A \cdot \Delta B \geq \frac{1}{2}\left| \langle [A,B] \rangle \right|
-   $$</li>
-<li>
-<p><strong>坐标与动量的不确定关系</strong><br>
-对于 $\hat{x}, \hat{p}$：
-</p>
-$$
-   \Delta x \cdot \Delta p \geq \frac{\hbar}{2}
-   $$<p>
-这表明不可能同时无限精确地测量粒子的位置和动量。</p>
-</li>
-<li>
-<p><strong>能量与时间的不确定关系</strong><br>
-虽然时间在量子力学中不是算符，但可以得到类似关系：
-</p>
-$$
-   \Delta E \cdot \Delta t \gtrsim \hbar
-   $$<p>
-该关系对瞬时过程、能级寿命等物理现象有重要意义。</p>
-</li>
-</ol>
-<hr>
-<h3 id="33-表象理论">
-<a class="header-anchor" href="#33-%e8%a1%a8%e8%b1%a1%e7%90%86%e8%ae%ba"></a>
-3.3 表象理论
-</h3><h4 id="331-表象理论的数学基础">
-<a class="header-anchor" href="#331-%e8%a1%a8%e8%b1%a1%e7%90%86%e8%ae%ba%e7%9a%84%e6%95%b0%e5%ad%a6%e5%9f%ba%e7%a1%80"></a>
-3.3.1 表象理论的数学基础
-</h4><ol>
-<li>
-<p><strong>表象的概念</strong></p>
-<ul>
-<li>量子态与算符可在不同基底（如位置表象、动量表象、能量表象）下表示。</li>
-<li><strong>表象</strong>就是在某组正交归一基矢 $\{ | \phi_n \rangle \}$ 下，态矢量与算符的矩阵或函数表示形式。</li>
-</ul>
-</li>
-<li>
-<p><strong>态矢量的展开</strong><br>
-对于任意态 $|\psi\rangle$，可在基底 $\{|\phi_n\rangle\}$ 下展开为：
-</p>
-$$
-   |\psi\rangle = \sum_n c_n |\phi_n\rangle
-   $$<p>
-其中 $c_n = \langle \phi_n | \psi \rangle$。</p>
-</li>
-<li>
-<p><strong>算符的矩阵元</strong><br>
-算符 $\hat{A}$ 在基底 $\{|\phi_n\rangle\}$ 下的矩阵元定义为：
-</p>
-$$
-   A_{mn} = \langle \phi_m | \hat{A} | \phi_n \rangle
-   $$<p>
-这样，算符在该表象下对应一个矩阵。</p>
-</li>
-<li>
-<p><strong>完备性与正交性</strong></p>
-<ul>
-<li>完备性：
-
-$$
-     \sum_n |\phi_n\rangle \langle \phi_n| = I
-     $$</li>
-<li>正交性：
-
-$$
-     \langle \phi_m | \phi_n \rangle = \delta_{mn}
-     $$</li>
-</ul>
-</li>
-</ol>
-<h4 id="332-态与力学量的表象">
-<a class="header-anchor" href="#332-%e6%80%81%e4%b8%8e%e5%8a%9b%e5%ad%a6%e9%87%8f%e7%9a%84%e8%a1%a8%e8%b1%a1"></a>
-3.3.2 态与力学量的表象
-</h4><ol>
-<li>
-<p><strong>位置表象</strong></p>
-<ul>
-<li>基底：$|x\rangle$</li>
-<li>波函数表示：<br>
-
-$$
-     \psi(x) = \langle x|\psi\rangle
-     $$</li>
-<li>算符作用：
-
-$$
-     \hat{x} \psi(x) = x \psi(x), \quad \hat{p}_x \psi(x) = -i\hbar \frac{\partial}{\partial x}\psi(x)
-     $$</li>
-</ul>
-</li>
-<li>
-<p><strong>动量表象</strong></p>
-<ul>
-<li>基底：$|p\rangle$</li>
-<li>波函数表示：
-
-$$
-     \phi(p) = \langle p|\psi\rangle
-     $$</li>
-<li>算符作用：
-
-$$
-     \hat{p} \phi(p) = p \phi(p), \quad \hat{x} \phi(p) = i\hbar \frac{\partial}{\partial p}\phi(p)
-     $$</li>
-</ul>
-</li>
-<li>
-<p><strong>能量表象</strong></p>
-<ul>
-<li>基底：哈密顿算符的本征态 $|E_n\rangle$</li>
-<li>态矢量表示：
-
-$$
-     |\psi\rangle = \sum_n c_n |E_n\rangle, \quad c_n = \langle E_n|\psi\rangle
-     $$</li>
-<li>物理意义：能量表象下，态展开系数 $c_n$ 给出粒子处于能量本征态的概率幅。</li>
-</ul>
-</li>
-<li>
-<p><strong>表象之间的变换</strong></p>
-<ul>
-<li>不同表象之间通过傅里叶变换联系：<br>
-
-$$
-     \phi(p) = \frac{1}{\sqrt{2\pi\hbar}} \int_{-\infty}^{\infty} \psi(x) e^{-ipx/\hbar} dx
-     $$
-
-$$
-     \psi(x) = \frac{1}{\sqrt{2\pi\hbar}} \int_{-\infty}^{\infty} \phi(p) e^{ipx/\hbar} dp
-     $$</li>
-</ul>
-</li>
-</ol>
-<p><strong>总结</strong></p>
-<ul>
-<li>表象理论提供了在不同基底下处理量子态与算符的统一方法。</li>
-<li>位置表象和动量表象是最常用的两种形式，它们体现了量子力学的波粒二象性。</li>
-</ul>
-<hr>
-<h3 id="34-轨道角动量">
-<a class="header-anchor" href="#34-%e8%bd%a8%e9%81%93%e8%a7%92%e5%8a%a8%e9%87%8f"></a>
-3.4 轨道角动量
-</h3><h4 id="341-角动量">
-<a class="header-anchor" href="#341-%e8%a7%92%e5%8a%a8%e9%87%8f"></a>
-3.4.1 角动量
-</h4><ol>
-<li>
-<p><strong>定义</strong><br>
-在经典力学中，轨道角动量定义为：
-</p>
-$$
-   \vec{L} = \vec{r} \times \vec{p}
-   $$<p>
-在量子力学中，定义相应算符：
-</p>
-$$
-   \hat{\vec{L}} = \hat{\vec{r}} \times \hat{\vec{p}}
-   $$</li>
-<li>
-<p><strong>分量表示</strong><br>
-</p>
-$$
-   \hat{L}_x = y\hat{p}_z - z\hat{p}_y, \quad
-   \hat{L}_y = z\hat{p}_x - x\hat{p}_z, \quad
-   \hat{L}_z = x\hat{p}_y - y\hat{p}_x
-   $$</li>
-<li>
-<p><strong>对易关系</strong><br>
-</p>
-$$
-   [\hat{L}_x, \hat{L}_y] = i\hbar \hat{L}_z, \quad
-   [\hat{L}_y, \hat{L}_z] = i\hbar \hat{L}_x, \quad
-   [\hat{L}_z, \hat{L}_x] = i\hbar \hat{L}_y
-   $$<p>
-总角动量算符：
-</p>
-$$
-   \hat{L}^2 = \hat{L}_x^2 + \hat{L}_y^2 + \hat{L}_z^2
-   $$</li>
-</ol>
-<h4 id="342-角动量守恒">
-<a class="header-anchor" href="#342-%e8%a7%92%e5%8a%a8%e9%87%8f%e5%ae%88%e6%81%92"></a>
-3.4.2 角动量守恒
-</h4><ol>
-<li>
-<p><strong>守恒条件</strong><br>
-若体系的哈密顿算符与角动量分量对易，则该分量守恒：
-</p>
-$$
-   [\hat{H}, \hat{L}_i] = 0 \quad \Rightarrow \quad \hat{L}_i \ \text{守恒}
-   $$</li>
-<li>
-<p><strong>球对称势场</strong><br>
-在球对称势场 $V(r)$ 下：
-</p>
-$$
-   [\hat{H}, \hat{L}^2] = 0, \quad [\hat{H}, \hat{L}_z] = 0
-   $$<p>
-说明总角动量 $\hat{L}^2$ 与其 $z$ 分量 $\hat{L}_z$ 守恒。</p>
-</li>
-</ol>
-<h4 id="343-轨道角动量计算">
-<a class="header-anchor" href="#343-%e8%bd%a8%e9%81%93%e8%a7%92%e5%8a%a8%e9%87%8f%e8%ae%a1%e7%ae%97"></a>
-3.4.3 轨道角动量计算
-</h4><ol>
-<li>
-<p><strong>本征方程</strong><br>
-轨道角动量满足：
-</p>
-$$
-   \hat{L}^2 Y_{lm}(\theta,\varphi) = l(l+1)\hbar^2 Y_{lm}(\theta,\varphi)
-   $$<p>
-</p>
-$$
-   \hat{L}_z Y_{lm}(\theta,\varphi) = m\hbar Y_{lm}(\theta,\varphi)
-   $$<p>
-其中 $Y_{lm}(\theta,\varphi)$ 为球谐函数，$l=0,1,2,\dots$，$m=-l,\dots,l$。</p>
-</li>
-<li>
-<p><strong>本征值</strong></p>
-<ul>
-<li>角动量平方：
-
-$$
-     L = \sqrt{l(l+1)} \hbar
-     $$</li>
-<li>角动量 $z$ 分量：
-
-$$
-     L_z = m\hbar
-     $$</li>
-</ul>
-</li>
-<li>
-<p><strong>物理意义</strong></p>
-<ul>
-<li>$l$ 为轨道角动量量子数，决定角动量大小。</li>
-<li>$m$ 为磁量子数，决定角动量在 $z$ 方向上的投影。</li>
-<li>轨道角动量的量子化反映了微观粒子运动的离散性。</li>
-</ul>
-</li>
-</ol>
-<h2 id="第四章-微扰理论及其应用">
-<a class="header-anchor" href="#%e7%ac%ac%e5%9b%9b%e7%ab%a0-%e5%be%ae%e6%89%b0%e7%90%86%e8%ae%ba%e5%8f%8a%e5%85%b6%e5%ba%94%e7%94%a8"></a>
-第四章 微扰理论及其应用
-</h2><h3 id="41-定态微扰理论">
-<a class="header-anchor" href="#41-%e5%ae%9a%e6%80%81%e5%be%ae%e6%89%b0%e7%90%86%e8%ae%ba"></a>
-4.1 定态微扰理论
-</h3><h4 id="411-非简并微扰理论">
-<a class="header-anchor" href="#411-%e9%9d%9e%e7%ae%80%e5%b9%b6%e5%be%ae%e6%89%b0%e7%90%86%e8%ae%ba"></a>
-4.1.1 非简并微扰理论
-</h4><ol>
-<li>
-<p><strong>基本思想</strong><br>
-当体系的哈密顿量可以写成：
-</p>
-$$
-   \hat{H} = \hat{H}^{(0)} + \lambda \hat{H}'
-   $$<p>
-其中 $\hat{H}^{(0)}$ 为可解的零阶哈密顿量，$\hat{H}'$ 为较小的微扰项，$\lambda$ 为展开参数。<br>
-若能量本征态非简并，可展开为级数解。</p>
-</li>
-<li>
-<p><strong>能量修正</strong></p>
-<ul>
-<li>零阶：<br>
-
-$$
-     E_n^{(0)} , \quad \psi_n^{(0)}
-     $$</li>
-<li>一阶：<br>
-
-$$
-     E_n^{(1)} = \langle \psi_n^{(0)} | \hat{H}' | \psi_n^{(0)} \rangle
-     $$</li>
-<li>二阶：<br>
-
-$$
-     E_n^{(2)} = \sum_{m \neq n} \frac{|\langle \psi_m^{(0)} | \hat{H}' | \psi_n^{(0)} \rangle|^2}{E_n^{(0)} - E_m^{(0)}}
-     $$</li>
-</ul>
-</li>
-<li>
-<p><strong>波函数修正</strong><br>
-一阶波函数修正：
-</p>
-$$
-   \psi_n^{(1)} = \sum_{m \neq n} \frac{\langle \psi_m^{(0)} | \hat{H}' | \psi_n^{(0)} \rangle}{E_n^{(0)} - E_m^{(0)}} \psi_m^{(0)}
-   $$</li>
-</ol>
-<h4 id="412-简并微扰理论">
-<a class="header-anchor" href="#412-%e7%ae%80%e5%b9%b6%e5%be%ae%e6%89%b0%e7%90%86%e8%ae%ba"></a>
-4.1.2 简并微扰理论
-</h4><ol>
-<li>
-<p><strong>问题来源</strong><br>
-若零阶能量 $E^{(0)}$ 对应多个正交本征态，则称为简并态。直接套用非简并公式会出现分母为零的发散问题。</p>
-</li>
-<li>
-<p><strong>处理方法</strong><br>
-在简并子空间内，构造矩阵：
-</p>
-$$
-   H'_{ij} = \langle \psi_i^{(0)} | \hat{H}' | \psi_j^{(0)} \rangle
-   $$<p>
-对其进行对角化，得到修正后的能量和本征态。</p>
-</li>
-<li>
-<p><strong>结果</strong></p>
-<ul>
-<li>一阶能量修正由 $H'_{ij}$ 的本征值给出。</li>
-<li>修正后的本征态为 $H'_{ij}$ 的本征矢量在原简并子空间中的线性组合。</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h3 id="42-含时微扰理论">
-<a class="header-anchor" href="#42-%e5%90%ab%e6%97%b6%e5%be%ae%e6%89%b0%e7%90%86%e8%ae%ba"></a>
-4.2 含时微扰理论
-</h3><ol>
-<li>
-<p><strong>基本框架</strong><br>
-考虑体系哈密顿量：
-</p>
-$$
-   \hat{H}(t) = \hat{H}^{(0)} + \hat{H}'(t)
-   $$<p>
-其中 $\hat{H}'(t)$ 为随时间变化的微扰项。</p>
-</li>
-<li>
-<p><strong>态展开</strong><br>
-用零阶本征态展开体系波函数：
-</p>
-$$
-   |\psi(t)\rangle = \sum_n c_n(t) e^{-iE_n^{(0)}t/\hbar} |\psi_n^{(0)}\rangle
-   $$<p>
-微扰使得系数 $c_n(t)$ 随时间演化。</p>
-</li>
-<li>
-<p><strong>跃迁概率</strong><br>
-一阶近似下，从态 $i$ 跃迁到态 $f$ 的概率幅为：
-</p>
-$$
-   c_f^{(1)}(t) = \frac{1}{i\hbar} \int_0^t \langle \psi_f^{(0)} | \hat{H}'(t') | \psi_i^{(0)} \rangle 
-   e^{i\omega_{fi} t'} dt'
-   $$<p>
-其中 $\omega_{fi} = (E_f^{(0)} - E_i^{(0)})/\hbar$。</p>
-</li>
-<li>
-<p><strong>费米黄金法则</strong><br>
-当微扰近似为简谐形式，长时间平均下，跃迁速率为：
-</p>
-$$
-   W_{i \to f} = \frac{2\pi}{\hbar} \, |\langle f | \hat{H}' | i \rangle|^2 \, \rho(E_f)
-   $$<p>
-其中 $\rho(E_f)$ 为末态的密度。</p>
-</li>
-</ol>
-<p><strong>总结</strong></p>
-<ul>
-<li>定态微扰：适用于时间无关扰动，修正能量与波函数。</li>
-<li>含时微扰：研究能级间的跃迁过程，解释辐射与吸收等现象。</li>
-</ul>
-<h2 id="电子自旋">
-<a class="header-anchor" href="#%e7%94%b5%e5%ad%90%e8%87%aa%e6%97%8b"></a>
-电子自旋
-</h2><h3 id="电子自旋实验发现">
-<a class="header-anchor" href="#%e7%94%b5%e5%ad%90%e8%87%aa%e6%97%8b%e5%ae%9e%e9%aa%8c%e5%8f%91%e7%8e%b0"></a>
-电子自旋实验发现
-</h3><ol>
-<li>
-<p><strong>斯特恩–格拉赫实验</strong></p>
-<ul>
-<li>将银原子束通过非均匀磁场，观测到束分裂为两条轨迹。</li>
-<li>说明电子具有除轨道角动量之外的内禀角动量——自旋。</li>
-</ul>
-</li>
-<li>
-<p><strong>实验结论</strong></p>
-<ul>
-<li>自旋量子数为 $s = 1/2$。</li>
-<li>自旋有两个可能的投影 $m_s = \pm 1/2$。</li>
-<li>自旋引入了额外的磁矩：
-
-$$
-     \vec{\mu}_s = -g_s \frac{e}{2m_e} \vec{S}, \quad g_s \approx 2
-     $$</li>
-</ul>
-</li>
-</ol>
-<h3 id="电子自旋理论">
-<a class="header-anchor" href="#%e7%94%b5%e5%ad%90%e8%87%aa%e6%97%8b%e7%90%86%e8%ae%ba"></a>
-电子自旋理论
-</h3><ol>
-<li>
-<p><strong>自旋的量子描述</strong></p>
-<ul>
-<li>自旋是内禀角动量，不依赖空间坐标。</li>
-<li>其算符满足角动量对易关系：
-
-$$
-     [\hat{S}_i, \hat{S}_j] = i\hbar \epsilon_{ijk} \hat{S}_k
-     $$</li>
-</ul>
-</li>
-<li>
-<p><strong>物理意义</strong></p>
-<ul>
-<li>自旋决定了电子的磁性行为。</li>
-<li>自旋量子化导致费米–狄拉克统计和泡利不相容原理。</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h3 id="自旋角动量">
-<a class="header-anchor" href="#%e8%87%aa%e6%97%8b%e8%a7%92%e5%8a%a8%e9%87%8f"></a>
-自旋角动量
-</h3><h4 id="自旋算符">
-<a class="header-anchor" href="#%e8%87%aa%e6%97%8b%e7%ae%97%e7%ac%a6"></a>
-自旋算符
-</h4><ol>
-<li>
-<p><strong>自旋分量算符</strong><br>
-</p>
-$$
-   \hat{S}_x, \hat{S}_y, \hat{S}_z
-   $$<p>
-满足对易关系：
-</p>
-$$
-   [\hat{S}_x, \hat{S}_y] = i\hbar \hat{S}_z, \quad \text{循环对称}
-   $$</li>
-<li>
-<p><strong>总自旋算符</strong><br>
-</p>
-$$
-   \hat{S}^2 = \hat{S}_x^2 + \hat{S}_y^2 + \hat{S}_z^2
-   $$<p>
-对应总自旋量子数 $s$：
-</p>
-$$
-   \hat{S}^2 |\chi_s\rangle = s(s+1)\hbar^2 |\chi_s\rangle
-   $$</li>
-</ol>
-<h4 id="本征函数的矩阵表示">
-<a class="header-anchor" href="#%e6%9c%ac%e5%be%81%e5%87%bd%e6%95%b0%e7%9a%84%e7%9f%a9%e9%98%b5%e8%a1%a8%e7%a4%ba"></a>
-本征函数的矩阵表示
-</h4><ol>
-<li>
-<p><strong>自旋-1/2 粒子</strong></p>
-<ul>
-<li>自旋态空间二维，取基底：
-
-$$
-     |\uparrow\rangle = \begin{pmatrix}1\\0\end{pmatrix}, \quad
-     |\downarrow\rangle = \begin{pmatrix}0\\1\end{pmatrix}
-     $$</li>
-</ul>
-</li>
-<li>
-<p><strong>自旋算符的矩阵形式（泡利矩阵）</strong><br>
-</p>
-$$
-   \hat{S}_x = \frac{\hbar}{2} \sigma_x, \quad
-   \hat{S}_y = \frac{\hbar}{2} \sigma_y, \quad
-   \hat{S}_z = \frac{\hbar}{2} \sigma_z
-   $$<p>
-其中
-</p>
-$$
-   \sigma_x = \begin{pmatrix}0 & 1\\ 1 & 0\end{pmatrix},\quad
-   \sigma_y = \begin{pmatrix}0 & -i\\ i & 0\end{pmatrix},\quad
-   \sigma_z = \begin{pmatrix}1 & 0\\ 0 & -1\end{pmatrix}
-   $$</li>
-</ol>
-<h4 id="角动量耦合理论">
-<a class="header-anchor" href="#%e8%a7%92%e5%8a%a8%e9%87%8f%e8%80%a6%e5%90%88%e7%90%86%e8%ae%ba"></a>
-角动量耦合理论
-</h4><ol>
-<li>
-<p><strong>自旋-轨道耦合</strong></p>
-<ul>
-<li>电子轨道角动量 $\vec{L}$ 与自旋 $\vec{S}$ 耦合：
-
-$$
-     \hat{H}_{\text{SO}} = \xi(r)\, \vec{L} \cdot \vec{S}
-     $$</li>
-<li>造成能级分裂（精细结构）。</li>
-</ul>
-</li>
-<li>
-<p><strong>总角动量</strong><br>
-</p>
-$$
-   \vec{J} = \vec{L} + \vec{S}, \quad
-   \hat{J}^2 = (\hat{L}+\hat{S})^2
-   $$<p>
-本征态记为 $|j, m_j\rangle$，满足：
-</p>
-$$
-   \hat{J}^2 |j, m_j\rangle = j(j+1)\hbar^2 |j, m_j\rangle, \quad
-   \hat{J}_z |j, m_j\rangle = m_j \hbar |j, m_j\rangle
-   $$</li>
-<li>
-<p><strong>耦合结果</strong></p>
-<ul>
-<li>$j = l \pm s$，$m_j = -j, -j+1, ..., j$。</li>
-<li>自旋与轨道角动量的耦合是原子光谱精细结构的重要来源。</li>
-</ul>
-</li>
-</ol>
-<h2 id="全同性原理">
-<a class="header-anchor" href="#%e5%85%a8%e5%90%8c%e6%80%a7%e5%8e%9f%e7%90%86"></a>
-全同性原理
-</h2><h3 id="全同粒子体系">
-<a class="header-anchor" href="#%e5%85%a8%e5%90%8c%e7%b2%92%e5%ad%90%e4%bd%93%e7%b3%bb"></a>
-全同粒子体系
-</h3><h4 id="概念与原理">
-<a class="header-anchor" href="#%e6%a6%82%e5%bf%b5%e4%b8%8e%e5%8e%9f%e7%90%86"></a>
-概念与原理
-</h4><ol>
-<li>
-<p><strong>全同粒子定义</strong></p>
-<ul>
-<li>若两个粒子在物理性质上完全相同（质量、电荷、自旋等）且无法通过任何实验区分，则称为全同粒子（Identical particles）。</li>
-</ul>
-</li>
-<li>
-<p><strong>全同性原理</strong></p>
-<ul>
-<li>物理规律对全同粒子应保持不变。</li>
-<li>即交换任意两粒子的位置和自旋，哈密顿量及可观测量不变。</li>
-</ul>
-</li>
-</ol>
-<h4 id="全同粒子体系哈密顿算符特点">
-<a class="header-anchor" href="#%e5%85%a8%e5%90%8c%e7%b2%92%e5%ad%90%e4%bd%93%e7%b3%bb%e5%93%88%e5%af%86%e9%a1%bf%e7%ae%97%e7%ac%a6%e7%89%b9%e7%82%b9"></a>
-全同粒子体系哈密顿算符特点
-</h4><ol>
-<li>
-<p><strong>哈密顿量形式</strong><br>
-对 $N$ 个全同粒子：
-</p>
-$$
-   \hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i<j} V(\vec{r}_i - \vec{r}_j)
-   $$<ul>
-<li>$\hat{T}_i$ 为第 $i$ 个粒子的动能算符。</li>
-<li>$V(\vec{r}_i - \vec{r}_j)$ 为两粒子间相互作用势。</li>
-</ul>
-</li>
-<li>
-<p><strong>对称性</strong></p>
-<ul>
-<li>$\hat{H}$ 在交换粒子算符下保持不变：
-
-$$
-     [\hat{H}, \hat{P}_{ij}] = 0
-     $$</li>
-<li>$\hat{P}_{ij}$ 为交换粒子 $i$ 与 $j$ 的交换算符。</li>
-</ul>
-</li>
-</ol>
-<h4 id="全同粒子体系波函数特点">
-<a class="header-anchor" href="#%e5%85%a8%e5%90%8c%e7%b2%92%e5%ad%90%e4%bd%93%e7%b3%bb%e6%b3%a2%e5%87%bd%e6%95%b0%e7%89%b9%e7%82%b9"></a>
-全同粒子体系波函数特点
-</h4><ol>
-<li>
-<p><strong>对称性要求</strong></p>
-<ul>
-<li>波函数必须满足交换对称性：
-
-$$
-     \hat{P}_{ij} \Psi(\dots, \vec{r}_i, \vec{r}_j, \dots) =
-     \pm \Psi(\dots, \vec{r}_i, \vec{r}_j, \dots)
-     $$</li>
-<li><strong>+号</strong>：玻色子（Bosons），波函数对称。</li>
-<li><strong>-号</strong>：费米子（Fermions），波函数反对称。</li>
-</ul>
-</li>
-<li>
-<p><strong>多粒子波函数构造</strong></p>
-<ul>
-<li>玻色子：对称化和式。</li>
-<li>费米子：反对称化行列式（Slater 行列式）：
-
-$$
-     \Psi(\vec{r}_1, \dots, \vec{r}_N) = \frac{1}{\sqrt{N!}}
-     \begin{vmatrix}
-     \psi_1(\vec{r}_1) & \cdots & \psi_1(\vec{r}_N) \\
-     \vdots & \ddots & \vdots \\
-     \psi_N(\vec{r}_1) & \cdots & \psi_N(\vec{r}_N)
-     \end{vmatrix}
-     $$</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h3 id="泡利不相容原理">
-<a class="header-anchor" href="#%e6%b3%a1%e5%88%a9%e4%b8%8d%e7%9b%b8%e5%ae%b9%e5%8e%9f%e7%90%86"></a>
-泡利不相容原理
-</h3><ol>
-<li>
-<p><strong>原理内容</strong></p>
-<ul>
-<li>对于自旋为半整数的全同费米子，任何两粒子不能占据完全相同的量子态。</li>
-<li>即：
-
-$$
-     \Psi(\text{同一量子态}) = 0
-     $$</li>
-</ul>
-</li>
-<li>
-<p><strong>物理意义</strong></p>
-<ul>
-<li>解释电子在原子轨道的排布规律。</li>
-<li>导致原子结构、化学性质及费米气体性质。</li>
-</ul>
-</li>
-<li>
-<p><strong>例子</strong></p>
-<ul>
-<li>原子中的电子：每个轨道最多两个电子，自旋相反。</li>
-<li>金属电子：形成费米能级，决定导电和热学性质。</li>
-</ul>
-</li>
-</ol>
-
-        
-        <hr><p>本文2025-09-05首发于<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于2025-09-05</p><div class="notice article-copyright" data-pagefind-ignore>
-<p><strong>本文作者：</strong> 孤筝</p>
-<p><strong>本文标题：</strong> 量子物理学</p>
-
-<p><strong>本文发布时间：</strong> 2025-09-05</p>
-<p><strong>本文更新时间：</strong> 2025-09-05</p>
-<p><strong>本文版权：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
-</div>
-]]></description><category>Physics</category></item><item><title>考研日记001</title><link>https://www.guzhengsvt.cn/zh-cn/post/diary/diary-001-of-postgraduate-entrance-examination/</link><pubDate>Mon, 01 Sep 2025 22:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-cn/post/diary/diary-001-of-postgraduate-entrance-examination/</guid><description>
-<![CDATA[<h1>考研日记001</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
-        
-          <h2 id="前言">
-<a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
-前言
-</h2><p>因为各种原因，现在不得不考研了。<br>
-写考研日记，既是对每一天学习的回顾，也是找个地方对着空气说说话。开始想写Day1作为标题，想了想不是每天都有时间写，也不是每天都有东西写。总有放松懈怠和忙碌无暇的时候。最后留了个001。</p>
-<p>其实也没真想着现在开始三个月上岸，说句没上进心的，像我这样不结婚不买房物欲低的人（并非），家底够我考好几年。今年先试试水吧，我是没什么压力，父母却因为直博失败很是焦急。</p>
-<p>今天是大学第三次去图书馆，第一次是刚进西电参观，第二次是开会。<br>
-从第一次来屠鼠馆开始，我就觉得这地儿不适合我学习，太严肃压抑了。战战兢兢端坐在椅子上，担忧是否会发出声音打扰到其他人，也时常在意是否周围人会盯着我有没有在学习，似乎任何看一眼手机都是犯罪（我知道这只是臆想，事实上无人在意，但和这么多陌生人在一起却十分安静的场合真的让社恐紧张，这与高中自习的氛围是截然不同的）。<br>
-好在图书馆既没有老大哥的眼线也没有拍视频的杨小姐（笑），要是有0721的凌地宁宁就好了（）</p>
-<p>从数一开始，今年打算师从武忠祥，直接看强化，一天看了2章。或许是太久没有动脑（学习），一学就犯困，好在前两章的函数极限之类不难，今日才发觉当年上的《数学分析》大有裨益。当时觉得这理科的课于我工科毫无用处，平时跟不上越发不想学，太难了，好在最后老师补考拉我一把给了60多。其实《数学分析》给的不仅是各种基础定理的证明，不只是数学大师的玩具，更是思维锻炼和启迪。惭愧，惭愧。</p>
-<p>我是从来不做笔记的，任何有逻辑的东西我只记在脑子里。然日久必疏，如今已非高中每日复习的境地，适当也应记一些知识，以便后日回顾。</p>
-<h2 id="回顾">
-<a class="header-anchor" href="#%e5%9b%9e%e9%a1%be"></a>
-回顾
-</h2><h3 id="函数">
-<a class="header-anchor" href="#%e5%87%bd%e6%95%b0"></a>
-函数
-</h3><ul>
-<li>
-<p>函数基本要素：定义域，对应规则</p>
-</li>
-<li>
-<p>函数性态：单调性，奇偶性，周期性，有界性</p>
-</li>
-<li>
-<p>奇函数
-</p>
-$$
-ln{\frac{1-x}{1+x}},ln(x+\sqrt[2]{1+x^2}),\frac{e^x-1}{e^x+1},f(x)-f(-x)
-$$</li>
-<li>
-<p>偶函数
-</p>
-$$
-f(x)+f(-x)
-$$</li>
-<li>
-<p>$f(x)$ 为奇函数，$\int ^x_0 f(x)dx+C$ 为偶函数</p>
-</li>
-<li>
-<p>$f(x)$ 为偶函数，$\int ^x_0 f(x)dx+C$ 仅当$C=0$时为奇函数</p>
-</li>
-<li>
-<p>可导周期函数导函数为周期函数</p>
-</li>
-<li>
-<p>导函数为周期函数，原函数不一定为周期函数</p>
-</li>
-<li>
-<p>导函数为周期函数，且在一个周期内积分为$0$，则原函数为周期函数（充要条件）</p>
-</li>
-</ul>
-<h3 id="极限">
-<a class="header-anchor" href="#%e6%9e%81%e9%99%90"></a>
-极限
-</h3><ul>
-<li>局部有界性：某去心邻域极限存在，可得局部有界；局部有界不可推断极限存在</li>
-<li>保号性</li>
-<li>保序性</li>
-</ul>
-<p>数列极限存在准则</p>
-<ul>
-<li>夹逼准则</li>
-<li>单调有界准则</li>
-</ul>
-<p>无穷大与无界变量关系：</p>
-<ul>
-<li>无穷大指数列趋于无穷（任选一数，存在无穷子项大于该数）
-
-$$
-\forall M \gt 0 ,\exist N \gt 0,当 n \gt N时,恒有\left\vert x_n \right\vert \gt M
-$$</li>
-<li>无界变量，指任选一数，数列存在一数大于该数
-
-$$
-\forall M \gt 0 ,\exist N \gt 0,使得\left\vert x_N \right\vert \gt M
-$$</li>
-</ul>
-<h2 id="后记">
-<a class="header-anchor" href="#%e5%90%8e%e8%ae%b0"></a>
-后记
-</h2><p>不明白 不明白 星星的高和远
-究竟要 何时才 能够置身其间
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E7%A7%91%E7%BD%97%E5%BB%96%E5%A4%AB%E5%8D%81%E5%AD%97.jpeg" alt=""></p>
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe 
-    src="//player.bilibili.com/player.html?isOutside=true&aid=114883244982356&bvid=BV1SPgbzzE3e&cid=31159160676&p=1"
-    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-    frameborder="0" 
-    allowfullscreen="true">
-  </iframe>
-</div>
-
-
-
-        
-        <hr><p>本文2025-09-01首发于<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于2025-09-01</p><div class="notice article-copyright" data-pagefind-ignore>
-<p><strong>本文作者：</strong> 孤筝</p>
-<p><strong>本文标题：</strong> 考研日记001</p>
-
-<p><strong>本文发布时间：</strong> 2025-09-01</p>
-<p><strong>本文更新时间：</strong> 2025-09-01</p>
-<p><strong>本文版权：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
-</div>
-]]></description><category>Diary</category></item><item><title>QSL卡片展</title><link>https://www.guzhengsvt.cn/zh-cn/post/othernotes/qsl-card-exhibition/</link><pubDate>Thu, 21 Aug 2025 18:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-cn/post/othernotes/qsl-card-exhibition/</guid><description>
-<![CDATA[<h1>QSL卡片展</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
-        
-          <h2 id="1-noa-1">
-<a class="header-anchor" href="#1-noa-1"></a>
-1. Noa-1
-</h2><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/QSL-%E6%A0%87-1.jpeg" alt="Noa-1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/QSL-%E6%A0%87-2.jpeg" alt="Noa-2.jpeg"></p>
-<h3 id="设计理念">
-<a class="header-anchor" href="#%e8%ae%be%e8%ae%a1%e7%90%86%e5%bf%b5"></a>
-设计理念
-</h3><p>取材自我非常喜欢的 <em><strong>Blue Archive</strong></em> 中的角色生盐诺亚。</p>
-<ul>
-<li>正面是Noa的记忆大厅截图。Noa在落地窗上手写十九世纪法国现代派诗人夏尔·皮埃尔·波德莱尔的诗，《巴黎的忧郁》第一首《异乡人》。</li>
-</ul>
-<blockquote>
-<p>Qui aimes-tu le mieux, homme énigmatique, dis?<br>
-谜一样的人啊，说吧，你最爱的人是谁？</p>
-</blockquote>
-<p>我在这一句后加了ITU、CQ分区和梅登海德网格，尽量选用手写体并拉伸透视效果，使得文字看起来是手写在窗上的。</p>
-<ul>
-<li>背面除了常规的通联必填信息，还加上了个人博客的二维码，背景照片是BA官方做的Noa视频截图。</li>
-<li><strong>Warning:</strong> 时区那里 <em>UTC</em> 写成了 <em>UCT</em> ，直到印下一张卡才发现，如果印第二批会更正。</li>
-</ul>
-<h3 id="印刷批次">
-<a class="header-anchor" href="#%e5%8d%b0%e5%88%b7%e6%89%b9%e6%ac%a1"></a>
-印刷批次
-</h3><ul>
-<li>1期：300g名片用铜版纸200张，切小圆角，淘宝久美印业。
-<ul>
-<li>卡片硬度不足，铜版纸背面书写困难。</li>
-<li>余量充足。</li>
-</ul>
-</li>
-</ul>
-<h2 id="2-dfh">
-<a class="header-anchor" href="#2-dfh"></a>
-2. DFH
-</h2><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-1.png" alt="DFH-1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media//photo/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-2-%E6%9B%B4%E6%AD%A3.png" alt="DFH-2"></p>
-<h3 id="设计理念-1">
-<a class="header-anchor" href="#%e8%ae%be%e8%ae%a1%e7%90%86%e5%bf%b5-1"></a>
-设计理念
-</h3><p>整体取材自BiliBili UP主<strong>炙弹冰</strong>的航天史填词歌曲 <a href="https://www.bilibili.com/video/BV129mGY3Efe/">《东方红的心脏》</a>（原曲为 <a href="https://music.163.com/#/artist?id=51020133">ヰ世界情緒</a> 的歌曲 <strong><a href="https://music.163.com/#/song?id=1907751320">シリウスの心臓(天狼星的心脏)</a></strong> ）。</p>
-<ul>
-<li>卡片正面右侧少女为《东方红的心脏》中曲绘，东方红卫星拟人形象。</li>
-<li>卡片正面左侧有重叠的两个卫星，左侧实体卫星为东方红一号的3D建模截图，右侧彩色卫星为前一截图经过 <a href="https://lab.magiconch.com/one-last-image/">One Last Image 卢浮宫生成器</a> 网站生成了一张类似 <em><strong>One Last Kiss</strong></em> 封面效果的彩色渐变卫星图。</li>
-<li>环绕卫星的红蓝两椭圆环由摩斯电码构成，红色是“中华人民共和国万岁”，蓝色是“世界人民大团结万岁”，参考1955年《标准电码本》翻译。</li>
-<li>实体卫星上的日期指东方红一号1970年4月24日发射入轨，5月14日停止播放东方红乐曲。这是东方红一号短暂的一生，却是中华民族腾飞的开始。</li>
-<li>彩色卫星上的日期，指1840年6月21日英军炮击澳门，开启第一次鸦片战争，直至1949年10月1日中华人民共和国成立，中国人民从此站起来了。它承载的是中华民族屈辱的近代史，也是第三世界其他国家反抗帝国主义列强入侵、追求独立的抗争史。</li>
-<li>卫星和人物之间用两条正弦线隔开，象征电波。</li>
-<li>相比于 <a href="/zh-cn/post/othernotes/qsl-card-exhibition/#1-noa-1">Noa-1</a> ，这次背面设计增加了NFC标志，我计划为今后发放的卡片增加NFC标签，录入卡片信息、通联信息，或实现自动播放音乐、视频等。</li>
-<li>背面邮箱下面那段话“雾霭萦绕的人生，要如何度过？甩下踌躇吧，因为朝阳是你也是我。”是《东方红的心脏》中的歌词，我十分喜欢。</li>
-<li>背面右下角贴上了一段《东方红》的简谱，呼应此次卡片东方红一号卫星主题。</li>
-</ul>
-<p>另外，我还设计了此卡片的PCB版，加上NFC芯片、线圈，特别在正面人物胸口的位置放置一颗红色LED，手机贴近扫描后LED会亮，呼应“东方红的心脏”主题。<br>
-因为制作成本高昂，PCB版卡片预计只发给每个区第一个通联的友台，或某种通联方式第一个通联的友台。</p>
-<p>人民英雄纪念碑上这样写：</p>
-<blockquote>
-<p>三年以来，在人民解放战争和人民革命中牺牲的人民英雄们永垂不朽！<br>
-三十年以来，在人民解放战争和人民革命中牺牲的人民英雄们永垂不朽！<br>
-由此上溯到一千八百四十年，从那时起，为了反对内外敌人，争取民族独立和人民自由幸福，在历次斗争中牺牲的人民英雄们永垂不朽！</p>
-</blockquote>
-<p>今日，东方红卫星仍然在轨，守望沧海变桑田。</p>
-<h3 id="印刷批次-1">
-<a class="header-anchor" href="#%e5%8d%b0%e5%88%b7%e6%89%b9%e6%ac%a1-1"></a>
-印刷批次
-</h3><p><strong>纸质：</strong></p>
-<ul>
-<li>1期：350g珠光纸（白滑影）150张，切小圆角，闲鱼未来既是未来
-<ul>
-<li>余量充足</li>
-</ul>
-</li>
-</ul>
-<p><strong>PCB：</strong></p>
-<ul>
-<li>1期：嘉立创彩色丝印50张，NT3H2111W0FHKH XQF，切小圆角
-<ul>
-<li>余量充足</li>
-</ul>
-</li>
-</ul>
-
-        
-        <hr><p>本文2025-08-21首发于<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于2025-08-21</p><div class="notice article-copyright" data-pagefind-ignore>
-<p><strong>本文作者：</strong> 孤筝</p>
-<p><strong>本文标题：</strong> QSL卡片展</p>
-
-<p><strong>本文发布时间：</strong> 2025-08-21</p>
-<p><strong>本文更新时间：</strong> 2025-08-21</p>
 <p><strong>本文版权：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
 </div>
 ]]></description><category>OtherNotes</category></item></channel></rss>

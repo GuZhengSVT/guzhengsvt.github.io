@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>組み込み on 孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/ja/tags/%E7%B5%84%E3%81%BF%E8%BE%BC%E3%81%BF/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>ja</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本ブログのすべての文書は、特に指定されていない限り、BY-NC-SAライセンスに従っています。引用の際は出典を明記してください！</copyright><lastBuildDate>Mon, 05 Oct 2026 20:10:00 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/ja/tags/%E7%B5%84%E3%81%BF%E8%BE%BC%E3%81%BF/index.xml" rel="self" type="application/rss+xml"/><item><title>MicroPython関数ライブラリ</title><link>https://www.guzhengsvt.cn/ja/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</link><pubDate>Thu, 15 Feb 2024 11:44:33 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/ja/post/code/micropython%E5%87%BD%E6%95%B0%E5%BA%93/</guid><description>
+<![CDATA[<h1>MicroPython関数ライブラリ</h1><p>著者: 孤筝(lvbowen040427@163.com)</p>
+        
+          <p>本記事は、MicroPython の <code>machine</code> モジュールを Raspberry Pi Pico（RP2040）で使う際によく利用するインターフェースを整理したものです。内容は <a href="https://docs.micropython.org/en/latest/library/machine.html">MicroPython 公式ドキュメント</a> と照合して確認済みです。</p>
+<h2 id="machineハードウェア関連の機能">
+<a class="header-anchor" href="#machine%e3%83%8f%e3%83%bc%e3%83%89%e3%82%a6%e3%82%a7%e3%82%a2%e9%96%a2%e9%80%a3%e3%81%ae%e6%a9%9f%e8%83%bd"></a>
+machine：ハードウェア関連の機能
+</h2><p>ピン番号には次の2種類があります：</p>
+<ul>
+<li><strong>GPIO 番号</strong>（GP0–GP29）：コードではこれが最もよく使われます。<code>Pin(25)</code> は GP25 のことです。</li>
+<li><strong>物理ピン番号</strong>：開発板上の 40 本のピンの位置であり、GPIO 番号とは別物です。配線時には区別に注意してください。</li>
+</ul>
+<h3 id="pin-クラス">
+<a class="header-anchor" href="#pin-%e3%82%af%e3%83%a9%e3%82%b9"></a>
+Pin クラス
+</h3><h4 id="コンストラクタ-machinepinid-mode-1-pull-1-valuenone">
+<a class="header-anchor" href="#%e3%82%b3%e3%83%b3%e3%82%b9%e3%83%88%e3%83%a9%e3%82%af%e3%82%bf-machinepinid-mode-1-pull-1-valuenone"></a>
+コンストラクタ <code>machine.Pin(id, mode=-1, pull=-1, value=None)</code>
+</h4><table>
+	<thead>
+			<tr>
+					<th>引数</th>
+					<th>説明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>id</code></td>
+					<td>ピン番号。Pico では 0–29（GP0–GP29）が使用可能</td>
+			</tr>
+			<tr>
+					<td><code>mode</code></td>
+					<td><code>None</code> / <code>Pin.IN</code>(0) / <code>Pin.OUT</code>(1) / <code>Pin.OPEN_DRAIN</code>(2)</td>
+			</tr>
+			<tr>
+					<td><code>pull</code></td>
+					<td>内部プルアップ/プルダウン抵抗。<strong>入力モードでのみ有効</strong>：<code>None</code> / <code>Pin.PULL_UP</code>(1) / <code>Pin.PULL_DOWN</code>(2)</td>
+			</tr>
+			<tr>
+					<td><code>value</code></td>
+					<td>出力/オープンドレインモードでのみ有効。初期の電位：0 は低レベル、1 は高レベル</td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p><code>Pin.PULL_DOWN</code> であり、<code>Pin.DOWN</code> ではないことに注意してください。</p>
+</blockquote>
+<h4 id="pininitmode-1-pull-1-valuenone">
+<a class="header-anchor" href="#pininitmode-1-pull-1-valuenone"></a>
+<code>Pin.init(mode=-1, pull=-1, value=None)</code>
+</h4><p>ピンを再初期化します。渡した引数のみを変更し、それ以外の状態はそのまま維持します。</p>
+<h4 id="pinvaluex">
+<a class="header-anchor" href="#pinvaluex"></a>
+<code>Pin.value([x])</code>
+</h4><ul>
+<li>引数なし：現在のピンの電位（0 または 1）を返します。</li>
+<li>引数あり：ピンに電位を書き込みます。引数はブール値に変換されます（<code>True</code> は 1、<code>False</code> は 0）。</li>
+</ul>
+<h4 id="pinon--pinoffpinhigh--pinlow">
+<a class="header-anchor" href="#pinon--pinoffpinhigh--pinlow"></a>
+<code>Pin.on()</code> / <code>Pin.off()</code>、<code>Pin.high()</code> / <code>Pin.low()</code>
+</h4><ul>
+<li><code>on()</code>、<code>high()</code>：高レベル（1）を出力します。</li>
+<li><code>off()</code>、<code>low()</code>：低レベル（0）を出力します。</li>
+</ul>
+<p>これら4つのメソッドは出力/オープンドレインモードでのみ意味を持ちます。<code>low()</code> / <code>high()</code> は非コア API で、Pico（rp2）では使用可能です。</p>
+<h4 id="pintoggle">
+<a class="header-anchor" href="#pintoggle"></a>
+<code>Pin.toggle()</code>
+</h4><p>出力の電位を反転します。0 は 1 に、1 は 0 になります。<code>toggle()</code> は rp2、esp32 などのポートで使用可能です。ポートが対応していない場合は <code>Pin.value(not Pin.value())</code> で代用します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>   <span class="c1"># Pico のボード上の LED は GP25</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>        <span class="c1"># 1秒ごとに反転</span>
+</span></span></code></pre></div><h4 id="pinirqhandlernone-triggerpinirq_falling--pinirq_rising">
+<a class="header-anchor" href="#pinirqhandlernone-triggerpinirq_falling--pinirq_rising"></a>
+<code>Pin.irq(handler=None, trigger=Pin.IRQ_FALLING | Pin.IRQ_RISING)</code>
+</h4><p>外部割り込みを設定します。電位が変化するとコールバック関数が自動的に呼び出されます。</p>
+<ul>
+<li><code>handler</code>：割り込みコールバック関数。<strong><code>Pin</code> 引数を1つ受け取る必要があります</strong>。</li>
+<li><code>trigger</code>：トリガー条件。<code>|</code> で組み合わせられます：</li>
+</ul>
+<table>
+	<thead>
+			<tr>
+					<th>定数</th>
+					<th>意味</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>Pin.IRQ_FALLING</code></td>
+					<td>立ち下がりエッジ</td>
+			</tr>
+			<tr>
+					<td><code>Pin.IRQ_RISING</code></td>
+					<td>立ち上がりエッジ</td>
+			</tr>
+			<tr>
+					<td><code>Pin.IRQ_LOW_LEVEL</code></td>
+					<td>低レベル</td>
+			</tr>
+			<tr>
+					<td><code>Pin.IRQ_HIGH_LEVEL</code></td>
+					<td>高レベル</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;按键被按下&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">button</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">button</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">on_press</span><span class="p">,</span> <span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="pwm-クラス">
+<a class="header-anchor" href="#pwm-%e3%82%af%e3%83%a9%e3%82%b9"></a>
+PWM クラス
+</h3><p>PWM（パルス幅変調）は高速なスイッチングによって中間の電圧値を模擬します。調光、速度制御、サーボ制御などによく使われます。</p>
+<h4 id="machinepwmpin-freq-duty_u16">
+<a class="header-anchor" href="#machinepwmpin-freq-duty_u16"></a>
+<code>machine.PWM(pin, freq=..., duty_u16=...)</code>
+</h4><p>指定したピンに PWM 出力を生成します。<code>pin</code> は <code>Pin</code> オブジェクトです。</p>
+<h4 id="よく使うメソッド">
+<a class="header-anchor" href="#%e3%82%88%e3%81%8f%e4%bd%bf%e3%81%86%e3%83%a1%e3%82%bd%e3%83%83%e3%83%89"></a>
+よく使うメソッド
+</h4><table>
+	<thead>
+			<tr>
+					<th>メソッド</th>
+					<th>役割</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>PWM.freq([value])</code></td>
+					<td>周波数を読み取り/設定。単位は Hz、範囲はおよそ 8 Hz – 62.5 MHz（CPU 125 MHz 時）</td>
+			</tr>
+			<tr>
+					<td><code>PWM.duty_u16([value])</code></td>
+					<td>デューティ比を読み取り/設定。値は <strong>0–65535</strong> で、<code>value / 65535</code> の比率を表す</td>
+			</tr>
+			<tr>
+					<td><code>PWM.duty_ns([value])</code></td>
+					<td>1周期内の高レベル時間を読み取り/設定。単位は ns</td>
+			</tr>
+			<tr>
+					<td><code>PWM.deinit()</code></td>
+					<td>PWM 出力を停止する</td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p><code>duty_u16</code> の上限は <strong>65535</strong> であり、65536 ではないことに注意してください。値 65536 はオーバーフローします。</p>
+</blockquote>
+<p>RP2040 には独立した PWM スライスが 8 組あり、各組に 2 チャンネル、合計 16 路です。同じ組の 2 チャンネルは<strong>周波数を共有しなければなりません</strong>が、デューティ比は別々にできます。</p>
+<h4 id="例ブレス-led">
+<a class="header-anchor" href="#%e4%be%8b%e3%83%96%e3%83%ac%e3%82%b9-led"></a>
+例：ブレス LED
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">led</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">led</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>      <span class="c1"># 1 kHz</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">duty</span> <span class="o">=</span> <span class="mi">0</span>            <span class="c1"># デューティ比のパーセント</span>
+</span></span><span class="line"><span class="cl"><span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">duty</span> <span class="o">+=</span> <span class="n">step</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">duty</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">duty</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl">        <span class="n">step</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">duty</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">duty</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># パーセントを 0-65535 に変換。範囲を超えないよう注意</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">duty</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">*</span> <span class="mi">65535</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">duty</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">duty</span><span class="p">)</span>  <span class="c1"># グラフ描画用に観察しやすくする</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>  <span class="c1"># 約2秒で1往復</span>
+</span></span></code></pre></div><h4 id="例ボタンで点灯ソフトウェアデバウンス付き">
+<a class="header-anchor" href="#%e4%be%8b%e3%83%9c%e3%82%bf%e3%83%b3%e3%81%a7%e7%82%b9%e7%81%af%e3%82%bd%e3%83%95%e3%83%88%e3%82%a6%e3%82%a7%e3%82%a2%e3%83%87%e3%83%90%e3%82%a6%e3%83%b3%e3%82%b9%e4%bb%98%e3%81%8d"></a>
+例：ボタンで点灯（ソフトウェアデバウンス付き）
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">button</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>   <span class="c1"># 押すと 0 が読める</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_board</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>            <span class="c1"># ボード上の LED</span>
+</span></span><span class="line"><span class="cl"><span class="n">led_ext</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>              <span class="c1"># 外付け LED</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">led_ext</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>             <span class="c1"># 押された可能性</span>
+</span></span><span class="line"><span class="cl">        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>                <span class="c1"># 10 ms 待って再確認し、チャタリングを除去</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>         <span class="c1"># 押下を確認</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led_board</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">led_ext</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;The button is pressed.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># 離されるのを待つ</span>
+</span></span><span class="line"><span class="cl">                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>メカニカルなボタンは、押す瞬間と離す瞬間にミリ秒単位の電位のチャタリングが発生し、CPU には複数回の押下として読み取られます。<strong>ソフトウェアデバウンス</strong>の方法は、押下を検出した後に 10 ms 待ってからもう一度確認するというものです。</p>
+</blockquote>
+<h3 id="adc-クラス">
+<a class="header-anchor" href="#adc-%e3%82%af%e3%83%a9%e3%82%b9"></a>
+ADC クラス
+</h3><p>ADC（アナログ-デジタル変換）はアナログ電圧をデジタル値に変換します。</p>
+<h4 id="machineadcid">
+<a class="header-anchor" href="#machineadcid"></a>
+<code>machine.ADC(id)</code>
+</h4><p><code>id</code> には <code>Pin</code> オブジェクトを渡すことも、チャンネル番号を渡すこともできます：</p>
+<ul>
+<li>Pico ではチャンネル <strong>0–3 が GP26–GP29 に対応</strong>します（GP29 はボード上で VSYS に接続されています）。</li>
+<li>チャンネル <strong>4</strong> はチップ内蔵の温度センサーで、<code>ADC.CORE_TEMP</code> で表せます。</li>
+</ul>
+<h4 id="adcread_u16">
+<a class="header-anchor" href="#adcread_u16"></a>
+<code>ADC.read_u16()</code>
+</h4><p>変換結果を読み取ります。<strong>0–65535</strong> の整数を返し、電圧範囲 0–3.3 V に対応します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">ADC</span><span class="p">,</span> <span class="n">Pin</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">adc</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span>          <span class="c1"># ADC(0) と書くこともできる</span>
+</span></span><span class="line"><span class="cl"><span class="n">value</span> <span class="o">=</span> <span class="n">adc</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span>      <span class="c1"># 0 - 65535</span>
+</span></span><span class="line"><span class="cl"><span class="n">voltage</span> <span class="o">=</span> <span class="n">value</span> <span class="o">/</span> <span class="mi">65535</span> <span class="o">*</span> <span class="mf">3.3</span>   <span class="c1"># 電圧に換算</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">voltage</span><span class="p">,</span> <span class="s2">&#34;V&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>レンジは 0–65535 であることに注意してください。RP2040 の ADC ハードウェア自体は 12 ビット（0–4095）で、MicroPython がそれを線形に 16 ビットへ引き伸ばしているため、末尾の数ビットには実際の精度はありません。</p>
+</blockquote>
+<h2 id="まとめ">
+<a class="header-anchor" href="#%e3%81%be%e3%81%a8%e3%82%81"></a>
+まとめ
+</h2><table>
+	<thead>
+			<tr>
+					<th>場面</th>
+					<th>ポイント</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>デジタル入出力</td>
+					<td><code>Pin(id, mode, pull)</code>。入力は <code>value()</code> で読み、出力は <code>value()</code> / <code>on()</code> / <code>off()</code> / <code>toggle()</code> を使う</td>
+			</tr>
+			<tr>
+					<td>割り込み</td>
+					<td><code>Pin.irq(handler, trigger)</code>。コールバックは <code>Pin</code> 引数を1つ取る必要がある</td>
+			</tr>
+			<tr>
+					<td>調光/速度制御</td>
+					<td><code>PWM(pin)</code> + <code>freq()</code> + <code>duty_u16()</code>。デューティ比の上限は 65535</td>
+			</tr>
+			<tr>
+					<td>アナログ値の読み取り</td>
+					<td><code>ADC(Pin(26))</code> + <code>read_u16()</code>。0–65535 を返す</td>
+			</tr>
+			<tr>
+					<td>ボタンのチャタリング</td>
+					<td>変化を検出したら 10 ms 待ってから再確認する</td>
+			</tr>
+	</tbody>
+</table>
+
+        
+        <hr><p>この記事は2024-02-15に<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>で公開され、最終更新日は2026-10-05です</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>著者: </strong> 孤筝</p>
+<p><strong>タイトル: </strong> MicroPython関数ライブラリ</p>
+
+<p><strong>公開日: </strong> 2024-02-15</p>
+<p><strong>更新日: </strong> 2026-10-05</p>
+<p><strong>ライセンス: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Code</category></item></channel></rss>
