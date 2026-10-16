@@ -427,7 +427,8 @@ $$<p>上式即为流线的微分方程式。</p>
 <h4 id="二维分析">
 <a class="header-anchor" href="#%e4%ba%8c%e7%bb%b4%e5%88%86%e6%9e%90"></a>
 二维分析
-</h4><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/3516697738.png" alt="Pasted image 20240902212258.png"></p>
+</h4><p><img src="/3516697738_2585212642918122786_hu_39bf3953a5bf4425.webp" srcset="/3516697738_2585212642918122786_hu_f5ddd87c0c8f7bc7.webp 480w, /3516697738_2585212642918122786_hu_5fbca8483958156.webp 960w, /3516697738_2585212642918122786_hu_39bf3953a5bf4425.webp 976w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="976" height="897" alt="Pasted image 20240902212258.png" loading="lazy" decoding="async" data-original-src="/3516697738_2585212642918122786.png" data-original-width="976" data-original-height="897">
+</p>
 <p>在流场中任取一矩形流体微团 ABCD，其两边的边长分别为 $\delta_x,\delta_y$ ，且均为小量。</p>
 <p>设 $v_x,v_y$ 为 A 点处流体微团分速度，且分速度均为空间点坐标的连续函数，则 B, D 点速度可用泰勒级数在 A 点的展开表述。</p>
 <p>$\because$ 流体微团边长足够小</p>
@@ -442,7 +443,8 @@ $$<p>流体微团运动时，除了整体运动，B 相对于 A 点也有运动�
 <h5 id="线变形运动">
 <a class="header-anchor" href="#%e7%ba%bf%e5%8f%98%e5%bd%a2%e8%bf%90%e5%8a%a8"></a>
 线变形运动
-</h5><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/3764817354.png" alt="Pasted image 20240902212840.png"></p>
+</h5><p><img src="/3764817354_3077173710276753560_hu_d39df07b6854a3da.webp" srcset="/3764817354_3077173710276753560_hu_1039eefa3a29933e.webp 480w, /3764817354_3077173710276753560_hu_a9de2638ccff4948.webp 960w, /3764817354_3077173710276753560_hu_d39df07b6854a3da.webp 1195w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1195" height="952" alt="Pasted image 20240902212840.png" loading="lazy" decoding="async" data-original-src="/3764817354_3077173710276753560.png" data-original-width="1195" data-original-height="952">
+</p>
 <p>相对速度 $\frac{\partial v_x}{\partial x}\delta_x$ 和 $\frac{\partial v_y}{\partial y}\delta_y$ 是矩形 ABCD 边线的直线形变速度，时间 $dt$ 内</p>
 $$
 AB'=AB+\frac{\partial v_x}{\partial x}\delta_x dt
@@ -460,7 +462,8 @@ $$
 $$<h5 id="角变形运动">
 <a class="header-anchor" href="#%e8%a7%92%e5%8f%98%e5%bd%a2%e8%bf%90%e5%8a%a8"></a>
 角变形运动
-</h5><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2463657347.png" alt="Pasted image 20240902214219.png"></p>
+</h5><p><img src="/2463657347_15930323172801632535_hu_9f1b31d630cd30a9.webp" srcset="/2463657347_15930323172801632535_hu_8d6a33e560096785.webp 480w, /2463657347_15930323172801632535_hu_711ecb7707bf98c.webp 960w, /2463657347_15930323172801632535_hu_9f1b31d630cd30a9.webp 1255w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1255" height="1050" alt="Pasted image 20240902214219.png" loading="lazy" decoding="async" data-original-src="/2463657347_15930323172801632535.png" data-original-width="1255" data-original-height="1050">
+</p>
 <p>相对速度 $\frac{\partial v_y}{\partial x}\delta x,\frac{\partial v_x}{\partial y}\delta y$ 表示 AB 边和 AD 边绕 A 点的转动。</p>
 <p>规定逆时针转动为正，</p>
 <p>AB 边转动角速度</p>

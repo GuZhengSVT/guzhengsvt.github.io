@@ -210,15 +210,18 @@ $$<p>其中，$R_{11}$ 为偶极子在自由空间中的自电阻（约为 $73\ 
 <li>上层介质板：即图3.1中绿色扁平圆柱体，用于印制交叉扇形偶极子的主体结构。为了避免末端打孔时极其靠近介质板边缘而导致加工断裂及边缘场泄漏效应，上层介质板被故意设计得较大，其半径设定为 $R_{diel2} = 25\text{ mm}$，厚度为 $H_{diel2} = 1.6\text{ mm}$。</li>
 <li>底部金属反射板：即图3.1中黄色矩形部分，印刷在 $H_{diel1} = 0.4 \text{ mm}$ 介质板上表面，采用理想电导体（Perfect E）边界条件进行模拟，其边长设定为 $100\text{ mm} \times 100\text{ mm}$。足够大的反射板尺寸不仅能有效抑制后向辐射、提高前后比，还能为天线提供稳定的镜像边界条件。</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/0_3_antenna.png" alt="图3.1：天线斜视图"></p>
+<p><img src="/0_3_antenna_13847979781635073494_hu_1d8d1f9056cefb6d.webp" srcset="/0_3_antenna_13847979781635073494_hu_f5c6e4f6388238c8.webp 480w, /0_3_antenna_13847979781635073494_hu_8f11ef116d370622.webp 960w, /0_3_antenna_13847979781635073494_hu_1d8d1f9056cefb6d.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="938" alt="图3.1：天线斜视图" loading="lazy" decoding="async" data-original-src="/0_3_antenna_13847979781635073494.png" data-original-width="1795" data-original-height="1169">
+</p>
 <!-- raw HTML omitted -->
 <h4 id="交叉双极化扇形偶极子物理布局">
 <a class="header-anchor" href="#%e4%ba%a4%e5%8f%89%e5%8f%8c%e6%9e%81%e5%8c%96%e6%89%87%e5%bd%a2%e5%81%b6%e6%9e%81%e5%ad%90%e7%89%a9%e7%90%86%e5%b8%83%e5%b1%80"></a>
 交叉双极化扇形偶极子物理布局$\pm 45^\circ$
 </h4><p>为了满足 5G 基站对抗多径衰落的极化分集需求，保证双通道接收到的信号电平基本相等，两个扇形偶极子不能简单地按水平和垂直（$0^\circ$ 和 $90^\circ$）放置，而是必须围绕几何中心严格呈 $\pm 45^\circ$ 交叉对称布局[13]。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/0_1_antenna.png" alt="图3.2(a)：振子俯视图"></p>
+<p><img src="/0_1_antenna_7041422014026883120_hu_2dd9308c6b5061d1.webp" srcset="/0_1_antenna_7041422014026883120_hu_3fe5c72501dddfaa.webp 480w, /0_1_antenna_7041422014026883120_hu_96240a45099b06e.webp 960w, /0_1_antenna_7041422014026883120_hu_2dd9308c6b5061d1.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1142" alt="图3.2(a)：振子俯视图" loading="lazy" decoding="async" data-original-src="/0_1_antenna_7041422014026883120.png" data-original-width="1475" data-original-height="1170">
+</p>
 <!-- raw HTML omitted -->
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/0_2_antenna.png" alt="图3.2(b)：振子侧视图"></p>
+<p><img src="/0_2_antenna_7874646917475777180_hu_4173b8b6c3f4e1f6.webp" srcset="/0_2_antenna_7874646917475777180_hu_38675a049876da3d.webp 480w, /0_2_antenna_7874646917475777180_hu_61af7ce3ba19061a.webp 960w, /0_2_antenna_7874646917475777180_hu_4173b8b6c3f4e1f6.webp 1380w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1380" height="764" alt="图3.2(b)：振子侧视图" loading="lazy" decoding="async" data-original-src="/0_2_antenna_7874646917475777180.png" data-original-width="1380" data-original-height="764">
+</p>
 <!-- raw HTML omitted -->
 <p>在 HFSS 模型构建中，为了防止两个正交的偶极子在几何中心发生物理碰撞与短路，本设计采用了分层印刷的策略：</p>
 <ul>
@@ -261,14 +264,18 @@ $$<p>在本设计中，这种阻抗变换效应补偿了因低剖面而下降的
 双频谐振点的激发与电流分布路径分析
 </h4><p>通过 HFSS 提取天线在 3.3-4.0 GHz 频段内的表面矢量电流分布，可以直观验证上述机理。在该频段内，天线呈现出低频与高频两个主导谐振点：</p>
 <p>在低频谐振点附近（$3.4\text{ GHz}$），天线处于基模谐振。如图3.3(a)，此时表面电流主要从中心馈电端口出发，沿着扇形辐射臂的极径方向（长度方向）向外边缘流动，最后经由窄微带和通孔流向底层。此时天线的等效辐射长度大致等于两个扇形臂的半径之和。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/23_Jsurf1.png" alt="图3.3(a)：3.4GHz振子1表面电流向量图"></p>
+<p><img src="/23_Jsurf1_13860200750860885465_hu_37c5bc6b4307fb45.webp" srcset="/23_Jsurf1_13860200750860885465_hu_36c319318c1600e3.webp 480w, /23_Jsurf1_13860200750860885465_hu_f7cfd11d7cf335cf.webp 960w, /23_Jsurf1_13860200750860885465_hu_37c5bc6b4307fb45.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1205" alt="图3.3(a)：3.4GHz振子1表面电流向量图" loading="lazy" decoding="async" data-original-src="/23_Jsurf1_13860200750860885465.png" data-original-width="1533" data-original-height="1283">
+</p>
 <!-- raw HTML omitted -->
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/23_Jsurf2.png" alt="图3.3(b)：3.4GHz振子2表面电流向量图"></p>
+<p><img src="/23_Jsurf2_12908512222438133661_hu_9b159152eb780ddf.webp" srcset="/23_Jsurf2_12908512222438133661_hu_9f22909797b438f.webp 480w, /23_Jsurf2_12908512222438133661_hu_85634c11ab4f5596.webp 960w, /23_Jsurf2_12908512222438133661_hu_9b159152eb780ddf.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1196" alt="图3.3(b)：3.4GHz振子2表面电流向量图" loading="lazy" decoding="async" data-original-src="/23_Jsurf2_12908512222438133661.png" data-original-width="1548" data-original-height="1286">
+</p>
 <!-- raw HTML omitted -->
 <p>在高频谐振点附近（$3.9\text{ GHz}$），随着波长缩短，电流在高频下产生了新的分布。观察图3.4(b)发现，射频电流大面积地沿着扇形贴片的横向边缘（即弧长宽度方向）发生偏转并形成回路[3]。此时天线的等效谐振长度主要由扇形边缘的弧长以及横向展宽决定。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/23_Jsurf3.png" alt="图3.4(a)：3.9GHz振子1表面电流向量图"></p>
+<p><img src="/23_Jsurf3_17370261464690559166_hu_b04279ba8726a588.webp" srcset="/23_Jsurf3_17370261464690559166_hu_5bcb92c858d5b0e4.webp 480w, /23_Jsurf3_17370261464690559166_hu_491b6b7b00cea534.webp 960w, /23_Jsurf3_17370261464690559166_hu_b04279ba8726a588.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1188" alt="图3.4(a)：3.9GHz振子1表面电流向量图" loading="lazy" decoding="async" data-original-src="/23_Jsurf3_17370261464690559166.png" data-original-width="1563" data-original-height="1290">
+</p>
 <!-- raw HTML omitted -->
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/23_Jsurf4.png" alt="图3.4(b)：3.9GHz振子2表面电流向量图"></p>
+<p><img src="/23_Jsurf4_8143960999287386751_hu_1dd16063fca37852.webp" srcset="/23_Jsurf4_8143960999287386751_hu_b4d7945d3b3238e0.webp 480w, /23_Jsurf4_8143960999287386751_hu_ca0455ee87b8a317.webp 960w, /23_Jsurf4_8143960999287386751_hu_1dd16063fca37852.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1209" alt="图3.4(b)：3.9GHz振子2表面电流向量图" loading="lazy" decoding="async" data-original-src="/23_Jsurf4_8143960999287386751.png" data-original-width="1533" data-original-height="1287">
+</p>
 <!-- raw HTML omitted -->
 <p>综上所述，扇形偶极子大张角带来的横向高频电流与极径方向的低频电流共同作用，成功激发了紧密相邻的两个谐振模式。双频谐振的衔接，叠加等效折叠回路对阻抗的拉升作用，最终使本天线在 $0.11\lambda$ 的高度下实现了覆盖 3.3-4.0 GHz 频段的性能。</p>
 <h3 id="基于hfss的关键参数扫描与优化">
@@ -290,18 +297,22 @@ $$<p>随着扇形张角的增大，辐射体横向（宽度方向）的物理尺
 <a class="header-anchor" href="#%e7%8e%af%e5%bd%a2%e7%aa%84%e5%be%ae%e5%b8%a6%e5%bc%a0%e8%a7%92%e5%af%b9%e7%94%b5%e6%8a%97%e7%9a%84%e8%a1%a5%e5%81%bf"></a>
 环形窄微带张角对电抗的补偿
 </h4><p>为了抵消天线极度贴近底部金属板所带来的强容性失配，辐射臂外侧末端的环形窄微带发挥了等效分布电感的关键作用。微带张角决定了该分布电感的物理总长度，进而直接影响其感抗大小。如图3.6，通过对微带张角进行扫描可以发现，适当增加张角能有效抬升输入阻抗的虚部曲线，使其在整个工作频段内向 $0\ \Omega$ 的纯阻性状态逼近。若张角选取过大，则会引入过量电感，使天线呈现强感性失配。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/Z_re-Freq-Alpha.png" alt="图3.5：不同微带张角Alpha下的输入阻抗Z11实部-频率图"></p>
+<p><img src="/Z_re-Freq-Alpha_14857567584626958740_hu_d95fbff88dbfc61b.webp" srcset="/Z_re-Freq-Alpha_14857567584626958740_hu_f7def556e20e8624.webp 480w, /Z_re-Freq-Alpha_14857567584626958740_hu_e0a18b4a5ce316d3.webp 960w, /Z_re-Freq-Alpha_14857567584626958740_hu_d95fbff88dbfc61b.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="784" alt="图3.5：不同微带张角Alpha下的输入阻抗Z11实部-频率图" loading="lazy" decoding="async" data-original-src="/Z_re-Freq-Alpha_14857567584626958740.png" data-original-width="2147" data-original-height="1169">
+</p>
 <!-- raw HTML omitted -->
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/Z_im-Freq-Alpha.png" alt="图3.6：不同微带张角Alpha下的输入阻抗Z11虚部-频率图"></p>
+<p><img src="/Z_im-Freq-Alpha_12576619179434143423_hu_8c98bd885c2b6b05.webp" srcset="/Z_im-Freq-Alpha_12576619179434143423_hu_bd30b181cba38016.webp 480w, /Z_im-Freq-Alpha_12576619179434143423_hu_517cb62e920755db.webp 960w, /Z_im-Freq-Alpha_12576619179434143423_hu_8c98bd885c2b6b05.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="784" alt="图3.6：不同微带张角Alpha下的输入阻抗Z11虚部-频率图" loading="lazy" decoding="async" data-original-src="/Z_im-Freq-Alpha_12576619179434143423.png" data-original-width="2147" data-original-height="1169">
+</p>
 <!-- raw HTML omitted -->
 <p>在多次参数迭代后，选取微带张角（$\alpha$）为 $10^\circ$，此时天线在 3.3-4.0 GHz 频段内的阻抗虚部平稳地围绕 $0\ \Omega$ 微小波动，且阻抗实部被拉升并稳定在 $50\ \Omega$ 附近（图3.5），达到了良好的匹配状态。</p>
 <h4 id="偶极子两臂间距的微调效应">
 <a class="header-anchor" href="#%e5%81%b6%e6%9e%81%e5%ad%90%e4%b8%a4%e8%87%82%e9%97%b4%e8%b7%9d%e7%9a%84%e5%be%ae%e8%b0%83%e6%95%88%e5%ba%94"></a>
 偶极子两臂间距的微调效应
 </h4><p>偶极子两臂之间的物理间隙不仅为馈电端口提供了连接空间，还影响天线中心区域的互感与互容分布。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/Z_re-Freq-D1.png" alt="图3.7：不同偶极子1臂间距下的输入阻抗Z11实部-频率图"></p>
+<p><img src="/Z_re-Freq-D1_16966001282383488067_hu_afdbcf08312d4cc0.webp" srcset="/Z_re-Freq-D1_16966001282383488067_hu_b2d826eea94acfb0.webp 480w, /Z_re-Freq-D1_16966001282383488067_hu_58144b712014af3c.webp 960w, /Z_re-Freq-D1_16966001282383488067_hu_afdbcf08312d4cc0.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="784" alt="图3.7：不同偶极子1臂间距下的输入阻抗Z11实部-频率图" loading="lazy" decoding="async" data-original-src="/Z_re-Freq-D1_16966001282383488067.png" data-original-width="2147" data-original-height="1169">
+</p>
 <!-- raw HTML omitted -->
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/Z_im-Freq-D1.png" alt="图3.8：不同偶极子1臂间距下的输入阻抗Z11虚部-频率图"></p>
+<p><img src="/Z_im-Freq-D1_11783388356799464663_hu_a604d28aa736b7b7.webp" srcset="/Z_im-Freq-D1_11783388356799464663_hu_574c05a679e176ea.webp 480w, /Z_im-Freq-D1_11783388356799464663_hu_a0c32f1b4a71d90a.webp 960w, /Z_im-Freq-D1_11783388356799464663_hu_a604d28aa736b7b7.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="784" alt="图3.8：不同偶极子1臂间距下的输入阻抗Z11虚部-频率图" loading="lazy" decoding="async" data-original-src="/Z_im-Freq-D1_11783388356799464663.png" data-original-width="2147" data-original-height="1169">
+</p>
 <!-- raw HTML omitted -->
 <p>在全波仿真中独立调整该参数发现，增大间距会将低频谐振点略微前移，增大阻抗虚部在工作频段内的波动幅度。如图3.8所示，$3.0\text{ mm}$间距的天蓝色线条在工作频段内波动更大，而$1.4\text{ mm}$的红色线平稳但谐振点偏后。</p>
 <p>由于上下偶极子间隔$1.6\text{ mm}$介质板，与底部反射器高度不同，为了使双极化端口在电性能上保持高度一致，最终将顶层偶极子1的臂间距（$D_{dipole1}$）设定为 $2.2\text{ mm}$，底层偶极子2的臂间距（$D_{dipole2}$）微调为 $3.2\text{ mm}$，从而确保了两个极化通道均能获得理想的回波损耗与隔离度性能。</p>
@@ -327,20 +338,25 @@ S_{11} (\text{dB}) = 20 \log_{10} |\Gamma| \tag{4.3}
 $$<p>结合天线物理结构参数的系统扫描与微调，在天线剖面高度 9.2 mm（约对应中心频率处的 $0.11\lambda$）的条件下，提取了目标频段内的全波仿真曲线。</p>
 <p>S 参数的频率响应曲线图4.1表明，在 3.3 GHz 至 4.0 GHz 的工作频带内，天线在 3.3 GHz 与 3.9 GHz 附近有两个谐振点。在两个谐振点的双凹陷作用下，天线两个正交极化端口的回波损耗 $\left| S_{11} \right|$ 与 $\left| S_{22} \right|$ 均平稳保持在 -10 dB 以下。</p>
 <p>与此相对应，天线的电压驻波比（VSWR）曲线（图4.2）在工作频段前大幅下降至 2.0 以下，在工作频段后开始回升，在整个工作频段内始终低于 2.0。这一测试数据意味着天线在整个 5G N77 和 N78 频段内有效抑制了射频信号在端口处的反射，超过 90% 的高频能量被成功注入辐射体并转化为空间辐射，满足了现代通信基站对天线宽带阻抗匹配的基本工程指标[5]。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/8_S11%28dB%29.png" alt="图4.1(a)：|S11|-频率图"></p>
+<p><img src="/8_S11%28dB%29_8417424921305087513_hu_ad2e2b0eb61b57ba.webp" srcset="/8_S11%28dB%29_8417424921305087513_hu_ebb2a33307b0ed39.webp 480w, /8_S11%28dB%29_8417424921305087513_hu_56830d5553e16922.webp 960w, /8_S11%28dB%29_8417424921305087513_hu_ad2e2b0eb61b57ba.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1440" alt="图4.1(a)：|S11|-频率图" loading="lazy" decoding="async" data-original-src="/8_S11%28dB%29_8417424921305087513.png" data-original-width="1654" data-original-height="1654">
+</p>
 <!-- raw HTML omitted -->
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/9_S22%28dB%29.png" alt="图4.1(b)：|S22|-频率图"></p>
+<p><img src="/9_S22%28dB%29_12607336878088922135_hu_dd89492297cfa579.webp" srcset="/9_S22%28dB%29_12607336878088922135_hu_7113329d57da6200.webp 480w, /9_S22%28dB%29_12607336878088922135_hu_22d347906be86ab6.webp 960w, /9_S22%28dB%29_12607336878088922135_hu_dd89492297cfa579.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1440" alt="图4.1(b)：|S22|-频率图" loading="lazy" decoding="async" data-original-src="/9_S22%28dB%29_12607336878088922135.png" data-original-width="1654" data-original-height="1654">
+</p>
 <!-- raw HTML omitted -->
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/12_VSWR.png" alt="图4.2：VSWR-频率图"></p>
+<p><img src="/12_VSWR_11900569433628966011_hu_6a1f0ff656e5870b.webp" srcset="/12_VSWR_11900569433628966011_hu_c270b4e5bb379635.webp 480w, /12_VSWR_11900569433628966011_hu_9108598213b9f4f6.webp 960w, /12_VSWR_11900569433628966011_hu_6a1f0ff656e5870b.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1056" alt="图4.2：VSWR-频率图" loading="lazy" decoding="async" data-original-src="/12_VSWR_11900569433628966011.png" data-original-width="3543" data-original-height="2598">
+</p>
 <!-- raw HTML omitted -->
 <p>这种优良的宏观匹配现象，其原因在于天线输入阻抗 $Z_{in}$ 在宽频带内得到了合理的补偿。天线的输入阻抗是一个复数，包含表征能量转换与损耗的实部电阻，以及表征近场无功储能的虚部电抗[1]：</p>
 $$
 Z_{in} = Re(Z) + jIm(Z) \tag{4.4}
 $$<p>通过提取 9.2 mm 剖面高度下的 Z 参数曲线图4.3可以直观地观察到，在 3.3-4.0 GHz 频段内，端口的等效输入电阻（$Z_{11}$ 与 $Z_{22}$ 的实部红线）整体平稳地围绕 50 $\Omega$ 上下波动。这印证了前文所述的折叠偶极子补偿机理：即便天线极度贴近金属反射板使得基础辐射电阻发生暴跌，引入的金属化通孔所构建的等效回路依然利用其自身的阻抗放大特性，将实部强行拉升并维持在了理想的匹配阻值区间[3]。</p>
 <p>与此同时，输入电抗（$Z_{11}$ 与 $Z_{22}$ 的虚部绿线）曲线在目标宽频带内呈现出优异的平坦度，并始终贴近 0 $\Omega$。这表明扇形辐射臂外侧的环形窄微带发挥了预期的分布电感作用，其提供的感抗精准中和了由于天线与底部金属板近场耦合所产生的强烈容抗[7]。实部在 50 $\Omega$ 附近的有效拉升与虚部在频域内的双重归零，共同造就了该微基站天线在低剖面条件下的宽频带优异性能。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/10_Z11.png" alt="图4.3(a)：Z11-频率图"></p>
+<p><img src="/10_Z11_14548971336329388599_hu_fa0eec55e7054f14.webp" srcset="/10_Z11_14548971336329388599_hu_3a83de9c83c4a3ca.webp 480w, /10_Z11_14548971336329388599_hu_2b46c291d7c6495c.webp 960w, /10_Z11_14548971336329388599_hu_fa0eec55e7054f14.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1440" alt="图4.3(a)：Z11-频率图" loading="lazy" decoding="async" data-original-src="/10_Z11_14548971336329388599.png" data-original-width="1654" data-original-height="1654">
+</p>
 <!-- raw HTML omitted -->
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/11_Z22.png" alt="图4.3(b)：Z22-频率图"></p>
+<p><img src="/11_Z22_13506923357907833731_hu_fd64a0a1d41f22ce.webp" srcset="/11_Z22_13506923357907833731_hu_bbdf9a6e4e1249b8.webp 480w, /11_Z22_13506923357907833731_hu_9128cbb5143e4e7e.webp 960w, /11_Z22_13506923357907833731_hu_fd64a0a1d41f22ce.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1440" alt="图4.3(b)：Z22-频率图" loading="lazy" decoding="async" data-original-src="/11_Z22_13506923357907833731.png" data-original-width="1654" data-original-height="1654">
+</p>
 <!-- raw HTML omitted -->
 <h3 id="双极化端口隔离度分析">
 <a class="header-anchor" href="#%e5%8f%8c%e6%9e%81%e5%8c%96%e7%ab%af%e5%8f%a3%e9%9a%94%e7%a6%bb%e5%ba%a6%e5%88%86%e6%9e%90"></a>
@@ -354,7 +370,8 @@ $$
 \text{Isolation (dB)} = -20 \log_{10} |S_{21}| \tag{4.5}
 $$<p>这一直观的参数表征了双馈电端口间的电磁耦合程度。对于典型的微基站天线，该值越小（即隔离度越高，通常要求传输系数低于 -20 dB 或 -30 dB），意味着两极化通道间的相互干扰越小[13]。</p>
 <p>本课题所设计的天线采用了上下层交叉排列的双偶极子布局。从电磁场基础理论分析，当两个辐射偶极子围绕几何中心严格呈现 $\pm 45^\circ$ 高度对称布置时，它们在空间中激发的电场矢量相互正交，理论上两者的互阻抗趋于零。结合 HFSS 提取的宽带传输系数曲线可以直观地印证这一物理机制。在 3.3 GHz - 4.0 GHz 的目标频带内，天线的 $\left| S_{21} \right|$ 曲线始终保持在极低的下探水平，并未因剖面高度的剧烈压缩而发生恶化。仿真数据表明，该天线在工作频带内获得了极佳的隔离特性，其端口隔离度峰值甚至高达 55 dB。这种极微弱的电磁耦合意味着，当某一极化端口（如 $-45^\circ$ 极化端）被全功率激励时，泄露到另一极化端口（如 $+45^\circ$ 极化端）的能量微乎其微，为 MIMO 系统提供了高度解耦的射频前端环境。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/13_S21.png" alt="图4.4：|S21|-频率图"></p>
+<p><img src="/13_S21_13935309706540265573_hu_a7a40c9ec378b493.webp" srcset="/13_S21_13935309706540265573_hu_ecb06b1e04d3e04e.webp 480w, /13_S21_13935309706540265573_hu_dbc6ea89811ab24a.webp 960w, /13_S21_13935309706540265573_hu_a7a40c9ec378b493.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1056" alt="图4.4：|S21|-频率图" loading="lazy" decoding="async" data-original-src="/13_S21_13935309706540265573.png" data-original-width="3543" data-original-height="2598">
+</p>
 <!-- raw HTML omitted -->
 <h3 id="辐射特性与空间方向图">
 <a class="header-anchor" href="#%e8%be%90%e5%b0%84%e7%89%b9%e6%80%a7%e4%b8%8e%e7%a9%ba%e9%97%b4%e6%96%b9%e5%90%91%e5%9b%be"></a>
@@ -368,28 +385,36 @@ $$<p>这一直观的参数表征了双馈电端口间的电磁耦合程度。对
 $$
 G \approx D \approx \frac{41253}{\theta_{HP} \cdot \phi_{HP}} \tag{4.6}
 $$<p>式中，$\theta_{HP}$ 和 $\phi_{HP}$ 分别为相互正交的两个主平面（通常为 E 面和 H 面）内的半功率波瓣宽度，单位为度（$^\circ$）；常数 41253 代表整个球面所张的平方度数。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/1_Gain%28dB%29-3D-Polar-Plot.jpg" alt="图4.5：3D极坐标增益图"></p>
+<p><img src="/1_Gain%28dB%29-3D-Polar-Plot_10673187213080611864_hu_fae6c9ec7f6e2878.webp" srcset="/1_Gain%28dB%29-3D-Polar-Plot_10673187213080611864_hu_1f4714b7301fe690.webp 480w, /1_Gain%28dB%29-3D-Polar-Plot_10673187213080611864_hu_ab4511485f730d14.webp 960w, /1_Gain%28dB%29-3D-Polar-Plot_10673187213080611864_hu_fae6c9ec7f6e2878.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="967" alt="图4.5：3D极坐标增益图" loading="lazy" decoding="async" data-original-src="/1_Gain%28dB%29-3D-Polar-Plot_10673187213080611864.jpg" data-original-width="1697" data-original-height="1139">
+</p>
 <!-- raw HTML omitted -->
 <p>提取天线在 $3.65 \text{ GHz}$ 的 3D 极坐标增益图4.5可以一目了然地观察到，天线的主瓣指向精准地垂直于金属反射板（即 $+Z$ 轴方向，天顶角 $\theta = 0^\circ$ 处），峰值增益 $\text{Peak Gain} > 9 \text{ dBi}$。三维辐射包络呈现出优异的空间对称性，未出现明显的波束倾斜或畸变现象。</p>
 <p>由峰值增益-频率图4.6可知，在 3.3 GHz - 4.0 GHz 的工作带宽内，仿真提取的峰值增益在整个频带内保持平稳，没有因为剖面高度的压缩而出现增益陡降，完全能够满足 5G 微基站对定点区域覆盖的增益需求[5]。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/PeakGain-Freq.png" alt="图4.6：峰值增益-频率图"></p>
+<p><img src="/PeakGain-Freq_11271494049274514790_hu_c6c7d5d7e19fb43f.webp" srcset="/PeakGain-Freq_11271494049274514790_hu_abcf7cc45a96a34e.webp 480w, /PeakGain-Freq_11271494049274514790_hu_9e13500b51ba0d34.webp 960w, /PeakGain-Freq_11271494049274514790_hu_c6c7d5d7e19fb43f.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1056" alt="图4.6：峰值增益-频率图" loading="lazy" decoding="async" data-original-src="/PeakGain-Freq_11271494049274514790.png" data-original-width="3543" data-original-height="2598">
+</p>
 <!-- raw HTML omitted -->
 <h4 id="主平面二维辐射方向图分析">
 <a class="header-anchor" href="#%e4%b8%bb%e5%b9%b3%e9%9d%a2%e4%ba%8c%e7%bb%b4%e8%be%90%e5%b0%84%e6%96%b9%e5%90%91%e5%9b%be%e5%88%86%e6%9e%90"></a>
 主平面二维辐射方向图分析
 </h4><p>虽然 3D 图提供了直观的空间能量分布，但要精确提取波束控制参数，仍需依赖主平面的二维极坐标方向图（即增益雷达图）。结合双极化天线 $\pm 45^\circ$ 的交叉对称布局，重点提取并分析天线在 $\Phi = 0^\circ$ 与 $\Phi = 90^\circ$ 两个互相垂直主切面上的增益雷达图。</p>
 <p>在低频谐振点附近（如 3.4 GHz）与带内中心频点（如 3.65 GHz）处，两极化端口独立激励时测得的二维辐射方向图与表现出高度的一致性。在 $\Phi = 0^\circ$ 与 $\Phi = 90^\circ$ 切面上，主极化方向图的波束轮廓光滑且对称，说明交叉扇形偶极子与末端折叠通孔的几何对称性得到了完美的电磁映射。随着频率向 3.9 GHz 攀升，尽管辐射体电尺寸相对波长变大，但在等效分布电感与折叠回路的约束下，波束并未发生严重的分裂（裂瓣）现象[4]，辐射方向图在整个宽频带内保持了极高的稳定性。这是评估天线定向辐射性能对称性、验证双极化空间覆盖无盲区的核心定量依据[3]。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/2_Gain%28dB%29-3_4GHz-0deg.png" alt="图4.7(a)：3.4GHz Φ=0° 增益雷达图"></p>
+<p><img src="/2_Gain%28dB%29-3_4GHz-0deg_15006769932979543343_hu_f3482d22d7d98ab8.webp" srcset="/2_Gain%28dB%29-3_4GHz-0deg_15006769932979543343_hu_55e4a4d2491371d8.webp 480w, /2_Gain%28dB%29-3_4GHz-0deg_15006769932979543343_hu_78407109ed00e059.webp 960w, /2_Gain%28dB%29-3_4GHz-0deg_15006769932979543343_hu_f3482d22d7d98ab8.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1440" alt="图4.7(a)：3.4GHz Φ=0° 增益雷达图" loading="lazy" decoding="async" data-original-src="/2_Gain%28dB%29-3_4GHz-0deg_15006769932979543343.png" data-original-width="1654" data-original-height="1654">
+</p>
 <!-- raw HTML omitted -->
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/3_Gain%28dB%29-3_4GHz-90deg.png" alt="图4.7(b)：3.4GHz Φ=90° 增益雷达图"></p>
+<p><img src="/3_Gain%28dB%29-3_4GHz-90deg_2414867521785067232_hu_b2a7f76a25ab5d10.webp" srcset="/3_Gain%28dB%29-3_4GHz-90deg_2414867521785067232_hu_9c47c943db08dd2a.webp 480w, /3_Gain%28dB%29-3_4GHz-90deg_2414867521785067232_hu_14bf57d3bd86d3b2.webp 960w, /3_Gain%28dB%29-3_4GHz-90deg_2414867521785067232_hu_b2a7f76a25ab5d10.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1440" alt="图4.7(b)：3.4GHz Φ=90° 增益雷达图" loading="lazy" decoding="async" data-original-src="/3_Gain%28dB%29-3_4GHz-90deg_2414867521785067232.png" data-original-width="1654" data-original-height="1654">
+</p>
 <!-- raw HTML omitted -->
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/4_Gain%28dB%29-3_65GHz-0deg.png" alt="图4.7(c)：3.65GHz Φ=0° 增益雷达图"></p>
+<p><img src="/4_Gain%28dB%29-3_65GHz-0deg_10067292089108294742_hu_b0258b1dcd0f523.webp" srcset="/4_Gain%28dB%29-3_65GHz-0deg_10067292089108294742_hu_d6b3dd7545659640.webp 480w, /4_Gain%28dB%29-3_65GHz-0deg_10067292089108294742_hu_a33b135de1fe29f7.webp 960w, /4_Gain%28dB%29-3_65GHz-0deg_10067292089108294742_hu_b0258b1dcd0f523.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1440" alt="图4.7(c)：3.65GHz Φ=0° 增益雷达图" loading="lazy" decoding="async" data-original-src="/4_Gain%28dB%29-3_65GHz-0deg_10067292089108294742.png" data-original-width="1654" data-original-height="1654">
+</p>
 <!-- raw HTML omitted -->
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/5_Gain%28dB%29-3_65GHz-90deg.png" alt="图4.7(d)：3.65GHz Φ=90° 增益雷达图"></p>
+<p><img src="/5_Gain%28dB%29-3_65GHz-90deg_1439744868026279070_hu_85efedc12513bc08.webp" srcset="/5_Gain%28dB%29-3_65GHz-90deg_1439744868026279070_hu_9ce6eeb5b55c9764.webp 480w, /5_Gain%28dB%29-3_65GHz-90deg_1439744868026279070_hu_9e3ea0615688ec26.webp 960w, /5_Gain%28dB%29-3_65GHz-90deg_1439744868026279070_hu_85efedc12513bc08.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1440" alt="图4.7(d)：3.65GHz Φ=90° 增益雷达图" loading="lazy" decoding="async" data-original-src="/5_Gain%28dB%29-3_65GHz-90deg_1439744868026279070.png" data-original-width="1654" data-original-height="1654">
+</p>
 <!-- raw HTML omitted -->
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/6_Gain%28dB%29-3_9GHz-0deg.png" alt="图4.7(e)：3.9GHz Φ=0° 增益雷达图"></p>
+<p><img src="/6_Gain%28dB%29-3_9GHz-0deg_5194095448266178755_hu_e86a45d24095c76a.webp" srcset="/6_Gain%28dB%29-3_9GHz-0deg_5194095448266178755_hu_62bac802e97b5920.webp 480w, /6_Gain%28dB%29-3_9GHz-0deg_5194095448266178755_hu_b47c001e3d3712ac.webp 960w, /6_Gain%28dB%29-3_9GHz-0deg_5194095448266178755_hu_e86a45d24095c76a.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1440" alt="图4.7(e)：3.9GHz Φ=0° 增益雷达图" loading="lazy" decoding="async" data-original-src="/6_Gain%28dB%29-3_9GHz-0deg_5194095448266178755.png" data-original-width="1654" data-original-height="1654">
+</p>
 <!-- raw HTML omitted -->
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/photo/7_Gain%28dB%29-3_9GHz-90deg.png" alt="图4.7(f)：3.9GHz Φ=90° 增益雷达图"></p>
+<p><img src="/7_Gain%28dB%29-3_9GHz-90deg_12954284814971266706_hu_3f2202c2c65631ba.webp" srcset="/7_Gain%28dB%29-3_9GHz-90deg_12954284814971266706_hu_b598b0873bb7bb7b.webp 480w, /7_Gain%28dB%29-3_9GHz-90deg_12954284814971266706_hu_f8bde8d494a55a3e.webp 960w, /7_Gain%28dB%29-3_9GHz-90deg_12954284814971266706_hu_3f2202c2c65631ba.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1440" alt="图4.7(f)：3.9GHz Φ=90° 增益雷达图" loading="lazy" decoding="async" data-original-src="/7_Gain%28dB%29-3_9GHz-90deg_12954284814971266706.png" data-original-width="1654" data-original-height="1654">
+</p>
 <!-- raw HTML omitted -->
 <h4 id="半功率波瓣宽度与前后比验证">
 <a class="header-anchor" href="#%e5%8d%8a%e5%8a%9f%e7%8e%87%e6%b3%a2%e7%93%a3%e5%ae%bd%e5%ba%a6%e4%b8%8e%e5%89%8d%e5%90%8e%e6%af%94%e9%aa%8c%e8%af%81"></a>
@@ -2697,7 +2722,8 @@ $$<p>上式即为流线的微分方程式。</p>
 <h4 id="二维分析">
 <a class="header-anchor" href="#%e4%ba%8c%e7%bb%b4%e5%88%86%e6%9e%90"></a>
 二维分析
-</h4><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/3516697738.png" alt="Pasted image 20240902212258.png"></p>
+</h4><p><img src="/3516697738_2585212642918122786_hu_39bf3953a5bf4425.webp" srcset="/3516697738_2585212642918122786_hu_f5ddd87c0c8f7bc7.webp 480w, /3516697738_2585212642918122786_hu_5fbca8483958156.webp 960w, /3516697738_2585212642918122786_hu_39bf3953a5bf4425.webp 976w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="976" height="897" alt="Pasted image 20240902212258.png" loading="lazy" decoding="async" data-original-src="/3516697738_2585212642918122786.png" data-original-width="976" data-original-height="897">
+</p>
 <p>在流场中任取一矩形流体微团 ABCD，其两边的边长分别为 $\delta_x,\delta_y$ ，且均为小量。</p>
 <p>设 $v_x,v_y$ 为 A 点处流体微团分速度，且分速度均为空间点坐标的连续函数，则 B, D 点速度可用泰勒级数在 A 点的展开表述。</p>
 <p>$\because$ 流体微团边长足够小</p>
@@ -2712,7 +2738,8 @@ $$<p>流体微团运动时，除了整体运动，B 相对于 A 点也有运动�
 <h5 id="线变形运动">
 <a class="header-anchor" href="#%e7%ba%bf%e5%8f%98%e5%bd%a2%e8%bf%90%e5%8a%a8"></a>
 线变形运动
-</h5><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/3764817354.png" alt="Pasted image 20240902212840.png"></p>
+</h5><p><img src="/3764817354_3077173710276753560_hu_d39df07b6854a3da.webp" srcset="/3764817354_3077173710276753560_hu_1039eefa3a29933e.webp 480w, /3764817354_3077173710276753560_hu_a9de2638ccff4948.webp 960w, /3764817354_3077173710276753560_hu_d39df07b6854a3da.webp 1195w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1195" height="952" alt="Pasted image 20240902212840.png" loading="lazy" decoding="async" data-original-src="/3764817354_3077173710276753560.png" data-original-width="1195" data-original-height="952">
+</p>
 <p>相对速度 $\frac{\partial v_x}{\partial x}\delta_x$ 和 $\frac{\partial v_y}{\partial y}\delta_y$ 是矩形 ABCD 边线的直线形变速度，时间 $dt$ 内</p>
 $$
 AB'=AB+\frac{\partial v_x}{\partial x}\delta_x dt
@@ -2730,7 +2757,8 @@ $$
 $$<h5 id="角变形运动">
 <a class="header-anchor" href="#%e8%a7%92%e5%8f%98%e5%bd%a2%e8%bf%90%e5%8a%a8"></a>
 角变形运动
-</h5><p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2463657347.png" alt="Pasted image 20240902214219.png"></p>
+</h5><p><img src="/2463657347_15930323172801632535_hu_9f1b31d630cd30a9.webp" srcset="/2463657347_15930323172801632535_hu_8d6a33e560096785.webp 480w, /2463657347_15930323172801632535_hu_711ecb7707bf98c.webp 960w, /2463657347_15930323172801632535_hu_9f1b31d630cd30a9.webp 1255w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1255" height="1050" alt="Pasted image 20240902214219.png" loading="lazy" decoding="async" data-original-src="/2463657347_15930323172801632535.png" data-original-width="1255" data-original-height="1050">
+</p>
 <p>相对速度 $\frac{\partial v_y}{\partial x}\delta x,\frac{\partial v_x}{\partial y}\delta y$ 表示 AB 边和 AD 边绕 A 点的转动。</p>
 <p>规定逆时针转动为正，</p>
 <p>AB 边转动角速度</p>

@@ -42,8 +42,10 @@
 <li>ケース前面パネル配線は難しくありませんでしたが、何度か接続ミスで起動せず焦りました（）</li>
 <li>配線整理を諦め、背面パネルを閉じたら見なかったことに。
 完成品はこちら（非常に、いや九分九厘美しい）
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/04/621105844.jpg" alt="正面">
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/04/3154335624.jpg" alt="側面">
+<img src="/621105844_3227658275846050790_hu_a992206852c740c8.webp" srcset="/621105844_3227658275846050790_hu_8c961a04d6360da6.webp 480w, /621105844_3227658275846050790_hu_f33904d655b98a98.webp 960w, /621105844_3227658275846050790_hu_a992206852c740c8.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1920" alt="正面" loading="lazy" decoding="async" data-original-src="/621105844_3227658275846050790.jpg" data-original-width="3024" data-original-height="4032">
+
+<img src="/3154335624_2165273287602222108_hu_5a1ff61fa8ec2b3b.webp" srcset="/3154335624_2165273287602222108_hu_870a670a18af3787.webp 480w, /3154335624_2165273287602222108_hu_338a395dbf831e61.webp 960w, /3154335624_2165273287602222108_hu_5a1ff61fa8ec2b3b.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1080" alt="側面" loading="lazy" decoding="async" data-original-src="/3154335624_2165273287602222108.jpg" data-original-width="4032" data-original-height="3024">
+
 4060Tiではなく7700XTを選んだ理由は、近々AIを実行する予定がなく、仮に実行するとしても4060Tiの性能では不十分で、最近のマイニングブームで4060Ti 16Gの価格が4000元と高騰しているためです。
 ゲーム専用として使います（</li>
 </ol>

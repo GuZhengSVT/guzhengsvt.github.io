@@ -20,12 +20,18 @@ Previously tried hardware monitoring widgets but found them useless except for i
 <li><strong>QQ customization</strong>, <strong>NetEase Cloud Music customization</strong>, <strong>cursor customization</strong>, <strong>Obsidian themes and plugins</strong>, plus <strong>Edge browser’s iTab new tab page</strong> and various practical extensions. My current workflow is perfectly comfortable.</li>
 </ul>
 <p>Here are some screenshots:<br>
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/4189283242.png" alt="Desktop Showcase 1.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/1078908045.png" alt="Desktop Showcase 2.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2569059367.png" alt="QQ Customization Showcase.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/2176031375.png" alt="Edge Showcase.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/994680139.png" alt="Obsidian Showcase.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/130206377.png" alt="Task Manager Showcase.png"></p>
+<img src="/4189283242_11385466858186776659_hu_c2a2595a011e077d.webp" srcset="/4189283242_11385466858186776659_hu_c4c98d92f9fa9112.webp 480w, /4189283242_11385466858186776659_hu_a9995d94d5d440ce.webp 960w, /4189283242_11385466858186776659_hu_c2a2595a011e077d.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="810" alt="Desktop Showcase 1.png" loading="lazy" decoding="async" data-original-src="/4189283242_11385466858186776659.png" data-original-width="2560" data-original-height="1440">
+</p>
+<p><img src="/1078908045_3081074253695838394_hu_3fe6eaaa77264220.webp" srcset="/1078908045_3081074253695838394_hu_232a83d31cfa6eac.webp 480w, /1078908045_3081074253695838394_hu_c37c8c60531d7c86.webp 960w, /1078908045_3081074253695838394_hu_3fe6eaaa77264220.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="810" alt="Desktop Showcase 2.png" loading="lazy" decoding="async" data-original-src="/1078908045_3081074253695838394.png" data-original-width="2560" data-original-height="1440">
+</p>
+<p><img src="/2569059367_9414308932757515353_hu_99cfbcaf6e505580.webp" srcset="/2569059367_9414308932757515353_hu_65ab00dd4ca3ecee.webp 480w, /2569059367_9414308932757515353_hu_d8153ce9030b3863.webp 960w, /2569059367_9414308932757515353_hu_99cfbcaf6e505580.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="776" alt="QQ Customization Showcase.png" loading="lazy" decoding="async" data-original-src="/2569059367_9414308932757515353.png" data-original-width="2560" data-original-height="1380">
+</p>
+<p><img src="/2176031375_17299098837977384807_hu_5a1353f65f141635.webp" srcset="/2176031375_17299098837977384807_hu_9534aeec6cd95872.webp 480w, /2176031375_17299098837977384807_hu_b87b2ce4fb9f9d85.webp 960w, /2176031375_17299098837977384807_hu_5a1353f65f141635.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="776" alt="Edge Showcase.png" loading="lazy" decoding="async" data-original-src="/2176031375_17299098837977384807.png" data-original-width="2560" data-original-height="1380">
+</p>
+<p><img src="/994680139_15508057509679814843_hu_be4fb475094867e4.webp" srcset="/994680139_15508057509679814843_hu_9467d9960c1d0c23.webp 480w, /994680139_15508057509679814843_hu_822f97ff12803a22.webp 960w, /994680139_15508057509679814843_hu_be4fb475094867e4.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="776" alt="Obsidian Showcase.png" loading="lazy" decoding="async" data-original-src="/994680139_15508057509679814843.png" data-original-width="2560" data-original-height="1380">
+</p>
+<p><img src="/130206377_7783107228382510183_hu_8ed0108c7054ece9.webp" srcset="/130206377_7783107228382510183_hu_3693e775d1840950.webp 480w, /130206377_7783107228382510183_hu_b2f7edb835396d81.webp 960w, /130206377_7783107228382510183_hu_8ed0108c7054ece9.webp 1362w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1362" height="870" alt="Task Manager Showcase.png" loading="lazy" decoding="async" data-original-src="/130206377_7783107228382510183.png" data-original-width="1362" data-original-height="870">
+</p>
 <p>Under this workflow, the browser consumes the most memory, while Wallpaper Engine is the primary GPU load. From login to full autostart, it takes under 10 seconds, all within acceptable performance limits.</p>
 <p><strong>Specs:</strong></p>
 <ul>
@@ -90,7 +96,8 @@ A music app needs just a few core features. While standalone players exist, they
 <p><strong>Recommended themes:</strong></p>
 <ul>
 <li><strong>Materia You</strong>: Minimalist, solid-color backgrounds. Multiple color schemes.<br>
-<img src="https://guzhengsvt.top/usr/uploads/2024/09/1596889912.png" alt="Materia You.png"></li>
+<img src="https://guzhengsvt.top/usr/uploads/2024/09/1596889912.png" alt="Materia You.png" loading="lazy" decoding="async" data-original-src="https://guzhengsvt.top/usr/uploads/2024/09/1596889912.png">
+</li>
 </ul>
 <p><strong>Recommended plugins:</strong></p>
 <ol>
@@ -99,19 +106,23 @@ A music app needs just a few core features. While standalone players exist, they
 </li>
 <li>
 <p><strong>MikuPlugin</strong>: Toggles UI elements (e.g., hide videos/livestreams).<br>
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/439024086.png" alt="MikuPlugin.png"></p>
+<img src="/439024086_5969369637370813642_hu_700b3bd139628a5.webp" srcset="/439024086_5969369637370813642_hu_2c19d86a9af1b929.webp 480w, /439024086_5969369637370813642_hu_7af53ad719210fff.webp 960w, /439024086_5969369637370813642_hu_700b3bd139628a5.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="757" alt="MikuPlugin.png" loading="lazy" decoding="async" data-original-src="/439024086_5969369637370813642.png" data-original-width="2310" data-original-height="1214">
+</p>
 </li>
 <li>
 <p><strong>Apple-Style Lyrics</strong>: Apple Music-like layout + lyric source switching.<br>
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/663279809.png" alt="Apple Lyrics.png"></p>
+<img src="/663279809_12988579456096726305_hu_ecdedbbb1b3a21e0.webp" srcset="/663279809_12988579456096726305_hu_27768214d0b63f51.webp 480w, /663279809_12988579456096726305_hu_2987930716ba2346.webp 960w, /663279809_12988579456096726305_hu_ecdedbbb1b3a21e0.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="776" alt="Apple Lyrics.png" loading="lazy" decoding="async" data-original-src="/663279809_12988579456096726305.png" data-original-width="2560" data-original-height="1380">
+</p>
 </li>
 <li>
 <p><strong>What’s This Cover?</strong>: Adds thumbnails to song lists (may cause lag).<br>
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/1807448404.png" alt="Cover Plugin.png"></p>
+<img src="/1807448404_12115428146021970020_hu_fb411a8b4d59d79b.webp" srcset="/1807448404_12115428146021970020_hu_8a5b731ea3786fbc.webp 480w, /1807448404_12115428146021970020_hu_dd2ea99fc808e13e.webp 960w, /1807448404_12115428146021970020_hu_fb411a8b4d59d79b.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="776" alt="Cover Plugin.png" loading="lazy" decoding="async" data-original-src="/1807448404_12115428146021970020.png" data-original-width="2560" data-original-height="1380">
+</p>
 </li>
 <li>
 <p><strong>RuLyrics</strong>: Desktop lyrics (word-by-word, dual-line). Custom fonts/colors. Taskbar embedding (may conflict with TranslucentTB).<br>
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/09/285235071.png" alt="Desktop Lyrics.png"></p>
+<img src="/285235071_9325165347740666261_hu_3a05785ddafd1d59.webp" srcset="/285235071_9325165347740666261_hu_7be2dafa8bc181ac.webp 480w, /285235071_9325165347740666261_hu_3a05785ddafd1d59.webp 683w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="683" height="147" alt="Desktop Lyrics.png" loading="lazy" decoding="async" data-original-src="/285235071_9325165347740666261.png" data-original-width="683" data-original-height="147">
+</p>
 </li>
 <li>
 <p>Explore more plugins—but check GitHub Issues for conflicts/dependencies.</p>
@@ -260,14 +271,18 @@ GitHub: <a href="https://github.com/makipom/BlueArchive-Cursors">BlueArchive-Cur
 <a class="header-anchor" href="#annoying-network-shenanigans"></a>
 Annoying Network Shenanigans
 </h2><p>My desktop connects to the campus network via Ethernet but requires dial-up to get online. <strong>Hilariously</strong>, Tencent’s ancient, never-updated TIM client throws an error popup if it tries to log in without an internet connection.<br>
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2343467847.png" alt="TIM Error"></p>
+<img src="/2343467847_6498575073677898880_hu_d25e28b299af0a1f.webp" srcset="/2343467847_6498575073677898880_hu_6d8034fbb9b4847c.webp 480w, /2343467847_6498575073677898880_hu_d25e28b299af0a1f.webp 560w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="560" height="425" alt="TIM Error" loading="lazy" decoding="async" data-original-src="/2343467847_6498575073677898880.png" data-original-width="560" data-original-height="425">
+</p>
 <p>Every time I boot up, I have to manually enable dial-up in the settings. TIM’s auto-start feature kicks in first, triggering the error and making the auto-start function look <strong>comically</strong> useless.</p>
 <p>So, I wrote a batch script to auto-connect and set it to run at startup via Task Manager. But it launches at the same priority as TIM, often failing to establish the connection before TIM auto-logins and throws the error.</p>
 <p>The workaround? Using Task Scheduler to delay TIM’s launch by 15 seconds after the auto-connect script runs.<br>
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2593746197.png" alt="Delayed TIM Startup"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2438765248.png" alt="Reconnect Script"><br>
+<img src="/2593746197_2643388595892255695_hu_e6bee855ef4a27ea.webp" srcset="/2593746197_2643388595892255695_hu_f285634eb9718950.webp 480w, /2593746197_2643388595892255695_hu_65ddb311389395b8.webp 960w, /2593746197_2643388595892255695_hu_e6bee855ef4a27ea.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="727" alt="Delayed TIM Startup" loading="lazy" decoding="async" data-original-src="/2593746197_2643388595892255695.png" data-original-width="2209" data-original-height="1115">
+</p>
+<p><img src="/2438765248_6640562361321803196_hu_f468ad771b0fb4aa.webp" srcset="/2438765248_6640562361321803196_hu_d82ed239b6abbb45.webp 480w, /2438765248_6640562361321803196_hu_bac54e46d70da8d2.webp 960w, /2438765248_6640562361321803196_hu_f468ad771b0fb4aa.webp 1233w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1233" height="885" alt="Reconnect Script" loading="lazy" decoding="async" data-original-src="/2438765248_6640562361321803196.png" data-original-width="1233" data-original-height="885">
+<br>
 <em>(For convenience, I placed the batch file in the Startup folder. The hidden, highest-priority Task Scheduler job kept failing because <strong>brilliant</strong> Huorong security blocked undetectable scheduled tasks. After several debugging attempts where the script only ran after login, I almost thought my settings were wrong.)</em><br>
-<img src="https://cdn.jsdelivr.net/gh/GuZhengSVT/Hugo-media/2024/06/2362191046.png" alt="Hilarious Huorong"></p>
+<img src="/2362191046_5794617296759687231_hu_e4d2f6a08b141d28.webp" srcset="/2362191046_5794617296759687231_hu_b3957096d4b4a58d.webp 480w, /2362191046_5794617296759687231_hu_bbd6d6acc61ebbb3.webp 960w, /2362191046_5794617296759687231_hu_e4d2f6a08b141d28.webp 1025w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1025" height="675" alt="Hilarious Huorong" loading="lazy" decoding="async" data-original-src="/2362191046_5794617296759687231.png" data-original-width="1025" data-original-height="675">
+</p>
 <p>Now, my ¥68 fingerprint reader feels <strong>utterly pointless</strong>.<br>
 Wondering if any tech-savvy folks in my contacts have a better solution.</p>
 <p>I do have a wireless card, but it’s unreliable. The campus network often requires web authentication. My VPN auto-start clashes with this—I have to:</p>
