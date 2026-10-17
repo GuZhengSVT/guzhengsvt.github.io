@@ -1,0 +1,33 @@
+{
+  "source": "NeoDB",
+  "profile": "https://neodb.social/users/GuZhengSVT/",
+  "updated_at": "2026-10-17T13:15:30.748707+00:00",
+  "total": 2,
+  "pages": 1,
+  "items": [
+    {
+      "id": "1XoBZ5O9oQ9AWkdguAbKs5",
+      "title": "欢迎来龙餐馆",
+      "url": "https://neodb.social/movie/1XoBZ5O9oQ9AWkdguAbKs5",
+      "cover": "https://neodb.social/m/item/doubanmovie/2026/08/05/762a0056-53ca-4121-9b7d-2ee9e885b81a.webp",
+      "subtitle": "Wen Muye",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": 7.5,
+      "comment": "",
+      "marked_at": "2026年10月17日"
+    },
+    {
+      "id": "5Sd0Dw4oPFeRC5uF64tqQ4",
+      "title": "奥德赛",
+      "url": "https://neodb.social/movie/5Sd0Dw4oPFeRC5uF64tqQ4",
+      "cover": "https://neodb.social/m/item/doubanmovie/2026/08/23/da5df2a8-ab85-4ded-8a05-9df5d8e7d685.webp",
+      "subtitle": "Christopher Nolan",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": 7.7,
+      "comment": "",
+      "marked_at": "2026年10月17日"
+    }
+  ]
+}

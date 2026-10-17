@@ -1,0 +1,21 @@
+{
+  "source": "NeoDB",
+  "profile": "https://neodb.social/users/GuZhengSVT/",
+  "updated_at": "2026-10-17T13:15:30.748707+00:00",
+  "total": 1,
+  "pages": 1,
+  "items": [
+    {
+      "id": "4kWe8S9ckRjkxi28AHwxEA",
+      "title": "海底两万里",
+      "url": "https://neodb.social/book/4kWe8S9ckRjkxi28AHwxEA",
+      "cover": "https://neodb.social/m/book/2021/09/1540bb322c-2fc1-4cae-bd13-1a09278761f0.jpg",
+      "subtitle": "[法] 儒勒·凡尔纳",
+      "status": "complete",
+      "rating": 10.0,
+      "community_rating": 8.6,
+      "comment": "",
+      "marked_at": "2026年10月17日"
+    }
+  ]
+}
