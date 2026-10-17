@@ -1,8 +1,8 @@
 {
   "source": "NeoDB",
   "profile": "https://neodb.social/users/GuZhengSVT/",
-  "updated_at": "2026-10-17T13:15:30.748707+00:00",
-  "total": 53,
+  "updated_at": "2026-10-17T14:38:44.531772+00:00",
+  "total": 49,
   "pages": 3,
   "items": [
     {
@@ -126,18 +126,6 @@
       "marked_at": "2026年10月17日"
     },
     {
-      "id": "67d0ZgJ7zTh02GtIzxUd9L",
-      "title": "抬头看看吧，看那天上的繁星",
-      "url": "https://neodb.social/game/67d0ZgJ7zTh02GtIzxUd9L",
-      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/9e35b3bf-388e-4324-892e-f5728d5a258a.jpg",
-      "subtitle": "Pulltop",
-      "status": "complete",
-      "rating": null,
-      "community_rating": null,
-      "comment": "",
-      "marked_at": "2026年10月17日"
-    },
-    {
       "id": "1tfibBa4L2sk9L3FSBs5RT",
       "title": "GRIS",
       "url": "https://neodb.social/game/1tfibBa4L2sk9L3FSBs5RT",
@@ -222,18 +210,6 @@
       "marked_at": "2026年10月17日"
     },
     {
-      "id": "27mMddAwzcF6lNpqJP28qk",
-      "title": "Wallpaper Engine：壁纸引擎",
-      "url": "https://neodb.social/game/27mMddAwzcF6lNpqJP28qk",
-      "cover": "https://neodb.social/m/item/steam/2025/04/10/952fb10f-9a33-48dd-8e7f-81b678d9be71.jpg",
-      "subtitle": "Wallpaper Engine Team",
-      "status": "complete",
-      "rating": null,
-      "community_rating": 8.3,
-      "comment": "",
-      "marked_at": "2026年10月17日"
-    },
-    {
       "id": "1blnUAL3fX2brTFWhD7auN",
       "title": "伊甸园",
       "url": "https://neodb.social/game/1blnUAL3fX2brTFWhD7auN",
@@ -270,18 +246,6 @@
       "marked_at": "2026年10月17日"
     },
     {
-      "id": "23Hz6nrBRzLvQB0gTeAiFF",
-      "title": "Krita",
-      "url": "https://neodb.social/game/23Hz6nrBRzLvQB0gTeAiFF",
-      "cover": "https://neodb.social/m/item/fedi/2026/04/27/11ba9b11-d4b4-4907-b93c-dc922adb01d2.jpg",
-      "subtitle": "Krita Team / Krita Community Contributors",
-      "status": "complete",
-      "rating": null,
-      "community_rating": null,
-      "comment": "",
-      "marked_at": "2026年10月17日"
-    },
-    {
       "id": "6scU9Mszd3RKXZ89g0Sfcm",
       "title": "奥日与黑暗森林",
       "url": "https://neodb.social/game/6scU9Mszd3RKXZ89g0Sfcm",
@@ -290,6 +254,42 @@
       "status": "complete",
       "rating": null,
       "community_rating": 9.2,
+      "comment": "",
+      "marked_at": "2026年10月17日"
+    },
+    {
+      "id": "4FOejOCcnxVbKaMVfFpfCv",
+      "title": "War Thunder",
+      "url": "https://neodb.social/game/4FOejOCcnxVbKaMVfFpfCv",
+      "cover": "https://neodb.social/m/item/steam/2025/08/30/c4f2646f-3dfc-4046-932a-800bc0adb7ee.jpg",
+      "subtitle": "Gaijin Entertainment",
+      "status": "complete",
+      "rating": null,
+      "community_rating": null,
+      "comment": "",
+      "marked_at": "2026年10月17日"
+    },
+    {
+      "id": "3jHoNcLQrPfLRm2pnPDHaU",
+      "title": "欧洲卡车模拟2",
+      "url": "https://neodb.social/game/3jHoNcLQrPfLRm2pnPDHaU",
+      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/1d12f178-f3fd-422a-b66d-4e72b957467c.jpg",
+      "subtitle": "SCS Software",
+      "status": "complete",
+      "rating": null,
+      "community_rating": 8.9,
+      "comment": "",
+      "marked_at": "2026年10月17日"
+    },
+    {
+      "id": "7V9cAo4MQResw1RfnP2mw8",
+      "title": "To the Moon《去月球》",
+      "url": "https://neodb.social/game/7V9cAo4MQResw1RfnP2mw8",
+      "cover": "https://neodb.social/m/item/steam/2025/09/09/368793a7-871b-4fdd-9b85-e563ab13159b.jpg",
+      "subtitle": "Freebird Games",
+      "status": "complete",
+      "rating": null,
+      "community_rating": null,
       "comment": "",
       "marked_at": "2026年10月17日"
     }

@@ -1,34 +1,10 @@
 {
   "source": "NeoDB",
   "profile": "https://neodb.social/users/GuZhengSVT/",
-  "updated_at": "2026-10-17T13:15:30.748707+00:00",
-  "total": 211,
+  "updated_at": "2026-10-17T14:38:44.531772+00:00",
+  "total": 206,
   "pages": 9,
   "items": [
-    {
-      "id": "3fVPvu3iCnYRzck0vQye3Z",
-      "title": "9-nine-雪色雪花雪之痕",
-      "url": "https://neodb.social/game/3fVPvu3iCnYRzck0vQye3Z",
-      "cover": "https://neodb.social/m/item/steam/2026/08/28/d1425e61-4dcd-4be3-8228-8095a826a242.jpg",
-      "subtitle": "PALETTE",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": null,
-      "comment": "",
-      "marked_at": "2025年7月27日"
-    },
-    {
-      "id": "6PXk12z5cYFEG3IgFExWdg",
-      "title": "Chill Pulse 心流小筑",
-      "url": "https://neodb.social/game/6PXk12z5cYFEG3IgFExWdg",
-      "cover": "https://neodb.social/m/item/steam/2025/08/30/cff90b01-b60e-4392-8742-eeeb369edc6d.jpg",
-      "subtitle": "其他标题: Chill Pulse",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": null,
-      "comment": "",
-      "marked_at": "2025年7月27日"
-    },
     {
       "id": "6pdioiHd6jbZH5QygWlA6T",
       "title": "被虐的诺艾尔",
@@ -162,18 +138,6 @@
       "marked_at": "2025年7月27日"
     },
     {
-      "id": "3sLROTkRFhc3wTLDBcKUZo",
-      "title": "逆转裁判123 成步堂精选集",
-      "url": "https://neodb.social/game/3sLROTkRFhc3wTLDBcKUZo",
-      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/463675f9-2424-433e-8ea9-c2782624a15c.jpg",
-      "subtitle": "Capcom",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": 9.1,
-      "comment": "",
-      "marked_at": "2025年7月27日"
-    },
-    {
       "id": "2jiG0mnxPqgatGfXPl5d7i",
       "title": "火山的女儿",
       "url": "https://neodb.social/game/2jiG0mnxPqgatGfXPl5d7i",
@@ -292,6 +256,42 @@
       "community_rating": null,
       "comment": "",
       "marked_at": "2025年3月5日"
+    },
+    {
+      "id": "2CYRAvppntXSivl64yXIh9",
+      "title": "恋爱泡馍！青春老陕：Shannxi Love Story",
+      "url": "https://neodb.social/game/2CYRAvppntXSivl64yXIh9",
+      "cover": "https://neodb.social/m/item/steam/2026/10/17/30a3f4d5-bf98-41d5-a5dc-80985f9c6cdf.jpg",
+      "subtitle": "深层磁场SenseGames",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": null,
+      "comment": "",
+      "marked_at": "2025年2月26日"
+    },
+    {
+      "id": "6EWK9MgeoE8K46HiU8slQJ",
+      "title": "不/存在的你，和我",
+      "url": "https://neodb.social/game/6EWK9MgeoE8K46HiU8slQJ",
+      "cover": "https://neodb.social/m/item/doubangame/2025/06/07/71c5d7d1-6a71-4e3a-a329-b6d506ff10a8.jpg",
+      "subtitle": "其他标题: The NOexistenceN of you AND me / 存在/しないあなた、と私",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": 3.6,
+      "comment": "",
+      "marked_at": "2025年1月1日"
+    },
+    {
+      "id": "2jHDmM2ocYE3kHBNMZMqEr",
+      "title": "灵魂旅者",
+      "url": "https://neodb.social/game/2jHDmM2ocYE3kHBNMZMqEr",
+      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/71b177ae-6f3f-4dfa-9aac-4f6da91c0f9f.jpg",
+      "subtitle": "Thunder Lotus Games",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": 8.3,
+      "comment": "",
+      "marked_at": "2024年12月27日"
     }
   ]
 }

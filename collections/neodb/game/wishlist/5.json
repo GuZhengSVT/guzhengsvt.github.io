@@ -1,70 +1,10 @@
 {
   "source": "NeoDB",
   "profile": "https://neodb.social/users/GuZhengSVT/",
-  "updated_at": "2026-10-17T13:15:30.748707+00:00",
-  "total": 211,
+  "updated_at": "2026-10-17T14:38:44.531772+00:00",
+  "total": 206,
   "pages": 9,
   "items": [
-    {
-      "id": "4FqbMN3jSKTMJtKbRv4WGU",
-      "title": "恋爱猪脚饭",
-      "url": "https://neodb.social/game/4FqbMN3jSKTMJtKbRv4WGU",
-      "cover": "https://neodb.social/m/item/steam/2026/10/17/0594b06f-4132-4942-94d8-8ede8a78752e.jpg",
-      "subtitle": "likeyou游戏",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": null,
-      "comment": "",
-      "marked_at": "2025年2月26日"
-    },
-    {
-      "id": "2CYRAvppntXSivl64yXIh9",
-      "title": "恋爱泡馍！青春老陕：Shannxi Love Story",
-      "url": "https://neodb.social/game/2CYRAvppntXSivl64yXIh9",
-      "cover": "https://neodb.social/m/item/steam/2026/10/17/30a3f4d5-bf98-41d5-a5dc-80985f9c6cdf.jpg",
-      "subtitle": "深层磁场SenseGames",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": null,
-      "comment": "",
-      "marked_at": "2025年2月26日"
-    },
-    {
-      "id": "6EWK9MgeoE8K46HiU8slQJ",
-      "title": "不/存在的你，和我",
-      "url": "https://neodb.social/game/6EWK9MgeoE8K46HiU8slQJ",
-      "cover": "https://neodb.social/m/item/doubangame/2025/06/07/71c5d7d1-6a71-4e3a-a329-b6d506ff10a8.jpg",
-      "subtitle": "其他标题: The NOexistenceN of you AND me / 存在/しないあなた、と私",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": 3.6,
-      "comment": "",
-      "marked_at": "2025年1月1日"
-    },
-    {
-      "id": "75YnrlPRi6oihcZ6BEhSJV",
-      "title": "Escape the Backrooms",
-      "url": "https://neodb.social/game/75YnrlPRi6oihcZ6BEhSJV",
-      "cover": "https://neodb.social/m/item/steam/2025/11/29/f61f855e-885f-4ccd-a6f2-5b6480e49f04.jpg",
-      "subtitle": "Fancy Games",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": null,
-      "comment": "",
-      "marked_at": "2024年12月27日"
-    },
-    {
-      "id": "2jHDmM2ocYE3kHBNMZMqEr",
-      "title": "灵魂旅者",
-      "url": "https://neodb.social/game/2jHDmM2ocYE3kHBNMZMqEr",
-      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/71b177ae-6f3f-4dfa-9aac-4f6da91c0f9f.jpg",
-      "subtitle": "Thunder Lotus Games",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": 8.3,
-      "comment": "",
-      "marked_at": "2024年12月27日"
-    },
     {
       "id": "7JRVcCGxdJlaacJeBsMf6j",
       "title": "初雪樱",
@@ -292,6 +232,66 @@
       "community_rating": null,
       "comment": "",
       "marked_at": "2024年6月8日"
+    },
+    {
+      "id": "3wm04kgztikwGj8M0Aa2ia",
+      "title": "《恶意不息》",
+      "url": "https://neodb.social/game/3wm04kgztikwGj8M0Aa2ia",
+      "cover": "https://neodb.social/m/item/igdb/2024/02/17/c97f8dc5-b743-4c43-a64a-abb9f4afe8fd.jpg",
+      "subtitle": "Moon Studios",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": null,
+      "comment": "",
+      "marked_at": "2024年4月18日"
+    },
+    {
+      "id": "499PySWmNzK6HrBulAhugD",
+      "title": "从Kiss开始的自我主义～EGOISM～",
+      "url": "https://neodb.social/game/499PySWmNzK6HrBulAhugD",
+      "cover": "https://neodb.social/m/item/steam/2026/08/28/955dca5b-a74a-4464-a2ab-60d719c1bffe.jpg",
+      "subtitle": "其他标题: Ego's Spark / 從Kiss開始的自我主義～EGOISM～",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": null,
+      "comment": "",
+      "marked_at": "2024年3月16日"
+    },
+    {
+      "id": "1MbEcMWgpbdBaR1nRyRk83",
+      "title": "奇异恩典 -What color is your attribute?-",
+      "url": "https://neodb.social/game/1MbEcMWgpbdBaR1nRyRk83",
+      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/f6e06ef2-4fd3-4e70-8739-221371ef7608.jpg",
+      "subtitle": "Cabbage Soft",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": null,
+      "comment": "",
+      "marked_at": "2024年3月16日"
+    },
+    {
+      "id": "7KDfZywl5UpznEALmSXC00",
+      "title": "虚之少女",
+      "url": "https://neodb.social/game/7KDfZywl5UpznEALmSXC00",
+      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/00a7b6f5-db22-4234-b5c0-1242ef8cdb20.jpg",
+      "subtitle": "Innocent Grey",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": 7.2,
+      "comment": "",
+      "marked_at": "2024年3月16日"
+    },
+    {
+      "id": "0TL888yL81GdFLzklRuFf0",
+      "title": "花落冬陽 Snowdreams -lost in winter-",
+      "url": "https://neodb.social/game/0TL888yL81GdFLzklRuFf0",
+      "cover": "https://neodb.social/m/item/steam/2026/10/17/22634f5c-a1ad-4404-9509-9f3be85e2a0f.jpg",
+      "subtitle": "觀象草圖 Astrolabe Draft",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": null,
+      "comment": "",
+      "marked_at": "2024年1月26日"
     }
   ]
 }

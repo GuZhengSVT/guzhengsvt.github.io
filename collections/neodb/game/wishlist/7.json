@@ -1,70 +1,10 @@
 {
   "source": "NeoDB",
   "profile": "https://neodb.social/users/GuZhengSVT/",
-  "updated_at": "2026-10-17T13:15:30.748707+00:00",
-  "total": 211,
+  "updated_at": "2026-10-17T14:38:44.531772+00:00",
+  "total": 206,
   "pages": 9,
   "items": [
-    {
-      "id": "156IIPNQHokWhZhBtGnAms",
-      "title": "星空",
-      "url": "https://neodb.social/game/156IIPNQHokWhZhBtGnAms",
-      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/0d019ca5-199a-42c0-a2eb-31cf408f627e.jpg",
-      "subtitle": "Bethesda Game Studios",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": 6.7,
-      "comment": "",
-      "marked_at": "2023年6月16日"
-    },
-    {
-      "id": "1fN3LQYgFTYCY0DcMKtdU6",
-      "title": "Lost: Find",
-      "url": "https://neodb.social/game/1fN3LQYgFTYCY0DcMKtdU6",
-      "cover": "https://neodb.social/m/item/steam/2026/10/17/6ef1d4dc-b301-49b9-81e4-f5da5783e507.jpg",
-      "subtitle": "DSGame",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": null,
-      "comment": "",
-      "marked_at": "2023年6月16日"
-    },
-    {
-      "id": "4w3yYtpSBnvDrBIXbhYPRS",
-      "title": "人间地狱",
-      "url": "https://neodb.social/game/4w3yYtpSBnvDrBIXbhYPRS",
-      "cover": "https://neodb.social/m/item/steam/2026/10/17/14ea739f-24b1-41eb-9e27-ed42e569ebf8.jpg",
-      "subtitle": "Expression Games",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": null,
-      "comment": "",
-      "marked_at": "2023年3月18日"
-    },
-    {
-      "id": "2z5FAD6ChzNmH6L6zE5Q6X",
-      "title": "暗影火炬城",
-      "url": "https://neodb.social/game/2z5FAD6ChzNmH6L6zE5Q6X",
-      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/a474c57d-9179-4643-9ab8-45865e1ed24a.jpg",
-      "subtitle": "TiGames",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": 7.3,
-      "comment": "",
-      "marked_at": "2023年3月17日"
-    },
-    {
-      "id": "3bkugMSTday0P9lLPhKhN6",
-      "title": "东方幕华祭 春雪篇",
-      "url": "https://neodb.social/game/3bkugMSTday0P9lLPhKhN6",
-      "cover": "https://neodb.social/m/item/steam/2025/12/21/c46cfdee-461a-445b-9f99-588d11d4f1b3.jpg",
-      "subtitle": "Touhou Makukasai Team",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": null,
-      "comment": "",
-      "marked_at": "2023年3月17日"
-    },
     {
       "id": "2f6TOhfHmBNX5YSfN6m4CW",
       "title": "原子之心",
@@ -292,6 +232,66 @@
       "community_rating": null,
       "comment": "",
       "marked_at": "2023年1月27日"
+    },
+    {
+      "id": "04KTJ58Jj37IvLiIAULbX6",
+      "title": "《文字游戏》",
+      "url": "https://neodb.social/game/04KTJ58Jj37IvLiIAULbX6",
+      "cover": "https://neodb.social/m/item/steam/2025/12/11/8164bf67-fbd1-4890-be35-56092e22d358.jpg",
+      "subtitle": "其他标题: 《文字遊戲》 / Word Game …",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": null,
+      "comment": "",
+      "marked_at": "2023年1月25日"
+    },
+    {
+      "id": "7WmtCeiRO2gMD0OrcyAPLt",
+      "title": "東方虹龍洞 ～ Unconnected Marketeers.",
+      "url": "https://neodb.social/game/7WmtCeiRO2gMD0OrcyAPLt",
+      "cover": "https://neodb.social/m/item/steam/2026/10/10/a98899a2-5987-416a-b483-6d86e5e74d8d.jpg",
+      "subtitle": "Team Shanghai Alice",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": null,
+      "comment": "",
+      "marked_at": "2023年1月23日"
+    },
+    {
+      "id": "1v6WYEDhTtm0e2MHfTJPkT",
+      "title": "MUSYNX - Forever Friends",
+      "url": "https://neodb.social/game/1v6WYEDhTtm0e2MHfTJPkT",
+      "cover": "https://neodb.social/m/item/steam/2026/10/17/5d90b35d-7f5a-459a-90ab-d6e303187391.jpg",
+      "subtitle": "I-Inferno",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": null,
+      "comment": "",
+      "marked_at": "2023年1月19日"
+    },
+    {
+      "id": "2pIdtR3oG0jQDS4Gl93QIL",
+      "title": "OPUS：灵魂之桥",
+      "url": "https://neodb.social/game/2pIdtR3oG0jQDS4Gl93QIL",
+      "cover": "https://neodb.social/m/item/steam/2025/09/08/9c32d670-9bc9-4955-8bb1-ab9d9a20909a.jpg",
+      "subtitle": "SIGONO INC.",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": null,
+      "comment": "",
+      "marked_at": "2023年1月19日"
+    },
+    {
+      "id": "3647vaftPwVKS9bzJqkIHJ",
+      "title": "OPUS：龙脉常歌 -最终版-",
+      "url": "https://neodb.social/game/3647vaftPwVKS9bzJqkIHJ",
+      "cover": "https://neodb.social/m/item/steam/2026/02/19/4393b0b6-5002-4c58-8427-c90d272339ac.jpg",
+      "subtitle": "SIGONO INC.",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": null,
+      "comment": "",
+      "marked_at": "2023年1月19日"
     }
   ]
 }

@@ -1,70 +1,10 @@
 {
   "source": "NeoDB",
   "profile": "https://neodb.social/users/GuZhengSVT/",
-  "updated_at": "2026-10-17T13:15:30.748707+00:00",
-  "total": 211,
+  "updated_at": "2026-10-17T14:38:44.531772+00:00",
+  "total": 206,
   "pages": 9,
   "items": [
-    {
-      "id": "3wm04kgztikwGj8M0Aa2ia",
-      "title": "《恶意不息》",
-      "url": "https://neodb.social/game/3wm04kgztikwGj8M0Aa2ia",
-      "cover": "https://neodb.social/m/item/igdb/2024/02/17/c97f8dc5-b743-4c43-a64a-abb9f4afe8fd.jpg",
-      "subtitle": "Moon Studios",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": null,
-      "comment": "",
-      "marked_at": "2024年4月18日"
-    },
-    {
-      "id": "499PySWmNzK6HrBulAhugD",
-      "title": "从Kiss开始的自我主义～EGOISM～",
-      "url": "https://neodb.social/game/499PySWmNzK6HrBulAhugD",
-      "cover": "https://neodb.social/m/item/steam/2026/08/28/955dca5b-a74a-4464-a2ab-60d719c1bffe.jpg",
-      "subtitle": "其他标题: Ego's Spark / 從Kiss開始的自我主義～EGOISM～",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": null,
-      "comment": "",
-      "marked_at": "2024年3月16日"
-    },
-    {
-      "id": "1MbEcMWgpbdBaR1nRyRk83",
-      "title": "奇异恩典 -What color is your attribute?-",
-      "url": "https://neodb.social/game/1MbEcMWgpbdBaR1nRyRk83",
-      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/f6e06ef2-4fd3-4e70-8739-221371ef7608.jpg",
-      "subtitle": "Cabbage Soft",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": null,
-      "comment": "",
-      "marked_at": "2024年3月16日"
-    },
-    {
-      "id": "7KDfZywl5UpznEALmSXC00",
-      "title": "虚之少女",
-      "url": "https://neodb.social/game/7KDfZywl5UpznEALmSXC00",
-      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/00a7b6f5-db22-4234-b5c0-1242ef8cdb20.jpg",
-      "subtitle": "Innocent Grey",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": 7.2,
-      "comment": "",
-      "marked_at": "2024年3月16日"
-    },
-    {
-      "id": "0TL888yL81GdFLzklRuFf0",
-      "title": "花落冬陽 Snowdreams -lost in winter-",
-      "url": "https://neodb.social/game/0TL888yL81GdFLzklRuFf0",
-      "cover": "https://neodb.social/m/item/steam/2026/10/17/22634f5c-a1ad-4404-9509-9f3be85e2a0f.jpg",
-      "subtitle": "觀象草圖 Astrolabe Draft",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": null,
-      "comment": "",
-      "marked_at": "2024年1月26日"
-    },
     {
       "id": "0fu69G4yNBWGNH7BRhTaha",
       "title": "巧可甜恋",
@@ -181,7 +121,7 @@
       "subtitle": "Team Cherry",
       "status": "wishlist",
       "rating": null,
-      "community_rating": 9.2,
+      "community_rating": 9.1,
       "comment": "",
       "marked_at": "2023年12月14日"
     },
@@ -292,6 +232,66 @@
       "community_rating": null,
       "comment": "",
       "marked_at": "2023年7月14日"
+    },
+    {
+      "id": "156IIPNQHokWhZhBtGnAms",
+      "title": "星空",
+      "url": "https://neodb.social/game/156IIPNQHokWhZhBtGnAms",
+      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/0d019ca5-199a-42c0-a2eb-31cf408f627e.jpg",
+      "subtitle": "Bethesda Game Studios",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": 6.7,
+      "comment": "",
+      "marked_at": "2023年6月16日"
+    },
+    {
+      "id": "1fN3LQYgFTYCY0DcMKtdU6",
+      "title": "Lost: Find",
+      "url": "https://neodb.social/game/1fN3LQYgFTYCY0DcMKtdU6",
+      "cover": "https://neodb.social/m/item/steam/2026/10/17/6ef1d4dc-b301-49b9-81e4-f5da5783e507.jpg",
+      "subtitle": "DSGame",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": null,
+      "comment": "",
+      "marked_at": "2023年6月16日"
+    },
+    {
+      "id": "4w3yYtpSBnvDrBIXbhYPRS",
+      "title": "人间地狱",
+      "url": "https://neodb.social/game/4w3yYtpSBnvDrBIXbhYPRS",
+      "cover": "https://neodb.social/m/item/steam/2026/10/17/14ea739f-24b1-41eb-9e27-ed42e569ebf8.jpg",
+      "subtitle": "Expression Games",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": null,
+      "comment": "",
+      "marked_at": "2023年3月18日"
+    },
+    {
+      "id": "2z5FAD6ChzNmH6L6zE5Q6X",
+      "title": "暗影火炬城",
+      "url": "https://neodb.social/game/2z5FAD6ChzNmH6L6zE5Q6X",
+      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/a474c57d-9179-4643-9ab8-45865e1ed24a.jpg",
+      "subtitle": "TiGames",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": 7.3,
+      "comment": "",
+      "marked_at": "2023年3月17日"
+    },
+    {
+      "id": "3bkugMSTday0P9lLPhKhN6",
+      "title": "东方幕华祭 春雪篇",
+      "url": "https://neodb.social/game/3bkugMSTday0P9lLPhKhN6",
+      "cover": "https://neodb.social/m/item/steam/2025/12/21/c46cfdee-461a-445b-9f99-588d11d4f1b3.jpg",
+      "subtitle": "Touhou Makukasai Team",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": null,
+      "comment": "",
+      "marked_at": "2023年3月17日"
     }
   ]
 }

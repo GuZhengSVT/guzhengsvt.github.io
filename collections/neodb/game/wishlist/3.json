@@ -1,8 +1,8 @@
 {
   "source": "NeoDB",
   "profile": "https://neodb.social/users/GuZhengSVT/",
-  "updated_at": "2026-10-17T13:15:30.748707+00:00",
-  "total": 211,
+  "updated_at": "2026-10-17T14:38:44.531772+00:00",
+  "total": 206,
   "pages": 9,
   "items": [
     {
@@ -88,18 +88,6 @@
       "community_rating": null,
       "comment": "",
       "marked_at": "2026年6月20日"
-    },
-    {
-      "id": "0b3Nlc6BEXB0z87D6349oX",
-      "title": "FlowTrak",
-      "url": "https://neodb.social/game/0b3Nlc6BEXB0z87D6349oX",
-      "cover": "https://neodb.social/m/item/steam/2026/10/17/a1ef6fbf-e3c2-445b-a69f-0201e1c79063.jpg",
-      "subtitle": "Bocchi The Dev",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": null,
-      "comment": "",
-      "marked_at": "2026年6月16日"
     },
     {
       "id": "259FpOHXXVdHiPFIg5tFCH",
@@ -222,18 +210,6 @@
       "marked_at": "2025年7月27日"
     },
     {
-      "id": "2e2oeVPGrrKoJSzwKjjt5h",
-      "title": "美少女万华镜 -理与迷宫的少女-",
-      "url": "https://neodb.social/game/2e2oeVPGrrKoJSzwKjjt5h",
-      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/2cff3617-c0f0-4e4f-b073-e97b2dacd57b.jpg",
-      "subtitle": "其他标题: 美少女万华镜 -天道与迷宫的少女- / 美少女万華鏡 -理と迷宮の少女-",
-      "status": "wishlist",
-      "rating": null,
-      "community_rating": 7.5,
-      "comment": "",
-      "marked_at": "2025年7月27日"
-    },
-    {
       "id": "1wTDfz1ulksLFocSPxuioj",
       "title": "同级生 重制版",
       "url": "https://neodb.social/game/1wTDfz1ulksLFocSPxuioj",
@@ -290,6 +266,30 @@
       "status": "wishlist",
       "rating": null,
       "community_rating": 7.5,
+      "comment": "",
+      "marked_at": "2025年7月27日"
+    },
+    {
+      "id": "3fVPvu3iCnYRzck0vQye3Z",
+      "title": "9-nine-雪色雪花雪之痕",
+      "url": "https://neodb.social/game/3fVPvu3iCnYRzck0vQye3Z",
+      "cover": "https://neodb.social/m/item/steam/2026/08/28/d1425e61-4dcd-4be3-8228-8095a826a242.jpg",
+      "subtitle": "PALETTE",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": null,
+      "comment": "",
+      "marked_at": "2025年7月27日"
+    },
+    {
+      "id": "6PXk12z5cYFEG3IgFExWdg",
+      "title": "Chill Pulse 心流小筑",
+      "url": "https://neodb.social/game/6PXk12z5cYFEG3IgFExWdg",
+      "cover": "https://neodb.social/m/item/steam/2025/08/30/cff90b01-b60e-4392-8742-eeeb369edc6d.jpg",
+      "subtitle": "其他标题: Chill Pulse",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": null,
       "comment": "",
       "marked_at": "2025年7月27日"
     }
