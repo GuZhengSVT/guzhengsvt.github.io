@@ -1,4 +1,133 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/zh-cn/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Mon, 05 Oct 2026 20:30:00 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/zh-cn/index.xml" rel="self" type="application/rss+xml"/><item><title>数据结构实验笔记</title><link>https://www.guzhengsvt.cn/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 12 Dec 2023 14:31:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/zh-cn/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-CN</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright><lastBuildDate>Fri, 23 Oct 2026 05:44:15 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/zh-cn/index.xml" rel="self" type="application/rss+xml"/><item><title>拯救我们的语言和人与人的联结</title><link>https://www.guzhengsvt.cn/zh-cn/post/thoughts/saving-our-language-and-human-connection/</link><pubDate>Fri, 23 Oct 2026 05:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-cn/post/thoughts/saving-our-language-and-human-connection/</guid><description>
+<![CDATA[<h1>拯救我们的语言和人与人的联结</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <h2 id="前言">
+<a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
+前言
+</h2><p>今天是 2026 年 10 月 23 日，几个月以来 AI 以惊人的速度进步，尤其是在 GPT 解决部分 NS 方程问题和在 10 月 7 日轰炸数学界之后，它的一切似乎不可阻挡了。<br>
+在不怎么接触 AI 只刷抖音用豆包的人群，与人工智能领域资深工作者之间，有大量的活跃互联网网民，在目不暇接的前沿 AI 的新闻和内容中晕头转向。一会儿觉得中美 AI 技术差距太大，输麻了；一会儿被 DeepSeek 的新模型激励，神话一家公司；有的人觉得 AI 马上要取代所有人的工作，陷入恐慌与兴奋；有的人热切地将 AI 拟人化，赋予人格与人际关系。<br>
+我也是其中之一。</p>
+<p>速胜论与速败论都是不可取的。<br>
+这一观点可以应用于中美 AI 之争，可以应用于人类与 AI 之争，可以应用于开源与闭源之争，也可以应用于人类未来的光明黑暗之争。<br>
+在此我不想就政治与人类的未来大谈其谈，我既不是一个阅历丰富了解政治的人，也不是人工智能领域的资深研究者。作为一个普通人类，我观察到有一些更加明确但隐蔽的问题已经迫在眉睫了。</p>
+<h2 id="拯救我们的语言">
+<a class="header-anchor" href="#%e6%8b%af%e6%95%91%e6%88%91%e4%bb%ac%e7%9a%84%e8%af%ad%e8%a8%80"></a>
+拯救我们的语言
+</h2><p><strong>我们的语言</strong>——不管是中文还是其他语言（这对 AI 来说没有太大区别）——正在面临 AI 生成内容的严峻挑战。这是一种可见的<strong>文化衰败与破坏</strong>。</p>
+<h3 id="ai-生成内容的缺陷">
+<a class="header-anchor" href="#ai-%e7%94%9f%e6%88%90%e5%86%85%e5%ae%b9%e7%9a%84%e7%bc%ba%e9%99%b7"></a>
+AI 生成内容的缺陷
+</h3><p>我最近高强度使用 Agent 编程，看了很多的 AI 对话和表达，AI 的表达方式是很有特色的，豆姐的“不绕弯子”“稳稳接住你”就是很典型的例子。似乎智能体工作能力越强的 AI，其输出的“AI 味”就更明显（没有说 Gemini 很菜的意思🙏）。我们当然可以用一些“去 AI 味 Skill”约束，但模型在训练时就确定的表达权重，终究难以通过 Skill 改变。<br>
+这种逻辑化、AI 味、防御性表达，原本是高效交流筛选下的结果；但人类与机器的不同点就在这里，人类有逻辑与理性之外的东西——情感，个性。一味地追求表达的高效性，反而会降低内容的“情感信息密度”。</p>
+<h3 id="未来的可能图景">
+<a class="header-anchor" href="#%e6%9c%aa%e6%9d%a5%e7%9a%84%e5%8f%af%e8%83%bd%e5%9b%be%e6%99%af"></a>
+未来的可能图景
+</h3><p>在看了大量的 AI 内容之后，我对这类 AI 生成内容产生了极大的抵触；它像是移植的异源器官，不会让人觉得特别难受，但总有些小不适与厌烦。<br>
+但我没办法不看，因为我需要借助它工作。在可以预见的未来，人工智能会越来越深入每一个人的生活，我们迟早被充斥着 AI 生成的内容包围。<br>
+百年前，人们起床会手动泡一杯咖啡，从邮筒取出今天的报纸，坐在沙发上看今天的新闻。<br>
+未来，可能我会说“小爱，帮我泡一杯咖啡，今天要三分糖”，然后躺到零重力沙发上，自动开启了按摩，Agent 开始自动播送昨晚间互联网上“有趣”的 AI 生成内容。</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe
+    src="https://player.bilibili.com/player.html?isOutside=true&aid=117480592834725&bvid=BV1b7nk6WExb&cid=42938338286&p=1&autoplay=0"
+    title="哔哩哔哩视频播放器"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+    allow="fullscreen"
+    allowfullscreen>
+  </iframe>
+</div>
+
+
+<h3 id="环境对个人语言表达的影响">
+<a class="header-anchor" href="#%e7%8e%af%e5%a2%83%e5%af%b9%e4%b8%aa%e4%ba%ba%e8%af%ad%e8%a8%80%e8%a1%a8%e8%be%be%e7%9a%84%e5%bd%b1%e5%93%8d"></a>
+环境对个人语言表达的影响
+</h3><p>我不得不说沉浸在这种文化环境下对一个人的语言表达是有害的。</p>
+<p>在农村长大的孩子会说方言，在普通话学校又习惯了说普通话；大量阅读和学习鲁迅的文章时，写文章也不免带上迅哥儿的味道；在出口成脏、习惯聊黄的男生宿舍待几年，在类似的环境下难免不自主地说几句污言秽语；长期使用英语软件、浏览英文社区，提及相关专业内容时也会习惯于大量使用英语单词（比如 PR、Issue、token）。<br>
+这些都是我经历过的事，我正在写的这篇文章也毫无疑问受到了 AI 的影响。</p>
+<p>一个人的语言表达习惯会持续受周围环境影响。<br>
+在前 AI 时代，这种影响体现在评论区的互联网热梗一周一变，体现在定型文和特定缩写/表达（啊啊啊啊啊，笔者你的网感也太差了吧，这种句子看得我真烧心）。<br>
+在后 AI 时代，这种影响更加隐蔽：我会更加不自主地贴近 AI 的表达方式，尽管表达对象可能并非 AI。用编程语言领域的习惯来说，我会潜意识地“面向 AI 组织语言”。<br>
+在具体表现上，我会试着让语言更加规范和组织化，习惯于分条分类陈述，尽可能使用专业的准确的词汇，甚至是“防御性说话”。我相信读者从这篇文章中也能看出这一点。</p>
+<p>天啊！看看刚刚我都写了什么！我花了几分钟写了两百多字，试着表达自己的思想，最后写出来的东西却像是 AI 生成，没有半点人味。这是面向 AI 组织语言的高度体现（哪怕这句话都是这样，带着防御性的说明）。<br>
+这样的表达无疑剥夺了我的感性与个性，降低了我的主体性，让一个人与其他人/与人工智能变得毫无区别。我有点讨厌理性与逻辑了，我想变得不一样。<br>
+没错，<strong>在这样一个时代，我和人工智能一样好想成为人类。</strong></p>
+<h3 id="为什么大量的-ai-生成内容是值得批评的">
+<a class="header-anchor" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e5%a4%a7%e9%87%8f%e7%9a%84-ai-%e7%94%9f%e6%88%90%e5%86%85%e5%ae%b9%e6%98%af%e5%80%bc%e5%be%97%e6%89%b9%e8%af%84%e7%9a%84"></a>
+为什么大量的 AI 生成内容是值得批评的
+</h3><p>以上的讨论仅限于人工智能生成内容对个人语言表达的影响。其实早在互联网普及后（前 AI 时代），对网络内容影响年轻人说话方式的批评就已经俯拾即是了，这似乎不是什么新鲜事，为什么我作为一个年轻人要批评 AI 呢？</p>
+<p>因为互联网时代的泔水是人造的，而现在大量的泔水是 AI 生成。<br>
+人造内容，哪怕“无意义”、无营养，它也携带了情感信息，每天不同的网络热点为它注入源源不断的活力，反映了人类社会风潮变化。<br>
+而人工智能生成内容，至少目前为止的内容，大多千篇一律毫无新意，也不包含人类的情感信息。其中有很大一部分原因是大部分模型的训练语料相同，训练倾向相同（都奖励逻辑清晰、理性的表达）。</p>
+<p>这时候就有读者要问了：那我们每个人训练一个自己的模型不就行了？<br>
+首先，正如前文所述，简单的 Skill 和后训练不足以动摇基座模型的权重影响。其次，哪怕拿一个人一生的语言数据来训练，其数据在整个数据库里的比例也是极小——除非你想只用自己的数据训练一个模型出来。且先不论这种数据量练出来的模型效果如何，这个模型的能力必然局限，且远小于自己，甚至有“过拟合”问题，真人大脑的复杂性和计算机神经网络肯定是不能相提并论的。最后，显而易见的经济问题。</p>
+<p>人工智能的普及带来的文化问题远不止于此，除了个人的变化，还有群体的变化。</p>
+<h2 id="拯救人与人之间的联结">
+<a class="header-anchor" href="#%e6%8b%af%e6%95%91%e4%ba%ba%e4%b8%8e%e4%ba%ba%e4%b9%8b%e9%97%b4%e7%9a%84%e8%81%94%e7%bb%93"></a>
+拯救人与人之间的联结
+</h2><h3 id="对-ai-大量接入人类社区的批评">
+<a class="header-anchor" href="#%e5%af%b9-ai-%e5%a4%a7%e9%87%8f%e6%8e%a5%e5%85%a5%e4%ba%ba%e7%b1%bb%e7%a4%be%e5%8c%ba%e7%9a%84%e6%89%b9%e8%af%84"></a>
+对 AI 大量接入人类社区的批评
+</h3><p>如果说互联网普及带来了核爆级的网络泔水，那 AI 带来的泔水量是超新星爆发。</p>
+<p>最近很多人把 AI 接入了主流社交平台，比如让 DeepSeek 接管 B 站、小黑盒账号，自主浏览内容与发布内容。他们没有加“去 AI 味插件”，或者做的不够好，评论区涌入了大量充斥 AI 味的真·人机评论。<br>
+一个人工智能参与社区讨论会让人觉得有趣（比如 X 的 Grok），一群 AI 在评论区团建就让人作呕了。</p>
+<p>有人说这是好事啊，原来的社区多么恶臭，让 AI 接管评论区起码没有骂战与傻逼发言。</p>
+<p>我不能认同。曾经哪怕是再恶臭的评论区（比如二游社区、米华果评论区），其中的发言充斥着阴阳怪气、人身攻击、拉踩、若智，也有一定的情感价值。孝子在其中得到了爱恨，乐子人在其中得到了乐子，串子在其中爽串，一副生机勃勃、万物竞发的景象。任何人在其中都能得到情绪（好的或坏的），它是有“人味”的。<br>
+而充斥 AI 的评论区，只会是千篇一律的无聊。它不是大量完全重复的内容，而是大量毫无意义、含义重复却不同表达的文字，其中偶尔混杂一两个真人评论。在其中寻找值得一读的内容，无异于屎堆里淘巧克力。读者费时费力读了 100 条评论，也未必能有一条能调动情绪。</p>
+<p>在那些赛博长城中（比如 <a href="https://www.bilibili.com/video/BV1fy4y1L7Rq/">《明日方舟》夏日嘉年华限时活动宣传 PV</a>），也充斥着大量复制粘贴内容，为什么我不批评人类制造的重复内容呢？<br>
+因为我们不必费心读完所有评论，只需读一条便能理解他们想表达什么，而复制粘贴本身便是一种表达方式。读者在这种情况下不必花多余的时间阅读，思想的传达也没有半分阻碍。</p>
+<h3 id="我们是否要放弃部分写作的权利">
+<a class="header-anchor" href="#%e6%88%91%e4%bb%ac%e6%98%af%e5%90%a6%e8%a6%81%e6%94%be%e5%bc%83%e9%83%a8%e5%88%86%e5%86%99%e4%bd%9c%e7%9a%84%e6%9d%83%e5%88%a9"></a>
+我们是否要放弃部分写作的权利
+</h3><p>在上一篇文章中（部分 AI 生成），我提到了 AI 比我更专业，表达更有逻辑，因此我失去了写技术性文章的动力。事实也确实如此，很多 AI 写技术性文章逻辑清晰，考虑全面，也很少有事实性错误。<br>
+但现在我有了不同的想法。山头就在那里，你不去占领，就是拱手让给敌人。<br>
+即使是技术性文章，要求逻辑与理性，也应该是有人味的，是包含人类主体性和个性化表达的。<br>
+人人都放弃写技术性文章，我们的教材、我们的教学、人类学习和成长的一切途径都要交给 AI 了。</p>
+<p>最近我逛了不少友链和技术博客，发现令人痛心的是很多人开始毫不修改地上传 AI 生成文章，甚至个人情绪表达也使用 AI 文案，让人毫无阅读欲望。<br>
+个人博客本应是个性化表达的地盘，博主却选择让 AI 代替自己表达，这种偷懒是对自己独立性和主体性的破坏和轻视——任何人都能生产这样的内容，大家读这种东西不会认出这是你写的，你的“独立博客”还有什么存在的意义呢？<br>
+写到这里，我回想起王小波的《做一头特立独行的猪》。</p>
+<h3 id="关于教育的未来">
+<a class="header-anchor" href="#%e5%85%b3%e4%ba%8e%e6%95%99%e8%82%b2%e7%9a%84%e6%9c%aa%e6%9d%a5"></a>
+关于教育的未来
+</h3><p>或许有人说，借助 AI 学习明显更好，它更权威，更耐心，成本也更低。确实如此，目前中国许多不怎么称职的教师远不如 AI 教的好。但在我看来，教师不应该被 AI 取代，就像学校不应该被网课取代。</p>
+<p>教师的职责是教书育人，育人更重要。先贤说“人是一切社会关系的总和”，我们的学习远不止于学习课本上的知识，同时也在学习社会常识，学习人际关系，学习情感表达，学习认识自己。<br>
+目前的人工智能是没有情感和自主意识的，它能将专业知识讲的头头是道，甚至看起来“非常懂心理学”。<br>
+但理论和数据永远概括不了一个真实的人，人工智能无法独自教导一个人类的成长。它擅长生成程序，却无法生成感情。</p>
+<p>我不是要反对 AI 教学，而是说其中必须要有人的参与，且人类应该占主导地位；人工智能应该是教育的辅助者，提高一些知识的学习效率，仅此而已。<br>
+在真正的脑机接口普及前，我想上面的文字是有效的。</p>
+<h3 id="不要放弃人与人之间的联结">
+<a class="header-anchor" href="#%e4%b8%8d%e8%a6%81%e6%94%be%e5%bc%83%e4%ba%ba%e4%b8%8e%e4%ba%ba%e4%b9%8b%e9%97%b4%e7%9a%84%e8%81%94%e7%bb%93"></a>
+不要放弃人与人之间的联结
+</h3><p>我在前文讲了人与人的交流，讲了写作和教育，这些曾是人类与其他动物存在显著不同的地方，是信息传递的载体，是人与人之间的重要纽带。<br>
+在互联网时代，它们已经经受过一次冲击，结果我们也看到了：社会原子化，互联网上的陌生人似乎比真实世界的人更有吸引力，人与人之间的联结被削弱了。</p>
+<p><strong>我们在互联网时代，已经通过算法给人贴上一个个标签了，我不希望我们在 AI 时代也这样做。</strong></p>
+<p>人与人之间的联系是如此重要，它既是人类文明团结发展的基础，也是个人独立性、主体性的保证。<br>
+一个生活在孤岛的人对其他人而言是没有意义的（宛如掉进黑洞视界），如若他生来就没有见过其他人类，主体性、个性云云自然对他毫无意义，他大可以在本能的驱使下吃喝拉撒自然死去；可一旦建立过联结，对社交的需求就会如跗骨之疽折磨着他。</p>
+<p>宇宙太大了，千万年前我们曾仰望星辰，但在奔赴星辰之前，让我们先谈谈爱吧。</p>
+<p>请大胆地表达自己，亲眼看看真实的人，与他们建立情感的联结。</p>
+<h2 id="后记">
+<a class="header-anchor" href="#%e5%90%8e%e8%ae%b0"></a>
+后记
+</h2><p>我的读者，我爱你们，你们在阅读这些我亲自写下的文字同时也是在与我建立独一无二的联结。<br>
+是你们锚定了我在世界上的位置，让我活着有更多意义。</p>
+<p>在此引用我非常喜欢的一位知乎答主的一段话作结，她已经离开知乎有一段时间了。</p>
+<blockquote>
+<p>亲爱的读者，请大胆出现在我的视野里吧，请让我了解你、知道你是谁，然后我就会被你吸引，爱上你，对你着迷。<br>
+我们的分离确实不可避免，但没关系，<br>
+只要你还好好活着，我们终将在未来的某个时间点重逢。<br>
+我们终将重逢。<br>
+—— <a href="https://www.zhihu.com/people/ayano-96-36">狐狸</a></p>
+</blockquote>
+
+        
+        <hr><p>本文2026-10-23首发于<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于2026-10-23</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文标题：</strong> 拯救我们的语言和人与人的联结</p>
+
+<p><strong>本文发布时间：</strong> 2026-10-23</p>
+<p><strong>本文更新时间：</strong> 2026-10-23</p>
+<p><strong>本文版权：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Thoughts</category></item><item><title>数据结构实验笔记</title><link>https://www.guzhengsvt.cn/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 12 Dec 2023 14:31:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-cn/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</guid><description>
 <![CDATA[<h1>数据结构实验笔记</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <p>本文合并了原先的八篇数据结构上机实验报告，去掉了重复的套话和完整源码，只保留每个实验的<strong>核心思路、关键数据结构和算法要点</strong>，作为复习提纲使用。代码片段为 C++。</p>
@@ -4147,166 +4276,6 @@ QSL卡片
 
 <p><strong>本文发布时间：</strong> 2025-06-03</p>
 <p><strong>本文更新时间：</strong> 2025-11-11</p>
-<p><strong>本文版权：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
-</div>
-]]></description><category>OtherNotes</category></item><item><title>利用旧电脑和飞牛OS自建NAS</title><link>https://www.guzhengsvt.cn/zh-cn/post/othernotes/use-old-computers-and-fnos-to-build-your-own-nas/</link><pubDate>Thu, 16 Oct 2025 23:04:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-cn/post/othernotes/use-old-computers-and-fnos-to-build-your-own-nas/</guid><description>
-<![CDATA[<h1>利用旧电脑和飞牛OS自建NAS</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
-        
-          <h2 id="前言">
-<a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
-前言
-</h2><p>自从断了网易云音乐的会员，每次打开网易云音乐听歌都要忍受5次+vip弹窗，歌单也灰了一大片。<br>
-那给资本交了钱便好使了么？VIP还在的时候天天还给我跳SVIP广告🤗开屏广告也是一点没少。哥们儿不是交不起这点钱，但我交钱看广告版权还越来越少是<strong>何意味</strong>？<br>
-作为苹果用户，试过Apple Music 5元/月的学生会员，奈何常听的音乐版权这一块儿国内流媒体平台垄断太多，自己下载再导入Apple Music太麻烦了。<br>
-作为精神科技处女座，我决不允许我花钱买的电子产品和软件里有广告跳脸。原本嫌麻烦没建自己的音乐库，网络各种第三方、没版权的音乐平台服务也十分不稳定，现在不得不动工铲屎了。</p>
-<p>自建音乐库方案很多，既然决定清史就要清的干净。<br>
-不光是音乐服务，照片我原本通过阿里云盘同步，在百度网盘也存了一部分；影视受限于设备存储，只有Mac mini M4 PT下了几百个G，不算多；至于书籍，云盘、本地到处乱放没同步有几百本。</p>
-<p>正好手头有闲置的笔记本电脑，Thinkbook 16+ 2022（i5-12500H + RTX 2050 + 512G SSD + 2T SSD），拿来做全闪NAS岂不正好🤓<br>
-至于NAS系统选择，眼下正热门且社区积极的飞牛再好不过，还提供2Mb的免费转发服务。</p>
-<h2 id="系统安装">
-<a class="header-anchor" href="#%e7%b3%bb%e7%bb%9f%e5%ae%89%e8%a3%85"></a>
-系统安装
-</h2><p>飞牛系统安装简单，按官网教程来基本没问题。<br>
-遇到的问题：我的U盘通过ventoy做了好几个系统的启动盘，飞牛OS基于Debian，按理说只要把 ISO 放进去就好了。但插上U盘通过ventoy选择安装fnOS之后，一直提示找不到硬盘（换模式也一样）。只好通过官方教程的Rufus重新制作了启动盘，一次成功。</p>
-<h2 id="特别提醒">
-<a class="header-anchor" href="#%e7%89%b9%e5%88%ab%e6%8f%90%e9%86%92"></a>
-特别提醒
-</h2><p>docker运行时，注意配置存储位置，将数据文件夹（比如音乐）映射到容器存储空间，并在文件管理中设置访问权限（应用到子级）。</p>
-<h2 id="构建音乐库navidrome">
-<a class="header-anchor" href="#%e6%9e%84%e5%bb%ba%e9%9f%b3%e4%b9%90%e5%ba%93navidrome"></a>
-构建音乐库——Navidrome
-</h2><p>基于Web的开源音乐收集服务器和流媒体。</p>
-<p>系统设置-应用设置，添加音乐文件夹允许Navidrome访问，端口默认4533。<br>
-设置好账号密码，打开web界面，一般navidrome能直接扫描可访问文件夹并导入音乐。</p>
-<h3 id="music_tag_web">
-<a class="header-anchor" href="#music_tag_web"></a>
-music_tag_web
-</h3><p>docker，有web操作界面的多功能音乐标签编辑程序，常用功能有音乐刮削、整理、去重、格式转换等。<br>
-最重要的后台刮削功能需要v2版本（付费），在爱发电充值10元获得1个月激活码（先试试水）。</p>
-<p>我的音乐文件大部分来自网易云音乐，文件命名上由于以前没有整理意识比较混乱，iPhone、Redmi、Mac、度盘上都有且有重复音频文件，同一首歌有多个、多人翻唱版本（比如《アイロニ (双声道版)》鹿乃/*菜乃），早年听的许多歌网易云已灰😩（比如双笙的老版本道姑，封茗囧菌的《静悄悄》）。</p>
-<p>先选择待刮削的音乐，整理文件（层级为歌手-专辑-歌曲）。<br>
-在选择自动刮削匹配模式时，首选标准，标题、艺术家、专辑匹配，数据源选择歌曲主要来源（比如我选择网易云音乐），修改范围限定为封面、歌词、歌词文件（标题、艺术家下载时如果不改一般没问题）。大部分歌曲能完全匹配。</p>
-<p>对于未能刮削的歌曲（比如过于小众或已灰），选择宽松模式，数据源多选几个（网易云音乐、QQ音乐、酷狗音乐、iTunes），修改范围不变。<br>
-若修改范围包括艺术家，容易把不出名翻唱歌曲艺术家自动变更为原版。<br>
-有时同一首歌在不同专辑存在（实际文件一致，比如Merry Christmas Mr. Lawrence；或实际文件不一致，比如动漫歌曲的番中片段与完整版），允许修改专辑会导致错误刮削。</p>
-<p>全部刮削完成后，再一次整理文件，删除空文件夹。<br>
-如果有重复文件，进行重复文件检查，推荐开启声纹重复校验。声纹重复校验一致的，一般为同一首歌的不同文件格式版本（比如mp3、flac），推荐删除文件体积更小的版本。<br>
-再次整理文件并删除空文件夹。</p>
-<p>music_tag_web付费后也可作为音乐库使用，内置Subsonic服务器，界面相对于Navidrome也更加美观现代。<br>
-但我对个人开发者的持续运营能力持谨慎态度，先观望。</p>
-<h3 id="歌单匹配器">
-<a class="header-anchor" href="#%e6%ad%8c%e5%8d%95%e5%8c%b9%e9%85%8d%e5%99%a8"></a>
-歌单匹配器
-</h3><p>LINUX GO有大佬做了流媒体平台歌单导入Navidrome的win软件<a href="https://linux.do/t/topic/757204">分享一个适配Navidrome的歌单匹配器</a>。<br>
-支持网易云音乐、QQ音乐、Apple Music的歌单导入到Navidrome上，输出未匹配的歌曲。</p>
-<h3 id="客户端">
-<a class="header-anchor" href="#%e5%ae%a2%e6%88%b7%e7%ab%af"></a>
-客户端
-</h3><p>音乐库构建好后，如何在移动端、桌面端听歌？<br>
-支持Navidrome的客户端很多，网上搜一搜就能找到。</p>
-<p>我目前在用的是音流（1.3.9），支持大部分平台（比如我用安卓、iOS、iPadOS、Windows、macOS），花不到60一次购买，最多7个设备同时使用。<br>
-作为音乐播放器，能满足我的基本要求：较为美观的界面，能下载NAS歌曲保存在本地，桌面歌词，添加歌单、喜欢、评星、随机播放。</p>
-<p>存在的问题：偶尔闪退，后台播放播完一首不能切到下一首歌（不稳定复现），连接到NAS时较慢，不能连接NAS时仅能显示已下载歌曲及下载歌单（若一首歌同时在多个歌单，未连线时仅能在下载它的歌单显示）。<br>
-作为个人开发者开发的非开源软件，购买须持谨慎态度，建议先用普通版试试水。</p>
-<h2 id="构建书库talebook">
-<a class="header-anchor" href="#%e6%9e%84%e5%bb%ba%e4%b9%a6%e5%ba%93talebook"></a>
-构建书库——talebook
-</h2><p>docker，talebook是开源项目，是一个简洁但强大的私人书籍管理系统。它基于calibre项目构建，具备书籍管理、在线阅读与推送、用户管理、SSO登录、从百度/豆瓣拉取书籍信息等功能。</p>
-<p>各种配置按talebook web页-管理-系统设置中一项项设置就好，唯一需要注意的是用户设置中的几项权限，有些客户端不支持登录，需要打开“允许任意下载”才能下载。</p>
-<p>图书管理中能手动更改图书的部分元数据，还能加标签。我看的书比较杂，倾向于按<a href="https://www.clcindex.com/"><strong>中图法</strong></a>同时在物理文件夹和标签分类。</p>
-<h3 id="douban-api-rs">
-<a class="header-anchor" href="#douban-api-rs"></a>
-douban-api-rs
-</h3><p>talebook豆瓣插件，在fnOS有镜像，运行docker后将对应api地址复制粘贴到talebook设置中的“互联网书籍信息源”，如此才能启用图书管理中的自动更新图书信息功能。<br>
-对于大部分知名文学书籍，豆瓣刮削效果较好；而《业余无线电爱好者的道德和操作守则》这类未出版书籍，《中国的野菜》（2008海南出版公司）这种极为小众或年间过长的书籍，豆瓣搜索不到或乱匹配。</p>
-<p>我的度盘有一整套“赤脚医生手册民兵训练人才之友历代武术最全穿越者”这样的穿越者专用“四库全书”，整整120G+🤓<br>
-其中大部分武功军事秘籍无法刮削，历史文学类书籍刮削效果较好。</p>
-<h3 id="客户端-1">
-<a class="header-anchor" href="#%e5%ae%a2%e6%88%b7%e7%ab%af-1"></a>
-客户端
-</h3><p>talebook，或者说OPDS协议客户端少有好用的、现代的。</p>
-<p>安卓暂且通过飞牛安卓客户端下载图书，通过eBoox本地阅读，能通过谷歌同步。<br>
-tachiyomi因为版权问题似了，其后继者mihon或其类似物更适合漫画阅读，设计逻辑不适合读书。我通过komaga插件导入自建Komaga图源时遇到了地址无法设置的问题。</p>
-<p>不过Kahon（改自Mihon）导入插件库后，R18图源十分丰富，拿来免广告看黄倒是十分不错👍</p>
-<p>iOS与iPadOS，各类阅读软件的体验很难超越自带的iBook。目前在试用KyBook 3，不能登录账号。<br>
-填写OPDS地址时需注意端口号和/opds/。</p>
-<h2 id="构建影视库">
-<a class="header-anchor" href="#%e6%9e%84%e5%bb%ba%e5%bd%b1%e8%a7%86%e5%ba%93"></a>
-构建影视库
-</h2><p>fnOS自带的飞牛影视于我而言已足够好用，能够刮削分类，Android、iOS、iPadOS、macOS、Windows有客户端，能导入度盘、远程挂载硬盘的影视资源（Mac外挂硬盘通过局域网导入飞牛媒体库），网络匹配字幕。<br>
-要是能接入bangumi api和豆瓣api就更好了。</p>
-<h2 id="pt">
-<a class="header-anchor" href="#pt"></a>
-PT
-</h2><p>论资源获取，还得是PT，首推还是飞牛应用中心的qBittorrent。<br>
-具体软件使用和种子获取自行探索。总之，最好保证分享率和做种时间。<br>
-人人为我，我为人人。</p>
-<h2 id="相册">
-<a class="header-anchor" href="#%e7%9b%b8%e5%86%8c"></a>
-相册
-</h2><p>图片管理更是方便。<br>
-将各个云盘、本地的照片上传下载到NAS Photos文件夹下，不用刻意整理物理文件夹，打开相册就能自动扫描导入。导入其他本地、外挂文件夹也可以在相册-设置-文件夹管理中添加。<br>
-在AI相册设置中下载好模型，然后分别执行未识别的照片视频，后台自动分析分类。这些都是本地运行，当然出于隐私考虑也可以不做。<br>
-启用GPU计算可以较显著提升识别速度，需要下载对应的显卡驱动。</p>
-<p>我同时备份了iPhone、Redmi、iPad中的照片，其中有大量重复照片（命名有不同）。通过AI智能识别后检查相似照片去重，效果极佳。</p>
-<h2 id="其他推荐小工具">
-<a class="header-anchor" href="#%e5%85%b6%e4%bb%96%e6%8e%a8%e8%8d%90%e5%b0%8f%e5%b7%a5%e5%85%b7"></a>
-其他推荐小工具
-</h2><h3 id="hivisionidphoto">
-<a class="header-anchor" href="#hivisionidphoto"></a>
-HivisionIDPhoto
-</h3><p>自制证件照，应用中心docker。</p>
-<h3 id="peazip">
-<a class="header-anchor" href="#peazip"></a>
-peazip
-</h3><p>压缩解压，docker。fnOS目前文件管理自带的压缩解压工具十分简陋，甚至不能分卷压缩解压。</p>
-<h3 id="singbox">
-<a class="header-anchor" href="#singbox"></a>
-singbox
-</h3><p>docker，是偶尔要用到的～妙·妙·小·工·具～😎</p>
-<h3 id="飞牛同步">
-<a class="header-anchor" href="#%e9%a3%9e%e7%89%9b%e5%90%8c%e6%ad%a5"></a>
-飞牛同步
-</h3><p>将其他端的文件夹同步到NAS，支持双向同步、仅下载、仅上传。<br>
-需在其他端下载对应客户端。</p>
-<h3 id="文本编辑器">
-<a class="header-anchor" href="#%e6%96%87%e6%9c%ac%e7%bc%96%e8%be%91%e5%99%a8"></a>
-文本编辑器
-</h3><p>安装后可以在文件管理应用直接打开txt,yml,log,html,js,md,nfo等纯文本文件。</p>
-<h3 id="office预览">
-<a class="header-anchor" href="#office%e9%a2%84%e8%a7%88"></a>
-Office预览
-</h3><p>在文件管理应用内打开最大500MB的Office文件</p>
-<h3 id="omnitools">
-<a class="header-anchor" href="#omnitools"></a>
-OmniTools
-</h3><p>集成十几种工具的工具箱。</p>
-<h3 id="百度网盘飞牛版">
-<a class="header-anchor" href="#%e7%99%be%e5%ba%a6%e7%bd%91%e7%9b%98%e9%a3%9e%e7%89%9b%e7%89%88"></a>
-百度网盘（飞牛版）
-</h3><p>“几乎”无广告，简洁，不能复制文件地址，无文件/文件夹详情页，似乎无法查看文件夹大小？<br>
-NAS会员单卖差评😡</p>
-<h3 id="不推荐应用中心浏览器">
-<a class="header-anchor" href="#%e4%b8%8d%e6%8e%a8%e8%8d%90%e5%ba%94%e7%94%a8%e4%b8%ad%e5%bf%83%e6%b5%8f%e8%a7%88%e5%99%a8"></a>
-不推荐：应用中心浏览器
-</h3><p>docker运行的谷歌浏览器，web很糊通过协议传输画面而非网页，无法调整输入法输入中文，下载的文件还得自己移出应用文件，默认谷歌搜索引擎需要设置代理（可改bing），下载慢。</p>
-<p>这边建议有需要下载的文件还是先通过本地浏览器找出下载链接，再通过飞牛客户端添加下载任务。</p>
-<h2 id="总结">
-<a class="header-anchor" href="#%e6%80%bb%e7%bb%93"></a>
-总结
-</h2><p>进行几天的初步探索后，这台笔记本“NAS”已经实现了视频、音频、图片、书籍数据管理，关键数据（手册、说明书等文稿、PCB、代码、证书、密码）备份。<br>
-下一步是折腾面板、域名、反代、ipv6、RSSHub、两地三备。</p>
-<p>最后，SB网易云音乐🖕😅🖕</p>
-<p><img src="/ruri-media/remote/Soyo_17980970759336995602_hu_24b6aa5843b92e08.webp" srcset="/ruri-media/remote/Soyo_17980970759336995602_hu_eed7f68355d3727c.webp 480w, /ruri-media/remote/Soyo_17980970759336995602_hu_24b6aa5843b92e08.webp 557w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="557" height="414" alt="无语" loading="lazy" decoding="async" data-original-src="/ruri-media/remote/Soyo_17980970759336995602.jpg" data-original-width="557" data-original-height="414">
-</p>
-
-        
-        <hr><p>本文2025-10-16首发于<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最后修改于2025-10-16</p><div class="notice article-copyright" data-pagefind-ignore>
-<p><strong>本文作者：</strong> 孤筝</p>
-<p><strong>本文标题：</strong> 利用旧电脑和飞牛OS自建NAS</p>
-
-<p><strong>本文发布时间：</strong> 2025-10-16</p>
-<p><strong>本文更新时间：</strong> 2025-10-16</p>
 <p><strong>本文版权：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
 </div>
 ]]></description><category>OtherNotes</category></item></channel></rss>

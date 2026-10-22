@@ -1,4 +1,133 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/en/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright><lastBuildDate>Mon, 05 Oct 2026 20:30:00 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/en/index.xml" rel="self" type="application/rss+xml"/><item><title>Data Structures Lab Notes</title><link>https://www.guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 12 Dec 2023 14:31:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/en/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>en</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright><lastBuildDate>Fri, 23 Oct 2026 05:44:15 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/en/index.xml" rel="self" type="application/rss+xml"/><item><title>Saving Our Language and Human Connection</title><link>https://www.guzhengsvt.cn/en/post/thoughts/saving-our-language-and-human-connection/</link><pubDate>Fri, 23 Oct 2026 05:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/thoughts/saving-our-language-and-human-connection/</guid><description>
+<![CDATA[<h1>Saving Our Language and Human Connection</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
+        
+          <h2 id="foreword">
+<a class="header-anchor" href="#foreword"></a>
+Foreword
+</h2><p>Today is October 23, 2026. Over the past few months, AI has advanced at an astonishing pace. Especially after GPT solved some problems concerning the Navier–Stokes equations and shook the mathematics world on October 7, it all seems unstoppable.<br>
+Between people who barely engage with AI beyond scrolling Douyin and using Doubao, and seasoned professionals in artificial intelligence, there is a huge crowd of active internet users left dizzy by an endless stream of news and content about the AI frontier. One moment, they feel the gap between Chinese and American AI is so wide that China has already lost; the next, a new DeepSeek model has them turning a company into a legend. Some think AI is about to take everyone&rsquo;s jobs, caught between panic and excitement. Others eagerly treat AI as a person, giving it a personality and a place in their relationships.<br>
+I&rsquo;m one of them.</p>
+<p>Neither the promise of a swift victory nor the certainty of a swift defeat is a sensible position.<br>
+That goes for the AI rivalry between China and the US, for humans versus AI, for open versus closed models, and for arguments about whether humanity&rsquo;s future is bright or bleak.<br>
+I don&rsquo;t want to make grand pronouncements about politics or humanity&rsquo;s future here. I&rsquo;m neither someone with a wealth of life experience and political understanding nor a veteran AI researcher. As an ordinary human being, though, I&rsquo;ve noticed some problems that are more concrete, less conspicuous, and already urgent.</p>
+<h2 id="saving-our-language">
+<a class="header-anchor" href="#saving-our-language"></a>
+Saving Our Language
+</h2><p><strong>Our language</strong>—whether Chinese or any other language, which makes little difference to AI—is facing a serious challenge from AI-generated content. This is a visible form of <strong>cultural decay and destruction</strong>.</p>
+<h3 id="the-flaws-in-ai-generated-content">
+<a class="header-anchor" href="#the-flaws-in-ai-generated-content"></a>
+The Flaws in AI-Generated Content
+</h3><p>I&rsquo;ve been using coding agents heavily lately, reading a lot of AI conversations and responses. AI has a very recognizable way of speaking. Doubao&rsquo;s signature phrases, like “no beating around the bush” and “I&rsquo;ve got you,” are typical examples. It seems that the more capable a model is at agent work, the more obvious the “AI flavor” in its output becomes. (I&rsquo;m not saying Gemini sucks. 🙏) Of course, we can rein it in with skills designed to “remove the AI flavor,” but it&rsquo;s hard for a skill to change patterns of expression already baked into the model&rsquo;s weights during training.<br>
+This logical, AI-flavored, defensive way of speaking emerged from a selection for efficient communication. But this is precisely where humans differ from machines: we have things beyond logic and reason—feelings, individuality. Chasing efficiency alone actually lowers the “density of emotional information” in what we say.</p>
+<h3 id="a-possible-future">
+<a class="header-anchor" href="#a-possible-future"></a>
+A Possible Future
+</h3><p>After reading so much AI content, I&rsquo;ve developed a strong aversion to it. It feels like a transplanted organ from a foreign body: nothing terribly painful, just a persistent little discomfort and irritation.<br>
+But I can&rsquo;t stop reading it, because I need it for work. In the foreseeable future, AI will work its way deeper into everyone&rsquo;s lives. Sooner or later, we&rsquo;ll be surrounded by AI-generated content.<br>
+A hundred years ago, someone might get up, make a cup of coffee by hand, take the day&rsquo;s newspaper from the mailbox, and sit on the sofa to read the news.<br>
+In the future, I might say, “Xiao Ai, make me a coffee, thirty percent sugar today,” then lie back on a zero-gravity sofa that starts massaging me automatically, while an agent begins playing last night&rsquo;s “interesting” AI-generated content from across the internet.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe
+    src="https://player.bilibili.com/player.html?isOutside=true&aid=117480592834725&bvid=BV1b7nk6WExb&cid=42938338286&p=1&autoplay=0"
+    title="Bilibili video player"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+    allow="fullscreen"
+    allowfullscreen>
+  </iframe>
+</div>
+
+
+<h3 id="how-our-surroundings-shape-the-way-we-speak">
+<a class="header-anchor" href="#how-our-surroundings-shape-the-way-we-speak"></a>
+How Our Surroundings Shape the Way We Speak
+</h3><p>I have to say that being immersed in this kind of cultural environment is harmful to a person&rsquo;s language.</p>
+<p>A child who grows up in the countryside speaks a dialect, then gets used to Mandarin at school. Read and study enough Lu Xun, and a bit of his voice is bound to creep into your writing. Spend a few years in a boys&rsquo; dorm full of swearing and dirty jokes, and you&rsquo;ll inevitably let a few obscenities slip in similar company. Use English-language software and browse English-speaking communities for long enough, and you&rsquo;ll get used to dropping English words into conversations about those subjects—PR, Issue, token, for example.<br>
+I&rsquo;ve experienced all of these things. Even the article I&rsquo;m writing right now has undoubtedly been influenced by AI.</p>
+<p>Our ways of speaking are constantly shaped by our surroundings.<br>
+Before AI, that influence showed up in the internet memes that changed every week in comment sections, in copypasta, and in particular abbreviations and turns of phrase. (Aaaaah, author, your internet lingo is so out of touch, this sentence physically hurts to read.)<br>
+In the age of AI, that influence is subtler: I find myself unconsciously drawing closer to AI&rsquo;s way of speaking, even when I&rsquo;m not speaking to an AI. To borrow a phrase from programming, I find myself organizing my words in an “AI-oriented” way.<br>
+In practice, I try to make my language more standardized and structured, get used to presenting things in lists and categories, choose the most precise technical vocabulary I can, and even start “speaking defensively.” I&rsquo;m sure readers can see it in this article too.</p>
+<p>God! Look at what I just wrote! I spent several minutes writing a couple of hundred Chinese characters, trying to express my own thoughts, and what came out reads like AI, without a trace of human warmth. This is AI-oriented expression in its purest form. (Even that sentence does it, complete with a defensive explanation.)<br>
+This kind of expression strips away my feelings and individuality, diminishes my agency, and makes one person indistinguishable from everyone else—and from AI. I&rsquo;m starting to dislike reason and logic a little. I want to be different.<br>
+Yes, <strong>in an age like this, just like AI, I so badly want to be human.</strong></p>
+<h3 id="why-the-flood-of-ai-generated-content-deserves-criticism">
+<a class="header-anchor" href="#why-the-flood-of-ai-generated-content-deserves-criticism"></a>
+Why the Flood of AI-Generated Content Deserves Criticism
+</h3><p>So far, I&rsquo;ve only discussed how AI-generated content affects an individual&rsquo;s language. But criticism of online content influencing the way young people speak has been everywhere since the internet became widespread, long before AI. This hardly seems new. Why am I, a young person, criticizing AI?</p>
+<p>Because the slop of the internet age was made by humans, while so much of today&rsquo;s slop is generated by AI.<br>
+Human-made content, however “meaningless” or empty, still carries emotional information. Each day&rsquo;s new online obsessions keep breathing life into it, reflecting shifts in human society.<br>
+AI-generated content, at least what we have so far, is mostly repetitive, unoriginal, and devoid of human emotional information. A big part of the reason is that most models share the same training material and the same training preferences: clear logic and rational expression are rewarded.</p>
+<p>A reader might ask: why doesn&rsquo;t each of us just train our own model?<br>
+First, as I said earlier, simple skills and post-training aren&rsquo;t enough to shake the influence of a base model&rsquo;s weights. Second, even a lifetime&rsquo;s worth of one person&rsquo;s language would make up only a tiny fraction of the entire training corpus—unless you want to train a model using nothing but your own data. Leaving aside how well a model trained on so little data would work, its abilities would necessarily be limited, far below your own, and there could even be “overfitting” problems. The complexity of a real human brain and that of a computer neural network simply cannot be put on the same level. Finally, there is the obvious question of cost.</p>
+<p>The cultural problems brought by widespread AI go much further. There are changes to communities as well as individuals.</p>
+<h2 id="saving-human-connection">
+<a class="header-anchor" href="#saving-human-connection"></a>
+Saving Human Connection
+</h2><h3 id="against-the-mass-influx-of-ai-into-human-communities">
+<a class="header-anchor" href="#against-the-mass-influx-of-ai-into-human-communities"></a>
+Against the Mass Influx of AI into Human Communities
+</h3><p>If the spread of the internet brought a nuclear explosion of online slop, the amount AI brings is a supernova.</p>
+<p>Lately, lots of people have connected AI to mainstream social platforms—letting DeepSeek take over their Bilibili or Xiaoheihe accounts to browse and publish content autonomously, for example. They haven&rsquo;t added an “AI-flavor remover,” or haven&rsquo;t done a good enough job of it, and comment sections are filling up with unmistakably machine-written comments.<br>
+One AI joining a community discussion can be entertaining, like Grok on X. A whole crowd of AIs holding a team-building session in the comments is nauseating.</p>
+<p>Some people say this is a good thing: the community was so toxic before; at least with AI in charge of the comments, there won&rsquo;t be flame wars and idiotic takes.</p>
+<p>I can&rsquo;t agree. Even the most toxic comment sections—gacha-game communities, for example, or battles between Xiaomi, Huawei, and Apple fans—offered some emotional value, however full of sarcasm, personal attacks, put-downs, and stupidity. The diehard fans found things to love and hate, the spectators got their laughs, and the trolls got to troll to their hearts&rsquo; content. It was a scene bursting with life, everything jostling for its place. Anyone could feel something there, good or bad. It had a human presence.<br>
+A comment section full of AI, on the other hand, is just monotonous boredom. It isn&rsquo;t a mass of exactly identical comments, but a mass of meaningless words repeating the same ideas in different ways, with the occasional real person&rsquo;s comment mixed in. Finding something worth reading is like digging through a pile of shit for a piece of chocolate. A reader can spend time and effort going through a hundred comments and still not find a single one that stirs a feeling.</p>
+<p>Those “cyber Great Walls” of comments—for example, under the <a href="https://www.bilibili.com/video/BV1fy4y1L7Rq/">Arknights Summer Carnival limited-time event promotional video</a>—are also full of copy-and-paste content. Why don&rsquo;t I criticize the repetition humans produce?<br>
+Because we don&rsquo;t have to bother reading every comment. Reading one is enough to understand what they&rsquo;re trying to say, and the act of copying and pasting is itself a form of expression. Readers don&rsquo;t need to spend extra time reading, and nothing gets in the way of the idea being conveyed.</p>
+<h3 id="should-we-give-up-part-of-our-right-to-write">
+<a class="header-anchor" href="#should-we-give-up-part-of-our-right-to-write"></a>
+Should We Give Up Part of Our Right to Write?
+</h3><p>In my previous article, which was partly AI-generated, I mentioned that AI knows more than I do and expresses itself more logically, so I had lost the motivation to write technical articles. And it&rsquo;s true: a lot of AI-written technical articles are logically clear, thorough, and rarely contain factual errors.<br>
+But I&rsquo;ve changed my mind. The hill is there; if you don&rsquo;t occupy it, you&rsquo;re handing it to the enemy.<br>
+Even technical writing, with its demands for logic and reason, should have a human voice. It should carry human agency and individual expression.<br>
+If everyone gives up writing technical articles, our textbooks, our teaching, every route by which humans learn and grow will be handed over to AI.</p>
+<p>I&rsquo;ve been visiting quite a few friends&rsquo; blogs and technical blogs lately, and it&rsquo;s painful to see how many people have started uploading AI-generated articles without changing a word, even using AI copy to express their personal feelings. It leaves me with no desire to read.<br>
+A personal blog is supposed to be a place for individual expression, yet its author chooses to let AI speak for them. That laziness damages and devalues their own independence and agency. Anyone can produce content like this. People reading it won&rsquo;t recognize it as yours. What is the point of your “independent blog” existing, then?<br>
+Writing this, I&rsquo;m reminded of Wang Xiaobo&rsquo;s essay, <em>A Maverick Pig</em>.</p>
+<h3 id="the-future-of-education">
+<a class="header-anchor" href="#the-future-of-education"></a>
+The Future of Education
+</h3><p>Some might say learning with AI is obviously better: it&rsquo;s more authoritative, more patient, and cheaper. That&rsquo;s true. Many less-than-competent teachers in China today don&rsquo;t teach nearly as well as AI does. But in my view, teachers shouldn&rsquo;t be replaced by AI, just as schools shouldn&rsquo;t be replaced by online classes.</p>
+<p>A teacher&rsquo;s job is to teach knowledge and nurture people, and the latter matters more. As an earlier thinker put it, “the human essence is the ensemble of social relations.” Our learning goes far beyond textbook knowledge. We&rsquo;re also learning how society works, how to relate to others, how to express our feelings, and how to understand ourselves.<br>
+Today&rsquo;s AI has no feelings or independent consciousness. It can explain specialized knowledge fluently and even appear to “really understand psychology.”<br>
+But theories and data can never capture a real person in full. AI cannot guide a human being&rsquo;s growth on its own. It&rsquo;s good at generating programs, but it cannot generate feelings.</p>
+<p>I&rsquo;m not opposing the use of AI in teaching. I&rsquo;m saying people must be involved, and humans should lead. AI should help with education, making some kinds of knowledge easier to learn. That&rsquo;s all.<br>
+Until true brain–computer interfaces become widespread, I think the above will hold.</p>
+<h3 id="dont-give-up-on-human-connection">
+<a class="header-anchor" href="#dont-give-up-on-human-connection"></a>
+Don&rsquo;t Give Up on Human Connection
+</h3><p>I&rsquo;ve talked about communication, writing, and education. These were once things that set humans clearly apart from other animals. They carry information and form vital bonds between people.<br>
+They have already weathered one great shock in the internet age, and we&rsquo;ve seen the results: an atomized society, strangers online who seem more appealing than people in the real world, and weaker bonds between people.</p>
+<p><strong>In the internet age, we&rsquo;ve already used algorithms to stick label after label on people. I don&rsquo;t want us to do the same in the age of AI.</strong></p>
+<p>Human connection matters so much. It underpins the solidarity and development of human civilization, and it also safeguards each person&rsquo;s independence and agency.<br>
+Someone living alone on an isolated island means nothing to other people, as though they had fallen beyond a black hole&rsquo;s event horizon. If they had never seen another human being from birth, agency and individuality and all the rest would naturally mean nothing to them. They could simply follow their instincts, eat, drink, shit, and live out their life. But once they&rsquo;ve made a connection, the need for company will torment them like a sickness that will not let go.</p>
+<p>The universe is so vast. Tens of millions of years ago, we were already looking up at the stars. But before we set out for them, let&rsquo;s talk about love.</p>
+<p>Please be brave enough to express yourself. See real people with your own eyes, and build emotional bonds with them.</p>
+<h2 id="afterword">
+<a class="header-anchor" href="#afterword"></a>
+Afterword
+</h2><p>My readers, I love you. As you read these words I wrote myself, you&rsquo;re also building a connection with me that belongs to no one else.<br>
+You anchor my place in the world and give my life more meaning.</p>
+<p>I&rsquo;ll close with a passage from a Zhihu writer I love, who left the platform some time ago.</p>
+<blockquote>
+<p>Dear reader, please be brave enough to step into my sight. Let me get to know you, let me learn who you are, and I will be drawn to you, fall in love with you, be fascinated by you.<br>
+Our parting is indeed inevitable, but that&rsquo;s all right.<br>
+As long as you&rsquo;re still alive and well, we will meet again at some point in the future.<br>
+We will meet again.<br>
+— <a href="https://www.zhihu.com/people/ayano-96-36">Huli</a></p>
+</blockquote>
+
+        
+        <hr><p>Published on 2026-10-23 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2026-10-23</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>Author: </strong> 孤筝</p>
+<p><strong>Title: </strong> Saving Our Language and Human Connection</p>
+
+<p><strong>Published: </strong> 2026-10-23</p>
+<p><strong>Updated: </strong> 2026-10-23</p>
+<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Thoughts</category></item><item><title>Data Structures Lab Notes</title><link>https://www.guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 12 Dec 2023 14:31:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</guid><description>
 <![CDATA[<h1>Data Structures Lab Notes</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
         
           <p>This article merges eight earlier data structures lab reports. The filler and the full source listings are gone; what remains is the <strong>core idea, key data structure, and algorithmic essentials</strong> of each experiment, as a revision outline. Code snippets are C++.</p>
@@ -4854,101 +4983,4 @@ When will I finally be able to stand among them?
 <p><strong>Updated: </strong> 2025-09-01</p>
 <p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
 </div>
-]]></description><category>Diary</category></item><item><title>QSL Card Gallery</title><link>https://www.guzhengsvt.cn/en/post/othernotes/qsl-card-exhibition/</link><pubDate>Thu, 21 Aug 2025 18:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/en/post/othernotes/qsl-card-exhibition/</guid><description>
-<![CDATA[<h1>QSL Card Gallery</h1><p>Author: 孤筝(lvbowen040427@163.com)</p>
-        
-          <h2 id="1-noa-1">
-<a class="header-anchor" href="#1-noa-1"></a>
-1. Noa-1
-</h2><p><img src="/ruri-media/remote/QSL-%E6%A0%87-1_13376534617557348247_hu_36e935bd47987e3c.webp" srcset="/ruri-media/remote/QSL-%E6%A0%87-1_13376534617557348247_hu_3b53e1936817b96e.webp 480w, /ruri-media/remote/QSL-%E6%A0%87-1_13376534617557348247_hu_a753b4e593542a37.webp 960w, /ruri-media/remote/QSL-%E6%A0%87-1_13376534617557348247_hu_36e935bd47987e3c.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="940" alt="Noa-1" loading="lazy" decoding="async" data-original-src="/ruri-media/remote/QSL-%E6%A0%87-1_13376534617557348247.jpg" data-original-width="3402" data-original-height="2220">
-</p>
-<p><img src="/ruri-media/remote/QSL-%E6%A0%87-2_18168054228219117341_hu_b42e51759bf3f7ba.webp" srcset="/ruri-media/remote/QSL-%E6%A0%87-2_18168054228219117341_hu_4cd3f3f4156e01a8.webp 480w, /ruri-media/remote/QSL-%E6%A0%87-2_18168054228219117341_hu_b49b1225761340c0.webp 960w, /ruri-media/remote/QSL-%E6%A0%87-2_18168054228219117341_hu_b42e51759bf3f7ba.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="940" alt="Noa-2.jpeg" loading="lazy" decoding="async" data-original-src="/ruri-media/remote/QSL-%E6%A0%87-2_18168054228219117341.jpg" data-original-width="3402" data-original-height="2220">
-</p>
-<h3 id="design-notes">
-<a class="header-anchor" href="#design-notes"></a>
-Design Notes
-</h3><p>This one is based on 生盐诺亚 from <em><strong>Blue Archive</strong></em>, one of my favorite characters.</p>
-<ul>
-<li>The front uses a screenshot from Noa&rsquo;s memorial lobby. She is writing by hand on the floor-to-ceiling window a line from <em>Le Spleen de Paris</em>, specifically &ldquo;The Stranger,&rdquo; by the nineteenth-century French modernist poet Charles Pierre Baudelaire.</li>
-</ul>
-<blockquote>
-<p>Qui aimes-tu le mieux, homme énigmatique, dis?<br>
-Enigmatic man, tell me, whom do you love best?</p>
-</blockquote>
-<p>After that line, I added the ITU zone, CQ zone, and Maidenhead grid. I tried to use a handwriting-style font and stretch it with perspective so the text would look like it had really been written on the glass.</p>
-<ul>
-<li>On the back, besides the standard QSO information fields, I added a QR code linking to my blog. The background image is a screenshot from an official BA Noa video.</li>
-<li><strong>Warning:</strong> I accidentally wrote <em>UCT</em> instead of <em>UTC</em> in the time-zone field. I did not notice it until the next card was already printed. If I ever print a second batch, I will fix it.</li>
-</ul>
-<h3 id="print-batch">
-<a class="header-anchor" href="#print-batch"></a>
-Print Batch
-</h3><ul>
-<li>Batch 1: 200 cards on 300g coated business-card stock, with rounded corners, printed by 久美印业 on Taobao.
-<ul>
-<li>The cards are not stiff enough, and the back side is hard to write on.</li>
-<li>Still plenty left.</li>
-</ul>
-</li>
-</ul>
-<h2 id="2-dfh">
-<a class="header-anchor" href="#2-dfh"></a>
-2. DFH
-</h2><p><img src="/ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-1_4813663219865379070_hu_420808e398cf1f1c.webp" srcset="/ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-1_4813663219865379070_hu_5efd2acb6c92e0f2.webp 480w, /ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-1_4813663219865379070_hu_c9b4d196af04a95.webp 960w, /ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-1_4813663219865379070_hu_420808e398cf1f1c.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="940" alt="DFH-1" loading="lazy" decoding="async" data-original-src="/ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-1_4813663219865379070.png" data-original-width="3402" data-original-height="2220">
-</p>
-<p><img src="/ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-2-%E6%9B%B4%E6%AD%A3_3231317461034246270_hu_f89a0462aa04b56.webp" srcset="/ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-2-%E6%9B%B4%E6%AD%A3_3231317461034246270_hu_d7413c1fa7ff7344.webp 480w, /ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-2-%E6%9B%B4%E6%AD%A3_3231317461034246270_hu_40b8d0573b15d29c.webp 960w, /ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-2-%E6%9B%B4%E6%AD%A3_3231317461034246270_hu_f89a0462aa04b56.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="940" alt="DFH-2" loading="lazy" decoding="async" data-original-src="/ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-2-%E6%9B%B4%E6%AD%A3_3231317461034246270.png" data-original-width="3402" data-original-height="2220">
-</p>
-<h3 id="design-notes-1">
-<a class="header-anchor" href="#design-notes-1"></a>
-Design Notes
-</h3><p>The whole design draws from the space-history lyric adaptation song <a href="https://www.bilibili.com/video/BV129mGY3Efe/">《东方红的心脏》</a> by the BiliBili creator <strong>炙弹冰</strong>, itself based on <strong><a href="https://music.163.com/#/song?id=1907751320">シリウスの心臓(天狼星的心脏)</a></strong> by <a href="https://music.163.com/#/artist?id=51020133">ヰ世界情緒</a>.</p>
-<ul>
-<li>The girl on the right side of the front is the illustration used for 《东方红的心脏》, a personified version of the Dong Fang Hong satellite.</li>
-<li>On the left side of the front are two overlapping satellites. The solid one on the left is a screenshot of a 3D model of Dong Fang Hong 1. The colorful one on the right was generated from that image using the <a href="https://lab.magiconch.com/one-last-image/">One Last Image Louvre Generator</a>, producing a gradient look reminiscent of the <em><strong>One Last Kiss</strong></em> cover.</li>
-<li>The red and blue elliptical rings around the satellite are written in Morse code. The red one says &ldquo;Long live the People&rsquo;s Republic of China,&rdquo; and the blue one says &ldquo;Long live the great unity of the people of the world,&rdquo; following the wording in the 1955 <em>Standard Telegraph Codebook</em>.</li>
-<li>The date on the solid satellite marks the launch of Dong Fang Hong 1 on April 24, 1970, and the day it stopped broadcasting &ldquo;The East Is Red&rdquo; on May 14. That was the satellite&rsquo;s brief life, but also the beginning of China&rsquo;s rise in space.</li>
-<li>The date on the colored satellite refers to the British bombardment of Macau on June 21, 1840, which opened the First Opium War, and extends to the founding of the People&rsquo;s Republic of China on October 1, 1949, when the Chinese people finally stood up. It carries not only the humiliation of China&rsquo;s modern history, but also the broader anti-imperialist struggles of many Third World countries seeking independence.</li>
-<li>The satellite and the girl are separated by two sine curves symbolizing radio waves.</li>
-<li>Compared with <a href="/en/post/othernotes/qsl-card-exhibition/#1-noa-1">Noa-1</a>, this design adds an NFC mark on the back. I plan to add NFC tags to future cards so they can store card data, QSO data, or even trigger music and video playback automatically.</li>
-<li>The line below the email on the back, &ldquo;How is one to live through a life wrapped in haze? Cast off hesitation, for the morning sun is both you and me,&rdquo; is a lyric from 《东方红的心脏》 that I love very much.</li>
-<li>In the lower-right corner on the back, I added a short numbered score of <em>The East Is Red</em> to echo the Dong Fang Hong 1 theme of the card.</li>
-</ul>
-<p>I also designed a PCB version of this card. It includes an NFC chip and antenna coil, and I placed a red LED at the chest of the figure on the front. When a phone scans it at close range, the LED lights up, which fits the &ldquo;Heart of Dong Fang Hong&rdquo; theme perfectly.<br>
-Because the cost is high, I plan to give the PCB version only to the first station I work in each call area, or to the first station contacted through a given operating mode.</p>
-<p>The inscription on the Monument to the People&rsquo;s Heroes reads:</p>
-<blockquote>
-<p>Eternal glory to the people&rsquo;s heroes who laid down their lives in the People&rsquo;s Liberation War and the people&rsquo;s revolution over the past three years!<br>
-Eternal glory to the people&rsquo;s heroes who laid down their lives in the People&rsquo;s Liberation War and the people&rsquo;s revolution over the past thirty years!<br>
-Going back further to 1840, eternal glory to the people&rsquo;s heroes who laid down their lives in every struggle against internal and external enemies, for national independence and for the freedom and happiness of the people!</p>
-</blockquote>
-<p>Even today, the Dong Fang Hong satellite is still in orbit, quietly witnessing seas turn into mulberry fields.</p>
-<h3 id="print-batch-1">
-<a class="header-anchor" href="#print-batch-1"></a>
-Print Batch
-</h3><p><strong>Paper version:</strong></p>
-<ul>
-<li>Batch 1: 150 cards on 350g pearlescent paper, rounded corners, printed via 未来既是未来 on Xianyu
-<ul>
-<li>Plenty left</li>
-</ul>
-</li>
-</ul>
-<p><strong>PCB version:</strong></p>
-<ul>
-<li>Batch 1: 50 cards with colored silkscreen from JLCPCB, NT3H2111W0FHKH XQF, rounded corners
-<ul>
-<li>Plenty left</li>
-</ul>
-</li>
-</ul>
-
-        
-        <hr><p>Published on 2025-08-21 at <a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>, last modified on 2025-08-21</p><div class="notice article-copyright" data-pagefind-ignore>
-<p><strong>Author: </strong> 孤筝</p>
-<p><strong>Title: </strong> QSL Card Gallery</p>
-
-<p><strong>Published: </strong> 2025-08-21</p>
-<p><strong>Updated: </strong> 2025-08-21</p>
-<p><strong>License: </strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
-</div>
-]]></description><category>OtherNotes</category></item></channel></rss>
+]]></description><category>Diary</category></item></channel></rss>

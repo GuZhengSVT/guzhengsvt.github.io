@@ -1,4 +1,133 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/zh-tw/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-tw</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</copyright><lastBuildDate>Mon, 05 Oct 2026 20:30:00 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/zh-tw/index.xml" rel="self" type="application/rss+xml"/><item><title>資料結構實驗筆記</title><link>https://www.guzhengsvt.cn/zh-tw/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 12 Dec 2023 14:31:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>孤筝の温暖小家</title><link>https://www.guzhengsvt.cn/zh-tw/</link><description>Recent content from 孤筝の温暖小家</description><generator>Hugo</generator><language>zh-tw</language><managingEditor>lvbowen040427@163.com (孤筝)</managingEditor><webMaster>lvbowen040427@163.com (孤筝)</webMaster><copyright>本部落格所有文章除特別聲明外，均採用 BY-NC-SA 授權協議。轉載請註明出處！</copyright><lastBuildDate>Fri, 23 Oct 2026 05:44:15 +0800</lastBuildDate><atom:link href="https://www.guzhengsvt.cn/zh-tw/index.xml" rel="self" type="application/rss+xml"/><item><title>拯救我們的語言和人與人的聯結</title><link>https://www.guzhengsvt.cn/zh-tw/post/thoughts/saving-our-language-and-human-connection/</link><pubDate>Fri, 23 Oct 2026 05:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/thoughts/saving-our-language-and-human-connection/</guid><description>
+<![CDATA[<h1>拯救我們的語言和人與人的聯結</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
+        
+          <h2 id="前言">
+<a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
+前言
+</h2><p>今天是 2026 年 10 月 23 日，幾個月以來 AI 以驚人的速度進步，尤其是在 GPT 解決部分 NS 方程問題和在 10 月 7 日轟炸數學界之後，它的一切似乎不可阻擋了。<br>
+在不怎麼接觸 AI 只刷抖音用豆包的人群，與人工智慧領域資深工作者之間，有大量的活躍網際網路網民，在目不暇接的前沿 AI 的新聞和內容中暈頭轉向。一會兒覺得中美 AI 技術差距太大，輸麻了；一會兒被 DeepSeek 的新模型激勵，神話一家公司；有的人覺得 AI 馬上要取代所有人的工作，陷入恐慌與興奮；有的人熱切地將 AI 擬人化，賦予人格與人際關係。<br>
+我也是其中之一。</p>
+<p>速勝論與速敗論都是不可取的。<br>
+這一觀點可以應用於中美 AI 之爭，可以應用於人類與 AI 之爭，可以應用於開源與閉源之爭，也可以應用於人類未來的光明黑暗之爭。<br>
+在此我不想就政治與人類的未來大談其談，我既不是一個閱歷豐富瞭解政治的人，也不是人工智慧領域的資深研究者。作為一個普通人類，我觀察到有一些更加明確但隱蔽的問題已經迫在眉睫了。</p>
+<h2 id="拯救我們的語言">
+<a class="header-anchor" href="#%e6%8b%af%e6%95%91%e6%88%91%e5%80%91%e7%9a%84%e8%aa%9e%e8%a8%80"></a>
+拯救我們的語言
+</h2><p><strong>我們的語言</strong>——不管是中文還是其他語言（這對 AI 來說沒有太大區別）——正在面臨 AI 生成內容的嚴峻挑戰。這是一種可見的<strong>文化衰敗與破壞</strong>。</p>
+<h3 id="ai-生成內容的缺陷">
+<a class="header-anchor" href="#ai-%e7%94%9f%e6%88%90%e5%85%a7%e5%ae%b9%e7%9a%84%e7%bc%ba%e9%99%b7"></a>
+AI 生成內容的缺陷
+</h3><p>我最近高強度使用 Agent 程式設計，看了很多的 AI 對話和表達，AI 的表達方式是很有特色的，豆姐的“不繞彎子”“穩穩接住你”就是很典型的例子。似乎智慧代理工作能力越強的 AI，其輸出的“AI 味”就更明顯（沒有說 Gemini 很菜的意思🙏）。我們當然可以用一些“去 AI 味 Skill”約束，但模型在訓練時就確定的表達權重，終究難以通過 Skill 改變。<br>
+這種邏輯化、AI 味、防禦性表達，原本是高效交流篩選下的結果；但人類與機器的不同點就在這裡，人類有邏輯與理性之外的東西——情感，個性。一味地追求表達的高效性，反而會降低內容的“情感資訊密度”。</p>
+<h3 id="未來的可能圖景">
+<a class="header-anchor" href="#%e6%9c%aa%e4%be%86%e7%9a%84%e5%8f%af%e8%83%bd%e5%9c%96%e6%99%af"></a>
+未來的可能圖景
+</h3><p>在看了大量的 AI 內容之後，我對這類 AI 生成內容產生了極大的抵觸；它像是移植的異源器官，不會讓人覺得特別難受，但總有些小不適與厭煩。<br>
+但我沒辦法不看，因為我需要借助它工作。在可以預見的未來，人工智慧會越來越深入每一個人的生活，我們遲早被充斥著 AI 生成的內容包圍。<br>
+百年前，人們起床會手動泡一杯咖啡，從郵筒取出今天的報紙，坐在沙發上看今天的新聞。<br>
+未來，可能我會說“小愛，幫我泡一杯咖啡，今天要三分糖”，然後躺到零重力沙發上，自動開啟了按摩，Agent 開始自動播送昨晚間網際網路上“有趣”的 AI 生成內容。</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe
+    src="https://player.bilibili.com/player.html?isOutside=true&aid=117480592834725&bvid=BV1b7nk6WExb&cid=42938338286&p=1&autoplay=0"
+    title="嗶哩嗶哩影片播放器"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+    allow="fullscreen"
+    allowfullscreen>
+  </iframe>
+</div>
+
+
+<h3 id="環境對個人語言表達的影響">
+<a class="header-anchor" href="#%e7%92%b0%e5%a2%83%e5%b0%8d%e5%80%8b%e4%ba%ba%e8%aa%9e%e8%a8%80%e8%a1%a8%e9%81%94%e7%9a%84%e5%bd%b1%e9%9f%bf"></a>
+環境對個人語言表達的影響
+</h3><p>我不得不說沉浸在這種文化環境下對一個人的語言表達是有害的。</p>
+<p>在農村長大的孩子會說方言，在普通話學校又習慣了說普通話；大量閱讀和學習魯迅的文章時，寫文章也不免帶上迅哥兒的味道；在出口成髒、習慣聊黃的男生宿舍待幾年，在類似的環境下難免不自主地說幾句污言穢語；長期使用英語軟體、瀏覽英文社群，提及相關專業內容時也會習慣於大量使用英語單詞（比如 PR、Issue、token）。<br>
+這些都是我經歷過的事，我正在寫的這篇文章也毫無疑問受到了 AI 的影響。</p>
+<p>一個人的語言表達習慣會持續受周圍環境影響。<br>
+在前 AI 時代，這種影響體現在評論區的網際網路熱梗一週一變，體現在定型文和特定縮寫/表達（啊啊啊啊啊，筆者你的網感也太差了吧，這種句子看得我真燒心）。<br>
+在後 AI 時代，這種影響更加隱蔽：我會更加不自主地貼近 AI 的表達方式，儘管表達對象可能並非 AI。用程式設計語言領域的習慣來說，我會潛意識地“面向 AI 組織語言”。<br>
+在具體表現上，我會試著讓語言更加規範和組織化，習慣於分條分類陳述，盡可能使用專業的準確的詞彙，甚至是“防禦性說話”。我相信讀者從這篇文章中也能看出這一點。</p>
+<p>天啊！看看剛剛我都寫了什麼！我花了幾分鐘寫了兩百多字，試著表達自己的思想，最後寫出來的東西卻像是 AI 生成，沒有半點人味。這是面向 AI 組織語言的高度體現（哪怕這句話都是這樣，帶著防禦性的說明）。<br>
+這樣的表達無疑剝奪了我的感性與個性，降低了我的主體性，讓一個人與其他人/與人工智慧變得毫無區別。我有點討厭理性與邏輯了，我想變得不一樣。<br>
+沒錯，<strong>在這樣一個時代，我和人工智慧一樣好想成為人類。</strong></p>
+<h3 id="為什麼大量的-ai-生成內容是值得批評的">
+<a class="header-anchor" href="#%e7%82%ba%e4%bb%80%e9%ba%bc%e5%a4%a7%e9%87%8f%e7%9a%84-ai-%e7%94%9f%e6%88%90%e5%85%a7%e5%ae%b9%e6%98%af%e5%80%bc%e5%be%97%e6%89%b9%e8%a9%95%e7%9a%84"></a>
+為什麼大量的 AI 生成內容是值得批評的
+</h3><p>以上的討論僅限於人工智慧生成內容對個人語言表達的影響。其實早在網際網路普及後（前 AI 時代），對網路內容影響年輕人說話方式的批評就已經俯拾即是了，這似乎不是什麼新鮮事，為什麼我作為一個年輕人要批評 AI 呢？</p>
+<p>因為網際網路時代的泔水是人造的，而現在大量的泔水是 AI 生成。<br>
+人造內容，哪怕“無意義”、無營養，它也攜帶了情感資訊，每天不同的網路熱點為它注入源源不斷的活力，反映了人類社會風潮變化。<br>
+而人工智慧生成內容，至少目前為止的內容，大多千篇一律毫無新意，也不包含人類的情感資訊。其中有很大一部分原因是大部分模型的訓練語料相同，訓練傾向相同（都獎勵邏輯清晰、理性的表達）。</p>
+<p>這時候就有讀者要問了：那我們每個人訓練一個自己的模型不就行了？<br>
+首先，正如前文所述，簡單的 Skill 和後訓練不足以動搖基座模型的權重影響。其次，哪怕拿一個人一生的語言資料來訓練，其資料在整個資料庫裡的比例也是極小——除非你想只用自己的資料訓練一個模型出來。且先不論這種資料量練出來的模型效果如何，這個模型的能力必然局限，且遠小於自己，甚至有“過擬合”問題，真人大腦的複雜性和電腦神經網路肯定是不能相提並論的。最後，顯而易見的經濟問題。</p>
+<p>人工智慧的普及帶來的文化問題遠不止於此，除了個人的變化，還有群體的變化。</p>
+<h2 id="拯救人與人之間的聯結">
+<a class="header-anchor" href="#%e6%8b%af%e6%95%91%e4%ba%ba%e8%88%87%e4%ba%ba%e4%b9%8b%e9%96%93%e7%9a%84%e8%81%af%e7%b5%90"></a>
+拯救人與人之間的聯結
+</h2><h3 id="對-ai-大量接入人類社群的批評">
+<a class="header-anchor" href="#%e5%b0%8d-ai-%e5%a4%a7%e9%87%8f%e6%8e%a5%e5%85%a5%e4%ba%ba%e9%a1%9e%e7%a4%be%e7%be%a4%e7%9a%84%e6%89%b9%e8%a9%95"></a>
+對 AI 大量接入人類社群的批評
+</h3><p>如果說網際網路普及帶來了核爆級的網路泔水，那 AI 帶來的泔水量是超新星爆發。</p>
+<p>最近很多人把 AI 接入了主流社交平台，比如讓 DeepSeek 接管 B 站、小黑盒帳號，自主瀏覽內容與發布內容。他們沒有加“去 AI 味外掛”，或者做得不夠好，評論區湧入了大量充斥 AI 味的真·人機評論。<br>
+一個人工智慧參與社群討論會讓人覺得有趣（比如 X 的 Grok），一群 AI 在評論區團建就讓人作嘔了。</p>
+<p>有人說這是好事啊，原來的社群多麼惡臭，讓 AI 接管評論區起碼沒有罵戰與傻逼發言。</p>
+<p>我不能認同。曾經哪怕是再惡臭的評論區（比如二遊社群、米華果評論區），其中的發言充斥著陰陽怪氣、人身攻擊、拉踩、若智，也有一定的情感價值。孝子在其中得到了愛恨，樂子人在其中得到了樂子，串子在其中爽串，一副生機勃勃、萬物競發的景象。任何人在其中都能得到情緒（好的或壞的），它是有“人味”的。<br>
+而充斥 AI 的評論區，只會是千篇一律的無聊。它不是大量完全重複的內容，而是大量毫無意義、含義重複卻不同表達的文字，其中偶爾混雜一兩個真人評論。在其中尋找值得一讀的內容，無異於屎堆裡淘巧克力。讀者費時費力讀了 100 條評論，也未必能有一條能調動情緒。</p>
+<p>在那些賽博長城中（比如 <a href="https://www.bilibili.com/video/BV1fy4y1L7Rq/">《明日方舟》夏日嘉年華限時活動宣傳 PV</a>），也充斥著大量複製貼上內容，為什麼我不批評人類製造的重複內容呢？<br>
+因為我們不必費心讀完所有評論，只需讀一條便能理解他們想表達什麼，而複製貼上本身便是一種表達方式。讀者在這種情況下不必花多餘的時間閱讀，思想的傳達也沒有半分阻礙。</p>
+<h3 id="我們是否要放棄部分寫作的權利">
+<a class="header-anchor" href="#%e6%88%91%e5%80%91%e6%98%af%e5%90%a6%e8%a6%81%e6%94%be%e6%a3%84%e9%83%a8%e5%88%86%e5%af%ab%e4%bd%9c%e7%9a%84%e6%ac%8a%e5%88%a9"></a>
+我們是否要放棄部分寫作的權利
+</h3><p>在上一篇文章中（部分 AI 生成），我提到了 AI 比我更專業，表達更有邏輯，因此我失去了寫技術性文章的動力。事實也確實如此，很多 AI 寫技術性文章邏輯清晰，考慮全面，也很少有事實性錯誤。<br>
+但現在我有了不同的想法。山頭就在那裡，你不去佔領，就是拱手讓給敵人。<br>
+即使是技術性文章，要求邏輯與理性，也應該是有人味的，是包含人類主體性和個性化表達的。<br>
+人人都放棄寫技術性文章，我們的教材、我們的教學、人類學習和成長的一切途徑都要交給 AI 了。</p>
+<p>最近我逛了不少友鏈和技術博客，發現令人痛心的是很多人開始毫不修改地上傳 AI 生成文章，甚至個人情緒表達也使用 AI 文案，讓人毫無閱讀慾望。<br>
+個人博客本應是個性化表達的地盤，博主卻選擇讓 AI 代替自己表達，這種偷懶是對自己獨立性和主體性的破壞和輕視——任何人都能生產這樣的內容，大家讀這種東西不會認出這是你寫的，你的“獨立博客”還有什麼存在的意義呢？<br>
+寫到這裡，我回想起王小波的《做一頭特立獨行的豬》。</p>
+<h3 id="關於教育的未來">
+<a class="header-anchor" href="#%e9%97%9c%e6%96%bc%e6%95%99%e8%82%b2%e7%9a%84%e6%9c%aa%e4%be%86"></a>
+關於教育的未來
+</h3><p>或許有人說，借助 AI 學習明顯更好，它更權威，更耐心，成本也更低。確實如此，目前中國許多不怎麼稱職的教師遠不如 AI 教得好。但在我看來，教師不應該被 AI 取代，就像學校不應該被網課取代。</p>
+<p>教師的職責是教書育人，育人更重要。先賢說“人是一切社會關係的總和”，我們的學習遠不止於學習課本上的知識，同時也在學習社會常識，學習人際關係，學習情感表達，學習認識自己。<br>
+目前的人工智慧是沒有情感和自主意識的，它能將專業知識講得頭頭是道，甚至看起來“非常懂心理學”。<br>
+但理論和資料永遠概括不了一個真實的人，人工智慧無法獨自教導一個人類的成長。它擅長生成程式，卻無法生成感情。</p>
+<p>我不是要反對 AI 教學，而是說其中必須要有人的參與，且人類應該佔主導地位；人工智慧應該是教育的輔助者，提高一些知識的學習效率，僅此而已。<br>
+在真正的腦機介面普及前，我想上面的文字是有效的。</p>
+<h3 id="不要放棄人與人之間的聯結">
+<a class="header-anchor" href="#%e4%b8%8d%e8%a6%81%e6%94%be%e6%a3%84%e4%ba%ba%e8%88%87%e4%ba%ba%e4%b9%8b%e9%96%93%e7%9a%84%e8%81%af%e7%b5%90"></a>
+不要放棄人與人之間的聯結
+</h3><p>我在前文講了人與人的交流，講了寫作和教育，這些曾是人類與其他動物存在顯著不同的地方，是資訊傳遞的載體，是人與人之間的重要紐帶。<br>
+在網際網路時代，它們已經經受過一次衝擊，結果我們也看到了：社會原子化，網際網路上的陌生人似乎比真實世界的人更有吸引力，人與人之間的聯結被削弱了。</p>
+<p><strong>我們在網際網路時代，已經通過演算法給人貼上一個個標籤了，我不希望我們在 AI 時代也這樣做。</strong></p>
+<p>人與人之間的聯繫是如此重要，它既是人類文明團結發展的基礎，也是個人獨立性、主體性的保證。<br>
+一個生活在孤島的人對其他人而言是沒有意義的（宛如掉進黑洞視界），如若他生來就沒有見過其他人類，主體性、個性云云自然對他毫無意義，他大可以在本能的驅使下吃喝拉撒自然死去；可一旦建立過聯結，對社交的需求就會如跗骨之疽折磨著他。</p>
+<p>宇宙太大了，千萬年前我們曾仰望星辰，但在奔赴星辰之前，讓我們先談談愛吧。</p>
+<p>請大膽地表達自己，親眼看看真實的人，與他們建立情感的聯結。</p>
+<h2 id="後記">
+<a class="header-anchor" href="#%e5%be%8c%e8%a8%98"></a>
+後記
+</h2><p>我的讀者，我愛你們，你們在閱讀這些我親自寫下的文字同時也是在與我建立獨一無二的聯結。<br>
+是你們錨定了我在世界上的位置，讓我活著有更多意義。</p>
+<p>在此引用我非常喜歡的一位知乎答主的一段話作結，她已經離開知乎有一段時間了。</p>
+<blockquote>
+<p>親愛的讀者，請大膽出現在我的視野裡吧，請讓我瞭解你、知道你是誰，然後我就會被你吸引，愛上你，對你著迷。<br>
+我們的分離確實不可避免，但沒關係，<br>
+只要你還好好活著，我們終將在未來的某個時間點重逢。<br>
+我們終將重逢。<br>
+—— <a href="https://www.zhihu.com/people/ayano-96-36">狐狸</a></p>
+</blockquote>
+
+        
+        <hr><p>本文2026-10-23首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2026-10-23</p><div class="notice article-copyright" data-pagefind-ignore>
+<p><strong>本文作者：</strong> 孤筝</p>
+<p><strong>本文標題：</strong> 拯救我們的語言和人與人的聯結</p>
+
+<p><strong>本文發佈時間：</strong> 2026-10-23</p>
+<p><strong>本文更新時間：</strong> 2026-10-23</p>
+<p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+</div>
+]]></description><category>Thoughts</category></item><item><title>資料結構實驗筆記</title><link>https://www.guzhengsvt.cn/zh-tw/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 12 Dec 2023 14:31:17 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/code/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0/</guid><description>
 <![CDATA[<h1>資料結構實驗筆記</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
         
           <p>本文合併了原先的八篇資料結構上機實驗報告，去掉了重複的套話和完整原始碼，只保留每個實驗的<strong>核心思路、關鍵資料結構和演算法要點</strong>，作為複習提綱使用。程式碼片段為 C++。</p>
@@ -5131,101 +5260,4 @@ $$</li>
 <p><strong>本文更新時間：</strong> 2025-09-01</p>
 <p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
 </div>
-]]></description><category>Diary</category></item><item><title>QSL卡片展</title><link>https://www.guzhengsvt.cn/zh-tw/post/othernotes/qsl-card-exhibition/</link><pubDate>Thu, 21 Aug 2025 18:44:15 +0800</pubDate><author>lvbowen040427@163.com (孤筝)</author><guid>https://www.guzhengsvt.cn/zh-tw/post/othernotes/qsl-card-exhibition/</guid><description>
-<![CDATA[<h1>QSL卡片展</h1><p>作者：孤筝（lvbowen040427@163.com）</p>
-        
-          <h2 id="1-noa-1">
-<a class="header-anchor" href="#1-noa-1"></a>
-1. Noa-1
-</h2><p><img src="/ruri-media/remote/QSL-%E6%A0%87-1_13376534617557348247_hu_36e935bd47987e3c.webp" srcset="/ruri-media/remote/QSL-%E6%A0%87-1_13376534617557348247_hu_3b53e1936817b96e.webp 480w, /ruri-media/remote/QSL-%E6%A0%87-1_13376534617557348247_hu_a753b4e593542a37.webp 960w, /ruri-media/remote/QSL-%E6%A0%87-1_13376534617557348247_hu_36e935bd47987e3c.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="940" alt="Noa-1" loading="lazy" decoding="async" data-original-src="/ruri-media/remote/QSL-%E6%A0%87-1_13376534617557348247.jpg" data-original-width="3402" data-original-height="2220">
-</p>
-<p><img src="/ruri-media/remote/QSL-%E6%A0%87-2_18168054228219117341_hu_b42e51759bf3f7ba.webp" srcset="/ruri-media/remote/QSL-%E6%A0%87-2_18168054228219117341_hu_4cd3f3f4156e01a8.webp 480w, /ruri-media/remote/QSL-%E6%A0%87-2_18168054228219117341_hu_b49b1225761340c0.webp 960w, /ruri-media/remote/QSL-%E6%A0%87-2_18168054228219117341_hu_b42e51759bf3f7ba.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="940" alt="Noa-2.jpeg" loading="lazy" decoding="async" data-original-src="/ruri-media/remote/QSL-%E6%A0%87-2_18168054228219117341.jpg" data-original-width="3402" data-original-height="2220">
-</p>
-<h3 id="設計理念">
-<a class="header-anchor" href="#%e8%a8%ad%e8%a8%88%e7%90%86%e5%bf%b5"></a>
-設計理念
-</h3><p>取材自我非常喜歡的 <em><strong>Blue Archive</strong></em> 中的角色生鹽諾亞。</p>
-<ul>
-<li>正面是 Noa 的記憶大廳截圖。Noa 在落地窗上手寫十九世紀法國現代派詩人夏爾·皮埃爾·波德萊爾的詩，《巴黎的憂鬱》第一首《異鄉人》。</li>
-</ul>
-<blockquote>
-<p>Qui aimes-tu le mieux, homme énigmatique, dis?<br>
-謎一樣的人啊，說吧，你最愛的人是誰？</p>
-</blockquote>
-<p>我在這一句後加了 ITU、CQ 分區和梅登海德網格，盡量選用手寫體並拉伸透視效果，使得文字看起來是手寫在窗上的。</p>
-<ul>
-<li>背面除了常規的通聯必填資訊，還加上了個人部落格的二維碼，背景照片是 BA 官方做的 Noa 影片截圖。</li>
-<li><strong>Warning:</strong> 時區那裡 <em>UTC</em> 寫成了 <em>UCT</em> ，直到印下一張卡才發現，如果印第二批會更正。</li>
-</ul>
-<h3 id="印刷批次">
-<a class="header-anchor" href="#%e5%8d%b0%e5%88%b7%e6%89%b9%e6%ac%a1"></a>
-印刷批次
-</h3><ul>
-<li>1 期：300g 名片用銅版紙 200 張，切小圓角，淘寶久美印業。
-<ul>
-<li>卡片硬度不足，銅版紙背面書寫困難。</li>
-<li>餘量充足。</li>
-</ul>
-</li>
-</ul>
-<h2 id="2-dfh">
-<a class="header-anchor" href="#2-dfh"></a>
-2. DFH
-</h2><p><img src="/ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-1_4813663219865379070_hu_420808e398cf1f1c.webp" srcset="/ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-1_4813663219865379070_hu_5efd2acb6c92e0f2.webp 480w, /ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-1_4813663219865379070_hu_c9b4d196af04a95.webp 960w, /ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-1_4813663219865379070_hu_420808e398cf1f1c.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="940" alt="DFH-1" loading="lazy" decoding="async" data-original-src="/ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-1_4813663219865379070.png" data-original-width="3402" data-original-height="2220">
-</p>
-<p><img src="/ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-2-%E6%9B%B4%E6%AD%A3_3231317461034246270_hu_f89a0462aa04b56.webp" srcset="/ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-2-%E6%9B%B4%E6%AD%A3_3231317461034246270_hu_d7413c1fa7ff7344.webp 480w, /ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-2-%E6%9B%B4%E6%AD%A3_3231317461034246270_hu_40b8d0573b15d29c.webp 960w, /ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-2-%E6%9B%B4%E6%AD%A3_3231317461034246270_hu_f89a0462aa04b56.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="940" alt="DFH-2" loading="lazy" decoding="async" data-original-src="/ruri-media/remote/%E4%B8%9C%E6%96%B9%E7%BA%A2%E7%9A%84%E5%BF%83%E8%84%8F-2-%E6%9B%B4%E6%AD%A3_3231317461034246270.png" data-original-width="3402" data-original-height="2220">
-</p>
-<h3 id="設計理念-1">
-<a class="header-anchor" href="#%e8%a8%ad%e8%a8%88%e7%90%86%e5%bf%b5-1"></a>
-設計理念
-</h3><p>整體取材自 BiliBili UP 主<strong>炙彈冰</strong>的航天史填詞歌曲 <a href="https://www.bilibili.com/video/BV129mGY3Efe/">《東方紅的心臟》</a>（原曲為 <a href="https://music.163.com/#/artist?id=51020133">ヰ世界情緒</a> 的歌曲 <strong><a href="https://music.163.com/#/song?id=1907751320">シリウスの心臓(天狼星的心臟)</a></strong> ）。</p>
-<ul>
-<li>卡片正面右側少女為《東方紅的心臟》中曲繪，東方紅衛星擬人形象。</li>
-<li>卡片正面左側有重疊的兩個衛星，左側實體衛星為東方紅一號的 3D 建模截圖，右側彩色衛星為前一截圖經過 <a href="https://lab.magiconch.com/one-last-image/">One Last Image 盧浮宮生成器</a> 網站生成的一張類似 <em><strong>One Last Kiss</strong></em> 封面效果的彩色漸變衛星圖。</li>
-<li>環繞衛星的紅藍兩橢圓環由摩斯電碼構成，紅色是「中華人民共和國萬歲」，藍色是「世界人民大團結萬歲」，參考 1955 年《標準電碼本》翻譯。</li>
-<li>實體衛星上的日期指東方紅一號 1970 年 4 月 24 日發射入軌，5 月 14 日停止播放東方紅樂曲。這是東方紅一號短暫的一生，卻是中華民族騰飛的開始。</li>
-<li>彩色衛星上的日期，指 1840 年 6 月 21 日英軍炮擊澳門，開啟第一次鴉片戰爭，直至 1949 年 10 月 1 日中華人民共和國成立，中國人民從此站起來了。它承載的是中華民族屈辱的近代史，也是第三世界其他國家反抗帝國主義列強入侵、追求獨立的抗爭史。</li>
-<li>衛星和人物之間用兩條正弦線隔開，象徵電波。</li>
-<li>相比於 <a href="/zh-tw/post/othernotes/qsl-card-exhibition/#1-noa-1">Noa-1</a> ，這次背面設計增加了 NFC 標誌，我計劃為今後發放的卡片增加 NFC 標籤，錄入卡片資訊、通聯資訊，或實現自動播放音樂、影片等。</li>
-<li>背面郵箱下面那段話「霧靄縈繞的人生，要如何度過？甩下躊躇吧，因為朝陽是你也是我。」是《東方紅的心臟》中的歌詞，我十分喜歡。</li>
-<li>背面右下角貼上了一段《東方紅》的簡譜，呼應此次卡片東方紅一號衛星主題。</li>
-</ul>
-<p>另外，我還設計了此卡片的 PCB 版，加上 NFC 晶片、線圈，特別在正面人物胸口的位置放置一顆紅色 LED，手機貼近掃描後 LED 會亮，呼應「東方紅的心臟」主題。<br>
-因為製作成本高昂，PCB 版卡片預計只發給每個區第一個通聯的友台，或某種通聯方式第一個通聯的友台。</p>
-<p>人民英雄紀念碑上這樣寫：</p>
-<blockquote>
-<p>三年以來，在人民解放戰爭和人民革命中犧牲的人民英雄們永垂不朽！<br>
-三十年以來，在人民解放戰爭和人民革命中犧牲的人民英雄們永垂不朽！<br>
-由此上溯到一千八百四十年，從那時起，為了反對內外敵人，爭取民族獨立和人民自由幸福，在歷次鬥爭中犧牲的人民英雄們永垂不朽！</p>
-</blockquote>
-<p>今日，東方紅衛星仍然在軌，守望滄海變桑田。</p>
-<h3 id="印刷批次-1">
-<a class="header-anchor" href="#%e5%8d%b0%e5%88%b7%e6%89%b9%e6%ac%a1-1"></a>
-印刷批次
-</h3><p><strong>紙質：</strong></p>
-<ul>
-<li>1 期：350g 珠光紙（白滑影）150 張，切小圓角，閒魚未來既是未來
-<ul>
-<li>餘量充足</li>
-</ul>
-</li>
-</ul>
-<p><strong>PCB：</strong></p>
-<ul>
-<li>1 期：嘉立創彩色絲印 50 張，NT3H2111W0FHKH XQF，切小圓角
-<ul>
-<li>餘量充足</li>
-</ul>
-</li>
-</ul>
-
-        
-        <hr><p>本文2025-08-21首發於<a href='https://www.guzhengsvt.cn/'>孤筝の温暖小家</a>，最後修改於2025-08-21</p><div class="notice article-copyright" data-pagefind-ignore>
-<p><strong>本文作者：</strong> 孤筝</p>
-<p><strong>本文標題：</strong> QSL卡片展</p>
-
-<p><strong>本文發佈時間：</strong> 2025-08-21</p>
-<p><strong>本文更新時間：</strong> 2025-08-21</p>
-<p><strong>本文版權：</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
-</div>
-]]></description><category>OtherNotes</category></item></channel></rss>
+]]></description><category>Diary</category></item></channel></rss>
