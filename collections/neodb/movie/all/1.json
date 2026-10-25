@@ -1,10 +1,46 @@
 {
   "source": "NeoDB",
   "profile": "https://neodb.social/users/GuZhengSVT/",
-  "updated_at": "2026-10-19T20:09:52.782398+00:00",
-  "total": 3,
+  "updated_at": "2026-10-25T22:25:05.063229+00:00",
+  "total": 8,
   "pages": 1,
   "items": [
+    {
+      "id": "02HDO2tKulLr8zzpZ2i4qm",
+      "title": "地心引力",
+      "url": "https://neodb.social/movie/02HDO2tKulLr8zzpZ2i4qm",
+      "cover": "https://neodb.social/m/movie/2021/09/138893c1b8-7655-45f3-8db2-c0f03c72a074.jpg",
+      "subtitle": "阿方索·卡隆",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": 7.8,
+      "comment": "",
+      "marked_at": "2026年10月25日"
+    },
+    {
+      "id": "06ALG1Ld5jWqL1jFfxNEwa",
+      "title": "爱在午夜降临前",
+      "url": "https://neodb.social/movie/06ALG1Ld5jWqL1jFfxNEwa",
+      "cover": "https://neodb.social/m/movie/2021/09/13a1926631-6ae2-4e24-aadf-d02d1c0045ce.jpg",
+      "subtitle": "Richard Linklater",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": 8.8,
+      "comment": "",
+      "marked_at": "2026年10月25日"
+    },
+    {
+      "id": "61VXoCBbwZmEPMpek3dPv5",
+      "title": "周处除三害",
+      "url": "https://neodb.social/movie/61VXoCBbwZmEPMpek3dPv5",
+      "cover": "https://neodb.social/m/item/movie/2024/09/20/1b386931-c574-431d-b009-ce1d5fe6ab4c.jpg",
+      "subtitle": "黄精甫",
+      "status": "wishlist",
+      "rating": null,
+      "community_rating": 7.3,
+      "comment": "",
+      "marked_at": "2026年10月25日"
+    },
     {
       "id": "1XoBZ5O9oQ9AWkdguAbKs5",
       "title": "欢迎来龙餐馆",
@@ -28,6 +64,30 @@
       "community_rating": 7.7,
       "comment": "",
       "marked_at": "2026年10月17日"
+    },
+    {
+      "id": "5P5rawCZmazL0NHXI2Hepd",
+      "title": "流浪地球2",
+      "url": "https://neodb.social/movie/5P5rawCZmazL0NHXI2Hepd",
+      "cover": "https://neodb.social/m/item/2023/01/30/11a3471d-854a-4f4b-b037-59e7be935203.jpg",
+      "subtitle": "郭帆",
+      "status": "complete",
+      "rating": 10.0,
+      "community_rating": 7.2,
+      "comment": "",
+      "marked_at": "2026年10月25日"
+    },
+    {
+      "id": "6FpTOxsFDSGT97gAIudALr",
+      "title": "流浪地球",
+      "url": "https://neodb.social/movie/6FpTOxsFDSGT97gAIudALr",
+      "cover": "https://neodb.social/m/item/movie/2026/02/08/ae20a88a-7c4a-4483-9f5f-50fffc51b623.jpeg",
+      "subtitle": "郭帆",
+      "status": "complete",
+      "rating": 10.0,
+      "community_rating": 7.0,
+      "comment": "",
+      "marked_at": "2026年10月25日"
     },
     {
       "id": "2vE4NFmmigU2ofsivNOdcG",

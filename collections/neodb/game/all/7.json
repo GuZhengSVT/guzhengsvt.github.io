@@ -1,7 +1,7 @@
 {
   "source": "NeoDB",
   "profile": "https://neodb.social/users/GuZhengSVT/",
-  "updated_at": "2026-10-24T22:22:43.737265+00:00",
+  "updated_at": "2026-10-25T22:25:05.063229+00:00",
   "total": 265,
   "pages": 12,
   "items": [
@@ -42,14 +42,14 @@
       "marked_at": "2023年2月5日"
     },
     {
-      "id": "31gPDE0JnlRxy3iyqOPqQg",
-      "title": "Metro Exodus",
-      "url": "https://neodb.social/game/31gPDE0JnlRxy3iyqOPqQg",
-      "cover": "https://neodb.social/m/item/steam/2023/12/24/5d90b7ea-b0a3-4f27-94be-141d75d89ffe.jpg",
+      "id": "0I01RiCmdOHf6tg4UCR04g",
+      "title": "地铁：离去",
+      "url": "https://neodb.social/game/0I01RiCmdOHf6tg4UCR04g",
+      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/37e8cf85-4ef8-4fce-b38a-4a259ea6deb7.jpg",
       "subtitle": "4A Games",
       "status": "wishlist",
       "rating": null,
-      "community_rating": null,
+      "community_rating": 8.6,
       "comment": "",
       "marked_at": "2023年2月3日"
     },
