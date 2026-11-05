@@ -1,7 +1,7 @@
 {
   "source": "NeoDB",
   "profile": "https://neodb.social/users/GuZhengSVT/",
-  "updated_at": "2026-11-01T23:27:57.708296+00:00",
+  "updated_at": "2026-11-05T00:49:30.621665+00:00",
   "total": 206,
   "pages": 9,
   "items": [
@@ -181,7 +181,7 @@
       "subtitle": "NEKO WORKs",
       "status": "wishlist",
       "rating": null,
-      "community_rating": null,
+      "community_rating": 7.2,
       "comment": "",
       "marked_at": "2026年10月17日"
     },
@@ -217,7 +217,7 @@
       "subtitle": "NEKO WORKs",
       "status": "wishlist",
       "rating": null,
-      "community_rating": null,
+      "community_rating": 5.9,
       "comment": "",
       "marked_at": "2026年10月17日"
     },
