@@ -1,7 +1,7 @@
 {
   "source": "NeoDB",
   "profile": "https://neodb.social/users/GuZhengSVT/",
-  "updated_at": "2026-11-05T00:49:30.621665+00:00",
+  "updated_at": "2026-11-06T00:55:26.968129+00:00",
   "total": 265,
   "pages": 12,
   "items": [
@@ -54,10 +54,10 @@
       "marked_at": "2022年12月22日"
     },
     {
-      "id": "3J4SlVNuzhgsDY9C1YP8MV",
+      "id": "5EKV1Due0zqlSDUCvXR59K",
       "title": "PARQUET",
-      "url": "https://neodb.social/game/3J4SlVNuzhgsDY9C1YP8MV",
-      "cover": "https://neodb.social/m/item/steam/2026/10/10/be5f0efb-cfbb-459d-b2f4-13ec4ddde48b.jpg",
+      "url": "https://neodb.social/game/5EKV1Due0zqlSDUCvXR59K",
+      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/db55f32c-9779-46de-9e6f-5d95d3756f03.jpg",
       "subtitle": "Yuzusoft Sour",
       "status": "wishlist",
       "rating": null,
@@ -114,14 +114,14 @@
       "marked_at": "2022年12月15日"
     },
     {
-      "id": "3dTUbWSpLgLXH7CQvRS68A",
+      "id": "38P88Btcfc9ZNJ4cNQ9BEj",
       "title": "光明记忆：无限",
-      "url": "https://neodb.social/game/3dTUbWSpLgLXH7CQvRS68A",
-      "cover": "https://neodb.social/m/game/2022/01/0650c9fee9-ae11-46eb-8faa-6c76535e641e.jpg",
+      "url": "https://neodb.social/game/38P88Btcfc9ZNJ4cNQ9BEj",
+      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/fd988b67-fd7d-421e-a9f3-5345302cd375.jpg",
       "subtitle": "FYQD-Studio",
       "status": "wishlist",
       "rating": null,
-      "community_rating": null,
+      "community_rating": 6.2,
       "comment": "",
       "marked_at": "2022年12月6日"
     },

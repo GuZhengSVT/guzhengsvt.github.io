@@ -1,7 +1,7 @@
 {
   "source": "NeoDB",
   "profile": "https://neodb.social/users/GuZhengSVT/",
-  "updated_at": "2026-11-05T00:49:30.621665+00:00",
+  "updated_at": "2026-11-06T00:55:26.968129+00:00",
   "total": 49,
   "pages": 3,
   "items": [
@@ -138,10 +138,10 @@
       "marked_at": "2026年10月17日"
     },
     {
-      "id": "2Nrc8ZbgkZMV1UA7UTc0Ow",
-      "title": "TEVI",
-      "url": "https://neodb.social/game/2Nrc8ZbgkZMV1UA7UTc0Ow",
-      "cover": "https://neodb.social/m/item/steam/2026/08/28/909ae8b2-8469-4dcf-8614-0f99e101ee02.jpg",
+      "id": "5bZQBdX7dC7UZebAhXJuZZ",
+      "title": "采维",
+      "url": "https://neodb.social/game/5bZQBdX7dC7UZebAhXJuZZ",
+      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/6b668636-73ba-4e42-9934-a44b2e04a3f1.jpg",
       "subtitle": "GemaYue",
       "status": "complete",
       "rating": null,
@@ -282,14 +282,14 @@
       "marked_at": "2026年10月17日"
     },
     {
-      "id": "61OZ6biohW8tJtFJR2dsPg",
-      "title": "《战地风云 5》",
-      "url": "https://neodb.social/game/61OZ6biohW8tJtFJR2dsPg",
-      "cover": "https://neodb.social/m/item/steam/2024/10/19/d88a0719-5fba-477c-ad9c-a91ed2651350.jpg",
+      "id": "6EW4jYEpaHRVAtWIQP7Lk2",
+      "title": "战地风云5",
+      "url": "https://neodb.social/game/6EW4jYEpaHRVAtWIQP7Lk2",
+      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/4d87572b-09f7-4b19-823d-b71d5dd68824.jpg",
       "subtitle": "DICE",
       "status": "complete",
       "rating": null,
-      "community_rating": null,
+      "community_rating": 7.7,
       "comment": "",
       "marked_at": "2026年10月17日"
     }
