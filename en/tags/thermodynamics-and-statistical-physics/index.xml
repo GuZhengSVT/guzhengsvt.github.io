@@ -441,8 +441,8 @@ $$<h3 id="planck-constant">
 Planck Constant
 </h3>$$
 \begin{align}
-h & =6.626069934(89)×10^{-34}J\cdot s \\
-& =4.135667662(25)×10^{-15}eV\cdot s
+h &amp; =6.626069934(89)×10^{-34}J\cdot s \\
+&amp; =4.135667662(25)×10^{-15}eV\cdot s
 \end{align}
 $$<p>
 Reduced Planck Constant (Dirac Constant):
@@ -844,7 +844,7 @@ At equilibrium, the conditions $\delta F=0,\delta^2 F \gt 0$ are satisfied.</p>
 Isothermal-Isobaric System
 </h3><p>In an isothermal-isobaric system, G decreases or remains constant, reaching $G_\min$ at equilibrium.
 If a slight perturbation occurs, $\Delta G \gt 0$, which can be expanded as a second-order Taylor series: $\Delta G=\delta G+\frac{1}{2}\delta^2 G$.
-At equilibrium, the conditions $\delta G=0$ and $\delta^2 G>0$ must be satisfied.</p>
+At equilibrium, the conditions $\delta G=0$ and $\delta^2 G&gt;0$ must be satisfied.</p>
 <h3 id="equilibrium-conditions-for-two-phase-systems-in-a-unit">
 <a class="header-anchor" href="#equilibrium-conditions-for-two-phase-systems-in-a-unit"></a>
 Equilibrium Conditions for Two-Phase Systems in a Unit
@@ -991,8 +991,8 @@ $$<ul>
 </p>
 $$
 \begin{align}
-\varepsilon &=\frac{1}{2}m(\dot{r}^2+r^2\dot{\theta}^2+r^2\sin^2\theta\dot{\varphi}^2)\\
-&=\frac{1}{2}m(r^2\dot{\theta}^2+r^2\sin^2\dot{\varphi}^2)
+\varepsilon &amp;=\frac{1}{2}m(\dot{r}^2+r^2\dot{\theta}^2+r^2\sin^2\theta\dot{\varphi}^2)\\
+&amp;=\frac{1}{2}m(r^2\dot{\theta}^2+r^2\sin^2\dot{\varphi}^2)
 \end{align}
 $$<ul>
 <li>Introducing conjugate momenta \( p_\theta = mr^2\dot{\theta}, p_\varphi = mr^2\sin^2\theta \dot{\varphi} \), and the moment of inertia \( I \) of the particle relative to \( O \).</li>
@@ -1490,9 +1490,9 @@ Simplifying the entropy gives
 </p>
 $$
 \begin{align}
-S&=k(N\ln N+\sum_l(\alpha+\beta\varepsilon_l)a_l)\\
-&=k(N\ln N+\sum_la_l\ln \omega_l-\sum_la_l\ln a_l)\\
-&=k\ln \Omega
+S&amp;=k(N\ln N+\sum_l(\alpha+\beta\varepsilon_l)a_l)\\
+&amp;=k(N\ln N+\sum_la_l\ln \omega_l-\sum_la_l\ln a_l)\\
+&amp;=k\ln \Omega
 \end{align}
 $$<h3 id="boltzmann-relation">
 <a class="header-anchor" href="#boltzmann-relation"></a>
@@ -1895,9 +1895,9 @@ $$<h3 id="chemical-potential-1">
 Chemical Potential
 </h3>$$
 \begin{align}
-\mu &=(\frac{\partial F}{\partial N})_{T,V}\\
-&=-kT \ln \frac{Z_1}{N}\\
-&=kT \ln[\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2]
+\mu &amp;=(\frac{\partial F}{\partial N})_{T,V}\\
+&amp;=-kT \ln \frac{Z_1}{N}\\
+&amp;=kT \ln[\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2]
 \end{align}
 $$<p>
 $\because$ For an ideal gas, $\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2\ll 1$<br>
@@ -2005,9 +2005,9 @@ $$<h3 id="entropy-2">
 Entropy
 </h3>$$
 \begin{align}
-S &=k(\ln \varXi-\alpha \frac{\partial}{\partial \alpha}\ln \varXi-\beta \frac{\partial}{\partial \beta}\ln \varXi)\\
-&=k(\ln \varXi+\alpha \overline{N}+\beta U)\\
-&=k \ln \Omega
+S &amp;=k(\ln \varXi-\alpha \frac{\partial}{\partial \alpha}\ln \varXi-\beta \frac{\partial}{\partial \beta}\ln \varXi)\\
+&amp;=k(\ln \varXi+\alpha \overline{N}+\beta U)\\
+&amp;=k \ln \Omega
 \end{align}
 $$<h3 id="grand-potential-1">
 <a class="header-anchor" href="#grand-potential-1"></a>

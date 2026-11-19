@@ -316,7 +316,7 @@
 <li><strong>Applicable Scenarios</strong>: Internal feeding (e.g., coaxial feed probes inside microstrip antennas, equivalent excitation for SMT pads of patch components), low-frequency bands or extremely electrically small slots.</li>
 <li><strong>Internal Excitation Characteristics</strong>: Lumped Ports <strong>must</strong> be located inside the model and <strong>must</strong> connect two conducting surfaces (e.g., connecting a signal line to a ground plane). It does not perform 2D eigenmode pre-computation; instead, it forces the assumption that the electric field on the port face is uniform (TEM mode).</li>
 <li><strong>Normalized Impedance Setting</strong>: Since it does not perform a 2D computation, a Lumped Port cannot automatically determine the characteristic impedance. The user must manually specify a reference impedance (typically $50\Omega$). All computed S-parameters will be normalized based on this given impedance.</li>
-<li><strong>Usage Constraints</strong>: The physical length and width of a Lumped Port must be much smaller than one-tenth of the wavelength at the highest operating frequency ($< \lambda/10$); otherwise, the uniform field assumption breaks down, producing severe parasitic inductance and capacitance.</li>
+<li><strong>Usage Constraints</strong>: The physical length and width of a Lumped Port must be much smaller than one-tenth of the wavelength at the highest operating frequency ($&lt; \lambda/10$); otherwise, the uniform field assumption breaks down, producing severe parasitic inductance and capacitance.</li>
 </ul>
 <blockquote>
 <p><strong>Source</strong>: David M. Pozar, <em>Microwave Engineering</em>, on the theory of equivalent differences between lumped elements and distributed transmission lines at microwave frequencies.</p>
@@ -478,7 +478,7 @@
 <ul>
 <li><strong>S-Parameter Matrix (Scattering Parameters)</strong>:
 <ul>
-<li><strong>$S_{11}$ (Return Loss)</strong>: The core metric characterizing the impedance matching quality of a port. Typically, $S_{11} < -10 \text{ dB}$ (i.e., reflected power less than 10%) is required across the operating band.</li>
+<li><strong>$S_{11}$ (Return Loss)</strong>: The core metric characterizing the impedance matching quality of a port. Typically, $S_{11} &lt; -10 \text{ dB}$ (i.e., reflected power less than 10%) is required across the operating band.</li>
 <li><strong>$S_{21}$ (Insertion Loss)</strong>: Characterizes the efficiency of energy transfer from Port 1 to Port 2. An ideal filter&rsquo;s passband $S_{21}$ should be close to $0 \text{ dB}$, and the stopband should be well below $-30 \text{ dB}$.</li>
 <li><strong>Plotting Standard</strong>: In engineering plots, the S-parameter vertical axis must use a logarithmic decibel (dB) scale, and the horizontal axis uses a linear frequency scale.</li>
 </ul>
@@ -537,7 +537,7 @@
 <li><strong>Axial Ratio (AR)</strong>:
 <ul>
 <li>The decisive parameter for characterizing circularly polarized antenna performance.</li>
-<li><strong>Evaluation Criterion</strong>: An ideal circular polarization has an AR of $0 \text{ dB}$. In engineering, the frequency band where $AR < 3 \text{ dB}$ is typically defined as the effective operating bandwidth of a circularly polarized antenna.</li>
+<li><strong>Evaluation Criterion</strong>: An ideal circular polarization has an AR of $0 \text{ dB}$. In engineering, the frequency band where $AR &lt; 3 \text{ dB}$ is typically defined as the effective operating bandwidth of a circularly polarized antenna.</li>
 </ul>
 </li>
 </ul>
@@ -579,7 +579,7 @@
 <li><strong>Cost Function Setup</strong>:
 <ul>
 <li>The core of optimization lies in converting physical requirements into mathematical criteria.</li>
-<li>You can set multiple objectives in <code>Optimizer Setup &gt; Goals</code>. For example: require $S_{11} < -15 \text{ dB}$ at a target frequency point while setting Gain $> 5 \text{ dBi}$.</li>
+<li>You can set multiple objectives in <code>Optimizer Setup &gt; Goals</code>. For example: require $S_{11} &lt; -15 \text{ dB}$ at a target frequency point while setting Gain $&gt; 5 \text{ dBi}$.</li>
 <li><strong>Weight</strong>: When multiple objectives have physical conflicts (e.g., simultaneously requiring very wide bandwidth and very high gain), different weight values (e.g., setting return loss weight to 1 and gain to 2) must be assigned to guide the algorithm&rsquo;s emphasis.</li>
 </ul>
 </li>
@@ -2140,7 +2140,7 @@ Linking to notes/images in vault
 Obsidian URL
 </h4><p>Obsidian URIs typically follow this format:<br>
 </p>
-$$obsidian://action?param1=value&param2=value$$<p><br>
+$$obsidian://action?param1=value&amp;param2=value$$<p><br>
 Where <code>action</code> specifies the operation and <code>value</code> are parameters.<br>
 Example for opening a note:<br>
 </p>
@@ -2173,7 +2173,7 @@ Others
 <li>
 <p>Blockquote<br>
 </p>
-$$> Quoted content$$<p><br>
+$$&gt; Quoted content$$<p><br>
 </p>
 $$\ Source$$<p><br>
 Example:</p>

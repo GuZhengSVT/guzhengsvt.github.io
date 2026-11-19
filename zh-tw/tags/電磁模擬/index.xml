@@ -316,7 +316,7 @@
 <li><strong>適用場景</strong>：模型內部的饋電（如微帶天線內部的同軸饋針、貼片元件 SMT 焊墊的等效激勵）、低頻段或電尺寸極小的縫隙。</li>
 <li><strong>內部激勵特性</strong>：集總端口<strong>必須</strong>位於模型內部，且必須連接兩個導電面（如連接訊號線與接地平面）。它不進行 2D 本徵模預計算，而是強制假設端口面上的電場是均勻的（TEM 模）。</li>
 <li><strong>歸一化阻抗設定</strong>：由於不進行 2D 計算，集總端口無法自動得出特徵阻抗。使用者必須手動指定一個參考阻抗（通常為 $50\Omega$）。所有計算出的 S 參數都將基於這個給定的阻抗進行歸一化。</li>
-<li><strong>使用限制</strong>：集總端口的長寬物理尺寸必須遠小於最高工作頻率下的十分之一波長（$<\lambda/10$），否則均勻場假設失效，產生嚴重的寄生電感與電容。</li>
+<li><strong>使用限制</strong>：集總端口的長寬物理尺寸必須遠小於最高工作頻率下的十分之一波長（$&lt;\lambda/10$），否則均勻場假設失效，產生嚴重的寄生電感與電容。</li>
 </ul>
 <blockquote>
 <p><strong>資料來源</strong>：David M. Pozar 著 <em>Microwave Engineering</em>，關於集總元件與分佈式傳輸線在微波頻段等效差異的理論。</p>
@@ -478,7 +478,7 @@
 <ul>
 <li><strong>S 參數矩陣 (Scattering Parameters)</strong>：
 <ul>
-<li><strong>$S_{11}$（回波損耗 / Return Loss）</strong>：表徵埠自身阻抗匹配程度的核心指標。通常要求在工作頻段內 $S_{11} < -10 \text{ dB}$（即反射功率小於 10%）。</li>
+<li><strong>$S_{11}$（回波損耗 / Return Loss）</strong>：表徵埠自身阻抗匹配程度的核心指標。通常要求在工作頻段內 $S_{11} &lt; -10 \text{ dB}$（即反射功率小於 10%）。</li>
 <li><strong>$S_{21}$（插入損耗 / Insertion Loss）</strong>：表徵能量從埠 1 傳輸至埠 2 的效率。理想濾波器的通帶 $S_{21}$ 應接近 $0 \text{ dB}$，阻帶應遠小於 $-30 \text{ dB}$。</li>
 <li><strong>圖表規範</strong>：工程製圖時，S 參數的縱座標必須採用分貝 (dB) 對數刻度，橫座標採用線性頻率刻度。</li>
 </ul>
@@ -537,7 +537,7 @@
 <li><strong>軸比 (Axial Ratio, AR)</strong>：
 <ul>
 <li>表徵圓極化天線性能的決定性參數。</li>
-<li><strong>判定標準</strong>：理想圓極化的 AR 為 $0 \text{ dB}$。在工程中，通常將 $AR < 3 \text{ dB}$ 的頻帶範圍定義為圓極化天線的有效工作帶寬。</li>
+<li><strong>判定標準</strong>：理想圓極化的 AR 為 $0 \text{ dB}$。在工程中，通常將 $AR &lt; 3 \text{ dB}$ 的頻帶範圍定義為圓極化天線的有效工作帶寬。</li>
 </ul>
 </li>
 </ul>
@@ -579,7 +579,7 @@
 <li><strong>目標函數 (Cost Function) 設定</strong>：
 <ul>
 <li>優化的核心在於將物理需求轉化為數學判斷標準。</li>
-<li>可以在 <code>Optimizer Setup &gt; Goals</code> 中設定多個目標，例如：要求在目標頻點 $S_{11} < -15 \text{ dB}$，同時設定增益 $Gain > 5 \text{ dBi}$。</li>
+<li>可以在 <code>Optimizer Setup &gt; Goals</code> 中設定多個目標，例如：要求在目標頻點 $S_{11} &lt; -15 \text{ dB}$，同時設定增益 $Gain &gt; 5 \text{ dBi}$。</li>
 <li><strong>權重 (Weight)</strong>：當多個目標存在物理衝突時（如同時要求極寬的帶寬和極高的增益），需透過賦予不同權重值（如將回波損耗權重設為 1，增益設為 2）來引導演算法的側重點。</li>
 </ul>
 </li>

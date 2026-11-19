@@ -520,7 +520,7 @@
 <h3 id="建圖時的檢查">
 <a class="header-anchor" href="#%e5%bb%ba%e5%9c%96%e6%99%82%e7%9a%84%e6%aa%a2%e6%9f%a5"></a>
 建圖時的檢查
-</h3><p>讀入邊 $(u, v)$ 後要校驗 $0 \le u, v < V$，避免越界；無權圖的兩點間不應重複加邊，否則會影響走訪與度數統計。</p>
+</h3><p>讀入邊 $(u, v)$ 後要校驗 $0 \le u, v &lt; V$，避免越界；無權圖的兩點間不應重複加邊，否則會影響走訪與度數統計。</p>
 <h2 id="十kruskal-與最小生成樹">
 <a class="header-anchor" href="#%e5%8d%81kruskal-%e8%88%87%e6%9c%80%e5%b0%8f%e7%94%9f%e6%88%90%e6%a8%b9"></a>
 十、Kruskal 與最小生成樹
@@ -610,7 +610,7 @@
 </h3><ol>
 <li>把起點距離設為 0，其餘全部設為無限大。</li>
 <li>把 <code>(距離, 頂點)</code> 放入<strong>優先佇列</strong>，每次取出距離最小的頂點 $u$——它的最短距離此刻已經確定。</li>
-<li>鬆弛：對 $u$ 的每個鄰居 $v$，若 $dist[u] + w(u,v) < dist[v]$ 則更新 $dist[v]$，並把新的 <code>(dist[v], v)</code> 入佇列。</li>
+<li>鬆弛：對 $u$ 的每個鄰居 $v$，若 $dist[u] + w(u,v) &lt; dist[v]$ 則更新 $dist[v]$，並把新的 <code>(dist[v], v)</code> 入佇列。</li>
 <li>重複 2–3，直到佇列為空。</li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dijkstra</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">g</span><span class="p">,</span> <span class="kt">int</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>
@@ -1308,7 +1308,7 @@ set
 光電效應與光子假說
 </h5><ul>
 <li><strong>光子能量</strong>：$E = h\nu$</li>
-<li><strong>閾頻</strong>：$\nu_0 = \dfrac{W_0}{h}$，$\nu < \nu_0$ 無光電子逸出</li>
+<li><strong>閾頻</strong>：$\nu_0 = \dfrac{W_0}{h}$，$\nu &lt; \nu_0$ 無光電子逸出</li>
 <li><strong>光電效應方程</strong>：<br>
 
 $$
@@ -1711,11 +1711,11 @@ $$</li>
 $$
 V(x) =
 \begin{cases}
-0, & 0 < x < L \\
-\infty, & x \leq 0 \ \text{或} \ x \geq L
+0, &amp; 0 &lt; x &lt; L \\
+\infty, &amp; x \leq 0 \ \text{或} \ x \geq L
 \end{cases}
 $$<p><strong>2. 薛定諤方程</strong><br>
-在阱內 ($0 < x < L$)：
+在阱內 ($0 &lt; x &lt; L$)：
 </p>
 $$
 -\frac{\hbar^2}{2m} \frac{d^2 \phi(x)}{dx^2} = E \phi(x)
@@ -2597,9 +2597,9 @@ $$
 其中
 </p>
 $$
-   \sigma_x = \begin{pmatrix}0 & 1\\ 1 & 0\end{pmatrix},\quad
-   \sigma_y = \begin{pmatrix}0 & -i\\ i & 0\end{pmatrix},\quad
-   \sigma_z = \begin{pmatrix}1 & 0\\ 0 & -1\end{pmatrix}
+   \sigma_x = \begin{pmatrix}0 &amp; 1\\ 1 &amp; 0\end{pmatrix},\quad
+   \sigma_y = \begin{pmatrix}0 &amp; -i\\ i &amp; 0\end{pmatrix},\quad
+   \sigma_z = \begin{pmatrix}1 &amp; 0\\ 0 &amp; -1\end{pmatrix}
    $$</li>
 </ol>
 <h4 id="角動量耦合理論">
@@ -2671,7 +2671,7 @@ $$
 對 $N$ 個全同粒子：
 </p>
 $$
-   \hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i<j} V(\vec{r}_i - \vec{r}_j)
+   \hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i&lt;j} V(\vec{r}_i - \vec{r}_j)
    $$<ul>
 <li>$\hat{T}_i$ 為第 $i$ 個粒子的動能算符。</li>
 <li>$V(\vec{r}_i - \vec{r}_j)$ 為兩粒子間相互作用勢。</li>
@@ -2715,9 +2715,9 @@ $$
 $$
      \Psi(\vec{r}_1, \dots, \vec{r}_N) = \frac{1}{\sqrt{N!}}
      \begin{vmatrix}
-     \psi_1(\vec{r}_1) & \cdots & \psi_1(\vec{r}_N) \\
-     \vdots & \ddots & \vdots \\
-     \psi_N(\vec{r}_1) & \cdots & \psi_N(\vec{r}_N)
+     \psi_1(\vec{r}_1) &amp; \cdots &amp; \psi_1(\vec{r}_N) \\
+     \vdots &amp; \ddots &amp; \vdots \\
+     \psi_N(\vec{r}_1) &amp; \cdots &amp; \psi_N(\vec{r}_N)
      \end{vmatrix}
      $$</li>
 </ul>

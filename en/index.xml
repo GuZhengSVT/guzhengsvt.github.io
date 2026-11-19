@@ -649,7 +649,7 @@ Choosing between them
 <h3 id="checks-when-building-a-graph">
 <a class="header-anchor" href="#checks-when-building-a-graph"></a>
 Checks when building a graph
-</h3><p>After reading an edge $(u, v)$, validate $0 \le u, v < V$ to avoid out-of-range access; for unweighted graphs, do not add the same edge twice, as it distorts traversals and degree counts.</p>
+</h3><p>After reading an edge $(u, v)$, validate $0 \le u, v &lt; V$ to avoid out-of-range access; for unweighted graphs, do not add the same edge twice, as it distorts traversals and degree counts.</p>
 <h2 id="10-kruskal-and-minimum-spanning-trees">
 <a class="header-anchor" href="#10-kruskal-and-minimum-spanning-trees"></a>
 10. Kruskal and Minimum Spanning Trees
@@ -739,7 +739,7 @@ Algorithm (greedy + priority queue)
 </h3><ol>
 <li>Set the source distance to 0 and all others to infinity.</li>
 <li>Put <code>(distance, vertex)</code> pairs into a <strong>priority queue</strong> and repeatedly extract the vertex $u$ with the smallest distance — its shortest distance is now final.</li>
-<li>Relax: for each neighbour $v$ of $u$, if $dist[u] + w(u,v) < dist[v]$ then update $dist[v]$ and push the new <code>(dist[v], v)</code> pair.</li>
+<li>Relax: for each neighbour $v$ of $u$, if $dist[u] + w(u,v) &lt; dist[v]$ then update $dist[v]$ and push the new <code>(dist[v], v)</code> pair.</li>
 <li>Repeat 2–3 until the queue is empty.</li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dijkstra</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">g</span><span class="p">,</span> <span class="kt">int</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>
@@ -2014,7 +2014,7 @@ Identifiers
 <li><strong>Applicable Scenarios</strong>: Internal feeding (e.g., coaxial feed probes inside microstrip antennas, equivalent excitation for SMT pads of patch components), low-frequency bands or extremely electrically small slots.</li>
 <li><strong>Internal Excitation Characteristics</strong>: Lumped Ports <strong>must</strong> be located inside the model and <strong>must</strong> connect two conducting surfaces (e.g., connecting a signal line to a ground plane). It does not perform 2D eigenmode pre-computation; instead, it forces the assumption that the electric field on the port face is uniform (TEM mode).</li>
 <li><strong>Normalized Impedance Setting</strong>: Since it does not perform a 2D computation, a Lumped Port cannot automatically determine the characteristic impedance. The user must manually specify a reference impedance (typically $50\Omega$). All computed S-parameters will be normalized based on this given impedance.</li>
-<li><strong>Usage Constraints</strong>: The physical length and width of a Lumped Port must be much smaller than one-tenth of the wavelength at the highest operating frequency ($< \lambda/10$); otherwise, the uniform field assumption breaks down, producing severe parasitic inductance and capacitance.</li>
+<li><strong>Usage Constraints</strong>: The physical length and width of a Lumped Port must be much smaller than one-tenth of the wavelength at the highest operating frequency ($&lt; \lambda/10$); otherwise, the uniform field assumption breaks down, producing severe parasitic inductance and capacitance.</li>
 </ul>
 <blockquote>
 <p><strong>Source</strong>: David M. Pozar, <em>Microwave Engineering</em>, on the theory of equivalent differences between lumped elements and distributed transmission lines at microwave frequencies.</p>
@@ -2176,7 +2176,7 @@ Identifiers
 <ul>
 <li><strong>S-Parameter Matrix (Scattering Parameters)</strong>:
 <ul>
-<li><strong>$S_{11}$ (Return Loss)</strong>: The core metric characterizing the impedance matching quality of a port. Typically, $S_{11} < -10 \text{ dB}$ (i.e., reflected power less than 10%) is required across the operating band.</li>
+<li><strong>$S_{11}$ (Return Loss)</strong>: The core metric characterizing the impedance matching quality of a port. Typically, $S_{11} &lt; -10 \text{ dB}$ (i.e., reflected power less than 10%) is required across the operating band.</li>
 <li><strong>$S_{21}$ (Insertion Loss)</strong>: Characterizes the efficiency of energy transfer from Port 1 to Port 2. An ideal filter&rsquo;s passband $S_{21}$ should be close to $0 \text{ dB}$, and the stopband should be well below $-30 \text{ dB}$.</li>
 <li><strong>Plotting Standard</strong>: In engineering plots, the S-parameter vertical axis must use a logarithmic decibel (dB) scale, and the horizontal axis uses a linear frequency scale.</li>
 </ul>
@@ -2235,7 +2235,7 @@ Identifiers
 <li><strong>Axial Ratio (AR)</strong>:
 <ul>
 <li>The decisive parameter for characterizing circularly polarized antenna performance.</li>
-<li><strong>Evaluation Criterion</strong>: An ideal circular polarization has an AR of $0 \text{ dB}$. In engineering, the frequency band where $AR < 3 \text{ dB}$ is typically defined as the effective operating bandwidth of a circularly polarized antenna.</li>
+<li><strong>Evaluation Criterion</strong>: An ideal circular polarization has an AR of $0 \text{ dB}$. In engineering, the frequency band where $AR &lt; 3 \text{ dB}$ is typically defined as the effective operating bandwidth of a circularly polarized antenna.</li>
 </ul>
 </li>
 </ul>
@@ -2277,7 +2277,7 @@ Identifiers
 <li><strong>Cost Function Setup</strong>:
 <ul>
 <li>The core of optimization lies in converting physical requirements into mathematical criteria.</li>
-<li>You can set multiple objectives in <code>Optimizer Setup &gt; Goals</code>. For example: require $S_{11} < -15 \text{ dB}$ at a target frequency point while setting Gain $> 5 \text{ dBi}$.</li>
+<li>You can set multiple objectives in <code>Optimizer Setup &gt; Goals</code>. For example: require $S_{11} &lt; -15 \text{ dB}$ at a target frequency point while setting Gain $&gt; 5 \text{ dBi}$.</li>
 <li><strong>Weight</strong>: When multiple objectives have physical conflicts (e.g., simultaneously requiring very wide bandwidth and very high gain), different weight values (e.g., setting return loss weight to 1 and gain to 2) must be assigned to guide the algorithm&rsquo;s emphasis.</li>
 </ul>
 </li>
@@ -3695,7 +3695,7 @@ Chapter 1 Wave-Particle Duality and State Description
 Photoelectric Effect and the Photon Hypothesis
 </h5><ul>
 <li><strong>Photon energy</strong>: $E = h\nu$</li>
-<li><strong>Threshold frequency</strong>: $\nu_0 = \dfrac{W_0}{h}$; no photoelectrons are emitted when $\nu < \nu_0$</li>
+<li><strong>Threshold frequency</strong>: $\nu_0 = \dfrac{W_0}{h}$; no photoelectrons are emitted when $\nu &lt; \nu_0$</li>
 <li><strong>Photoelectric equation</strong>:<br>
 
 $$
@@ -4064,8 +4064,8 @@ Chapter 2 Simple Applications of the Schrödinger Equation
 $$
 V(x) =
 \begin{cases}
-0, & 0 < x < L \\
-\infty, & x \leq 0 \ \text{or} \ x \geq L
+0, &amp; 0 &lt; x &lt; L \\
+\infty, &amp; x \leq 0 \ \text{or} \ x \geq L
 \end{cases}
 $$<p><strong>2. Schrödinger equation in the well</strong>
 </p>
@@ -4732,9 +4732,9 @@ $$
 where
 </p>
 $$
-   \sigma_x = \begin{pmatrix}0 & 1\\ 1 & 0\end{pmatrix},\quad
-   \sigma_y = \begin{pmatrix}0 & -i\\ i & 0\end{pmatrix},\quad
-   \sigma_z = \begin{pmatrix}1 & 0\\ 0 & -1\end{pmatrix}
+   \sigma_x = \begin{pmatrix}0 &amp; 1\\ 1 &amp; 0\end{pmatrix},\quad
+   \sigma_y = \begin{pmatrix}0 &amp; -i\\ i &amp; 0\end{pmatrix},\quad
+   \sigma_z = \begin{pmatrix}1 &amp; 0\\ 0 &amp; -1\end{pmatrix}
    $$</li>
 </ol>
 <h4 id="theory-of-angular-momentum-coupling">
@@ -4797,7 +4797,7 @@ Hamiltonian of a System of Identical Particles
 <p><strong>Form</strong>
 </p>
 $$
-   \hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i<j} V(\vec{r}_i - \vec{r}_j)
+   \hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i&lt;j} V(\vec{r}_i - \vec{r}_j)
    $$</li>
 <li>
 <p><strong>Symmetry</strong>
@@ -4832,9 +4832,9 @@ $$
 $$
      \Psi(\vec{r}_1, \dots, \vec{r}_N) = \frac{1}{\sqrt{N!}}
      \begin{vmatrix}
-     \psi_1(\vec{r}_1) & \cdots & \psi_1(\vec{r}_N) \\
-     \vdots & \ddots & \vdots \\
-     \psi_N(\vec{r}_1) & \cdots & \psi_N(\vec{r}_N)
+     \psi_1(\vec{r}_1) &amp; \cdots &amp; \psi_1(\vec{r}_N) \\
+     \vdots &amp; \ddots &amp; \vdots \\
+     \psi_N(\vec{r}_1) &amp; \cdots &amp; \psi_N(\vec{r}_N)
      \end{vmatrix}
      $$</li>
 </ul>

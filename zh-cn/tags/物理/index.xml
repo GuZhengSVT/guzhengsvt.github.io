@@ -1143,8 +1143,8 @@ $$<h3 id="普朗克常数">
 普朗克常数
 </h3>$$
 \begin{align}
-h & =6.626069934(89)×10^{-34}J\cdot s \\
-& =4.135667662(25)×10^{-15}eV\cdot s
+h &amp; =6.626069934(89)×10^{-34}J\cdot s \\
+&amp; =4.135667662(25)×10^{-15}eV\cdot s
 \end{align}
 $$<p>
 约化普朗克常数（狄拉克常数）：
@@ -1688,8 +1688,8 @@ $$<ul>
 </p>
 $$
 \begin{align}
-\varepsilon &=\frac{1}{2}m(\dot{r}^2+r^2\dot{\theta}^2+r^2\sin^2\theta\dot{\varphi}^2)\\
-&=\frac{1}{2}m(r^2\dot{\theta}^2+r^2\sin^2\dot{\varphi}^2)
+\varepsilon &amp;=\frac{1}{2}m(\dot{r}^2+r^2\dot{\theta}^2+r^2\sin^2\theta\dot{\varphi}^2)\\
+&amp;=\frac{1}{2}m(r^2\dot{\theta}^2+r^2\sin^2\dot{\varphi}^2)
 \end{align}
 $$<ul>
 <li>引入共轭动量$p_\theta=mr^2\dot{\theta},p_\varphi=mr^2\sin^2\theta \dot{\varphi}$，质点对 $O$ 转动惯量 $I$</li>
@@ -2169,9 +2169,9 @@ $$<p>
 </p>
 $$
 \begin{align}
-S&=k(N\ln N+\sum_l(\alpha+\beta\varepsilon_l)a_l)\\
-&=k(N\ln N+\sum_la_l\ln \omega_l-\sum_la_l\ln a_l)\\
-&=k\ln \Omega
+S&amp;=k(N\ln N+\sum_l(\alpha+\beta\varepsilon_l)a_l)\\
+&amp;=k(N\ln N+\sum_la_l\ln \omega_l-\sum_la_l\ln a_l)\\
+&amp;=k\ln \Omega
 \end{align}
 $$<h4 id="玻尔兹曼关系">
 <a class="header-anchor" href="#%e7%8e%bb%e5%b0%94%e5%85%b9%e6%9b%bc%e5%85%b3%e7%b3%bb"></a>
@@ -2571,9 +2571,9 @@ $$<h5 id="化学势-1">
 化学势
 </h5>$$
 \begin{align}
-\mu &=(\frac{\partial F}{\partial N})_{T,V}\\
-&=-kT \ln \frac{Z_1}{N}\\
-&=kT \ln[\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2]
+\mu &amp;=(\frac{\partial F}{\partial N})_{T,V}\\
+&amp;=-kT \ln \frac{Z_1}{N}\\
+&amp;=kT \ln[\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2]
 \end{align}
 $$<p>
 $\because$ 对于理想气体，$\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2\ll 1$
@@ -2681,9 +2681,9 @@ $$<h4 id="熵-2">
 熵
 </h4>$$
 \begin{align}
-S &=k(\ln \varXi-\alpha \frac{\partial}{\partial \alpha}\ln \varXi-\beta \frac{\partial}{\partial \beta}\ln \varXi)\\
-&=k(\ln \varXi+\alpha \overline{N}+\beta U)\\
-&=k \ln \Omega
+S &amp;=k(\ln \varXi-\alpha \frac{\partial}{\partial \alpha}\ln \varXi-\beta \frac{\partial}{\partial \beta}\ln \varXi)\\
+&amp;=k(\ln \varXi+\alpha \overline{N}+\beta U)\\
+&amp;=k \ln \Omega
 \end{align}
 $$<h4 id="巨热力势-1">
 <a class="header-anchor" href="#%e5%b7%a8%e7%83%ad%e5%8a%9b%e5%8a%bf-1"></a>

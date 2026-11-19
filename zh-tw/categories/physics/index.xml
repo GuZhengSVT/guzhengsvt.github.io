@@ -15,7 +15,7 @@
 光電效應與光子假說
 </h5><ul>
 <li><strong>光子能量</strong>：$E = h\nu$</li>
-<li><strong>閾頻</strong>：$\nu_0 = \dfrac{W_0}{h}$，$\nu < \nu_0$ 無光電子逸出</li>
+<li><strong>閾頻</strong>：$\nu_0 = \dfrac{W_0}{h}$，$\nu &lt; \nu_0$ 無光電子逸出</li>
 <li><strong>光電效應方程</strong>：<br>
 
 $$
@@ -418,11 +418,11 @@ $$</li>
 $$
 V(x) =
 \begin{cases}
-0, & 0 < x < L \\
-\infty, & x \leq 0 \ \text{或} \ x \geq L
+0, &amp; 0 &lt; x &lt; L \\
+\infty, &amp; x \leq 0 \ \text{或} \ x \geq L
 \end{cases}
 $$<p><strong>2. 薛定諤方程</strong><br>
-在阱內 ($0 < x < L$)：
+在阱內 ($0 &lt; x &lt; L$)：
 </p>
 $$
 -\frac{\hbar^2}{2m} \frac{d^2 \phi(x)}{dx^2} = E \phi(x)
@@ -1304,9 +1304,9 @@ $$
 其中
 </p>
 $$
-   \sigma_x = \begin{pmatrix}0 & 1\\ 1 & 0\end{pmatrix},\quad
-   \sigma_y = \begin{pmatrix}0 & -i\\ i & 0\end{pmatrix},\quad
-   \sigma_z = \begin{pmatrix}1 & 0\\ 0 & -1\end{pmatrix}
+   \sigma_x = \begin{pmatrix}0 &amp; 1\\ 1 &amp; 0\end{pmatrix},\quad
+   \sigma_y = \begin{pmatrix}0 &amp; -i\\ i &amp; 0\end{pmatrix},\quad
+   \sigma_z = \begin{pmatrix}1 &amp; 0\\ 0 &amp; -1\end{pmatrix}
    $$</li>
 </ol>
 <h4 id="角動量耦合理論">
@@ -1378,7 +1378,7 @@ $$
 對 $N$ 個全同粒子：
 </p>
 $$
-   \hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i<j} V(\vec{r}_i - \vec{r}_j)
+   \hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i&lt;j} V(\vec{r}_i - \vec{r}_j)
    $$<ul>
 <li>$\hat{T}_i$ 為第 $i$ 個粒子的動能算符。</li>
 <li>$V(\vec{r}_i - \vec{r}_j)$ 為兩粒子間相互作用勢。</li>
@@ -1422,9 +1422,9 @@ $$
 $$
      \Psi(\vec{r}_1, \dots, \vec{r}_N) = \frac{1}{\sqrt{N!}}
      \begin{vmatrix}
-     \psi_1(\vec{r}_1) & \cdots & \psi_1(\vec{r}_N) \\
-     \vdots & \ddots & \vdots \\
-     \psi_N(\vec{r}_1) & \cdots & \psi_N(\vec{r}_N)
+     \psi_1(\vec{r}_1) &amp; \cdots &amp; \psi_1(\vec{r}_N) \\
+     \vdots &amp; \ddots &amp; \vdots \\
+     \psi_N(\vec{r}_1) &amp; \cdots &amp; \psi_N(\vec{r}_N)
      \end{vmatrix}
      $$</li>
 </ul>
@@ -1578,8 +1578,8 @@ $$<h5 id="圖形表示">
 </h5>$$
 \delta(n)=
 \begin{cases}
-1 & n=0\\
-0 & n \ne 0\\
+1 &amp; n=0\\
+0 &amp; n \ne 0\\
 \end{cases}
 $$<p>
 也稱單位採樣序列，不同於單位衝激信號 $\delta(t)$ 。</p>
@@ -1589,8 +1589,8 @@ $$<p>
 </h5>$$
 u(n)=
 \begin{cases}
-1 & n \ge 0\\
-0 & n  \lt  0\\
+1 &amp; n \ge 0\\
+0 &amp; n  \lt  0\\
 \end{cases}
 $$$$
 \delta(n)=u(n)-u(n-1)
@@ -1604,8 +1604,8 @@ $$<h5 id="矩形序列">
 </h5>$$
 R_N(n)=
 \begin{cases}
-1 & 0 \le n \le N-1\\
-0 & Others
+1 &amp; 0 \le n \le N-1\\
+0 &amp; Others
 \end{cases}
 $$<p>
 $N$ 稱為矩形序列長度，矩形序列可用單位階躍序列表示。
@@ -1726,11 +1726,11 @@ $$<p>
 $$
 \begin{align}
 y(n)
-&=T[x(n)]\\
-&=T[\sum^{\infty}_{m=-\infty}x(m)\delta(n-m)]\\
-&=\sum^{\infty}_{m=-\infty}x(m)T[\delta(n-m)]\\
-&=\sum^{\infty}_{m=-\infty}x(m)h(n-m)\\
-&=x(n)*h(n)
+&amp;=T[x(n)]\\
+&amp;=T[\sum^{\infty}_{m=-\infty}x(m)\delta(n-m)]\\
+&amp;=\sum^{\infty}_{m=-\infty}x(m)T[\delta(n-m)]\\
+&amp;=\sum^{\infty}_{m=-\infty}x(m)h(n-m)\\
+&amp;=x(n)*h(n)
 \end{align}
 $$<p>
 卷積相關知識見《信號與系統》</p>
@@ -2902,8 +2902,8 @@ $$<h3 id="普朗克常數">
 普朗克常數
 </h3>$$
 \begin{align}
-h & =6.626069934(89)×10^{-34}J\cdot s \\
-& =4.135667662(25)×10^{-15}eV\cdot s
+h &amp; =6.626069934(89)×10^{-34}J\cdot s \\
+&amp; =4.135667662(25)×10^{-15}eV\cdot s
 \end{align}
 $$<p>
 約化普朗克常數（狄拉克常數）：
@@ -3447,8 +3447,8 @@ $$<ul>
 </p>
 $$
 \begin{align}
-\varepsilon &=\frac{1}{2}m(\dot{r}^2+r^2\dot{\theta}^2+r^2\sin^2\theta\dot{\varphi}^2)\\
-&=\frac{1}{2}m(r^2\dot{\theta}^2+r^2\sin^2\dot{\varphi}^2)
+\varepsilon &amp;=\frac{1}{2}m(\dot{r}^2+r^2\dot{\theta}^2+r^2\sin^2\theta\dot{\varphi}^2)\\
+&amp;=\frac{1}{2}m(r^2\dot{\theta}^2+r^2\sin^2\dot{\varphi}^2)
 \end{align}
 $$<ul>
 <li>引入共軛動量$p_\theta=mr^2\dot{\theta},p_\varphi=mr^2\sin^2\theta \dot{\varphi}$，質點對 $O$ 轉動慣量 $I$</li>
@@ -3928,9 +3928,9 @@ $$<p>
 </p>
 $$
 \begin{align}
-S&=k(N\ln N+\sum_l(\alpha+\beta\varepsilon_l)a_l)\\
-&=k(N\ln N+\sum_la_l\ln \omega_l-\sum_la_l\ln a_l)\\
-&=k\ln \Omega
+S&amp;=k(N\ln N+\sum_l(\alpha+\beta\varepsilon_l)a_l)\\
+&amp;=k(N\ln N+\sum_la_l\ln \omega_l-\sum_la_l\ln a_l)\\
+&amp;=k\ln \Omega
 \end{align}
 $$<h4 id="波茲曼關係">
 <a class="header-anchor" href="#%e6%b3%a2%e8%8c%b2%e6%9b%bc%e9%97%9c%e4%bf%82"></a>
@@ -4330,9 +4330,9 @@ $$<h5 id="化學勢-1">
 化學勢
 </h5>$$
 \begin{align}
-\mu &=(\frac{\partial F}{\partial N})_{T,V}\\
-&=-kT \ln \frac{Z_1}{N}\\
-&=kT \ln[\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2]
+\mu &amp;=(\frac{\partial F}{\partial N})_{T,V}\\
+&amp;=-kT \ln \frac{Z_1}{N}\\
+&amp;=kT \ln[\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2]
 \end{align}
 $$<p>
 $\because$ 對於理想氣體，$\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2\ll 1$
@@ -4440,9 +4440,9 @@ $$<h4 id="熵-2">
 熵
 </h4>$$
 \begin{align}
-S &=k(\ln \varXi-\alpha \frac{\partial}{\partial \alpha}\ln \varXi-\beta \frac{\partial}{\partial \beta}\ln \varXi)\\
-&=k(\ln \varXi+\alpha \overline{N}+\beta U)\\
-&=k \ln \Omega
+S &amp;=k(\ln \varXi-\alpha \frac{\partial}{\partial \alpha}\ln \varXi-\beta \frac{\partial}{\partial \beta}\ln \varXi)\\
+&amp;=k(\ln \varXi+\alpha \overline{N}+\beta U)\\
+&amp;=k \ln \Omega
 \end{align}
 $$<h4 id="巨熱力勢-1">
 <a class="header-anchor" href="#%e5%b7%a8%e7%86%b1%e5%8a%9b%e5%8b%a2-1"></a>

@@ -217,9 +217,9 @@ $B_1,B_2,B_3,\cdots B_n$は$\Omega$の完全事象群を構成する。</p>
 </h3>$$
 \begin{align}
 P(A)
-&=P(AB_1 \cup AB_2 \cup \cdots \cup AB_n)\\
-&=P(AB_1)+P(AB_2)+\cdots +P(AB_n)\\
-&=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+\cdots +P(B_n)P(A|B_n)\\
+&amp;=P(AB_1 \cup AB_2 \cup \cdots \cup AB_n)\\
+&amp;=P(AB_1)+P(AB_2)+\cdots +P(AB_n)\\
+&amp;=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+\cdots +P(B_n)P(A|B_n)\\
 \end{align}
 $$<h3 id="ベイズの定理">
 <a class="header-anchor" href="#%e3%83%99%e3%82%a4%e3%82%ba%e3%81%ae%e5%ae%9a%e7%90%86"></a>
@@ -334,10 +334,10 @@ $$<p>
 $$
 \begin{align}
 F_Z(z)
-&=P(Z \lt z)\\
-&=P(X-Y \lt z)\\
-&=P(X \lt Y+z)\\
-&=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
+&amp;=P(Z \lt z)\\
+&amp;=P(X-Y \lt z)\\
+&amp;=P(X \lt Y+z)\\
+&amp;=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
 \end{align}
 $$<p>
 つまり分布関数$F_Z(z)=\iint_Df(x,y)dxdy$。分布関数を微分して確率密度関数$f_Z(z)$を得る。

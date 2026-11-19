@@ -15,7 +15,7 @@
 光電效應與光子假說
 </h5><ul>
 <li><strong>光子能量</strong>：$E = h\nu$</li>
-<li><strong>閾頻</strong>：$\nu_0 = \dfrac{W_0}{h}$，$\nu < \nu_0$ 無光電子逸出</li>
+<li><strong>閾頻</strong>：$\nu_0 = \dfrac{W_0}{h}$，$\nu &lt; \nu_0$ 無光電子逸出</li>
 <li><strong>光電效應方程</strong>：<br>
 
 $$
@@ -418,11 +418,11 @@ $$</li>
 $$
 V(x) =
 \begin{cases}
-0, & 0 < x < L \\
-\infty, & x \leq 0 \ \text{或} \ x \geq L
+0, &amp; 0 &lt; x &lt; L \\
+\infty, &amp; x \leq 0 \ \text{或} \ x \geq L
 \end{cases}
 $$<p><strong>2. 薛定諤方程</strong><br>
-在阱內 ($0 < x < L$)：
+在阱內 ($0 &lt; x &lt; L$)：
 </p>
 $$
 -\frac{\hbar^2}{2m} \frac{d^2 \phi(x)}{dx^2} = E \phi(x)
@@ -1304,9 +1304,9 @@ $$
 其中
 </p>
 $$
-   \sigma_x = \begin{pmatrix}0 & 1\\ 1 & 0\end{pmatrix},\quad
-   \sigma_y = \begin{pmatrix}0 & -i\\ i & 0\end{pmatrix},\quad
-   \sigma_z = \begin{pmatrix}1 & 0\\ 0 & -1\end{pmatrix}
+   \sigma_x = \begin{pmatrix}0 &amp; 1\\ 1 &amp; 0\end{pmatrix},\quad
+   \sigma_y = \begin{pmatrix}0 &amp; -i\\ i &amp; 0\end{pmatrix},\quad
+   \sigma_z = \begin{pmatrix}1 &amp; 0\\ 0 &amp; -1\end{pmatrix}
    $$</li>
 </ol>
 <h4 id="角動量耦合理論">
@@ -1378,7 +1378,7 @@ $$
 對 $N$ 個全同粒子：
 </p>
 $$
-   \hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i<j} V(\vec{r}_i - \vec{r}_j)
+   \hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i&lt;j} V(\vec{r}_i - \vec{r}_j)
    $$<ul>
 <li>$\hat{T}_i$ 為第 $i$ 個粒子的動能算符。</li>
 <li>$V(\vec{r}_i - \vec{r}_j)$ 為兩粒子間相互作用勢。</li>
@@ -1422,9 +1422,9 @@ $$
 $$
      \Psi(\vec{r}_1, \dots, \vec{r}_N) = \frac{1}{\sqrt{N!}}
      \begin{vmatrix}
-     \psi_1(\vec{r}_1) & \cdots & \psi_1(\vec{r}_N) \\
-     \vdots & \ddots & \vdots \\
-     \psi_N(\vec{r}_1) & \cdots & \psi_N(\vec{r}_N)
+     \psi_1(\vec{r}_1) &amp; \cdots &amp; \psi_1(\vec{r}_N) \\
+     \vdots &amp; \ddots &amp; \vdots \\
+     \psi_N(\vec{r}_1) &amp; \cdots &amp; \psi_N(\vec{r}_N)
      \end{vmatrix}
      $$</li>
 </ul>

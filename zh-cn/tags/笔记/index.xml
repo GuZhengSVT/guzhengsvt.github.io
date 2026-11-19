@@ -833,7 +833,7 @@ set
 <li><strong>适用场景</strong>：模型内部的馈电（如微带天线内部的同轴馈针、贴片元件 SMT 焊盘的等效激励）、低频段或电尺寸极小的缝隙。</li>
 <li><strong>内部激励特性</strong>：集总端口<strong>必须</strong>位于模型内部，且必须连接两个导电面（如连接信号线与地平面）。它不进行 2D 本征模预计算，而是强制假设端口面上的电场是均匀的（TEM 模）。</li>
 <li><strong>归一化阻抗设定</strong>：由于不进行 2D 计算，集总端口无法自动得出特征阻抗。用户必须手动指定一个参考阻抗（通常为 $50\Omega$）。所有计算出的 S 参数都将基于这个给定的阻抗进行归一化。</li>
-<li><strong>使用限制</strong>：集总端口的长宽物理尺寸必须远小于最高工作频率下的十分之一波长（$<\lambda/10$），否则均匀场假设失效，产生严重的寄生电感和电容。</li>
+<li><strong>使用限制</strong>：集总端口的长宽物理尺寸必须远小于最高工作频率下的十分之一波长（$&lt;\lambda/10$），否则均匀场假设失效，产生严重的寄生电感和电容。</li>
 </ul>
 <blockquote>
 <p><strong>数据来源</strong>：David M. Pozar 著 <em>Microwave Engineering</em>，关于集总元件与分布式传输线在微波频段等效差异的理论。</p>
@@ -995,7 +995,7 @@ set
 <ul>
 <li><strong>S 参数矩阵 (Scattering Parameters)</strong>：
 <ul>
-<li><strong>$S_{11}$ (回波损耗 / Return Loss)</strong>：表征端口自身阻抗匹配程度的核心指标。通常要求在工作频段内 $S_{11} < -10 \text{ dB}$（即反射功率小于 10%）。</li>
+<li><strong>$S_{11}$ (回波损耗 / Return Loss)</strong>：表征端口自身阻抗匹配程度的核心指标。通常要求在工作频段内 $S_{11} &lt; -10 \text{ dB}$（即反射功率小于 10%）。</li>
 <li><strong>$S_{21}$ (插入损耗 / Insertion Loss)</strong>：表征能量从端口 1 传输至端口 2 的效率。理想滤波器的通带 $S_{21}$ 应接近 $0 \text{ dB}$，阻带应远小于 $-30 \text{ dB}$。</li>
 <li><strong>图表规范</strong>：工程制图时，S 参数的纵坐标必须采用分贝 (dB) 对数刻度，横坐标采用线性频率刻度。</li>
 </ul>
@@ -1054,7 +1054,7 @@ set
 <li><strong>轴比 (Axial Ratio, AR)</strong>：
 <ul>
 <li>表征圆极化天线性能的决定性参数。</li>
-<li><strong>判定标准</strong>：理想圆极化的 AR 为 $0 \text{ dB}$。在工程中，通常将 $AR < 3 \text{ dB}$ 的频带范围定义为圆极化天线的有效工作带宽。</li>
+<li><strong>判定标准</strong>：理想圆极化的 AR 为 $0 \text{ dB}$。在工程中，通常将 $AR &lt; 3 \text{ dB}$ 的频带范围定义为圆极化天线的有效工作带宽。</li>
 </ul>
 </li>
 </ul>
@@ -1096,7 +1096,7 @@ set
 <li><strong>目标函数 (Cost Function) 设定</strong>：
 <ul>
 <li>优化的核心在于将物理需求转化为数学判断标准。</li>
-<li>可以在 <code>Optimizer Setup &gt; Goals</code> 中设定多个目标，例如：要求在目标频点 $S_{11} < -15 \text{ dB}$，同时设定增益 $Gain > 5 \text{ dBi}$。</li>
+<li>可以在 <code>Optimizer Setup &gt; Goals</code> 中设定多个目标，例如：要求在目标频点 $S_{11} &lt; -15 \text{ dB}$，同时设定增益 $Gain &gt; 5 \text{ dBi}$。</li>
 <li><strong>权重 (Weight)</strong>：当多个目标存在物理冲突时（如同时要求极宽的带宽和极高的增益），需通过赋予不同权重值（如将回波损耗权重设为 1，增益设为 2）来引导算法的侧重点。</li>
 </ul>
 </li>
@@ -1252,7 +1252,7 @@ set
 光电效应与光子假说
 </h5><ul>
 <li><strong>光子能量</strong>：$E = h\nu$</li>
-<li><strong>阈频</strong>：$\nu_0 = \dfrac{W_0}{h}$，$\nu < \nu_0$ 无光电子逸出</li>
+<li><strong>阈频</strong>：$\nu_0 = \dfrac{W_0}{h}$，$\nu &lt; \nu_0$ 无光电子逸出</li>
 <li><strong>光电效应方程</strong>：<br>
 
 $$
@@ -1655,11 +1655,11 @@ $$</li>
 $$
 V(x) =
 \begin{cases}
-0, & 0 < x < L \\
-\infty, & x \leq 0 \ \text{或} \ x \geq L
+0, &amp; 0 &lt; x &lt; L \\
+\infty, &amp; x \leq 0 \ \text{或} \ x \geq L
 \end{cases}
 $$<p><strong>2. 薛定谔方程</strong><br>
-在阱内 ($0 < x < L$)：
+在阱内 ($0 &lt; x &lt; L$)：
 </p>
 $$
 -\frac{\hbar^2}{2m} \frac{d^2 \phi(x)}{dx^2} = E \phi(x)
@@ -2541,9 +2541,9 @@ $$
 其中
 </p>
 $$
-   \sigma_x = \begin{pmatrix}0 & 1\\ 1 & 0\end{pmatrix},\quad
-   \sigma_y = \begin{pmatrix}0 & -i\\ i & 0\end{pmatrix},\quad
-   \sigma_z = \begin{pmatrix}1 & 0\\ 0 & -1\end{pmatrix}
+   \sigma_x = \begin{pmatrix}0 &amp; 1\\ 1 &amp; 0\end{pmatrix},\quad
+   \sigma_y = \begin{pmatrix}0 &amp; -i\\ i &amp; 0\end{pmatrix},\quad
+   \sigma_z = \begin{pmatrix}1 &amp; 0\\ 0 &amp; -1\end{pmatrix}
    $$</li>
 </ol>
 <h4 id="角动量耦合理论">
@@ -2615,7 +2615,7 @@ $$
 对 $N$ 个全同粒子：
 </p>
 $$
-   \hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i<j} V(\vec{r}_i - \vec{r}_j)
+   \hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i&lt;j} V(\vec{r}_i - \vec{r}_j)
    $$<ul>
 <li>$\hat{T}_i$ 为第 $i$ 个粒子的动能算符。</li>
 <li>$V(\vec{r}_i - \vec{r}_j)$ 为两粒子间相互作用势。</li>
@@ -2659,9 +2659,9 @@ $$
 $$
      \Psi(\vec{r}_1, \dots, \vec{r}_N) = \frac{1}{\sqrt{N!}}
      \begin{vmatrix}
-     \psi_1(\vec{r}_1) & \cdots & \psi_1(\vec{r}_N) \\
-     \vdots & \ddots & \vdots \\
-     \psi_N(\vec{r}_1) & \cdots & \psi_N(\vec{r}_N)
+     \psi_1(\vec{r}_1) &amp; \cdots &amp; \psi_1(\vec{r}_N) \\
+     \vdots &amp; \ddots &amp; \vdots \\
+     \psi_N(\vec{r}_1) &amp; \cdots &amp; \psi_N(\vec{r}_N)
      \end{vmatrix}
      $$</li>
 </ul>
@@ -3511,9 +3511,9 @@ $$<p>
 </h3>$$
 \begin{align}
 P(A)
-&=P(AB_1 \cup AB_2 \cup \cdots \cup AB_n)\\
-&=P(AB_1)+P(AB_2)+\cdots +P(AB_n)\\
-&=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+\cdots +P(B_n)P(A|B_n)\\
+&amp;=P(AB_1 \cup AB_2 \cup \cdots \cup AB_n)\\
+&amp;=P(AB_1)+P(AB_2)+\cdots +P(AB_n)\\
+&amp;=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+\cdots +P(B_n)P(A|B_n)\\
 \end{align}
 $$<h3 id="贝叶斯公式">
 <a class="header-anchor" href="#%e8%b4%9d%e5%8f%b6%e6%96%af%e5%85%ac%e5%bc%8f"></a>
@@ -3628,10 +3628,10 @@ $$<p>
 $$
 \begin{align}
 F_Z(z)
-&=P(Z \lt z)\\
-&=P(X-Y \lt z)\\
-&=P(X \lt Y+z)\\
-&=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
+&amp;=P(Z \lt z)\\
+&amp;=P(X-Y \lt z)\\
+&amp;=P(X \lt Y+z)\\
+&amp;=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
 \end{align}
 $$<p>
 即分布函数 $F_Z(z)=\iint_Df(x,y)dxdy$ 。由分布函数求导得概率密度函数 $f_Z(z)$ 。
@@ -3940,9 +3940,9 @@ $$<p>
 $$
 F(x)=
 \begin{cases}
-0, & x \le 0\\
-0.5, & 0  \lt  x \le 1\\
-1, & x \gt 1\\
+0, &amp; x \le 0\\
+0.5, &amp; 0  \lt  x \le 1\\
+1, &amp; x \gt 1\\
 \end{cases}
 $$<p>
 $F(0^-)=F(0)=0$，$F(0^+)=0.5$，$x=0$ 是间断点，左连续而右不连续。</p>
@@ -4336,8 +4336,8 @@ $$<h5 id="图形表示">
 </h5>$$
 \delta(n)=
 \begin{cases}
-1 & n=0\\
-0 & n \ne 0\\
+1 &amp; n=0\\
+0 &amp; n \ne 0\\
 \end{cases}
 $$<p>
 也称单位采样序列，不同于单位冲激信号 $\delta(t)$ 。</p>
@@ -4347,8 +4347,8 @@ $$<p>
 </h5>$$
 u(n)=
 \begin{cases}
-1 & n \ge 0\\
-0 & n  \lt  0\\
+1 &amp; n \ge 0\\
+0 &amp; n  \lt  0\\
 \end{cases}
 $$$$
 \delta(n)=u(n)-u(n-1)
@@ -4362,8 +4362,8 @@ $$<h5 id="矩形序列">
 </h5>$$
 R_N(n)=
 \begin{cases}
-1 & 0 \le n \le N-1\\
-0 & Others
+1 &amp; 0 \le n \le N-1\\
+0 &amp; Others
 \end{cases}
 $$<p>
 $N$ 称为矩形序列长度，矩形序列可用单位阶跃序列表示。
@@ -4484,11 +4484,11 @@ $$<p>
 $$
 \begin{align}
 y(n)
-&=T[x(n)]\\
-&=T[\sum^{\infty}_{m=-\infty}x(m)\delta(n-m)]\\
-&=\sum^{\infty}_{m=-\infty}x(m)T[\delta(n-m)]\\
-&=\sum^{\infty}_{m=-\infty}x(m)h(n-m)\\
-&=x(n)*h(n)
+&amp;=T[x(n)]\\
+&amp;=T[\sum^{\infty}_{m=-\infty}x(m)\delta(n-m)]\\
+&amp;=\sum^{\infty}_{m=-\infty}x(m)T[\delta(n-m)]\\
+&amp;=\sum^{\infty}_{m=-\infty}x(m)h(n-m)\\
+&amp;=x(n)*h(n)
 \end{align}
 $$<p>
 卷积相关知识见《信号与系统》</p>

@@ -116,7 +116,7 @@ $$![Engelbart|100](画像リンク)$$</li>
 Obsidian URL
 </h4><p>Obsidian URIは通常以下の形式：
 </p>
-$$obsidian://action?param1=value&param2=value$$<p>
+$$obsidian://action?param1=value&amp;param2=value$$<p>
 actionは実行する操作、valueはパラメータ
 例：ノートを開く：
 </p>
@@ -149,7 +149,7 @@ $$[name](obsidian://open?vault=ライブラリフォルダ名/ライブラリID)
 <li>
 <p>引用
 </p>
-$$> 引用内容$$<p>
+$$&gt; 引用内容$$<p>
 </p>
 $$\ 引用元$$<p>
 例</p>

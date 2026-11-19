@@ -33,11 +33,11 @@
 <h2 id="中文摘要">
 <a class="header-anchor" href="#%e4%b8%ad%e6%96%87%e6%91%98%e8%a6%81"></a>
 中文摘要
-</h2><p>针对5G基站天线小型化的需求，本文设计了一款覆盖N77/N78频段（3.3&ndash;4.0 GHz）的低剖面宽带双极化基站天线。该天线由两个 $\pm45^\circ$ 正交放置的矩形偶极子构成。为解决天线低剖面引起的阻抗失配问题，在辐射臂末端引入窄微带线，并通过金属化通孔连接介质板上下层，构造等效“折叠偶极子”结构以大幅提升输入阻抗。此外，通过增大偶极子宽度激发出第二谐振点，有效拓宽了工作频带。HFSS软件仿真结果表明，该天线剖面高度仅为0.11个中心波长（约9.2 mm），在目标频段内实现了良好的阻抗匹配（VSWR $<2$，$\left| S_{11} \right| <-10$ dB），并获得了稳定的定向辐射方向图及极高的双极化端口隔离度。该设计结构简单、剖面极低，为5G基站天线的小型化提供了有效方案。</p>
+</h2><p>针对5G基站天线小型化的需求，本文设计了一款覆盖N77/N78频段（3.3&ndash;4.0 GHz）的低剖面宽带双极化基站天线。该天线由两个 $\pm45^\circ$ 正交放置的矩形偶极子构成。为解决天线低剖面引起的阻抗失配问题，在辐射臂末端引入窄微带线，并通过金属化通孔连接介质板上下层，构造等效“折叠偶极子”结构以大幅提升输入阻抗。此外，通过增大偶极子宽度激发出第二谐振点，有效拓宽了工作频带。HFSS软件仿真结果表明，该天线剖面高度仅为0.11个中心波长（约9.2 mm），在目标频段内实现了良好的阻抗匹配（VSWR $&lt;2$，$\left| S_{11} \right| &lt;-10$ dB），并获得了稳定的定向辐射方向图及极高的双极化端口隔离度。该设计结构简单、剖面极低，为5G基站天线的小型化提供了有效方案。</p>
 <h2 id="abstract">
 <a class="header-anchor" href="#abstract"></a>
 Abstract
-</h2><p>To meet the miniaturization requirements of 5G base station antennas, this thesis designs a low-profile, wideband, and dual-polarized antenna covering the N77/N78 bands (3.3&ndash;4.0 GHz). The antenna consists of two orthogonal rectangular dipoles placed at $\pm45^\circ$. To solve the impedance mismatch caused by the extremely low profile, narrow microstrip lines and metallized vias are introduced at the ends of the radiating arms to connect the upper and lower layers of the substrate. This forms an equivalent &ldquo;folded dipole&rdquo; structure to significantly enhance the input impedance. Additionally, increasing the dipole width excites a second resonance, which effectively broadens the operating bandwidth. HFSS simulations demonstrate that with a profile height of only 0.11 central wavelength (about 9.2 mm), the antenna achieves good impedance matching (VSWR $<2$, $\left| S_{11} \right| <-10$ dB) in the 3.3&ndash;4.0 GHz band. It also exhibits stable directional radiation patterns and high isolation between the two polarization ports. With its simple structure and extremely low profile, this design provides an effective solution for the miniaturization of 5G base station antennas.</p>
+</h2><p>To meet the miniaturization requirements of 5G base station antennas, this thesis designs a low-profile, wideband, and dual-polarized antenna covering the N77/N78 bands (3.3&ndash;4.0 GHz). The antenna consists of two orthogonal rectangular dipoles placed at $\pm45^\circ$. To solve the impedance mismatch caused by the extremely low profile, narrow microstrip lines and metallized vias are introduced at the ends of the radiating arms to connect the upper and lower layers of the substrate. This forms an equivalent &ldquo;folded dipole&rdquo; structure to significantly enhance the input impedance. Additionally, increasing the dipole width excites a second resonance, which effectively broadens the operating bandwidth. HFSS simulations demonstrate that with a profile height of only 0.11 central wavelength (about 9.2 mm), the antenna achieves good impedance matching (VSWR $&lt;2$, $\left| S_{11} \right| &lt;-10$ dB) in the 3.3&ndash;4.0 GHz band. It also exhibits stable directional radiation patterns and high isolation between the two polarization ports. With its simple structure and extremely low profile, this design provides an effective solution for the miniaturization of 5G base station antennas.</p>
 <h2 id="第一章-绪论">
 <a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e7%ab%a0-%e7%bb%aa%e8%ae%ba"></a>
 第一章 绪论
@@ -141,7 +141,7 @@ $$<p>VSWR 越接近于 1，说明反射越小，能量传输效率越高。</p>
 <p>在微波网络与高频仿真中，通常使用散射参数（S参数）中的 回波损耗（Return Loss） 或输入反射系数 $S_{11}$ 来直观表征阻抗匹配的优劣。$S_{11}$ 的分贝表示形式为：</p>
 $$
 S_{11} (\text{dB}) = 20 \log_{10} |\Gamma| \tag{2.10}
-$$<p>在典型的5G微基站天线工程设计中，通常要求工作频带内的 $\left| S_{11} \right| < -10\ \text{dB}$，等效于 $VSWR < 2.0$，这表明超过 $90\%$ 的功率被天线成功接收并辐射[5]。</p>
+$$<p>在典型的5G微基站天线工程设计中，通常要求工作频带内的 $\left| S_{11} \right| &lt; -10\ \text{dB}$，等效于 $VSWR &lt; 2.0$，这表明超过 $90\%$ 的功率被天线成功接收并辐射[5]。</p>
 <h4 id="输入阻抗input-impedance">
 <a class="header-anchor" href="#%e8%be%93%e5%85%a5%e9%98%bb%e6%8a%97input-impedance"></a>
 输入阻抗（Input Impedance）
@@ -388,7 +388,7 @@ $$<p>式中，$\theta_{HP}$ 和 $\phi_{HP}$ 分别为相互正交的两个主平
 <p><img src="/ruri-media/remote/1_Gain%28dB%29-3D-Polar-Plot_10673187213080611864_hu_fae6c9ec7f6e2878.webp" srcset="/ruri-media/remote/1_Gain%28dB%29-3D-Polar-Plot_10673187213080611864_hu_1f4714b7301fe690.webp 480w, /ruri-media/remote/1_Gain%28dB%29-3D-Polar-Plot_10673187213080611864_hu_ab4511485f730d14.webp 960w, /ruri-media/remote/1_Gain%28dB%29-3D-Polar-Plot_10673187213080611864_hu_fae6c9ec7f6e2878.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="967" alt="图4.5：3D极坐标增益图" loading="lazy" decoding="async" data-original-src="/ruri-media/remote/1_Gain%28dB%29-3D-Polar-Plot_10673187213080611864.jpg" data-original-width="1697" data-original-height="1139">
 </p>
 <!-- raw HTML omitted -->
-<p>提取天线在 $3.65 \text{ GHz}$ 的 3D 极坐标增益图4.5可以一目了然地观察到，天线的主瓣指向精准地垂直于金属反射板（即 $+Z$ 轴方向，天顶角 $\theta = 0^\circ$ 处），峰值增益 $\text{Peak Gain} > 9 \text{ dBi}$。三维辐射包络呈现出优异的空间对称性，未出现明显的波束倾斜或畸变现象。</p>
+<p>提取天线在 $3.65 \text{ GHz}$ 的 3D 极坐标增益图4.5可以一目了然地观察到，天线的主瓣指向精准地垂直于金属反射板（即 $+Z$ 轴方向，天顶角 $\theta = 0^\circ$ 处），峰值增益 $\text{Peak Gain} &gt; 9 \text{ dBi}$。三维辐射包络呈现出优异的空间对称性，未出现明显的波束倾斜或畸变现象。</p>
 <p>由峰值增益-频率图4.6可知，在 3.3 GHz - 4.0 GHz 的工作带宽内，仿真提取的峰值增益在整个频带内保持平稳，没有因为剖面高度的压缩而出现增益陡降，完全能够满足 5G 微基站对定点区域覆盖的增益需求[5]。</p>
 <p><img src="/ruri-media/remote/PeakGain-Freq_11271494049274514790_hu_c6c7d5d7e19fb43f.webp" srcset="/ruri-media/remote/PeakGain-Freq_11271494049274514790_hu_abcf7cc45a96a34e.webp 480w, /ruri-media/remote/PeakGain-Freq_11271494049274514790_hu_9e13500b51ba0d34.webp 960w, /ruri-media/remote/PeakGain-Freq_11271494049274514790_hu_c6c7d5d7e19fb43f.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1100px) calc(100vw - 350px), 820px" width="1440" height="1056" alt="图4.6：峰值增益-频率图" loading="lazy" decoding="async" data-original-src="/ruri-media/remote/PeakGain-Freq_11271494049274514790.png" data-original-width="3543" data-original-height="2598">
 </p>
@@ -449,7 +449,7 @@ $$<p>式中，$\hat{n}$ 为垂直于导体表面向外的单位法方向矢量�
 <h3 id="本章小结-1">
 <a class="header-anchor" href="#%e6%9c%ac%e7%ab%a0%e5%b0%8f%e7%bb%93-1"></a>
 本章小结
-</h3><p>本章基于 HFSS 全波电磁仿真软件，对优化后的低剖面宽带双极化基站天线进行了系统的性能评估与物理机理验证。首先，通过分析回波损耗与输入阻抗曲线，验证了天线在 $0.11\lambda$ 的低剖面下，凭借等效折叠通孔与分布微带的寄生补偿作用，在 3.3-4.0 GHz 频段内实现了较好的宽带阻抗匹配与低驻波比（VSWR $<2.0$）。其次，提取了极化通道间的传输系数，证明了 $\pm 45^\circ$ 正交交叉布局带来的高隔离度与高极化纯度。在空间辐射特性方面，三维与二维增益方向图表明天线在目标频带内方向图主瓣稳定、半功率波瓣宽度合规且前后比优异，满足微基站的定向覆盖需求。最后，通过可视化表面矢量电流分布，直观揭示了扇形贴片在低频段的极径方向谐振与高频段的横向边缘谐振双模工作机理。各项仿真与理论分析高度吻合，证明本设计完全达到了预期的电性能工程指标。</p>
+</h3><p>本章基于 HFSS 全波电磁仿真软件，对优化后的低剖面宽带双极化基站天线进行了系统的性能评估与物理机理验证。首先，通过分析回波损耗与输入阻抗曲线，验证了天线在 $0.11\lambda$ 的低剖面下，凭借等效折叠通孔与分布微带的寄生补偿作用，在 3.3-4.0 GHz 频段内实现了较好的宽带阻抗匹配与低驻波比（VSWR $&lt;2.0$）。其次，提取了极化通道间的传输系数，证明了 $\pm 45^\circ$ 正交交叉布局带来的高隔离度与高极化纯度。在空间辐射特性方面，三维与二维增益方向图表明天线在目标频带内方向图主瓣稳定、半功率波瓣宽度合规且前后比优异，满足微基站的定向覆盖需求。最后，通过可视化表面矢量电流分布，直观揭示了扇形贴片在低频段的极径方向谐振与高频段的横向边缘谐振双模工作机理。各项仿真与理论分析高度吻合，证明本设计完全达到了预期的电性能工程指标。</p>
 <h2 id="第五章-未来展望与总结">
 <a class="header-anchor" href="#%e7%ac%ac%e4%ba%94%e7%ab%a0-%e6%9c%aa%e6%9d%a5%e5%b1%95%e6%9c%9b%e4%b8%8e%e6%80%bb%e7%bb%93"></a>
 第五章 未来展望与总结
@@ -846,7 +846,7 @@ $$<p>式中，$\hat{n}$ 为垂直于导体表面向外的单位法方向矢量�
 <li><strong>适用场景</strong>：模型内部的馈电（如微带天线内部的同轴馈针、贴片元件 SMT 焊盘的等效激励）、低频段或电尺寸极小的缝隙。</li>
 <li><strong>内部激励特性</strong>：集总端口<strong>必须</strong>位于模型内部，且必须连接两个导电面（如连接信号线与地平面）。它不进行 2D 本征模预计算，而是强制假设端口面上的电场是均匀的（TEM 模）。</li>
 <li><strong>归一化阻抗设定</strong>：由于不进行 2D 计算，集总端口无法自动得出特征阻抗。用户必须手动指定一个参考阻抗（通常为 $50\Omega$）。所有计算出的 S 参数都将基于这个给定的阻抗进行归一化。</li>
-<li><strong>使用限制</strong>：集总端口的长宽物理尺寸必须远小于最高工作频率下的十分之一波长（$<\lambda/10$），否则均匀场假设失效，产生严重的寄生电感和电容。</li>
+<li><strong>使用限制</strong>：集总端口的长宽物理尺寸必须远小于最高工作频率下的十分之一波长（$&lt;\lambda/10$），否则均匀场假设失效，产生严重的寄生电感和电容。</li>
 </ul>
 <blockquote>
 <p><strong>数据来源</strong>：David M. Pozar 著 <em>Microwave Engineering</em>，关于集总元件与分布式传输线在微波频段等效差异的理论。</p>
@@ -1008,7 +1008,7 @@ $$<p>式中，$\hat{n}$ 为垂直于导体表面向外的单位法方向矢量�
 <ul>
 <li><strong>S 参数矩阵 (Scattering Parameters)</strong>：
 <ul>
-<li><strong>$S_{11}$ (回波损耗 / Return Loss)</strong>：表征端口自身阻抗匹配程度的核心指标。通常要求在工作频段内 $S_{11} < -10 \text{ dB}$（即反射功率小于 10%）。</li>
+<li><strong>$S_{11}$ (回波损耗 / Return Loss)</strong>：表征端口自身阻抗匹配程度的核心指标。通常要求在工作频段内 $S_{11} &lt; -10 \text{ dB}$（即反射功率小于 10%）。</li>
 <li><strong>$S_{21}$ (插入损耗 / Insertion Loss)</strong>：表征能量从端口 1 传输至端口 2 的效率。理想滤波器的通带 $S_{21}$ 应接近 $0 \text{ dB}$，阻带应远小于 $-30 \text{ dB}$。</li>
 <li><strong>图表规范</strong>：工程制图时，S 参数的纵坐标必须采用分贝 (dB) 对数刻度，横坐标采用线性频率刻度。</li>
 </ul>
@@ -1067,7 +1067,7 @@ $$<p>式中，$\hat{n}$ 为垂直于导体表面向外的单位法方向矢量�
 <li><strong>轴比 (Axial Ratio, AR)</strong>：
 <ul>
 <li>表征圆极化天线性能的决定性参数。</li>
-<li><strong>判定标准</strong>：理想圆极化的 AR 为 $0 \text{ dB}$。在工程中，通常将 $AR < 3 \text{ dB}$ 的频带范围定义为圆极化天线的有效工作带宽。</li>
+<li><strong>判定标准</strong>：理想圆极化的 AR 为 $0 \text{ dB}$。在工程中，通常将 $AR &lt; 3 \text{ dB}$ 的频带范围定义为圆极化天线的有效工作带宽。</li>
 </ul>
 </li>
 </ul>
@@ -1109,7 +1109,7 @@ $$<p>式中，$\hat{n}$ 为垂直于导体表面向外的单位法方向矢量�
 <li><strong>目标函数 (Cost Function) 设定</strong>：
 <ul>
 <li>优化的核心在于将物理需求转化为数学判断标准。</li>
-<li>可以在 <code>Optimizer Setup &gt; Goals</code> 中设定多个目标，例如：要求在目标频点 $S_{11} < -15 \text{ dB}$，同时设定增益 $Gain > 5 \text{ dBi}$。</li>
+<li>可以在 <code>Optimizer Setup &gt; Goals</code> 中设定多个目标，例如：要求在目标频点 $S_{11} &lt; -15 \text{ dB}$，同时设定增益 $Gain &gt; 5 \text{ dBi}$。</li>
 <li><strong>权重 (Weight)</strong>：当多个目标存在物理冲突时（如同时要求极宽的带宽和极高的增益），需通过赋予不同权重值（如将回波损耗权重设为 1，增益设为 2）来引导算法的侧重点。</li>
 </ul>
 </li>

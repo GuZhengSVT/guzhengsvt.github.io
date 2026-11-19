@@ -12,8 +12,8 @@
 $$$$
 \text{s.t.}{
 \begin{cases}
-c_i(x)=0,& i \in E = {1,2,\cdots,l}\\
-c_i(\vec{x})\ge 0,& i \in I = {l+1,\cdots,l+m}\\
+c_i(x)=0,&amp; i \in E = {1,2,\cdots,l}\\
+c_i(\vec{x})\ge 0,&amp; i \in I = {l+1,\cdots,l+m}\\
 \end{cases}}
 $$<p>
 其中，</p>
@@ -59,27 +59,27 @@ $$<p>
 $$
 \begin{align}
 f
-&=x_1^2-3x_3^2-4x_1x_2+x_2x_3\\
-&=(x_1,x_2,x_3)
+&amp;=x_1^2-3x_3^2-4x_1x_2+x_2x_3\\
+&amp;=(x_1,x_2,x_3)
 \begin{bmatrix}
-1 & -2 & 0\\
--2 & 0 & \frac{1}{2}\\
-0 & \frac{1}{2} & -3\\
+1 &amp; -2 &amp; 0\\
+-2 &amp; 0 &amp; \frac{1}{2}\\
+0 &amp; \frac{1}{2} &amp; -3\\
 \end{bmatrix}
 \begin{bmatrix}
 x_1\\
 x_2\\
 x_3\\
 \end{bmatrix}\\
-&= \vec{X^T} A \vec{X}\\
+&amp;= \vec{X^T} A \vec{X}\\
 \end{align}
 $$<p>二次型矩陣：
 </p>
 $$
 \begin{bmatrix}
-1 & -2 & 0\\
--2 & 0 & \frac{1}{2}\\
-0 & \frac{1}{2} & -3\\
+1 &amp; -2 &amp; 0\\
+-2 &amp; 0 &amp; \frac{1}{2}\\
+0 &amp; \frac{1}{2} &amp; -3\\
 \end{bmatrix}
 $$<h3 id="hessen-矩陣">
 <a class="header-anchor" href="#hessen-%e7%9f%a9%e9%99%a3"></a>
@@ -89,8 +89,8 @@ Hessen 矩陣
 $$
 \nabla^2 f(x_1,x_2)=
 \begin{bmatrix}
-\frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2}\\
-\frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2}\\
+\frac{\partial^2 f}{\partial x_1^2} &amp; \frac{\partial^2 f}{\partial x_1 \partial x_2}\\
+\frac{\partial^2 f}{\partial x_2 \partial x_1} &amp; \frac{\partial^2 f}{\partial x_2^2}\\
 \end{bmatrix}
 $$<h3 id="可行解">
 <a class="header-anchor" href="#%e5%8f%af%e8%a1%8c%e8%a7%a3"></a>
@@ -190,9 +190,9 @@ $$<p>
 $$
 A=
 \begin{bmatrix}
-a_{11} & \cdots & a_{1n}\\
-\vdots & \ddots & \vdots\\
-a_{m1} & \cdots & a_{mn}\\
+a_{11} &amp; \cdots &amp; a_{1n}\\
+\vdots &amp; \ddots &amp; \vdots\\
+a_{m1} &amp; \cdots &amp; a_{mn}\\
 \end{bmatrix}
 =(P_1,P_2,\cdots,P_n)
 $$</li>
@@ -202,8 +202,8 @@ $$</li>
 
 $$
 \begin{cases}
-\sum^{n}_{j=1}a_{ij}x_j=b_i,&i=1,2,\cdots,m\\
-x_j \ge 0,& j=1,2,\cdots,n\\
+\sum^{n}_{j=1}a_{ij}x_j=b_i,&amp;i=1,2,\cdots,m\\
+x_j \ge 0,&amp; j=1,2,\cdots,n\\
 \end{cases}
 $$
 
@@ -228,7 +228,7 @@ $$
 \min f(x_1,x_2,\cdots , x_n)\\
 \text{s.t.} 
 \begin{cases}
-h_j(x_1,x_2,\cdots,x_n)=0&(j=1,2,\cdots)\\
+h_j(x_1,x_2,\cdots,x_n)=0&amp;(j=1,2,\cdots)\\
 x_j \ge 0\\
 \end{cases}
 \end{cases}

@@ -12,8 +12,8 @@ Mathematical Model
 $$$$
 \text{s.t.}{
 \begin{cases}
-c_i(x)=0,& i \in E = {1,2,\cdots,l}\\
-c_i(\vec{x})\ge 0,& i \in I = {l+1,\cdots,l+m}\\
+c_i(x)=0,&amp; i \in E = {1,2,\cdots,l}\\
+c_i(\vec{x})\ge 0,&amp; i \in I = {l+1,\cdots,l+m}\\
 \end{cases}}
 $$<p>
 where</p>
@@ -59,27 +59,27 @@ Quadratic Form Matrix
 $$
 \begin{align}
 f
-&=x_1^2-3x_3^2-4x_1x_2+x_2x_3\\
-&=(x_1,x_2,x_3)
+&amp;=x_1^2-3x_3^2-4x_1x_2+x_2x_3\\
+&amp;=(x_1,x_2,x_3)
 \begin{bmatrix}
-1 & -2 & 0\\
--2 & 0 & \frac{1}{2}\\
-0 & \frac{1}{2} & -3\\
+1 &amp; -2 &amp; 0\\
+-2 &amp; 0 &amp; \frac{1}{2}\\
+0 &amp; \frac{1}{2} &amp; -3\\
 \end{bmatrix}
 \begin{bmatrix}
 x_1\\
 x_2\\
 x_3\\
 \end{bmatrix}\\
-&= \vec{X^T} A \vec{X}\\
+&amp;= \vec{X^T} A \vec{X}\\
 \end{align}
 $$<p>Quadratic form matrix:
 </p>
 $$
 \begin{bmatrix}
-1 & -2 & 0\\
--2 & 0 & \frac{1}{2}\\
-0 & \frac{1}{2} & -3\\
+1 &amp; -2 &amp; 0\\
+-2 &amp; 0 &amp; \frac{1}{2}\\
+0 &amp; \frac{1}{2} &amp; -3\\
 \end{bmatrix}
 $$<h3 id="hessian-matrix">
 <a class="header-anchor" href="#hessian-matrix"></a>
@@ -89,8 +89,8 @@ Hessian Matrix
 $$
 \nabla^2 f(x_1,x_2)=
 \begin{bmatrix}
-\frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2}\\
-\frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2}\\
+\frac{\partial^2 f}{\partial x_1^2} &amp; \frac{\partial^2 f}{\partial x_1 \partial x_2}\\
+\frac{\partial^2 f}{\partial x_2 \partial x_1} &amp; \frac{\partial^2 f}{\partial x_2^2}\\
 \end{bmatrix}
 $$<h3 id="feasible-solutions">
 <a class="header-anchor" href="#feasible-solutions"></a>
@@ -190,9 +190,9 @@ Nonstandard Form
 $$
 A=
 \begin{bmatrix}
-a_{11} & \cdots & a_{1n}\\
-\vdots & \ddots & \vdots\\
-a_{m1} & \cdots & a_{mn}\\
+a_{11} &amp; \cdots &amp; a_{1n}\\
+\vdots &amp; \ddots &amp; \vdots\\
+a_{m1} &amp; \cdots &amp; a_{mn}\\
 \end{bmatrix}
 =(P_1,P_2,\cdots,P_n)
 $$</li>
@@ -202,8 +202,8 @@ $$</li>
 
 $$
 \begin{cases}
-\sum^{n}_{j=1}a_{ij}x_j=b_i,&i=1,2,\cdots,m\\
-x_j \ge 0,& j=1,2,\cdots,n\\
+\sum^{n}_{j=1}a_{ij}x_j=b_i,&amp;i=1,2,\cdots,m\\
+x_j \ge 0,&amp; j=1,2,\cdots,n\\
 \end{cases}
 $$
 
@@ -228,7 +228,7 @@ $$
 \min f(x_1,x_2,\cdots , x_n)\\
 \text{s.t.} 
 \begin{cases}
-h_j(x_1,x_2,\cdots,x_n)=0&(j=1,2,\cdots)\\
+h_j(x_1,x_2,\cdots,x_n)=0&amp;(j=1,2,\cdots)\\
 x_j \ge 0\\
 \end{cases}
 \end{cases}
@@ -733,9 +733,9 @@ Total Probability Formula
 </h3>$$
 \begin{align}
 P(A)
-&=P(AB_1 \cup AB_2 \cup \cdots \cup AB_n)\\
-&=P(AB_1)+P(AB_2)+\cdots +P(AB_n)\\
-&=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+\cdots +P(B_n)P(A|B_n)\\
+&amp;=P(AB_1 \cup AB_2 \cup \cdots \cup AB_n)\\
+&amp;=P(AB_1)+P(AB_2)+\cdots +P(AB_n)\\
+&amp;=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+\cdots +P(B_n)P(A|B_n)\\
 \end{align}
 $$<h3 id="bayes-formula">
 <a class="header-anchor" href="#bayes-formula"></a>
@@ -850,10 +850,10 @@ Distribution Function
 $$
 \begin{align}
 F_Z(z)
-&=P(Z \lt z)\\
-&=P(X-Y \lt z)\\
-&=P(X \lt Y+z)\\
-&=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
+&amp;=P(Z \lt z)\\
+&amp;=P(X-Y \lt z)\\
+&amp;=P(X \lt Y+z)\\
+&amp;=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
 \end{align}
 $$<p>
 The distribution function $F_Z(z)=\iint_Df(x,y)dxdy$. Differentiate to get the probability density function $f_Z(z)$.
@@ -1182,9 +1182,9 @@ $$<p>Using the <strong>left-continuous definition</strong> $F(x) = P(X  \lt  x)$
 $$ 
 F(x) = 
 \begin{cases} 
-0, & x \le 0 \\ 
-0.5, & 0  \lt  x \le 1 \\ 
-1, & x  \gt  1 \\ 
+0, &amp; x \le 0 \\ 
+0.5, &amp; 0  \lt  x \le 1 \\ 
+1, &amp; x  \gt  1 \\ 
 \end{cases} 
 $$<p><br>
 Here:</p>
@@ -1647,8 +1647,8 @@ Complex Integration
 </h2><p><strong>Key Formula</strong><br>
 </p>
 $$\oint_{|z - z_0| = r} \frac{1}{(z - z_0)^n} dz = \begin{cases}  
-2\pi i, & n = 1 \\  
-0, & n \neq 1  
+2\pi i, &amp; n = 1 \\  
+0, &amp; n \neq 1  
 \end{cases}$$<ol>
 <li>Cauchy-Goursat Theorem<br>
 For a <strong>simply connected, analytic</strong> region, the integral over any closed contour is zero:<br>

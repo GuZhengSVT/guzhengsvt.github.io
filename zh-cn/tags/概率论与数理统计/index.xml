@@ -216,9 +216,9 @@ $$<p>
 </h3>$$
 \begin{align}
 P(A)
-&=P(AB_1 \cup AB_2 \cup \cdots \cup AB_n)\\
-&=P(AB_1)+P(AB_2)+\cdots +P(AB_n)\\
-&=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+\cdots +P(B_n)P(A|B_n)\\
+&amp;=P(AB_1 \cup AB_2 \cup \cdots \cup AB_n)\\
+&amp;=P(AB_1)+P(AB_2)+\cdots +P(AB_n)\\
+&amp;=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+\cdots +P(B_n)P(A|B_n)\\
 \end{align}
 $$<h3 id="贝叶斯公式">
 <a class="header-anchor" href="#%e8%b4%9d%e5%8f%b6%e6%96%af%e5%85%ac%e5%bc%8f"></a>
@@ -333,10 +333,10 @@ $$<p>
 $$
 \begin{align}
 F_Z(z)
-&=P(Z \lt z)\\
-&=P(X-Y \lt z)\\
-&=P(X \lt Y+z)\\
-&=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
+&amp;=P(Z \lt z)\\
+&amp;=P(X-Y \lt z)\\
+&amp;=P(X \lt Y+z)\\
+&amp;=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
 \end{align}
 $$<p>
 即分布函数 $F_Z(z)=\iint_Df(x,y)dxdy$ 。由分布函数求导得概率密度函数 $f_Z(z)$ 。
@@ -645,9 +645,9 @@ $$<p>
 $$
 F(x)=
 \begin{cases}
-0, & x \le 0\\
-0.5, & 0  \lt  x \le 1\\
-1, & x \gt 1\\
+0, &amp; x \le 0\\
+0.5, &amp; 0  \lt  x \le 1\\
+1, &amp; x \gt 1\\
 \end{cases}
 $$<p>
 $F(0^-)=F(0)=0$，$F(0^+)=0.5$，$x=0$ 是间断点，左连续而右不连续。</p>

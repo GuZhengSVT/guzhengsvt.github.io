@@ -532,7 +532,7 @@ set
 光電効果と光子仮説
 </h5><ul>
 <li><strong>光子のエネルギー</strong>：$E = h\nu$</li>
-<li><strong>しきい周波数</strong>：$\nu_0 = \dfrac{W_0}{h}$、$\nu < \nu_0$ では光電子は放出されない</li>
+<li><strong>しきい周波数</strong>：$\nu_0 = \dfrac{W_0}{h}$、$\nu &lt; \nu_0$ では光電子は放出されない</li>
 <li><strong>光電効果の式</strong>：<br>
 
 $$
@@ -845,8 +845,8 @@ $$<p>
 $$
 V(x) =
 \begin{cases}
-0, & 0 < x < L \\
-\infty, & x \leq 0 \ \text{または} \ x \geq L
+0, &amp; 0 &lt; x &lt; L \\
+\infty, &amp; x \leq 0 \ \text{または} \ x \geq L
 \end{cases}
 $$<p><strong>2. 方程式</strong>
 </p>
@@ -1312,9 +1312,9 @@ $$
 $$<p>
 </p>
 $$
-\sigma_x = \begin{pmatrix}0 & 1\\ 1 & 0\end{pmatrix},\quad
-\sigma_y = \begin{pmatrix}0 & -i\\ i & 0\end{pmatrix},\quad
-\sigma_z = \begin{pmatrix}1 & 0\\ 0 & -1\end{pmatrix}
+\sigma_x = \begin{pmatrix}0 &amp; 1\\ 1 &amp; 0\end{pmatrix},\quad
+\sigma_y = \begin{pmatrix}0 &amp; -i\\ i &amp; 0\end{pmatrix},\quad
+\sigma_z = \begin{pmatrix}1 &amp; 0\\ 0 &amp; -1\end{pmatrix}
 $$<h4 id="角運動量結合理論">
 <a class="header-anchor" href="#%e8%a7%92%e9%81%8b%e5%8b%95%e9%87%8f%e7%b5%90%e5%90%88%e7%90%86%e8%ab%96"></a>
 角運動量結合理論
@@ -1356,7 +1356,7 @@ $$<ul>
 <a class="header-anchor" href="#%e5%90%8c%e7%a8%ae%e7%b2%92%e5%ad%90%e7%b3%bb%e3%81%ae%e3%83%8f%e3%83%9f%e3%83%ab%e3%83%88%e3%83%8b%e3%82%a2%e3%83%b3"></a>
 同種粒子系のハミルトニアン
 </h4>$$
-\hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i<j} V(\vec{r}_i - \vec{r}_j)
+\hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i&lt;j} V(\vec{r}_i - \vec{r}_j)
 $$<p>
 </p>
 $$
@@ -1376,9 +1376,9 @@ $$<ul>
 $$
 \Psi(\vec{r}_1, \dots, \vec{r}_N) = \frac{1}{\sqrt{N!}}
 \begin{vmatrix}
-\psi_1(\vec{r}_1) & \cdots & \psi_1(\vec{r}_N) \\
-\vdots & \ddots & \vdots \\
-\psi_N(\vec{r}_1) & \cdots & \psi_N(\vec{r}_N)
+\psi_1(\vec{r}_1) &amp; \cdots &amp; \psi_1(\vec{r}_N) \\
+\vdots &amp; \ddots &amp; \vdots \\
+\psi_N(\vec{r}_1) &amp; \cdots &amp; \psi_N(\vec{r}_N)
 \end{vmatrix}
 $$<h3 id="パウリの排他原理">
 <a class="header-anchor" href="#%e3%83%91%e3%82%a6%e3%83%aa%e3%81%ae%e6%8e%92%e4%bb%96%e5%8e%9f%e7%90%86"></a>
@@ -1809,9 +1809,9 @@ $B_1,B_2,B_3,\cdots B_n$は$\Omega$の完全事象群を構成する。</p>
 </h3>$$
 \begin{align}
 P(A)
-&=P(AB_1 \cup AB_2 \cup \cdots \cup AB_n)\\
-&=P(AB_1)+P(AB_2)+\cdots +P(AB_n)\\
-&=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+\cdots +P(B_n)P(A|B_n)\\
+&amp;=P(AB_1 \cup AB_2 \cup \cdots \cup AB_n)\\
+&amp;=P(AB_1)+P(AB_2)+\cdots +P(AB_n)\\
+&amp;=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+\cdots +P(B_n)P(A|B_n)\\
 \end{align}
 $$<h3 id="ベイズの定理">
 <a class="header-anchor" href="#%e3%83%99%e3%82%a4%e3%82%ba%e3%81%ae%e5%ae%9a%e7%90%86"></a>
@@ -1926,10 +1926,10 @@ $$<p>
 $$
 \begin{align}
 F_Z(z)
-&=P(Z \lt z)\\
-&=P(X-Y \lt z)\\
-&=P(X \lt Y+z)\\
-&=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
+&amp;=P(Z \lt z)\\
+&amp;=P(X-Y \lt z)\\
+&amp;=P(X \lt Y+z)\\
+&amp;=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
 \end{align}
 $$<p>
 つまり分布関数$F_Z(z)=\iint_Df(x,y)dxdy$。分布関数を微分して確率密度関数$f_Z(z)$を得る。
@@ -2432,8 +2432,8 @@ $$<h5 id="グラフ表現">
 </h5>$$
 \delta(n)=
 \begin{cases}
-1 & n=0\\
-0 & n \ne 0\\
+1 &amp; n=0\\
+0 &amp; n \ne 0\\
 \end{cases}
 $$<p>
 単位サンプリングシーケンスとも呼ばれ、単位インパルス信号 $\delta(t)$ とは異なる。</p>
@@ -2443,8 +2443,8 @@ $$<p>
 </h5>$$
 u(n)=
 \begin{cases}
-1 & n \ge 0\\
-0 & n  \lt  0\\
+1 &amp; n \ge 0\\
+0 &amp; n  \lt  0\\
 \end{cases}
 $$$$
 \delta(n)=u(n)-u(n-1)
@@ -2458,8 +2458,8 @@ $$<h5 id="矩形シーケンス">
 </h5>$$
 R_N(n)=
 \begin{cases}
-1 & 0 \le n \le N-1\\
-0 & Others
+1 &amp; 0 \le n \le N-1\\
+0 &amp; Others
 \end{cases}
 $$<p>
 $N$ を矩形シーケンスの長さと呼び、矩形シーケンスは単位ステップシーケンスで表現できる。
@@ -2580,11 +2580,11 @@ $$<p>
 $$
 \begin{align}
 y(n)
-&=T[x(n)]\\
-&=T[\sum^{\infty}_{m=-\infty}x(m)\delta(n-m)]\\
-&=\sum^{\infty}_{m=-\infty}x(m)T[\delta(n-m)]\\
-&=\sum^{\infty}_{m=-\infty}x(m)h(n-m)\\
-&=x(n)*h(n)
+&amp;=T[x(n)]\\
+&amp;=T[\sum^{\infty}_{m=-\infty}x(m)\delta(n-m)]\\
+&amp;=\sum^{\infty}_{m=-\infty}x(m)T[\delta(n-m)]\\
+&amp;=\sum^{\infty}_{m=-\infty}x(m)h(n-m)\\
+&amp;=x(n)*h(n)
 \end{align}
 $$<p>
 畳み込みに関する知識は『信号とシステム』を参照</p>
@@ -3891,8 +3891,8 @@ $$<h3 id="プランク定数">
 プランク定数
 </h3>$$
 \begin{align}
-h & =6.626069934(89)×10^{-34}J\cdot s \\
-& =4.135667662(25)×10^{-15}eV\cdot s
+h &amp; =6.626069934(89)×10^{-34}J\cdot s \\
+&amp; =4.135667662(25)×10^{-15}eV\cdot s
 \end{align}
 $$<p>
 換算プランク定数（ディラック定数）：
@@ -4436,8 +4436,8 @@ $$<ul>
 </p>
 $$
 \begin{align}
-\varepsilon &=\frac{1}{2}m(\dot{r}^2+r^2\dot{\theta}^2+r^2\sin^2\theta\dot{\varphi}^2)\\
-&=\frac{1}{2}m(r^2\dot{\theta}^2+r^2\sin^2\dot{\varphi}^2)
+\varepsilon &amp;=\frac{1}{2}m(\dot{r}^2+r^2\dot{\theta}^2+r^2\sin^2\theta\dot{\varphi}^2)\\
+&amp;=\frac{1}{2}m(r^2\dot{\theta}^2+r^2\sin^2\dot{\varphi}^2)
 \end{align}
 $$<ul>
 <li>共役運動量$p_\theta=mr^2\dot{\theta},p_\varphi=mr^2\sin^2\theta \dot{\varphi}$を導入、質点の $O$ に対する慣性モーメント $I$</li>
@@ -4917,9 +4917,9 @@ $$<p>
 </p>
 $$
 \begin{align}
-S&=k(N\ln N+\sum_l(\alpha+\beta\varepsilon_l)a_l)\\
-&=k(N\ln N+\sum_la_l\ln \omega_l-\sum_la_l\ln a_l)\\
-&=k\ln \Omega
+S&amp;=k(N\ln N+\sum_l(\alpha+\beta\varepsilon_l)a_l)\\
+&amp;=k(N\ln N+\sum_la_l\ln \omega_l-\sum_la_l\ln a_l)\\
+&amp;=k\ln \Omega
 \end{align}
 $$<h4 id="ボルツマン関係">
 <a class="header-anchor" href="#%e3%83%9c%e3%83%ab%e3%83%84%e3%83%9e%e3%83%b3%e9%96%a2%e4%bf%82"></a>
@@ -5319,9 +5319,9 @@ $$<h5 id="化学ポテンシャル-1">
 化学ポテンシャル
 </h5>$$
 \begin{align}
-\mu &=(\frac{\partial F}{\partial N})_{T,V}\\
-&=-kT \ln \frac{Z_1}{N}\\
-&=kT \ln[\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2]
+\mu &amp;=(\frac{\partial F}{\partial N})_{T,V}\\
+&amp;=-kT \ln \frac{Z_1}{N}\\
+&amp;=kT \ln[\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2]
 \end{align}
 $$<p>
 $\because$ 理想気体では、$\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2\ll 1$ である。
@@ -5429,9 +5429,9 @@ $$<h4 id="エントロピー-2">
 エントロピー
 </h4>$$
 \begin{align}
-S &=k(\ln \varXi-\alpha \frac{\partial}{\partial \alpha}\ln \varXi-\beta \frac{\partial}{\partial \beta}\ln \varXi)\\
-&=k(\ln \varXi+\alpha \overline{N}+\beta U)\\
-&=k \ln \Omega
+S &amp;=k(\ln \varXi-\alpha \frac{\partial}{\partial \alpha}\ln \varXi-\beta \frac{\partial}{\partial \beta}\ln \varXi)\\
+&amp;=k(\ln \varXi+\alpha \overline{N}+\beta U)\\
+&amp;=k \ln \Omega
 \end{align}
 $$<h4 id="大熱力学的ポテンシャル">
 <a class="header-anchor" href="#%e5%a4%a7%e7%86%b1%e5%8a%9b%e5%ad%a6%e7%9a%84%e3%83%9d%e3%83%86%e3%83%b3%e3%82%b7%e3%83%a3%e3%83%ab"></a>

@@ -202,8 +202,8 @@ Complex Integration
 </h2><p><strong>Key Formula</strong><br>
 </p>
 $$\oint_{|z - z_0| = r} \frac{1}{(z - z_0)^n} dz = \begin{cases}  
-2\pi i, & n = 1 \\  
-0, & n \neq 1  
+2\pi i, &amp; n = 1 \\  
+0, &amp; n \neq 1  
 \end{cases}$$<ol>
 <li>Cauchy-Goursat Theorem<br>
 For a <strong>simply connected, analytic</strong> region, the integral over any closed contour is zero:<br>

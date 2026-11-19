@@ -12,8 +12,8 @@
 $$$$
 \text{s.t.}{
 \begin{cases}
-c_i(x)=0,& i \in E = {1,2,\cdots,l}\\
-c_i(\vec{x})\ge 0,& i \in I = {l+1,\cdots,l+m}\\
+c_i(x)=0,&amp; i \in E = {1,2,\cdots,l}\\
+c_i(\vec{x})\ge 0,&amp; i \in I = {l+1,\cdots,l+m}\\
 \end{cases}}
 $$<p>
 ここで，</p>
@@ -59,27 +59,27 @@ $$<p>
 $$
 \begin{align}
 f
-&=x_1^2-3x_3^2-4x_1x_2+x_2x_3\\
-&=(x_1,x_2,x_3)
+&amp;=x_1^2-3x_3^2-4x_1x_2+x_2x_3\\
+&amp;=(x_1,x_2,x_3)
 \begin{bmatrix}
-1 & -2 & 0\\
--2 & 0 & \frac{1}{2}\\
-0 & \frac{1}{2} & -3\\
+1 &amp; -2 &amp; 0\\
+-2 &amp; 0 &amp; \frac{1}{2}\\
+0 &amp; \frac{1}{2} &amp; -3\\
 \end{bmatrix}
 \begin{bmatrix}
 x_1\\
 x_2\\
 x_3\\
 \end{bmatrix}\\
-&= \vec{X^T} A \vec{X}\\
+&amp;= \vec{X^T} A \vec{X}\\
 \end{align}
 $$<p>二次形式行列：
 </p>
 $$
 \begin{bmatrix}
-1 & -2 & 0\\
--2 & 0 & \frac{1}{2}\\
-0 & \frac{1}{2} & -3\\
+1 &amp; -2 &amp; 0\\
+-2 &amp; 0 &amp; \frac{1}{2}\\
+0 &amp; \frac{1}{2} &amp; -3\\
 \end{bmatrix}
 $$<h3 id="hessian-行列">
 <a class="header-anchor" href="#hessian-%e8%a1%8c%e5%88%97"></a>
@@ -89,8 +89,8 @@ Hessian 行列
 $$
 \nabla^2 f(x_1,x_2)=
 \begin{bmatrix}
-\frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2}\\
-\frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2}\\
+\frac{\partial^2 f}{\partial x_1^2} &amp; \frac{\partial^2 f}{\partial x_1 \partial x_2}\\
+\frac{\partial^2 f}{\partial x_2 \partial x_1} &amp; \frac{\partial^2 f}{\partial x_2^2}\\
 \end{bmatrix}
 $$<h3 id="実行可能解">
 <a class="header-anchor" href="#%e5%ae%9f%e8%a1%8c%e5%8f%af%e8%83%bd%e8%a7%a3"></a>
@@ -192,9 +192,9 @@ $$<p>
 $$
 A=
 \begin{bmatrix}
-a_{11} & \cdots & a_{1n}\\
-\vdots & \ddots & \vdots\\
-a_{m1} & \cdots & a_{mn}\\
+a_{11} &amp; \cdots &amp; a_{1n}\\
+\vdots &amp; \ddots &amp; \vdots\\
+a_{m1} &amp; \cdots &amp; a_{mn}\\
 \end{bmatrix}
 =(P_1,P_2,\cdots,P_n)
 $$</li>
@@ -204,8 +204,8 @@ $$</li>
 
 $$
 \begin{cases}
-\sum^{n}_{j=1}a_{ij}x_j=b_i,&i=1,2,\cdots,m\\
-x_j \ge 0,& j=1,2,\cdots,n\\
+\sum^{n}_{j=1}a_{ij}x_j=b_i,&amp;i=1,2,\cdots,m\\
+x_j \ge 0,&amp; j=1,2,\cdots,n\\
 \end{cases}
 $$
 
@@ -230,7 +230,7 @@ $$
 \min f(x_1,x_2,\cdots , x_n)\\
 \text{s.t.} 
 \begin{cases}
-h_j(x_1,x_2,\cdots,x_n)=0&(j=1,2,\cdots)\\
+h_j(x_1,x_2,\cdots,x_n)=0&amp;(j=1,2,\cdots)\\
 x_j \ge 0\\
 \end{cases}
 \end{cases}
@@ -734,9 +734,9 @@ $B_1,B_2,B_3,\cdots B_n$は$\Omega$の完全事象群を構成する。</p>
 </h3>$$
 \begin{align}
 P(A)
-&=P(AB_1 \cup AB_2 \cup \cdots \cup AB_n)\\
-&=P(AB_1)+P(AB_2)+\cdots +P(AB_n)\\
-&=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+\cdots +P(B_n)P(A|B_n)\\
+&amp;=P(AB_1 \cup AB_2 \cup \cdots \cup AB_n)\\
+&amp;=P(AB_1)+P(AB_2)+\cdots +P(AB_n)\\
+&amp;=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+\cdots +P(B_n)P(A|B_n)\\
 \end{align}
 $$<h3 id="ベイズの定理">
 <a class="header-anchor" href="#%e3%83%99%e3%82%a4%e3%82%ba%e3%81%ae%e5%ae%9a%e7%90%86"></a>
@@ -851,10 +851,10 @@ $$<p>
 $$
 \begin{align}
 F_Z(z)
-&=P(Z \lt z)\\
-&=P(X-Y \lt z)\\
-&=P(X \lt Y+z)\\
-&=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
+&amp;=P(Z \lt z)\\
+&amp;=P(X-Y \lt z)\\
+&amp;=P(X \lt Y+z)\\
+&amp;=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
 \end{align}
 $$<p>
 つまり分布関数$F_Z(z)=\iint_Df(x,y)dxdy$。分布関数を微分して確率密度関数$f_Z(z)$を得る。

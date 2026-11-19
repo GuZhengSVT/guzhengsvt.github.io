@@ -105,8 +105,8 @@ $$<h5 id="图形表示">
 </h5>$$
 \delta(n)=
 \begin{cases}
-1 & n=0\\
-0 & n \ne 0\\
+1 &amp; n=0\\
+0 &amp; n \ne 0\\
 \end{cases}
 $$<p>
 也称单位采样序列，不同于单位冲激信号 $\delta(t)$ 。</p>
@@ -116,8 +116,8 @@ $$<p>
 </h5>$$
 u(n)=
 \begin{cases}
-1 & n \ge 0\\
-0 & n  \lt  0\\
+1 &amp; n \ge 0\\
+0 &amp; n  \lt  0\\
 \end{cases}
 $$$$
 \delta(n)=u(n)-u(n-1)
@@ -131,8 +131,8 @@ $$<h5 id="矩形序列">
 </h5>$$
 R_N(n)=
 \begin{cases}
-1 & 0 \le n \le N-1\\
-0 & Others
+1 &amp; 0 \le n \le N-1\\
+0 &amp; Others
 \end{cases}
 $$<p>
 $N$ 称为矩形序列长度，矩形序列可用单位阶跃序列表示。
@@ -253,11 +253,11 @@ $$<p>
 $$
 \begin{align}
 y(n)
-&=T[x(n)]\\
-&=T[\sum^{\infty}_{m=-\infty}x(m)\delta(n-m)]\\
-&=\sum^{\infty}_{m=-\infty}x(m)T[\delta(n-m)]\\
-&=\sum^{\infty}_{m=-\infty}x(m)h(n-m)\\
-&=x(n)*h(n)
+&amp;=T[x(n)]\\
+&amp;=T[\sum^{\infty}_{m=-\infty}x(m)\delta(n-m)]\\
+&amp;=\sum^{\infty}_{m=-\infty}x(m)T[\delta(n-m)]\\
+&amp;=\sum^{\infty}_{m=-\infty}x(m)h(n-m)\\
+&amp;=x(n)*h(n)
 \end{align}
 $$<p>
 卷积相关知识见《信号与系统》</p>

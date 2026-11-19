@@ -520,7 +520,7 @@
 <h3 id="グラフ構築時のチェック">
 <a class="header-anchor" href="#%e3%82%b0%e3%83%a9%e3%83%95%e6%a7%8b%e7%af%89%e6%99%82%e3%81%ae%e3%83%81%e3%82%a7%e3%83%83%e3%82%af"></a>
 グラフ構築時のチェック
-</h3><p>辺 $(u, v)$ を読み込んだ後は $0 \le u, v < V$ を検証し、範囲外を避けます。重みなしグラフでは2点間に辺を重複して追加すべきではありません。そうしないと走査や次数の集計に影響します。</p>
+</h3><p>辺 $(u, v)$ を読み込んだ後は $0 \le u, v &lt; V$ を検証し、範囲外を避けます。重みなしグラフでは2点間に辺を重複して追加すべきではありません。そうしないと走査や次数の集計に影響します。</p>
 <h2 id="十kruskal-と最小全域木">
 <a class="header-anchor" href="#%e5%8d%81kruskal-%e3%81%a8%e6%9c%80%e5%b0%8f%e5%85%a8%e5%9f%9f%e6%9c%a8"></a>
 十、Kruskal と最小全域木
@@ -610,7 +610,7 @@ Union-Find（素集合データ構造）
 </h3><ol>
 <li>始点の距離を 0 に、それ以外をすべて無限大に設定します。</li>
 <li><code>(距離, 頂点)</code> を<strong>優先度付きキュー</strong>に入れ、毎回距離が最小の頂点 $u$ を取り出します。この時点でその最短距離はすでに確定しています。</li>
-<li>緩和：$u$ の各隣接点 $v$ について、$dist[u] + w(u,v) < dist[v]$ なら $dist[v]$ を更新し、新しい <code>(dist[v], v)</code> をキューに入れます。</li>
+<li>緩和：$u$ の各隣接点 $v$ について、$dist[u] + w(u,v) &lt; dist[v]$ なら $dist[v]$ を更新し、新しい <code>(dist[v], v)</code> をキューに入れます。</li>
 <li>2–3 をキューが空になるまで繰り返します。</li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dijkstra</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">g</span><span class="p">,</span> <span class="kt">int</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>
@@ -1308,7 +1308,7 @@ set
 光電効果と光子仮説
 </h5><ul>
 <li><strong>光子のエネルギー</strong>：$E = h\nu$</li>
-<li><strong>しきい周波数</strong>：$\nu_0 = \dfrac{W_0}{h}$、$\nu < \nu_0$ では光電子は放出されない</li>
+<li><strong>しきい周波数</strong>：$\nu_0 = \dfrac{W_0}{h}$、$\nu &lt; \nu_0$ では光電子は放出されない</li>
 <li><strong>光電効果の式</strong>：<br>
 
 $$
@@ -1621,8 +1621,8 @@ $$<p>
 $$
 V(x) =
 \begin{cases}
-0, & 0 < x < L \\
-\infty, & x \leq 0 \ \text{または} \ x \geq L
+0, &amp; 0 &lt; x &lt; L \\
+\infty, &amp; x \leq 0 \ \text{または} \ x \geq L
 \end{cases}
 $$<p><strong>2. 方程式</strong>
 </p>
@@ -2088,9 +2088,9 @@ $$
 $$<p>
 </p>
 $$
-\sigma_x = \begin{pmatrix}0 & 1\\ 1 & 0\end{pmatrix},\quad
-\sigma_y = \begin{pmatrix}0 & -i\\ i & 0\end{pmatrix},\quad
-\sigma_z = \begin{pmatrix}1 & 0\\ 0 & -1\end{pmatrix}
+\sigma_x = \begin{pmatrix}0 &amp; 1\\ 1 &amp; 0\end{pmatrix},\quad
+\sigma_y = \begin{pmatrix}0 &amp; -i\\ i &amp; 0\end{pmatrix},\quad
+\sigma_z = \begin{pmatrix}1 &amp; 0\\ 0 &amp; -1\end{pmatrix}
 $$<h4 id="角運動量結合理論">
 <a class="header-anchor" href="#%e8%a7%92%e9%81%8b%e5%8b%95%e9%87%8f%e7%b5%90%e5%90%88%e7%90%86%e8%ab%96"></a>
 角運動量結合理論
@@ -2132,7 +2132,7 @@ $$<ul>
 <a class="header-anchor" href="#%e5%90%8c%e7%a8%ae%e7%b2%92%e5%ad%90%e7%b3%bb%e3%81%ae%e3%83%8f%e3%83%9f%e3%83%ab%e3%83%88%e3%83%8b%e3%82%a2%e3%83%b3"></a>
 同種粒子系のハミルトニアン
 </h4>$$
-\hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i<j} V(\vec{r}_i - \vec{r}_j)
+\hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i&lt;j} V(\vec{r}_i - \vec{r}_j)
 $$<p>
 </p>
 $$
@@ -2152,9 +2152,9 @@ $$<ul>
 $$
 \Psi(\vec{r}_1, \dots, \vec{r}_N) = \frac{1}{\sqrt{N!}}
 \begin{vmatrix}
-\psi_1(\vec{r}_1) & \cdots & \psi_1(\vec{r}_N) \\
-\vdots & \ddots & \vdots \\
-\psi_N(\vec{r}_1) & \cdots & \psi_N(\vec{r}_N)
+\psi_1(\vec{r}_1) &amp; \cdots &amp; \psi_1(\vec{r}_N) \\
+\vdots &amp; \ddots &amp; \vdots \\
+\psi_N(\vec{r}_1) &amp; \cdots &amp; \psi_N(\vec{r}_N)
 \end{vmatrix}
 $$<h3 id="パウリの排他原理">
 <a class="header-anchor" href="#%e3%83%91%e3%82%a6%e3%83%aa%e3%81%ae%e6%8e%92%e4%bb%96%e5%8e%9f%e7%90%86"></a>
@@ -2872,9 +2872,9 @@ $B_1,B_2,B_3,\cdots B_n$は$\Omega$の完全事象群を構成する。</p>
 </h3>$$
 \begin{align}
 P(A)
-&=P(AB_1 \cup AB_2 \cup \cdots \cup AB_n)\\
-&=P(AB_1)+P(AB_2)+\cdots +P(AB_n)\\
-&=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+\cdots +P(B_n)P(A|B_n)\\
+&amp;=P(AB_1 \cup AB_2 \cup \cdots \cup AB_n)\\
+&amp;=P(AB_1)+P(AB_2)+\cdots +P(AB_n)\\
+&amp;=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+\cdots +P(B_n)P(A|B_n)\\
 \end{align}
 $$<h3 id="ベイズの定理">
 <a class="header-anchor" href="#%e3%83%99%e3%82%a4%e3%82%ba%e3%81%ae%e5%ae%9a%e7%90%86"></a>
@@ -2989,10 +2989,10 @@ $$<p>
 $$
 \begin{align}
 F_Z(z)
-&=P(Z \lt z)\\
-&=P(X-Y \lt z)\\
-&=P(X \lt Y+z)\\
-&=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
+&amp;=P(Z \lt z)\\
+&amp;=P(X-Y \lt z)\\
+&amp;=P(X \lt Y+z)\\
+&amp;=\int^{y}_{-\infty}\int^{y+z}_{-\infty}f(x,y)dxdy\\
 \end{align}
 $$<p>
 つまり分布関数$F_Z(z)=\iint_Df(x,y)dxdy$。分布関数を微分して確率密度関数$f_Z(z)$を得る。

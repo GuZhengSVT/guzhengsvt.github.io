@@ -114,8 +114,8 @@ Unit Impulse Sequence \( \delta(n) \)
 </h5>$$
 \delta(n) = 
 \begin{cases} 
-1 & n = 0 \\
-0 & n \neq 0 
+1 &amp; n = 0 \\
+0 &amp; n \neq 0 
 \end{cases}  
 $$<p><br>
 Also called the <strong>unit sample sequence</strong>, distinct from the unit impulse signal \( \delta(t) \).</p>
@@ -125,8 +125,8 @@ Unit Step Sequence \( u(n) \)
 </h5>$$
 u(n) = 
 \begin{cases} 
-1 & n \geq 0 \\
-0 & n  \lt  0 
+1 &amp; n \geq 0 \\
+0 &amp; n  \lt  0 
 \end{cases}  
 $$<p><br>
 Relationships:<br>
@@ -143,8 +143,8 @@ Rectangular Sequence \( R_N(n) \)
 </h5>$$
 R_N(n) = 
 \begin{cases} 
-1 & 0 \leq n \leq N-1 \\
-0 & \text{Otherwise} 
+1 &amp; 0 \leq n \leq N-1 \\
+0 &amp; \text{Otherwise} 
 \end{cases}  
 $$<p><br>
 \( N \) is the length of the rectangular sequence. It can be expressed using the unit step sequence:<br>
@@ -267,11 +267,11 @@ Thus, the output is:<br>
 $$
 \begin{align} 
 y(n) 
-&= T[x(n)] \\ 
-&= T\left[\sum_{m=-\infty}^{\infty} x(m) \delta(n - m)\right] \\ 
-&= \sum_{m=-\infty}^{\infty} x(m) T[\delta(n - m)] \\ 
-&= \sum_{m=-\infty}^{\infty} x(m) h(n - m) \\ 
-&= x(n) * h(n) 
+&amp;= T[x(n)] \\ 
+&amp;= T\left[\sum_{m=-\infty}^{\infty} x(m) \delta(n - m)\right] \\ 
+&amp;= \sum_{m=-\infty}^{\infty} x(m) T[\delta(n - m)] \\ 
+&amp;= \sum_{m=-\infty}^{\infty} x(m) h(n - m) \\ 
+&amp;= x(n) * h(n) 
 \end{align}  
 $$<p><br>
 This is the <strong>convolution sum</strong>. For details, refer to <em>Signals and Systems</em>.</p>

@@ -15,7 +15,7 @@ Chapter 1 Wave-Particle Duality and State Description
 Photoelectric Effect and the Photon Hypothesis
 </h5><ul>
 <li><strong>Photon energy</strong>: $E = h\nu$</li>
-<li><strong>Threshold frequency</strong>: $\nu_0 = \dfrac{W_0}{h}$; no photoelectrons are emitted when $\nu < \nu_0$</li>
+<li><strong>Threshold frequency</strong>: $\nu_0 = \dfrac{W_0}{h}$; no photoelectrons are emitted when $\nu &lt; \nu_0$</li>
 <li><strong>Photoelectric equation</strong>:<br>
 
 $$
@@ -384,8 +384,8 @@ Chapter 2 Simple Applications of the Schrödinger Equation
 $$
 V(x) =
 \begin{cases}
-0, & 0 < x < L \\
-\infty, & x \leq 0 \ \text{or} \ x \geq L
+0, &amp; 0 &lt; x &lt; L \\
+\infty, &amp; x \leq 0 \ \text{or} \ x \geq L
 \end{cases}
 $$<p><strong>2. Schrödinger equation in the well</strong>
 </p>
@@ -1052,9 +1052,9 @@ $$
 where
 </p>
 $$
-   \sigma_x = \begin{pmatrix}0 & 1\\ 1 & 0\end{pmatrix},\quad
-   \sigma_y = \begin{pmatrix}0 & -i\\ i & 0\end{pmatrix},\quad
-   \sigma_z = \begin{pmatrix}1 & 0\\ 0 & -1\end{pmatrix}
+   \sigma_x = \begin{pmatrix}0 &amp; 1\\ 1 &amp; 0\end{pmatrix},\quad
+   \sigma_y = \begin{pmatrix}0 &amp; -i\\ i &amp; 0\end{pmatrix},\quad
+   \sigma_z = \begin{pmatrix}1 &amp; 0\\ 0 &amp; -1\end{pmatrix}
    $$</li>
 </ol>
 <h4 id="theory-of-angular-momentum-coupling">
@@ -1117,7 +1117,7 @@ Hamiltonian of a System of Identical Particles
 <p><strong>Form</strong>
 </p>
 $$
-   \hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i<j} V(\vec{r}_i - \vec{r}_j)
+   \hat{H} = \sum_{i=1}^N \hat{T}_i + \sum_{i&lt;j} V(\vec{r}_i - \vec{r}_j)
    $$</li>
 <li>
 <p><strong>Symmetry</strong>
@@ -1152,9 +1152,9 @@ $$
 $$
      \Psi(\vec{r}_1, \dots, \vec{r}_N) = \frac{1}{\sqrt{N!}}
      \begin{vmatrix}
-     \psi_1(\vec{r}_1) & \cdots & \psi_1(\vec{r}_N) \\
-     \vdots & \ddots & \vdots \\
-     \psi_N(\vec{r}_1) & \cdots & \psi_N(\vec{r}_N)
+     \psi_1(\vec{r}_1) &amp; \cdots &amp; \psi_1(\vec{r}_N) \\
+     \vdots &amp; \ddots &amp; \vdots \\
+     \psi_N(\vec{r}_1) &amp; \cdots &amp; \psi_N(\vec{r}_N)
      \end{vmatrix}
      $$</li>
 </ul>
@@ -1310,8 +1310,8 @@ Unit Impulse Sequence \( \delta(n) \)
 </h5>$$
 \delta(n) = 
 \begin{cases} 
-1 & n = 0 \\
-0 & n \neq 0 
+1 &amp; n = 0 \\
+0 &amp; n \neq 0 
 \end{cases}  
 $$<p><br>
 Also called the <strong>unit sample sequence</strong>, distinct from the unit impulse signal \( \delta(t) \).</p>
@@ -1321,8 +1321,8 @@ Unit Step Sequence \( u(n) \)
 </h5>$$
 u(n) = 
 \begin{cases} 
-1 & n \geq 0 \\
-0 & n  \lt  0 
+1 &amp; n \geq 0 \\
+0 &amp; n  \lt  0 
 \end{cases}  
 $$<p><br>
 Relationships:<br>
@@ -1339,8 +1339,8 @@ Rectangular Sequence \( R_N(n) \)
 </h5>$$
 R_N(n) = 
 \begin{cases} 
-1 & 0 \leq n \leq N-1 \\
-0 & \text{Otherwise} 
+1 &amp; 0 \leq n \leq N-1 \\
+0 &amp; \text{Otherwise} 
 \end{cases}  
 $$<p><br>
 \( N \) is the length of the rectangular sequence. It can be expressed using the unit step sequence:<br>
@@ -1463,11 +1463,11 @@ Thus, the output is:<br>
 $$
 \begin{align} 
 y(n) 
-&= T[x(n)] \\ 
-&= T\left[\sum_{m=-\infty}^{\infty} x(m) \delta(n - m)\right] \\ 
-&= \sum_{m=-\infty}^{\infty} x(m) T[\delta(n - m)] \\ 
-&= \sum_{m=-\infty}^{\infty} x(m) h(n - m) \\ 
-&= x(n) * h(n) 
+&amp;= T[x(n)] \\ 
+&amp;= T\left[\sum_{m=-\infty}^{\infty} x(m) \delta(n - m)\right] \\ 
+&amp;= \sum_{m=-\infty}^{\infty} x(m) T[\delta(n - m)] \\ 
+&amp;= \sum_{m=-\infty}^{\infty} x(m) h(n - m) \\ 
+&amp;= x(n) * h(n) 
 \end{align}  
 $$<p><br>
 This is the <strong>convolution sum</strong>. For details, refer to <em>Signals and Systems</em>.</p>
@@ -2692,8 +2692,8 @@ $$<h3 id="planck-constant">
 Planck Constant
 </h3>$$
 \begin{align}
-h & =6.626069934(89)×10^{-34}J\cdot s \\
-& =4.135667662(25)×10^{-15}eV\cdot s
+h &amp; =6.626069934(89)×10^{-34}J\cdot s \\
+&amp; =4.135667662(25)×10^{-15}eV\cdot s
 \end{align}
 $$<p>
 Reduced Planck Constant (Dirac Constant):
@@ -3095,7 +3095,7 @@ At equilibrium, the conditions $\delta F=0,\delta^2 F \gt 0$ are satisfied.</p>
 Isothermal-Isobaric System
 </h3><p>In an isothermal-isobaric system, G decreases or remains constant, reaching $G_\min$ at equilibrium.
 If a slight perturbation occurs, $\Delta G \gt 0$, which can be expanded as a second-order Taylor series: $\Delta G=\delta G+\frac{1}{2}\delta^2 G$.
-At equilibrium, the conditions $\delta G=0$ and $\delta^2 G>0$ must be satisfied.</p>
+At equilibrium, the conditions $\delta G=0$ and $\delta^2 G&gt;0$ must be satisfied.</p>
 <h3 id="equilibrium-conditions-for-two-phase-systems-in-a-unit">
 <a class="header-anchor" href="#equilibrium-conditions-for-two-phase-systems-in-a-unit"></a>
 Equilibrium Conditions for Two-Phase Systems in a Unit
@@ -3242,8 +3242,8 @@ $$<ul>
 </p>
 $$
 \begin{align}
-\varepsilon &=\frac{1}{2}m(\dot{r}^2+r^2\dot{\theta}^2+r^2\sin^2\theta\dot{\varphi}^2)\\
-&=\frac{1}{2}m(r^2\dot{\theta}^2+r^2\sin^2\dot{\varphi}^2)
+\varepsilon &amp;=\frac{1}{2}m(\dot{r}^2+r^2\dot{\theta}^2+r^2\sin^2\theta\dot{\varphi}^2)\\
+&amp;=\frac{1}{2}m(r^2\dot{\theta}^2+r^2\sin^2\dot{\varphi}^2)
 \end{align}
 $$<ul>
 <li>Introducing conjugate momenta \( p_\theta = mr^2\dot{\theta}, p_\varphi = mr^2\sin^2\theta \dot{\varphi} \), and the moment of inertia \( I \) of the particle relative to \( O \).</li>
@@ -3741,9 +3741,9 @@ Simplifying the entropy gives
 </p>
 $$
 \begin{align}
-S&=k(N\ln N+\sum_l(\alpha+\beta\varepsilon_l)a_l)\\
-&=k(N\ln N+\sum_la_l\ln \omega_l-\sum_la_l\ln a_l)\\
-&=k\ln \Omega
+S&amp;=k(N\ln N+\sum_l(\alpha+\beta\varepsilon_l)a_l)\\
+&amp;=k(N\ln N+\sum_la_l\ln \omega_l-\sum_la_l\ln a_l)\\
+&amp;=k\ln \Omega
 \end{align}
 $$<h3 id="boltzmann-relation">
 <a class="header-anchor" href="#boltzmann-relation"></a>
@@ -4146,9 +4146,9 @@ $$<h3 id="chemical-potential-1">
 Chemical Potential
 </h3>$$
 \begin{align}
-\mu &=(\frac{\partial F}{\partial N})_{T,V}\\
-&=-kT \ln \frac{Z_1}{N}\\
-&=kT \ln[\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2]
+\mu &amp;=(\frac{\partial F}{\partial N})_{T,V}\\
+&amp;=-kT \ln \frac{Z_1}{N}\\
+&amp;=kT \ln[\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2]
 \end{align}
 $$<p>
 $\because$ For an ideal gas, $\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2\ll 1$<br>
@@ -4256,9 +4256,9 @@ $$<h3 id="entropy-2">
 Entropy
 </h3>$$
 \begin{align}
-S &=k(\ln \varXi-\alpha \frac{\partial}{\partial \alpha}\ln \varXi-\beta \frac{\partial}{\partial \beta}\ln \varXi)\\
-&=k(\ln \varXi+\alpha \overline{N}+\beta U)\\
-&=k \ln \Omega
+S &amp;=k(\ln \varXi-\alpha \frac{\partial}{\partial \alpha}\ln \varXi-\beta \frac{\partial}{\partial \beta}\ln \varXi)\\
+&amp;=k(\ln \varXi+\alpha \overline{N}+\beta U)\\
+&amp;=k \ln \Omega
 \end{align}
 $$<h3 id="grand-potential-1">
 <a class="header-anchor" href="#grand-potential-1"></a>

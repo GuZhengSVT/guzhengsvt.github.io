@@ -431,8 +431,8 @@ $$<h3 id="プランク定数">
 プランク定数
 </h3>$$
 \begin{align}
-h & =6.626069934(89)×10^{-34}J\cdot s \\
-& =4.135667662(25)×10^{-15}eV\cdot s
+h &amp; =6.626069934(89)×10^{-34}J\cdot s \\
+&amp; =4.135667662(25)×10^{-15}eV\cdot s
 \end{align}
 $$<p>
 換算プランク定数（ディラック定数）：
@@ -976,8 +976,8 @@ $$<ul>
 </p>
 $$
 \begin{align}
-\varepsilon &=\frac{1}{2}m(\dot{r}^2+r^2\dot{\theta}^2+r^2\sin^2\theta\dot{\varphi}^2)\\
-&=\frac{1}{2}m(r^2\dot{\theta}^2+r^2\sin^2\dot{\varphi}^2)
+\varepsilon &amp;=\frac{1}{2}m(\dot{r}^2+r^2\dot{\theta}^2+r^2\sin^2\theta\dot{\varphi}^2)\\
+&amp;=\frac{1}{2}m(r^2\dot{\theta}^2+r^2\sin^2\dot{\varphi}^2)
 \end{align}
 $$<ul>
 <li>共役運動量$p_\theta=mr^2\dot{\theta},p_\varphi=mr^2\sin^2\theta \dot{\varphi}$を導入、質点の $O$ に対する慣性モーメント $I$</li>
@@ -1457,9 +1457,9 @@ $$<p>
 </p>
 $$
 \begin{align}
-S&=k(N\ln N+\sum_l(\alpha+\beta\varepsilon_l)a_l)\\
-&=k(N\ln N+\sum_la_l\ln \omega_l-\sum_la_l\ln a_l)\\
-&=k\ln \Omega
+S&amp;=k(N\ln N+\sum_l(\alpha+\beta\varepsilon_l)a_l)\\
+&amp;=k(N\ln N+\sum_la_l\ln \omega_l-\sum_la_l\ln a_l)\\
+&amp;=k\ln \Omega
 \end{align}
 $$<h4 id="ボルツマン関係">
 <a class="header-anchor" href="#%e3%83%9c%e3%83%ab%e3%83%84%e3%83%9e%e3%83%b3%e9%96%a2%e4%bf%82"></a>
@@ -1859,9 +1859,9 @@ $$<h5 id="化学ポテンシャル-1">
 化学ポテンシャル
 </h5>$$
 \begin{align}
-\mu &=(\frac{\partial F}{\partial N})_{T,V}\\
-&=-kT \ln \frac{Z_1}{N}\\
-&=kT \ln[\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2]
+\mu &amp;=(\frac{\partial F}{\partial N})_{T,V}\\
+&amp;=-kT \ln \frac{Z_1}{N}\\
+&amp;=kT \ln[\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2]
 \end{align}
 $$<p>
 $\because$ 理想気体では、$\frac{N}{V}(\frac{h^2}{2\pi mkT})^3/2\ll 1$ である。
@@ -1969,9 +1969,9 @@ $$<h4 id="エントロピー-2">
 エントロピー
 </h4>$$
 \begin{align}
-S &=k(\ln \varXi-\alpha \frac{\partial}{\partial \alpha}\ln \varXi-\beta \frac{\partial}{\partial \beta}\ln \varXi)\\
-&=k(\ln \varXi+\alpha \overline{N}+\beta U)\\
-&=k \ln \Omega
+S &amp;=k(\ln \varXi-\alpha \frac{\partial}{\partial \alpha}\ln \varXi-\beta \frac{\partial}{\partial \beta}\ln \varXi)\\
+&amp;=k(\ln \varXi+\alpha \overline{N}+\beta U)\\
+&amp;=k \ln \Omega
 \end{align}
 $$<h4 id="大熱力学的ポテンシャル">
 <a class="header-anchor" href="#%e5%a4%a7%e7%86%b1%e5%8a%9b%e5%ad%a6%e7%9a%84%e3%83%9d%e3%83%86%e3%83%b3%e3%82%b7%e3%83%a3%e3%83%ab"></a>

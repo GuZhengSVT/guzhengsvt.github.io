@@ -520,7 +520,7 @@
 <h3 id="グラフ構築時のチェック">
 <a class="header-anchor" href="#%e3%82%b0%e3%83%a9%e3%83%95%e6%a7%8b%e7%af%89%e6%99%82%e3%81%ae%e3%83%81%e3%82%a7%e3%83%83%e3%82%af"></a>
 グラフ構築時のチェック
-</h3><p>辺 $(u, v)$ を読み込んだ後は $0 \le u, v < V$ を検証し、範囲外を避けます。重みなしグラフでは2点間に辺を重複して追加すべきではありません。そうしないと走査や次数の集計に影響します。</p>
+</h3><p>辺 $(u, v)$ を読み込んだ後は $0 \le u, v &lt; V$ を検証し、範囲外を避けます。重みなしグラフでは2点間に辺を重複して追加すべきではありません。そうしないと走査や次数の集計に影響します。</p>
 <h2 id="十kruskal-と最小全域木">
 <a class="header-anchor" href="#%e5%8d%81kruskal-%e3%81%a8%e6%9c%80%e5%b0%8f%e5%85%a8%e5%9f%9f%e6%9c%a8"></a>
 十、Kruskal と最小全域木
@@ -610,7 +610,7 @@ Union-Find（素集合データ構造）
 </h3><ol>
 <li>始点の距離を 0 に、それ以外をすべて無限大に設定します。</li>
 <li><code>(距離, 頂点)</code> を<strong>優先度付きキュー</strong>に入れ、毎回距離が最小の頂点 $u$ を取り出します。この時点でその最短距離はすでに確定しています。</li>
-<li>緩和：$u$ の各隣接点 $v$ について、$dist[u] + w(u,v) < dist[v]$ なら $dist[v]$ を更新し、新しい <code>(dist[v], v)</code> をキューに入れます。</li>
+<li>緩和：$u$ の各隣接点 $v$ について、$dist[u] + w(u,v) &lt; dist[v]$ なら $dist[v]$ を更新し、新しい <code>(dist[v], v)</code> をキューに入れます。</li>
 <li>2–3 をキューが空になるまで繰り返します。</li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dijkstra</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">g</span><span class="p">,</span> <span class="kt">int</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>

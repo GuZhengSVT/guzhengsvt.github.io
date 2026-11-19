@@ -117,7 +117,7 @@ $$![Engelbart|100](图片链接)$$</li>
 Obsidian URL
 </h4><p>Obsidian URI 通常采用以下形式：
 </p>
-$$obsidian://action?param1=value&param2=value$$<p>
+$$obsidian://action?param1=value&amp;param2=value$$<p>
 action表示执行操作，value为参数
 比如打开笔记：
 </p>
@@ -150,7 +150,7 @@ Others
 <li>
 <p>引用
 </p>
-$$> 引用内容$$<p>
+$$&gt; 引用内容$$<p>
 </p>
 $$\ 引用来源$$<p>
 eg</p>

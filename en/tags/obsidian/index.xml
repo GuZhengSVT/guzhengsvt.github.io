@@ -117,7 +117,7 @@ Linking to notes/images in vault
 Obsidian URL
 </h4><p>Obsidian URIs typically follow this format:<br>
 </p>
-$$obsidian://action?param1=value&param2=value$$<p><br>
+$$obsidian://action?param1=value&amp;param2=value$$<p><br>
 Where <code>action</code> specifies the operation and <code>value</code> are parameters.<br>
 Example for opening a note:<br>
 </p>
@@ -150,7 +150,7 @@ Others
 <li>
 <p>Blockquote<br>
 </p>
-$$> Quoted content$$<p><br>
+$$&gt; Quoted content$$<p><br>
 </p>
 $$\ Source$$<p><br>
 Example:</p>

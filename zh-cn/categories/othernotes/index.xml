@@ -316,7 +316,7 @@
 <li><strong>适用场景</strong>：模型内部的馈电（如微带天线内部的同轴馈针、贴片元件 SMT 焊盘的等效激励）、低频段或电尺寸极小的缝隙。</li>
 <li><strong>内部激励特性</strong>：集总端口<strong>必须</strong>位于模型内部，且必须连接两个导电面（如连接信号线与地平面）。它不进行 2D 本征模预计算，而是强制假设端口面上的电场是均匀的（TEM 模）。</li>
 <li><strong>归一化阻抗设定</strong>：由于不进行 2D 计算，集总端口无法自动得出特征阻抗。用户必须手动指定一个参考阻抗（通常为 $50\Omega$）。所有计算出的 S 参数都将基于这个给定的阻抗进行归一化。</li>
-<li><strong>使用限制</strong>：集总端口的长宽物理尺寸必须远小于最高工作频率下的十分之一波长（$<\lambda/10$），否则均匀场假设失效，产生严重的寄生电感和电容。</li>
+<li><strong>使用限制</strong>：集总端口的长宽物理尺寸必须远小于最高工作频率下的十分之一波长（$&lt;\lambda/10$），否则均匀场假设失效，产生严重的寄生电感和电容。</li>
 </ul>
 <blockquote>
 <p><strong>数据来源</strong>：David M. Pozar 著 <em>Microwave Engineering</em>，关于集总元件与分布式传输线在微波频段等效差异的理论。</p>
@@ -478,7 +478,7 @@
 <ul>
 <li><strong>S 参数矩阵 (Scattering Parameters)</strong>：
 <ul>
-<li><strong>$S_{11}$ (回波损耗 / Return Loss)</strong>：表征端口自身阻抗匹配程度的核心指标。通常要求在工作频段内 $S_{11} < -10 \text{ dB}$（即反射功率小于 10%）。</li>
+<li><strong>$S_{11}$ (回波损耗 / Return Loss)</strong>：表征端口自身阻抗匹配程度的核心指标。通常要求在工作频段内 $S_{11} &lt; -10 \text{ dB}$（即反射功率小于 10%）。</li>
 <li><strong>$S_{21}$ (插入损耗 / Insertion Loss)</strong>：表征能量从端口 1 传输至端口 2 的效率。理想滤波器的通带 $S_{21}$ 应接近 $0 \text{ dB}$，阻带应远小于 $-30 \text{ dB}$。</li>
 <li><strong>图表规范</strong>：工程制图时，S 参数的纵坐标必须采用分贝 (dB) 对数刻度，横坐标采用线性频率刻度。</li>
 </ul>
@@ -537,7 +537,7 @@
 <li><strong>轴比 (Axial Ratio, AR)</strong>：
 <ul>
 <li>表征圆极化天线性能的决定性参数。</li>
-<li><strong>判定标准</strong>：理想圆极化的 AR 为 $0 \text{ dB}$。在工程中，通常将 $AR < 3 \text{ dB}$ 的频带范围定义为圆极化天线的有效工作带宽。</li>
+<li><strong>判定标准</strong>：理想圆极化的 AR 为 $0 \text{ dB}$。在工程中，通常将 $AR &lt; 3 \text{ dB}$ 的频带范围定义为圆极化天线的有效工作带宽。</li>
 </ul>
 </li>
 </ul>
@@ -579,7 +579,7 @@
 <li><strong>目标函数 (Cost Function) 设定</strong>：
 <ul>
 <li>优化的核心在于将物理需求转化为数学判断标准。</li>
-<li>可以在 <code>Optimizer Setup &gt; Goals</code> 中设定多个目标，例如：要求在目标频点 $S_{11} < -15 \text{ dB}$，同时设定增益 $Gain > 5 \text{ dBi}$。</li>
+<li>可以在 <code>Optimizer Setup &gt; Goals</code> 中设定多个目标，例如：要求在目标频点 $S_{11} &lt; -15 \text{ dB}$，同时设定增益 $Gain &gt; 5 \text{ dBi}$。</li>
 <li><strong>权重 (Weight)</strong>：当多个目标存在物理冲突时（如同时要求极宽的带宽和极高的增益），需通过赋予不同权重值（如将回波损耗权重设为 1，增益设为 2）来引导算法的侧重点。</li>
 </ul>
 </li>
@@ -2145,7 +2145,7 @@ $$![Engelbart|100](图片链接)$$</li>
 Obsidian URL
 </h4><p>Obsidian URI 通常采用以下形式：
 </p>
-$$obsidian://action?param1=value&param2=value$$<p>
+$$obsidian://action?param1=value&amp;param2=value$$<p>
 action表示执行操作，value为参数
 比如打开笔记：
 </p>
@@ -2178,7 +2178,7 @@ Others
 <li>
 <p>引用
 </p>
-$$> 引用内容$$<p>
+$$&gt; 引用内容$$<p>
 </p>
 $$\ 引用来源$$<p>
 eg</p>
