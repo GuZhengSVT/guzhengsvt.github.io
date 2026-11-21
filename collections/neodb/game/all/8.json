@@ -1,7 +1,7 @@
 {
   "source": "NeoDB",
   "profile": "https://neodb.social/users/GuZhengSVT/",
-  "updated_at": "2026-11-21T01:17:59.290547+00:00",
+  "updated_at": "2026-11-21T12:44:32.079431+00:00",
   "total": 265,
   "pages": 12,
   "items": [
@@ -174,14 +174,14 @@
       "marked_at": "2023年1月10日"
     },
     {
-      "id": "5nTNsiZ5rxiRdbxLtYKwsR",
-      "title": "迷失",
-      "url": "https://neodb.social/game/5nTNsiZ5rxiRdbxLtYKwsR",
-      "cover": "https://neodb.social/m/item/igdb/2025/04/24/48cb6596-c496-43e4-a0be-364670d53449.jpg",
+      "id": "4w8ZsoEGjfqO0FuOmhRUcl",
+      "title": "流浪",
+      "url": "https://neodb.social/game/4w8ZsoEGjfqO0FuOmhRUcl",
+      "cover": "https://neodb.social/m/item/doubangame/2024/07/16/9ba3ef43-2218-4e56-9092-c40e0428eec5.jpg",
       "subtitle": "BlueTwelve Studio",
       "status": "wishlist",
       "rating": null,
-      "community_rating": null,
+      "community_rating": 8.3,
       "comment": "",
       "marked_at": "2023年1月9日"
     },
@@ -190,7 +190,7 @@
       "title": "汐",
       "url": "https://neodb.social/game/6gN51nOC5MJMh75KeOEHXA",
       "cover": "https://neodb.social/m/item/doubangame/2024/07/16/d14911b9-4b10-468a-ac23-a7f4aa072a3c.jpg",
-      "subtitle": "Coconut Island Studio / Coconut Island Games",
+      "subtitle": "Coconut Island Games / Coconut Island Studio",
       "status": "wishlist",
       "rating": null,
       "community_rating": 7.4,
