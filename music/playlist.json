@@ -1,0 +1,469 @@
+{
+  "version": 1,
+  "playlistId": "7813418986",
+  "tracks": [
+    {
+      "id": "2129652434",
+      "name": "百分之一的长旅",
+      "artist": [
+        "炙弹冰",
+        "星辰不唏嘘",
+        "洛天依"
+      ],
+      "duration": 306,
+      "pic": "https://p1.music.126.net/SJsMqIc3Fcv6PHs1bGHBTw==/109951169364262842.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=2129652434",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "2129652434",
+        "url": "https://music.163.com/song/media/outer/url?id=2129652434.mp3"
+      }
+    },
+    {
+      "id": "1442021826",
+      "name": "Take me Hand Acoustic",
+      "artist": [
+        "Cécile Corbel"
+      ],
+      "duration": 215,
+      "pic": "https://p1.music.126.net/dh-TCIqnN7L5ic_98Dr3XA==/109951164922631577.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=1442021826",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "1442021826",
+        "url": "https://music.163.com/song/media/outer/url?id=1442021826.mp3"
+      }
+    },
+    {
+      "id": "421244551",
+      "name": "Summer",
+      "artist": [
+        "久石譲"
+      ],
+      "duration": 386,
+      "pic": "https://p1.music.126.net/nOhFczgnXcBbCSn6uLhmPg==/18416819765513414.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=421244551",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "421244551",
+        "url": "https://music.163.com/song/media/outer/url?id=421244551.mp3"
+      }
+    },
+    {
+      "id": "27646198",
+      "name": "董小姐",
+      "artist": [
+        "宋冬野"
+      ],
+      "duration": 310,
+      "pic": "https://p1.music.126.net/B8XyAbneWgxRcD95SGMBbA==/109951173825645527.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=27646198",
+      "source": {
+        "provider": "bilibili",
+        "kind": "audio",
+        "id": "BV1X7nxzbEqd",
+        "cid": "32613795529",
+        "url": "bilibili/BV1X7nxzbEqd-32613795529.mp4",
+        "file_size": 4166212,
+        "page": 2
+      }
+    },
+    {
+      "id": "2060858933",
+      "name": "月亮的价格是九镑十五便士",
+      "artist": [
+        "飞不快的MIG25",
+        "洛天依"
+      ],
+      "duration": 294,
+      "pic": "https://p1.music.126.net/5t5AAgmDVcLIZ62lzV8mEQ==/109951168714690988.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=2060858933",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "2060858933",
+        "url": "https://music.163.com/song/media/outer/url?id=2060858933.mp3"
+      }
+    },
+    {
+      "id": "2699124989",
+      "name": "卡西尼回旋于夜空",
+      "artist": [
+        "炙弹冰",
+        "星辰不唏嘘",
+        "洛天依"
+      ],
+      "duration": 175,
+      "pic": "https://p1.music.126.net/33QiViUeVb2HCrlfWW3F5g==/109951170901547915.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=2699124989",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "2699124989",
+        "url": "https://music.163.com/song/media/outer/url?id=2699124989.mp3"
+      }
+    },
+    {
+      "id": "1905096353",
+      "name": "манго нектар",
+      "artist": [
+        "corn wave"
+      ],
+      "duration": 191,
+      "pic": "https://p1.music.126.net/8TA8FPE8ZTyfsfYiWwYTNg==/109951167235133818.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=1905096353",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "1905096353",
+        "url": "https://music.163.com/song/media/outer/url?id=1905096353.mp3"
+      }
+    },
+    {
+      "id": "2049110644",
+      "name": "一叶知秋",
+      "artist": [
+        "Y.Z.H于哲浩",
+        "李晨曦Chrisulous"
+      ],
+      "duration": 205,
+      "pic": "https://p1.music.126.net/w9jnwkpz0Khrwd4He8PHxQ==/109951168626411859.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=2049110644",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "2049110644",
+        "url": "https://music.163.com/song/media/outer/url?id=2049110644.mp3"
+      }
+    },
+    {
+      "id": "2667468026",
+      "name": "シリウスの心臓 (Piano Ver.)",
+      "artist": [
+        "星辰不唏嘘"
+      ],
+      "duration": 330,
+      "pic": "https://p1.music.126.net/cCTzyR1UEiJWH5JdwhoHFQ==/109951170401294589.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=2667468026",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "2667468026",
+        "url": "https://music.163.com/song/media/outer/url?id=2667468026.mp3"
+      }
+    },
+    {
+      "id": "386844",
+      "name": "杀死那个石家庄人",
+      "artist": [
+        "万能青年旅店"
+      ],
+      "duration": 344,
+      "pic": "https://p1.music.126.net/W1kczDCB4-r-uNAznD1ljg==/108851651165850.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=386844",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "386844",
+        "url": "https://music.163.com/song/media/outer/url?id=386844.mp3"
+      }
+    },
+    {
+      "id": "27646205",
+      "name": "安和桥",
+      "artist": [
+        "宋冬野"
+      ],
+      "duration": 250,
+      "pic": "https://p1.music.126.net/B8XyAbneWgxRcD95SGMBbA==/109951173825645527.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=27646205",
+      "source": {
+        "provider": "bilibili",
+        "kind": "audio",
+        "id": "BV1X7nxzbEqd",
+        "cid": "32613794506",
+        "url": "bilibili/BV1X7nxzbEqd-32613794506.mp4",
+        "file_size": 3110136,
+        "page": 1
+      }
+    },
+    {
+      "id": "3346496228",
+      "name": "小小奇迹",
+      "artist": [
+        "鸣潮先约电台",
+        "jixwang",
+        "飞行雪绒"
+      ],
+      "duration": 263,
+      "pic": "https://p1.music.126.net/Ao3z8Adsv-yzXfN6LjKPyw==/109951172692547015.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=3346496228",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "3346496228",
+        "url": "https://music.163.com/song/media/outer/url?id=3346496228.mp3"
+      }
+    },
+    {
+      "id": "1979417838",
+      "name": "我的美丽feat.海洋Bo",
+      "artist": [
+        "海洋Bo",
+        "高睿"
+      ],
+      "duration": 244,
+      "pic": "https://p1.music.126.net/8ZpCzo4gEeCAQyXAGYXKUQ==/109951167854450663.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=1979417838",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "1979417838",
+        "url": "https://music.163.com/song/media/outer/url?id=1979417838.mp3"
+      }
+    },
+    {
+      "id": "27646199",
+      "name": "斑马，斑马",
+      "artist": [
+        "宋冬野"
+      ],
+      "duration": 253,
+      "pic": "https://p1.music.126.net/B8XyAbneWgxRcD95SGMBbA==/109951173825645527.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=27646199",
+      "source": {
+        "provider": "bilibili",
+        "kind": "audio",
+        "id": "BV1X7nxzbEqd",
+        "cid": "32613859454",
+        "url": "bilibili/BV1X7nxzbEqd-32613859454.mp4",
+        "file_size": 3885406,
+        "page": 4
+      }
+    },
+    {
+      "id": "448982262",
+      "name": "なんでもないや/没什么大不了 -Acoustic ver.-",
+      "artist": [
+        "夏璃夜"
+      ],
+      "duration": 346,
+      "pic": "https://p1.music.126.net/6OSJoIOwdleiorDcUwHYqA==/109951162829338902.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=448982262",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "448982262",
+        "url": "https://music.163.com/song/media/outer/url?id=448982262.mp3"
+      }
+    },
+    {
+      "id": "3346496288",
+      "name": "远航星的告别",
+      "artist": [
+        "鸣潮先约电台",
+        "jixwang",
+        "Tarokiki",
+        "Emi Evans"
+      ],
+      "duration": 225,
+      "pic": "https://p1.music.126.net/Ao3z8Adsv-yzXfN6LjKPyw==/109951172692547015.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=3346496288",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "3346496288",
+        "url": "https://music.163.com/song/media/outer/url?id=3346496288.mp3"
+      }
+    },
+    {
+      "id": "3342981041",
+      "name": "铁花飞",
+      "artist": [
+        "Mili",
+        "塞壬唱片-MSR"
+      ],
+      "duration": 243,
+      "pic": "https://p1.music.126.net/rs9Ym-GZsrLXh1WgPpMPDw==/109951172642955222.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=3342981041",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "3342981041",
+        "url": "https://music.163.com/song/media/outer/url?id=3342981041.mp3"
+      }
+    },
+    {
+      "id": "2727215107",
+      "name": "南京夜无电波讯号",
+      "artist": [
+        "花水r",
+        "洛天依"
+      ],
+      "duration": 179,
+      "pic": "https://p1.music.126.net/q4OTzdGNSVIfmIr9Qzk_Wg==/109951170712603497.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=2727215107",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "2727215107",
+        "url": "https://music.163.com/song/media/outer/url?id=2727215107.mp3"
+      }
+    },
+    {
+      "id": "1987292974",
+      "name": "国际歌（《1921》主题曲5国语言女声合唱版）",
+      "artist": [
+        "祭夏KISHA",
+        "乌鸦唔呀",
+        "碳酸生鱼片",
+        "残茶",
+        "柿染Kakizome",
+        "楓"
+      ],
+      "duration": 213,
+      "pic": "https://p1.music.126.net/ECadoz5YhSxoJzBmkFQ91Q==/109951167942386004.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=1987292974",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "1987292974",
+        "url": "https://music.163.com/song/media/outer/url?id=1987292974.mp3"
+      }
+    },
+    {
+      "id": "1334295185",
+      "name": "写给黄淮",
+      "artist": [
+        "邵帅"
+      ],
+      "duration": 242,
+      "pic": "https://p1.music.126.net/CG8hLG4To_TZum0rIGk7WA==/109951163764772334.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=1334295185",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "1334295185",
+        "url": "https://music.163.com/song/media/outer/url?id=1334295185.mp3"
+      }
+    },
+    {
+      "id": "526116050",
+      "name": "一人行者",
+      "artist": [
+        "心华"
+      ],
+      "duration": 212,
+      "pic": "https://p1.music.126.net/oXrr2kdIzbnSvRZ4yhZjpg==/109951163299928556.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=526116050",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "526116050",
+        "url": "https://music.163.com/song/media/outer/url?id=526116050.mp3"
+      }
+    },
+    {
+      "id": "1431292823",
+      "name": "夜航星 (Night Voyager)",
+      "artist": [
+        "蔡明希（不才）",
+        "三体宇宙"
+      ],
+      "duration": 304,
+      "pic": "https://p1.music.126.net/EIJc2Wt5AEsIHCFcVxm6pg==/109951165033567317.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=1431292823",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "1431292823",
+        "url": "https://music.163.com/song/media/outer/url?id=1431292823.mp3"
+      }
+    },
+    {
+      "id": "1363128580",
+      "name": "Glow",
+      "artist": [
+        "苏逸_Suyi",
+        "喵☆酱"
+      ],
+      "duration": 293,
+      "pic": "https://p1.music.126.net/HJoCp2g4AXCbuILzSLXx6A==/17648261137776031.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=1363128580",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "1363128580",
+        "url": "https://music.163.com/song/media/outer/url?id=1363128580.mp3"
+      }
+    },
+    {
+      "id": "1325114607",
+      "name": "Ref꞉rain",
+      "artist": [
+        "Aimer"
+      ],
+      "duration": 315,
+      "pic": "https://p1.music.126.net/528NJjcOcGhoyRfPPeWGOg==/109951163663367339.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=1325114607",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "1325114607",
+        "url": "https://music.163.com/song/media/outer/url?id=1325114607.mp3"
+      }
+    },
+    {
+      "id": "1824513851",
+      "name": "Polaris",
+      "artist": [
+        "Asia D",
+        "JAMMERC"
+      ],
+      "duration": 219,
+      "pic": "https://p1.music.126.net/34x_GGDI47WYG-sZobR8dw==/109951165775251579.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=1824513851",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "1824513851",
+        "url": "https://music.163.com/song/media/outer/url?id=1824513851.mp3"
+      }
+    },
+    {
+      "id": "4899152",
+      "name": "Merry Christmas Mr. Lawrence",
+      "artist": [
+        "坂本龍一"
+      ],
+      "duration": 289,
+      "pic": "https://p1.music.126.net/woiqainQI-orV_RuUuOVRw==/716881581353216.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=4899152",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "4899152",
+        "url": "https://music.163.com/song/media/outer/url?id=4899152.mp3"
+      }
+    },
+    {
+      "id": "409654891",
+      "name": "故梦（Cover 橙翼）",
+      "artist": [
+        "双笙（陈元汐）"
+      ],
+      "duration": 284,
+      "pic": "https://p1.music.126.net/7qeGDUfn8k59AUrzjPfJ4g==/109951168638984216.jpg",
+      "lrc": "https://api.injahow.cn/meting/?server=netease&type=lrc&id=409654891",
+      "source": {
+        "provider": "netease",
+        "kind": "audio",
+        "id": "409654891",
+        "url": "https://music.163.com/song/media/outer/url?id=409654891.mp3"
+      }
+    }
+  ]
+}
