@@ -1,7 +1,7 @@
 {
   "source": "NeoDB",
   "profile": "https://neodb.social/users/GuZhengSVT/",
-  "updated_at": "2026-11-20T09:43:47.066487+00:00",
+  "updated_at": "2026-11-21T01:17:59.290547+00:00",
   "total": 265,
   "pages": 12,
   "items": [
@@ -265,7 +265,7 @@
       "subtitle": "Freebird Games",
       "status": "complete",
       "rating": null,
-      "community_rating": null,
+      "community_rating": 8.0,
       "comment": "",
       "marked_at": "2026年10月17日"
     },
