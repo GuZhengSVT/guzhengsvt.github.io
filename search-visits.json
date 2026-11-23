@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T16:21:01.195Z",
+  "updatedAt": "2026-11-23T08:07:42.529Z",
   "provider": "ga4",
   "timeZone": "Asia/Shanghai",
   "windows": {
@@ -17,8 +17,8 @@
     }
   },
   "totals": {
-    "weekly": 144,
-    "yearly": 2284,
-    "total": 2655
+    "weekly": 147,
+    "yearly": 2287,
+    "total": 2658
   }
 }
